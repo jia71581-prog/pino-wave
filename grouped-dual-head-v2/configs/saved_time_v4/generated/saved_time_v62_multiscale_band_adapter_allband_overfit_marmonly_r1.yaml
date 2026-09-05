@@ -1,0 +1,107 @@
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v62_multiscale_band_adapter_allband_r1
+base_config: configs/grouped_v3/continuous_pilot.yaml
+checkpoint_transfer:
+  allow_parent_manifest_mismatch: true
+  parent_optimizer_state: false
+  parent_residual_already_active: true
+  allow_new_band_adapter_parameters: true
+energy_floor_fraction: 0.01
+epochs: 6
+family_curriculum:
+  stages:
+  - epochs: 6
+    macro_pattern:
+    - marmousi
+family_experts:
+  head_only_epochs: 1
+  minimum_route_probability: 0.1
+  minimum_router_accuracy: 0.95
+  router_loss_weight: 0.0
+  teacher_forced_routing: true
+family_gradient_weights:
+  uniform: 1.0
+  layered: 1.0
+  marmousi: 1.0
+gate:
+  external_evidence_gate: true
+  family_regression_tolerance: 0.03
+  maximum_peak_cuda_gib: 23.0
+  pilot_epochs: 6
+  target_aggregate_relative_l2: 0.1
+  target_family_relative_l2: 0.12
+loss:
+  delta: 0.0
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.0
+  spectrum: 0.05
+  temporal_difference: 0.0
+macro_records: 24
+macros_per_update: 4
+microbatch_records: 24
+optimizer:
+  backbone_learning_rate: 2.0e-06
+  dense_learning_rate: 0.0003
+  family_expert_learning_rate: 0.0001
+  full_forward_checkpointing: true
+  geometry_learning_rate: 2.0e-05
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.05
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 6
+  temporal_basis_learning_rate: 1.0e-05
+  warmup_epochs: 1
+  weight_decay: 1.0e-06
+  band_adapter_feature_learning_rate: 0.0003
+  band_adapter_output_learning_rate: 1.0e-05
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v49_family_experts_structural_prior_pilot_r1/pilot/checkpoints/epoch_0001.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v49_family_experts_structural_prior_pilot_r1/pilot/run_identity.json
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+prefetch_factor: 4
+query_points: 1
+residual_recovery:
+  absorb_temporal_basis_gate: false
+  activation_mode: preserve
+  correction_scale: 1.0
+  decoder_only_epochs: 3
+  output_std: 0.0001
+  stage_epoch_offset: 2
+seed: 372
+time_appearance_offset: 15
+time_policy: appearance16
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 5
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  temporal_basis_rank: 96
+  family_expert_rank: 16
+  band_adapter_rank: 32
+  band_adapter_preserve_high_band: false
+  band_adapter_architecture: multiscale_spectral
+  band_adapter_spectral_rank: 32
+  band_adapter_modes: 32
+  band_adapter_full_depth: 4
+  band_adapter_coarse_depth: 2
+  band_adapter_activation_checkpointing: true
+workers: 8
+band_limited_adapter:
+  adapter_only: true
+  cutoff_normalized_radius: 0.6666666666666666
+  preserve_high_band: false
+  architecture: multiscale_spectral
+training_frames_per_record: 24

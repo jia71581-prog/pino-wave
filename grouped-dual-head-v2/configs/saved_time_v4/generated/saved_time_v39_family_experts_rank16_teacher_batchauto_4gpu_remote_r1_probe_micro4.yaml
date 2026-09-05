@@ -1,0 +1,94 @@
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v39_family_experts_rank16_teacher_batchauto_4gpu_remote_r1/memory_probe/micro4
+base_config: configs/grouped_v3/continuous_pilot.yaml
+checkpoint_transfer:
+  allow_parent_manifest_mismatch: true
+  parent_optimizer_state: false
+  parent_residual_already_active: true
+  allow_new_family_expert_parameters: true
+energy_floor_fraction: 0.01
+epochs: 40
+family_curriculum:
+  stages:
+  - epochs: 3
+    macro_pattern:
+    - uniform
+    - layered
+    - marmousi
+family_gradient_weights:
+  layered: 0.1938748847374898
+  marmousi: 2.254119077011198
+  uniform: 0.5520060382513124
+gate:
+  external_evidence_gate: true
+  family_regression_tolerance: 0.03
+  maximum_peak_cuda_gib: 23.0
+  pilot_epochs: 3
+  target_aggregate_relative_l2: 0.1
+  target_family_relative_l2: 0.12
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+macro_records: 12
+macros_per_update: 8
+microbatch_records: 4
+optimizer:
+  backbone_learning_rate: 2.0e-06
+  dense_learning_rate: 1.0e-05
+  full_forward_checkpointing: true
+  geometry_learning_rate: 2.0e-05
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.05
+  schedule_epoch_offset: 8
+  schedule_total_epochs: 40
+  temporal_basis_learning_rate: 1.0e-05
+  warmup_epochs: 2
+  weight_decay: 1.0e-06
+  family_expert_learning_rate: 0.0001
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v37_temporal_basis96_balanced_family_batch96_micro3_4gpu_remote_r1/pilot/checkpoints/epoch_0002.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v37_temporal_basis96_balanced_family_batch96_micro3_4gpu_remote_r1/pilot/run_identity.json
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+prefetch_factor: 4
+query_points: 1
+residual_recovery:
+  absorb_temporal_basis_gate: true
+  activation_mode: preserve
+  correction_scale: 1.0
+  decoder_only_epochs: 3
+  output_std: 0.0001
+  stage_epoch_offset: 2
+seed: 372
+time_appearance_offset: 14
+time_policy: appearance16
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 5
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  temporal_basis_rank: 96
+  family_expert_rank: 16
+workers: 8
+family_experts:
+  router_loss_weight: 0.01
+  head_only_epochs: 1
+  minimum_router_accuracy: 0.95
+  minimum_route_probability: 0.1
+  teacher_forced_routing: true
+  stage_epoch_offset: 1

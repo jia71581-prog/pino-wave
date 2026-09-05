@@ -1,0 +1,133 @@
+seed: 372
+
+# r51 — single conceptual variable on top of the accepted r42 recipe:
+# add zero-init softmax gates (spatial-mode / spatial-site / temporal-spectral /
+# temporal-time) to the FactorizedAcousticFNO and switch spatial loss to
+# residual-driven adaptive importance sampling (AIS). Warm-started from
+# r42 best.pt; gates enter as exact identities at init, so the starting point
+# reproduces r42 bit-for-bit and only the gates + AIS move the solution.
+# Data/features/201 timesteps held identical to r42 (no confound).
+
+data:
+  path: artifacts/pbg_factorized_fno_marm700_travel_v2/dataset_v1.h5
+  raw_hdf5: artifacts/pbg_factorized_fno_marm700_travel_v2/dataset_v1.h5
+  schema_mode: acoustic_lwc84_401_to_201_v1
+  velocity_key: velocity_mps
+  wavefield_key: wavefield
+  source_map_key: source_map
+  travel_time_key: travel_time_s
+  source_t0_key: source_t0_s
+  source_position_x_key: source_x_m
+  source_position_z_key: source_z_m
+  wavelet_key: source_wavelet
+  frequency_key: source_f0_hz
+  amplitude_key: source_amplitude
+  time_key: time_s
+  x_key: x_m
+  z_key: z_m
+  velocity_axes: [sample, z, x]
+  wavefield_axes: [sample, time, z, x]
+  source_map_axes: [sample, z, x]
+  source_position_units: m
+  source_frequency_scale_hz: 30.0
+  input_features: [retarded_time, source_map, velocity, source_frequency, ricker_retarded]
+  split_seed: 372
+  split_manifest: artifacts/pbg_factorized_fno_marm700_travel_v2/split_full560_70_70_seed372.json
+  split_output_path: results/factorized_fno_pbg_softmax_ais_r51_long560_ddp4_20260824/split_snapshot.json
+  max_samples: null
+  open_hdf5_per_sample: false
+  num_workers: 0
+  pin_memory: true
+  persistent_workers: false
+  shuffle_train: true
+
+sampling:
+  target_height: 64
+  target_width: 64
+  time_start: 0
+  time_stop: null
+  time_stride: null
+  max_time_steps: 201          # 201 time steps, as mandated
+  spatial_method: bilinear_antialias
+
+source_map:
+  sigma_grid: 1.5
+  normalize_max: true
+
+normalization:
+  # Reuse r42's train-split stats so the warm start is exact (no stats drift).
+  stats_path: results/factorized_fno_pbg_marm_r42_ricker_full560_ddp4_20260823/normalization_stats.json
+  reuse_stats: true
+  eps: 1.0e-16
+  max_stats_samples: 16
+
+model:
+  name: factorized_fno
+  in_features: 5
+  out_channels: 1
+  spatial_modes_x: 24
+  spatial_modes_z: 24
+  spatial_width: 32
+  spatial_layers: 3
+  temporal_width: 32
+  temporal_kernel: 7
+  temporal_layers: 3
+  temporal_mixer_type: spectral
+  temporal_modes: 32
+  padding_ratio: 0.0625
+  normalization: group
+  num_groups: 8
+  head_hidden: 128
+  temporal_chunk_size: 128
+  activation_checkpointing: false
+  # --- softmax gates (zero-init, exact identity at start) ---
+  mode_softmax: true        # per-channel softmax over 2D spatial Fourier modes
+  spatial_softmax: true     # per-channel softmax over H*W sites (spatial attention)
+  spectral_softmax: true    # per-channel softmax over temporal rFFT modes
+  time_softmax_steps: 201   # per-channel softmax over the 201-step time axis
+
+train:
+  device: cuda
+  batch_size: 2
+  epochs: 300
+  learning_rate: 0.001
+  weight_decay: 0.000001
+  optimizer: adamw
+  scheduler: cosine
+  amp: false
+  grad_clip: 1.0
+  log_every_steps: 50
+  max_train_batches: null
+  max_val_batches: null
+  early_stopping_patience: null
+  checkpoint_every_epochs: 2
+  init_checkpoint: results/factorized_fno_pbg_marm_r42_ricker_full560_ddp4_20260823/checkpoints/best.pt
+  checkpoint_dir: results/factorized_fno_pbg_softmax_ais_r51_long560_ddp4_20260824/checkpoints
+  log_dir: results/factorized_fno_pbg_softmax_ais_r51_long560_ddp4_20260824/logs
+  early_failure_gate:
+    enabled: false
+  ddp: true
+  # --- spatial adaptive importance sampling (residual-driven) ---
+  spatial_importance_sampling:
+    enabled: true
+    pixels_per_sample: 2048      # 64*64=4096 sites -> 50% per step, unbiased via 1/p reweight
+    reweight_loss: true
+    uniform_fraction: 0.2        # 20% uniform floor so no site starves
+    ema_momentum: 0.2
+    residual_power: 1.0
+    min_weight: 1.0e-6
+    default_residual: 1.0
+
+validation:
+  category_balanced:
+    enabled: false
+
+loss:
+  relative_l2_weight: 1.0
+  mse_weight: 0.0
+  eps: 1.0e-8
+
+evaluation:
+  split: val
+  max_samples: 70
+  output_dir: results/factorized_fno_pbg_softmax_ais_r51_long560_ddp4_20260824/evaluation

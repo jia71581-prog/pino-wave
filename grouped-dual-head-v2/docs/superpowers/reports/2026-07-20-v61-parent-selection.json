@@ -1,0 +1,58 @@
+{
+  "candidate": {
+    "adapter_only": true,
+    "artifact_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v61_multiscale_band_adapter_r1",
+    "band_adapter_activation_checkpointing": true,
+    "band_adapter_architecture": "multiscale_spectral",
+    "band_adapter_coarse_depth": 2,
+    "band_adapter_feature_learning_rate": 0.0003,
+    "band_adapter_full_depth": 4,
+    "band_adapter_modes": 32,
+    "band_adapter_output_learning_rate": 1e-05,
+    "band_adapter_rank": 32,
+    "band_adapter_spectral_rank": 32,
+    "dense_learning_rate": 0.0003,
+    "effective_batch": 96,
+    "exact_parent_identity": true,
+    "generated_config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/generated/saved_time_v61_multiscale_band_adapter_overfit_r1.yaml",
+    "generated_config_sha256": "8140c6ec96933392be582175537186336c295160aa1c7f3080859e8547409657",
+    "macro_records": 24,
+    "macros_per_update": 4,
+    "physical_microbatch_records": 24,
+    "pilot_epochs": 6,
+    "training_frames_per_record": 24
+  },
+  "data_contract": {
+    "cpml": "unsplit three-sided CFS-CPML/ADE; left,right,bottom; no top CPML",
+    "dataset_h5": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5",
+    "free_surface": "node-centred p(z=0)=0 with eighth-order odd ghost extension",
+    "one_source_per_record": true,
+    "receiver_input": false,
+    "record_count": 4003,
+    "schema_version": "acoustic_lwc84_401_to_201_v1",
+    "solver_grid_shape": [
+      401,
+      401
+    ],
+    "stored_time_count": 401,
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9",
+    "wavefield_shape": [
+      201,
+      201
+    ]
+  },
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v49_family_experts_structural_prior_pilot_r1/pilot/checkpoints/epoch_0001.pt",
+    "checkpoint_epoch": 1,
+    "checkpoint_global_step": 24,
+    "checkpoint_identity": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v49_family_experts_structural_prior_pilot_r1/pilot/run_identity.json",
+    "checkpoint_identity_sha256": "8d787f15fc6eb077309de46e297d2e4e71726e1a9561453b6a1e9f97f0b9b21b",
+    "checkpoint_sha256": "3b8569790ae9f03883d3a9a1aed0c71f6138a611d9f33392b90ccd5914fa19bc",
+    "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+    "name": "saved_time_v49_family_experts_structural_prior_pilot_r1",
+    "run_digest": "f71dbac27c09bb94244c5866c8c02b370724a2a56904f2a66d0913c17a36cc63",
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+  },
+  "schema": "saved_time_band_adapter_parent_selection_v1",
+  "status": "complete"
+}

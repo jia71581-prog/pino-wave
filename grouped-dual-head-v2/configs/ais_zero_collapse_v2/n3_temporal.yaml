@@ -1,0 +1,133 @@
+data:
+  path: /home/jiayh/Data/data/pino.hdf5
+  split_manifest: artifacts/hybrid_drp_pino/fno_continue_pretrain_optimizer_safe/splits.json
+  split_manifest_sha256: d56e6eb80e3a0c0f2eff95bc9e91b9b3b69e2c49ca2b545de75ff6627563df8c
+  tensor_axes:
+  - sample
+  - time
+  - x
+  - z
+experiment:
+  diagnostic_only: false
+  full160_label_sites: 6144000
+  label_site_schedule:
+  - - 3000
+    - 2048
+  optimizer_updates: 3000
+  physical_scene_draws: 3000
+  query_unit: spatial_site_full_trace
+loss:
+  drp_weight: 0.0
+  energy_weight: 0.0
+  hh_reweight: true
+  late_time_weights:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.25
+  local_spectrum_weight: 0.0
+  pde_weight: 0.0
+  phase_weight: 0.0
+  receiver_weight: 0.0
+model:
+  activation_checkpointing: true
+  dispersion_head: none
+  fusion_dim: 48
+  global_in_features: 6
+  global_max_size: 100
+  halo_size: 17
+  local_dim: 16
+  local_encoder_kind: single
+  name: ais_mqfno
+  native_in_channels: 5
+  spatial_layers: 3
+  spatial_modes: 24
+  spatial_width: 24
+  temporal_modes: 48
+normalization:
+  contract: ais_normalization_v2
+  static_features:
+  - v_hat
+  - source_hat
+  - dv_dxi
+  - dv_dzeta
+  - slow_contrast
+  stats_path: artifacts/pino_adaptation/normalization_stats.json
+  stats_sha256: aaeffb678e45b233c2a4e437904cb50f27ee6245bf7c664e6d5e0a6404b8aea4
+  target: u_hat
+  time_feature: tau
+receiver:
+  x_start_m: 0.0
+  x_stop_m: 1960.0
+  x_stride_m: 40.0
+  z_m:
+  - 20.0
+sampler:
+  ema_momentum: 0.9
+  lag_epochs: 1
+  min_probability: 1.0e-12
+  mixture:
+    edge: 0.05
+    interface: 0.2
+    receiver: 0.1
+    residual: 0.2
+    source_wavefront: 0.15
+    uniform: 0.3
+  residual_power: 1.0
+  tile_grid:
+  - 16
+  - 16
+sampling:
+  global_size: 64
+  max_time_steps: 160
+  target_height: 64
+  target_width: 64
+screen:
+  budgets:
+    gate_o:
+      initialization: restart_from_registered_seed
+      separate_output: true
+      total_optimizer_updates: 400
+    h1:
+      additional_optimizer_updates: 600
+      initialization: restart_from_registered_seed
+      reuse_gate_o_weights: false
+      total_optimizer_updates: 600
+    h2:
+      additional_optimizer_updates: 900
+      resume_from: h1_update_600_last
+      total_optimizer_updates: 1500
+    h3:
+      additional_optimizer_updates: 1500
+      resume_from: h2_update_1500_last
+      total_optimizer_updates: 3000
+  candidate_id: N3
+  gate_o_fixed_unique_sites: 2048
+  gate_o_sample_id: 2
+  gate_o_site_manifest: configs/ais_zero_collapse_v2/registration/gate_o_sample_0002_sites_2048.json
+  gate_o_site_manifest_sha256: ef7f5b6f5c0515bb848ca6ee615d2742ed94739d681b607cd8ed3381cf7df42a
+  scene_order:
+    shuffle: false
+    source: split_manifest_train_order
+  validation_site_manifest: configs/ais_zero_collapse_v2/registration/fixed_validation_sites_2048.json
+  validation_site_manifest_sha256: 7e76da5bbeb0bc0a7d18fd6e68fe604dcb0ec14cb42d07c68a2b4953a3759d95
+  validation_sites_per_scene: 2048
+seed: 20260714
+train:
+  amp: false
+  batch_size: 1
+  grad_clip: 1.0
+  learning_rate: 0.0003
+  optimizer: adamw
+  patch_centers_per_scene: 4
+  patch_size: 17
+  phases:
+  - init_from: random
+    name: screen_main
+    optimizer_updates: 3000
+    reset_optimizer: true
+  query_chunk_size: 256
+  query_sites_per_scene: 2048
+  receiver_sites_per_scene: 50
+  scheduler: cosine_by_update
+  weight_decay: 0.0001

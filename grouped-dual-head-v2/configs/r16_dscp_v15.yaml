@@ -1,0 +1,135 @@
+schema: r16_dscp_v15
+candidate: r16_dscp_v15
+preregistration_sha256: a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15
+inherits_v14_config_sha256_of: configs/r16_dscp_v14.yaml
+only_change: mask_confined_correction_plus_four_v14_defect_fixes
+scientific_design:
+  rank: 16
+  input_channels: 29
+  basis: train_only_three_family_raw_temporal_pod
+  router: velocity_only
+  correction:
+    kind: output_field_data_fit_plus_feature_driven_ansatz
+    is_physics_or_pde_residual: false
+    uses_deployment_time_truth: false
+    pde_residual_terms: 0
+    c1_causal_ramp_steps: 4
+    mask_confined: true
+  mask:
+    formula: m_t = 1[E_t^parent >= tau * max_s E_s^parent]
+    driven_by: parent_frame_energy
+    tau: 0.001
+    uses_truth_frame_energy: false
+    deployment_computable: true
+    layered_on_top_of_c1_causal_ramp: true
+    replaces_c1_causal_ramp: false
+    outside_mask_correction_is_exactly_zero: true
+    outside_mask_output_equals_parent_bitwise: true
+  loss:
+    frame_relative_l2_squared: 1.0
+    late_third_relative_l2_squared: 0.25
+    temporal_difference: 0.10
+    normalized_coefficient_energy: 0.0001
+    weights_unchanged_from_v14: true
+    normalized_coefficient_energy_definition: coefficients.square().mean() / parent_future[keep_mask].square().mean()
+    normalized_coefficient_energy_units: dimensionless
+    v14_definition_voided: coefficients.square().mean()
+    frame_restriction: parent_energy_keep_mask_retained_frames_only
+optimizer: {name: AdamW, lr: 0.003, betas: [0.9, 0.99], eps: 1.0e-8, weight_decay: 0.0001, grad_clip_norm: 1.0}
+execution:
+  seed: 372
+  deterministic: true
+  tf32: false
+  autocast: {device_type: cuda, dtype: bfloat16}
+  batch_records: 1
+  global_batch_long: 4
+  time_microblock: 32
+  workers_per_gpu_max: 2
+cache: {roles: {smoke: 3, pilot: 48, scale_per_rank: 3, long: 216, eval: 1}, host_reserve_gib: 16, serialization: forbidden}
+spool: {root: /dev/shm/r16_dscp_v15/<run_digest>/rank<r>, serialized_before_truth: true, cleanup_owned_only: true}
+smoke:
+  max_updates: 192
+  training_deadline_s: 420
+  final_reserve_s: 180
+  total_s: 600
+  quick_interval: 32
+  loss_reduction_min: 0.80
+  loss_reduction_computed_per_record: true
+  cross_record_first_last_forbidden: true
+  early_stop_requires_every_record_against_its_own_first: true
+  is_learning_or_convergence_evidence: false
+  may_promote_to_pilot_or_long: false
+pilot: {max_updates: 1000, wall_s: 1800, ridge_lambda: 0.0001, ridge_margin_fraction: 0.0025}
+long: {max_epochs: 20, patience: 4, lr_schedule: cosine_0.003_to_0.00003_no_warmup, one_gpu_wall_s: 7200, four_gpu_wall_s: 2700, gpu_seconds: 10800, final_reserve_s: 180}
+oracle:
+  recomputed_on_the_scored_record: true
+  transplanted_constants_allowed: false
+  synthetic_panel_constants_allowed: false
+  v14_constants_status: void
+  v14_constant_source_records: [train_uniform_00102, train_layered_01032, synthetic_marmousi]
+  v14_scored_records: [train_uniform_00321, train_layered_00564, train_marmousi_00385]
+  gain_fraction_required: 0.5
+  fit_objective: weighted_ls_on_parent_mask_retained_frames_with_truth_energy_floored_weights
+  role: train_only_upper_bound_never_an_achieved_result
+vram:
+  source: torch.cuda.max_memory_reserved
+  sampled_on: [preload, cached_prepare, update_cached, measure_cached, backward_cached, score_cached, forward_loss, resources]
+  unmeasured_or_zero_peak_passes_gate: false
+  v14_defect: peak_vram_bytes_reported_zero_while_nvidia_smi_measured_6941_mib
+gates:
+  joint_improvement: 0.01
+  per_family_improvement: 0.005
+  nonworse_records: 23
+  correction_energy_ratio_max: 0.35
+  adapter_mean_s_max: 0.35
+  adapter_p95_s_max: 0.50
+  e2e_parent_ratio_max: 1.05
+  inference_vram_gib_max: 6.5
+  train_vram_gib_max: 8.0
+  checkpoint_mib_max: 2
+  artifacts_mib_max: 64
+  validation_test_rel_l2_max: 0.05
+  traditional_speedup_mean_p95_min: 10.0
+acceptance:
+  convention: iii_global_energy_rel_l2
+  metric: global_energy_rel_l2
+  validation_test_rel_l2_max: 0.05
+  modified: false
+  training_proxy_convention: masked_energy_floored_per_frame
+  training_proxy_may_support_acceptance: false
+  thresholds_moved_toward_measured_values: false
+scale_probe: {records: 12, warmup_epochs: 1, timed_epochs: 3, four_gpu_speedup_min: 3.0, efficiency_min: 0.75, gpu_seconds_ratio_max: 1.35}
+candidate_lock:
+  final_pass_only: true
+  atomic: true
+  validation_test_unopened_at_creation: true
+validation_test: {sealed_before_authorization: true, once_only: true, complete_records_each: 480, no_tuning_after_validation: true}
+space: {workspace_formula: 2GiB_plus_3_checkpoint_plus_64MiB, tmpfs_formula: world_size_times_spool_plus_64MiB}
+authorization:
+  every_stage_requires_a_fresh_lead_authorization: true
+  authorization_must_acknowledge_post_hoc_rule_revision: true
+  authorization_must_acknowledge_inherited_vetoes: true
+  smoke_authorization_never_implies_pilot_or_long: true
+commands:
+  prep: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py prep --output results/r16_dscp_v15/static_evidence.json"
+  verify_bindings: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py verify-bindings"
+  authorize_smoke: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py authorize-stage --stage smoke --output results/r16_dscp_v15/authorizations/smoke.json --lead-authorized --acknowledge-rule-revision --acknowledge-vetoes"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py smoke --authorization results/r16_dscp_v15/authorizations/smoke.json --physical-gpu-index 0 --device cuda:0"
+  pilot: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py pilot --authorization results/r16_dscp_v15/authorizations/pilot.json"
+  scale_1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py scale-1 --authorization results/r16_dscp_v15/authorizations/scale-1.json"
+  scale_4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v15.py scale-4 --authorization results/r16_dscp_v15/authorizations/scale-4.json"
+  scale_decide: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py scale-decide --authorization results/r16_dscp_v15/authorizations/scale-decide.json"
+  long_1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py long --authorization results/r16_dscp_v15/authorizations/long.json --world-size 1 --input-checkpoint BEST --scale-decision results/r16_dscp_v15/scale-decide/terminal.json --config configs/r16_dscp_v15.yaml --preregistration results/r16_dscp_v15_preregistration_20260826.json"
+  long_4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v15.py long --authorization results/r16_dscp_v15/authorizations/long.json --world-size 4 --input-checkpoint BEST --scale-decision results/r16_dscp_v15/scale-decide/terminal.json --config configs/r16_dscp_v15.yaml --preregistration results/r16_dscp_v15_preregistration_20260826.json"
+  final: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py final-train-confirm --authorization results/r16_dscp_v15/authorizations/final-train-confirm.json"
+  validation: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py validation-once --authorization results/r16_dscp_v15/authorizations/validation-once.json"
+  test: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v15.py test-once --authorization results/r16_dscp_v15/authorizations/test-once.json"
+inherited_vetoes:
+  - thresholds must not be moved toward measured values
+  - no deployment-time truth in the mask, including truth frame energy
+  - no cross-record or synthetic-sample oracle constant as an acceptance baseline
+  - the smoke loss gate is never learning or convergence evidence
+  - the correction is an output-field data fit plus a feature-driven ansatz, not a physics or PDE residual and not deployment-time truth supervision
+  - smoke evidence never promotes to pilot or long
+rollback: new_files_only_no_existing_file_modified_no_checkpoint_deleted
+claim_boundary: parent_speedup_only_1.608x_candidate_must_not_claim_10x_or_faster_than_parent

@@ -1,0 +1,115 @@
+# C1 windowed_propagation SMOKE -- minimal clone of local_field_w128_windowed_propagation_c1.yaml
+# (only artifact_dir + pilot_epochs differ). Writes to a SEPARATE _smoke artifact_dir.
+# INVOKE: torchrun --standalone --nproc_per_node=4 scripts/train_saved_time_v4_full_support.py \
+#   --config configs/saved_time_v4/generated/local_field_w128_windowed_propagation_c1_smoke.yaml \
+#   --smoke-updates 3 --smoke-epochs 4
+# PASS: 4-rank no OOM/NaN across >=3 val->train transitions, peak_cuda_bytes < 23.5 GiB.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/windowed_propagation_c1_smoke
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes:
+- dense_decoder
+- local_field
+- source_encoder
+- fusion
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights:
+  layered: 1.0
+  marmousi: 1.0
+  uniform: 1.0
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 3
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-07
+  dense_learning_rate: 5.0e-06
+  windowed_propagation_learning_rate: 5.0e-05
+  full_forward_checkpointing: true
+  geometry_learning_rate: 1.0e-06
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-06
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 373
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 16
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_windowed_propagation: true
+  local_field_windowed_propagation_window: 2
+  local_field_windowed_propagation_stride: 1
+  local_field_windowed_propagation_rank: 8
+  local_field_windowed_propagation_max_advect_cells: 8.0
+  local_field_adapter_gate_init: 0.02
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors:
+  - 0.143
+  - 0.26
+  - 0.43
+  family_errors:
+    uniform: 0.183
+    layered: 0.301
+    marmousi: 0.325
+workers: 8

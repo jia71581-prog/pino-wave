@@ -1,0 +1,26 @@
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_artifact_dir: /data/jiayh/v3_dual_head_refinement
+artifact_dir: /data/jiayh/v3_dual_head_continuous_smoke
+seed: 73
+epochs: 2
+steps_per_epoch: 2
+continuous_fraction: 0.25
+query_points_per_record: 512
+workers: 8
+prefetch_factor: 4
+relative_energy_floor_fraction: 0.01
+optimizer:
+  name: adamw
+  learning_rate: 0.00000125
+  weight_decay: 0.000001
+  gradient_clip: 1.0
+acceptance:
+  family_regression_tolerance: 0.02
+  head_consistency_regression_tolerance: 0.02
+training_control:
+  mode: continuous
+  lr_patience_epochs: 1
+  early_stopping_patience_epochs: 0
+rejection_recovery:
+  learning_rate_factor: 0.5
+  minimum_learning_rate: 0.000000078125

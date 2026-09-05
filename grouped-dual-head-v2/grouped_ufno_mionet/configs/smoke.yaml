@@ -1,0 +1,15 @@
+model:
+  width: 16
+  rank: 8
+  fourier_modes: [8, 6, 4, 4]
+  heads: 4
+data:
+  frames_per_record: 2
+  query_blocks: 4
+  receivers_per_frame: 8
+  max_records_per_macro_batch: 2
+train:
+  batch_records: 2
+  query_chunk_size: 128
+  max_steps: 2
+  num_workers: 0

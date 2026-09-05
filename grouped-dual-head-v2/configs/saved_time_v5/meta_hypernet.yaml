@@ -1,0 +1,47 @@
+# Stage B/C config for the two-stage "meta hypernetwork + deployment LoRA"
+# instance fine-tune of the frozen saved-time operator.
+#
+# Parent = the v41 full-dense saved-time operator (same wiring proven by
+# configs/saved_time_v5/feature_meta_v41.yaml).  It is loaded frozen; only the
+# onset hypernetwork (offline, train_meta_hypernet.py) and the per-instance
+# latent_delta (online, run_meta_instance_adaptation.py) are ever trained.
+source_h5: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+parent_operator_config: configs/saved_time_v4/generated/saved_time_v41_parent_exact.yaml
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v41_4gpu_full_dense_lr1e4_batch192_curriculum_r1/pilot/pilot/checkpoints/epoch_0001.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v41_4gpu_full_dense_lr1e4_batch192_curriculum_r1/pilot/pilot/run_identity.json
+parent_correction_scale: 1.0
+travel_time_h5: /root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+# The shared grouped_v3_normalization.json was re-written by a later ablation
+# under a different manifest digest; bind explicitly to the normalizer that
+# matches this frozen parent (digest a20c9a…) without touching the shared file.
+normalization_json: /root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization.before_tgrs_ablation_identity_20260726T1050.json
+
+seed: 17
+latent_dim: 32
+lora_rank: 4
+
+# --- Stage B (offline meta-training, train_meta_hypernet.py) ---
+# per_family / epochs / time_points overridable on the CLI.
+
+# --- Stage C (deployment LoRA, run_meta_instance_adaptation.py) ---
+# Meta hypernetwork checkpoint produced by Stage B.  Required for deployment.
+conditioner_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/meta_hypernet/meta_hypernet.pt
+adam_steps: 8
+lbfgs_steps: 2
+learning_rate: 0.0002
+# Self-normalized (scale-invariant) LWC-84 wave-equation PDE residual weight for
+# the deployment fine-tune loss.  Valid in normalized O(1) space (residual/scale).
+# 0.0 = observed-only (prior safe default); >0 supervises unobserved times with physics.
+deployment_pde_weight: 0.1
+# Adaptive PDE collocation sampling for the deployment fine-tune (SOTA RAD, Wu 2023).
+#   method: uniform | rad   (uniform = historical fixed random points)
+#   k: residual concentration exponent (higher → tighter on high-residual regions)
+#   c: uniform floor in the RAD density (keeps全域 non-zero probability)
+#   time_tilt: causal weight λ in exp(-λ·(t-t0)/(T-t0)); favours earliest unobserved times
+#   resample_every: redraw points every N Adam closures (frozen during LBFGS)
+physics_sampling:
+  method: rad
+  k: 1.0
+  c: 1.0
+  time_tilt: 1.5
+  resample_every: 4

@@ -1,0 +1,27 @@
+schema: r16_dscp_v7
+candidate: r16_dscp_v7
+scientific_execution_protocol: identical_r16_dscp_v6
+inherits_v6_config_sha256: fa3a5c1e616ae52b2d17b59e2ef32d85fef4b0c0cf138c978f48e49b8579d4da
+only_change: complete_checkpoint_identity_wiring
+identity_required: [schema,candidate,mode,run_digest,authorization_sha256,engine_sha256,script_sha256,config_sha256_effective,panels_sha256_effective,basis_sha256_effective,parent_sha256_effective,input_checkpoint_sha256,identity_digest]
+cache: {roles: {smoke: 3, pilot: 48, scale_per_rank: 3, long: 216, eval: 1}, host_reserve_gib: 16, serialization: forbidden}
+spool: {root: /dev/shm/r16_dscp_v7/<run_digest>/rank<r>, serialized_before_truth: true, cleanup_owned_only: true}
+spool: {root: /dev/shm/r16_dscp_v7/<run_digest>/rank<r>, serialized_before_truth: true}
+smoke: {max_updates: 192, training_deadline_s: 420, final_reserve_s: 180, total_s: 600, quick_interval: 32}
+long: {global_batch: 4, epochs: 20, patience: 4, one_gpu_wall_s: 7200, four_gpu_wall_s: 2700, gpu_seconds: 10800, final_reserve_s: 180}
+loss: {frame_relative_l2_squared: 1.0, late_third_relative_l2_squared: 0.25, temporal_difference: 0.10, actual_coefficient_energy: 0.0001}
+gates_inherit_v6: true
+rollback: atomic_failure_clear_cache_zero_grad_preserve_best_last_log_one_spool_never_touch_protected
+commands:
+  prep: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode prep"
+  authorize: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode authorize-stage --stage STAGE --output results/r16_dscp_v7/authorizations/STAGE.json --input-checkpoint BEST"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode smoke --authorization results/r16_dscp_v7/authorizations/smoke.json"
+  pilot: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode pilot --authorization results/r16_dscp_v7/authorizations/pilot.json"
+  scale1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode scale-probe-1 --authorization results/r16_dscp_v7/authorizations/scale-probe-1.json"
+  scale4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v7.py --mode scale-probe-4 --authorization results/r16_dscp_v7/authorizations/scale-probe-4.json"
+  scale_decide: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode scale-decide --authorization results/r16_dscp_v7/authorizations/scale-decide.json"
+  long1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode long --world-size 1 --authorization results/r16_dscp_v7/authorizations/long.json --input-checkpoint BEST"
+  long4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v7.py --mode long --world-size 4 --authorization results/r16_dscp_v7/authorizations/long.json --input-checkpoint BEST"
+  final: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode final-train-confirm --authorization results/r16_dscp_v7/authorizations/final-train-confirm.json"
+  validation: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode validation-once --authorization results/r16_dscp_v7/authorizations/validation-once.json"
+  test: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v7.py --mode test-once --authorization results/r16_dscp_v7/authorizations/test-once.json"

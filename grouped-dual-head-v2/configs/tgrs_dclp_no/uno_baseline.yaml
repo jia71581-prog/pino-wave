@@ -1,0 +1,86 @@
+# U-NO (U-shaped neural operator) baseline for the TGRS comparison table.
+# Mirrors configs/tgrs_dclp_no/fno3d_baseline.yaml (identical data, split, frame
+# budget, normalization) so it is scored apples-to-apples against A+1, FNO3D and
+# factorized-FNO. Model dispatched via train.py name: uno -> AcousticUNO3D
+# (wraps UFNO/ufno3d.py::UFNO3d with the [B,H,W,T,C] contract).
+seed: 372
+data:
+  path: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+  schema_mode: explicit_after_inspection
+  velocity_key: velocity_mps
+  wavefield_key: wavefield
+  source_map_key: source_map
+  source_position_x_key: source_x_m
+  source_position_z_key: source_z_m
+  frequency_key: source_f0_hz
+  amplitude_key: source_amplitude
+  time_key: time_s
+  x_key: x_m
+  z_key: z_m
+  velocity_axes:
+  - sample
+  - z
+  - x
+  wavefield_axes:
+  - sample
+  - time
+  - x
+  - z
+  source_map_axes:
+  - sample
+  - z
+  - x
+  source_position_units: meters
+  input_features:
+  - time
+  - source_map
+  - velocity
+  split_manifest: artifacts/tgrs_dclp_no/manifests/fno_split.json
+  num_workers: 4
+  pin_memory: true
+  persistent_workers: false
+sampling:
+  target_height: 201
+  target_width: 201
+  time_start: 0
+  time_stop: null
+  max_time_steps: 64
+  spatial_method: bilinear_antialias
+source_map:
+  sigma_grid: 1.5
+  normalize_max: true
+normalization:
+  velocity: global_standard
+  wavefield: global_standard
+  stats_path: artifacts/tgrs_dclp_no/baselines/uno/normalization_stats.json
+  eps: 1.0e-12
+  max_stats_samples: 64
+model:
+  name: uno
+  in_features: auto
+  out_channels: 1
+  modes_x: 12
+  modes_z: 12
+  modes_t: 12
+  width: 24
+train:
+  device: cuda
+  epochs: 40
+  batch_size: 1
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+  amp: false
+  grad_clip: 1.0
+  early_stopping_patience: 12
+  checkpoint_dir: artifacts/tgrs_dclp_no/baselines/uno/checkpoints
+  log_dir: artifacts/tgrs_dclp_no/baselines/uno/logs
+loss:
+  relative_l2_weight: 1.0
+  mse_weight: 0.0
+  eps: 1.0e-08
+evaluation:
+  split: test
+  max_samples: 480
+  output_dir: artifacts/tgrs_dclp_no/baselines/uno/evaluation

@@ -1,0 +1,87 @@
+seed: 2026
+
+data:
+  path: /home/jiayh/Data/data/pino.hdf5
+  schema_mode: explicit_after_inspection
+  velocity_key: nu
+  wavefield_key: tensor
+  source_map_key: source_mask
+  source_position_x_key: source_x_idx
+  source_position_z_key: source_z_idx
+  wavelet_key: wavelet
+  frequency_key: source_frequency_hz
+  amplitude_key: source_amplitude
+  time_key: t-coordinate
+  x_key: x-coordinate
+  z_key: y-coordinate
+  dx_key: dx
+  velocity_axes: [sample, x, z]
+  wavefield_axes: [sample, time, x, z]
+  source_map_axes: [sample, x, z]
+  source_position_units: index
+  input_features: [time, source_map, velocity]
+  split_seed: 2026
+  split: [0.8, 0.1, 0.1]
+  max_samples: 8
+  num_workers: 0
+  pin_memory: false
+  persistent_workers: false
+
+sampling:
+  spatial_stride: null
+  target_height: 32
+  target_width: 32
+  time_start: 0
+  time_stop: null
+  time_stride: null
+  max_time_steps: 16
+  spatial_method: bilinear_antialias
+
+source_map:
+  sigma_grid: 1.5
+  normalize_max: true
+
+normalization:
+  velocity: global_standard
+  wavefield: global_standard
+  stats_path: artifacts/pino_adaptation/normalization_stats.json
+  eps: 1.0e-6
+  max_stats_samples: 8
+
+model:
+  in_features: auto
+  out_channels: 1
+  modes_x: 6
+  modes_z: 6
+  modes_t: 6
+  width: 8
+  n_layers: 2
+  padding_ratio: 0.0
+  activation: gelu
+  normalization: batch
+
+train:
+  device: auto
+  epochs: 1
+  batch_size: 1
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  optimizer: adamw
+  scheduler: none
+  amp: false
+  grad_clip: 1.0
+  early_stopping_patience: 3
+  max_train_batches: 2
+  max_val_batches: 1
+  checkpoint_dir: artifacts/pino_adaptation/checkpoints
+  log_dir: artifacts/pino_adaptation/logs
+
+loss:
+  relative_l2_weight: 1.0
+  mse_weight: 0.0
+  eps: 1.0e-8
+
+evaluation:
+  split: val
+  max_samples: 1
+  output_dir: artifacts/pino_adaptation/evaluation

@@ -1,0 +1,10 @@
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+checkpoint_transfer:
+  allow_parent_manifest_mismatch: true
+  parent_optimizer_state: false
+  parent_residual_already_active: true
+variant_overrides:
+  temporal_basis_rank: 96
+  family_expert_rank: 16
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+

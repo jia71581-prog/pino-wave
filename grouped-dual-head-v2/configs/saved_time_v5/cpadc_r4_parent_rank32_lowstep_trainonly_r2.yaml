@@ -1,0 +1,115 @@
+source_h5: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+parent_kind: saved_time_v4
+parent_operator_config: configs/saved_time_v4/generated/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4.yaml
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/run_identity.json
+parent_correction_scale: 1.0
+normalization_json: /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+
+seed: 372
+dt_s: 0.0025
+dx_m: 10.0
+dz_m: 10.0
+bridge_steps: 4
+causal_ramp_steps: 6
+
+pde_cpml:
+  enabled: true
+  npml: 20
+  c_ref_mps: 6750.0
+  target_reflection: 1.0e-8
+  polynomial_order: 3
+  kappa_max: 3.0
+  minimum_frequency_hz: 8.0
+  internal_dt_s: 0.000125
+  internal_substeps_per_saved_frame: 20
+  memory_time_integration: internal_substep_exact_linear_causal_vectorized
+  exterior_initialization: zero
+  physical_state_injection: hard_each_saved_frame
+
+cpadc:
+  rank: 32
+  phase_rank: 8
+  width: 48
+  per_family: 64
+  epochs: 160
+  patch_size: 201
+  learning_rate: 1.0e-6
+  minimum_learning_rate: 1.0e-6
+  warmup_epochs: 0
+  optimizer: muon_adamw
+  muon_lr_scale: 20.0
+  muon_momentum: 0.95
+  muon_nesterov: true
+  muon_ns_steps: 5
+  beta1: 0.9
+  beta2: 0.99
+  eps: 1.0e-8
+  weight_decay: 1.0e-6
+  gradient_clip: 0.5
+  physics_point_count: 4096
+  rank_chunk_size: 4
+deployment_time_block: 32
+differentiate_inner_solve: false
+
+online_inner_weights:
+  defect: 1.0
+  observed: 0.25
+  bridge: 0.5
+  prior: 1.0e-4
+online_defect_design: sparse_interior
+online_defect_time_order: 2
+online_physics_point_count: 512
+online_physics_sampling: rad
+inner_spatial_stride: 4
+training_maximum_condition_number: 1.0e9
+training_minimum_effective_design_rank: 24
+training_maximum_correction_ratio: 0.50
+
+outer_weights:
+  full_field: 1.0
+  late: 1.0
+  temporal_difference: 0.2
+  spectrum: 0.2
+  coefficient: 1.0e-5
+  physics: 0.05
+  physics_time_count: 64
+  physics_window_strategy: nearest_side_cpml_peak_arrival_causal_prefix_v1
+  physics_prearrival_frames: 8
+  physics_boundary_band_cells: 12
+  physics_boundary_weight: 4.0
+late_start_fraction: 0.4
+
+rad_k: 1.0
+rad_c: 1.0
+rad_time_tilt: 2.0
+
+family_loss_weights:
+  uniform: 0.5
+  layered: 1.0
+  marmousi: 1.5
+family_sampling_weights:
+  uniform: 0.75
+  layered: 1.0
+  marmousi: 1.25
+
+deployment_gate:
+  minimum_causal_objective_improvement: 0.001
+  maximum_condition_number: 1.0e8
+  minimum_effective_design_rank: 24
+  maximum_correction_ratio: 0.50
+  maximum_runtime_s: 3.0
+  maximum_p95_adaptation_runtime_s: 2.5
+  minimum_blind_mean_improvement: 0.01
+  minimum_nonworse_fraction: 0.95
+  require_every_family_nonworse: true
+  maximum_mean_adapted_future_relative_l2: 0.05
+  maximum_family_mean_adapted_future_relative_l2: 0.05
+
+runtime_benchmark:
+  minimum_end_to_end_speedup_vs_traditional: 10.0
+  solver_config: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml
+  repeats_per_family: 2
+  warmup_runs: 1
+

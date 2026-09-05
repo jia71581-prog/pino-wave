@@ -1,0 +1,27 @@
+parent_checkpoint: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/best.pt
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+parent_best_report: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/best.json
+artifact_dir: /data/jiayh/saved_time_v4_lbfgs_batch48_v3
+seed: 211
+outer_steps: 12
+fixed_train_macros: 4
+validation_macros: 4
+microbatch_records: 16
+validation_microbatch_records: 12
+query_points: 64
+energy_floor_fraction: 0.01
+loss:
+  spatial_gradient: 0.1
+  spectrum: 0.2
+optimizer:
+  learning_rate: 0.5
+  history_size: 10
+  max_iter: 4
+  max_eval: 6
+  tolerance_grad: 0.0000001
+  tolerance_change: 0.000000001
+  line_search_fn: strong_wolfe
+gate:
+  minimum_relative_improvement: 0.02
+  family_regression_tolerance: 0.03
+  maximum_peak_cuda_gib: 23.0

@@ -1,0 +1,60 @@
+# USER-AUTHORIZED EXECUTION COPY, 2026-08-14 UTC.
+# Scientific settings are unchanged from
+# patch_deeponet_fixed_train_gate_20260813.yaml. Only the launch authorization
+# and versioned artifact directory differ. Full training still fails closed
+# until the hash-bound, train-only entry gate passes.
+schema: patch_deeponet_training_config_v1
+launch_authorized: true
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/patch_deeponet_fixed_train_gate_r2
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+seed: 372
+epochs: 3
+schedule:
+  split: train
+  record_strategy: uniform_random_with_full_coverage
+  record_oversample: 2.0
+  macro_records: 8
+  macros_per_update: 4
+  effective_records_per_update: 32
+  time_policy: fixed_train_gate
+  frames_per_record: 24
+  schedule_epoch_offset: 0
+optimizer:
+  name: adamw
+  learning_rate: 0.0003
+  weight_decay: 0.000001
+  beta1: 0.9
+  beta2: 0.99
+  epsilon: 0.00000001
+  gradient_clip: 1.0
+  warmup_epochs: 1
+  minimum_factor: 0.1
+loss:
+  record_relative_l2: 1.0
+  temporal_difference: 0.1
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  hard_causality_lead_cycles: 1.0
+model_execution:
+  time_block: 2
+  query_chunk: 4096
+  automatic_mixed_precision: false
+selection:
+  split: train
+  panel_records: 48
+  frames_per_record: 32
+  metric: aggregate_relative_l2
+  checkpoint_rule: strict_improvement
+entry_gate:
+  split: train
+  one_record_per_family: true
+  maximum_updates: 800
+  maximum_aggregate_relative_l2: 0.10
+  maximum_each_family_relative_l2: 0.12
+  require_finite_nonzero_prediction: true
+  full_training_requires_passed_report: true
+claim_scope:
+  source_generalization_variable: position_only
+  fixed_position_evaluation_frequency_hz: 19.0
+  frequency_generalization_permitted: false

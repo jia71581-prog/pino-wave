@@ -1,0 +1,141 @@
+# r5 tempop_warp_b1: WARP + LOW-RANK SCATTERING/AMPLITUDE OPERATOR (the sanctioned r5 stack).
+#
+# WHY: warp_r1 isolated the arrival-aligned characteristic warp and beat opt16 strict
+# on BOTH metrics (fixed_full_time_panel ep8 agg 0.240138 / phase 0.799804 vs opt16
+# strict 0.252999 / 0.784730). The warp repositions the PRIMARY arrival (transport),
+# but the residual error concentrates in LAYERED media at LATE time (family layered
+# 0.2888 worst; time_bin late 0.3432 worst) -- multiple reflections / reverberation
+# that a single per-pixel advective shift cannot represent. This is exactly the r5
+# continuation the warp config comment anticipates: "If warp works, r5 can stack warp
+# + a scattering/amplitude corrector."
+#
+# MECHANISM (this run): stack the per-frame query-invariant temporal propagation
+# operator (rank-8, spatial_kernel=3 receptive field) ON TOP of the trained warp.
+# Rank-8 (not 16) per the local Codex 2026-07-30 brief, which explicitly recommends
+# a "zero-initialized rank-8 cross-axis/spatial scattering corrector to the parent/
+# warped field" as B1 when A1 conflicts with query invariance -- also the mem-frugal
+# choice on the tight 23.5 GiB gate (rank intermediate ~0.3 GiB vs ~0.6 for rank-16).
+# In LocalPropagationFieldGenerator.forward the ordering is operator-then-warp
+# (field += operator(rendered,...); field = warp(field, rendered, arrival)): the
+# operator adds bounded late scattered/reverberant AMPLITUDE where the energy already
+# is, the warp then positions it. The operator gate is zero-init -> exact no-op at
+# load, so warm-starting the warp ceiling is byte-reproducible (starts EXACTLY at the
+# warp's metric, then the operator gates in).
+#
+# SINGLE FACTOR: the ONLY change vs warp_r1 is the added temporal operator. Warm-start
+# is the WARP run's own checkpoint (warp params LOAD unchanged; only local_field.
+# temporal_operator.* is allowlisted-missing -> fresh zero-init). So any agg/phase
+# movement below the warp ceiling is attributable to the operator alone, on top of an
+# already-arrival-aligned field -- a clean marginal test, NOT confounded with re-learning
+# the warp. The operator gets its OWN LR group (temporal_operator_learning_rate) so it
+# develops at full step while the converged parent (dense/local_field group) stays
+# near-frozen at 5e-6 -- the staged-adapter warm-start protocol.
+#
+# FALSIFICATION (pre-registered switch gate, adopted from the local Codex 2026-07-30
+# brief which independently corroborates this exact B1 design): vs the strict warp
+# reference (fixed_full_time_panel: agg 0.240138, late tbin 0.3432, layered 0.2888),
+# require by the ep12 strict panel agg < 0.240 AND late tbin < 0.30 AND layered < 0.27,
+# while holding phase_correlation >= 0.80. If the operator only smooths (agg down but
+# late tbin / layered / phase flat) it is NOT transport-completing -> drop, escalate to
+# an explicit dynamic Green/scattering kernel (CODEX R5). This is only the switch gate;
+# the unchanged hard goal remains agg < 0.05 and every family < 0.08.
+#
+# NOTE: launch ONLY after the warp ep12 strict verdict (ARCH_CANDIDATES decision
+# coupling) so the parent best.pt is the warp ceiling and we do not fork a still-
+# descending parent. parent_checkpoint below points at the warp run's best.pt.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/tempop_warp_b1
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+# Keep only the last 5 epoch checkpoints + the current best (best.pt/latest.pt are
+# hardlinks, so pruning named epoch files never loses best data). Bounds B1's disk
+# footprint to ~1.9 GB instead of ~13 GB on the tight 25 GB-free data disk.
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 2
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  warp_learning_rate: 5.0e-5
+  temporal_operator_learning_rate: 5.0e-5
+  full_forward_checkpointing: false
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 372
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 24
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_temporal_operator_rank: 8
+  local_field_temporal_operator_spatial_kernel: 3
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 8

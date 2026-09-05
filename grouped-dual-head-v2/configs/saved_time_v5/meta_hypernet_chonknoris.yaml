@@ -1,0 +1,54 @@
+# Reduced-CHONKNORIS extension of the leakage-guarded V5 two-stage workflow.
+#
+# Stage B learns both the onset residual hypernetwork and the positive-definite
+# 33 x 33 Cholesky preconditioner.  Stage C freezes both shared networks and
+# updates only [latent_delta(32), residual_gate(1)] from the two allowed frames
+# plus the self-normalized LWC-84 residual.
+source_h5: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+parent_operator_config: configs/saved_time_v4/generated/saved_time_v41_parent_exact.yaml
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v41_4gpu_full_dense_lr1e4_batch192_curriculum_r1/pilot/pilot/checkpoints/epoch_0001.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v41_4gpu_full_dense_lr1e4_batch192_curriculum_r1/pilot/pilot/run_identity.json
+parent_correction_scale: 1.0
+travel_time_h5: /root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+normalization_json: /root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization.before_tgrs_ablation_identity_20260726T1050.json
+
+seed: 17
+latent_dim: 32
+lora_rank: 4
+
+# Produced by scripts/train_meta_hypernet.py with --chonknoris-weight > 0.
+conditioner_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/meta_hypernet_chonknoris/balanced_ddp4_batch4_vmap2_pf64_ep5_tp48_20260807T0956CST/meta_hypernet_chonknoris.pt
+
+adaptation_optimizer: chonknoris
+deployment_pde_weight: 0.1
+physics_sampling:
+  method: rad
+  k: 1.0
+  c: 1.0
+  time_tilt: 1.5
+  resample_every: 4
+
+chonknoris:
+  iterations: 4
+  initial_relaxation: 0.01
+  initial_step_size: 1.0
+  relaxation_factors: [0.5, 1.0, 2.0]
+  step_factors: [0.5, 1.0, 2.0]
+  minimum_relaxation: 1.0e-6
+  maximum_relaxation: 100.0
+  minimum_step_size: 0.001
+  maximum_step_size: 2.0
+  residual_tolerance: 1.0e-8
+  # Reject numerically contractive but practically ineffective online steps.
+  # The gate is evaluated only on causal observed/PDE residuals; future truth
+  # remains sealed until evaluation.
+  minimum_relative_improvement: 0.02
+  maximum_condition_number: 1.0e8
+  exact_factor_fallback: true
+  residual_pool_size: 4
+  physics_point_count: 128
+
+# Retained for backwards-compatible reporting; unused by CHONKNORIS stage C.
+adam_steps: 0
+lbfgs_steps: 0
+learning_rate: 0.0002

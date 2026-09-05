@@ -1,0 +1,36 @@
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_artifact_dir: /data/jiayh/v3_continuous_pilot_deterministic
+artifact_dir: /data/jiayh/v3_easy_to_hard_curriculum
+seed: 29
+continuous_fraction: 0.25
+query_points_per_record: 512
+workers: 8
+prefetch_factor: 4
+optimizer:
+  name: adamw
+  learning_rate: 0.00002
+  weight_decay: 0.000001
+  gradient_clip: 1.0
+acceptance:
+  aggregate_tolerance: 0.05
+  replay_tolerance: 0.10
+stages:
+  - name: uniform
+    epochs: 2
+    steps_per_epoch: 187
+    effective_batch_records: 12
+    microbatch_records: 4
+    replay_cycle: []
+  - name: layered
+    epochs: 3
+    steps_per_epoch: 187
+    effective_batch_records: 12
+    microbatch_records: 12
+    replay_cycle: [layered, layered, layered, uniform]
+  - name: marmousi
+    epochs: 5
+    steps_per_epoch: 187
+    effective_batch_records: 12
+    microbatch_records: 10
+    dominant_loss_scale: 1.2
+    replay_cycle: [marmousi, marmousi, marmousi, uniform, layered]

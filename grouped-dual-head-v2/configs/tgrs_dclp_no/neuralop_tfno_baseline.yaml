@@ -1,0 +1,72 @@
+# Official neuraloperator TFNO baseline (Tucker-factorized FNO, neuralop 2.0.0),
+# ~26.8M params to match A+1 (~25.8M). Frame budget 24 (dense 3-D memory limit).
+seed: 372
+data:
+  path: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+  schema_mode: explicit_after_inspection
+  velocity_key: velocity_mps
+  wavefield_key: wavefield
+  source_map_key: source_map
+  source_position_x_key: source_x_m
+  source_position_z_key: source_z_m
+  frequency_key: source_f0_hz
+  amplitude_key: source_amplitude
+  time_key: time_s
+  x_key: x_m
+  z_key: z_m
+  velocity_axes: [sample, z, x]
+  wavefield_axes: [sample, time, x, z]
+  source_map_axes: [sample, z, x]
+  source_position_units: meters
+  input_features: [time, source_map, velocity]
+  split_manifest: artifacts/tgrs_dclp_no/manifests/fno_split.json
+  num_workers: 4
+  pin_memory: true
+  persistent_workers: false
+sampling:
+  target_height: 201
+  target_width: 201
+  time_start: 0
+  time_stop: null
+  max_time_steps: 24
+  spatial_method: bilinear_antialias
+source_map:
+  sigma_grid: 1.5
+  normalize_max: true
+normalization:
+  velocity: global_standard
+  wavefield: global_standard
+  stats_path: artifacts/tgrs_dclp_no/baselines/neuralop_tfno/normalization_stats.json
+  eps: 1.0e-12
+  max_stats_samples: 64
+model:
+  name: neuralop_tfno
+  in_features: auto
+  out_channels: 1
+  modes_x: 16
+  modes_z: 16
+  modes_t: 12
+  hidden_channels: 96
+  n_layers: 4
+  rank: 0.42
+train:
+  device: cuda
+  epochs: 50
+  batch_size: 1
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  optimizer: adamw
+  scheduler: cosine
+  amp: false
+  grad_clip: 1.0
+  early_stopping_patience: 20
+  checkpoint_dir: artifacts/tgrs_dclp_no/baselines/neuralop_tfno/checkpoints
+  log_dir: artifacts/tgrs_dclp_no/baselines/neuralop_tfno/logs
+loss:
+  relative_l2_weight: 1.0
+  mse_weight: 0.1
+  eps: 1.0e-08
+evaluation:
+  split: test
+  max_samples: 480
+  output_dir: artifacts/tgrs_dclp_no/baselines/neuralop_tfno/evaluation

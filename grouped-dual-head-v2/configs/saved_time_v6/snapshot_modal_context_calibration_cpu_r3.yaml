@@ -1,0 +1,64 @@
+# CPU-only calibration with snapshot-derived temporal context features. The
+# held-out panel is deterministic and matches the independent panel evaluator.
+dataset: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1/run/checkpoints/epoch_0004.pt
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/snapshot_only/modal_context_calibration_cpu_r3
+seed: 372
+device: cpu
+
+model:
+  minimum_history: 8
+  memory_frames: 4
+  width: 128
+  spectral_rank: 112
+  modes: 32
+  depth: 4
+  confidence_floor_fraction: 1.0e-8
+  phase_margin: 1.0e-3
+  minimum_context_rms: 1.0e-14
+  maximum_correction_ratio: 0.25
+  activation_checkpointing: false
+  local_differential_residual: false
+  modal_radius: 0.995
+  learned_modal_calibration: true
+  modal_calibrator_width: 16
+  minimum_modal_radius: 0.98
+  maximum_modal_radius: 0.9999
+  initial_modal_radius: 0.995
+  maximum_phase_scale_deviation: 0.02
+  modal_context_features: true
+
+training:
+  epochs: 5
+  records_per_family: 420
+  samples_per_epoch: 384
+  batch_size: 1
+  workers: 0
+  minimum_context_end: 48
+  maximum_context_end: 120
+  maximum_context_fraction: 0.3333333333333333
+  post_peak_cycles: 0.0
+  horizon_schedule: [[0, 8], [1, 16], [2, 32]]
+  modal_only_epochs: 5
+  freeze_closure_epochs: 5
+  adapter_learning_rate: 2.0e-4
+  closure_learning_rate: 1.0e-5
+  weight_decay: 1.0e-6
+  gradient_clip: 1.0
+  context_noise_fraction: 0.002
+
+validation:
+  records_per_family: 16
+  record_selection: first
+  context_ends: [80, 112, 120]
+  horizon: 32
+  report_horizons: [1, 8, 16, 32]
+
+loss:
+  frame_weight: 0.5
+  temporal_difference_weight: 0.1
+  spatial_gradient_weight: 0.1
+  spectrum_weight: 0.1
+  frame_energy_floor_fraction: 0.05
+  multi_horizon_weight: 1.0
+  multi_horizon_fractions: [0.03125, 0.25, 0.5, 1.0]

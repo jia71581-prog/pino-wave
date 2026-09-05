@@ -1,0 +1,22 @@
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_artifact_dir: /data/jiayh/v3_easy_to_hard_curriculum
+artifact_dir: /data/jiayh/v3_stable_refinement_no_floor_ablation
+seed: 43
+epochs: 5
+steps_per_epoch: 187
+continuous_fraction: 0.25
+query_points_per_record: 512
+workers: 8
+prefetch_factor: 4
+relative_energy_floor_fraction: 0.0
+optimizer:
+  name: adamw
+  learning_rate: 0.00001
+  weight_decay: 0.000001
+  gradient_clip: 1.0
+acceptance:
+  family_regression_tolerance: 0.02
+rejection_recovery:
+  learning_rate_factor: 0.5
+  minimum_learning_rate: 0.00000125
+  max_consecutive_rejections: 2

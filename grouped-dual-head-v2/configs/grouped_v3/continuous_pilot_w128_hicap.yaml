@@ -1,0 +1,50 @@
+model:
+  width: 128
+  spectral_rank: 96          # 40 -> 96: stronger factorized spectral corrector (late high-freq coda)
+  modes: [20, 16, 12, 8]
+  dense_modes: [32, 24]      # [20,16] -> [32,24]: higher spatial-frequency correction
+  mionet_rank: 128
+  token_count: 64
+  heads: 4
+  position_bands: 4
+  fourier_bands: 6
+  gabor_scales_s: [0.01, 0.025, 0.05, 0.1]
+  ray_samples: 12
+  dense_time_block: 1
+  domain_x_m: 2000.0
+  domain_z_m: 2000.0
+  domain_t_s: 1.0
+data:
+  source_h5: /home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+  manifest_json: /home/jiayh/Data/data/processed/grouped_v3_manifest.json
+  normalization_json: /home/jiayh/Data/data/processed/grouped_v3_normalization.json
+  train_cache: /home/jiayh/Data/data/processed/grouped_dual_head_v2_train.h5
+  validation_cache: /home/jiayh/Data/data/processed/grouped_dual_head_v2_validation.h5
+  expected_train_records: 2240
+  expected_validation_records: 480
+  continuous_fraction: 0.25
+  gate_sample_id: ""
+  gate_sample_ids: []
+loss:
+  point: 2.0
+  frame: 2.0
+  complex_spectrum: 0.2
+  spectral_phase: 0.15
+  spatial_gradient: 0.2
+  time_difference: 0.25
+  consistency: 0.25
+  phase_energy_fraction: 0.0001
+train:
+  optimizer: adamw
+  batch_records: 12
+  learning_rate: 0.00005
+  weight_decay: 0.000001
+  epochs: 20
+  max_steps: 3740
+  evaluation_every: 187
+  steps_per_epoch: 187
+  query_points_per_step: 512
+  workers: 8
+  prefetch_factor: 4
+  seed: 17
+  device: cuda

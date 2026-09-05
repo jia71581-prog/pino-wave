@@ -1,0 +1,35 @@
+schema: r16_dscp_v4
+candidate: r16_dscp_v4
+scientific_design: identical_r16_dscp_v3_only_implementation_fixes
+seed: 372
+model: {rank: 16, channels: 29, parameters: 1202, ridge_parameters: 480, model_macs: 45451125, projection_macs: 259212816, materialization_macs: 259212816}
+bindings: {parent_sha256: 448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789, basis_file_sha256: 8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786, basis_tensor_sha256: 4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5, panels_sha256: 6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464}
+optimization: {optimizer: AdamW, lr: 0.003, betas: [0.9, 0.99], eps: 1.0e-8, weight_decay: 0.0001, grad_clip: 1.0, global_batch_records: 4, per_device_microbatch: 1, time_microblock: 32, bf16: true, tf32: false, deterministic: true, workers_per_gpu_maximum: 2}
+schedule: {smoke_pilot: constant, long: cosine_0.003_to_0.00003, warmup: 0, max_epochs: 20, patience: 4}
+loss: {frame_relative_l2_squared: 1.0, late_third_relative_l2_squared: 0.25, temporal_difference: 0.10, actual_normalized_coefficient_energy: 0.0001, physics: 0.0, future_frame_sampling: false}
+panels: {smoke: 3, pilot_fit: 24, pilot_confirm: 24, long_fit: 192, long_calibration: 24, final_train_confirm: 24, group_disjoint: true}
+budgets: {smoke_updates: 500, smoke_wall_s: 600, pilot_updates: 1000, pilot_wall_s: 1800, long_epochs: 20, one_gpu_wall_s: 7200, four_gpu_wall_s: 2700, total_gpu_hours: 3.0}
+gates:
+  smoke: {loss_reduction: 0.80, oracle_fraction: 0.50, oracle_uniform: 0.2224565778108675, oracle_layered: 0.37334545199603053, oracle_marmousi: 0.29789271567937464, aggregate_nonworse: true}
+  pilot_final: {joint_gain: 0.01, each_family_gain: 0.005, nonworse: 23, ridge_margin: 0.0025, late_nonworse: true, high_nonworse: true, correction_energy: 0.35, finite: true}
+  runtime: {adapter_mean_s: 0.35, adapter_p95_s: 0.50, e2e_parent_ratio: 1.05, inference_peak_gib: 6.5, train_peak_gib: 8.0, checkpoint_mib: 2.0, artifacts_mib: 64.0}
+  validation_test: {aggregate_rel_l2: 0.05, each_family_rel_l2: 0.05, traditional_speedup_mean: 10.0, traditional_speedup_p95: 10.0, late_nonworse: true, high_nonworse: true}
+  scale: {records: 12, warmup: 1, timed: 3, speedup: 3.0, efficiency: 0.75, gpu_seconds_ratio: 1.35, per_gpu_peak_gib: 6.5, hashes_exact: true, fallback: 1}
+spool: {root: /dev/shm/r16_dscp_v4/<run_digest>/rank<r>, atomic: true, serialized_before_truth: true, cleanup_owned_only: true, failure_retention_maximum: 1, tmpfs_margin_per_rank_mib: 64}
+space: {workspace_formula: 2GiB_plus_3C_plus_64MiB, tmpfs_formula: world_size_times_spool_max_plus_64MiB, four_gpu_insufficient_fallback: 1}
+checkpoint: {atomic: true, retain: [best.pt, last.pt], hardlink_identical: true, resume_epoch_global_step_group_rng_sampler: true, parent_embedded: false, basis_embedded: false}
+rollback: atomic_failure_terminal_preserve_best_last_log_and_one_owned_spool_never_touch_protected_never_delete_other_files
+commands:
+  prep: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode prep"
+  authorize_stage: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode authorize-stage --stage STAGE --output results/r16_dscp_v4/authorizations/STAGE.json --input-checkpoint BEST"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode smoke --authorization results/r16_dscp_v4/authorizations/smoke.json"
+  pilot: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode pilot --authorization results/r16_dscp_v4/authorizations/pilot.json"
+  scale1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode scale-probe-1 --authorization results/r16_dscp_v4/authorizations/scale-probe-1.json"
+  scale4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v4.py --mode scale-probe-4 --authorization results/r16_dscp_v4/authorizations/scale-probe-4.json"
+  scale_decide: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode scale-decide --authorization results/r16_dscp_v4/authorizations/scale-decide.json"
+  launch_long_command: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode launch-long-command --output results/r16_dscp_v4/long_command.json"
+  long1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode long --world-size 1 --authorization results/r16_dscp_v4/authorizations/long.json"
+  long4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v4.py --mode long --world-size 4 --authorization results/r16_dscp_v4/authorizations/long.json"
+  final: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode final-train-confirm --authorization results/r16_dscp_v4/authorizations/final-train-confirm.json"
+  validation: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode validation-once --authorization results/r16_dscp_v4/authorizations/validation-once.json"
+  test: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode test-once --authorization results/r16_dscp_v4/authorizations/test-once.json"

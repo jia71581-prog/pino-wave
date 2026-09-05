@@ -1,0 +1,35 @@
+# Train-only instance-conditioned feature modulation for the frozen r5b
+# operator.  The adapter sees velocity, source parameters, and exactly two
+# guarded onset snapshots.  It does not construct a numerical/synthetic
+# wavefield bridge and never calls an external wavefield propagator.
+source_h5: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+parent_kind: saved_time_v4
+parent_operator_config: configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag.yaml
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json
+# Legacy Boolean policy: 1 preserves the checkpoint's learned correction
+# amplitude; 0 is a coarse-only ablation.
+parent_correction_scale: 1.0
+normalization_json: /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+
+seed: 372
+latent_dim: 16
+lora_rank: 4
+max_scale: 0.05
+max_bias: 0.02
+
+# Small train-only falsification pilot.  A disjoint training-group gate must
+# pass before this adapter is frozen and evaluated on validation.
+epochs: 3
+meta_episodes_per_family: 4
+batch_size: 2
+time_points: 24
+time_block: 1
+# Exact joint relative-L2 gradients are recomputed in bounded time chunks.  A
+# value of 4 changes only memory/computation scheduling, not the loss.
+gradient_time_chunk: 4
+learning_rate: 0.0001
+modulation_weight: 0.0001
+latent_weight: 0.000001
+gradient_clip: 1.0

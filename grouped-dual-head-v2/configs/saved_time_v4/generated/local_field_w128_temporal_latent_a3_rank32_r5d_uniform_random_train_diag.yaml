@@ -1,0 +1,131 @@
+# DIAGNOSTIC ONLY. This unlaunched branch differs from r5c only by replacing
+# RAD record replay with equal-probability random replay. It retains 2x record
+# appearances and 140 optimizer updates per epoch, so compute stays controlled.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5d_uniform_random_train_diag
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_band_adapter_parameters: true
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: true
+  parent_optimizer_state: false
+energy_floor_fraction: 0.01
+epochs: 3
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 3
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: false
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 0.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  name: adamw
+  adamw_implementation: fused
+  adamw_beta1: 0.9
+  adamw_beta2: 0.99
+  adamw_eps: 1.0e-8
+  backbone_learning_rate: 6.25e-8
+  dense_learning_rate: 6.25e-7
+  geometry_learning_rate: 1.25e-7
+  temporal_latent_learning_rate: 6.25e-6
+  band_adapter_feature_learning_rate: 3.0e-4
+  band_adapter_output_learning_rate: 1.0e-5
+  full_forward_checkpointing: false
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 3
+  training_time_block: 1
+  warmup_epochs: 1
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json
+parent_checkpoint_selection_split: train
+parent_identity: configs/saved_time_v4/generated/w2_parent_identity_legacy_norm_marmousi1_4m_v2.json
+prefetch_factor: 4
+query_points: 1
+schedule_epoch_offset: 18
+seed: 372
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 24
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+epoch_validation_control:
+  enabled: true
+  evaluation_split: train
+  metric: aggregate_relative_l2
+  minimum_absolute_improvement: 0.0
+  learning_rate_backoff: 0.5
+  minimum_learning_rate_multiplier: 0.0078125
+  maximum_attempts_per_epoch: 8
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_temporal_latent_basis: true
+  local_field_temporal_latent_rank: 32
+  local_field_temporal_latent_harmonics: 4
+  local_field_adapter_gate_init: 0.03
+  band_adapter_rank: 32
+  band_adapter_preserve_high_band: false
+  band_adapter_architecture: shared_dynamic_multiscale_spectral
+  band_adapter_spectral_rank: 32
+  band_adapter_modes: 32
+  band_adapter_full_depth: 4
+  band_adapter_coarse_depth: 2
+  band_adapter_activation_checkpointing: true
+band_limited_adapter:
+  adapter_only: true
+  cutoff_normalized_radius: 0.6666666666666666
+  preserve_high_band: false
+  architecture: shared_dynamic_multiscale_spectral
+  physical_conditioning:
+    medium: raw_velocity_encoded_once
+    source: normalized_parameters
+adaptive_sampling:
+  enabled: true
+  evidence_split: validation
+  frame_axis: true
+  record_axis: true
+  record_axis_strategy: uniform
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 2.0
+  time_bin_errors: [0.2353745524, 0.5096227467, 0.7627737974]
+  family_errors: {uniform: 0.1288781125, layered: 0.2903779849, marmousi: 0.5638120193}
+workers: 8

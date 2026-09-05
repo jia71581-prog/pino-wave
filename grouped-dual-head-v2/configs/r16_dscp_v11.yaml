@@ -1,0 +1,24 @@
+schema: r16_dscp_v11
+candidate: r16_dscp_v11
+inherits_v10_config_sha256: 37ea63e7ce21f82d887559e0deecc653d5a8e33ea46feb9590c2578be4dee293
+only_change: strict_handler_validator_wiring
+validation_chain: final_terminal_plus_candidate_lock_plus_current_checkpoint_plus_threshold_effective_data
+test_chain: passed_validation_plus_same_lock_same_checkpoint_no_drift
+toctou_rehash_immediately_before_factory: true
+once_token: authorization_lock_checkpoint_digests_immutable
+spool_root: /dev/shm/r16_dscp_v11/<run_digest>/rank<r>
+protocol: inherit_v10
+commands:
+  prep: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py prep"
+  freeze_prereg: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py freeze-prereg"
+  authorize_smoke: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py authorize-stage --stage smoke --output results/r16_dscp_v11/authorizations/smoke.json"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py smoke --authorization results/r16_dscp_v11/authorizations/smoke.json"
+  pilot: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py pilot --authorization results/r16_dscp_v11/authorizations/pilot.json"
+  scale_1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py scale-1 --authorization results/r16_dscp_v11/authorizations/scale-1.json"
+  scale_4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v11.py scale-4 --authorization results/r16_dscp_v11/authorizations/scale-4.json"
+  scale_decide: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py scale-decide --authorization results/r16_dscp_v11/authorizations/scale-decide.json"
+  long_1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py long --authorization results/r16_dscp_v11/authorizations/long.json --world-size 1 --input-checkpoint BEST --scale-decision results/r16_dscp_v11/scale-decide/terminal.json --config configs/r16_dscp_v11.yaml --preregistration results/r16_dscp_v11_preregistration_20260826.json"
+  final: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py final-train-confirm --authorization results/r16_dscp_v11/authorizations/final-train-confirm.json"
+  validation: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py validation-once --authorization results/r16_dscp_v11/authorizations/validation-once.json"
+  test: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v11.py test-once --authorization results/r16_dscp_v11/authorizations/test-once.json"
+rollback: inherit_v10_v9_sealed_chain

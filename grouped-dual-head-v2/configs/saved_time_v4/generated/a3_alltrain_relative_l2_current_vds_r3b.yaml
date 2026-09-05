@@ -1,0 +1,106 @@
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_relative_l2_current_vds_r3b
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml
+checkpoint_keep_last: 3
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: true
+  parent_optimizer_state: false
+  parent_residual_already_active: true
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 28
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 3
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  full_field_frame: 1.0
+  delta: 0.0
+  delta_energy_floor_fraction: 0.0
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.0
+  spectrum: 0.0
+  temporal_difference: 0.0
+  per_frame_frame: false
+  frame_energy_floor_fraction: 0.0
+  late_frame_gain: 0.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  training_loss_objective: relative_l2
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  temporal_latent_learning_rate: 5.0e-5
+  full_forward_checkpointing: false
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 12
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_trainonly_current_vds_r2/run/latest.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_trainonly_current_vds_r2/run/run_identity.json
+parent_identity: configs/saved_time_v4/generated/w2_parent_identity_legacy_norm_marmousi1_4m_v2.json
+prefetch_factor: 2
+query_points: 1
+seed: 372
+time_appearance_offset: 27
+time_policy: appearance16
+training_frames_per_record: 24
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+epoch_validation_control:
+  enabled: true
+  evaluation_split: train
+  metric: aggregate_relative_l2
+  minimum_absolute_improvement: 0.0
+  learning_rate_backoff: 0.5
+  minimum_learning_rate_multiplier: 0.00390625
+  maximum_attempts_per_epoch: 8
+  time_selector_seed_offset: 0
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_temporal_latent_basis: true
+  local_field_temporal_latent_rank: 32
+  local_field_temporal_latent_harmonics: 4
+  local_field_adapter_gate_init: 0.03
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 0

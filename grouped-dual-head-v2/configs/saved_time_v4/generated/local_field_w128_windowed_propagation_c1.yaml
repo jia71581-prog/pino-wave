@@ -1,0 +1,153 @@
+# C1 windowed_propagation (contract-safe small-window SPACE-TIME lever): characteristic
+# advection over a DETERMINISTIC neighbor-time window.
+#
+# STATUS: LAUNCH-READY. Pre-registered escalation after the A4 (multi_arrival) ep4 STRICT
+# falsification (2026-07-31): warp->A3->A4 additive-corrector ladder all stalled at the warp
+# ceiling with aggregate-only smoothing (gate does not open, per-family layered late-bin
+# pinned, phase < 0.80). The verdict pointed to an EXPLICIT space-time-structured coarse field.
+#
+# WHY C1 (space-time coupling, contract-safe): every prior temporal module corrects frame i
+# from frame i's OWN scalar time -- diagonal in the queried-time axis, so NO propagation
+# dynamics tie the wavefront position across saved times (the root cause of the position/phase
+# floor and the 0.125 overfit floor). C1 introduces the first genuine reduce over a
+# DETERMINISTICALLY-constructed neighbor-time window: for output frame i at saved index k_i it
+# builds a window {clamp(k_i + delta, 0, N-1) : delta in [-w, w]} (a function of k_i ALONE),
+# advects frame i's own (already warp-corrected) field along the eikonal characteristic
+# grad(T) to each neighbor time (NO extra U-Net render), and couples the D snapshots with a
+# learned bilinear space-time operator. This physically ADVECTS the front (a continuous shift
+# per Delta_t) and learns which advected neighbor snapshots compose the center frame -- tying
+# front position across saved times, which B1's 1x1 (zero receptive field, amplitude-only)
+# structurally cannot.
+#
+# QUERY-INVARIANCE CONTRACT (verified by tests): the window for frame i depends only on k_i;
+# the advected snapshots only on field_in[:, i] (frame i itself; the warp is query-invariant)
+# and the static arrival; coeff only on frame i's Delta_t; the spatial basis only on frame i's
+# render. So a single-frame (count=1) query rebuilds an identical window and is bit-identical
+# to that frame inside a multi-frame batch (test_full_forward_per_frame_query_invariance).
+# No reduce over the queried-frame axis; no autoregression.
+#
+# OPTION-B WARM-START (byte-reproducible warp ceiling): C1 is ADDITIVE on the warp-corrected
+# field; the center tap Delta_t=0 reproduces the field, so at gate_init=0 field_out == field_in
+# EXACTLY -- starts at the loaded 0.2398 warp ceiling, only fresh local_field.windowed_propagation.*
+# develops. Launch uses gate_init 0.02 (small positive) to break the A4 cold-start deadlock: the
+# space/time sub-nets are NOT zero-init, so they receive real gradient the moment the gate opens.
+#
+# SINGLE FACTOR vs warp_r1 parent: ONLY local_field_windowed_propagation is newly enabled. warp,
+# residual, panels, LR groups identical. warp.* loads unchanged in the near-frozen dense group
+# (5e-6); windowed_propagation.* is the only thing at full step (own group 5e-5). Any movement
+# below the warp ceiling is attributable to C1 alone.
+#
+# MEMORY: NO extra U-Net render (advection is grid_sample on the existing field); the (R,T,D,H,W)
+# window tensor is ~52MB. With training_frames_per_record 16 + full_forward_checkpointing (the
+# A4 setting), predicted peak ~15.7-17 GiB < 23.5. 401-frame validation is frame-chunked (bounded).
+#
+# FALSIFICATION (pre-registered, same strict warp reference): vs warp ep12 strict
+# (agg 0.2398, LAYERED 0.2878, MARMOUSI 0.2516, late tbin 0.3452, phase 0.7969).
+# PASS by the ep12 strict panel: aggregate < 0.235 AND phase >= 0.82 (the direct position/phase
+# readout, up from 0.797) AND late tbin < 0.31, no family regressing > 5% (strong PASS if
+# LAYERED < 0.27 AND MARMOUSI < 0.24). If the gate is clearly training (leaves 0.02, internals
+# get gradient) but phase stays <= 0.80 and late tbin >= 0.34, small-window temporal coupling is
+# NOT the missing lever -> escalate to an explicit wave-equation-structured coarse field.
+# Unchanged hard goal: agg < 0.05 and every family < 0.08.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/windowed_propagation_c1
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 2
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  windowed_propagation_learning_rate: 5.0e-5
+  full_forward_checkpointing: true  # C1 advects on the existing field (no extra render) but keep ffc for the same <23.5GiB envelope as A4; numerically identical
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 373
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 16
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_windowed_propagation: true
+  local_field_windowed_propagation_window: 2
+  local_field_windowed_propagation_stride: 1
+  local_field_windowed_propagation_rank: 8
+  local_field_windowed_propagation_max_advect_cells: 8.0
+  # COLD-START DEADLOCK FIX (verified on A3/A4): gate_init=0 on a near-frozen parent starves the
+  # sub-nets of gradient (dL/d(internal)=gate*...=0). A small positive gate_init lets the space/
+  # time sub-nets receive real gradient at load and lets the optimizer freely grow/shrink the gate.
+  # The center tap (Delta_t=0) still reproduces the field, so gate_init->0 remains an exact no-op;
+  # 0.02 (< A4's 0.03, because C1's coupled residual has larger magnitude) is a bounded, documented
+  # departure from the byte-exact warp ceiling, recoverable within the first updates.
+  local_field_adapter_gate_init: 0.02
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 8

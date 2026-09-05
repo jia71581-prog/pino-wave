@@ -1,0 +1,144 @@
+# V72 -- abandon the frozen-anchor residual regime.  Train the full V4 operator
+# (all parameter groups trainable from epoch 0, real backbone learning rate)
+# with a per-frame energy-normalized frame loss so late low-amplitude frames are
+# trained as hard as the early wavefront.  This directly tests whether the
+# ~0.47 plateau is the frozen-anchor capacity trap + early-frame-weighted loss,
+# rather than a true representational limit.
+#
+# Based on the proven full-trainable recovery template (v54) + full-dataset
+# curriculum (v63).  Warm-starts from V37 (temporal_basis rank96, expert rank16)
+# which loads cleanly.  No band-limited adapter, no frozen anchor.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/saved_time_v72_full_retrain_per_frame_r1
+base_config: configs/grouped_v3/continuous_pilot.yaml
+checkpoint_transfer:
+  allow_parent_manifest_mismatch: true
+  parent_optimizer_state: false
+  parent_residual_already_active: true
+  allow_new_family_expert_parameters: true
+energy_floor_fraction: 0.01
+epochs: 12
+family_curriculum:
+  stages:
+  - epochs: 1
+    macro_pattern:
+    - uniform
+  - epochs: 1
+    macro_pattern:
+    - uniform
+    - uniform
+    - uniform
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+  - epochs: 10
+    macro_pattern:
+    - uniform
+    - uniform
+    - uniform
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - layered
+    - marmousi
+    - marmousi
+    - marmousi
+    - marmousi
+    - marmousi
+# Warm the expert heads (1 epoch) then progressively unfreeze the whole operator
+# so the backbone trains for the bulk of the run (epochs 5-12) -- unlike the
+# frozen-anchor regime.  The decisive change vs v54 is a real backbone learning
+# rate (5e-5, not 2e-6) plus the per-frame loss below.
+family_experts:
+  head_only_epochs: 1
+  dense_unfreeze_epoch: 2
+  shared_unfreeze_epoch: 3
+  geometry_unfreeze_epoch: 4
+  backbone_unfreeze_epoch: 5
+  minimum_route_probability: 0.1
+  minimum_router_accuracy: 0.95
+  router_loss_weight: 0.01
+  teacher_forced_routing: true
+family_gradient_weights:
+  uniform: 1.0
+  layered: 1.0
+  marmousi: 1.5
+gate:
+  external_evidence_gate: true
+  family_regression_tolerance: 0.03
+  maximum_peak_cuda_gib: 23.0
+  pilot_epochs: 12
+  target_aggregate_relative_l2: 0.1
+  target_family_relative_l2: 0.12
+loss:
+  delta: 0.1
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  # --- the new lever: per-frame energy normalization ---
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.03
+macro_records: 12
+macros_per_update: 4
+microbatch_records: 12
+optimizer:
+  # real learning rates: the backbone actually moves (v54 used 2e-6 and froze).
+  backbone_learning_rate: 5.0e-05
+  dense_learning_rate: 2.0e-04
+  geometry_learning_rate: 1.0e-04
+  family_expert_learning_rate: 1.0e-04
+  temporal_basis_learning_rate: 5.0e-05
+  full_forward_checkpointing: true
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.05
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 12
+  warmup_epochs: 2
+  weight_decay: 1.0e-06
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v37_temporal_basis96_balanced_family_batch96_micro3_4gpu_remote_r1/pilot/checkpoints/epoch_0002.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v37_temporal_basis96_balanced_family_batch96_micro3_4gpu_remote_r1/pilot/run_identity.json
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+prefetch_factor: 4
+query_points: 1
+residual_recovery:
+  absorb_temporal_basis_gate: true
+  activation_mode: preserve
+  correction_scale: 1.0
+  decoder_only_epochs: 0
+  output_std: 0.0001
+  stage_epoch_offset: 0
+seed: 372
+time_appearance_offset: 14
+time_policy: appearance16
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 6
+  final_frames_per_record: 401
+  frames_per_record: 24
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  temporal_basis_rank: 96
+  family_expert_rank: 16
+workers: 8

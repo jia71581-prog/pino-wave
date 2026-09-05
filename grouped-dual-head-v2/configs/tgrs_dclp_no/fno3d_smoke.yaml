@@ -1,0 +1,86 @@
+data:
+  amplitude_key: source_amplitude
+  frequency_key: source_f0_hz
+  input_features:
+  - time
+  - source_map
+  - velocity
+  num_workers: 4
+  path: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+  persistent_workers: false
+  pin_memory: true
+  schema_mode: explicit_after_inspection
+  source_map_axes:
+  - sample
+  - z
+  - x
+  source_map_key: source_map
+  source_position_units: meters
+  source_position_x_key: source_x_m
+  source_position_z_key: source_z_m
+  split_manifest: artifacts/tgrs_dclp_no/manifests/fno_split.json
+  time_key: time_s
+  velocity_axes:
+  - sample
+  - z
+  - x
+  velocity_key: velocity_mps
+  wavefield_axes:
+  - sample
+  - time
+  - x
+  - z
+  wavefield_key: wavefield
+  x_key: x_m
+  z_key: z_m
+evaluation:
+  max_samples: 3
+  output_dir: artifacts/tgrs_dclp_no/baselines/fno3d_smoke/evaluation
+  split: test
+loss:
+  eps: 1.0e-08
+  mse_weight: 0.0
+  relative_l2_weight: 1.0
+model:
+  activation: gelu
+  in_features: auto
+  modes_t: 12
+  modes_x: 16
+  modes_z: 16
+  n_layers: 4
+  normalization: batch
+  out_channels: 1
+  padding_ratio: 0.0625
+  width: 24
+normalization:
+  eps: 1.0e-12
+  max_stats_samples: 64
+  stats_path: artifacts/tgrs_dclp_no/baselines/fno3d_smoke/norm.json
+  velocity: global_standard
+  wavefield: global_standard
+sampling:
+  max_time_steps: 64
+  spatial_method: bilinear_antialias
+  target_height: 201
+  target_width: 201
+  time_start: 0
+  time_stop: null
+seed: 372
+source_map:
+  normalize_max: true
+  sigma_grid: 1.5
+train:
+  amp: false
+  batch_size: 1
+  checkpoint_dir: artifacts/tgrs_dclp_no/baselines/fno3d_smoke/checkpoints
+  device: cuda
+  early_stopping_patience: 12
+  epochs: 1
+  grad_clip: 1.0
+  learning_rate: 0.001
+  log_dir: artifacts/tgrs_dclp_no/baselines/fno3d_smoke/logs
+  max_train_batches: 3
+  max_val_batches: 3
+  optimizer: adamw
+  scheduler: cosine
+  weight_decay: 0.0001

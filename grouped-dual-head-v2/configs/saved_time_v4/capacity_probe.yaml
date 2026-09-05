@@ -1,0 +1,23 @@
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_checkpoint: /data/jiayh/v3_dual_head_long_refinement_v2/best.pt
+artifact_dir: /data/jiayh/saved_time_v4_probe_v3
+seed: 117
+epochs: 30
+train_macro_steps: 4
+validation_macro_steps: 4
+microbatch_records: 6
+query_points: 64
+workers: 8
+prefetch_factor: 4
+energy_floor_fraction: 0.01
+loss:
+  frame: 1.0
+  spatial_gradient: 0.1
+optimizer:
+  head_learning_rate: 0.0001
+  backbone_learning_rate: 0.00001
+  weight_decay: 0.000001
+  gradient_clip: 1.0
+selection:
+  minimum_relative_improvement: 0.15
+  family_regression_tolerance: 0.05

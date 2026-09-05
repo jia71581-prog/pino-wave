@@ -1,0 +1,32 @@
+# Residual-conditioned learned instance update for the frozen manuscript r5b
+# operator.  The only deployment evidence is the discrepancy between the two
+# true onset snapshots and the r5b predictions at those same times.
+source_h5: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+parent_kind: saved_time_v4
+parent_operator_config: configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag.yaml
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json
+parent_correction_scale: 1.0
+normalization_json: /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+
+seed: 482
+conditioner_input: parent_onset_residual
+latent_dim: 16
+lora_rank: 4
+max_scale: 0.05
+max_bias: 0.02
+
+# Offline supervision uses future truth on registered train episodes only.  PDE
+# loss, numerical rollout, a synthetic bridge, and any external wavefield
+# propagator are absent.  Streaming changes memory scheduling only.
+epochs: 5
+meta_episodes_per_family: 8
+batch_size: 1
+time_points: 24
+time_block: 1
+gradient_time_chunk: 4
+learning_rate: 0.0001
+modulation_weight: 0.0001
+latent_weight: 0.000001
+gradient_clip: 1.0

@@ -1,0 +1,37 @@
+{
+  "config": {
+    "base_config": "configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+    "variant_overrides": {}
+  },
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "provenance": {
+    "note": "W2 width-128 warm-start architecture rebound to the Marmousi1 4m v2 data context; the retained manifest_digest and run_digest identify the old-data parent checkpoint, and the candidate explicitly authorizes weight-only transfer across that dataset repair.",
+    "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/capacity_ladder/W2_w128_d12/checkpoints/update_0800.pt",
+    "rebound_base_config": "configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml"
+  },
+  "run_digest": "6dcce8d5a46db8c7c1720a41f64ea536183f630dce921e2d7271efadc1cabb32",
+  "schema": "local_field_warmstart_parent_v1",
+  "variant_config": {
+    "band_adapter_activation_checkpointing": true,
+    "band_adapter_architecture": "low_rank",
+    "band_adapter_coarse_depth": 2,
+    "band_adapter_full_depth": 4,
+    "band_adapter_modes": 32,
+    "band_adapter_preserve_high_band": true,
+    "band_adapter_rank": 0,
+    "band_adapter_spectral_rank": 32,
+    "coupled_2d_rank": 0,
+    "coupled_axes": false,
+    "depth": 12,
+    "family_expert_rank": 0,
+    "local_differential_residual": false,
+    "local_field": false,
+    "local_field_causal_width_s": 0.005,
+    "local_field_channel_multipliers": [1, 1, 2, 2],
+    "local_field_residual": false,
+    "modes": 32,
+    "spectral_rank": 112,
+    "temporal_basis_rank": 0,
+    "use_local_phase": true
+  }
+}

@@ -1,0 +1,150 @@
+# A3 temporal_latent (CLASS-A coarse-field lever): continuous temporal LATENT BASIS.
+#
+# WHY (CORRECTED 2026-07-30 ~11:55, split RE-VERIFIED ~12:20 -- the earlier ceiling-bound rationale
+# was RETRACTED): the strict aggregate is the equal-RECORD-weighted mean of per-record rel-L2
+# (streaming_metrics.py:227, reconstructs 0.23978 exactly). The strict panel is 48 records, VERIFIED
+# from warp_r1 metrics as LAYERED n=19 / MARMOUSI n=19 / uniform n=10 (39.6/39.6/20.8%; integer-solved
+# err 1.1e-4). So the aggregate is CO-DOMINATED by layered+marmousi (~79% together), NOT gated by uniform
+# (~21%). The prior claim -- "uniform floors the aggregate at 0.126 >> 0.05 so only a class-A lever can
+# reach the goal" -- assumed 0.126 was a universal per-family floor; it is not, and class-B is NOT useless.
+# Class-B correctors (B1 tempop, R5 green) DIRECTLY target the dominant layered+marmousi scattering and are
+# on-target. A3 is therefore NOT "the only goal-critical path" -- it is a LEGITIMATE PARALLEL class-A option:
+# it enriches the COARSE field itself with a low-rank continuous temporal basis so a fixed (x,z) can encode
+# multi-arrival / late-time structure a single time-conditioned U-Net render cannot, and to matter it must
+# move the DOMINANT layered/marmousi late error (see re-keyed gate).
+#
+# MECHANISM: a bank of M=rank query-INDEPENDENT spatial anchor maps L_m(x,z) built from the
+# record-level, time-INDEPENDENT conditioning (medium pyramid + source), SHARED across every
+# saved time, combined with continuous per-frame coefficients w_m(t,tau):
+#     coarse(x,z,t) += gate * sum_m w_m(t,tau) * L_m(x,z) / sqrt(M).
+# Because the anchors do not depend on t and each frame uses only its own (t,tau), per-frame
+# query invariance holds BY CONSTRUCTION (no queried-index-axis mixing -- this resolves the
+# A1 contract blocker). Anchors are computed ONCE per record (not per frame) and there is no
+# K-frame U-Net re-render, so the extra activation is ~M channels per record, not K renders
+# (resolves the A1 memory blocker; strictly cheaper than B1's tempop). Gate is zero-init ->
+# exact warm-start no-op, so loading the warp ceiling is byte-reproducible (starts EXACTLY at
+# the warp metric, then A3 gates in).
+#
+# SINGLE FACTOR: warm-start is the WARP run's own best.pt (identical parent as B1). warp
+# params LOAD unchanged and are held near-frozen (warp has NO own LR group here -> dense
+# group at 5e-6), so the ONLY thing developing at full step is local_field.temporal_latent.*
+# (allowlisted-missing -> fresh zero-init, its OWN LR group at 5e-5). Any movement below the
+# warp ceiling is attributable to A3 alone, on an already-arrival-aligned field -- a clean
+# marginal CLASS-A test, the sibling of B1 (which added the class-B temporal_operator instead).
+#
+# FALSIFICATION (pre-registered, RE-KEYED 2026-07-30 ~11:55 after the ceiling-bound retraction; split
+# RE-VERIFIED ~12:20 from warp_r1 metrics): vs the strict warp reference (fixed_full_time_panel ep12:
+# agg 0.2398, LAYERED 0.2878, MARMOUSI 0.2516, late tbin 0.3452, uniform ~0.126, phase 0.7969). The
+# earlier gate keyed on "uniform < 0.115" was MISDIRECTED: the equal-record-weighted strict aggregate is
+# CO-DOMINATED by layered + marmousi (VERIFIED record split l=19 / m=19 / u=10 -> ~40% each, uniform only
+# ~21%), so uniform is NOT a binding lever and denting it barely moves agg.
+# A3 enriches the WHOLE coarse field via a query-independent temporal basis, so its
+# goal-relevant claim is that the continuous temporal basis lets a fixed (x,z) encode late/multi-arrival
+# structure the single U-Net render cannot -- which must show up on the DOMINANT layered/marmousi late error.
+# Require by the ep12 strict panel: LAYERED family_relative_l2 < 0.27 AND late tbin < 0.30 AND aggregate
+# < 0.235 (a real dent on the binding lever, matching B1's own switch gate) while phase_correlation
+# >= 0.80; MARMOUSI < 0.24 is a co-dominant secondary readout (report, does not alone decide). Uniform is
+# now only a tertiary readout. If layered/late stay pinned at the warp ceiling while only uniform twitches,
+# the continuous-basis form is insufficient on the dominant error -> escalate to a stronger class-A (explicit
+# space-time / wave-equation-structured coarse field). The unchanged hard goal remains agg < 0.05 and every
+# family < 0.08 (and note: those two targets are mutually inconsistent at this composition -- all-families-0.08
+# still yields agg 0.080 -- so agg<0.05 requires ~all families <0.05, i.e. ~80-83% cuts on layered AND marmousi).
+#
+# NOTE: launch ONLY on a free GPU (do NOT contend with the active B1 run) -- A3 and B1 both
+# warm-start the same frozen warp_r1 best.pt into DIFFERENT artifact_dirs, so they are
+# independent branches; A3 never touches B1 artifacts. Preferred sequencing: after B1's ep12
+# strict verdict frees a decision (and ideally a GPU), since the ceiling bound makes A3
+# goal-critical regardless of B1's class-B switch-gate outcome.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 2
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  temporal_latent_learning_rate: 5.0e-5
+  full_forward_checkpointing: false
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 372
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 24
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_temporal_latent_basis: true
+  local_field_temporal_latent_rank: 8
+  local_field_temporal_latent_harmonics: 4
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 8

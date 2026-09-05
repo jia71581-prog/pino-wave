@@ -1,0 +1,107 @@
+seed: 372
+
+data:
+  path: artifacts/pbg_factorized_fno_marm700_v1/dataset_v1.h5
+  raw_hdf5: artifacts/pbg_factorized_fno_marm700_v1/dataset_v1.h5
+  schema_mode: acoustic_lwc84_401_to_201_v1
+  velocity_key: velocity_mps
+  wavefield_key: wavefield
+  source_map_key: source_map
+  source_position_x_key: source_x_m
+  source_position_z_key: source_z_m
+  wavelet_key: source_wavelet
+  frequency_key: source_f0_hz
+  amplitude_key: source_amplitude
+  time_key: time_s
+  x_key: x_m
+  z_key: z_m
+  velocity_axes: [sample, z, x]
+  wavefield_axes: [sample, time, z, x]
+  source_map_axes: [sample, z, x]
+  source_position_units: m
+  input_features: [time, source_map, velocity]
+  split_seed: 372
+  split_manifest: artifacts/pbg_factorized_fno_marm700_v1/split_r28_120_60_60.json
+  split_output_path: results/factorized_pbg_marm_r32_pilot_20260823/split_snapshot.json
+  max_samples: null
+  open_hdf5_per_sample: false
+  num_workers: 0
+  pin_memory: true
+  persistent_workers: false
+  shuffle_train: true
+
+sampling:
+  target_height: 64
+  target_width: 64
+  time_start: 0
+  time_stop: null
+  time_stride: null
+  max_time_steps: 101
+  spatial_method: bilinear_antialias
+
+source_map:
+  sigma_grid: 1.5
+  normalize_max: true
+
+normalization:
+  stats_path: results/factorized_pbg_marm_r31_smoke_20260823/normalization_stats.json
+  reuse_stats: true
+  eps: 1.0e-16
+  max_stats_samples: 16
+
+model:
+  name: factorized_fno
+  in_features: 3
+  out_channels: 1
+  spatial_modes_x: 24
+  spatial_modes_z: 24
+  spatial_width: 32
+  spatial_layers: 3
+  temporal_width: 32
+  temporal_kernel: 7
+  temporal_layers: 3
+  padding_ratio: 0.0625
+  normalization: group
+  num_groups: 8
+  head_hidden: 128
+  temporal_chunk_size: 128
+  activation_checkpointing: false
+
+train:
+  device: cuda
+  batch_size: 2
+  epochs: 20
+  learning_rate: 0.0003
+  weight_decay: 0.000001
+  optimizer: adamw
+  scheduler: cosine
+  amp: false
+  grad_clip: 1.0
+  log_every_steps: 20
+  max_train_batches: null
+  max_val_batches: null
+  early_stopping_patience: 5
+  early_stopping_min_delta: 0.001
+  checkpoint_every_epochs: 1
+  checkpoint_dir: results/factorized_pbg_marm_r32_pilot_20260823/checkpoints
+  log_dir: results/factorized_pbg_marm_r32_pilot_20260823/logs
+  early_failure_gate:
+    enabled: true
+    stop_on_failure: true
+    min_epochs: 5
+    relative_l2_threshold: 0.98
+    require_better_than_zero_baseline: true
+
+validation:
+  category_balanced:
+    enabled: false
+
+loss:
+  relative_l2_weight: 1.0
+  mse_weight: 0.0
+  eps: 1.0e-8
+
+evaluation:
+  split: val
+  max_samples: 60
+  output_dir: results/factorized_pbg_marm_r32_pilot_20260823/evaluation

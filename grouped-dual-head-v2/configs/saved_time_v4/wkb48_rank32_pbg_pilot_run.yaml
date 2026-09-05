@@ -1,0 +1,89 @@
+# r50 wkb48_rank32_pbg pilot run configuration.
+#
+# Scientific contract (rollback of r49; capacity basis r48b; WKB amplitude
+# rank evidence from the saved_time_v4 design notes):
+#   * fit-panel head only: train_marmousi_00000 / 00002 / 00003, mapped by
+#     sample_id with HDF5 split=train and a train_ id prefix enforced.
+#     calibration/confirmation/validation/test_id are never opened.
+#   * Inputs: velocity, source_map/source_parameters, coordinates, eikonal
+#     travel time, analytic source parameters.  P_bg wavefields are train
+#     labels only and never enter the model input.
+#   * Single conceptual variable vs r49: the Helmholtz head switches from
+#     r49's raw oscillatory rank-0 independent head (wkb_phase=false, rank=0,
+#     which FAILED at agg 1.09) to the WKB/geometric-optics low-rank head
+#     (wkb_phase=true, rank=32).  WKB factors the fast oscillation out
+#     analytically via the eikonal travel time, so the head only learns 8
+#     shared SMOOTH amplitude basis fields plus a small per-frequency,
+#     per-record-conditioned complex mixing, instead of 96 fully oscillatory
+#     complex fields.  All other architecture, data, optimization, and gate
+#     settings are held identical to r49.
+#   * The head outputs 2*48 = 96 effective coefficient channels at 64x64 via
+#     the rank-32 factorization; the fixed inverse synthesis renders
+#     [B, 401, 64, 64] in retarded time.  The supervision target uses the
+#     loader's bilinear+antialias 64x64 resampling over all 401 stored times,
+#     encode_pressure, then the r48b forward-norm rFFT bins 0..47 with the
+#     WKB arrival-phase rotation (arrival_time_s = the same eikonal travel
+#     time the synthesis uses).  Global pressure_scale_pa=
+#     1.894229157173348e-08 and amplitude=1; no per-record or per-frequency
+#     target normalization.
+schema: wkb48_rank32_pbg_pilot_run_v1
+
+base_config: configs/saved_time_v4/direct48_pbg_pilot.yaml
+
+spatial_size: 64
+
+sample_ids:
+  - train_marmousi_00000
+  - train_marmousi_00002
+  - train_marmousi_00003
+
+helmholtz:
+  frequencies: 48
+  wkb_phase: true
+  rank: 32
+
+probe:
+  dense_depth: 8
+  dense_spectral_rank: 112
+  dense_modes: 32
+  local_field_channels: [1, 1, 2, 2]
+  local_field_causal_width_s: 0.005
+  local_field_residual: false
+
+train:
+  dense_learning_rate: 0.0001
+  backbone_learning_rate: 5.0e-05
+  seed: 372
+  updates: 800
+  evaluate_every: 50
+  microbatch_records: 1
+  gradient_clip:
+    maximum_norm: 1.0
+    mode: prefix_limits
+    prefix_limits:
+      coordinate_encoder: 5.0
+      default: 1.0
+      dense_decoder: 20.0
+      fusion: 5.0
+      local_field: 20.0
+      medium_encoder: 2.0
+      source_encoder: 5.0
+      travel_branch: 5.0
+
+eval:
+  # With all three disabled the evaluation output IS the WKB 48-bin inverse
+  # synthesis (no causal gate, no free-surface re-taper, no hard causality).
+  causal_gate: false
+  free_surface_factor: false
+  hard_causality: false
+  frames: 401
+
+# Decision gates live in configuration (never hard-coded in the script).
+# This is a train-overfit capacity check only; it must not be presented as the
+# final candidate.
+decision:
+  metric: all_saved_aggregate_relative_l2
+  accepted_capacity_aggregate_maximum: 0.10
+  accepted_capacity_record_maximum: 0.12
+  strong_capacity_aggregate_maximum: 0.06
+  rejected_aggregate_minimum: 0.30

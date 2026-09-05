@@ -1,0 +1,39 @@
+dataset: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+run_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/b2h/paired_control_r1/run
+warmstart_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/b2h/teacher_window_smoke_r1/run/best.pt
+a3_checkpoint_preserved: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32/run/checkpoints/epoch_0017.pt
+seed: 372
+epochs: 8
+data:
+  rollout_steps: 8
+  history_steps: 1
+  train_records_per_family: 32
+  samples_per_epoch: 96
+  validation_records_per_family: 2
+  validation_starts: [40, 100, 200, 300]
+  batch_size_per_rank: 1
+  workers: 0
+model:
+  cond_channels: 0
+  memory_steps: 0
+  width: 32
+  spectral_rank: 16
+  modes: 12
+  depth: 2
+  dt_s: 0.0025
+  dx_m: 10.0
+  dz_m: 10.0
+  gate_init: 0.03
+  residual_scale_init: 1.0e-4
+  substeps_per_saved_step: 2
+  pressure_scale: 1.0e-7
+  velocity_reference_mps: 3000.0
+  velocity_scale_mps: 1500.0
+  activation_checkpointing: true
+optimizer:
+  learning_rate: 5.0e-4
+  gate_learning_rate: 1.0e-3
+  weight_decay: 1.0e-6
+  gradient_clip: 5.0
+loss:
+  energy_floor_fraction: 0.05

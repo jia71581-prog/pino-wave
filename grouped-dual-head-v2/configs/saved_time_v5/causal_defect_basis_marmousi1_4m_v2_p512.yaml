@@ -1,0 +1,70 @@
+# PTLSA/CPADC controlled continuation with denser physics-residual sampling.
+# This is intentionally identical to causal_defect_basis_marmousi1_4m_v2.yaml
+# except that physics_point_count is raised from 128 to 512. Existing results
+# remain bound to the original config digest.
+source_h5: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+parent_kind: saved_time_v4
+parent_operator_config: configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1.yaml
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1/pilot/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1/pilot/run_identity.json
+parent_correction_scale: 1.0
+normalization_json: /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+
+seed: 372
+dt_s: 0.0025
+dx_m: 10.0
+dz_m: 10.0
+bridge_steps: 4
+causal_ramp_steps: 4
+
+cpadc:
+  rank: 16
+  phase_rank: 4
+  width: 32
+  per_family: 32
+  epochs: 100
+  patch_size: 64
+  learning_rate: 1.0e-4
+  physics_point_count: 512
+  rank_chunk_size: 1
+differentiate_inner_solve: true
+
+inner_weights:
+  defect: 1.0
+  observed: 0.0
+  bridge: 0.5
+  prior: 1.0e-4
+inner_spatial_stride: 4
+training_maximum_condition_number: 1.0e10
+training_maximum_correction_ratio: 0.10
+
+outer_weights:
+  full_field: 1.0
+  late: 0.5
+  temporal_difference: 0.1
+  spectrum: 0.1
+  coefficient: 1.0e-5
+late_start_fraction: 0.5
+
+rad_k: 1.0
+rad_c: 1.0
+rad_time_tilt: 1.5
+
+family_loss_weights:
+  uniform: 0.5
+  layered: 1.25
+  marmousi: 1.25
+family_sampling_weights:
+  uniform: 0.75
+  layered: 1.125
+  marmousi: 1.125
+
+deployment_gate:
+  minimum_causal_objective_improvement: 0.001
+  maximum_condition_number: 1.0e8
+  maximum_correction_ratio: 0.10
+  maximum_runtime_s: 5.0
+  minimum_blind_mean_improvement: 0.01
+  minimum_nonworse_fraction: 0.90
+  require_every_family_nonworse: true

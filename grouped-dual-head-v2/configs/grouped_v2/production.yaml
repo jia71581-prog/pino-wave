@@ -1,0 +1,26 @@
+model:
+  width: 64
+  rank: 64
+  modes: [20, 16, 12, 8]
+  dense_time_block: 4
+  heads: 4
+data:
+  train_cache: /home/jiayh/Data/data/processed/grouped_dual_head_v2_train.h5
+  validation_cache: /home/jiayh/Data/data/processed/grouped_dual_head_v2_validation.h5
+  normalization_json: /home/jiayh/Data/data/processed/grouped_v2_normalization.json
+  uniform_floor: 0.2
+  pressure_percentile: 99.9
+loss: {query: 1.0, dense: 1.0, trace: 0.05, consistency: 0.05, gradient: 0.05, spatial_fft: 0.02, trace_fft: 0.02}
+train:
+  batch_records: 4
+  learning_rate: 0.0002
+  epochs: 200
+  seed: 17
+  max_steps: 100000
+  validation_every: 500
+  workers: 12
+  weight_decay: 0.00001
+  smoke: false
+  run_kind: production
+  validation_batches: 32
+  prefetch_factor: 4

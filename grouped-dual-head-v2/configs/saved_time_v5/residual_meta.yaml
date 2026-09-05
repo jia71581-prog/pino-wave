@@ -1,0 +1,9 @@
+source_h5: /home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_checkpoint: artifacts/v5_instance_adaptation/parent/best.pt
+seed: 17
+latent_dim: 32
+lora_rank: 4
+meta_episodes: 12
+time_points: 48
+learning_rate: 0.0002

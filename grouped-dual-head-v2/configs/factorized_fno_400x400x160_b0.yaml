@@ -1,0 +1,136 @@
+data:
+  amplitude_key: source_amplitude
+  dx_key: dx
+  frequency_key: source_frequency_hz
+  input_features:
+  - time
+  - source_map
+  - velocity
+  max_samples: null
+  num_workers: 0
+  open_hdf5_per_sample: false
+  path: /home/jiayh/Data/data/pino.hdf5
+  persistent_workers: false
+  pin_memory: true
+  raw_hdf5: /home/jiayh/Data/data/pino.hdf5
+  schema_mode: explicit_after_inspection
+  shuffle_train: true
+  source_map_axes:
+  - sample
+  - x
+  - z
+  source_map_key: source_mask
+  source_position_units: index
+  source_position_x_key: source_x_idx
+  source_position_z_key: source_z_idx
+  split:
+  - 0.8
+  - 0.1
+  - 0.1
+  split_manifest: artifacts/hybrid_drp_pino/fno_continue_pretrain_optimizer_safe/splits.json
+  split_seed: 20260714
+  tensor_axes:
+  - sample
+  - time
+  - x
+  - z
+  time_key: t-coordinate
+  velocity_axes:
+  - sample
+  - x
+  - z
+  velocity_key: nu
+  wavefield_axes:
+  - sample
+  - time
+  - x
+  - z
+  wavefield_key: tensor
+  wavelet_key: wavelet
+  x_key: x-coordinate
+  z_key: y-coordinate
+experiment:
+  diagnostic_only: false
+  full160_label_sites: 24576000
+  gpu_hour_budget: 72.0
+  label_site_schedule:
+  - - 12000
+    - 2048
+  optimizer_updates: 12000
+  physical_scene_draws: 12000
+  query_unit: spatial_site_full_trace
+loss:
+  eps: 1.0e-08
+  mse_weight: 0.1
+  relative_l2_weight: 1.0
+model:
+  activation_checkpointing: true
+  head_hidden: 32
+  in_features: 3
+  name: factorized_fno
+  num_groups: 4
+  out_channels: 1
+  spatial_layers: 1
+  spatial_modes_x: 48
+  spatial_modes_z: 48
+  spatial_width: 8
+  temporal_chunk_size: 4
+  temporal_kernel: 3
+  temporal_layers: 1
+  temporal_width: 8
+normalization:
+  eps: 1.0e-06
+  reuse_stats: true
+  stats_path: artifacts/pino_adaptation/normalization_stats.json
+receiver:
+  x_start_m: 0.0
+  x_stop_m: 1960.0
+  x_stride_m: 40.0
+  z_m:
+  - 20.0
+sampler:
+  ema_momentum: 0.9
+  lag_epochs: 1
+  min_probability: 1.0e-12
+  residual_power: 1.0
+  tile_grid:
+  - 16
+  - 16
+sampling:
+  global_size: 100
+  max_time_steps: 160
+  spatial_method: bilinear_antialias
+  target_height: 400
+  target_width: 400
+seed: 20260714
+train:
+  amp: false
+  batch_size: 1
+  checkpoint_dir: artifacts/ais_mqfno_full160_native400_20260714/baselines/b0/checkpoints
+  device: cuda
+  epochs: 6
+  grad_clip: 1.0
+  learning_rate: 0.0001
+  log_dir: artifacts/ais_mqfno_full160_native400_20260714/baselines/b0/logs
+  log_every_steps: 1
+  max_train_batches: null
+  max_val_batches: null
+  optimizer: adamw
+  patch_centers_per_scene: 4
+  patch_size: 17
+  phases:
+  - init_from: random
+    loss_profile: field
+    name: matched_budget_b0
+    optimizer_updates: 12000
+    reset_optimizer: true
+  query_chunk_size: 2048
+  query_sites_per_scene: 2048
+  receiver_sites_per_scene: 50
+  scheduler: cosine
+  spatial_importance_sampling:
+    enabled: true
+    pixels_per_sample: 2048
+    reweight_loss: true
+    uniform_fraction: 1.0
+  weight_decay: 0.0001

@@ -1,0 +1,74 @@
+# Long, full-train continuation of the audited discrete PI-DeepONet baseline.
+# The architecture, loss, optimizer hyperparameters, data manifest, and train-only
+# selection protocol are unchanged.  The completed r6 train-selected checkpoint
+# initializes a fresh optimizer for a 100-epoch, full-support training run.
+schema: pi_deeponet_training_config_v1
+launch_authorized: true
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5
+seed: 372
+epochs: 100
+initialization:
+  policy: model_state_only_reset_optimizer
+  checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_train_gate_r6/full_mb4_r1/best.pt
+  checkpoint_sha256: c35ebb12b753b8e59d0eddab8e891d53a2933e98a0d9a072e1054a376b65a625
+schedule:
+  split: train
+  record_strategy: uniform_random_with_full_coverage
+  record_oversample: 2.0
+  macro_records: 8
+  macros_per_update: 4
+  effective_records_per_update: 32
+  time_policy: appearance16
+  frames_per_record: 24
+  # Three Patch epochs plus three PI epochs have already been seen by the parent.
+  schedule_epoch_offset: 6
+optimizer:
+  name: adamw
+  learning_rate: 0.0001
+  weight_decay: 0.000001
+  beta1: 0.9
+  beta2: 0.99
+  epsilon: 0.00000001
+  gradient_clip: 1.0
+  warmup_epochs: 1
+  minimum_factor: 0.1
+loss:
+  record_relative_l2: 1.0
+  temporal_difference: 0.1
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  hard_causality_lead_cycles: 1.0
+physics:
+  formulation: forced_saved_grid_lwc84_v1
+  weight: 0.02
+  warmup_updates: 10
+  maximum_triplets_per_record: 2
+  dt_output_s: 0.0025
+  dx_m: 10.0
+  dz_m: 10.0
+  denominator_epsilon: 0.00000001
+model_execution:
+  time_block: 2
+  query_chunk: 4096
+  automatic_mixed_precision: false
+selection:
+  split: train
+  panel_records: 48
+  frames_per_record: 32
+  metric: aggregate_relative_l2
+  checkpoint_rule: strict_improvement
+entry_gate:
+  split: train
+  one_record_per_family: true
+  maximum_updates: 40
+  maximum_aggregate_relative_l2: 0.80
+  maximum_each_family_relative_l2: 0.90
+  maximum_physics_final_to_initial_ratio: 1.05
+  require_finite_nonzero_prediction: true
+  full_training_requires_passed_report: true
+claim_scope:
+  source_generalization_variable: position_only
+  fixed_position_evaluation_frequency_hz: 19.0
+  frequency_generalization_permitted: false

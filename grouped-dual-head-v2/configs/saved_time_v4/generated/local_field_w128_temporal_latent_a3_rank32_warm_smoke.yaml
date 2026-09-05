@@ -1,0 +1,134 @@
+# A3-WARM SMOKE (rank32) -- pilot_epochs=3 short run to cross >=3 validation->train
+# boundaries at 4 ranks with no OOM/NaN before the full A3-warm launch. DISTINCT _smoke
+# artifact_dir. Identical model/LR/gate to the full A3-warm; only pilot_epochs + dir differ.
+# A3-WARM (rank32) -- DEADLOCK-BROKEN class-A test.  SINGLE FACTOR vs the running A3-rank32:
+# ONLY local_field_adapter_gate_init changes 0.0 -> 0.03.  parent (warp_r1 best.pt), rank (32),
+# harmonics (4), LR groups (temporal_latent 5e-5, parent near-frozen dense 5e-6), panels, seed --
+# all IDENTICAL.
+#
+# WHY THIS RUN EXISTS (2026-07-30 R8, CPU-VERIFIED): the running A3-rank32 uses gate_init=0.0.
+# A zero-init MULTIPLICATIVE gate (residual = gate * f) on a near-frozen parent is UNTRAINABLE:
+# dL/d(anchor_projection) = dL/d(time_trunk) = gate * dL/d(out) == 0 at gate=0.  CPU test
+# (_ContinuousTemporalLatentBasis, rank=8, forced-nonzero internals) confirms EXACTLY:
+#     gate_init=0.0  -> anchor_grad=0.000e+00  time_trunk_grad=0.000e+00  max|out|=0.000e+00
+#     gate_init=0.03 -> anchor_grad=9.7e-05    time_trunk_grad=8.2e-06    max|out|=1.2e-03
+# So the running A3 NEVER TESTS class-A structure -- its temporal-latent trunks receive exactly
+# zero gradient and stay at random init; any epoch-to-epoch movement (ep5 0.2352 / ep6 0.2344 /
+# ep7 0.2367) is PURE PARENT DRIFT under the 5e-6 dense group, NOT the temporal basis developing.
+# This is the SAME cold-start deadlock verified for A4 (multi_arrival), fixed the SAME way: a small
+# POSITIVE gate_init (0.03) gives the anchor_projection + time_trunk real gradient so the basis
+# actually develops.  gate is itself a learned parameter, so if the 0.03 init perturbation (~1e-3
+# on an O(1) field, negligible) is unhelpful the optimizer can shrink it.
+#
+# THIS IS THE GENUINE CLASS-A TEST.  The running A3 answers "does parent drift under A3's LR help"
+# (marginal); THIS run answers the mandated structural question "does a query-independent continuous
+# temporal LATENT BASIS let a fixed (x,z) encode late/multi-arrival structure a single U-Net render
+# cannot?"  Only with the deadlock broken is that falsifiable.
+#
+# FALSIFICATION (pre-registered, inherits A3-rank32's re-keyed gate; ref = strict warp ep12:
+# agg 0.2398, LAYERED 0.2878, MARMOUSI 0.2516, late tbin 0.3452, phase 0.7969).  By the ep12 strict
+# panel require: LAYERED family_relative_l2 < 0.27 AND late tbin < 0.30 AND aggregate < 0.235 while
+# phase_correlation >= 0.80 (a real dent on the DOMINANT layered+marmousi late error).  If, WITH the
+# gate open and the trunks receiving real gradient, layered/late stay pinned at the warp ceiling ->
+# the continuous-temporal-basis FORM is structurally insufficient (not merely deadlocked) -> escalate
+# to a stronger class-A (explicit space-time / wave-equation-structured coarse field).  This is the
+# clean class-A verdict the deadlocked run could not deliver.
+#
+# LAUNCH: on a FREE GPU only; do NOT contend with the running A3 (PID 495074) or overwrite its
+# artifact_dir -- this writes a DISTINCT artifact_dir (..._warm).  Both warm-start the same frozen
+# warp_r1 best.pt into different dirs -> independent branches.  Preferred: after the running A3's
+# ep12 strict verdict frees a GPU, so the deadlocked-vs-warm pair is a controlled A/B on gate_init.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_smoke
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 3
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  temporal_latent_learning_rate: 5.0e-5
+  full_forward_checkpointing: false
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 372
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 24
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_temporal_latent_basis: true
+  local_field_temporal_latent_rank: 32
+  local_field_temporal_latent_harmonics: 4
+  local_field_adapter_gate_init: 0.03
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 8

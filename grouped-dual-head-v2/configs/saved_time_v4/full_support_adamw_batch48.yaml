@@ -1,0 +1,38 @@
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_checkpoint: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/best.pt
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+artifact_dir: /data/jiayh/saved_time_v5_training_recovery_batch48
+seed: 307
+epochs: 50
+macro_records: 12
+macros_per_update: 4
+microbatch_records: 12
+query_points: 1
+workers: 8
+prefetch_factor: 4
+time_policy: appearance4
+energy_floor_fraction: 0.01
+validation:
+  panel_records: 48
+  frames_per_record: 16
+  microbatch_records: 4
+  all_records_every: 5
+  final_frames_per_record: 401
+optimizer:
+  dense_learning_rate: 0.0002
+  geometry_learning_rate: 0.0001
+  backbone_learning_rate: 0.00002
+  weight_decay: 0.000001
+  warmup_epochs: 3
+  minimum_factor: 0.05
+  gradient_clip: 1.0
+  full_forward_checkpointing: true
+loss:
+  spatial_gradient: 0.1
+  spectrum: 0.2
+gate:
+  maximum_peak_cuda_gib: 23.0
+  pilot_epochs: 3
+  family_regression_tolerance: 0.03
+  target_aggregate_relative_l2: 0.10
+  target_family_relative_l2: 0.12

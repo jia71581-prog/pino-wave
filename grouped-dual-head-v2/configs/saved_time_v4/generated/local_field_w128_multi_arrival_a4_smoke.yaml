@@ -1,0 +1,166 @@
+# A4 multi_arrival (CLASS-A late-arrival lever): extra delayed/displaced characteristic warps.
+#
+# STATUS: LAUNCH-READY, NOT YET LAUNCHED. This config is the pre-registered A4 escalation
+# branch. Launch ONLY after the A3-rank32 ep12 STRICT verdict frees the decision (and a GPU),
+# per the pre-registered escalation ladder. Do NOT contend with the active A3 run.
+#
+# WHY A4 (class-A late-arrival structure): the strict aggregate is co-dominated by layered +
+# marmousi (~79% together; VERIFIED record split l=19 / m=19 / u=10). The binding residual is
+# LATE-time (late tbin 0.345 at the warp ceiling) -- reflections / multiples that the r4 single
+# first-arrival warp CANNOT place. A4 adds K explicit later-arrival paths: each reuses the shared
+# first-arrival characteristic grad(T) (a reflection retraces the same rays), displaced by its own
+# bounded shift head and turned on after a learned per-record delay Delta_k, mixed by a zero-init
+# scalar gate. This is a genuine STRUCTURAL capacity change on the DOMINANT late error, not a
+# loss/LR tweak.
+#
+# OPTION B WARM-START (byte-reproducible warp ceiling): A4 is ADDITIVE on top of the parent-trained
+# local_field.warp -- path 0 stays self.warp (loads unchanged from warp_r1/best.pt), and A4 supplies
+# only the EXTRA delayed paths. Every path_gate is zero-init, so at load field_out == field_in
+# EXACTLY: the model starts at the loaded 0.2398 warp ceiling and only the fresh multi_arrival.*
+# params develop. This resolves the earlier "warp:false would drop the trained path 0" blocker.
+#
+# MECHANISM (per-frame query invariant BY CONSTRUCTION): for each extra path k,
+#   delay_k(x,z)   = max_delay_frac * domain_t_s * sigmoid(delay_head_k(spatial))   # per-record, query-indep
+#   causal_k(t)    = sigmoid((t - onset - arrival - delay_k) / causal_width_s)
+#   field += path_gate[k] * causal_k * warp_k(field)                                # warp_k reuses grad(T)
+# The delay/shift maps depend only on the time-INDEPENDENT record conditioning; each frame uses only
+# its own (t, causal_k), so no queried-index-axis mixing (same query-invariance contract as r4/A3).
+# Cost over r4: K small shift convs + K grid-samples on the ALREADY-rendered field + K 1x1 delay
+# convs -- NO extra U-Net render, same activation-memory envelope as warp_r1 (~23.2 GiB/card).
+#
+# SINGLE FACTOR vs warp_r1 parent: ONLY local_field_multi_arrival is newly enabled (paths=3). warp,
+# residual, harmonics, LR groups, panels identical. warp.* loads unchanged and sits in the dense
+# group (5e-6, near-frozen); multi_arrival.* is the ONLY thing developing at full step (own group
+# 5e-5). Any movement below the warp ceiling is attributable to A4 alone -- the class-A late-arrival
+# sibling of A3 (temporal_latent) and B1 (temporal_operator).
+#
+# FALSIFICATION (pre-registered, same strict warp reference as A3): vs warp ep12 strict
+# (agg 0.2398, LAYERED 0.2878, MARMOUSI 0.2516, late tbin 0.3452, phase 0.7969). A4's goal-relevant
+# claim is that explicit later-arrival paths place the late reflections a single warp cannot, so it
+# MUST move the DOMINANT layered/marmousi LATE error. Require by the ep12 strict panel:
+#   LAYERED family_relative_l2 < 0.27 AND late tbin < 0.30 AND aggregate < 0.235 while phase >= 0.80;
+# MARMOUSI < 0.24 co-dominant secondary readout. If layered/late stay pinned at the warp ceiling
+# while only the gate twitches, the additive-path form is insufficient on the dominant late error ->
+# escalate to an explicit wave-equation / space-time-structured coarse field.
+# Unchanged hard goal: agg < 0.05 and every family < 0.08.
+# ---------------------------------------------------------------------------------------------
+# A4 MULTI-ARRIVAL SMOKE -- minimal-diff clone of local_field_w128_multi_arrival_a4.yaml.
+# Only this header, artifact_dir, and pilot_epochs differ from the full A4 config.
+# INVOKE:
+#   torchrun --standalone --nproc_per_node=4 scripts/train_saved_time_v4_full_support.py \
+#     --config configs/saved_time_v4/generated/local_field_w128_multi_arrival_a4_smoke.yaml \
+#     --smoke-updates 3 --smoke-epochs 4
+# --smoke-epochs 4 crosses 4 validation->train boundaries (exceeds the >=3 mandate) on the
+# light `smoke` panel; --smoke-updates 3 caps updates/epoch.
+# PASS: 4-rank no OOM/NaN across all 4 val->train transitions, checkpoints intact,
+# peak_cuda_bytes < 23.5 GiB. A4 adds only K=3 small shift convs + K grid-samples on the
+# ALREADY-rendered field + K 1x1 delay convs (no extra U-Net render), so the activation
+# envelope matches warp_r1 (~23.2 GiB/card); CONFIRM the real peak here before the full launch.
+# CPU WARM-START ALREADY VERIFIED (tmp_a4_warmstart_cpu_check.py): real warp_r1/best.pt loads
+# into the A4 child with zero contract violations; path_gate warms to 0.03 (+223,497 params,
+# all under local_field.multi_arrival.). Writes to a SEPARATE _smoke artifact_dir so it never
+# touches the full A4 run nor any active run.
+# ---------------------------------------------------------------------------------------------
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/multi_arrival_a4_smoke
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+checkpoint_keep_last: 5
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 3
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  multi_arrival_learning_rate: 5.0e-5
+  full_forward_checkpointing: true  # A4 exceeds 24GiB vs warp_r1's ~23.2 (3 extra paths+grid-samples); whole-forward checkpoint(use_reentrant=False) is numerically identical, keeps single-factor contract
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 373
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 16  # 24 tips A4 (warp_r1 peak 21.7GiB + 3 extra paths) over 24GiB; opt16 proved 16 frames safe (peak 15.5GiB, reached 0.245). Strict 401-frame falsification panel is unaffected by train frame count.
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 8.0
+  local_field_multi_arrival: true
+  local_field_multi_arrival_paths: 3
+  local_field_multi_arrival_max_shift_cells: 8.0
+  local_field_multi_arrival_max_delay_frac: 0.5
+  # COLD-START DEADLOCK FIX (2026-07-30, verified on A3 ep1-3): a zero-init output gate
+  # on a near-frozen parent is UNTRAINABLE -- dL/d(head) = gate * ... == 0, so the paths
+  # never develop (A3's gate stayed at ~1.3e-4 and its internals were frozen after a full
+  # 5e-5 epoch). A small POSITIVE gate_init gives the shift/delay heads real gradient at
+  # load and lets the optimizer freely grow or shrink the gate -- a genuine test of the
+  # multi-arrival form instead of a frozen no-op. Warm-start is now field_out != field_in
+  # at load by a bounded amount (<= gate_init * num_paths on fully-late frames; ~9% here),
+  # recoverable within the first updates; NOT the byte-exact ceiling, by design.
+  local_field_adapter_gate_init: 0.03
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 8

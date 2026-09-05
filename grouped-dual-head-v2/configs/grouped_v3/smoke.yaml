@@ -1,0 +1,58 @@
+model:
+  width: 8
+  spectral_rank: 4
+  modes: [3, 3]
+  dense_modes: [3, 3]
+  mionet_rank: 8
+  token_count: 4
+  heads: 2
+  position_bands: 2
+  fourier_bands: 2
+  gabor_scales_s: [0.03, 0.08]
+  ray_samples: 4
+  dense_time_block: 1
+  domain_x_m: 2000.0
+  domain_z_m: 2000.0
+  domain_t_s: 1.0
+data:
+  source_h5: /home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+  manifest_json: /home/jiayh/Data/data/processed/grouped_v3_manifest.json
+  normalization_json: /home/jiayh/Data/data/processed/grouped_v3_normalization.json
+  train_cache: /home/jiayh/Data/data/processed/grouped_dual_head_v2_train.h5
+  validation_cache: /home/jiayh/Data/data/processed/grouped_dual_head_v2_validation.h5
+  expected_train_records: 2240
+  expected_validation_records: 480
+  continuous_fraction: 0.125
+  gate_sample_id: ""
+  gate_sample_ids: []
+loss:
+  point: 1.0
+  frame: 1.0
+  complex_spectrum: 0.15
+  spectral_phase: 0.1
+  spatial_gradient: 0.1
+  time_difference: 0.1
+  consistency: 0.05
+  phase_energy_fraction: 0.0001
+train:
+  optimizer: adamw
+  batch_records: 1
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  epochs: 1
+  max_steps: 2
+  evaluation_every: 1
+  steps_per_epoch: 1
+  query_points_per_step: 128
+  workers: 0
+  prefetch_factor: 2
+  seed: 17
+  smoke: true
+  device: cuda
+  checkpoint_dir: artifacts/grouped_ufno_mionet_v3/smoke/checkpoints
+  gradient_clip: 1.0
+  plateau_patience: 2
+  plateau_min_delta: 0.0001
+  lbfgs_learning_rate: 0.5
+  lbfgs_max_iter: 5
+  lbfgs_history_size: 7

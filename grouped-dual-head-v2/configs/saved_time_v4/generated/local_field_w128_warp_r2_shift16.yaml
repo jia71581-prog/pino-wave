@@ -1,0 +1,122 @@
+# r4c warp_r2_shift16 (controlled A2, EVIDENCE-DRIVEN): RAISE the transport bound.
+#
+# WHY (measured, not guessed): warp_r1 ep12 fixed_full_time_panel logged
+# xcorr_peak_shift_cells=7.023 (mean wavefront translation) and
+# centroid_shift_cells=17.42, while the warp shift is HARD-BOUNDED at
+# max_shift_cells=8.0. The mean wavefront shift is 88% of the bound and the centroid
+# displacement exceeds it ~2x -> the +-8-cell clamp is (near-)binding on the residual
+# the model still carries (layered 0.2879 worst family, late tbin 0.3452 worst bin).
+# A bounded warp cannot move energy the distance the data demands; raising the bound
+# is the most directly evidence-supported single factor. This is prioritized ABOVE
+# the receptive-field dilation variant (warp_r2_dil2): dilation widens what the head
+# SEES to decide a shift, but cannot help energy CLAMPED at 8 cells that needs to
+# travel further.
+#
+# MECHANISM: identical to warp_r1 EXCEPT local_field_warp_max_shift_cells 8.0 -> 16.0.
+# The shift head is unchanged and still zero-init -> s=0 at load -> EXACT no-op at
+# warm-start (tanh(0)=0 regardless of the bound; verified). Larger bound only widens
+# the reachable displacement range as the head learns.
+#
+# SINGLE FACTOR: max_shift_cells 8 -> 16. Same opt16 parent as warp_r1, same zero-init,
+# LRs, losses, adaptive sampling. Directly comparable to warp_r1 (dilation=1, bound=8).
+#
+# FALSIFICATION (co-primary vs warp_r1 ep12 agg=0.23978 phase=0.79694 layered=0.28785,
+# xcorr_shift=7.023): PASS = agg<0.23978 AND phase>=0.79694 AND layered<0.2878, with
+# xcorr_peak_shift_cells free to exceed 8 (confirming the bound WAS binding). If agg/
+# phase/layered stay flat AND learned shifts remain <8, the +-8 bound was NOT the
+# limiter -> the position error is not a longer smooth advection (multipathing) ->
+# escalate to A4 multi_arrival mixture / r5 scattering. If shifts saturate the new 16
+# bound too, raise again or switch to mixture paths.
+#
+# Warm-start: opt16 best.pt (agg 0.2449), SAME parent as warp_r1. warp subtree missing
+# -> fresh zero-init via missing-prefix transfer (bound does not change weight shape).
+# Memory: identical to warp_r1 (~21.7 GiB); a scalar bound adds nothing. Cap 23.5 GiB.
+artifact_dir: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r2_shift16
+base_config: configs/grouped_v3/continuous_pilot_w128_legacy_norm.yaml
+checkpoint_transfer:
+  allow_new_local_field_parameters: false
+  allow_parent_manifest_mismatch: false
+  parent_optimizer_state: false
+pin_trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+energy_floor_fraction: 0.01
+epochs: 40
+family_gradient_weights: {layered: 1.0, marmousi: 1.0, uniform: 1.0}
+gate:
+  external_evidence_gate: false
+  family_regression_tolerance: 0.05
+  maximum_peak_cuda_gib: 23.5
+  pilot_epochs: 2
+  target_aggregate_relative_l2: 0.05
+  target_family_relative_l2: 0.08
+loss:
+  delta: 0.5
+  delta_energy_floor_fraction: 0.1
+  hard_causality: true
+  hard_causality_lead_cycles: 1.0
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  temporal_difference: 0.1
+  per_frame_frame: true
+  frame_energy_floor_fraction: 0.05
+  late_frame_gain: 2.0
+  late_frame_start_fraction: 0.4
+macro_records: 8
+macros_per_update: 4
+microbatch_records: 1
+optimizer:
+  adamw_implementation: fused
+  backbone_learning_rate: 5.0e-7
+  dense_learning_rate: 5.0e-6
+  warp_learning_rate: 5.0e-5
+  full_forward_checkpointing: false
+  geometry_learning_rate: 1.0e-6
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix_limits
+  gradient_clip_prefix_limits:
+    coordinate_encoder: 5.0
+    default: 1.0
+    dense_decoder: 20.0
+    fusion: 5.0
+    local_field: 80.0
+    medium_encoder: 2.0
+    source_encoder: 5.0
+    travel_branch: 5.0
+  minimum_factor: 0.1
+  schedule_epoch_offset: 0
+  schedule_total_epochs: 40
+  training_time_block: 1
+  warmup_epochs: 2
+  weight_decay: 1.0e-6
+parent_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/opt16_r1/run/best.pt
+parent_checkpoint_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/opt16_r1/run/run_identity.json
+parent_identity: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_residual/w2_parent_identity_legacy_norm.json
+prefetch_factor: 4
+query_points: 1
+seed: 372
+time_appearance_offset: 15
+time_policy: appearance16
+training_frames_per_record: 24
+travel_time_h5: /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+validation:
+  all_records_every: 4
+  final_frames_per_record: 401
+  frames_per_record: 32
+  full_panel_records: 48
+  microbatch_records: 1
+  panel_records: 48
+variant_overrides:
+  local_field: true
+  local_field_residual: true
+  local_field_warp: true
+  local_field_warp_max_shift_cells: 16.0
+adaptive_sampling:
+  enabled: true
+  frame_axis: true
+  record_axis: true
+  k: 1.0
+  c: 1.0
+  floor_per_bin: 2
+  record_oversample: 1.3
+  time_bin_errors: [0.143, 0.260, 0.430]
+  family_errors: {uniform: 0.183, layered: 0.301, marmousi: 0.325}
+workers: 8

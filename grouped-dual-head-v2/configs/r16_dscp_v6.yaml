@@ -1,0 +1,43 @@
+schema: r16_dscp_v6
+candidate: r16_dscp_v6
+scientific_design: identical_r16_dscp_v5_only_ram_cache_identity_terminal_fixes
+inherits_v5_config_sha256: 7be2712c65bf1d06c25d2ac029afd2ab4e16c4f65f575cc29a065b812499f4ba
+seed: 372
+model: {rank: 16, channels: 29, parameters: 1202, ridge_parameters: 480, model_macs: 45451125, projection_macs: 259212816, materialization_macs: 259212816}
+optimization: {optimizer: AdamW, lr: 0.003, betas: [0.9,0.99], eps: 1.0e-8, weight_decay: 0.0001, grad_clip: 1.0, global_batch: 4, microbatch_per_device: 1, time_microblock: 32, cuda_autocast: bfloat16, reductions: float32_or_float64, deterministic: true, tf32: false}
+loss: {frame_relative_l2_squared: 1.0, late_third_relative_l2_squared: 0.25, temporal_difference: 0.10, actual_coefficient_energy: 0.0001, physics: 0.0, frame_sampling: false}
+cache:
+  kind: process_local_ram_only
+  key: split_sample_group_nontruth_parent_basis_feature_hashes
+  serialization: forbidden
+  host_reserve_gib: 16
+  tensor_byte_formula: numel_times_element_size_conservative_recursive
+  roles: {smoke: 3, pilot: 48, scale_per_rank: 3, long: 216, final_train_confirm: 1, validation: 1, test: 1}
+  smoke_parent_callback_maximum: 3
+  truth_boundary: cache_truth_only_after_candidate_serialized_then_authorized_truth_read
+schedule: {smoke_max_updates: 192, smoke_training_deadline_s: 420, smoke_final_reserve_s: 180, smoke_total_s: 600, smoke_quick_interval: 32, long_epochs: 20, long_patience: 4, long_cosine_start: 0.003, long_cosine_end: 0.00003}
+budgets: {pilot_updates: 1000, pilot_wall_s: 1800, long_1gpu_wall_s: 7200, long_4gpu_wall_s: 2700, long_gpu_seconds: 10800, long_final_reserve_s: 180, total_gpu_hours: 3.0}
+gates:
+  smoke: {loss_reduction: 0.80, oracle_fraction: 0.50, oracle_uniform: 0.2224565778108675, oracle_layered: 0.37334545199603053, oracle_marmousi: 0.29789271567937464, aggregate_nonworse: true}
+  pilot_final: {joint_gain: 0.01, each_family_gain: 0.005, nonworse: 23, ridge_margin: 0.0025, late_nonworse: true, high_nonworse: true, correction_energy: 0.35, finite: true}
+  runtime: {adapter_mean_s: 0.35, adapter_p95_s: 0.50, e2e_parent_ratio: 1.05, inference_peak_gib: 6.5, train_peak_gib: 8.0, checkpoint_mib: 2.0, artifacts_mib: 64.0}
+  validation_test: {aggregate_rel_l2: 0.05, each_family_rel_l2: 0.05, traditional_speedup_mean: 10.0, traditional_speedup_p95: 10.0, late_nonworse: true, high_nonworse: true}
+  scale: {records: 12, warmup: 1, timed: 3, speedup: 3.0, efficiency: 0.75, gpu_seconds_ratio: 1.35, per_gpu_peak_gib: 6.5, hashes_exact: true, fallback: 1}
+spool: {root: /dev/shm/r16_dscp_v6/<run_digest>/rank<r>, serialized_before_truth: true, cleanup_owned_only: true, failure_retention_maximum: 1, margin_per_rank_mib: 64}
+space: {workspace: 2GiB_plus_3C_plus_64MiB, tmpfs: world_times_spool_plus_64MiB, host_ram: cache_bytes_plus_16GiB}
+checkpoint: {cache_embedded: false, atomic: true, retain: [best.pt,last.pt], hardlink_identical: true, resume_epoch_global_step_group_rng_sampler: true, complete_run_identity: true}
+authorization_chain: {smoke: prereg, pilot: smoke_passed, scale1: pilot_passed, scale4: pilot_passed, scale_decide: scale1_scale4_passed, long: pilot_scale_decision, final: long_terminal_best, validation: final_lock, test: validation_lock}
+rollback: atomic_failure_terminal_clear_ram_cache_zero_grad_preserve_best_last_log_one_owned_spool_never_touch_protected
+commands:
+  prep: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode prep"
+  authorize: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode authorize-stage --stage STAGE --output results/r16_dscp_v6/authorizations/STAGE.json --input-checkpoint BEST"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode smoke --authorization results/r16_dscp_v6/authorizations/smoke.json"
+  pilot: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode pilot --authorization results/r16_dscp_v6/authorizations/pilot.json"
+  scale1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode scale-probe-1 --authorization results/r16_dscp_v6/authorizations/scale-probe-1.json"
+  scale4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v6.py --mode scale-probe-4 --authorization results/r16_dscp_v6/authorizations/scale-probe-4.json"
+  scale_decide: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode scale-decide --authorization results/r16_dscp_v6/authorizations/scale-decide.json"
+  long1: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode long --world-size 1 --authorization results/r16_dscp_v6/authorizations/long.json --input-checkpoint BEST"
+  long4: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v6.py --mode long --world-size 4 --authorization results/r16_dscp_v6/authorizations/long.json --input-checkpoint BEST"
+  final: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode final-train-confirm --authorization results/r16_dscp_v6/authorizations/final-train-confirm.json"
+  validation: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode validation-once --authorization results/r16_dscp_v6/authorizations/validation-once.json"
+  test: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v6.py --mode test-once --authorization results/r16_dscp_v6/authorizations/test-once.json"

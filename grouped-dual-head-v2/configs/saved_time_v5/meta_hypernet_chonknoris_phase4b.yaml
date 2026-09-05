@@ -1,0 +1,49 @@
+# Reduced-CHONKNORIS bound to the archived Phase4b Helmholtz A+1 best model.
+# The parent predicts a normalized scattering field; background_cache supplies
+# the fixed smoothed-velocity P_bg that is added back before adaptation/scoring.
+source_h5: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+parent_kind: helmholtz_g3
+parent_checkpoint: /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/archived_best/phase4b_perframe_baseline_before_chonknoris_20260807/best_aggregate_update_1824.pt
+parent_run_identity: /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/archived_best/phase4b_perframe_baseline_before_chonknoris_20260807/run_identity.json
+background_cache: /dev/shm/g3cache/background_pbg_sigma2_g3pool_N420.h5
+normalization_json: /root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization.before_tgrs_ablation_identity_20260726T1050.json
+travel_time_h5: /root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+
+seed: 372
+latent_dim: 32
+lora_rank: 4
+require_parent_binding: true
+
+# Overridden explicitly during validation until a Phase4b-bound checkpoint has
+# passed the promotion gate.
+conditioner_checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/meta_hypernet_chonknoris_phase4b/unpromoted/meta_hypernet_chonknoris.pt
+
+adaptation_optimizer: chonknoris
+deployment_pde_weight: 0.1
+physics_sampling:
+  method: rad
+  k: 1.0
+  c: 1.0
+  time_tilt: 1.5
+  resample_every: 4
+
+chonknoris:
+  iterations: 4
+  initial_relaxation: 0.01
+  initial_step_size: 1.0
+  relaxation_factors: [0.5, 1.0, 2.0]
+  step_factors: [0.5, 1.0, 2.0]
+  minimum_relaxation: 1.0e-6
+  maximum_relaxation: 100.0
+  minimum_step_size: 0.001
+  maximum_step_size: 2.0
+  residual_tolerance: 1.0e-8
+  minimum_relative_improvement: 0.02
+  maximum_condition_number: 1.0e8
+  exact_factor_fallback: true
+  residual_pool_size: 4
+  physics_point_count: 128
+
+adam_steps: 0
+lbfgs_steps: 0
+learning_rate: 0.0002

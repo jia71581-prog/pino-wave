@@ -1,0 +1,39 @@
+# Frozen Phase4b starter plus R3/RAMS residual iteration.
+source_h5: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+parent_kind: helmholtz_g3
+parent_checkpoint: /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/archived_best/phase4b_perframe_baseline_before_chonknoris_20260807/best_aggregate_update_1824.pt
+parent_run_identity: /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/archived_best/phase4b_perframe_baseline_before_chonknoris_20260807/run_identity.json
+background_cache: /dev/shm/g3cache/background_pbg_sigma2_g3pool_N420.h5
+normalization_json: /root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization.before_tgrs_ablation_identity_20260726T1050.json
+travel_time_h5: /root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_v1.h5
+
+seed: 372
+residual_iterator_iterations: 4
+residual_iterator_step_candidates: [0.0, 0.25, 0.5, 1.0]
+minimum_physics_improvement: 0.0001
+minimum_energy_ratio: 0.8
+maximum_energy_ratio: 1.25
+
+# Uniform is already at ~1e-6 heldout relative L2, while layered/marmousi are
+# still ~7.8e-2/~4.4e-2.  Preserve uniform coverage but direct both objective
+# magnitude and update frequency toward the two unresolved families.
+family_loss_weights:
+  uniform: 0.25
+  layered: 1.50
+  marmousi: 1.25
+family_sampling_weights:
+  uniform: 0.50
+  layered: 1.25
+  marmousi: 1.25
+
+physics_sampling:
+  method: r3_rams
+  hard_quantile: 0.9
+  release_quantile: 0.7
+  uniform_fraction: 0.2
+  rams_fraction: 0.2
+  rams_steps: 3
+  k: 1.0
+  c: 1.0
+  time_tilt: 1.5
+  resample_every: 2

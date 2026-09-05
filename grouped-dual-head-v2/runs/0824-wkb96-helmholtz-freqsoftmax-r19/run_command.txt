@@ -1,0 +1,45 @@
+# r19 — wkb96 Helmholtz + frequency-softmax gate (continue from r18 best)
+# Single conceptual variable vs parent r18: add a zero-init (identity) per-record
+# softmax gate over the 96 Helmholtz frequency bins.  All other architecture /
+# data / optimizer / frames / seed held identical to r18.  Warm start loads every
+# shape-matching tensor from r18 update_3000 (train agg 0.031127), so update-0
+# reproduces r18 bit-for-bit and only the new gate moves the solution.
+#
+# Skill contract (operator-learning-experiment): single factor ablation, unified
+# rel-L2, frozen config + command, per-update metrics.  acoustic-pde-repro: seed
+# 372, fixed train split, manifest digest bound, parent checkpoint sha recorded
+# by the driver's expanded-frequency-init transfer report.
+#
+# Parent: results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823
+#   train agg 0.031127 (layered 0.0148 / marmousi 0.0531 / uniform 0.0254)
+
+python3 scripts/diagnose_capacity_ladder_overfit.py \
+  --artifact-dir results/wkb96_freqsoftmax_r19_continue4000_20260824 \
+  --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml \
+  --width 128 \
+  --dense-depth 8 \
+  --dense-spectral-rank 112 \
+  --dense-modes 32 \
+  --local-field \
+  --local-field-channels 1,1,2,2 \
+  --helmholtz-synthesis \
+  --helmholtz-frequencies 96 \
+  --helmholtz-rank 0 \
+  --helmholtz-frequency-softmax \
+  --helmholtz-coefficient-supervision \
+  --helmholtz-disable-causal-gate \
+  --helmholtz-disable-free-surface-factor \
+  --expanded-frequency-init-checkpoint results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/checkpoints/update_3000.pt \
+  --expanded-frequency-init-identity results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/run_identity.json \
+  --updates 4000 \
+  --evaluate-every 100 \
+  --dense-learning-rate 1.0e-5 \
+  --backbone-learning-rate 5.0e-6 \
+  --local-field-learning-rate 1.0e-5 \
+  --training-frames 401 \
+  --validation-frames 32 \
+  --microbatch-records 1 \
+  --target-aggregate-relative-l2 0.04 \
+  --target-family-relative-l2 0.04 \
+  --split train \
+  --seed 372

@@ -1,0 +1,44 @@
+# Fail-closed adaptive-ASAM refinement.  Bind parent paths to the accepted
+# checkpoint and its same-protocol baseline report only after pretraining ends.
+parent_checkpoint: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/best.pt
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+parent_best_report: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/best.json
+artifact_dir: /data/jiayh/saved_time_v4_asam_full_support_adaptive_v2
+recompute_parent_baseline: true
+trainable_prefixes: [dense_decoder, local_field, source_encoder, fusion]
+train_seed: 307
+validation_seed: 211
+updates: 140
+macros_per_update: 4
+microbatch_records: 1
+query_points: 64
+workers: 8
+prefetch_factor: 4
+evaluation_every: 12
+validation_records: 48
+validation_frames_per_record: 32
+optimizer:
+  learning_rate: 1.25e-7
+  minimum_learning_rate: 1.25e-8
+  learning_rates_by_prefix:
+    local_field.temporal_latent: 1.25e-6
+  weight_decay: 0.000001
+  beta1: 0.9
+  beta2: 0.99
+  eps: 1.0e-8
+  gradient_clip: 5.0
+  rho: 0.01
+  minimum_rho: 0.001
+  rho_warmup_updates: 8
+  eta: 0.01
+  perturb_parameter_minimum_ndim: 2
+  rejection_backoff: 0.5
+  minimum_multiplier: 0.0625
+gate:
+  # Intermediate checkpoints are accepted progressively when the aggregate
+  # metric falls by at least 2% without a family regression.  The downstream
+  # sealed validation and independent test_id supervisor alone enforce the
+  # final <=5% aggregate and every-family target.
+  minimum_relative_improvement: 0.02
+  family_regression_tolerance: 0.03
+  maximum_peak_cuda_gib: 23.0

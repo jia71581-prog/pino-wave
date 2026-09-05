@@ -1,0 +1,16 @@
+schema: r16_dscp_v9
+candidate: r16_dscp_v9
+inherits_v8_config_sha256: 37f67662be1a37ca77121d8445bbf0b5e1f5152b8988bd8cfbe32bc7f8b07d53
+only_change: sealed_eval_authorization_chain
+validation_requires: [passed_final_terminal,candidate_lock_file,current_candidate_checkpoint_hash,threshold_digest,effective_code_config_basis_panels_parent_data]
+test_requires: [passed_validation_terminal,same_candidate_lock,same_checkpoint,current_checkpoint_hash,no_effective_drift]
+once_token_authorization_immutable: true
+spool_root: /dev/shm/r16_dscp_v9/<run_digest>/rank<r>
+scientific_cache_training_terminal_protocol: identical_v8
+commands:
+  prep: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v9.py --mode prep"
+  authorize: "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v9.py --mode authorize-stage --stage STAGE --output results/r16_dscp_v9/authorizations/STAGE.json --input-checkpoint BEST"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v9.py --mode smoke --authorization results/r16_dscp_v9/authorizations/smoke.json"
+  validation: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v9.py --mode validation-once --authorization results/r16_dscp_v9/authorizations/validation-once.json"
+  test: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v9.py --mode test-once --authorization results/r16_dscp_v9/authorizations/test-once.json"
+rollback: inherit_v8_atomic_failure_boundary_never_touch_protected

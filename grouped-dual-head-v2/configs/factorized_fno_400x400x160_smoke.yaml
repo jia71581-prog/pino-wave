@@ -1,0 +1,96 @@
+# Factorized FNO — 400x400x160 smoke test
+# Ultimate target resolution. spatial_modes=48 at 400x400 = 12% spectral coverage.
+# Requires chunked temporal mixing (chunk_size=1024) and modest width=16.
+# Expect ~6-8 GB GPU at batch=1 for inference, ~12-15 GB for training.
+
+seed: 2026
+
+data:
+  path: /home/jiayh/Data/data/pino.hdf5
+  raw_hdf5: /home/jiayh/Data/data/pino.hdf5
+  schema_mode: explicit_after_inspection
+  velocity_key: nu
+  wavefield_key: tensor
+  source_map_key: source_mask
+  source_position_x_key: source_x_idx
+  source_position_z_key: source_z_idx
+  wavelet_key: wavelet
+  frequency_key: source_frequency_hz
+  amplitude_key: source_amplitude
+  time_key: t-coordinate
+  x_key: x-coordinate
+  z_key: y-coordinate
+  dx_key: dx
+  velocity_axes: [sample, x, z]
+  wavefield_axes: [sample, time, x, z]
+  source_map_axes: [sample, x, z]
+  source_position_units: index
+  input_features: [time, source_map, velocity]
+  split_seed: 2026
+  split: [0.8, 0.1, 0.1]
+  split_manifest: artifacts/manifests/split_v2_seed2026.json
+  max_samples: null
+  open_hdf5_per_sample: false
+  num_workers: 0
+  pin_memory: true
+  persistent_workers: true
+  shuffle_train: true
+
+sampling:
+  target_height: 400
+  target_width: 400
+  max_time_steps: 160
+  spatial_method: bilinear_antialias
+
+model:
+  name: factorized_fno
+  in_features: 3
+  out_channels: 1
+  spatial_modes_x: 48
+  spatial_modes_z: 48
+  spatial_width: 8
+  spatial_layers: 1
+  temporal_width: 8
+  temporal_kernel: 3
+  temporal_layers: 1
+  padding_ratio: 0.0
+  normalization: group
+  num_groups: 4
+  head_hidden: 32
+  temporal_chunk_size: 4
+  activation_checkpointing: true
+
+train:
+  device: cuda
+  batch_size: 1
+  epochs: 1
+  learning_rate: 3.0e-4
+  weight_decay: 0.0
+  scheduler: cosine
+  grad_clip: 1.0
+  log_every_steps: 1
+  checkpoint_dir: artifacts/factorized_fno/400x400x160_smoke/checkpoints
+  log_dir: artifacts/factorized_fno/400x400x160_smoke/logs
+  max_train_batches: 1
+  max_val_batches: 1
+  early_failure_gate:
+    enabled: true
+    stop_on_failure: false
+    min_epochs: 1
+    relative_l2_threshold: 0.98
+    require_better_than_zero_baseline: true
+
+validation:
+  category_balanced:
+    enabled: true
+    samples_per_category: 1
+
+loss:
+  relative_l2_weight: 1.0
+  mse_weight: 0.1
+  eps: 1.0e-8
+
+normalization:
+  stats_path: artifacts/stats/normalization_v2_seed2026_train.json
+  reuse_stats: true
+  eps: 1.0e-6

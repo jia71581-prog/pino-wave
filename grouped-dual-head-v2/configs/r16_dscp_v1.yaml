@@ -1,0 +1,105 @@
+schema: r16_dscp_v1
+candidate: r16_dscp_v1
+seed: 372
+parent:
+  checkpoint: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt
+  sha256: 448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789
+  mutable: false
+data:
+  manifest: /home/jiayh/Data/data/processed/grouped_v3_manifest_marmousi1_4m_v2.json
+  normalization: /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json
+  source_h5: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+  time_count: 401
+  height: 201
+  width: 201
+  split_policy: train_only_until_single_frozen_validation_authorization
+basis:
+  kind: raw_family_residual_temporal_pod
+  rank: 16
+  records_per_family: 2
+  covariance_accumulation_dtype: float32
+  eigendecomposition_dtype: float64
+  sign_rule: largest_absolute_entry_positive
+  coefficient_scale: three_times_train_basis_record_rms_projection_per_family_per_mode
+  condition_maximum: 1000.0
+router:
+  input: velocity_only
+  constant_to: uniform
+  layered_frac_dx_maximum: 0.05
+  layered_frac_dz_maximum: 0.10
+  marmousi_frac_dx_minimum: 0.15
+  marmousi_frac_dz_minimum: 0.50
+  gradient_absolute_threshold: 1.0e-6
+  gray_zone: abstain_exact_parent
+features:
+  channels: 29
+  names:
+    - log_velocity
+    - dx_log_velocity
+    - dz_log_velocity
+    - source_map
+    - travel_time_map
+    - x_coordinate
+    - z_coordinate
+    - observed_minus_parent_k0
+    - observed_minus_parent_k1
+    - observed_residual_difference
+    - parent_temporal_projection_rank16
+    - velocity_route_one_hot3
+model:
+  architecture: dwconv3x3_29_pw1x1_16_silu_dwconv3x3_16_pw1x1_16_tanh_scale
+  parameters: 1202
+  model_only_macs_201x201: 45451125
+  all_time_projection_macs_401x16x201x201: 259212816
+  all_time_materialization_macs_401x16x201x201: 259212816
+  final_pointwise_zero_init: true
+  zero_state_exact_parent: true
+causality:
+  registered_observations: [k0, k1]
+  future_start: k1_plus_1
+  c1_mask: smoothstep_u2_3minus2u_over_4_saved_steps
+  correction_zero_through_k1: true
+  correction_top_row_zero: true
+loss:
+  frame_relative_l2_squared: 1.0
+  late_third_relative_l2_squared: 0.25
+  temporal_difference: 0.10
+  normalized_coefficient_energy: 0.0001
+  physics_residual: 0.0
+baseline:
+  kind: fixed_1x1_ridge
+  input_channels: 29
+  output_channels: 16
+  parameters: 480
+  ridge_lambda: 0.0001
+panels:
+  hash_key: r16-dscp-v1|372|group_id
+  one_record_per_group: true
+  balanced_families: true
+  smoke_per_family: 1
+  pilot_fit_per_family: 8
+  pilot_confirm_per_family: 8
+  long_fit_per_family: 64
+  long_calibration_per_family: 8
+  final_train_confirm_per_family: 8
+training:
+  precision: bf16_autocast
+  reduction_precision: float32_or_float64
+  deterministic: true
+  tf32: false
+  dataloader_workers_per_gpu_maximum: 2
+  checkpoints: atomic_resumable_best_and_last_only
+  one_gpu_wall_time_maximum_s: 7200
+  four_gpu_wall_time_maximum_s: 2700
+  total_gpu_hours_maximum: 3.0
+efficiency_gates:
+  adapter_mean_s_maximum: 0.35
+  adapter_p95_s_maximum: 0.50
+  e2e_mean_ratio_to_parent_maximum: 1.05
+  e2e_p95_ratio_to_parent_maximum: 1.05
+  inference_peak_gib_maximum: 6.5
+  train_peak_gib_maximum: 8.0
+  checkpoint_mib_maximum: 2.0
+  new_artifacts_mib_maximum: 64.0
+space_gate:
+  formula: free_bytes_at_least_2GiB_plus_3_times_checkpoint_bytes_plus_64MiB

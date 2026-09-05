@@ -1,0 +1,53 @@
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_checkpoint: /home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v6_muon_warmstart_adamw_r1/run/checkpoints/epoch_0003.pt
+parent_checkpoint_identity: /home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v6_muon_warmstart_adamw_r1/run/run_identity.json
+parent_identity: /data/jiayh/saved_time_v4_spectrum_ablation_batch24/variants/deep_phase_plain/run_identity.json
+checkpoint_transfer:
+  allow_parent_manifest_mismatch: true
+  parent_residual_already_active: true
+artifact_dir: /home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/saved_time_v13_full_backbone_prefix_ray_pilot_r1
+seed: 331
+epochs: 40
+macro_records: 12
+macros_per_update: 4
+microbatch_records: 8
+query_points: 1
+workers: 8
+prefetch_factor: 4
+time_policy: appearance16
+schedule_epoch_offset: 3
+energy_floor_fraction: 0.01
+residual_recovery:
+  correction_scale: 1.0
+  output_std: 0.0001
+  decoder_only_epochs: 2
+  stage_epoch_offset: 3
+validation:
+  panel_records: 48
+  full_panel_records: 48
+  frames_per_record: 32
+  microbatch_records: 1
+  all_records_every: 5
+  final_frames_per_record: 401
+optimizer:
+  dense_learning_rate: 5.0e-05
+  geometry_learning_rate: 2.0e-05
+  backbone_learning_rate: 2.0e-06
+  weight_decay: 1.0e-06
+  warmup_epochs: 2
+  minimum_factor: 0.05
+  gradient_clip: 1.0
+  gradient_clip_mode: prefix
+  full_forward_checkpointing: true
+loss:
+  delta: 0.5
+  temporal_difference: 0.1
+  spatial_gradient: 0.1
+  spectrum: 0.1
+  hard_causality: false
+gate:
+  maximum_peak_cuda_gib: 23.0
+  pilot_epochs: 5
+  family_regression_tolerance: 0.03
+  target_aggregate_relative_l2: 0.1
+  target_family_relative_l2: 0.12

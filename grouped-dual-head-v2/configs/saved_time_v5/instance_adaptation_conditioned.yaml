@@ -1,0 +1,11 @@
+source_h5: /home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+base_config: configs/grouped_v3/continuous_pilot.yaml
+parent_checkpoint: artifacts/v5_instance_adaptation/parent/best.pt
+conditioner_checkpoint: /home/jiayh/Data/FNO-Acoustic-Wave-Simulation/artifacts/v5_instance_adaptation/conditioner.pt
+seed: 17
+adam_steps: 12
+lbfgs_steps: 4
+learning_rate: 0.0002
+latent_dim: 32
+lora_rank: 4
+pilot_sample_ids: []

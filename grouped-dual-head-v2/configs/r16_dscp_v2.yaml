@@ -1,0 +1,118 @@
+schema: r16_dscp_v2
+candidate: r16_dscp_v2
+seed: 372
+design_identity: identical_to_r16_dscp_v1_model_rank16_29ch_router_basis_panels_loss_gates
+bindings:
+  parent_path: /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt
+  parent_sha256: 448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789
+  v1_basis_path: results/r16_dscp_v1/basis_rank16.pt
+  v1_basis_file_sha256: 8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786
+  v1_basis_tensor_sha256: 4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5
+  v1_panels_path: results/r16_dscp_v1/panels.json
+  v1_panels_sha256: 6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464
+model:
+  implementation: saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py
+  rank: 16
+  input_channels: 29
+  parameters: 1202
+  ridge_parameters: 480
+  model_only_macs_201x201: 45451125
+  projection_macs: 259212816
+  materialization_macs: 259212816
+optimization:
+  optimizer: AdamW
+  learning_rate: 0.003
+  betas: [0.9, 0.99]
+  epsilon: 1.0e-8
+  weight_decay: 0.0001
+  grad_clip_norm: 1.0
+  batch_records: 1
+  time_microblock: 32
+  update_definition: one_optimizer_update_per_record_full_future_exact_accumulation_no_future_sampling
+  smoke_pilot_schedule: constant
+  long_schedule: cosine_no_warmup_0.003_to_0.00003
+  bf16_autocast: true
+  bf16_scaler_enabled: false
+  reduction_metric_precision: fp32_or_fp64
+  deterministic: true
+  tf32: false
+  workers_per_gpu_maximum: 2
+loss:
+  frame_relative_l2_squared: 1.0
+  late_third_relative_l2_squared: 0.25
+  temporal_difference: 0.10
+  normalized_coefficient_energy: 0.0001
+  physics_residual: 0.0
+ridge:
+  target: train_only_weighted_ls_same_selected_causal_basis_future_truth_minus_parent
+  weight_formula: w_t=1/max(norm(truth_t)_2_squared,1e-30)
+  fit_panel: pilot_fit
+  lambda: 0.0001
+  coefficient_maps_serialized: false
+budgets:
+  smoke_updates_maximum: 500
+  smoke_wall_s_maximum: 600
+  pilot_updates_maximum: 1000
+  pilot_wall_s_maximum: 1800
+  long_epochs_maximum: 20
+  long_patience: 4
+  long_selection_metric: arithmetic_mean_per_record_full_future_relative_l2_on_long_calibration
+  one_gpu_wall_s_maximum: 7200
+  four_gpu_wall_s_maximum: 2700
+  total_gpu_hours_maximum: 3.0
+gates:
+  smoke:
+    loss_decrease_minimum: 0.80
+    rank16_oracle_framewise_gain_fraction_minimum: 0.50
+    oracle_gain_uniform: 0.2224565778108675
+    oracle_gain_layered: 0.37334545199603053
+    oracle_gain_marmousi: 0.29789271567937464
+    joint_aggregate_nonworse: true
+  pilot:
+    joint_aggregate_improvement_minimum: 0.01
+    each_family_improvement_minimum: 0.005
+    nonworse_records_minimum: 23
+    record_count: 24
+    margin_over_ridge_fraction_minimum: 0.0025
+    late_third_nonworse: true
+    high_band_nonworse: true
+    correction_energy_ratio_maximum: 0.35
+    finite: true
+  efficiency:
+    adapter_mean_s_maximum: 0.35
+    adapter_p95_s_maximum: 0.50
+    e2e_mean_parent_ratio_maximum: 1.05
+    e2e_p95_parent_ratio_maximum: 1.05
+    inference_peak_gib_maximum: 6.5
+    training_peak_gib_maximum: 8.0
+    checkpoint_mib_maximum: 2.0
+    artifacts_mib_maximum: 64.0
+scale_probe:
+  records: first_12_pilot_fit_in_frozen_panel_order
+  warmup_runs: 1
+  timed_runs: 3
+  four_gpu_speedup_minimum: 3.0
+  four_gpu_efficiency_minimum: 0.75
+  four_gpu_gpu_seconds_ratio_maximum: 1.35
+  metrics_hash_match_required: true
+  peak_gib_per_gpu_maximum: 6.5
+  fallback: one_gpu
+checkpoint:
+  artifacts: [best.pt, last.pt]
+  atomic: temp_fsync_replace_directory_fsync
+  parent_embedded: false
+  basis_embedded: false
+  state: predictor_parameters_basis_hash_optimizer_disabled_bf16_scaler_rng_sampler_progress_run_identity_parent_path_hash
+  failure_terminal_atomic: true
+  rollback: preserve_minimum_best_last_log_never_touch_parent_or_protected_never_open_validation_test
+commands:
+  replay_basis_verify: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode replay-basis-verify --devices 0"
+  smoke: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode smoke --devices 0"
+  pilot: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode pilot --devices 0"
+  scale_probe_1gpu: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode scale-probe --devices 0"
+  scale_probe_4gpu: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode scale-probe --devices 0,1,2,3"
+  long_1gpu: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode long --devices 0"
+  long_4gpu: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode long --devices 0,1,2,3"
+  final_train_confirm: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode final-train-confirm --devices 0"
+  validation_once: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode validation-once --devices 0"
+  test_once: "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v2.py --mode test-once --devices 0"
