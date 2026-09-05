@@ -1,0 +1,101 @@
+{
+  "experiment_id": "r5b_feature_meta_parent_residual_disjoint_gate_r33_20260816",
+  "registered_at_utc": "2026-08-16",
+  "status": "preregistered_before_future_truth_access",
+  "purpose": "Decide whether the r32 parent-residual-conditioned, zero-origin instance fine-tuning algorithm is eligible for one frozen validation comparison against the full-data PI-DeepONet checkpoint.",
+  "hypothesis": "The residual-conditioned zero-origin trust-gate update will improve complete 401-frame future relative L2 on unseen training groups while retaining exact-parent fallback when the two-frame deployment objective is not improved.",
+  "selection_split": "train",
+  "selection_seed": 4363,
+  "per_family": 2,
+  "selected_records": [
+    {
+      "sample_id": "train_uniform_00146",
+      "group_id": "train:uniform:00146",
+      "medium_type": "uniform"
+    },
+    {
+      "sample_id": "train_uniform_00165",
+      "group_id": "train:uniform:00165",
+      "medium_type": "uniform"
+    },
+    {
+      "sample_id": "train_layered_00109",
+      "group_id": "train:layered:00027",
+      "medium_type": "layered"
+    },
+    {
+      "sample_id": "train_layered_00581",
+      "group_id": "train:layered:00145",
+      "medium_type": "layered"
+    },
+    {
+      "sample_id": "train_marmousi_00107",
+      "group_id": "train:marmousi:x350.0:z50.0",
+      "medium_type": "marmousi"
+    },
+    {
+      "sample_id": "train_marmousi_00564",
+      "group_id": "train:marmousi:x0.0:z300.0",
+      "medium_type": "marmousi"
+    }
+  ],
+  "exclusions": {
+    "r32_meta_training_groups": "24 checkpoint-bound group IDs",
+    "all_prior_feature_gate_groups": [
+      "train:uniform:00215",
+      "train:uniform:00370",
+      "train:layered:00014",
+      "train:layered:00022",
+      "train:marmousi:x750.0:z150.0",
+      "train:marmousi:x1000.0:z100.0",
+      "train:uniform:00236",
+      "train:uniform:00304",
+      "train:layered:00137",
+      "train:layered:00173",
+      "train:marmousi:x6350.0:z250.0",
+      "train:marmousi:x200.0:z50.0",
+      "train:uniform:00252",
+      "train:uniform:00237",
+      "train:layered:00174",
+      "train:layered:00043",
+      "train:marmousi:x700.0:z100.0",
+      "train:marmousi:x6700.0:z300.0"
+    ]
+  },
+  "bindings": {
+    "adapter_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/r5b_feature_meta_parent_residual_train_r32_20260816/best.pt",
+    "adapter_checkpoint_sha256": "77b8866f8aaba20d66bf5c2e0d9c0a1b93d39ca95dda1edf62795183cea42162",
+    "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "config_sha256": "c1f7682fe866f4695cced1059f2bad442904c4b702e4c0c18d5a12f138d758fb",
+    "evaluator_sha256": "fab7c6fddcca8b4991de34ab550bbf810f2bbd2543b8cb16a37f291a69446cd1",
+    "feature_modulation_sha256": "9a6522f655b5a87a064172ad0aa311aa0e7c1818243178ea821be47ccb35e7ba"
+  },
+  "protocol": {
+    "parent_parameters_frozen": true,
+    "shared_adapter_parameters_frozen_at_deployment": true,
+    "conditioner_input": "two true onset frames minus frozen parent predictions at the same times",
+    "instance_trainable_parameters": 17,
+    "instance_parameters": "16-scalar latent delta plus one bounded modulation gate",
+    "instance_refinement_steps": 12,
+    "instance_learning_rate": 0.05,
+    "deployment_origin": "gate zero and latent delta zero, exactly reproducing the parent",
+    "acceptance_rule": "accept only if the two-frame objective improves by at least 0.01 percent; otherwise return the exact parent",
+    "pde_loss_weight": 0.0,
+    "physical_wavefield_propagator": false,
+    "synthetic_bridge": false,
+    "future_metric": "float64 global energy relative L2 over every saved time strictly after the second observed frame",
+    "summary_only": true
+  },
+  "promotion_gate": {
+    "adapted_global_relative_improvement_vs_parent_minimum": 0.005,
+    "adapted_global_relative_improvement_vs_zero_shot_minimum": 0.001,
+    "maximum_family_relative_degradation_vs_parent": 0.005,
+    "minimum_paired_record_wins_vs_parent": 4,
+    "required_record_count": 6
+  },
+  "forbidden_data": [
+    "validation",
+    "test_id"
+  ],
+  "decision_rule": "Promote only if every gate condition passes. On failure reject this candidate, preserve artifacts, and do not open frozen validation or test_id."
+}

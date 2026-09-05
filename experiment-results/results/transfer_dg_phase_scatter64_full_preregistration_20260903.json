@@ -1,0 +1,66 @@
+{
+  "schema": "transfer_dg_phase_scatter64_full_preregistration_v1",
+  "candidate": "transfer_dg_phase_scatter64_full_20260903",
+  "claim_scope": "final offline train-only fitting of the accepted 64-bin phase/scatter correction; no validation or test_id claim",
+  "hypothesis": "Scaling the four-seed-positive phase/scatter correction to all 2,800 train records will learn a stronger true-interface residual while preserving the fixed final WFP parent and the exact free surface.",
+  "pilot_gate": {
+    "status": "accepted",
+    "parent_confirmation_mean": 0.5164458549616388,
+    "candidate_confirmation_mean": 0.5162417714733549,
+    "relative_gain": 0.0003951691863205431,
+    "minimum_improvement_fraction": 0.0,
+    "all_four_seeds_improved": true,
+    "selected_seed": 2027
+  },
+  "data": {
+    "split": "train",
+    "record_count": 2800,
+    "family_counts": {"uniform": 420, "layered": 1120, "anomaly": 560, "marmousi": 700},
+    "frequency_count": 64,
+    "target": "original full-wavefield rFFT bins 0-63 minus frozen parent coefficients",
+    "residual_only_cache": true,
+    "training_full_truth_allowed": true,
+    "model_input_wavefield_frames": 0
+  },
+  "training": {
+    "seed": 2027,
+    "epochs": 5,
+    "world_size": 4,
+    "rank_family_mapping": {"0": "uniform", "1": "layered", "2": "anomaly", "3": "marmousi"},
+    "global_batch_size": 4,
+    "per_family_batch": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.000001,
+    "eta_min": 0.000003,
+    "gradient_clip_norm": 1.0,
+    "correction_energy_penalty": 0.000001,
+    "checkpoint_retention": "latest_only"
+  },
+  "completion_gate": {
+    "all_four_cache_workers_return_zero": true,
+    "all_four_ddp_ranks_return_zero": true,
+    "all_2800_records_and_64_bins_covered_each_epoch": true,
+    "finite_loss": true,
+    "latest_checkpoint_present_and_hashed": true,
+    "free_surface_exact": true
+  },
+  "failure_signal": "Any cache/DDP failure, non-finite loss, incomplete census, missing checkpoint hash, or opened validation/test_id flag fails the full fit.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "wall_seconds_max": 21600,
+    "new_disk_bytes_max": 53687091200
+  },
+  "bindings": {
+    "train_manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "pilot_summary_sha256": "382a65202d1604974e2e2df49d5bf0096ae3c643493e3a9df32ab9408923ab32",
+    "parent_checkpoint_sha256": "bd02506ab83631a0fea663f43c61a7689f6e75898715ea730acf7558f216e04b",
+    "cache_builder_sha256": "43f57c6c136d3fe4490c01b66739b09c271e303369b9303db116db839cfa76ee",
+    "trainer_sha256": "9c34074fc7fe11430c3898eb865db14bc70d4efd5026a7f787e26a4819fa281f",
+    "phase_scatter_module_sha256": "7df8b7482e010abb4047257ebaee930f0a96564a8dd9e1e3594198b5c80da219",
+    "launcher_sha256": "ebda469d0c857b57ca6fea99c2ede4f6ee856355d44cd39cedd8eb64fc53f657"
+  },
+  "rollback": "Additive run. Preserve all parent, pilot, A3, B2-H, Helmholtz, ASAM, and CPADC checkpoints. Keep only latest.pt for the new full correction.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

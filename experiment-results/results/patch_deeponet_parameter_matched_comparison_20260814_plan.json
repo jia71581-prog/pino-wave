@@ -1,0 +1,53 @@
+{
+  "schema": "patch_deeponet_parameter_matched_comparison_plan_v1",
+  "registered_utc_date": "2026-08-14",
+  "status": "registered_before_gpu_entry_or_full_training",
+  "hypothesis": "A non-collapsed parameter-matched Patch-DeepONet can be trained from scratch under the same train-only frame and effective-update contract, enabling a fair paired fixed-19-Hz comparison with r5b.",
+  "mechanism": "A spatially preserving branch and compact query trunk retain the DeepONet branch-trunk interaction while avoiding the information bottleneck and dense-query cost of a textbook globally pooled branch.",
+  "parameter_contract": {
+    "r5b_parameters": 32420564,
+    "patch_deeponet_parameters": 32420465,
+    "absolute_difference": -99,
+    "relative_difference": 0.000003053617450948725,
+    "tolerance_fraction": 0.001
+  },
+  "entry_gate": {
+    "split": "train",
+    "records": "one deterministic record from each of uniform, layered, and marmousi",
+    "maximum_updates": 800,
+    "aggregate_relative_l2_maximum": 0.10,
+    "each_family_relative_l2_maximum": 0.12,
+    "failure_signal": "non-finite output, any record at or above the zero-prediction floor, or any registered error threshold exceeded"
+  },
+  "full_training": {
+    "split": "train only",
+    "epochs": 3,
+    "optimizer_updates": 420,
+    "effective_records_per_update": 32,
+    "saved_frames_per_record": 24,
+    "selection": "fixed 48-record train-only panel with 32 exact stored frames",
+    "validation_truth_access": false,
+    "test_id_truth_access": false
+  },
+  "paired_comparison": {
+    "protocol": "paper/tgrs_helmholtz_operator/marmousi_fixed_frequency_source_ood_protocol_20260813.json",
+    "records": 240,
+    "independent_velocity_slices": 30,
+    "source_frequency_hz": 19.0,
+    "varied_variable": "source position only",
+    "primary_metrics": [
+      "complete_transient_record_relative_l2",
+      "late_window_relative_l2",
+      "high_spatial_band_relative_l2"
+    ],
+    "superiority_rule": "all three Holm-adjusted paired slice-level endpoints favor r5b, with favorable interpolation and outside-range mean directions"
+  },
+  "execution_config": "configs/baselines/patch_deeponet_fixed_train_gate_r2_authorized_20260814.yaml",
+  "execution_config_sha256": "905e72b27daba525bd826ce783b10722e49b421e9518e5815a1934e316848991",
+  "registered_config_sha256": "3ef6126019a713a273b0dcafd64c5a3a0c8f184cc8f7120913977b5ac62bbfd5",
+  "scientific_settings_equal_after_removing_authorization_and_artifact_path": true,
+  "manifest_sha256": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "rollback": "Preserve all artifacts, mark the failed tier terminal, do not open comparison references, and do not promote a collapsed baseline.",
+  "disk_policy": "Keep one entry checkpoint and one best full checkpoint. Use temporary storage for sealed dense predictions, then retain manifests, scores, digests, and selected display arrays only."
+}

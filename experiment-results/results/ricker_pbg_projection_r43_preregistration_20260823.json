@@ -1,0 +1,46 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "ricker_pbg_projection_r43_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_analytic_ricker_projection_floor",
+  "hypothesis": "The remaining P_bg error after retarded-time alignment is primarily amplitude-conditioned: a per-record oracle scalar applied to the analytic Ricker-retarded template will reduce median calibration relative L2 below 0.2, even if one global train-fitted scalar does not.",
+  "expected_mechanism": "Accurate travel time and source waveform should fix phase; per-record scalar fitting removes only amplitude. A low oracle error therefore justifies learning amplitude, while a high floor rejects the single-arrival template itself.",
+  "single_conceptual_variable": {
+    "name": "projection_scale",
+    "parent": "one global train-fitted scalar",
+    "candidate": "per-record oracle scalar diagnostic"
+  },
+  "primary_metric": "median train-only calibration relative L2 after per-record oracle scaling",
+  "interpretation_gate": {
+    "amplitude_limited_max": 0.2,
+    "template_rejected_min": 0.5
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 560,
+    "calibration_records": 70,
+    "confirmation_records": 70,
+    "confirmation_access": "none",
+    "selected_resolution": [64, 64, 201]
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "numerical_wavefield_input": false
+  },
+  "failure_signal": "Non-finite projection, missing records, or oracle median above 0.5 rejects a scalar-amplitude analytic propagator; no confirmation or project validation/test_id may be opened.",
+  "compute_budget": {
+    "gpus": 0,
+    "wall_ceiling_minutes": 45
+  },
+  "bindings": {
+    "script_sha256": "bd8bc67433664e8a4a66d45f0fb3be49afd54355a6ce2b030f6f92f2923dab30",
+    "config_sha256": "0da7787de4a689b871b2d33ca4864afcb11d4e61ad824476abdd7a631227277e",
+    "split_sha256": "4d69a9df1210dee76f08f110d1a17a35a621f91108a3c9042d907eeddd70d8e6",
+    "r42_result_sha256": "3c670616f620f699a64a033224cd5c3d88a926dee346fae8241c4e73f0cc0bed"
+  },
+  "rollback": "Preserve r42 and all prior artifacts; use the diagnostic only to choose between learned amplitude and a multi-arrival propagator representation.",
+  "command": "PYTHONPATH=src python scripts/diagnose_ricker_pbg_projection.py --config configs/factorized_fno_pbg_marm_r42_ricker_full560_ddp4.yaml --split-manifest artifacts/pbg_factorized_fno_marm700_travel_v2/split_full560_70_70_seed372.json --output results/ricker_pbg_projection_r43_20260823/result.json"
+}

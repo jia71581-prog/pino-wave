@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/build_eikonal_travel_cache.py", line 180, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/build_eikonal_travel_cache.py", line 121, in main
+    with h5py.File(temporary, "w") as target:
+  File "/root/miniconda3/lib/python3.10/site-packages/h5py/_hl/files.py", line 555, in __init__
+    fid = make_fid(name, mode, userblock_size, fapl, fcpl, swmr=swmr)
+  File "/root/miniconda3/lib/python3.10/site-packages/h5py/_hl/files.py", line 238, in make_fid
+    fid = h5f.create(name, h5f.ACC_TRUNC, fapl=fapl, fcpl=fcpl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "h5py/h5f.pyx", line 126, in h5py.h5f.create
+FileNotFoundError: [Errno 2] Unable to synchronously create file (unable to open file: name = '/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/artifacts/pbg_factorized_fno_marm700_eikonal_v3/.eikonal_train_marm700.h5.tmp-695094', errno = 2, error message = 'No such file or directory', flags = 13, o_flags = 242)

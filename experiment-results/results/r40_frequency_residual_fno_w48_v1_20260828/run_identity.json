@@ -1,0 +1,98 @@
+{
+  "absolute_goal": {
+    "record_rel_l2_max_lte": 0.05,
+    "record_rel_l2_mean_lte": 0.05
+  },
+  "created_utc": "2026-08-27T22:06:45.678055+00:00",
+  "data_access": {
+    "final_validation_opened": false,
+    "fit": "train_only",
+    "holdout": "train_group_disjoint_opened_development",
+    "r29b_opened": false,
+    "test_id_opened": false,
+    "truth_deployment_input": false
+  },
+  "dct_retained": 96,
+  "fit_cache_evidence": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard0.h5": {
+      "bytes": 1437552076,
+      "sha256": "e9451bf0a0cd0f4fd33d0bafd8e83a925112c239012a4e765c19fa043902e681",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard0.h5.summary.json"
+    },
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard1.h5": {
+      "bytes": 1436714731,
+      "sha256": "955867857f259979c2370e65956031797e2715516335f5664becfd126cf893d1",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard1.h5.summary.json"
+    },
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard2.h5": {
+      "bytes": 1436813452,
+      "sha256": "f4338a2088f6a586a3e5b28e2b49a562812668e632ac2b92bd1e2d17d4ab08d6",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard2.h5.summary.json"
+    },
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard3.h5": {
+      "bytes": 1436823534,
+      "sha256": "580172de0f6d0db5ccf663d7f37d373d657fefe7a87df4665cabd7a29e005c10",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard3.h5.summary.json"
+    }
+  },
+  "fit_group_count": 328,
+  "fit_record_count": 1032,
+  "frequency_count": 75,
+  "frequency_max_hz": 79.80049896240234,
+  "frequency_min_hz": 5.985037326812744,
+  "holdout_cache_evidence": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard0.h5": {
+      "bytes": 661828015,
+      "sha256": "66f3c67db026b55bd183e3805a05e2c6e97850aaf92e7ff49d055a5f701c91e6",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard0.h5.summary.json"
+    },
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard1.h5": {
+      "bytes": 662152260,
+      "sha256": "90e3dfb94842906a05c4fca7ee75c2d4d2e664c03eb661cc1b6f7a89a207605c",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard1.h5.summary.json"
+    },
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard2.h5": {
+      "bytes": 662102557,
+      "sha256": "07facc79972cadcc61acae13fa5b6960e80437d09535d244313541175a37509b",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard2.h5.summary.json"
+    },
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard3.h5": {
+      "bytes": 661886812,
+      "sha256": "1dee11302f4f1561eabb0fcc7ecbc5a8e58b9b61ef7e208cad16ec12ad2bdbce",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/holdout_shard3.h5.summary.json"
+    }
+  },
+  "holdout_group_count": 25,
+  "holdout_record_count": 56,
+  "input_channels": 32,
+  "model": {
+    "blocks": 4,
+    "correction_cap": 1.5,
+    "mean_velocity_conditioning": true,
+    "medium_dct_scales_preserved": true,
+    "modes": 16,
+    "name": "frequency_conditioned_spatial_dct_fno",
+    "output_channels": "complex_residual_real_imaginary",
+    "raw_medium_dct_reconstructed": true,
+    "width": 48,
+    "zero_initialized_output": true
+  },
+  "optimization": {
+    "amp_bfloat16": true,
+    "epochs": 50,
+    "global_batch_size": 64,
+    "hinge_weight": 2.0,
+    "learning_rate": 0.0003,
+    "local_batch_size": 16,
+    "max_steps_per_epoch": 0,
+    "optimizer": "adam",
+    "seed": 400828,
+    "shape_weight": 0.002,
+    "tail_weight": 1.0,
+    "warmup_epochs": 1,
+    "weight_decay": 1e-05
+  },
+  "parameter_count": 9452930,
+  "schema": "r40_frequency_residual_run_identity_v1",
+  "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e"
+}

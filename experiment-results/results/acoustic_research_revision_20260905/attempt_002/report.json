@@ -1,0 +1,165 @@
+{
+  "access_ledger": {
+    "checkpoint_accesses": 0,
+    "denied_attempts": 0,
+    "future_wavefield_accesses": 0,
+    "h5_accesses": 0
+  },
+  "aggregate_rows": 192,
+  "candidate": "acoustic_research_revision_20260905",
+  "code_sha256": "6cf546efb71220035343e5be74eb0a9b21c871bb72082602096c211e96851cc1",
+  "crop_rows": 61,
+  "decisions": {
+    "promotion": false,
+    "r6_error_lte_0p1percent": "accept",
+    "r6_max_abs_phase_velocity_error": 0.0003092332912697504,
+    "space_refinement": "accept",
+    "target_achieved": false,
+    "time_refinement": "accept"
+  },
+  "environment": {
+    "device": "cpu",
+    "executable": "/root/miniconda3/bin/python",
+    "numpy": "1.26.3",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8",
+    "scipy": "1.15.3",
+    "torch": "2.1.2+cu121"
+  },
+  "frequency_bands": [
+    {
+      "energy_high_hz": 14.328992703762552,
+      "energy_low_hz": 3.6468322988295747,
+      "f0_hz": 8.0,
+      "points": 258
+    },
+    {
+      "energy_high_hz": 26.866861319554786,
+      "energy_low_hz": 6.837810560305453,
+      "f0_hz": 15.0,
+      "points": 258
+    },
+    {
+      "energy_high_hz": 44.77810219925797,
+      "energy_low_hz": 11.39635093384242,
+      "f0_hz": 25.0,
+      "points": 258
+    },
+    {
+      "energy_high_hz": 53.73372263910957,
+      "energy_low_hz": 13.675621120610906,
+      "f0_hz": 30.0,
+      "points": 258
+    }
+  ],
+  "input_hashes_verified_before_and_after": true,
+  "metadata_audit": {
+    "domain_m": [
+      2000.0,
+      2000.0
+    ],
+    "future_wavefield_accesses": 0,
+    "h5_accesses": 0,
+    "interpretation": "Crop-area overlap is a geographic dependence diagnostic, not proof of waveform leakage or independent OOD accuracy.",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "metadata_only": true,
+    "ood_canonical": {
+      "max_overlap": 0.0,
+      "mean_overlap": 0.0,
+      "min_overlap": 0.0
+    },
+    "sample_counts": {
+      "ood_canonical": 1,
+      "test_id": 150,
+      "train": 700,
+      "validation": 150
+    },
+    "test_id": {
+      "max_overlap": 0.975,
+      "mean_overlap": 0.9750000000000002,
+      "min_overlap": 0.975
+    },
+    "unique_crop_counts": {
+      "ood_canonical": 1,
+      "test_id": 30,
+      "train": 140,
+      "validation": 30
+    },
+    "validation": {
+      "max_overlap": 0.975,
+      "mean_overlap": 0.9750000000000002,
+      "min_overlap": 0.975
+    }
+  },
+  "observation_rows": 32,
+  "observations": "Same physical wave on the teacher 5m->10m chain in a separate table. No filter is applied to saved coarse output. Refinement arms are local symbols only; a native 2.5m->10m projection is not evaluated or assumed equivalent.",
+  "physical_frequency_reference": "f is continuum frequency, k=2pi f/c. Angle is wavevector direction; errors concern phase velocity, not group velocity.",
+  "preregistration_sha256": "790881f2f95c9c7045f95218f12f5a0a81e09386ae58c79fb143cc578473ceb8",
+  "production_kernel_check": {
+    "device": "cpu",
+    "dtype": "float64",
+    "grid": [
+      40,
+      40
+    ],
+    "initialization": "Exact numerical traveling mode at n=0,1; isolates recurrence from startup.",
+    "modes": [
+      {
+        "dt_s": 0.000125,
+        "eigen_relative_linf_error": 1.043607507826201e-14,
+        "eigenvalue": -0.015791255714618882,
+        "mode": [
+          4,
+          0
+        ],
+        "passed": true,
+        "phase_error_rad": 3.508954171005482e-15,
+        "step_linf_error": 1.2323475573339238e-14
+      },
+      {
+        "dt_s": 0.000625,
+        "eigen_relative_linf_error": 1.043607507826201e-14,
+        "eigenvalue": -0.015791255714618882,
+        "mode": [
+          4,
+          0
+        ],
+        "passed": true,
+        "phase_error_rad": 3.1976525169439136e-15,
+        "step_linf_error": 9.2148511043888e-15
+      },
+      {
+        "dt_s": 0.000125,
+        "eigen_relative_linf_error": 2.69891635283645e-14,
+        "eigenvalue": -0.04934605030170029,
+        "mode": [
+          5,
+          5
+        ],
+        "passed": true,
+        "phase_error_rad": 1.0980134481114096e-14,
+        "step_linf_error": 2.8310687127941492e-14
+      },
+      {
+        "dt_s": 0.000625,
+        "eigen_relative_linf_error": 2.69891635283645e-14,
+        "eigenvalue": -0.04934605030170029,
+        "mode": [
+          5,
+          5
+        ],
+        "passed": true,
+        "phase_error_rad": 4.6952286953782815e-15,
+        "step_linf_error": 2.2842838731662596e-14
+      }
+    ],
+    "passed": true,
+    "restriction_interior_linf_error": 1.915134717478395e-15,
+    "restriction_reflect_boundary_covered": false,
+    "startup_covered": false,
+    "steps": 64,
+    "tolerance": 1e-10
+  },
+  "scope": "Uniform periodic source-free LWC84 local symbol only; not heterogeneous/source/CPML error floor, nor a neural dispersion-suppression result.",
+  "weighted_metric": "Absolute errors integrated with Ricker spectral-energy trapezoid weights over the retained 95% band, uniform angle average. Excludes invalid modes and reports retained quadrature mass."
+}

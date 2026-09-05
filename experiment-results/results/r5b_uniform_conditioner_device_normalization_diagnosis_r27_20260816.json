@@ -1,0 +1,34 @@
+{
+  "experiment_id": "r5b_uniform_conditioner_device_normalization_diagnosis_r27_20260816",
+  "status": "root_cause_confirmed_and_fixed",
+  "trigger": "r26 train_uniform_00215 changed from parent future relative L2 0.1075814 to adapted 0.8853329",
+  "root_cause": "For a spatially constant float32 velocity field, device-dependent parallel mean reduction produced a nonzero subtraction residue while the standard deviation was zero. Dividing by std.clamp_min(1e-8) amplified the constant field before the onset conditioner.",
+  "affected_sample": "train_uniform_00215",
+  "before_fix": {
+    "gpu_normalized_velocity_value": 122070.3125,
+    "conditioner_latent_abs_max": 2905.9404296875,
+    "conditioner_latent_rms": 1371.316650390625,
+    "modulation_coefficient_abs_max": 13.457197189331055
+  },
+  "control_sample_before_fix": {
+    "sample_id": "train_uniform_00370",
+    "gpu_normalized_velocity_value": 0.0,
+    "conditioner_latent_abs_max": 0.18119053542613983,
+    "conditioner_latent_rms": 0.0996268019080162
+  },
+  "fix": "Use the exact spatial max-min physical dynamic range to map constant media to zero contrast; standardize only heterogeneous fields with dynamic range greater than 1e-3 m/s.",
+  "adapter_implementation_sha256": "96d493a60b9d978d30e038c6d584cfc79522d5baba14963b2255a5322289363d",
+  "after_fix": {
+    "train_uniform_00215_latent_abs_max": 0.18118996918201447,
+    "train_uniform_00215_latent_rms": 0.09962720423936844,
+    "train_uniform_00370_latent_abs_max": 0.18119053542613983,
+    "train_uniform_00370_latent_rms": 0.0996268019080162
+  },
+  "regression_tests": {
+    "constant_velocity_exact_zero_on_cpu_and_cuda": true,
+    "heterogeneous_velocity_standardization_preserved": true,
+    "combined_test_count": 68,
+    "combined_test_status": "passed"
+  },
+  "interpretation": "The r26 catastrophic uniform degradation was dominated by a numerical preprocessing defect, so the observation-conditioned feature adapter must be retrained and re-gated before its algorithmic value is judged."
+}

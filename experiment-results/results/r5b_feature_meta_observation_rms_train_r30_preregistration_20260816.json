@@ -1,0 +1,40 @@
+{
+  "experiment_id": "r5b_feature_meta_observation_rms_train_r30_20260816",
+  "registered_at_utc": "2026-08-16",
+  "status": "preregistered_before_execution",
+  "predecessor": "r5b_feature_meta_uniformfix_train_r28_20260816",
+  "single_algorithmic_change": "Replace the fixed 1e-8 observation normalization floor with per-record two-snapshot RMS normalization; exact zero observations remain zero.",
+  "motivation": "Registered onset snapshots have approximately 1e-13 RMS, so the old fixed floor suppressed instance-specific observation channels by about five orders of magnitude.",
+  "scope": "train_split_only_retraining_after_observation_signal_fix",
+  "forbidden_data": [
+    "validation",
+    "test_id"
+  ],
+  "physical_wavefield_propagator": false,
+  "synthetic_bridge": false,
+  "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "adapter_implementation_sha256": "966e79e8f01273324412c89267844e021111e0b68347d0f603e0cfda774ed42a",
+  "trainer_sha256": "b6e7984ebc89b56a5ab44825133d60c50bf47f52291bfcf6b17493efc948ba35",
+  "config_sha256": "6423588bfb277ec3040b0c43effd3b5d8c46751145a4ca9d653d21d8358577b0",
+  "registered_protocol": {
+    "seed": 372,
+    "episodes_per_family": 4,
+    "epochs": 3,
+    "batch_size": 1,
+    "future_time_points_per_episode_per_epoch": 24,
+    "gradient_time_chunk": 4,
+    "time_block": 1,
+    "learning_rate": 0.0001,
+    "latent_dim": 16,
+    "lora_rank": 4,
+    "max_scale": 0.05,
+    "max_bias": 0.02,
+    "parent_parameters_frozen": true
+  },
+  "success_conditions": [
+    "training completes without nonfinite loss or out-of-memory failure",
+    "best.pt binds the registered parent and training groups",
+    "constant-medium latent stability remains intact"
+  ],
+  "promotion_rule": "Do not access validation. Evaluate on a new train-split gate excluding the r26 and r29 gate groups."
+}

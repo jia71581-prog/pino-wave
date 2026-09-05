@@ -1,0 +1,91 @@
+{
+  "candidate": {
+    "checkpoint_sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b",
+    "coefficient_l2_cap": 0.10821127891540527,
+    "name": "coefficient_norm_cap_and_trust_floor_v1",
+    "trust_fraction_floor": 0.9140290021896362
+  },
+  "claim_authorized": false,
+  "contamination_declaration": {
+    "candidate_feature_hypothesis_formed_after_test_id_inspection": true,
+    "existing_test_id_may_not_be_used_for_confirmation": true,
+    "validation_and_test_id_results_are_retrospective_only": true
+  },
+  "evidence_identity": {
+    "diagnostic_sha256": "fe924ccd538f231cad35c789b0a711609f46a113ac0f893d8ef7b2dbf5e3c338",
+    "diagnostic_tool_sha256": "53183cfaf63bb629b169487fc5bfa6308e7fb8b160e512f19da45d00be7f9a4f"
+  },
+  "holdout_contract": {
+    "family_record_count": {
+      "layered": 240,
+      "marmousi": 150,
+      "uniform": 90
+    },
+    "future_truth_must_not_exist_before_final_registration": true,
+    "group_contract": {
+      "layered": {
+        "group_count": 60,
+        "records_per_group": 4
+      },
+      "marmousi": {
+        "group_count": 30,
+        "records_per_group": 5
+      },
+      "uniform": {
+        "group_count": 90,
+        "records_per_group": 1
+      }
+    },
+    "group_count": 180,
+    "record_count": 480,
+    "required_zero_intersections": [
+      "group_id versus the complete existing dataset",
+      "sample_id versus the complete existing dataset",
+      "sample_sha256 versus the complete existing dataset",
+      "CPADC basis-training and risk-calibration sample identities",
+      "CPADC validation and test_id sample identities"
+    ],
+    "sample_namespace": "confirmation_r8",
+    "same_saved_grid_and_time_protocol": true
+  },
+  "limitations": [
+    "Marmousi samples may use new crops from the same public Marmousi-1 model and therefore are not independent geology.",
+    "Exact crop-origin disjointness is required, but nonoverlapping 2 km physical footprints across all historical crops are not claimed.",
+    "This draft cannot become final until the generator config, manifest, sample census, and all content hashes exist."
+  ],
+  "opening_policy": {
+    "allow_partial_metric_reads": false,
+    "allow_parameter_changes_after_first_future_truth": false,
+    "complete_shard_count": 4,
+    "one_shot": true,
+    "records_per_shard": 120,
+    "travel_cache_must_use_only_velocity_and_source_data": true
+  },
+  "promotion_gate": {
+    "absolute": {
+      "maximum_online_adaptation_seconds": 5.0,
+      "minimum_mean_record_improvement": 0.01,
+      "minimum_nonworse_fraction": 0.9,
+      "require_complete_manifest_coverage": true,
+      "require_every_family_nonworse": true,
+      "require_future_truth_sealed_during_adaptation": true
+    },
+    "paired_candidate_versus_r7": {
+      "harm_reduction_rule": "candidate_strict_harm_count <= floor(0.70 * r7_strict_harm_count); if r7 count is zero, candidate count must also be zero",
+      "minimum_mean_improvement_retention_fraction": 0.75,
+      "require_identical_records_and_parent_predictions": true
+    }
+  },
+  "registration_missing": [
+    "generator_config_path_and_sha256",
+    "generator_code_sha256",
+    "manifest_path_and_sha256",
+    "ordered_sample_ids_sha256",
+    "source_dataset_or_raw_model_identity",
+    "travel_cache_path_file_sha256_and_content_sha256",
+    "evaluator_and_merger_sha256",
+    "artifact_directory"
+  ],
+  "schema": "cpadc_r8_new_holdout_preregistration_draft_v1",
+  "status": "draft_not_registered"
+}

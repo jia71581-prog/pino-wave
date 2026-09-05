@@ -1,0 +1,30 @@
+{
+  "schema": "acoustic_train_only_capacity_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "parent_travel_time_warp_oracle_r4_train6",
+  "date_utc": "2026-08-25",
+  "hypothesis": "A single multiplier on the deployment-available spatial direction travel_time(x,z)*d(parent)/dt has at least 1 percent mean oracle improvement and at least 0.5 percent in every family.",
+  "direction": "eikonal_travel_time(x,z)*d(parent_field)/dt",
+  "travel_time_scale_range": [-0.1, 0.1],
+  "grid_steps": 81,
+  "sample_ids": [
+    "train_uniform_00057", "train_layered_00767", "train_marmousi_00609",
+    "train_uniform_00350", "train_layered_00996", "train_marmousi_00054"
+  ],
+  "acceptance": {
+    "minimum_mean_oracle_improvement": 0.01,
+    "minimum_each_family_mean_oracle_improvement": 0.005,
+    "minimum_records_with_nonzero_best_multiplier": 3
+  },
+  "failure_signal": "Insufficient capacity rejects one-scalar travel-time warping and implies that a multi-mode spatial phase correction is required.",
+  "bindings": {
+    "script_sha256": "2a1d528bbabaa1453f54f22136e9c8dab8bf003f5520721a99b00262095913da",
+    "config_sha256": "1128a54355c713dcc7d323a10617bede3876233eb7fc15f5e12f46d79c1a8ad4",
+    "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "tests": "7 oracle-direction tests passed"
+  },
+  "scope": "train-only future-truth capacity diagnostic; future deployment selector must use physics only",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "output": "results/parent_travel_time_warp_oracle_r4_train6_20260825.json"
+}

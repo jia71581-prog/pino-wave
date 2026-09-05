@@ -1,0 +1,48 @@
+{
+  "schema": "r16_dscp_v21_spectral_hinge_probe_spec_v1",
+  "frozen_local_date": "2026-08-27",
+  "purpose": "Select whether and at what weight a high-spatial-band non-harm hinge should enter a later full-data training experiment.",
+  "claim_scope": "exploratory direction/weight probe only; all 24 records were already consumed by v19 and cannot provide independent promotion evidence",
+  "truth_scope": "train/final_train_confirm only; validation and test_id remain sealed",
+  "bindings": {
+    "script_sha256": "8ad4b08c046a51b5f2de8dd25936644401a09cd34400acc1006ffac43e7f5fa3",
+    "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+    "v19_terminal_sha256": "2e3eb5d434ab385499363f9b133b9cec71b306d90260b925b2393af4a1bfb445",
+    "v20_terminal_sha256": "e9d0625d40a2904cb7f85bbe7b33596787714d7c2aa727dcf85c449896aa7925"
+  },
+  "split": "Within each family, sort the eight v19 sample IDs lexicographically; first six are fit and last two are holdout, yielding 18 fit and 6 holdout records.",
+  "plan": {
+    "initialization": "frozen v18 B_data_hinge best checkpoint for every arm",
+    "updates": 192,
+    "eval_every": 64,
+    "learning_rate": 0.0003,
+    "optimizer": "AdamW betas=(0.9,0.99), eps=1e-8, weight_decay=1e-4, grad clip=1.0, seed=372",
+    "shared_loss": "v18 masked_confined_loss + aggregate relative-error non-harm hinge lambda=1 margin=0.02",
+    "spectral_training_metric": "rfft2 high last-axis third, matching metric_record; 16 evenly spaced parent-retained future frames per update; candidate/parent high-band error ratio",
+    "spectral_margin": 0.02,
+    "evaluation_metric": "full-frame metric_record low/mid/high bands and early/mid/late time bands"
+  },
+  "arms_order_fixed": [
+    "A_control_extra_updates",
+    "B_spectral_lambda_0p25",
+    "C_spectral_lambda_1p0"
+  ],
+  "arms": {
+    "A_control_extra_updates": {"spectral_lambda": 0.0},
+    "B_spectral_lambda_0p25": {"spectral_lambda": 0.25},
+    "C_spectral_lambda_1p0": {"spectral_lambda": 1.0}
+  },
+  "readout": {
+    "minimum_high_band_gain_delta": 0.005,
+    "maximum_aggregate_gain_drop": 0.005,
+    "worst_aggregate_harm_floor": -0.02,
+    "viable": "Versus the frozen checkpoint baseline on the same six holdout records: high-band mean gain improves by at least +0.005, high-band nonworse count does not fall, aggregate mean gain drops by no more than 0.005, and worst aggregate harm is at least -0.02.",
+    "selection": "Among viable arms select the largest final high-band mean gain. If none is viable, do not carry a spectral hinge into full-data training."
+  },
+  "prohibitions": [
+    "no checkpoint write",
+    "no validation/test_id access",
+    "no promotion claim",
+    "no threshold movement after results"
+  ]
+}

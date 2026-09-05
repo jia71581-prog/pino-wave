@@ -1,0 +1,42 @@
+{
+  "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_v2/dataset_marmousi1_v2.h5",
+  "gates": {
+    "cfl": {
+      "maximum_cfl_2d": 0.19445436482630057,
+      "maximum_lwc_q": 0.24584126984126986,
+      "passed": true
+    },
+    "free_surface": {
+      "max_abs_top": 0.0,
+      "passed": true
+    },
+    "nonzero_wavefield": {
+      "max_abs": 1.4185735608407413e-07,
+      "passed": true
+    },
+    "source_map": {
+      "max_sum_error": 4.1443854570388794e-08,
+      "passed": true
+    },
+    "time_axis": {
+      "count": 401,
+      "passed": true,
+      "strictly_increasing": true
+    }
+  },
+  "included_splits": [
+    "train"
+  ],
+  "path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_v2/dataset_marmousi1_v2.h5",
+  "sample_count": 700,
+  "schema_version": "acoustic_lwc84_401_to_201_v1",
+  "source_shard_count": 88,
+  "split": "all",
+  "strict_passed": true,
+  "wavefield_shape": [
+    700,
+    401,
+    201,
+    201
+  ]
+}

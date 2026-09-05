@@ -1,0 +1,93 @@
+{
+  "base_config": "configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+  "bindings": {
+    "base_config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "diagnostic": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_capacity_ladder_overfit.py",
+    "diagnostic_sha256": "744dbed963ac96444fbdc83a0e854284fbdff95720722a0cce9f249bd0db051d",
+    "normalization_json": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json",
+    "normalization_json_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "preregistration": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_r20_source_support_r22b_smoke_preregistration_20260824.json",
+    "preregistration_sha256": "fef184360c185e7a84da79685c20b5feda42a590dc5fa4f249430c90ad3cb999",
+    "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_wkb_frequency_train_panel.py",
+    "script_sha256": "5af0b759ef5bec0762db329242e71cd6345dce5cc708c21c06135af693bde2d9",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "target_background_cache_sha256": {},
+    "target_background_cache_shards": [],
+    "travel_time_h5": "/root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069"
+  },
+  "calibration_access": "fixed-frame_checkpoint_selection_then_all_saved_report",
+  "calibration_indices": [
+    422,
+    1543
+  ],
+  "calibration_sample_ids": [
+    "train_layered_00002",
+    "train_marmousi_00003"
+  ],
+  "complete_trace_use": "fit_panel_train_labels_only",
+  "confirm_indices": [
+    423,
+    1544
+  ],
+  "confirm_sample_ids": [
+    "train_layered_00003",
+    "train_marmousi_00004"
+  ],
+  "confirmation_access": "all_saved_once_after_checkpoint_freeze",
+  "evaluate_every": 1,
+  "evaluation_frames": 32,
+  "evaluation_macro_records": 1,
+  "evaluation_time_block": 32,
+  "family_gradient_weights": {
+    "layered": 1.0,
+    "marmousi": 1.0,
+    "uniform": 1.0
+  },
+  "fit_indices": [
+    420,
+    421,
+    1540,
+    1541,
+    1542
+  ],
+  "fit_sample_ids": [
+    "train_layered_00000",
+    "train_layered_00001",
+    "train_marmousi_00000",
+    "train_marmousi_00001",
+    "train_marmousi_00002"
+  ],
+  "helmholtz_frequencies": 96,
+  "helmholtz_frequency_softmax": true,
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "panel_families": [
+    "layered",
+    "marmousi"
+  ],
+  "panel_selection": "anchor_group_source_holdout",
+  "panels_disjoint": true,
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50",
+    "optimizer_state_restored": false,
+    "parent_global_step": 2600,
+    "parent_run_digest": "d50ea06ffce4eeab960d63e1e6cf14d30f10d7c10d73db33d53c588a9d264580",
+    "rng_state_restored": false,
+    "schema": "exact_model_initialization_v1",
+    "strict_state_dict": true
+  },
+  "run_digest": "5d88d9cfc85c8f19a3598b12fdb7f412b28275abc54d1a63ec6fb8e003333b7b",
+  "schema": "wkb_frequency_train_panel_v1",
+  "seed": 372,
+  "split": "train",
+  "target_kind": "source_truth",
+  "target_relative_l2": 0.1,
+  "test_id_opened": false,
+  "updates": 2,
+  "validation_opened": false
+}

@@ -1,0 +1,442 @@
+{
+  "acceptance": {
+    "new_medium_new_source_passed": false,
+    "relative_l2_max": 0.1,
+    "same_medium_new_source_passed": false
+  },
+  "access_audit": {
+    "split": "train",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+  "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+  "diagnosis": "source_conditioning_or_source_coverage_limited",
+  "identity": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+  "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50",
+  "metrics": {
+    "anchor": {
+      "aggregate_relative_l2": 0.03113075182090159,
+      "centroid_shift_cells": 8.765239150163032,
+      "coarse_metrics": {
+        "aggregate_relative_l2": 0.031130705271938938,
+        "centroid_shift_cells": 8.764771156002826,
+        "energy_floor_fraction": 0.01,
+        "family_relative_l2": {
+          "layered": 0.01322699960510325,
+          "marmousi": 0.04903441093877463
+        },
+        "family_time_bin_relative_l2": {
+          "layered": {
+            "early": 0.00905606470620273,
+            "late": 0.07643312213025122,
+            "middle": 0.011832986289815672,
+            "pre_onset": 1.0
+          },
+          "marmousi": {
+            "early": 0.02805174134623858,
+            "late": 0.0705833128289281,
+            "middle": 0.03237437643468949,
+            "pre_onset": 1.0
+          }
+        },
+        "frame_count": 802,
+        "medium_relative_l2": {
+          "train:layered:00000": 0.01322699960510325,
+          "train:marmousi:x0.0:z0.0": 0.04903441093877463
+        },
+        "near_zero_frame_count": 3,
+        "phase_correlation": 0.9328977092991252,
+        "record_count": 2,
+        "rmse": 0.003155209126517919,
+        "source_relative_l2": {
+          "train_layered_00000": 0.01322699960510325,
+          "train_marmousi_00000": 0.04903441093877463
+        },
+        "spectrum_relative_l2": {
+          "high": 0.5062519111914975,
+          "low": 0.042175046479290317,
+          "middle": 0.387183859548548
+        },
+        "time_bin_relative_l2": {
+          "early": 0.02553715468640049,
+          "late": 0.07060901433291226,
+          "middle": 0.030533653961168694,
+          "pre_onset": 1.0
+        },
+        "unique_time_index_count": 401,
+        "xcorr_peak_shift_cells": 1.3802715636015557
+      },
+      "correction_to_coarse_l2_ratio": 0.00010221186128124865,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 0.013227048069525349,
+        "marmousi": 0.049034455572277834
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.009058235603625224,
+          "late": 0.07643824123576463,
+          "middle": 0.011829043337987708,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.02805154605881836,
+          "late": 0.07058350037834006,
+          "middle": 0.032374289176461485,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 802,
+      "medium_relative_l2": {
+        "train:layered:00000": 0.013227048069525349,
+        "train:marmousi:x0.0:z0.0": 0.049034455572277834
+      },
+      "near_zero_frame_count": 3,
+      "phase_correlation": 0.9329028764572653,
+      "record_count": 2,
+      "reference_kind": "coarse",
+      "relative_improvement_vs_coarse": -1.4952749141583297e-06,
+      "rmse": 0.0031552120761916087,
+      "source_relative_l2": {
+        "train_layered_00000": 0.013227048069525349,
+        "train_marmousi_00000": 0.049034455572277834
+      },
+      "spectrum_relative_l2": {
+        "high": 0.5062530329299763,
+        "low": 0.04217509402290845,
+        "middle": 0.3871841810555516
+      },
+      "time_bin_relative_l2": {
+        "early": 0.025537128369895475,
+        "late": 0.07060922440547669,
+        "middle": 0.030533378418684833,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 1.3802619367522693
+    },
+    "new_medium_new_source": {
+      "aggregate_relative_l2": 1.985063152597227,
+      "centroid_shift_cells": 34.07513237316768,
+      "coarse_metrics": {
+        "aggregate_relative_l2": 1.985067734176338,
+        "centroid_shift_cells": 34.07529513704981,
+        "energy_floor_fraction": 0.01,
+        "family_relative_l2": {
+          "layered": 2.893634091391519,
+          "marmousi": 1.2582146484041936
+        },
+        "family_time_bin_relative_l2": {
+          "layered": {
+            "early": 2.456162379115381,
+            "late": 2.674146088510737,
+            "middle": 3.7455239684168484,
+            "pre_onset": 1.0
+          },
+          "marmousi": {
+            "early": 1.1807440038376353,
+            "late": 1.1151970368087765,
+            "middle": 1.2066134783219222,
+            "pre_onset": 1.0
+          }
+        },
+        "frame_count": 3609,
+        "medium_relative_l2": {
+          "train:layered:00001": 2.893634091391519,
+          "train:marmousi:x150.0:z0.0": 1.2582146484041936
+        },
+        "near_zero_frame_count": 10,
+        "phase_correlation": 0.01674845678686091,
+        "record_count": 9,
+        "rmse": 0.09941174098922965,
+        "source_relative_l2": {
+          "train_layered_00004": 3.0683553663048007,
+          "train_layered_00005": 1.5083849263499824,
+          "train_layered_00006": 4.275517334640305,
+          "train_layered_00007": 2.7222787382709877,
+          "train_marmousi_00005": 1.0050624931486003,
+          "train_marmousi_00006": 1.1601773545066383,
+          "train_marmousi_00007": 1.5070131597578271,
+          "train_marmousi_00008": 1.0553681652322293,
+          "train_marmousi_00009": 1.5634520693756733
+        },
+        "spectrum_relative_l2": {
+          "high": 1.5002841566748244,
+          "low": 1.2372687961724709,
+          "middle": 1.468409589322445
+        },
+        "time_bin_relative_l2": {
+          "early": 1.2912844004337511,
+          "late": 1.1213796571686112,
+          "middle": 1.2883945519586935,
+          "pre_onset": 1.0
+        },
+        "unique_time_index_count": 401,
+        "xcorr_peak_shift_cells": 28.415467247981034
+      },
+      "correction_to_coarse_l2_ratio": 0.00012813340998892617,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 2.8936251177396985,
+        "marmousi": 1.2582135804832493
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 2.4561555859322444,
+          "late": 2.6741317557936153,
+          "middle": 3.745509803320515,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 1.18074330208457,
+          "late": 1.1151967589873792,
+          "middle": 1.2066126786064393,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 3609,
+      "medium_relative_l2": {
+        "train:layered:00001": 2.8936251177396985,
+        "train:marmousi:x150.0:z0.0": 1.2582135804832493
+      },
+      "near_zero_frame_count": 10,
+      "phase_correlation": 0.016749416238659488,
+      "record_count": 9,
+      "reference_kind": "coarse",
+      "relative_improvement_vs_coarse": 2.3080215511567516e-06,
+      "rmse": 0.09941165604292596,
+      "source_relative_l2": {
+        "train_layered_00004": 3.0683427384468507,
+        "train_layered_00005": 1.5083830114077708,
+        "train_layered_00006": 4.2755015114258965,
+        "train_layered_00007": 2.7222732096782765,
+        "train_marmousi_00005": 1.0050617973039735,
+        "train_marmousi_00006": 1.1601772032849065,
+        "train_marmousi_00007": 1.5070110718323007,
+        "train_marmousi_00008": 1.0553680810050394,
+        "train_marmousi_00009": 1.5634497489900263
+      },
+      "spectrum_relative_l2": {
+        "high": 1.5002844751635125,
+        "low": 1.2372674823843732,
+        "middle": 1.4684089854897437
+      },
+      "time_bin_relative_l2": {
+        "early": 1.291283035357218,
+        "late": 1.1213793015200748,
+        "middle": 1.288393146866068,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 28.43489997688753
+    },
+    "same_medium_new_source": {
+      "aggregate_relative_l2": 1.8317615822642945,
+      "centroid_shift_cells": 32.10200513420494,
+      "coarse_metrics": {
+        "aggregate_relative_l2": 1.831764427883941,
+        "centroid_shift_cells": 32.10220231792744,
+        "energy_floor_fraction": 0.01,
+        "family_relative_l2": {
+          "layered": 2.551044107042761,
+          "marmousi": 1.2923046685148254
+        },
+        "family_time_bin_relative_l2": {
+          "layered": {
+            "early": 2.093148971688845,
+            "late": 3.255450722199993,
+            "middle": 3.1491410626458483,
+            "pre_onset": 1.0
+          },
+          "marmousi": {
+            "early": 1.2730810941524637,
+            "late": 1.2052044313441754,
+            "middle": 1.3182397648759778,
+            "pre_onset": 1.0
+          }
+        },
+        "frame_count": 2807,
+        "medium_relative_l2": {
+          "train:layered:00000": 2.551044107042761,
+          "train:marmousi:x0.0:z0.0": 1.2923046685148254
+        },
+        "near_zero_frame_count": 9,
+        "phase_correlation": -0.018888987816632362,
+        "record_count": 7,
+        "rmse": 0.07366116634438985,
+        "source_relative_l2": {
+          "train_layered_00001": 2.4109167728820173,
+          "train_layered_00002": 2.003978344665551,
+          "train_layered_00003": 3.238237203580715,
+          "train_marmousi_00001": 1.3838463345336607,
+          "train_marmousi_00002": 1.6762852342729315,
+          "train_marmousi_00003": 1.0468165613609286,
+          "train_marmousi_00004": 1.0622705438917808
+        },
+        "spectrum_relative_l2": {
+          "high": 1.5037111239005514,
+          "low": 1.3252145281686032,
+          "middle": 1.3061538378694508
+        },
+        "time_bin_relative_l2": {
+          "early": 1.3554441057470927,
+          "late": 1.2085840095612734,
+          "middle": 1.382027318019124,
+          "pre_onset": 1.0
+        },
+        "unique_time_index_count": 401,
+        "xcorr_peak_shift_cells": 33.04570532256547
+      },
+      "correction_to_coarse_l2_ratio": 0.00015544679075351833,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 2.5510389177272965,
+        "marmousi": 1.2923035806670429
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 2.093143746254223,
+          "late": 3.255433634254267,
+          "middle": 3.1491372079336757,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 1.2730802596671111,
+          "late": 1.2052036243063615,
+          "middle": 1.3182384266220724,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 2807,
+      "medium_relative_l2": {
+        "train:layered:00000": 2.5510389177272965,
+        "train:marmousi:x0.0:z0.0": 1.2923035806670429
+      },
+      "near_zero_frame_count": 9,
+      "phase_correlation": -0.018883418241975397,
+      "record_count": 7,
+      "reference_kind": "coarse",
+      "relative_improvement_vs_coarse": 1.5534855918403138e-06,
+      "rmse": 0.07366109803097748,
+      "source_relative_l2": {
+        "train_layered_00001": 2.4109115616107193,
+        "train_layered_00002": 2.0039746186315286,
+        "train_layered_00003": 3.238230572939641,
+        "train_marmousi_00001": 1.3838443095012152,
+        "train_marmousi_00002": 1.6762828108571415,
+        "train_marmousi_00003": 1.04681662009489,
+        "train_marmousi_00004": 1.062270582214925
+      },
+      "spectrum_relative_l2": {
+        "high": 1.503710736843841,
+        "low": 1.3252129978804046,
+        "middle": 1.3061532280820576
+      },
+      "time_bin_relative_l2": {
+        "early": 1.355442750599747,
+        "late": 1.2085831644416944,
+        "middle": 1.3820258834470152,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 33.05373871319604
+    }
+  },
+  "panels": {
+    "anchor": {
+      "family_counts": {
+        "layered": 1,
+        "marmousi": 1
+      },
+      "group_ids": [
+        "train:layered:00000",
+        "train:marmousi:x0.0:z0.0"
+      ],
+      "indices": [
+        420,
+        1540
+      ],
+      "sample_ids": [
+        "train_layered_00000",
+        "train_marmousi_00000"
+      ]
+    },
+    "new_medium_new_source": {
+      "family_counts": {
+        "layered": 4,
+        "marmousi": 5
+      },
+      "group_ids": [
+        "train:layered:00001",
+        "train:marmousi:x150.0:z0.0"
+      ],
+      "indices": [
+        424,
+        425,
+        426,
+        427,
+        1545,
+        1546,
+        1547,
+        1548,
+        1549
+      ],
+      "sample_ids": [
+        "train_layered_00004",
+        "train_layered_00005",
+        "train_layered_00006",
+        "train_layered_00007",
+        "train_marmousi_00005",
+        "train_marmousi_00006",
+        "train_marmousi_00007",
+        "train_marmousi_00008",
+        "train_marmousi_00009"
+      ]
+    },
+    "same_medium_new_source": {
+      "family_counts": {
+        "layered": 3,
+        "marmousi": 4
+      },
+      "group_ids": [
+        "train:layered:00000",
+        "train:marmousi:x0.0:z0.0"
+      ],
+      "indices": [
+        421,
+        422,
+        423,
+        1541,
+        1542,
+        1543,
+        1544
+      ],
+      "sample_ids": [
+        "train_layered_00001",
+        "train_layered_00002",
+        "train_layered_00003",
+        "train_marmousi_00001",
+        "train_marmousi_00002",
+        "train_marmousi_00003",
+        "train_marmousi_00004"
+      ]
+    }
+  },
+  "preregistration": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r20_source_medium_generalization_r21b_preregistration_20260824.json",
+  "preregistration_sha256": "b70f30e26dd39d0ee2c7e7f1280e2febaaec45a9f5b1964643d7120e0251836d",
+  "schema": "r20_source_medium_generalization_diagnosis_v1",
+  "status": "complete",
+  "transfer": {
+    "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50",
+    "optimizer_state_restored": false,
+    "parent_global_step": 2600,
+    "parent_run_digest": "d50ea06ffce4eeab960d63e1e6cf14d30f10d7c10d73db33d53c588a9d264580",
+    "rng_state_restored": false,
+    "schema": "exact_model_initialization_v1",
+    "strict_state_dict": true
+  }
+}

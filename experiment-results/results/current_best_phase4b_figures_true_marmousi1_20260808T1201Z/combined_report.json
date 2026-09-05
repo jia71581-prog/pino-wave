@@ -1,0 +1,40 @@
+{
+  "status": "complete",
+  "schema": "current_best_phase4b_three_family_visualization_v2",
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "terminal_metric_comparable": false,
+  "protocol_note": "Uniform and Layered are canonical OOD records. Marmousi is a verified no-water 2 km x 2 km crop from the published high-resolution Marmousi-1 source and was solved with the same LWC84 and sigma-2 P_bg protocols.",
+  "correction_note": "This replaces the earlier visualization-only crop from a 116 x 227 normalized-extent source. That older derived source is not treated as a true global Marmousi model.",
+  "families": {
+    "uniform": {
+      "sample_id": "ood_uniform_c4000_f15",
+      "full_wavefield_relative_l2": 0.000007814072141584409,
+      "source_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/render_report.json"
+    },
+    "layered": {
+      "sample_id": "ood_layered_c3000_c5000_f15",
+      "velocity_contract": "upper_3000_mps_lower_5000_mps",
+      "full_wavefield_relative_l2": 0.10166427975196345,
+      "source_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/render_report.json"
+    },
+    "marmousi": {
+      "sample_id": "marmousi1_true_nowater_x4400_z400_f15",
+      "source_model": "Marmousi-1 P-wave velocity",
+      "source_doi": "10.5281/zenodo.16114161",
+      "source_shape_zx": [751, 2301],
+      "source_spacing_m": 4.0,
+      "source_extent_m": [9200.0, 3000.0],
+      "crop_bbox_m": [4400.0, 6400.0, 400.0, 2400.0],
+      "crop_size_m": [2000.0, 2000.0],
+      "velocity_range_mps": [1630.9375, 4717.2265625],
+      "velocity_color_scale_mps": [1500.0, 5500.0],
+      "velocity_color_scale_basis": "verified_source_global_range",
+      "water_fraction_le_1500_5": 0.0,
+      "selection_basis": "verified Marmousi-1 global x=4.4-6.4 km z=0.4-2.4 km; no water; dense dipping thin layers; intersecting growth faults; folded deep reflectors",
+      "full_wavefield_relative_l2": 0.25206907591040956,
+      "receiver_mean_relative_l2": 0.1618729578191648,
+      "source_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_true_marmousi1_20260808T1201Z/marmousi/render_report.json"
+    }
+  }
+}

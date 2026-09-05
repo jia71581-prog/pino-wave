@@ -1,0 +1,103 @@
+[2026-08-08 17:47:10,582] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1852, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1492, in main
+    baseline = _evaluate_triplet(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_saved_time_temporal_three_record_overfit.py", line 494, in _evaluate_triplet
+    batch = dataset[batch_index]
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/data.py", line 136, in __getitem__
+    return self.materialize_spec(self.schedule[int(index)])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/data.py", line 206, in materialize_spec
+    indices = validation_time_indices(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/sampling.py", line 369, in validation_time_indices
+    raise ValueError(f"validation {name} bin has too few frames")
+ValueError: validation early bin has too few frames
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1852, in <module>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1852, in <module>
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1852, in <module>
+        raise SystemExit(main())raise SystemExit(main())
+
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1515, in main
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1515, in main
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 1515, in main
+    distributed_barrier(ddp)    
+distributed_barrier(ddp)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 224, in distributed_barrier
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 224, in distributed_barrier
+    distributed_barrier(ddp)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 224, in distributed_barrier
+        dist.barrier()dist.barrier()
+
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 47, in wrapper
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 47, in wrapper
+    dist.barrier()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/c10d_logger.py", line 47, in wrapper
+        return func(*args, **kwargs)return func(*args, **kwargs)
+
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3696, in barrier
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3696, in barrier
+    return func(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/distributed_c10d.py", line 3696, in barrier
+        work = default_pg.barrier(opts=opts)work = default_pg.barrier(opts=opts)
+
+RuntimeError    RuntimeError: work = default_pg.barrier(opts=opts): [2] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.
+[3] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.
+
+RuntimeError: [1] is setting up NCCL communicator and retrieving ncclUniqueId from [0] via c10d key-value store by key '0', but store->get('0') got error: Connection reset by peer. This may indicate a possible application crash on rank 0 or a network set up issue.
+[2026-08-08 17:47:20,676] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 68139) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/diagnose_helmholtz_g3_heldout.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-08-08_17:47:20
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 68140)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-08-08_17:47:20
+  host      : localhost
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 68141)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-08-08_17:47:20
+  host      : localhost
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 68142)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-08_17:47:20
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 68139)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

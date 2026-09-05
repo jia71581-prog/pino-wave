@@ -1,0 +1,234 @@
+[r56smokeA] launch 2026-08-30 00:38:11
+[2026-08-30 00:38:12,695] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()Traceback (most recent call last):
+
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    self.optimizer.step = with_counter(self.optimizer.step)
+      File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+self.optimizer.step = with_counter(self.optimizer.step)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+        instance_ref = weakref.ref(method.__self__)instance_ref = weakref.ref(method.__self__)
+
+AttributeErrorAttributeError:     : 'function' object has no attribute '__self__'self.optimizer.step = with_counter(self.optimizer.step)'function' object has no attribute '__self__'
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+. Did you mean: '. Did you mean: '__call____call__'?'?
+
+    instance_ref = weakref.ref(method.__self__)
+AttributeError: 'function' object has no attribute '__self__'. Did you mean: '__call__'?
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    self.optimizer.step = with_counter(self.optimizer.step)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+    instance_ref = weakref.ref(method.__self__)
+AttributeError: 'function' object has no attribute '__self__'. Did you mean: '__call__'?
+[2026-08-30 00:38:27,797] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 169143) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_r56_optim_ema.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-08-30_00:38:27
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 169144)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-08-30_00:38:27
+  host      : localhost
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 169145)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-08-30_00:38:27
+  host      : localhost
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 169146)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-30_00:38:27
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 169143)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[r56smokeA] exited 1 at 2026-08-30 00:38:28
+[r56smokeB] launch 2026-08-30 00:38:28
+[2026-08-30 00:38:29,365] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    self.optimizer.step = with_counter(self.optimizer.step)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+    instance_ref = weakref.ref(method.__self__)
+AttributeError: 'function' object has no attribute '__self__'. Did you mean: '__call__'?
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    self.optimizer.step = with_counter(self.optimizer.step)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+    instance_ref = weakref.ref(method.__self__)
+AttributeError: 'function' object has no attribute '__self__'. Did you mean: '__call__'?
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    self.optimizer.step = with_counter(self.optimizer.step)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+    instance_ref = weakref.ref(method.__self__)
+AttributeError: 'function' object has no attribute '__self__'. Did you mean: '__call__'?
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 150, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r56_optim_ema.py", line 146, in main
+    r54.r28.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r28_expanded_tail_spectral.py", line 103, in main
+    r25.main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r25_coarse_residual_operator.py", line 582, in main
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 805, in __init__
+    super().__init__(optimizer, last_epoch, verbose)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 75, in __init__
+    self.optimizer.step = with_counter(self.optimizer.step)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 57, in with_counter
+    instance_ref = weakref.ref(method.__self__)
+AttributeError: 'function' object has no attribute '__self__'. Did you mean: '__call__'?
+[2026-08-30 00:38:49,629] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 169727) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_r56_optim_ema.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-08-30_00:38:49
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 169728)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-08-30_00:38:49
+  host      : localhost
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 169729)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-08-30_00:38:49
+  host      : localhost
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 169730)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-30_00:38:49
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 169727)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[r56smokeB] exited 1 at 2026-08-30 00:38:49

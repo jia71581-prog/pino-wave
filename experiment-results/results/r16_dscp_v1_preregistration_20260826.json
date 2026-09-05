@@ -1,0 +1,546 @@
+{
+  "basis": {
+    "basis_tensor_sha256": "4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5",
+    "binding": {
+      "mtime_ns": 1787687174771925587,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/basis_rank16.pt",
+      "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+      "size_bytes": 83476
+    },
+    "coefficient_maps_serialized": false,
+    "coefficient_scales_tensor_sha256": "179ba6567af6d0fb00dbf4efccb269b728713efed5f11baec7220b51a14803e3",
+    "conditions": {
+      "layered": {
+        "all_at_most_1e3": true,
+        "count": 97,
+        "maximum": 1.03219244338011,
+        "mean": 1.0321754017125502,
+        "minimum": 1.0321598334751354
+      },
+      "marmousi": {
+        "all_at_most_1e3": true,
+        "count": 97,
+        "maximum": 1.00000075652535,
+        "mean": 1.000000672150333,
+        "minimum": 1.000000640961043
+      },
+      "uniform": {
+        "all_at_most_1e3": true,
+        "count": 97,
+        "maximum": 1.0014606340231116,
+        "mean": 1.0014553823283545,
+        "minimum": 1.0014548604401243
+      }
+    },
+    "family_order": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "fields_serialized": false,
+    "truth_scope": "six exact train basis records only; no validation/test_id"
+  },
+  "bindings": {
+    "active_config": {
+      "mtime_ns": 1787584662429061117,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/generated/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4.yaml",
+      "sha256": "755d5b0b8512af854844fe9f3e0c0356c9b24ba55e1390fa1bc4a2feb5a6a94d",
+      "size_bytes": 3664
+    },
+    "base_config": {
+      "mtime_ns": 1786346979793582588,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+      "sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+      "size_bytes": 1553
+    },
+    "basis": {
+      "mtime_ns": 1787687174771925587,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/basis_rank16.pt",
+      "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+      "size_bytes": 83476
+    },
+    "manifest": {
+      "mtime_ns": 1786349000627969170,
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_manifest_marmousi1_4m_v2.json",
+      "sha256": "273c2a492e31027571bf6780ea4a6668428ef47bf252023fe39eabefc355c8b2",
+      "size_bytes": 1000401
+    },
+    "new_code_config": {
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/r16_dscp_v1.yaml": {
+        "mtime_ns": 1787686736459501611,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/r16_dscp_v1.yaml",
+        "sha256": "c9eeee1dd5a93ebbf22b5d0f1ff7edb23497aa1c1bd58e8d0dd7d3bdbd606b59",
+        "size_bytes": 3410
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py": {
+        "mtime_ns": 1787686718827889824,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py",
+        "sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+        "size_bytes": 18753
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp.py": {
+        "mtime_ns": 1787686929547737860,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp.py",
+        "sha256": "149034bbc1cec2d719ba7a6fd355f255d17fc10dd63bf7d8afd5a46fce2f4d96",
+        "size_bytes": 44531
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r16_dscp.py": {
+        "mtime_ns": 1787686996678604310,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r16_dscp.py",
+        "sha256": "c859fd21b787c473799e1bb0b78e1e5eb3d233cf16f7706ffac0de9679fc983f",
+        "size_bytes": 5641
+      }
+    },
+    "normalization": {
+      "mtime_ns": 1786349000627969170,
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json",
+      "sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+      "size_bytes": 1050
+    },
+    "oracle_preregistration": {
+      "mtime_ns": 1787685299848712639,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_raw_weighted_pod_fresh3_confirmation_v1_preregistration_20260826.json",
+      "sha256": "04b355069ff6c654f4623618e7fc3240ced77f0a4556f1465c667be321560185",
+      "size_bytes": 30634
+    },
+    "oracle_result": {
+      "mtime_ns": 1787685476437237185,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_raw_weighted_pod_fresh3_confirmation_v1_20260826.json",
+      "sha256": "1b5fbb6eae5a8403c8c1681347c4b2151a4b079069c9999c994ccc8090970d3e",
+      "size_bytes": 22491
+    },
+    "panels": {
+      "mtime_ns": 1787687018162257332,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/panels.json",
+      "sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+      "size_bytes": 200470
+    },
+    "parent_checkpoint": {
+      "mtime_ns": 1787605445244651530,
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "size_bytes": 339775310
+    },
+    "parent_runtime_result": {
+      "mtime_ns": 1787635346981043282,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_20260825.json",
+      "sha256": "6234660effaae726d0f381524619637ed87a8e22d6a264a3f5ce38b6e5889fed",
+      "size_bytes": 14785
+    },
+    "pod_preregistration": {
+      "mtime_ns": 1787644476498586633,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_preregistration_20260825.json",
+      "sha256": "643d91eb9f2c1b8041fffc298d8f4baa53eed447b2771bc14747996f66c7afe4",
+      "size_bytes": 27856
+    },
+    "pod_result": {
+      "mtime_ns": 1787644625212805458,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_20260825.json",
+      "sha256": "81b44a9b586a89e9797637fdbeca952e3a7d9d634defbe8930ba139ffe3c6f5b",
+      "size_bytes": 16814
+    },
+    "preflight": {
+      "mtime_ns": 1787687018218256438,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/design_freeze_preflight.json",
+      "sha256": "b852516b67064383a2e67e6e2ac5ac7ff96ce6161d99edb172ce38dd06f50606",
+      "size_bytes": 16656
+    },
+    "preflight_correction_v2": {
+      "mtime_ns": 1787687303206226511,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/preflight_correction_v2.json",
+      "sha256": "b28d0ca017eeb9720ac81a30f56311731f98e08b9fcefd221a49ac4e49e459c1",
+      "size_bytes": 2188
+    },
+    "preflight_correction_v3": {
+      "mtime_ns": 1787687372329374990,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/preflight_correction_v3.json",
+      "sha256": "d36694c430f2dc14d78f3333ff90f279500be89af3f5db82d20daf4549ab437e",
+      "size_bytes": 2373
+    },
+    "run_identity": {
+      "mtime_ns": 1787584782153463381,
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/run_identity.json",
+      "sha256": "be848406b21871068a228bf14dbed80732a9eebf71b866e62e996193d2c1fecc",
+      "size_bytes": 5542
+    },
+    "source_data": {
+      "bytes_not_rehashed": true,
+      "device": 2304,
+      "inode": 8593506502,
+      "mtime_ns": 1786211668075370332,
+      "path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+      "registered_source_config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+      "registered_source_file_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+      "registered_source_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+      "size_bytes": 1951323
+    },
+    "static_evidence": {
+      "mtime_ns": 1787687390649155707,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/static_evidence.json",
+      "sha256": "ff1e32477ffdc3954489051eb60abc98176d1ef651d86061b93717f540bd75fa",
+      "size_bytes": 2970
+    }
+  },
+  "candidate": "r16_dscp_v1",
+  "claim_boundary": "Offline fresh train-distribution oracle capacity only. It uses future truth to fit per-spatial-point coefficients and is not deployable, not validation, not test_id. The parent is only 1.608x faster than the traditional reference; R16-DSCP cannot claim 10x or faster-than-parent without measured complete E2E evidence.",
+  "created_utc": "2026-08-25T19:49:50.653903Z",
+  "design": {
+    "baseline": {
+      "input_channels": 29,
+      "kind": "fixed_1x1_ridge",
+      "output_channels": 16,
+      "parameters": 480,
+      "ridge_lambda": 0.0001
+    },
+    "basis": {
+      "coefficient_scale": "three_times_train_basis_record_rms_projection_per_family_per_mode",
+      "condition_maximum": 1000.0,
+      "covariance_accumulation_dtype": "float32",
+      "eigendecomposition_dtype": "float64",
+      "kind": "raw_family_residual_temporal_pod",
+      "rank": 16,
+      "records_per_family": 2,
+      "sign_rule": "largest_absolute_entry_positive"
+    },
+    "candidate": "r16_dscp_v1",
+    "causality": {
+      "c1_mask": "smoothstep_u2_3minus2u_over_4_saved_steps",
+      "correction_top_row_zero": true,
+      "correction_zero_through_k1": true,
+      "future_start": "k1_plus_1",
+      "registered_observations": [
+        "k0",
+        "k1"
+      ]
+    },
+    "data": {
+      "height": 201,
+      "manifest": "/home/jiayh/Data/data/processed/grouped_v3_manifest_marmousi1_4m_v2.json",
+      "normalization": "/home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json",
+      "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+      "split_policy": "train_only_until_single_frozen_validation_authorization",
+      "time_count": 401,
+      "width": 201
+    },
+    "efficiency_gates": {
+      "adapter_mean_s_maximum": 0.35,
+      "adapter_p95_s_maximum": 0.5,
+      "checkpoint_mib_maximum": 2.0,
+      "e2e_mean_ratio_to_parent_maximum": 1.05,
+      "e2e_p95_ratio_to_parent_maximum": 1.05,
+      "inference_peak_gib_maximum": 6.5,
+      "new_artifacts_mib_maximum": 64.0,
+      "train_peak_gib_maximum": 8.0
+    },
+    "features": {
+      "channels": 29,
+      "names": [
+        "log_velocity",
+        "dx_log_velocity",
+        "dz_log_velocity",
+        "source_map",
+        "travel_time_map",
+        "x_coordinate",
+        "z_coordinate",
+        "observed_minus_parent_k0",
+        "observed_minus_parent_k1",
+        "observed_residual_difference",
+        "parent_temporal_projection_rank16",
+        "velocity_route_one_hot3"
+      ]
+    },
+    "loss": {
+      "frame_relative_l2_squared": 1.0,
+      "late_third_relative_l2_squared": 0.25,
+      "normalized_coefficient_energy": 0.0001,
+      "physics_residual": 0.0,
+      "temporal_difference": 0.1
+    },
+    "model": {
+      "all_time_materialization_macs_401x16x201x201": 259212816,
+      "all_time_projection_macs_401x16x201x201": 259212816,
+      "architecture": "dwconv3x3_29_pw1x1_16_silu_dwconv3x3_16_pw1x1_16_tanh_scale",
+      "final_pointwise_zero_init": true,
+      "model_only_macs_201x201": 45451125,
+      "parameters": 1202,
+      "zero_state_exact_parent": true
+    },
+    "panels": {
+      "balanced_families": true,
+      "final_train_confirm_per_family": 8,
+      "hash_key": "r16-dscp-v1|372|group_id",
+      "long_calibration_per_family": 8,
+      "long_fit_per_family": 64,
+      "one_record_per_group": true,
+      "pilot_confirm_per_family": 8,
+      "pilot_fit_per_family": 8,
+      "smoke_per_family": 1
+    },
+    "parent": {
+      "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "mutable": false,
+      "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789"
+    },
+    "router": {
+      "constant_to": "uniform",
+      "gradient_absolute_threshold": 1e-06,
+      "gray_zone": "abstain_exact_parent",
+      "input": "velocity_only",
+      "layered_frac_dx_maximum": 0.05,
+      "layered_frac_dz_maximum": 0.1,
+      "marmousi_frac_dx_minimum": 0.15,
+      "marmousi_frac_dz_minimum": 0.5
+    },
+    "schema": "r16_dscp_v1",
+    "seed": 372,
+    "space_gate": {
+      "formula": "free_bytes_at_least_2GiB_plus_3_times_checkpoint_bytes_plus_64MiB"
+    },
+    "training": {
+      "checkpoints": "atomic_resumable_best_and_last_only",
+      "dataloader_workers_per_gpu_maximum": 2,
+      "deterministic": true,
+      "four_gpu_wall_time_maximum_s": 2700,
+      "one_gpu_wall_time_maximum_s": 7200,
+      "precision": "bf16_autocast",
+      "reduction_precision": "float32_or_float64",
+      "tf32": false,
+      "total_gpu_hours_maximum": 3.0
+    }
+  },
+  "gates": {
+    "efficiency": {
+      "adapter_mean_s_maximum": 0.35,
+      "adapter_nearest_rank_p95_s_maximum": 0.5,
+      "checkpoint_bytes_maximum": 2097152,
+      "e2e_mean_ratio_to_parent_maximum": 1.05,
+      "e2e_p95_ratio_to_parent_maximum": 1.05,
+      "inference_peak_bytes_maximum": 6979321856,
+      "new_artifacts_bytes_maximum": 67108864,
+      "training_peak_bytes_maximum": 8589934592
+    },
+    "one_vs_four_gpu_probe": {
+      "fallback": "one GPU",
+      "four_gpu_efficiency_minimum": 0.75,
+      "four_gpu_gpu_seconds_ratio_maximum": 1.35,
+      "four_gpu_speedup_minimum": 3.0,
+      "metric_and_hash_identity_required": true,
+      "peak_bytes_per_gpu_maximum": 6979321856,
+      "records": "first 12 long_fit records in frozen panel order",
+      "timed_runs": 3,
+      "warmup_runs": 1
+    },
+    "pilot_confirmation": {
+      "correction_energy_ratio_maximum": 0.35,
+      "each_family_paired_improvement_minimum": 0.005,
+      "finite": true,
+      "high_band_nonworse": true,
+      "joint_aggregate_paired_relative_l2_improvement_minimum": 0.01,
+      "late_third_nonworse": true,
+      "margin_over_ridge_percentage_points_minimum": 0.25,
+      "nonworse_records_minimum": 23,
+      "record_count": 24,
+      "scope": "24 frozen disjoint train confirmation records"
+    },
+    "post_long_sequence": "After final_train_confirm passes, evaluate validation exactly once. Lock candidate, thresholds, and checkpoint hash before opening test_id; test_id exactly once only if validation passes. Any change requires a new version.",
+    "smoke": {
+      "aggregate_nonworse": true,
+      "each_family_fraction_of_rank16_oracle_framewise_gain_minimum": 0.5,
+      "loss_decrease_minimum": 0.8,
+      "maximum_steps": 500,
+      "maximum_wall_time_s": 600,
+      "scope": "frozen smoke panel, train only, one group per family"
+    },
+    "static": [
+      "future-truth mutation invariance",
+      "HDF5 observed reads exactly {k0,k1}",
+      "registered onset contract",
+      "no future truth/family/id fields in inference signatures",
+      "C1 causal correction zero through k1 and top row zero",
+      "zero coefficient/state is bitwise exact parent",
+      "finite and basis condition <=1e3 else abstain",
+      "exact parameters=1202, model-only MACs=45451125, ridge parameters=480"
+    ],
+    "unconditional_reject": [
+      "NaN/Inf",
+      "OOM",
+      "leakage or non-train development truth access",
+      "binding or protected-parent hash drift",
+      "condition>1e3 without exact-parent abstention",
+      "atomic-resume contract failure",
+      "disk-space gate failure",
+      "material efficiency regression"
+    ]
+  },
+  "gpu_basis_build": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cuda_visible_devices": "0",
+    "driver_version": "580.105.08",
+    "memory_total_mib": 24564,
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "nvidia_driver_cuda_version": "13.0",
+    "physical_index": 0,
+    "torch_name": "NVIDIA GeForce RTX 4090 D",
+    "torch_total_memory_bytes": 25250627584,
+    "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+    "visible_index": 0
+  },
+  "hypothesis": "A 1,202-parameter velocity-routed rank-16 coefficient predictor can recover deployment-compatible train-confirmed temporal-residual gains from two observed frames without future-truth inference access and without material parent efficiency regression.",
+  "mechanism": "A velocity-only family router selects one immutable train-only raw residual POD basis. A 1,202-parameter local depthwise/pointwise network maps 29 permitted channels from velocity/source/travel/coordinates/two observed residual frames/frozen-parent projections/route one-hot to rank-16 spatial coefficient maps. Gray routes or condition>1e3 abstain to exact parent.",
+  "metrics_required": [
+    "paired per-family and aggregate relative L2",
+    "early/middle/late including late-third stability",
+    "low/mid/high spectrum including high-band stability",
+    "per-record nonworse and failure cases",
+    "correction-energy ratio",
+    "adapter and complete E2E mean/nearest-rank P95 latency",
+    "peak allocated/reserved VRAM",
+    "parameter/MAC/checkpoint/artifact size"
+  ],
+  "oracle_capacity_verification": {
+    "claim_boundary": "Offline fresh train-distribution oracle capacity only. It uses future truth to fit per-spatial-point coefficients and is not deployable, not validation, not test_id. The parent is only 1.608x faster than the traditional reference; R16-DSCP cannot claim 10x or faster-than-parent without measured complete E2E evidence.",
+    "families": {
+      "layered": {
+        "basis_design_condition_number": 1.2976400748659187,
+        "corrected_mean_frame_relative_l2": 0.20650134972048723,
+        "finite": true,
+        "rank32_mean_frame_relative_l2_reduction": 0.699222207188902,
+        "weighted_design_condition_number": 4.831127439439097
+      },
+      "marmousi": {
+        "basis_design_condition_number": 1.000007943300228,
+        "corrected_mean_frame_relative_l2": 0.27330763344040154,
+        "finite": true,
+        "rank32_mean_frame_relative_l2_reduction": 0.4628553968861247,
+        "weighted_design_condition_number": 1.5088055516505767
+      },
+      "uniform": {
+        "basis_design_condition_number": 1.0164971599934762,
+        "corrected_mean_frame_relative_l2": 0.14487098543795648,
+        "finite": true,
+        "rank32_mean_frame_relative_l2_reduction": 0.35080707122021093,
+        "weighted_design_condition_number": 137.35067281615264
+      }
+    },
+    "oracle_gpu_seconds": 137.57172323111445,
+    "oracle_peak_cuda_allocated_bytes": 4840652800,
+    "oracle_peak_cuda_reserved_bytes": 5834276864,
+    "parent_peak_cuda_reserved_bytes": 5834276864,
+    "parent_runtime_mean_s": 12.652311868034303,
+    "parent_runtime_p95_s": 12.656147628091276,
+    "parent_speedup_vs_traditional_x": 1.6077198645901574
+  },
+  "panels": {
+    "all_roles_group_disjoint": true,
+    "binding": {
+      "mtime_ns": 1787687018162257332,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/panels.json",
+      "sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+      "size_bytes": 200470
+    },
+    "census": {
+      "by_family": {
+        "layered": 97,
+        "marmousi": 97,
+        "uniform": 97
+      },
+      "by_role": {
+        "final_train_confirm": 24,
+        "long_calibration": 24,
+        "long_fit": 192,
+        "pilot_confirm": 24,
+        "pilot_fit": 24,
+        "smoke": 3
+      },
+      "test_id_records": 0,
+      "total": 291,
+      "unique_groups": 291,
+      "unique_samples": 291,
+      "validation_records": 0
+    },
+    "counts_per_family": {
+      "final_train_confirm": 8,
+      "long_calibration": 8,
+      "long_fit": 64,
+      "pilot_confirm": 8,
+      "pilot_fit": 8,
+      "smoke": 1
+    },
+    "exclusions": {
+      "layered": [
+        "train:layered:00000",
+        "train:layered:00001",
+        "train:layered:00002",
+        "train:layered:00258"
+      ],
+      "marmousi": [
+        "synthetic_train:marmousi:crop_x1425_z375:v1",
+        "train:marmousi:x0.0:z0.0",
+        "train:marmousi:x150.0:z0.0",
+        "train:marmousi:x300.0:z0.0"
+      ],
+      "uniform": [
+        "train:uniform:00000",
+        "train:uniform:00001",
+        "train:uniform:00002",
+        "train:uniform:00102"
+      ]
+    },
+    "selection": "sha256('r16-dscp-v1|372|group_id'), one lowest-source-index record per group",
+    "test_id_records": 0,
+    "validation_records": 0
+  },
+  "protected_parent": {
+    "embedded_in_candidate_checkpoint": false,
+    "rollback_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "unchanged": true
+  },
+  "reproduce": {
+    "basis": "env CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp.py --mode build-basis --physical-gpu-index 0 --device cuda:0",
+    "freeze": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp.py --mode freeze-prereg",
+    "preflight": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp.py --mode preflight",
+    "static_tests": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. pytest -q -p no:cacheprovider tests/saved_time_phase_operator_v4/test_r16_dscp.py"
+  },
+  "schema": "r16_dscp_preregistration_v1",
+  "sealed_attestation": {
+    "basis_truth": "six exact train basis records only",
+    "future_truth_in_inference": false,
+    "panel_truth_opened": false,
+    "predictor_training_started": false,
+    "test_id_truth_opened": false,
+    "validation_truth_opened": false
+  },
+  "software": {
+    "h5py": "3.16.0",
+    "numpy": "1.26.3",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121",
+    "torch_cuda_build": "12.1",
+    "yaml": "6.0.1"
+  },
+  "status": "frozen",
+  "training_contract": {
+    "checkpoint": "atomic resumable best/last only: predictor+basis+optimizer+scaler+RNG+sampler/progress; parent path/hash only and never embedded",
+    "deterministic": true,
+    "four_gpu_wall_time_maximum_s": 2700,
+    "one_gpu_wall_time_maximum_s": 7200,
+    "precision": "BF16 autocast; reductions and metrics FP32/FP64",
+    "seed": 372,
+    "space_gate": {
+      "conservative_C_bytes": 2097152,
+      "currently_passed": true,
+      "formula": "free>=2GiB+3*C+64MiB",
+      "free_bytes_at_freeze": 2313035776,
+      "required_bytes": 2220883968
+    },
+    "tf32": false,
+    "total_gpu_hours_maximum": 3.0,
+    "workers_per_gpu_maximum": 2
+  }
+}

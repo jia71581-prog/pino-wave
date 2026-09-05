@@ -1,0 +1,17 @@
+[2026-08-27 00:07:05,608] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+2026-08-26T16:07:13Z [long_ddp4] rank 0 holds shard_0.pt (72 bundles, build 1145s)
+2026-08-26T16:07:25Z [long_ddp4] rank 1 holds shard_1.pt (72 bundles, build 1148s)
+2026-08-26T16:07:37Z [long_ddp4] rank 2 holds shard_2.pt (72 bundles, build 1144s)
+2026-08-26T16:07:48Z [long_ddp4] rank 3 holds shard_0.pt (72 bundles, build 1145s)
+2026-08-26T16:07:48Z [long_ddp4] partitions [{'rank': 0, 'shard': 'shard_0.pt', 'fit': 64, 'confirm': 8}, {'rank': 1, 'shard': 'shard_1.pt', 'fit': 64, 'confirm': 8}, {'rank': 2, 'shard': 'shard_2.pt', 'fit': 64, 'confirm': 8}, {'rank': 3, 'shard': 'shard_0.pt', 'fit': 64, 'confirm': 8}]; global fit 192 confirm 24, world 4 over 3 shards
+2026-08-26T16:08:30Z [long_ddp4] epoch 1 monitor 0.383807 best 0.383807@1 bad 0
+2026-08-26T16:09:10Z [long_ddp4] epoch 2 monitor 0.383782 best 0.383782@2 bad 0
+2026-08-26T16:09:51Z [long_ddp4] epoch 3 monitor 0.380113 best 0.380113@3 bad 0
+2026-08-26T16:10:31Z [long_ddp4] epoch 4 monitor 0.380968 best 0.380113@3 bad 1
+2026-08-26T16:11:12Z [long_ddp4] epoch 5 monitor 0.379308 best 0.379308@5 bad 0
+2026-08-26T16:11:52Z [long_ddp4] epoch 6 monitor 0.378386 best 0.378386@6 bad 0
+2026-08-26T16:12:33Z [long_ddp4] epoch 7 monitor 0.378418 best 0.378386@6 bad 1
+2026-08-26T16:13:13Z [long_ddp4] epoch 8 monitor 0.379811 best 0.378386@6 bad 2
+2026-08-26T16:13:54Z [long_ddp4] epoch 9 monitor 0.379003 best 0.378386@6 bad 3
+2026-08-26T16:14:35Z [long_ddp4] epoch 10 monitor 0.379863 best 0.378386@6 bad 4
+2026-08-26T16:14:35Z [long_ddp4] fail_gate wall 447s peak 2.48GiB

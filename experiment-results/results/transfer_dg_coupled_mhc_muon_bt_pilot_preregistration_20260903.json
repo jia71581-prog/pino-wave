@@ -1,0 +1,70 @@
+{
+  "schema": "transfer_dg_coupled_mhc_muon_bt_pilot_preregistration_v1",
+  "candidate": "transfer_dg_coupled_mhc_muon_bt_pilot_20260903",
+  "claim_scope": "fresh train-only factorial pilot of a fully trainable 21.3M branch-trunk acoustic operator; no validation/test_id evidence",
+  "hypothesis": "Restoring an explicit MIONet branch-trunk contraction in parallel with cross-frequency WFP and local multiscale paths will improve fresh full-401 confirmation error, while the 2x2 mHC and Muon factors identify the most effective residual routing and optimizer.",
+  "arms": ["plain_adamw", "mhc_adamw", "plain_muon", "mhc_muon"],
+  "model": {
+    "fully_trainable": true,
+    "width": 192,
+    "spectral_rank": 96,
+    "depth": 16,
+    "frequency_block": 8,
+    "plain_parameter_count": 21319512,
+    "mhc_parameter_count": 21319642,
+    "branch_inputs": "global pooled medium, source, and medium-source interaction",
+    "branch_output": "12 x 64 low-rank coefficients",
+    "trunk_inputs": ["x", "z", "frequency", "exterior_eikonal_time", "phase_cos", "phase_sin", "eight_cpml_profiles"],
+    "trunk_rank": 64,
+    "branch_trunk_outputs": "two physical complex channels plus ten CPML channels",
+    "parallel_paths": ["branch_trunk_global", "cross_frequency_wfp", "local_multiscale"],
+    "mhc_streams": 2,
+    "activation_checkpointing": true
+  },
+  "data": {
+    "split": "train",
+    "record_count": 136,
+    "role_counts": {"fit": 68, "calibration": 34, "confirmation": 34},
+    "role_group_overlap_count": 0,
+    "excluded_previous_pilot_groups": 64,
+    "calibration_or_confirmation_opened_by_superseded_run": false,
+    "model_input_wavefield_frames": 0
+  },
+  "training": {
+    "seed": 372,
+    "epochs": 3,
+    "family_gradient_accumulation": 4,
+    "frequency_block": 8,
+    "adamw_lr": 0.0003,
+    "muon_lr": 0.01,
+    "weight_decay": 0.000001,
+    "gradient_clip_norm": 1.0,
+    "balanced_weight": 0.02,
+    "continuity_weight": 0.01,
+    "cpml_weight": 0.02,
+    "frequency_floor_fraction": 0.01,
+    "cosine_eta_ratio": 0.01,
+    "checkpoint_retention": "best_only"
+  },
+  "primary_metric": "fresh 34-record confirmation full-401 mean relative L2",
+  "acceptance": {
+    "winner_candidate_mean_strictly_below_parent": true,
+    "minimum_improvement_fraction": 0.0,
+    "all_four_arms_complete": true,
+    "finite_gate": true,
+    "test_id_promotion": false
+  },
+  "failure_signal": "Reject any arm with OOM, non-finite loss, incomplete fresh confirmation, or opened validation/test_id; reject the route if no arm strictly beats the parent.",
+  "compute_budget": {"gpu_count": 4, "wall_seconds_max": 21600, "new_disk_bytes_max": 2147483648},
+  "bindings": {
+    "model_sha256": "11842d9622370bf1c3cfb5befa1787a9b07053387553c6cb34c54a45f2d2cede",
+    "trainer_sha256": "dbd0cf1332e4feb592de33862b88dc883f302e1ae42286a8f312609147dd2e99",
+    "launcher_sha256": "5b88a6f2a6b4296a58181f93ddabcffad3d5908d4c2555269aaccb3d70b386a8",
+    "pilot_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e",
+    "parent_checkpoint_sha256": "bd02506ab83631a0fea663f43c61a7689f6e75898715ea730acf7558f216e04b",
+    "superseded_no_trunk_terminal_sha256": "0fc62435df732e86adcc62fe3b17ef7bde34aa8a775afcdd00a597ef6d6e6f93"
+  },
+  "rollback": "Additive run. Preserve the no-trunk baseline, all parent and protected checkpoints. Do not scale to 100 epochs until fresh confirmation passes.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

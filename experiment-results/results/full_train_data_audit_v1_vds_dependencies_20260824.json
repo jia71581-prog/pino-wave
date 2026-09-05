@@ -1,0 +1,47 @@
+{
+  "audit_mode": "metadata_only_no_velocity_or_wavefield_array_reads",
+  "binding_attributes": {
+    "config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+    "git_commit": "02749b1bee7ce5dfea201d586ad623e7ef39df94",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_sha256": "f4302792e84bb7ddbdc9d4d0f963b9df32d9f648960084884127e186119b99dd"
+  },
+  "missing_required_datasets": [],
+  "record_count": 4003,
+  "requested_vds": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "required_dataset_count": 16,
+  "resolved_vds": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "schema": "current_acoustic_vds_dependency_audit_v1",
+  "status": "pass",
+  "time_count": 401,
+  "vds_size_bytes": 1951323,
+  "virtual_datasets": {
+    "velocity_mps": {
+      "empty_source_count": 0,
+      "empty_sources": [],
+      "mapping_count": 501,
+      "missing_source_count": 0,
+      "missing_sources": [],
+      "shape": [
+        4003,
+        201,
+        201
+      ],
+      "unique_source_count": 501
+    },
+    "wavefield": {
+      "empty_source_count": 0,
+      "empty_sources": [],
+      "mapping_count": 501,
+      "missing_source_count": 0,
+      "missing_sources": [],
+      "shape": [
+        4003,
+        401,
+        201,
+        201
+      ],
+      "unique_source_count": 501
+    }
+  }
+}

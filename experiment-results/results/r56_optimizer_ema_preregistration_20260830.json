@@ -1,0 +1,73 @@
+{
+  "schema": "r56_optimizer_ema_preregistration_v1",
+  "status": "frozen_before_training",
+  "created_local": "2026-08-30T00:30+08:00",
+  "research_variant": "r56_optimizer_side_lever_on_exact_r54_recipe",
+  "motivation": "R54 exhausted the pretraining data lever (best holdout candidate_max 0.06478 @ ep15, then a 25-epoch plateau wiggling 0.0648-0.0722 while train loss kept falling). Free diagnostics (r54 updates.jsonl): hinge component ~0 after ep2, gradient norms smooth and unclipped after ep3, so the gap is generalization-side, not optimization noise. Two optimizer-side levers have never been pulled on this chain: (1) Polyak weight EMA as an evaluation/checkpoint track, targeting the +-0.004 epoch-to-epoch holdout wiggle; (2) SOAP second-order preconditioning, which in this same project's A+1 chain improved holdout 0.0504 -> 0.0411 and cleared family-specific artifacts (a generalization effect, not merely faster training loss).",
+  "arms": {
+    "A_adamw_ema": {
+      "env": {
+        "R56_OPTIMIZER": "adamw",
+        "R56_EMA_DECAY": "0.999"
+      },
+      "single_variable_claim": "training trajectory is byte-identical in expectation to R54 v2 (same optimizer, lr, schedule, seed, data, sampling); the ONLY addition is a passive EMA evaluation/checkpoint track. The raw shadow track doubles as an R54 replication control.",
+      "output_dir": "results/r56_armA_adamw_ema_40ep_20260830"
+    },
+    "B_soap_ema": {
+      "env": {
+        "R56_OPTIMIZER": "soap",
+        "R56_EMA_DECAY": "0.999"
+      },
+      "single_variable_claim": "relative to arm A the only change is AdamW -> SOAP (betas (0.95,0.95), precondition_frequency 10, precondition_1d true, lr/weight_decay/cosine schedule unchanged from CLI). B-raw vs A-raw isolates the SOAP effect; B-ema vs B-raw isolates EMA on the SOAP trajectory.",
+      "soap_provenance": "pytorch_optimizer 3.10.1; hyperparameters copied from build_capacity_optimizer in diagnose_capacity_ladder_overfit.py (A+1 chain, validated)",
+      "output_dir": "results/r56_armB_soap_ema_40ep_20260830"
+    }
+  },
+  "cli_identical_to_r54_v2": "torchrun --standalone --nproc_per_node=4 scripts/train_r56_optim_ema.py --fit-cache <r38 4 shards> --holdout-cache <r38 4 shards> --epochs 40 --eval-every 1 --batch-size 16 --learning-rate 2.0e-4 --weight-decay 1.0e-4 --base-width 32 --correction-cap 0.25 --hinge-weight 3.0 --gradient-weight 0.05 --seed 540829 --amp",
+  "ema_mechanics": "EMA updated after every optimizer step on all ranks; at each per-epoch evaluation rank 0 evaluates raw weights (shadow), swaps EMA weights in, evaluates again (primary track drives best-selection and best.pt), and the raw weights are restored inside DistributedSampler.set_epoch before any forward of the next epoch, so training dynamics are provably untouched.",
+  "data": {
+    "cache": "results/r38_full_coverage_cache_20260828 (same 4+4 shards as R54 v2)",
+    "fit_records": 2128,
+    "holdout": "same already-opened 56-record group-disjoint development holdout",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "judgement_frozen": {
+    "primary_metric": "best-over-epochs holdout candidate_max, reported per track (A-raw, A-ema, B-raw, B-ema)",
+    "replication_control": "A-raw best candidate_max must land within 0.005 of R54 v2 (0.06478); a larger deviation voids the comparison and is reported as a reproducibility finding",
+    "noise_margin": "R54 plateau wiggle is ~+-0.004; improvements <= 0.002 are noise-level",
+    "signal_gate": "any of A-ema / B-raw / B-ema achieves best candidate_max < 0.06278 (= 0.06478 - 0.002): optimizer lever confirmed, that checkpoint becomes chain-best deliverable and the frozen R55 selective evaluation is run on it",
+    "success_gate": {
+      "development_mean_lte": 0.05,
+      "development_max_lte": 0.05,
+      "both_required": true
+    },
+    "failure_signal": "no track < 0.06278: the optimizer/EMA lever is falsified at noise level for this chain; deliverable remains R54 best.pt + R55 conformal abstention and the remaining route is parent-quality (marmousi LWC-84 coarse solve), per r54_scratch_fullpool_decision_report_20260829.md",
+    "no_post_hoc_extension": "40 epochs, no budget extension without a new preregistration"
+  },
+  "budget": {
+    "gpus": 4,
+    "arm_A_estimated_hours": 3.5,
+    "arm_B_estimated_hours": 5.0,
+    "arm_B_abort_rule": "abort B if smoke-measured throughput projects >12h for 40 epochs",
+    "serial_execution": "single GPU writer; B launches only after A reaches terminal.json",
+    "disk_free_gb_at_freeze": 89,
+    "checkpoint_policy": "best.pt only per arm, overwrite in place (SOAP optimizer state makes B best.pt ~100-200MB, acceptable)"
+  },
+  "smoke_plan": "arm A 2-epoch smoke (verifies: step-100 loss within 5% of R54 v2 value 0.026050664484500885; epoch rows carry evaluation_track=ema with raw_shadow_aggregate; epoch-2 training resumes from restored raw weights with finite decreasing loss). arm B 1-epoch smoke (SOAP step works under DDP+bf16, throughput measured). Smoke dirs are infra-gates only, never judged on metrics.",
+  "script_sha256": {
+    "train_r56_optim_ema.py": "a2483cdfe708705be955e04c34b95e856c13149a185cda77efc9d6af4c84722d",
+    "train_r54_scratch_fullpool.py": "59441afff60ea56fb4d174e4f6a80deac03a777c61916c56138e767b0802097b",
+    "train_r28_expanded_tail_spectral.py": "9cf71d190c13f34502340362d1389f858831bfc94d1a438dee59e38d9008ffed",
+    "train_r26_tail_spectral_pilot.py": "bd88c42db8c46a511fbf9c71bc16b08d95c62a6f1c90fcc10ceb54c75f48102c",
+    "train_r25_coarse_residual_operator.py": "99c56c179a5c294f8d00747965a759b38d4afa3a5fdfc5499288688cce08beed"
+  },
+  "rollback": "R56 is additive; r54_scratch_fullpool_40ep_v2_20260829/best.pt and all prior checkpoints untouched",
+  "evidence_boundary": "development-holdout only; success does not open validation or test_id",
+  "amendment_v2": {
+    "date_local": "2026-08-30T00:45+08:00",
+    "kind": "infrastructure_only_before_any_training_step_succeeded",
+    "change": "opt.step wrapper rebound via types.MethodType so LRScheduler with_counter (reads step.__self__) works; smoke attempt 1 failed at scheduler construction before step 1 on both arms",
+    "failed_log": "results/r56_smoke_console_attempt1_failed_20260830.log"
+  }
+}

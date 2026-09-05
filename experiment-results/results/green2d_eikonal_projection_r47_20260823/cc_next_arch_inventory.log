@@ -1,0 +1,67 @@
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"generate_session_title"}
+[claude-code:unrecognized_model] {"model":"deepseek-v4-pro[1m]","query_source":"auto_mode"}
+扫描完成。以下为只读清点结果（未修改/删除任何文件，未启动训练）。
+
+## 1. 候选模块 / 脚本 / 配置（路径及用途）
+
+### A. 频域传播 + 时域合成（核心可复用）
+| 路径 | 用途 |
+|---|---|
+| `saved_time_phase_operator_v4/local_field.py` | 含 3 个直接相关模块：`HelmholtzSynthesisHead`（WKB 相位锚定 `p=Σ a_j cos(ω_j(t−τ))+b_j sin(...)`，低秩 `rank` 共享基 + 每记录条件混合 + `late_rank/late_frequencies` 低频晚到达专用基）；`_MultiArrivalWarp`（A4：K 条额外延迟/位移特征 warp，零初始化门控）；`_DynamicGreenScatteringKernel`（按旅行时扩展的 Green 散射 stencil 组） |
+| `saved_time_phase_operator_v4/spectral.py` | `AxisFactorizedComplexSpectralConv2d`、`FactorizedComplexResidualStack`（可作频域幅度生成的内部层） |
+| `grouped_ufno_mionet_v3/model/spectral.py` | `LearnedComplexSpectralConv2d`、`ComplexSpectralResidualBlock`（v3 骨干） |
+| `src/fno_acoustic/temporal_operator.py` | `NonUniformTemporalOperator`（非均匀时间轴 Fourier 分析/合成，`nonuniform_fourier_synthesis`） |
+| `src/fno_acoustic/model_factorized.py` | `FactorizedAcousticFNO`（`[B,H,W,T,C]` 输入；空间 FNO + `SpectralTemporalMixer`/`SpectralConv1d` 时间轴谱混合；r38–r47 训练主体） |
+| `src/fno_acoustic/model_ais_mqfno.py` | `AISMQFNO`（全局编码 + 连续查询解码，速度/源输入，无波场输入） |
+| `saved_time_phase_operator_v4/decoder.py` | `QueryInvariantTemporalBasis`（低秩时间基）、`PropagationConditionedDenseDecoder` |
+| `saved_time_phase_operator_v4/features.py` | `dense_propagation_features`（相位/旅行时特征构造） |
+| `saved_time_phase_operator_v4/operator.py` | `SavedTimePhaseOperatorV4`（v3 骨干 + 全部头的组装，`load_v3_backbone` 可加载父权重） |
+| `results/temporal_frequency_helmholtz_study.md` | 零训练 oracle 边界：nf=64 最低频 bin + 每频 `|k|≤40` 空间截断 → 401 帧重建 relL2 <5%（held-out） |
+| `docs/kakeya/probe_source_freq_helmholtz.py`、`probe_amplitude_learnability.py` | 源因子化 `P̂=ŵ·Ĝ`、K 频重建、相位线性 R²、幅度低秩的零训练证据 |
+| `docs/helmholtz/probe_multi_arrival_wkb.py` | K 到达 LSQ oracle（`[HW,Tl,2K·nf]` 设计矩阵）；注意其旧结果 `results/instance_adaptation/probe_multiarrival_marmousi.json` 显示单验证样本上 K=2 增益仅 9e-05（旧时期、validation 样本、全波场目标，仅作背景） |
+
+### B. 旅行时 / 相位锚（已有、可直接复用）
+- `saved_time_phase_operator_v4/eikonal.py`：`grid_eikonal_travel_time`（图最短路径，CPU）
+- `saved_time_phase_operator_v4/hybrid_travel.py`：直线射线 / Eikonal 旅行时缓存构建
+- `grouped_ufno_mionet_v3/model/travel_time.py`：可微 `straight_ray_travel_time`
+- `grouped_ufno_mionet_v3/model/fusion.py`：`TravelTimeBranch`、`PhaseAlignedMIONetFusion`
+- `scripts/build_eikonal_travel_cache.py`：多进程 eikonal 缓存（`artifacts/.../eikonal_train_marm700.h5`）
+
+### C. 泄漏安全训练面板 / 数据构建（train-only 机制现成）
+- `scripts/train_wkb_frequency_train_panel.py`：fit/calibration/confirmation 三面板互不相交、全部取自 train split；开卷顺序受控（cal 选点 → freeze → confirm 一次性全帧），明确"validation/test_id 不开"
+- `scripts/diagnose_capacity_ladder_overfit.py`：`_direct_frequency_coefficient_update`、`build_probe_config`、`load_exact_model_initialization`（当前 directfreq/wkb 系列共用机制）
+- `saved_time_phase_operator_v4/probe.py`：`ProbeVariant`（helmholtz_synthesis 各变体：frequencies=64、wkb_phase、rank、late_rank、direct_frequency_head）
+- `scripts/build_pbg_factorized_fno_vds.py`、`build_factorized_pbg_split.py`、`build_factorized_pbg_full_split.py`：把 P_bg shards 与源输入拼接成 VDS + train-only split
+- `saved_time_phase_operator_v4/background_field.py`：`BackgroundFieldProvider`（P_bg 缓存读取/对齐）
+- 配置：`configs/factorized_fno_pbg_marm_r42_ricker_full560_ddp4.yaml`（输入 `[retarded_time, source_map, velocity, source_frequency, ricker_retarded]`，`in_features:5`）、`configs/factorized_fno_pbg_marm_r47_green_full560_ddp4.yaml`（+`green2d_retarded`，`in_features:6`）、`configs/saved_time_v4/generated/local_field_w128_multi_arrival_a4.yaml`（K=3 额外到达、零初始门、warm-start 契约）、`local_field_w128_tempop_warp_b1_green_r5.yaml`（Green 散射）、`local_field_w128_dispersive_modal_a5_warm*.yaml`
+
+### 🔴 D. 不可用（输入含被禁止的数值波场）
+- `saved_time_phase_operator_v4/snapshot_propagator.py`（`StableModalCalibrator`：输入是观测压力快照历史）
+- `saved_time_phase_operator_v4/propagator.py`（`CausalSemigroupPropagator`：输入初始波场状态 h₀，递归 rollout）
+- `saved_time_phase_operator_v4/snapshot_training.py`、`UFNO/ufno3d.py`（FNO 基线，直接消费波场序列）——其内部 `FactorizedComplexResidualStack` 等层可拆出复用，但整体输入契约违规。
+
+## 2. 本地 checkpoint（SHA256 已算，4 个最相关）
+
+| Checkpoint | 模型/用途 | SHA256 |
+|---|---|---|
+| `results/factorized_fno_pbg_marm_r42_ricker_full560_ddp4_20260823/checkpoints/best.pt` | FactorizedAcousticFNO，5 通道输入（Ricker 解析模板），train-only 560，P_bg 目标（r46 投影所用模型） | `de6a015382a21dc09790805043ce4423d5cf18a489b7bf04b503bc470f18f308` |
+| `results/factorized_fno_pbg_marm_r38_201_ddp4_20260823/checkpoints/best.pt` | 同上，201 样本版 | `c899dcc9932010a82f4cb2ff6dcef14d48d4d83d608cbd09e68772701047e5a8` |
+| `results/directfreq64_coeffsup_current_train_r4_overfit800_20260823/latest.pt` | 直接频域系数监督 3-record overfit 800 更新（**已证伪**：agg 0.756，结论"网络无法从速度/源学振荡原始复场"） | `e82a81a73c72b4a46b91d0f685d550fa81f5dc642f7e3079f2a9a6b30819a844` |
+| `results/wkb64_pbg_marm_r26_trainonly_20260823/latest.pt` | WKB 频域代理，train-only marmousi 面板（fit/cal/confirm 全在 train） | `a2777bcdd5d3d8add5afa0368e47d405753cd1767fa253c7db94bec8ef24d886` |
+| `results/helmholtz_g3_r8/latest.pt`（103MB） | A+1 Helmholtz rank-8、nf=64、WKB 相位；**旧时期（heldout 用了 validation 记录）**，仅作架构/权重参考，不建议作新 pilot 父权重 | 未哈希（标注非 train-only 干净） |
+| `/root/autodl-tmp/home/jiayh/Data/.../local_field_w128_hicap/warp_r1/run/best.pt`（339MB） | v4 家族父权重（warp_r1）；同属旧时期 | 未哈希（同上） |
+
+## 3. 输入禁令核查
+- ✅ 可复用且合规：r42/r47 因子化 FNO 输入全部为解析特征（`retarded_time`、`source_map`、`velocity`、`source_f0`、`ricker_retarded`/`green2d_retarded`，均在 `src/fno_acoustic/data.py` 内由速度/源/旅行时解析构造），**无任何数值波场通道**；目标 wavefield 仅作 train 标签；v3 算子输入仅 velocity+source+query。
+- ✅ `train_wkb_frequency_train_panel.py` 机制明确 `complete_trace_use: fit_panel_train_labels_only`。
+- 🔴 红色不可用：`snapshot_propagator`、`propagator`（波场快照/初始波场输入）；`helmholtz_g3_r8`/`warp_r1` 等旧父权重训练期曾接触 validation（新规下不干净）。
+- 数据侧：`artifacts/pbg_factorized_fno_marm700_{v1,travel_v2,eikonal_v3}/dataset_v1.h5` 的 `wavefield` 实际为 P_bg（smoothed-velocity 背景场，由 `build_pbg_factorized_fno_vds.py` 从 `background_pbg_sigma2_marm700_full401/shard-*.h5` 拼接），只列了 key/形状，未读值。
+
+## 4. 最小 train-only capacity pilot 建议（仅描述）
+- **复用点**：`FactorizedAcousticFNO` 骨架（空间 FNO 编码 + 谱时间混合）或 `HelmholtzSynthesisHead` 的 WKB+低秩参数化；`ProbeVariant`/`diagnose_capacity_ladder_overfit.py` 的构建与评分；`train_wkb_frequency_train_panel.py` 的 fit/cal/confirm 三面板（train 内不相交）；`eikonal_v3` 数据集（train 560 子集）；r42 best.pt 作 warm-start 父权重。
+- **张量形状**：输入 `[B,64,64,201,6]`（retarded_time, source_map, velocity, source_f0, ricker_retarded, green2d_retarded）或降为频域头输入 `[B,64,64,C]`（速度、源图、τ）；学习目标为 P_bg 的频域系数：`a_j,b_j = [B,2·K,64,64]`（K≈64），或低秩化 `[B,R,64,64]` 基 + `[K,R]` 混合；多到达扩展：每记录可学延迟 `Δ_k∈[B,K]`（或逐像素 `[B,K,64,64]` 延迟场），固定合成 `p(t)=Σ_k Σ_j Re[(a_jk+ib_jk)e^{iω_j(t−τ−Δ_k)}]` → `[B,401,64,64]`，与 WKB 单到达共用同一逆变换。
+- **改动文件（预计）**：新建 1 个 config（仿 `factorized_fno_pbg_marm_r47_green_full560_ddp4.yaml` + 多到达频段）；在 `src/fno_acoustic/model_factorized.py` 或 `saved_time_phase_operator_v4/local_field.py` 的合成头增加可学习延迟/多到达混合（复用现有 WKB 低秩 + late_rank 结构）；复用 `train_wkb_frequency_train_panel.py` 的泄漏安全面板与决策输出，不触碰验证集。
+- 前置警示：r4 directfreq 证伪了"裸学振荡复场"，故 pilot 必须带 WKB 相位锚（τ 来自既有 eikonal/ray 缓存）或显式多到达延迟，否则大概率重演 agg≈0.75。
+
+## 5. 封存声明
+未读取 validation/test_id 真值：未打开任何 val/test 波场数组；仅查看了 train 面板运行自身的聚合元数据（如 r42 `result.json` 中的聚合 relL2、split 索引），以及 HDF5 的 key/形状清单；`r46/r47` 投影结果中 `validation_opened/test_id_opened` 均为 false。

@@ -1,0 +1,105 @@
+{
+  "schema": "r54_scratch_fullpool_saturation_preregistration_v1",
+  "status": "frozen_before_training",
+  "created_local": "2026-08-29T16:40+08:00",
+  "research_variant": "r54_from_scratch_full_pool_train_to_saturation_v1",
+  "motivation": "Every descendant of R28 (R38, R39, R51, R52A, R52B, R53) is a fine-tune at lr <= 1e-5 from a single ancestor. R28 itself is the only from-scratch pretraining in this chain: 896 fit records, 12 epochs, stopped while train loss was still monotonically decreasing (0.00177 -> 0.00166, no plateau). The full fit pool (2128 records) has only ever been used for fine-tuning, never for from-scratch optimization. R54 pulls that one untested pretraining-side lever, budgeted to measured saturation rather than a fixed epoch count.",
+  "single_variable_claim": "Relative to R28 the only intended changes are fit pool size (896 -> 2128 records) and epoch budget (12 -> 40 with saturation stop). Architecture, loss, learning rate, batch size, caps, hinge and gradient weights are identical to R28, so any difference is attributable to data volume and budget.",
+  "architecture": {
+    "inherited_from": "r28_expanded_tail_spectral",
+    "local_branch": "r25_coarse_residual_unet",
+    "spectral_branch": "two_global_complex_fourier_blocks_width16_modes24",
+    "base_width": 32,
+    "spectral_cap": 0.12,
+    "total_correction_cap": 0.25,
+    "zero_gated_identity_start": true,
+    "init_checkpoint": null,
+    "init_note": "train_r25_coarse_residual_operator.py exposes no --init-checkpoint argument, so the R28 entrypoint is from-scratch by construction."
+  },
+  "optimization": {
+    "epochs": 40,
+    "learning_rate": 0.0002,
+    "per_gpu_batch_size": 16,
+    "global_batch_size": 64,
+    "weight_decay": 0.0001,
+    "hinge_weight": 3.0,
+    "gradient_weight": 0.05,
+    "correction_cap": 0.25,
+    "eval_every": 1,
+    "amp": true,
+    "seed": 540829,
+    "loss": "0.25_mean_plus_0.75_parent_difficulty_weighted_plus_1.0_batch_top50pct_CVaR_proxy",
+    "sampling": "repeat_all_marmousi_and_top_quartile_parent_error_records_once",
+    "ddp": "torchrun --standalone --nproc_per_node=4",
+    "eval_every_note": "r28 evaluated every 2 epochs; R54 uses every epoch so the saturation rule has 8 real points"
+  },
+  "data": {
+    "manifest": "results/r38_full_coverage_manifest_20260828.json",
+    "manifest_sha256": "f411c616769d3478701f11dde24114019f44d1d6ee739d24c9a616433897d7e6",
+    "selection_sha256": "5005f614d1ec7cbd77ddad440ac6132d0b79b5953aea70c566a8713d1433b937",
+    "fit_records": 2128,
+    "fit_records_r28_baseline": 896,
+    "fit_family_breakdown": {
+      "layered": 1080,
+      "marmousi": 660,
+      "uniform": 388
+    },
+    "fit_time_indices": 64,
+    "holdout_records": 56,
+    "holdout_time_indices": 401,
+    "holdout_identity": "exact_R28_already_opened_group_disjoint_development_holdout",
+    "group_disjoint": true,
+    "r29b_fresh_groups_excluded": true,
+    "validation_opened": false,
+    "test_id_opened": false,
+    "truth_policy": "high_fidelity wavefield is train-only supervision and is never a deployment input"
+  },
+  "parent_note": "Tail-chain parent is the LWC-84 numerical solver coarse solution, not a neural network. Candidate = parent + capped learned correction.",
+  "saturation_definition": {
+    "primary": "joint_holdout_and_train_loss_plateau",
+    "rule": "Saturated when best holdout candidate_max has not improved by more than 0.0005 over 8 consecutive evaluated epochs AND the epoch-mean train loss relative decrease over those same 8 epochs is below 2 percent.",
+    "action_on_saturation": "stop and record saturation_epoch; do not extend the budget post hoc",
+    "action_on_no_saturation_by_epoch_40": "record still_descending and report the trajectory; any extension requires a new preregistration"
+  },
+  "success_gate": {
+    "development_mean_lte": 0.05,
+    "development_max_lte": 0.05,
+    "both_required": true
+  },
+  "signal_gate": {
+    "chain_best_max_to_beat": 0.06582,
+    "chain_best_source": "r39_hfs_tail_finetune_base1e6_hfs1e4_4x500_v3_20260828",
+    "r28_scratch_baseline_max": 0.06894524784360131,
+    "r28_scratch_baseline_mean": 0.021016765701395188,
+    "interpretation": "Beating 0.06894 shows the data/budget lever works from scratch. Beating 0.06582 shows from-scratch full-pool dominates the whole fine-tune tree."
+  },
+  "failure_signal": "If holdout candidate_max does not fall below 0.06894 by the saturation point, the pretraining-side data-and-budget lever is falsified for this architecture and the tail chain defaults to the R50 conformal abstention route.",
+  "rollback": "results/r39_hfs_tail_finetune_base1e6_hfs1e4_4x500_v3_20260828/best.pt remains the chain-best deliverable; R54 is additive and touches no existing checkpoint.",
+  "budget": {
+    "gpus": 4,
+    "estimated_hours": 9,
+    "disk_free_gb_at_freeze": 89,
+    "checkpoint_policy": "best.pt only, overwrite in place",
+    "estimate_basis": "r28 measured 299s/epoch on 896 records; 40 epochs x 2.38 data scale + per-epoch eval = 8.3h"
+  },
+  "scheduling": {
+    "blocked_by": "r53_spatiotemporal_8ep_v1_20260829 must reach terminal.json before launch",
+    "single_writer_rule": "no concurrent GPU writer"
+  },
+  "script_sha256": {
+    "train_r28_expanded_tail_spectral.py": "9cf71d190c13f34502340362d1389f858831bfc94d1a438dee59e38d9008ffed",
+    "train_r26_tail_spectral_pilot.py": "bd88c42db8c46a511fbf9c71bc16b08d95c62a6f1c90fcc10ceb54c75f48102c",
+    "train_r25_coarse_residual_operator.py": "99c56c179a5c294f8d00747965a759b38d4afa3a5fdfc5499288688cce08beed"
+  },
+  "evidence_boundary": "R54 development-holdout success authorizes one preregistered fresh-holdout (R29B) evaluation and nothing more. Validation and test_id stay sealed.",
+  "r28_trajectory_caveat": "R28 train_loss fell monotonically through ep12 (0.011449 -> 0.001658) but holdout candidate_max was already non-monotonic: it bottomed at ep10 (0.06895) and rose at ep12 (0.07070) while candidate_mean kept improving (0.02102 -> 0.02068). So R28 was underfit in train-loss terms but its tail metric may already have been at the floor for 896 records. This is exactly why R54 varies the data pool and not the epoch budget alone: extra epochs without extra data risk tail overfitting rather than tail gain.",
+  "amendment_v2": {
+    "date_local": "2026-08-29T17:20+08:00",
+    "kind": "infrastructure_only_before_any_holdout_epoch_opened",
+    "change": "entrypoint train_r28_expanded_tail_spectral.py -> train_r54_scratch_fullpool.py wrapper: worker-safe per-PID HDF5 handles (R53-validated pattern) + fit DataLoader num_workers 0->8, persistent_workers, prefetch_factor 4",
+    "unchanged": "batch size, learning rate, loss, sampling, seed, epochs, saturation rule, gates",
+    "trajectory_claim": "sample order is fixed by DistributedSampler(seed); FitFrameDataset.__getitem__ is a deterministic read; worker count does not alter the optimization trajectory",
+    "v1_disposition": "aborted at ~1000 steps of epoch 1 for 1.64 steps/s throughput; no per-epoch holdout row was ever produced; directory retained with ABORTED.md",
+    "integrity_check": "v2 step-100 training loss must be close to v1 step-100 value 0.026050664484500885 (same seed, same data); gross mismatch aborts v2"
+  }
+}

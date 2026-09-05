@@ -1,0 +1,47 @@
+{
+  "schema": "lwc84_cuda_graph_trainonly_preregistration_v1",
+  "status": "frozen_before_launch",
+  "hypothesis": "CUDA-graph replay of each exact five-step saved-frame interval reduces warmed single-instance 201x201 LWC84/CFS-CPML runtime below 2.034137312322855 s without materially changing the standard solver output.",
+  "mechanism": "The graph removes Python and per-operation CUDA dispatch from 1995 recurrent steps while retaining the identical fourth-order-time, eighth-order-space and four-memory CFS-CPML arithmetic.",
+  "selection_scope": "train_only",
+  "validation_access": false,
+  "test_id_access": false,
+  "sample_id": "train_marmousi_00193",
+  "source_index": 2293,
+  "source_f0_hz": 29.99536220938785,
+  "parameters": {
+    "grid": [201, 201],
+    "saved_frames": 401,
+    "internal_dt_s": 0.0005,
+    "saved_dt_s": 0.0025,
+    "npml": 20,
+    "c_ref_mps": 6750.0,
+    "dtype": "float32",
+    "device": "cuda:0",
+    "cuda_graph_block_steps": 5,
+    "graph_capture_warmup_excluded_from_timed_deployment": true
+  },
+  "primary_metrics": [
+    "graph end-to-end materialized runtime",
+    "standard end-to-end materialized runtime",
+    "graph-to-standard relative-L2",
+    "graph-to-truth raw relative-L2"
+  ],
+  "promotion_gate": {
+    "maximum_graph_runtime_s": 2.034137312322855,
+    "maximum_graph_to_standard_relative_l2": 0.00001,
+    "maximum_graph_to_truth_relative_l2": 0.05
+  },
+  "failure_signal": "Any gate failure rejects CUDA-graph replay as the direct target-10 propagator.",
+  "compute_budget": "One high-frequency train/Marmousi record, one standard solve, one graph capture warmup and one graph solve on one RTX 4090 D.",
+  "parent_checkpoint": null,
+  "rollback": "Leave cuda_graphs disabled by default and preserve all existing checkpoints and artifacts.",
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "standard_solver_sha256": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad",
+    "traditional_runtime_report_sha256": "116a1cb7cdd13869e86e14b08ef0a80c31284d5d248cb9c0952a880f2aba5bd8"
+  },
+  "output": "results/lwc84_cuda_graph_trainonly_r1_20260815.json"
+}

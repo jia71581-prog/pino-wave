@@ -1,0 +1,3041 @@
+{
+  "bindings": {
+    "caches": {
+      "results/b2_v9_parent_holdout_cache_24rec_20260901.h5": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+      "results/pa_cora_p1_holdout_slot1.h5": "3e03f8cc8368490e578b632e63adf6209ee5317866f2bb5a1373be9f25590e3f",
+      "results/pa_cora_p1_holdout_slot2.h5": "c01cd1edcd73041bfc7ff34b648a59c10cfd17a55f6b222be74a36819ce70aed"
+    },
+    "manifests": {
+      "results/b2_v9_parent_holdout_manifest_24rec_20260901.json": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa"
+    }
+  },
+  "candidate_frozen_before_future_truth_read": true,
+  "candidate_sha256": {
+    "projected": "442c0f44c7c4e595170c8d257f91073464b4af34560864bae9e8deeee1a30952",
+    "raw": "7115103706397515b4c704341b8f2aa34db55396640b2329b5c3a98328b86858"
+  },
+  "checkpoint": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt",
+  "checkpoint_epoch": 8,
+  "checkpoint_sha256": "5d14b93cffc1324406b531b6b2d4a7eea06d9aab57537bb7f4612fea302808d3",
+  "comparison": {
+    "absolute_aggregate_change": -2.7373889523618633e-05,
+    "nonworsening_expected_from_exact_zero_target_boundary": true,
+    "records_equal_within_tolerance": 0,
+    "records_improved": 72,
+    "records_worse": 0,
+    "relative_aggregate_gain": 9.772200353794921e-05,
+    "strict_aggregate_improvement": true
+  },
+  "interior_prediction_delta_maximum_absolute": 0.0,
+  "method": "analytic_hard_projection_p_z0_equals_zero",
+  "projected": {
+    "aggregate": 0.28009264547733576,
+    "free_surface": {
+      "maximum_absolute": 0.0,
+      "mean_rms": 0.0
+    },
+    "frequency": {
+      "high": 0.5574561326454083,
+      "low": 0.2672760576630632,
+      "middle": 0.3901627766382363
+    },
+    "maximum": 1.2034686781512813,
+    "per_family": {
+      "layered": 0.3577732792510369,
+      "marmousi": 0.38781767693808905,
+      "uniform": 0.09468698024288123
+    },
+    "regions": {
+      "boundary20": 0.29224083978696475,
+      "interior": 0.27778755563860946,
+      "top20": 11.92533499241464
+    },
+    "spatial_gradient": 0.3480476356632167
+  },
+  "raw": {
+    "aggregate": 0.2801200193668594,
+    "free_surface": {
+      "maximum_absolute": 0.17855171859264374,
+      "mean_rms": 0.002634470770721641
+    },
+    "frequency": {
+      "high": 0.5574707308163246,
+      "low": 0.267314609968,
+      "middle": 0.39020667659739655
+    },
+    "maximum": 1.2034690344777907,
+    "per_family": {
+      "layered": 0.35777900870714396,
+      "marmousi": 0.3878799606141003,
+      "uniform": 0.0947010887793339
+    },
+    "regions": {
+      "boundary20": 0.2922934467034908,
+      "interior": 0.27778755563860946,
+      "top20": 12.047584461737562
+    },
+    "spatial_gradient": 0.34812769278998723
+  },
+  "rows": [
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.06071403863042683,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.33453264832496643,
+          "low": 0.05132390931248665,
+          "middle": 0.08454134315252304
+        },
+        "regions": {
+          "boundary20": 0.06263076572668373,
+          "interior": 0.05944561856332134,
+          "top20": 0.061810130476432947
+        },
+        "spatial_gradient": 0.09090780177859552
+      },
+      "raw": {
+        "aggregate": 0.06071649719251248,
+        "free_surface": {
+          "maximum_absolute": 0.000987403211183846,
+          "rms": 0.00018166346126236022
+        },
+        "frequency": {
+          "high": 0.33453407883644104,
+          "low": 0.051328983157873154,
+          "middle": 0.08454200625419617
+        },
+        "regions": {
+          "boundary20": 0.06263684581195463,
+          "interior": 0.05944561856332134,
+          "top20": 0.0618168132160787
+        },
+        "spatial_gradient": 0.09078579338704618
+      },
+      "sample_id": "train_uniform_00205",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.06943171567271601,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.35770052671432495,
+          "low": 0.0593738928437233,
+          "middle": 0.14783446490764618
+        },
+        "regions": {
+          "boundary20": 0.08154622508530102,
+          "interior": 0.06158120776666428,
+          "top20": 0.08400709284647127
+        },
+        "spatial_gradient": 0.11565926750289342
+      },
+      "raw": {
+        "aggregate": 0.06943304037084963,
+        "free_surface": {
+          "maximum_absolute": 0.0013543922686949372,
+          "rms": 0.00015944194456096739
+        },
+        "frequency": {
+          "high": 0.35770249366760254,
+          "low": 0.0593758150935173,
+          "middle": 0.1478361189365387
+        },
+        "regions": {
+          "boundary20": 0.08154935871329598,
+          "interior": 0.06158120776666428,
+          "top20": 0.08401056687184753
+        },
+        "spatial_gradient": 0.11563423263869448
+      },
+      "sample_id": "train_uniform_00216",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.06796163876561001,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.2864137291908264,
+          "low": 0.06219515576958656,
+          "middle": 0.22397932410240173
+        },
+        "regions": {
+          "boundary20": 0.08750199997436733,
+          "interior": 0.057493788308257146,
+          "top20": 0.0870085629649378
+        },
+        "spatial_gradient": 0.12288749572626238
+      },
+      "raw": {
+        "aggregate": 0.06796312032881532,
+        "free_surface": {
+          "maximum_absolute": 0.004391903057694435,
+          "rms": 0.00039290974382311106
+        },
+        "frequency": {
+          "high": 0.28641533851623535,
+          "low": 0.06219709664583206,
+          "middle": 0.2239815890789032
+        },
+        "regions": {
+          "boundary20": 0.08750581247442037,
+          "interior": 0.057493788308257146,
+          "top20": 0.0870124478622353
+        },
+        "spatial_gradient": 0.1229457637157035
+      },
+      "sample_id": "train_uniform_00223",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.07491214723681872,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4171544015407562,
+          "low": 0.061613067984580994,
+          "middle": 0.09195759147405624
+        },
+        "regions": {
+          "boundary20": 0.09967522893053431,
+          "interior": 0.060592557000565365,
+          "top20": 0.09839707203077178
+        },
+        "spatial_gradient": 0.10447162606463367
+      },
+      "raw": {
+        "aggregate": 0.0749160253449541,
+        "free_surface": {
+          "maximum_absolute": 0.001866994658485055,
+          "rms": 0.00031688885064795613
+        },
+        "frequency": {
+          "high": 0.4171580970287323,
+          "low": 0.06162063032388687,
+          "middle": 0.09195875376462936
+        },
+        "regions": {
+          "boundary20": 0.09968463744776136,
+          "interior": 0.060592557000565365,
+          "top20": 0.09840660416868137
+        },
+        "spatial_gradient": 0.10446820581789884
+      },
+      "sample_id": "train_uniform_00233",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.08098585767601649,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.42805930972099304,
+          "low": 0.06385839730501175,
+          "middle": 0.11399693787097931
+        },
+        "regions": {
+          "boundary20": 0.09344895764939329,
+          "interior": 0.06570525568203511,
+          "top20": 0.09704610705361315
+        },
+        "spatial_gradient": 0.11183096625169932
+      },
+      "raw": {
+        "aggregate": 0.08100036411661551,
+        "free_surface": {
+          "maximum_absolute": 0.004151033237576485,
+          "rms": 0.00070334313204512
+        },
+        "frequency": {
+          "high": 0.4280771017074585,
+          "low": 0.06388253718614578,
+          "middle": 0.11400172859430313
+        },
+        "regions": {
+          "boundary20": 0.09347372133177752,
+          "interior": 0.06570525568203511,
+          "top20": 0.0970748611810731
+        },
+        "spatial_gradient": 0.1117516444297516
+      },
+      "sample_id": "train_uniform_00324",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.052527945023631256,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.26549842953681946,
+          "low": 0.044717930257320404,
+          "middle": 0.1885250359773636
+        },
+        "regions": {
+          "boundary20": 0.05732014707963591,
+          "interior": 0.04522466091661001,
+          "top20": 0.05658760383169155
+        },
+        "spatial_gradient": 0.11014243236959863
+      },
+      "raw": {
+        "aggregate": 0.05254435035102111,
+        "free_surface": {
+          "maximum_absolute": 0.010464699007570744,
+          "rms": 0.0009083515033125877
+        },
+        "frequency": {
+          "high": 0.2655021846294403,
+          "low": 0.044741906225681305,
+          "middle": 0.18853667378425598
+        },
+        "regions": {
+          "boundary20": 0.0573462643248265,
+          "interior": 0.04522466091661001,
+          "top20": 0.05661415168589194
+        },
+        "spatial_gradient": 0.1103499847862316
+      },
+      "sample_id": "train_uniform_00326",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.06361516560803293,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.2740297019481659,
+          "low": 0.057893019169569016,
+          "middle": 0.20940381288528442
+        },
+        "regions": {
+          "boundary20": 0.08428804130191277,
+          "interior": 0.05186665878444166,
+          "top20": 0.08371835844239783
+        },
+        "spatial_gradient": 0.11749891027966386
+      },
+      "raw": {
+        "aggregate": 0.06361807100435793,
+        "free_surface": {
+          "maximum_absolute": 0.005388352088630199,
+          "rms": 0.0004247408651281148
+        },
+        "frequency": {
+          "high": 0.2740304470062256,
+          "low": 0.057897865772247314,
+          "middle": 0.20940524339675903
+        },
+        "regions": {
+          "boundary20": 0.08429517573516364,
+          "interior": 0.05186665878444166,
+          "top20": 0.08372554141956308
+        },
+        "spatial_gradient": 0.11762625725899988
+      },
+      "sample_id": "train_uniform_00333",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.0887693353041263,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.25611454248428345,
+          "low": 0.08761867135763168,
+          "middle": 0.2377900928258896
+        },
+        "regions": {
+          "boundary20": 0.10349798492401512,
+          "interior": 0.07239743012262259,
+          "top20": 0.10155507236765697
+        },
+        "spatial_gradient": 0.1954044598192872
+      },
+      "raw": {
+        "aggregate": 0.08877647762860845,
+        "free_surface": {
+          "maximum_absolute": 0.00930025801062584,
+          "rms": 0.0010265168966725469
+        },
+        "frequency": {
+          "high": 0.256115198135376,
+          "low": 0.08762791007757187,
+          "middle": 0.23779074847698212
+        },
+        "regions": {
+          "boundary20": 0.10351068509071207,
+          "interior": 0.07239743012262259,
+          "top20": 0.10156825197735403
+        },
+        "spatial_gradient": 0.1965860645615194
+      },
+      "sample_id": "train_uniform_00348",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.22096528146762445,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.46508094668388367,
+          "low": 0.24769894778728485,
+          "middle": 0.34071075916290283
+        },
+        "regions": {
+          "boundary20": 0.22086873104649937,
+          "interior": 0.221035841208349,
+          "top20": 0.21726056022800835
+        },
+        "spatial_gradient": 0.36304598442883423
+      },
+      "raw": {
+        "aggregate": 0.220965413453955,
+        "free_surface": {
+          "maximum_absolute": 0.0005614857655018568,
+          "rms": 9.280062658945099e-05
+        },
+        "frequency": {
+          "high": 0.46508100628852844,
+          "low": 0.24769914150238037,
+          "middle": 0.3407108187675476
+        },
+        "regions": {
+          "boundary20": 0.22086904370453084,
+          "interior": 0.221035841208349,
+          "top20": 0.21726087903148303
+        },
+        "spatial_gradient": 0.36295349331584065
+      },
+      "sample_id": "train_layered_00264",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.11202438601013824,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.2278994470834732,
+          "low": 0.11247256398200989,
+          "middle": 0.20824523270130157
+        },
+        "regions": {
+          "boundary20": 0.1166163797602236,
+          "interior": 0.10798571761815581,
+          "top20": 0.1163779845496555
+        },
+        "spatial_gradient": 0.16723949270215657
+      },
+      "raw": {
+        "aggregate": 0.11204690554744819,
+        "free_surface": {
+          "maximum_absolute": 0.03850112855434418,
+          "rms": 0.004401375073939562
+        },
+        "frequency": {
+          "high": 0.22792001068592072,
+          "low": 0.11249620467424393,
+          "middle": 0.2082771360874176
+        },
+        "regions": {
+          "boundary20": 0.11666356925973546,
+          "interior": 0.10798571761815581,
+          "top20": 0.11642527067591871
+        },
+        "spatial_gradient": 0.16880591360254762
+      },
+      "sample_id": "train_layered_00378",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.13590794291361247,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.30819597840309143,
+          "low": 0.13283872604370117,
+          "middle": 0.27130675315856934
+        },
+        "regions": {
+          "boundary20": 0.11033408738744116,
+          "interior": 0.14720150549890085,
+          "top20": 0.0988712541367874
+        },
+        "spatial_gradient": 0.19364967020827342
+      },
+      "raw": {
+        "aggregate": 0.13590800732735073,
+        "free_surface": {
+          "maximum_absolute": 0.0007803799817338586,
+          "rms": 8.699731552042067e-05
+        },
+        "frequency": {
+          "high": 0.3081960678100586,
+          "low": 0.13283883035182953,
+          "middle": 0.2713068425655365
+        },
+        "regions": {
+          "boundary20": 0.11033432300515209,
+          "interior": 0.14720150549890085,
+          "top20": 0.09887153361804467
+        },
+        "spatial_gradient": 0.19365056342252315
+      },
+      "sample_id": "train_layered_00407",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.11294587109451044,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3310246169567108,
+          "low": 0.10887707769870758,
+          "middle": 0.3120594024658203
+        },
+        "regions": {
+          "boundary20": 0.11699488819487903,
+          "interior": 0.1104518123484724,
+          "top20": 0.11510374294181941
+        },
+        "spatial_gradient": 0.18230728119394432
+      },
+      "raw": {
+        "aggregate": 0.11294630669826475,
+        "free_surface": {
+          "maximum_absolute": 0.001228717272169888,
+          "rms": 0.00014752951392438263
+        },
+        "frequency": {
+          "high": 0.331024706363678,
+          "low": 0.10887779295444489,
+          "middle": 0.3120596408843994
+        },
+        "regions": {
+          "boundary20": 0.1169960114284911,
+          "interior": 0.1104518123484724,
+          "top20": 0.11510490032461941
+        },
+        "spatial_gradient": 0.18233415009300083
+      },
+      "sample_id": "train_layered_00469",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.05305924801702982,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3168961703777313,
+          "low": 0.04238206148147583,
+          "middle": 0.14058345556259155
+        },
+        "regions": {
+          "boundary20": 0.05505105776743382,
+          "interior": 0.05021731744221222,
+          "top20": 0.052507447788058305
+        },
+        "spatial_gradient": 0.10144123755384163
+      },
+      "raw": {
+        "aggregate": 0.05306242721488039,
+        "free_surface": {
+          "maximum_absolute": 0.0019715845119208097,
+          "rms": 0.00023757216695230454
+        },
+        "frequency": {
+          "high": 0.3168981373310089,
+          "low": 0.04238784313201904,
+          "middle": 0.14058592915534973
+        },
+        "regions": {
+          "boundary20": 0.0550563699258875,
+          "interior": 0.05021731744221222,
+          "top20": 0.05251452254757907
+        },
+        "spatial_gradient": 0.10143633186446538
+      },
+      "sample_id": "train_layered_00784",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.20693508267335725,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.49934306740760803,
+          "low": 0.18913379311561584,
+          "middle": 0.2736247777938843
+        },
+        "regions": {
+          "boundary20": 0.17999351567559388,
+          "interior": 0.2167577073180209,
+          "top20": 0.15427576862173756
+        },
+        "spatial_gradient": 0.2565363945284063
+      },
+      "raw": {
+        "aggregate": 0.20693520381559377,
+        "free_surface": {
+          "maximum_absolute": 0.0006596232997253537,
+          "rms": 7.994571205927059e-05
+        },
+        "frequency": {
+          "high": 0.4993431270122528,
+          "low": 0.18913406133651733,
+          "middle": 0.2736247777938843
+        },
+        "regions": {
+          "boundary20": 0.17999400380735203,
+          "interior": 0.2167577073180209,
+          "top20": 0.1542763740479984
+        },
+        "spatial_gradient": 0.2565435565987724
+      },
+      "sample_id": "train_layered_00828",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.12202616180267085,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5134792923927307,
+          "low": 0.11102912575006485,
+          "middle": 0.1547267735004425
+        },
+        "regions": {
+          "boundary20": 0.13452737277108975,
+          "interior": 0.10037539607777136,
+          "top20": 0.14713447015535175
+        },
+        "spatial_gradient": 0.15106024733490703
+      },
+      "raw": {
+        "aggregate": 0.12203014494266007,
+        "free_surface": {
+          "maximum_absolute": 0.0024324844125658274,
+          "rms": 0.0002638815494719893
+        },
+        "frequency": {
+          "high": 0.513480544090271,
+          "low": 0.1110374927520752,
+          "middle": 0.1547280251979828
+        },
+        "regions": {
+          "boundary20": 0.13453339223933783,
+          "interior": 0.10037539607777136,
+          "top20": 0.14714210509160866
+        },
+        "spatial_gradient": 0.1509818715413275
+      },
+      "sample_id": "train_layered_00859",
+      "slot": 0
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.08468156283653407,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3793579339981079,
+          "low": 0.07421845197677612,
+          "middle": 0.14211006462574005
+        },
+        "regions": {
+          "boundary20": 0.08918371910514433,
+          "interior": 0.0818356559990746,
+          "top20": 0.08736572342574478
+        },
+        "spatial_gradient": 0.12658692426839271
+      },
+      "raw": {
+        "aggregate": 0.08468212529328499,
+        "free_surface": {
+          "maximum_absolute": 0.0008301622001454234,
+          "rms": 9.714015322970226e-05
+        },
+        "frequency": {
+          "high": 0.3793584406375885,
+          "low": 0.07421962171792984,
+          "middle": 0.142110213637352
+        },
+        "regions": {
+          "boundary20": 0.08918513531880118,
+          "interior": 0.0818356559990746,
+          "top20": 0.08736746372736709
+        },
+        "spatial_gradient": 0.12659017881127993
+      },
+      "sample_id": "train_layered_00900",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.11502926954503695,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.34355396032333374,
+          "low": 0.1082090362906456,
+          "middle": 0.27471959590911865
+        },
+        "regions": {
+          "boundary20": 0.12569345615016433,
+          "interior": 0.0821654646724652,
+          "top20": 0.12335000952900547
+        },
+        "spatial_gradient": 0.1474675810358256
+      },
+      "raw": {
+        "aggregate": 0.11515515628747301,
+        "free_surface": {
+          "maximum_absolute": 0.09956667572259903,
+          "rms": 0.006632647011429071
+        },
+        "frequency": {
+          "high": 0.3436325490474701,
+          "low": 0.10832197219133377,
+          "middle": 0.27562570571899414
+        },
+        "regions": {
+          "boundary20": 0.12585428340597965,
+          "interior": 0.0821654646724652,
+          "top20": 0.12351407655501116
+        },
+        "spatial_gradient": 0.1480157175736815
+      },
+      "sample_id": "train_marmousi_00123",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.11921667518932128,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.47567668557167053,
+          "low": 0.10725251585245132,
+          "middle": 0.22408585250377655
+        },
+        "regions": {
+          "boundary20": 0.12317292211120645,
+          "interior": 0.1014193208489242,
+          "top20": 0.11824669516636714
+        },
+        "spatial_gradient": 0.1438432042421618
+      },
+      "raw": {
+        "aggregate": 0.11937616591296536,
+        "free_surface": {
+          "maximum_absolute": 0.10861515998840332,
+          "rms": 0.006683617830276489
+        },
+        "frequency": {
+          "high": 0.4758254885673523,
+          "low": 0.10742337256669998,
+          "middle": 0.22439144551753998
+        },
+        "regions": {
+          "boundary20": 0.123364967226365,
+          "interior": 0.1014193208489242,
+          "top20": 0.11844672775183171
+        },
+        "spatial_gradient": 0.14299631586330205
+      },
+      "sample_id": "train_marmousi_00143",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.13488657142123459,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3139958083629608,
+          "low": 0.13312281668186188,
+          "middle": 0.29565051198005676
+        },
+        "regions": {
+          "boundary20": 0.13908719277089648,
+          "interior": 0.12897362991085806,
+          "top20": 0.13881738184147982
+        },
+        "spatial_gradient": 0.18186038047148165
+      },
+      "raw": {
+        "aggregate": 0.1350374755535816,
+        "free_surface": {
+          "maximum_absolute": 0.14462488889694214,
+          "rms": 0.012520739808678627
+        },
+        "frequency": {
+          "high": 0.31406208872795105,
+          "low": 0.1332894265651703,
+          "middle": 0.29578760266304016
+        },
+        "regions": {
+          "boundary20": 0.13934140060340525,
+          "interior": 0.12897362991085806,
+          "top20": 0.13907208309168487
+        },
+        "spatial_gradient": 0.1831202304419511
+      },
+      "sample_id": "train_marmousi_00182",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.10801512625044754,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.29023316502571106,
+          "low": 0.10708940774202347,
+          "middle": 0.26875415444374084
+        },
+        "regions": {
+          "boundary20": 0.11133784018776788,
+          "interior": 0.082877916072349,
+          "top20": 0.11028293661525547
+        },
+        "spatial_gradient": 0.17037377974637072
+      },
+      "raw": {
+        "aggregate": 0.10833654371490542,
+        "free_surface": {
+          "maximum_absolute": 0.15536631643772125,
+          "rms": 0.016353929415345192
+        },
+        "frequency": {
+          "high": 0.29028430581092834,
+          "low": 0.10752648860216141,
+          "middle": 0.26969319581985474
+        },
+        "regions": {
+          "boundary20": 0.11169698373434538,
+          "interior": 0.082877916072349,
+          "top20": 0.11064550431968814
+        },
+        "spatial_gradient": 0.16982187065760906
+      },
+      "sample_id": "train_marmousi_00220",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.10662233838386023,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3633910119533539,
+          "low": 0.09974837303161621,
+          "middle": 0.14859366416931152
+        },
+        "regions": {
+          "boundary20": 0.10566935487439086,
+          "interior": 0.10688661940511568,
+          "top20": 0.10501870769317657
+        },
+        "spatial_gradient": 0.12045439886992482
+      },
+      "raw": {
+        "aggregate": 0.10664852680935429,
+        "free_surface": {
+          "maximum_absolute": 0.015088179148733616,
+          "rms": 0.0020509930327534676
+        },
+        "frequency": {
+          "high": 0.36340323090553284,
+          "low": 0.09980447590351105,
+          "middle": 0.1485971361398697
+        },
+        "regions": {
+          "boundary20": 0.10579046745638336,
+          "interior": 0.10688661940511568,
+          "top20": 0.10514056976550501
+        },
+        "spatial_gradient": 0.12059823532308624
+      },
+      "sample_id": "train_marmousi_00322",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.10778856156948013,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.41159868240356445,
+          "low": 0.09900544583797455,
+          "middle": 0.1565876305103302
+        },
+        "regions": {
+          "boundary20": 0.12434777201527078,
+          "interior": 0.09162150084611058,
+          "top20": 0.11899126357582068
+        },
+        "spatial_gradient": 0.1237591759248154
+      },
+      "raw": {
+        "aggregate": 0.10791154533900277,
+        "free_surface": {
+          "maximum_absolute": 0.07144681364297867,
+          "rms": 0.00435970164835453
+        },
+        "frequency": {
+          "high": 0.41176551580429077,
+          "low": 0.09910579770803452,
+          "middle": 0.15695351362228394
+        },
+        "regions": {
+          "boundary20": 0.1245814042216774,
+          "interior": 0.09162150084611058,
+          "top20": 0.11923539189373954
+        },
+        "spatial_gradient": 0.12356914741993169
+      },
+      "sample_id": "train_marmousi_00327",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.14956806534236894,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.30176645517349243,
+          "low": 0.14819283783435822,
+          "middle": 0.27089977264404297
+        },
+        "regions": {
+          "boundary20": 0.11648347973528966,
+          "interior": 0.15548302028159788,
+          "top20": 0.11596052997138866
+        },
+        "spatial_gradient": 0.2061850235615492
+      },
+      "raw": {
+        "aggregate": 0.14957694591274664,
+        "free_surface": {
+          "maximum_absolute": 0.03475835174322128,
+          "rms": 0.0040058596059679985
+        },
+        "frequency": {
+          "high": 0.3017791211605072,
+          "low": 0.14820709824562073,
+          "middle": 0.2709130644798279
+        },
+        "regions": {
+          "boundary20": 0.11655049199691782,
+          "interior": 0.15548302028159788,
+          "top20": 0.11602784426475954
+        },
+        "spatial_gradient": 0.20610252325966671
+      },
+      "sample_id": "train_marmousi_00349",
+      "slot": 0
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.2696206967827125,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.6900889873504639,
+          "low": 0.255744993686676,
+          "middle": 0.39983081817626953
+        },
+        "regions": {
+          "boundary20": 0.2916525739386871,
+          "interior": 0.11617602786536105,
+          "top20": 0.290842333782433
+        },
+        "spatial_gradient": 0.3245241447535136
+      },
+      "raw": {
+        "aggregate": 0.26997413498026335,
+        "free_surface": {
+          "maximum_absolute": 0.12974219024181366,
+          "rms": 0.01449260488152504
+        },
+        "frequency": {
+          "high": 0.6902180314064026,
+          "low": 0.2562055289745331,
+          "middle": 0.40000367164611816
+        },
+        "regions": {
+          "boundary20": 0.2920475564729762,
+          "interior": 0.11617602786536105,
+          "top20": 0.29123878462159997
+        },
+        "spatial_gradient": 0.32652308360251486
+      },
+      "sample_id": "train_marmousi_00359",
+      "slot": 0
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.08621621804623938,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3938390612602234,
+          "low": 0.0685281753540039,
+          "middle": 0.12786507606506348
+        },
+        "regions": {
+          "boundary20": 0.08595607096393468,
+          "interior": 0.08630722427038877,
+          "top20": 0.09745351867103476
+        },
+        "spatial_gradient": 0.11228122530018866
+      },
+      "raw": {
+        "aggregate": 0.08622091856851369,
+        "free_surface": {
+          "maximum_absolute": 0.0011766093084588647,
+          "rms": 0.00023617166152689606
+        },
+        "frequency": {
+          "high": 0.3938426673412323,
+          "low": 0.06853756308555603,
+          "middle": 0.1278662085533142
+        },
+        "regions": {
+          "boundary20": 0.08597423426515495,
+          "interior": 0.08630722427038877,
+          "top20": 0.09759201280559508
+        },
+        "spatial_gradient": 0.11237034093864083
+      },
+      "sample_id": "train_uniform_00205",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.08789977636126509,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.34107351303100586,
+          "low": 0.07782150059938431,
+          "middle": 0.1696186512708664
+        },
+        "regions": {
+          "boundary20": 0.09964836738435366,
+          "interior": 0.08423632568296519,
+          "top20": 0.28229585263561763
+        },
+        "spatial_gradient": 0.11107391756109827
+      },
+      "raw": {
+        "aggregate": 0.08790621436956715,
+        "free_surface": {
+          "maximum_absolute": 0.001865480444394052,
+          "rms": 0.00033591597457416356
+        },
+        "frequency": {
+          "high": 0.34107863903045654,
+          "low": 0.07783244550228119,
+          "middle": 0.16962213814258575
+        },
+        "regions": {
+          "boundary20": 0.09967388692503423,
+          "interior": 0.08423632568296519,
+          "top20": 0.28407854206793914
+        },
+        "spatial_gradient": 0.11104908106659053
+      },
+      "sample_id": "train_uniform_00216",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.09282089670564087,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.38420960307121277,
+          "low": 0.08420904725790024,
+          "middle": 0.23199616372585297
+        },
+        "regions": {
+          "boundary20": 0.10579155458364706,
+          "interior": 0.08755332710449054,
+          "top20": 0.11683324129790107
+        },
+        "spatial_gradient": 0.1251424109897713
+      },
+      "raw": {
+        "aggregate": 0.0928473037980891,
+        "free_surface": {
+          "maximum_absolute": 0.012411834672093391,
+          "rms": 0.0019214953063055873
+        },
+        "frequency": {
+          "high": 0.38421526551246643,
+          "low": 0.08425981551408768,
+          "middle": 0.23200374841690063
+        },
+        "regions": {
+          "boundary20": 0.10587752148043945,
+          "interior": 0.08755332710449054,
+          "top20": 0.11697508923027415
+        },
+        "spatial_gradient": 0.12475440230059483
+      },
+      "sample_id": "train_uniform_00223",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.1213752190462387,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.6580560803413391,
+          "low": 0.0892549455165863,
+          "middle": 0.1526820808649063
+        },
+        "regions": {
+          "boundary20": 0.11192921547255329,
+          "interior": 0.12439288214195464,
+          "top20": 0.10937851209011819
+        },
+        "spatial_gradient": 0.1459884175848192
+      },
+      "raw": {
+        "aggregate": 0.12137955120909794,
+        "free_surface": {
+          "maximum_absolute": 0.0019973095040768385,
+          "rms": 0.000389116263249889
+        },
+        "frequency": {
+          "high": 0.6580588817596436,
+          "low": 0.08926469087600708,
+          "middle": 0.15268298983573914
+        },
+        "regions": {
+          "boundary20": 0.11194787139780218,
+          "interior": 0.12439288214195464,
+          "top20": 0.10942328268919292
+        },
+        "spatial_gradient": 0.1459957235175302
+      },
+      "sample_id": "train_uniform_00233",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.0881304566133863,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.46922603249549866,
+          "low": 0.06998316198587418,
+          "middle": 0.10598451644182205
+        },
+        "regions": {
+          "boundary20": 0.09609655905917418,
+          "interior": 0.08549593171945015,
+          "top20": 0.08428824563717775
+        },
+        "spatial_gradient": 0.10476978795816144
+      },
+      "raw": {
+        "aggregate": 0.08815687198463378,
+        "free_surface": {
+          "maximum_absolute": 0.004310227930545807,
+          "rms": 0.0008186727645806968
+        },
+        "frequency": {
+          "high": 0.46924325823783875,
+          "low": 0.0700356587767601,
+          "middle": 0.10599067807197571
+        },
+        "regions": {
+          "boundary20": 0.09619847008483785,
+          "interior": 0.08549593171945015,
+          "top20": 0.08452420620231653
+        },
+        "spatial_gradient": 0.10459614569299676
+      },
+      "sample_id": "train_uniform_00324",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.055858507525786104,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.25779983401298523,
+          "low": 0.04691508784890175,
+          "middle": 0.16335228085517883
+        },
+        "regions": {
+          "boundary20": 0.0707651543364658,
+          "interior": 0.05216199721096888,
+          "top20": 0.09916320464097172
+        },
+        "spatial_gradient": 0.08481774170655128
+      },
+      "raw": {
+        "aggregate": 0.05588541540911262,
+        "free_surface": {
+          "maximum_absolute": 0.004898636601865292,
+          "rms": 0.0011422447860240936
+        },
+        "frequency": {
+          "high": 0.25781023502349854,
+          "low": 0.04696856066584587,
+          "middle": 0.16336330771446228
+        },
+        "regions": {
+          "boundary20": 0.07088672183111751,
+          "interior": 0.05216199721096888,
+          "top20": 0.09973497134814109
+        },
+        "spatial_gradient": 0.0850297139759851
+      },
+      "sample_id": "train_uniform_00326",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.08816102290654235,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.39778071641921997,
+          "low": 0.07811284065246582,
+          "middle": 0.2253039926290512
+        },
+        "regions": {
+          "boundary20": 0.09154837042340404,
+          "interior": 0.08681332946470899,
+          "top20": 0.099563275121915
+        },
+        "spatial_gradient": 0.11647026907476847
+      },
+      "raw": {
+        "aggregate": 0.08818572000601824,
+        "free_surface": {
+          "maximum_absolute": 0.008979828096926212,
+          "rms": 0.0014959917170926929
+        },
+        "frequency": {
+          "high": 0.3977844715118408,
+          "low": 0.07816198468208313,
+          "middle": 0.2253085821866989
+        },
+        "regions": {
+          "boundary20": 0.09163352160649671,
+          "interior": 0.08681332946470899,
+          "top20": 0.09975594787810646
+        },
+        "spatial_gradient": 0.11624558614132277
+      },
+      "sample_id": "train_uniform_00333",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.07116718097038617,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.25763794779777527,
+          "low": 0.06856097280979156,
+          "middle": 0.16249237954616547
+        },
+        "regions": {
+          "boundary20": 0.09339836215257205,
+          "interior": 0.06652798739358522,
+          "top20": 0.20396668968663897
+        },
+        "spatial_gradient": 0.1131395232321142
+      },
+      "raw": {
+        "aggregate": 0.07118430041188552,
+        "free_surface": {
+          "maximum_absolute": 0.005170208401978016,
+          "rms": 0.0016229844186455011
+        },
+        "frequency": {
+          "high": 0.257642537355423,
+          "low": 0.06859280169010162,
+          "middle": 0.16249872744083405
+        },
+        "regions": {
+          "boundary20": 0.09348608464766807,
+          "interior": 0.06652798739358522,
+          "top20": 0.20454362146847038
+        },
+        "spatial_gradient": 0.11380959493776426
+      },
+      "sample_id": "train_uniform_00348",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.4202896270965396,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5517218112945557,
+          "low": 0.42675480246543884,
+          "middle": 0.4552939832210541
+        },
+        "regions": {
+          "boundary20": 0.744165451769512,
+          "interior": 0.33047156858251586,
+          "top20": 0.9565374750467153
+        },
+        "spatial_gradient": 0.5090938604166968
+      },
+      "raw": {
+        "aggregate": 0.42028985985968825,
+        "free_surface": {
+          "maximum_absolute": 0.0008344491943717003,
+          "rms": 0.0001345789059996605
+        },
+        "frequency": {
+          "high": 0.55172199010849,
+          "low": 0.4267551898956299,
+          "middle": 0.4552941918373108
+        },
+        "regions": {
+          "boundary20": 0.7441663184692695,
+          "interior": 0.33047156858251586,
+          "top20": 0.9565390722547555
+        },
+        "spatial_gradient": 0.5090915823580803
+      },
+      "sample_id": "train_layered_00264",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.1302799873666508,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.2983292043209076,
+          "low": 0.13216279447078705,
+          "middle": 0.21277759969234467
+        },
+        "regions": {
+          "boundary20": 0.1435909129316509,
+          "interior": 0.11817399017583337,
+          "top20": 0.14437150739454846
+        },
+        "spatial_gradient": 0.1744780925338493
+      },
+      "raw": {
+        "aggregate": 0.13032579316493798,
+        "free_surface": {
+          "maximum_absolute": 0.0415191613137722,
+          "rms": 0.008234824985265732
+        },
+        "frequency": {
+          "high": 0.298336386680603,
+          "low": 0.13223876059055328,
+          "middle": 0.21279186010360718
+        },
+        "regions": {
+          "boundary20": 0.14368283005648286,
+          "interior": 0.11817399017583337,
+          "top20": 0.1444750388620974
+        },
+        "spatial_gradient": 0.1735561559690677
+      },
+      "sample_id": "train_layered_00378",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.30696997208856025,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4457557201385498,
+          "low": 0.30339938402175903,
+          "middle": 0.40755000710487366
+        },
+        "regions": {
+          "boundary20": 0.37687879085640374,
+          "interior": 0.28881679440993346,
+          "top20": 0.7734511528246307
+        },
+        "spatial_gradient": 0.41591635759068113
+      },
+      "raw": {
+        "aggregate": 0.30697185703142466,
+        "free_surface": {
+          "maximum_absolute": 0.0021566518116742373,
+          "rms": 0.0006179591291584074
+        },
+        "frequency": {
+          "high": 0.44575631618499756,
+          "low": 0.30340301990509033,
+          "middle": 0.4075504541397095
+        },
+        "regions": {
+          "boundary20": 0.37688711250972295,
+          "interior": 0.28881679440993346,
+          "top20": 0.7736468293449448
+        },
+        "spatial_gradient": 0.41594208470315
+      },
+      "sample_id": "train_layered_00407",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.30815049744769046,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3834945261478424,
+          "low": 0.30664879083633423,
+          "middle": 0.3506501019001007
+        },
+        "regions": {
+          "boundary20": 0.5223837589443538,
+          "interior": 0.23602531337841176,
+          "top20": 0.8893169168712207
+        },
+        "spatial_gradient": 0.33971947380118905
+      },
+      "raw": {
+        "aggregate": 0.3081508853595548,
+        "free_surface": {
+          "maximum_absolute": 0.0014547769678756595,
+          "rms": 0.00018194493895862252
+        },
+        "frequency": {
+          "high": 0.3834950029850006,
+          "low": 0.30664944648742676,
+          "middle": 0.35065045952796936
+        },
+        "regions": {
+          "boundary20": 0.5223850251182773,
+          "interior": 0.23602531337841176,
+          "top20": 0.889321298669356
+        },
+        "spatial_gradient": 0.33969692073585306
+      },
+      "sample_id": "train_layered_00469",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.11408462929210597,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3001881241798401,
+          "low": 0.106865294277668,
+          "middle": 0.18998850882053375
+        },
+        "regions": {
+          "boundary20": 0.15028044959908574,
+          "interior": 0.10818280152562498,
+          "top20": 0.14805232931079487
+        },
+        "spatial_gradient": 0.16123326956624667
+      },
+      "raw": {
+        "aggregate": 0.11409286215786017,
+        "free_surface": {
+          "maximum_absolute": 0.0026709584053605795,
+          "rms": 0.0004614264762494713
+        },
+        "frequency": {
+          "high": 0.30019611120224,
+          "low": 0.10687953233718872,
+          "middle": 0.18999259173870087
+        },
+        "regions": {
+          "boundary20": 0.15033228312339172,
+          "interior": 0.10818280152562498,
+          "top20": 0.1482952970831951
+        },
+        "spatial_gradient": 0.16122598638107996
+      },
+      "sample_id": "train_layered_00784",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.6965520095593555,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.891620934009552,
+          "low": 0.6443865299224854,
+          "middle": 0.9041697978973389
+        },
+        "regions": {
+          "boundary20": 0.7027131955837862,
+          "interior": 0.6938320695033666,
+          "top20": 0.9188233214200121
+        },
+        "spatial_gradient": 0.8771947954995998
+      },
+      "raw": {
+        "aggregate": 0.6965524792686475,
+        "free_surface": {
+          "maximum_absolute": 0.0007694780360907316,
+          "rms": 0.00017854613543022424
+        },
+        "frequency": {
+          "high": 0.8916211128234863,
+          "low": 0.6443876624107361,
+          "middle": 0.9041698575019836
+        },
+        "regions": {
+          "boundary20": 0.7027147225632642,
+          "interior": 0.6938320695033666,
+          "top20": 0.9188596035218223
+        },
+        "spatial_gradient": 0.877192039212132
+      },
+      "sample_id": "train_layered_00828",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.5737811895345007,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.7466601729393005,
+          "low": 0.537749707698822,
+          "middle": 0.7205855250358582
+        },
+        "regions": {
+          "boundary20": 0.6001005612248935,
+          "interior": 0.5696215188322247,
+          "top20": 0.7698761463364364
+        },
+        "spatial_gradient": 0.6782688501217479
+      },
+      "raw": {
+        "aggregate": 0.5737828570673384,
+        "free_surface": {
+          "maximum_absolute": 0.002285337308421731,
+          "rms": 0.00022727466421201825
+        },
+        "frequency": {
+          "high": 0.7466610074043274,
+          "low": 0.5377536416053772,
+          "middle": 0.7205855846405029
+        },
+        "regions": {
+          "boundary20": 0.6001125126257457,
+          "interior": 0.5696215188322247,
+          "top20": 0.7699388883522187
+        },
+        "spatial_gradient": 0.6782271833237498
+      },
+      "sample_id": "train_layered_00859",
+      "slot": 1
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.34203682682843556,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4661282002925873,
+          "low": 0.3313341438770294,
+          "middle": 0.4396830201148987
+        },
+        "regions": {
+          "boundary20": 0.4068341249859014,
+          "interior": 0.3210658942147158,
+          "top20": 0.9229667789431809
+        },
+        "spatial_gradient": 0.4143826090092848
+      },
+      "raw": {
+        "aggregate": 0.34203728303633574,
+        "free_surface": {
+          "maximum_absolute": 0.001009052968584001,
+          "rms": 0.00011304156942060217
+        },
+        "frequency": {
+          "high": 0.46612831950187683,
+          "low": 0.3313351571559906,
+          "middle": 0.43968304991722107
+        },
+        "regions": {
+          "boundary20": 0.40683584692304564,
+          "interior": 0.3210658942147158,
+          "top20": 0.9229820693703342
+        },
+        "spatial_gradient": 0.4143752684583798
+      },
+      "sample_id": "train_layered_00900",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.28437701036864604,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5861196517944336,
+          "low": 0.27760618925094604,
+          "middle": 0.38907328248023987
+        },
+        "regions": {
+          "boundary20": 0.38432708215091993,
+          "interior": 0.17007931083184988,
+          "top20": 0.4535367035681428
+        },
+        "spatial_gradient": 0.34008369813487815
+      },
+      "raw": {
+        "aggregate": 0.28439930393819474,
+        "free_surface": {
+          "maximum_absolute": 0.033565010875463486,
+          "rms": 0.004548168275505304
+        },
+        "frequency": {
+          "high": 0.5861334204673767,
+          "low": 0.2776443362236023,
+          "middle": 0.38908618688583374
+        },
+        "regions": {
+          "boundary20": 0.38436480319647476,
+          "interior": 0.17007931083184988,
+          "top20": 0.4535877623603491
+        },
+        "spatial_gradient": 0.34000425673659573
+      },
+      "sample_id": "train_marmousi_00123",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.3310942406385166,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5881052017211914,
+          "low": 0.31930673122406006,
+          "middle": 0.4464457631111145
+        },
+        "regions": {
+          "boundary20": 0.35181296952063534,
+          "interior": 0.3235180150303317,
+          "top20": 0.35246551271517307
+        },
+        "spatial_gradient": 0.3860118598528525
+      },
+      "raw": {
+        "aggregate": 0.3311043340903045,
+        "free_surface": {
+          "maximum_absolute": 0.017072167247533798,
+          "rms": 0.0033251589629799128
+        },
+        "frequency": {
+          "high": 0.5881112813949585,
+          "low": 0.3193263113498688,
+          "middle": 0.4464479386806488
+        },
+        "regions": {
+          "boundary20": 0.3518495670838751,
+          "interior": 0.3235180150303317,
+          "top20": 0.35251138296238
+        },
+        "spatial_gradient": 0.38599996496604727
+      },
+      "sample_id": "train_marmousi_00143",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.5505636806401857,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.8047441840171814,
+          "low": 0.5419822931289673,
+          "middle": 0.648171603679657
+        },
+        "regions": {
+          "boundary20": 0.538048581669262,
+          "interior": 0.561215547278718,
+          "top20": 0.5803755456401348
+        },
+        "spatial_gradient": 0.6774741962645177
+      },
+      "raw": {
+        "aggregate": 0.5505704497963376,
+        "free_surface": {
+          "maximum_absolute": 0.054860927164554596,
+          "rms": 0.006335434969514608
+        },
+        "frequency": {
+          "high": 0.8047492504119873,
+          "low": 0.5419935584068298,
+          "middle": 0.6481777429580688
+        },
+        "regions": {
+          "boundary20": 0.5380634767956648,
+          "interior": 0.561215547278718,
+          "top20": 0.5803922772149422
+        },
+        "spatial_gradient": 0.6775171447867665
+      },
+      "sample_id": "train_marmousi_00182",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.19283978611234848,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4011071026325226,
+          "low": 0.1904498040676117,
+          "middle": 0.2749273478984833
+        },
+        "regions": {
+          "boundary20": 0.24046707715332266,
+          "interior": 0.15586784322864003,
+          "top20": 0.24029829477279738
+        },
+        "spatial_gradient": 0.27140381024172266
+      },
+      "raw": {
+        "aggregate": 0.192889183807966,
+        "free_surface": {
+          "maximum_absolute": 0.08466380834579468,
+          "rms": 0.009836994111537933
+        },
+        "frequency": {
+          "high": 0.4011251628398895,
+          "low": 0.19053424894809723,
+          "middle": 0.2749491333961487
+        },
+        "regions": {
+          "boundary20": 0.2405700933133859,
+          "interior": 0.15586784322864003,
+          "top20": 0.24040145078402075
+        },
+        "spatial_gradient": 0.27080518599749664
+      },
+      "sample_id": "train_marmousi_00220",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.3459839695276815,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.8647834658622742,
+          "low": 0.3220581114292145,
+          "middle": 0.4697139859199524
+        },
+        "regions": {
+          "boundary20": 0.34619553362047994,
+          "interior": 0.34586549684402873,
+          "top20": 0.34567367337717
+        },
+        "spatial_gradient": 0.3997242695413831
+      },
+      "raw": {
+        "aggregate": 0.34601454644215884,
+        "free_surface": {
+          "maximum_absolute": 0.05713532865047455,
+          "rms": 0.004153458867222071
+        },
+        "frequency": {
+          "high": 0.8647998571395874,
+          "low": 0.3221210539340973,
+          "middle": 0.4697205722332001
+        },
+        "regions": {
+          "boundary20": 0.34628068091557007,
+          "interior": 0.34586549684402873,
+          "top20": 0.34575973396840953
+        },
+        "spatial_gradient": 0.3998284019209262
+      },
+      "sample_id": "train_marmousi_00322",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.313219330398329,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.7717776298522949,
+          "low": 0.29358971118927,
+          "middle": 0.4051752984523773
+        },
+        "regions": {
+          "boundary20": 0.3732047618168944,
+          "interior": 0.2714076964269356,
+          "top20": 0.3852053208931779
+        },
+        "spatial_gradient": 0.3611962660590959
+      },
+      "raw": {
+        "aggregate": 0.3132360114936739,
+        "free_surface": {
+          "maximum_absolute": 0.029495127499103546,
+          "rms": 0.0028563980013132095
+        },
+        "frequency": {
+          "high": 0.771781861782074,
+          "low": 0.29362261295318604,
+          "middle": 0.4051777720451355
+        },
+        "regions": {
+          "boundary20": 0.3732423432699897,
+          "interior": 0.2714076964269356,
+          "top20": 0.38524522112273446
+        },
+        "spatial_gradient": 0.3612001191338099
+      },
+      "sample_id": "train_marmousi_00327",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.431726829961935,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5478683114051819,
+          "low": 0.4296441674232483,
+          "middle": 0.49540314078330994
+        },
+        "regions": {
+          "boundary20": 0.4277549816247018,
+          "interior": 0.4343278599806281,
+          "top20": 0.39749302577817724
+        },
+        "spatial_gradient": 0.5358831512531905
+      },
+      "raw": {
+        "aggregate": 0.43172926624076446,
+        "free_surface": {
+          "maximum_absolute": 0.03936333954334259,
+          "rms": 0.004320340231060982
+        },
+        "frequency": {
+          "high": 0.547869861125946,
+          "low": 0.42964786291122437,
+          "middle": 0.4954048991203308
+        },
+        "regions": {
+          "boundary20": 0.4277611668133998,
+          "interior": 0.4343278599806281,
+          "top20": 0.3975006375875022
+        },
+        "spatial_gradient": 0.5358222929245232
+      },
+      "sample_id": "train_marmousi_00349",
+      "slot": 1
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.8350171278405266,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.9472390413284302,
+          "low": 0.8008399605751038,
+          "middle": 1.1075913906097412
+        },
+        "regions": {
+          "boundary20": 0.8053899833305973,
+          "interior": 0.8574380602386934,
+          "top20": 0.8615283230027518
+        },
+        "spatial_gradient": 0.970519702907178
+      },
+      "raw": {
+        "aggregate": 0.8350231336378109,
+        "free_surface": {
+          "maximum_absolute": 0.020508132874965668,
+          "rms": 0.0037693220656365156
+        },
+        "frequency": {
+          "high": 0.947246253490448,
+          "low": 0.8008511662483215,
+          "middle": 1.1075925827026367
+        },
+        "regions": {
+          "boundary20": 0.8054041849785323,
+          "interior": 0.8574380602386934,
+          "top20": 0.8615496800531722
+        },
+        "spatial_gradient": 0.9704566477462766
+      },
+      "sample_id": "train_marmousi_00359",
+      "slot": 1
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.2102321731996774,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.0006566047668457,
+          "low": 0.1627526879310608,
+          "middle": 0.26903173327445984
+        },
+        "regions": {
+          "boundary20": 0.2226756154790812,
+          "interior": 0.17212003596100015,
+          "top20": 125.54734196365732
+        },
+        "spatial_gradient": 0.2531703434222059
+      },
+      "raw": {
+        "aggregate": 0.21024198598949856,
+        "free_surface": {
+          "maximum_absolute": 0.0010943840024992824,
+          "rms": 0.0001981375680770725
+        },
+        "frequency": {
+          "high": 1.0006612539291382,
+          "low": 0.1627749651670456,
+          "middle": 0.2690337896347046
+        },
+        "regions": {
+          "boundary20": 0.22268830459376915,
+          "interior": 0.17212003596100015,
+          "top20": 127.70798474005252
+        },
+        "spatial_gradient": 0.2534977669312326
+      },
+      "sample_id": "train_uniform_00205",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.1518003539294866,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3894399404525757,
+          "low": 0.13310584425926208,
+          "middle": 0.19719213247299194
+        },
+        "regions": {
+          "boundary20": 0.14576639361659333,
+          "interior": 0.39345051728570013,
+          "top20": 676.9553854372814
+        },
+        "spatial_gradient": 0.21596449725692804
+      },
+      "raw": {
+        "aggregate": 0.15183572866783265,
+        "free_surface": {
+          "maximum_absolute": 0.0010409614769741893,
+          "rms": 0.0001561537937959656
+        },
+        "frequency": {
+          "high": 0.3894535005092621,
+          "low": 0.13316942751407623,
+          "middle": 0.19720424711704254
+        },
+        "regions": {
+          "boundary20": 0.1458037342603544,
+          "interior": 0.39345051728570013,
+          "top20": 683.092872556492
+        },
+        "spatial_gradient": 0.2172920034353068
+      },
+      "sample_id": "train_uniform_00216",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.09665739696602475,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.512026309967041,
+          "low": 0.08067925274372101,
+          "middle": 0.3063981831073761
+        },
+        "regions": {
+          "boundary20": 0.10523247699900494,
+          "interior": 0.09276769076679522,
+          "top20": 0.1334234176082877
+        },
+        "spatial_gradient": 0.127956543275616
+      },
+      "raw": {
+        "aggregate": 0.09667148331321881,
+        "free_surface": {
+          "maximum_absolute": 0.00593095226213336,
+          "rms": 0.0012019131099805236
+        },
+        "frequency": {
+          "high": 0.512033998966217,
+          "low": 0.08070418983697891,
+          "middle": 0.3064081072807312
+        },
+        "regions": {
+          "boundary20": 0.1052758103249167,
+          "interior": 0.09276769076679522,
+          "top20": 0.13383832662536052
+        },
+        "spatial_gradient": 0.12796468124885474
+      },
+      "sample_id": "train_uniform_00223",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.18503015487449856,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.0652235746383667,
+          "low": 0.13624311983585358,
+          "middle": 0.23615387082099915
+        },
+        "regions": {
+          "boundary20": 0.15591948756802895,
+          "interior": 0.20273002064211773,
+          "top20": 8.985259214205
+        },
+        "spatial_gradient": 0.22187165471314438
+      },
+      "raw": {
+        "aggregate": 0.18503576577085068,
+        "free_surface": {
+          "maximum_absolute": 0.0020557257812470198,
+          "rms": 0.00036925351014360785
+        },
+        "frequency": {
+          "high": 1.0652289390563965,
+          "low": 0.13625352084636688,
+          "middle": 0.23615548014640808
+        },
+        "regions": {
+          "boundary20": 0.15593577448614754,
+          "interior": 0.20273002064211773,
+          "top20": 9.083297673250375
+        },
+        "spatial_gradient": 0.2219205781822689
+      },
+      "sample_id": "train_uniform_00233",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.11466757226816036,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.6081235408782959,
+          "low": 0.09091653674840927,
+          "middle": 0.14278316497802734
+        },
+        "regions": {
+          "boundary20": 0.13140558300539926,
+          "interior": 0.10673637831896396,
+          "top20": 0.1673290466693133
+        },
+        "spatial_gradient": 0.13617765803506265
+      },
+      "raw": {
+        "aggregate": 0.11469739551129203,
+        "free_surface": {
+          "maximum_absolute": 0.004724140278995037,
+          "rms": 0.0009104248019866645
+        },
+        "frequency": {
+          "high": 0.6081448793411255,
+          "low": 0.09097467362880707,
+          "middle": 0.14279000461101532
+        },
+        "regions": {
+          "boundary20": 0.13149263153855423,
+          "interior": 0.10673637831896396,
+          "top20": 0.16782166619328945
+        },
+        "spatial_gradient": 0.1360131700162472
+      },
+      "sample_id": "train_uniform_00324",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.069225601451711,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.32494038343429565,
+          "low": 0.060107722878456116,
+          "middle": 0.19188570976257324
+        },
+        "regions": {
+          "boundary20": 0.07618405828950059,
+          "interior": 0.06509625726971568,
+          "top20": 0.5312854250496701
+        },
+        "spatial_gradient": 0.09747483275898894
+      },
+      "raw": {
+        "aggregate": 0.06924081780883654,
+        "free_surface": {
+          "maximum_absolute": 0.002916464814916253,
+          "rms": 0.0007271507056429982
+        },
+        "frequency": {
+          "high": 0.32495173811912537,
+          "low": 0.06013144552707672,
+          "middle": 0.19189879298210144
+        },
+        "regions": {
+          "boundary20": 0.0762231018205051,
+          "interior": 0.06509625726971568,
+          "top20": 0.5396522774896684
+        },
+        "spatial_gradient": 0.09752805040359916
+      },
+      "sample_id": "train_uniform_00326",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.11556184459421108,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4787135422229767,
+          "low": 0.09940239042043686,
+          "middle": 0.28515803813934326
+        },
+        "regions": {
+          "boundary20": 0.1037962456508143,
+          "interior": 0.12267776567447558,
+          "top20": 11.689107063950704
+        },
+        "spatial_gradient": 0.14985972998080577
+      },
+      "raw": {
+        "aggregate": 0.11558980045286811,
+        "free_surface": {
+          "maximum_absolute": 0.006759532727301121,
+          "rms": 0.0011764757800847292
+        },
+        "frequency": {
+          "high": 0.47871965169906616,
+          "low": 0.0994599312543869,
+          "middle": 0.28516533970832825
+        },
+        "regions": {
+          "boundary20": 0.10387473382859738,
+          "interior": 0.12267776567447558,
+          "top20": 11.989950761187592
+        },
+        "spatial_gradient": 0.15026998837419236
+      },
+      "sample_id": "train_uniform_00333",
+      "slot": 2
+    },
+    {
+      "family": "uniform",
+      "projected": {
+        "aggregate": 0.07876530645251593,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.3223307132720947,
+          "low": 0.07451440393924713,
+          "middle": 0.190255805850029
+        },
+        "regions": {
+          "boundary20": 0.11021374319130318,
+          "interior": 0.060178993536911356,
+          "top20": 0.5735165635149225
+        },
+        "spatial_gradient": 0.12042561780802225
+      },
+      "raw": {
+        "aggregate": 0.07877891109496354,
+        "free_surface": {
+          "maximum_absolute": 0.004495721776038408,
+          "rms": 0.0012761427788063884
+        },
+        "frequency": {
+          "high": 0.322336882352829,
+          "low": 0.07453806698322296,
+          "middle": 0.19026508927345276
+        },
+        "regions": {
+          "boundary20": 0.11024583908326747,
+          "interior": 0.060178993536911356,
+          "top20": 0.5799071247564944
+        },
+        "spatial_gradient": 0.12065179347288896
+      },
+      "sample_id": "train_uniform_00348",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.3864137514968357,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.520207405090332,
+          "low": 0.3927413821220398,
+          "middle": 0.44922178983688354
+        },
+        "regions": {
+          "boundary20": 0.43347081969518036,
+          "interior": 0.37256173733819964,
+          "top20": 0.997586678197489
+        },
+        "spatial_gradient": 0.49716199308890446
+      },
+      "raw": {
+        "aggregate": 0.38641386017289453,
+        "free_surface": {
+          "maximum_absolute": 0.0007223192369565368,
+          "rms": 7.63666394050233e-05
+        },
+        "frequency": {
+          "high": 0.5202075839042664,
+          "low": 0.3927415609359741,
+          "middle": 0.44922199845314026
+        },
+        "regions": {
+          "boundary20": 0.4334712720928762,
+          "interior": 0.37256173733819964,
+          "top20": 0.9976051988281479
+        },
+        "spatial_gradient": 0.49716187096641484
+      },
+      "sample_id": "train_layered_00264",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.13009404731381885,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.41059330105781555,
+          "low": 0.1264372318983078,
+          "middle": 0.24611340463161469
+        },
+        "regions": {
+          "boundary20": 0.1286687612252894,
+          "interior": 0.13053011722503097,
+          "top20": 0.12303555838886825
+        },
+        "spatial_gradient": 0.16719619785998388
+      },
+      "raw": {
+        "aggregate": 0.13013016682813439,
+        "free_surface": {
+          "maximum_absolute": 0.023603195324540138,
+          "rms": 0.006292258854955435
+        },
+        "frequency": {
+          "high": 0.4105988144874573,
+          "low": 0.1265033334493637,
+          "middle": 0.2461218684911728
+        },
+        "regions": {
+          "boundary20": 0.12882372022881375,
+          "interior": 0.13053011722503097,
+          "top20": 0.12340155796682177
+        },
+        "spatial_gradient": 0.16744236913876148
+      },
+      "sample_id": "train_layered_00378",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.738251593572707,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.7627716660499573,
+          "low": 0.7307236790657043,
+          "middle": 0.7619423866271973
+        },
+        "regions": {
+          "boundary20": 0.6744147079164458,
+          "interior": 0.7829411963259654,
+          "top20": 8.95050881712883
+        },
+        "spatial_gradient": 0.9711596390965653
+      },
+      "raw": {
+        "aggregate": 0.738253152419308,
+        "free_surface": {
+          "maximum_absolute": 0.0013076644390821457,
+          "rms": 0.00043541615013964474
+        },
+        "frequency": {
+          "high": 0.762772798538208,
+          "low": 0.7307265996932983,
+          "middle": 0.7619432210922241
+        },
+        "regions": {
+          "boundary20": 0.6744186779167839,
+          "interior": 0.7829411963259654,
+          "top20": 9.030124404636856
+        },
+        "spatial_gradient": 0.9711393468103862
+      },
+      "sample_id": "train_layered_00407",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.3305388224108337,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5257065892219543,
+          "low": 0.328571081161499,
+          "middle": 0.46952906250953674
+        },
+        "regions": {
+          "boundary20": 0.2487011005889,
+          "interior": 0.4057584410781212,
+          "top20": 1.3287047330666697
+        },
+        "spatial_gradient": 0.3793510188768132
+      },
+      "raw": {
+        "aggregate": 0.3305395615225893,
+        "free_surface": {
+          "maximum_absolute": 0.0010941781802102923,
+          "rms": 0.00019316190446261317
+        },
+        "frequency": {
+          "high": 0.5257067084312439,
+          "low": 0.32857251167297363,
+          "middle": 0.4695291519165039
+        },
+        "regions": {
+          "boundary20": 0.24870292368894215,
+          "interior": 0.4057584410781212,
+          "top20": 1.330183476407832
+        },
+        "spatial_gradient": 0.37933977573691746
+      },
+      "sample_id": "train_layered_00469",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.22958934962593852,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4591921865940094,
+          "low": 0.22153665125370026,
+          "middle": 0.32374605536460876
+        },
+        "regions": {
+          "boundary20": 0.23733488398290187,
+          "interior": 0.2198016039868509,
+          "top20": 1.0248151852640472
+        },
+        "spatial_gradient": 0.2857001782492136
+      },
+      "raw": {
+        "aggregate": 0.2295951016702947,
+        "free_surface": {
+          "maximum_absolute": 0.0017373802838847041,
+          "rms": 0.0003168419934809208
+        },
+        "frequency": {
+          "high": 0.4592043161392212,
+          "low": 0.22154410183429718,
+          "middle": 0.3237520158290863
+        },
+        "regions": {
+          "boundary20": 0.23734502334438937,
+          "interior": 0.2198016039868509,
+          "top20": 1.0251248796086894
+        },
+        "spatial_gradient": 0.2857798867293573
+      },
+      "sample_id": "train_layered_00784",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 1.2034686781512813,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.3785496950149536,
+          "low": 1.1862974166870117,
+          "middle": 1.2824560403823853
+        },
+        "regions": {
+          "boundary20": 1.232438607264775,
+          "interior": 1.1799434370104136,
+          "top20": 1.0007734918353612
+        },
+        "spatial_gradient": 1.329419403960493
+      },
+      "raw": {
+        "aggregate": 1.2034690344777907,
+        "free_surface": {
+          "maximum_absolute": 0.0006085907807573676,
+          "rms": 0.0001051139333867468
+        },
+        "frequency": {
+          "high": 1.3785498142242432,
+          "low": 1.1862982511520386,
+          "middle": 1.2824561595916748
+        },
+        "regions": {
+          "boundary20": 1.2324393931330666,
+          "interior": 1.1799434370104136,
+          "top20": 1.0007811500384407
+        },
+        "spatial_gradient": 1.3294169291702462
+      },
+      "sample_id": "train_layered_00828",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 1.1102049687465416,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.2352207899093628,
+          "low": 1.0707329511642456,
+          "middle": 1.3195126056671143
+        },
+        "regions": {
+          "boundary20": 1.006950850198525,
+          "interior": 1.148882246718454,
+          "top20": 1.0021140551076135
+        },
+        "spatial_gradient": 1.2056407903514355
+      },
+      "raw": {
+        "aggregate": 1.1102059909081932,
+        "free_surface": {
+          "maximum_absolute": 0.00189349299762398,
+          "rms": 0.0001628423051442951
+        },
+        "frequency": {
+          "high": 1.2352218627929688,
+          "low": 1.070735216140747,
+          "middle": 1.3195127248764038
+        },
+        "regions": {
+          "boundary20": 1.0069547967569605,
+          "interior": 1.148882246718454,
+          "top20": 1.0021286825815339
+        },
+        "spatial_gradient": 1.205628291891943
+      },
+      "sample_id": "train_layered_00859",
+      "slot": 2
+    },
+    {
+      "family": "layered",
+      "projected": {
+        "aggregate": 0.5173072146776136,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.5475008487701416,
+          "low": 0.5104343295097351,
+          "middle": 0.5651212930679321
+        },
+        "regions": {
+          "boundary20": 0.43686558037067036,
+          "interior": 0.8129061972626246,
+          "top20": 1.0675534864009792
+        },
+        "spatial_gradient": 0.5794588937457272
+      },
+      "raw": {
+        "aggregate": 0.5173089297330242,
+        "free_surface": {
+          "maximum_absolute": 0.0008026933064684272,
+          "rms": 0.00010204935824731365
+        },
+        "frequency": {
+          "high": 0.5475025773048401,
+          "low": 0.5104374289512634,
+          "middle": 0.5651218295097351
+        },
+        "regions": {
+          "boundary20": 0.43686800764905337,
+          "interior": 0.8129061972626246,
+          "top20": 1.0678353251569739
+        },
+        "spatial_gradient": 0.5794457464616971
+      },
+      "sample_id": "train_layered_00900",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.33616883969156786,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.7056723833084106,
+          "low": 0.32547232508659363,
+          "middle": 0.4728284478187561
+        },
+        "regions": {
+          "boundary20": 0.5407088704681701,
+          "interior": 0.24504815157561707,
+          "top20": 0.7966884794231611
+        },
+        "spatial_gradient": 0.41941924097320976
+      },
+      "raw": {
+        "aggregate": 0.33618651413272754,
+        "free_surface": {
+          "maximum_absolute": 0.021926196292042732,
+          "rms": 0.003945932723581791
+        },
+        "frequency": {
+          "high": 0.7056859135627747,
+          "low": 0.3255023658275604,
+          "middle": 0.47284069657325745
+        },
+        "regions": {
+          "boundary20": 0.5407570717200622,
+          "interior": 0.24504815157561707,
+          "top20": 0.7967718387081134
+        },
+        "spatial_gradient": 0.4193559567768108
+      },
+      "sample_id": "train_marmousi_00123",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.6428837505295776,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.9506999254226685,
+          "low": 0.6166589260101318,
+          "middle": 0.899406373500824
+        },
+        "regions": {
+          "boundary20": 0.7080209888759676,
+          "interior": 0.6262198539982143,
+          "top20": 0.7049741890734678
+        },
+        "spatial_gradient": 0.7742952556853344
+      },
+      "raw": {
+        "aggregate": 0.6428880578844415,
+        "free_surface": {
+          "maximum_absolute": 0.011487320996820927,
+          "rms": 0.0029830869752913713
+        },
+        "frequency": {
+          "high": 0.9507028460502625,
+          "low": 0.6166673302650452,
+          "middle": 0.8994070887565613
+        },
+        "regions": {
+          "boundary20": 0.7080411731045404,
+          "interior": 0.6262198539982143,
+          "top20": 0.705050527350657
+        },
+        "spatial_gradient": 0.7742897802354823
+      },
+      "sample_id": "train_marmousi_00143",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.7969831011959816,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.05731201171875,
+          "low": 0.7862698435783386,
+          "middle": 0.9660510420799255
+        },
+        "regions": {
+          "boundary20": 0.7074277217499662,
+          "interior": 0.83010197770829,
+          "top20": 0.6983559444613838
+        },
+        "spatial_gradient": 0.9357010805924963
+      },
+      "raw": {
+        "aggregate": 0.7969855976298479,
+        "free_surface": {
+          "maximum_absolute": 0.02812722697854042,
+          "rms": 0.00424934271723032
+        },
+        "frequency": {
+          "high": 1.0573137998580933,
+          "low": 0.7862743139266968,
+          "middle": 0.9660527110099792
+        },
+        "regions": {
+          "boundary20": 0.7074375658461959,
+          "interior": 0.83010197770829,
+          "top20": 0.6983727295134278
+        },
+        "spatial_gradient": 0.9356506929226579
+      },
+      "sample_id": "train_marmousi_00182",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.25101020219909176,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.4978826344013214,
+          "low": 0.24666744470596313,
+          "middle": 0.377410888671875
+        },
+        "regions": {
+          "boundary20": 0.3868962246210374,
+          "interior": 0.1864411110666112,
+          "top20": 0.5668080186046689
+        },
+        "spatial_gradient": 0.33094385024733103
+      },
+      "raw": {
+        "aggregate": 0.2510257442284321,
+        "free_surface": {
+          "maximum_absolute": 0.018861990422010422,
+          "rms": 0.006407321430742741
+        },
+        "frequency": {
+          "high": 0.4978867173194885,
+          "low": 0.24669688940048218,
+          "middle": 0.37741559743881226
+        },
+        "regions": {
+          "boundary20": 0.38693725145376934,
+          "interior": 0.1864411110666112,
+          "top20": 0.5668780759567243
+        },
+        "spatial_gradient": 0.3308995028679014
+      },
+      "sample_id": "train_marmousi_00220",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.6188521114617118,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.3821873664855957,
+          "low": 0.5741975903511047,
+          "middle": 0.8572162389755249
+        },
+        "regions": {
+          "boundary20": 0.4611048989099999,
+          "interior": 0.6616055934239802,
+          "top20": 0.5269185259413302
+        },
+        "spatial_gradient": 0.7710848867712673
+      },
+      "raw": {
+        "aggregate": 0.6188561341634938,
+        "free_surface": {
+          "maximum_absolute": 0.0094857607036829,
+          "rms": 0.00219692918471992
+        },
+        "frequency": {
+          "high": 1.3821892738342285,
+          "low": 0.5742060542106628,
+          "middle": 0.8572166562080383
+        },
+        "regions": {
+          "boundary20": 0.4611270983935024,
+          "interior": 0.6616055934239802,
+          "top20": 0.5269610891730833
+        },
+        "spatial_gradient": 0.7710626824065809
+      },
+      "sample_id": "train_marmousi_00322",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.558037828080999,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.26006281375885,
+          "low": 0.5168048739433289,
+          "middle": 0.7611951231956482
+        },
+        "regions": {
+          "boundary20": 0.5918005948327444,
+          "interior": 0.5462618735637343,
+          "top20": 0.7380416084491992
+        },
+        "spatial_gradient": 0.7074789835657173
+      },
+      "raw": {
+        "aggregate": 0.5580415126485384,
+        "free_surface": {
+          "maximum_absolute": 0.01098425593227148,
+          "rms": 0.0018795462092384696
+        },
+        "frequency": {
+          "high": 1.2600657939910889,
+          "low": 0.5168120265007019,
+          "middle": 0.7611958384513855
+        },
+        "regions": {
+          "boundary20": 0.5918144411722305,
+          "interior": 0.5462618735637343,
+          "top20": 0.7380673342267243
+        },
+        "spatial_gradient": 0.7074772982750518
+      },
+      "sample_id": "train_marmousi_00327",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.7966016853986425,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 0.9636517763137817,
+          "low": 0.7846006155014038,
+          "middle": 0.8620938658714294
+        },
+        "regions": {
+          "boundary20": 0.6850204480872587,
+          "interior": 0.8472660995396869,
+          "top20": 0.617089569331055
+        },
+        "spatial_gradient": 0.9531094171405926
+      },
+      "raw": {
+        "aggregate": 0.7966156633492111,
+        "free_surface": {
+          "maximum_absolute": 0.17855171859264374,
+          "rms": 0.01392421592026949
+        },
+        "frequency": {
+          "high": 0.9636895060539246,
+          "low": 0.7846160531044006,
+          "middle": 0.8621318340301514
+        },
+        "regions": {
+          "boundary20": 0.6850689671899759,
+          "interior": 0.8472660995396869,
+          "top20": 0.6171612084790352
+        },
+        "spatial_gradient": 0.9530625602938672
+      },
+      "sample_id": "train_marmousi_00349",
+      "slot": 2
+    },
+    {
+      "family": "marmousi",
+      "projected": {
+        "aggregate": 0.9115174479839354,
+        "free_surface": {
+          "maximum_absolute": 0.0,
+          "rms": 0.0
+        },
+        "frequency": {
+          "high": 1.1718239784240723,
+          "low": 0.8742334842681885,
+          "middle": 1.2220033407211304
+        },
+        "regions": {
+          "boundary20": 0.8101162367515782,
+          "interior": 0.9535062926731852,
+          "top20": 0.8840516035307743
+        },
+        "spatial_gradient": 1.0740026234771252
+      },
+      "raw": {
+        "aggregate": 0.9115371067442113,
+        "free_surface": {
+          "maximum_absolute": 0.054704245179891586,
+          "rms": 0.006517160218209028
+        },
+        "frequency": {
+          "high": 1.1718469858169556,
+          "low": 0.8742666840553284,
+          "middle": 1.2220076322555542
+        },
+        "regions": {
+          "boundary20": 0.8101876642921704,
+          "interior": 0.9535062926731852,
+          "top20": 0.8841614535106516
+        },
+        "spatial_gradient": 1.073920204217704
+      },
+      "sample_id": "train_marmousi_00359",
+      "slot": 2
+    }
+  ],
+  "schema": "pa_cora_free_surface_projection_audit_v1",
+  "scope": "train_only_group_disjoint_three_phase_holdout",
+  "script_sha256": "736b7d0f3bbf7b31234e2582cbae6b31c93d86d77b415909bab99bf7b0040bc9",
+  "target_free_surface_maximum_absolute": 0.0,
+  "test_id_opened": false,
+  "validation_opened": false
+}

@@ -1,0 +1,55 @@
+{
+  "adaptation_status": "rolled_back_to_parent",
+  "checkpoint": {
+    "epoch": 20,
+    "next_step": 350,
+    "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+    "test_id_opened": false,
+    "update": 13650,
+    "validation_opened": false
+  },
+  "elapsed_s": 392.81642484664917,
+  "family": "marmousi",
+  "future_truth_opened_only_after_adaptation_serialized": true,
+  "max_rss_kib": 15915656,
+  "metrics": {
+    "adapted_full_relative_l2": 0.7207989289181564,
+    "adapted_future_relative_l2": 0.7204820156658365,
+    "adapted_onset_relative_l2": 365.4731836967913,
+    "adapted_target_0p05_pass": false,
+    "full_relative_improvement": 0.0,
+    "future_frame_count": 382,
+    "future_relative_improvement": 0.0,
+    "future_start_index": 19,
+    "future_time_bands": {
+      "early": {
+        "adapted_relative_l2": 0.3348995509504711,
+        "parent_relative_l2": 0.3348995509504711,
+        "start": 19,
+        "stop": 146
+      },
+      "late": {
+        "adapted_relative_l2": 0.8684467043041625,
+        "parent_relative_l2": 0.8684467043041625,
+        "start": 274,
+        "stop": 400
+      },
+      "middle": {
+        "adapted_relative_l2": 0.7923608001075989,
+        "parent_relative_l2": 0.7923608001075989,
+        "start": 147,
+        "stop": 273
+      }
+    },
+    "parent_full_relative_l2": 0.7207989289181564,
+    "parent_future_relative_l2": 0.7204820156658365,
+    "parent_onset_relative_l2": 365.4731836967913,
+    "time_count": 401
+  },
+  "sample_id": "train_marmousi_00260",
+  "schema": "transfer_dg_pyramid_instance_adaptation_evaluation_v1",
+  "scope": "post-seal train-only single-record diagnostic",
+  "status": "complete",
+  "test_id_opened": false,
+  "validation_opened": false
+}

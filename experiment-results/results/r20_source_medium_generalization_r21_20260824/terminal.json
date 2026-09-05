@@ -1,0 +1,13 @@
+{
+  "schema": "r20_source_medium_generalization_terminal_v1",
+  "status": "failed",
+  "reason": "CUDA out of memory during the first all-saved panel evaluation because evaluation_time_block was incorrectly set to all 401 frames.",
+  "failed_allocation_gib": 7.73,
+  "allocated_gib_before_failure": 15.82,
+  "training_updates": 0,
+  "result_written": false,
+  "checkpoint_written": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Preserve this failed identity and rerun under a new preregistration with evaluation_time_block=32, a mathematical chunking knob already covered by query-invariance tests."
+}

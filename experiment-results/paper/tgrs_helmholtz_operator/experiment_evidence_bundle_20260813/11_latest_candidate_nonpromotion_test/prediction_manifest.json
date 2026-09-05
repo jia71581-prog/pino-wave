@@ -1,0 +1,66 @@
+{
+  "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/best.pt",
+  "checkpoint_epoch": 3,
+  "checkpoint_global_step": 420,
+  "checkpoint_identity": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json",
+  "checkpoint_identity_sha256": "a8141ab179e7cc18331c0878743d5ecaec106f0ff727e7a20ec198d126c03449",
+  "checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag.yaml",
+  "config_sha256": "b76650fc4e506f1eb68174a6d0cdc24db4c54083e2e74eace0e1907a2b2df034",
+  "fixed_source_frequency_hz": 15.0,
+  "frequency_generalization_claim_permitted": false,
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "records": [
+    {
+      "family": "uniform",
+      "input_travel_time_sha256": "7c52a824ef33dccadd6dd292ee2bcbcd5af6a768be7478c1faefefdb7e6f9376",
+      "input_velocity_sha256": "df7bc0c9a55b8eaba1699661ac5d9f08654316d606dacb8af92f78f6ac941f36",
+      "prediction_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/sealed_predictions/uniform_prediction.npz",
+      "prediction_sha256": "585ad44e33d449e5634b0dedd0474da666ee847b0413ab3bbd7614d010e376b6",
+      "sample_id": "ood_uniform_c4000_f15",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "time_axis_sha256": "a5562ee95908cd1375ac576b1a3a4e6ca859fea7f4f8efff7a3bb9916c0a1443"
+    },
+    {
+      "family": "layered",
+      "input_travel_time_sha256": "203cd9bf6e285654d2c7a3e2cb4008ab497a420f6f2a84669e3dec2f144b9554",
+      "input_velocity_sha256": "777db52052d9995db26eb20be8777b235113b7c8a6e96a989c1a32d869c41e95",
+      "prediction_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/sealed_predictions/layered_prediction.npz",
+      "prediction_sha256": "6d980f95eed2eb1dd3f1ea1c145322447e9efba57c339d5d8f317c7599434785",
+      "sample_id": "ood_layered_c3000_c5000_f15",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "time_axis_sha256": "a5562ee95908cd1375ac576b1a3a4e6ca859fea7f4f8efff7a3bb9916c0a1443"
+    },
+    {
+      "family": "marmousi",
+      "input_travel_time_sha256": "2559a0f7e52ed6b6101dcd0522a6032fd155cb5593655b9092162dd2e7b16301",
+      "input_velocity_sha256": "ecd180cb1935caa6a1f99c92ee2c91624ea37ca126795048ec8549516325ba32",
+      "prediction_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/sealed_predictions/marmousi_prediction.npz",
+      "prediction_sha256": "81f35e25597cb41504ac6bac034d9deeb146f69436b00635e316cd8b0abc8105",
+      "sample_id": "marmousi1_true_nowater_x4400_z400_f15",
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "time_axis_sha256": "a5562ee95908cd1375ac576b1a3a4e6ca859fea7f4f8efff7a3bb9916c0a1443"
+    }
+  ],
+  "schema": "latest_vs_phase4b_fixed15_prediction_seal_v1",
+  "status": "complete",
+  "truth_wavefield_access": false
+}

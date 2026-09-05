@@ -1,0 +1,67 @@
+{
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/cpadc_cpu_cpml_contract_smoke/best_v4.pt",
+  "checkpoint_sha256": "06c84a1a9889246f461b75e461fa5dc3042c119ddbd5ab77758e863beb102c72",
+  "claim": "schema-9 reload contract smoke only; not trained or accuracy validated",
+  "defect_contract": {
+    "closure_gap": "20_internal_steps_plus_binomial5_restriction_plus_omitted_exterior_pressure",
+    "cpml": {
+      "c_ref_mps": 6750.0,
+      "exterior_initialization": "zero",
+      "internal_dt_s": 0.000125,
+      "internal_substeps_per_saved_frame": 20,
+      "kappa_max": 3.0,
+      "memory_time_integration": "internal_substep_exact_linear_causal_vectorized",
+      "minimum_frequency_hz": 8.0,
+      "npml": 20,
+      "physical_state_injection": "hard_each_saved_frame",
+      "polynomial_order": 3,
+      "target_reflection": 1e-08
+    },
+    "cpml_memory_reconstructed_causally": true,
+    "cpml_memory_variables": [
+      "psi_x",
+      "psi_z",
+      "phi_x",
+      "phi_z"
+    ],
+    "exact_fine_generator_residual": false,
+    "exterior_pressure_closure": "zero_unavailable_state",
+    "name": "source_consistent_saved_grid_lwc84_cfs_cpml_v3",
+    "spatial_halo_cells": 0,
+    "time_order": 4,
+    "top_boundary": "free_surface_dirichlet"
+  },
+  "future_truth_used": false,
+  "offline_optimizer": {
+    "cpu_online_solve_is_optimizer_free": true,
+    "muon_hidden_matrices_only": true,
+    "name": "muon_adamw",
+    "scale_sensitive_heads": "adamw"
+  },
+  "offline_physics_training": {
+    "boundary_band_cells": 12,
+    "boundary_weight": 4.0,
+    "causal_prefix_memory_warmup": true,
+    "detached_prefix_before_loss_window": true,
+    "evaluations_per_candidate": 1,
+    "operator": "lwc84_cfs_cpml_saved_grid_arrival_window_v4",
+    "prearrival_frames": 8,
+    "time_count": 64,
+    "weight": 0.05,
+    "window_strategy": "nearest_side_cpml_peak_arrival_causal_prefix_v1"
+  },
+  "online_solve_contract": {
+    "coefficient_solve_device": "cpu",
+    "name": "cpu_causal_observation_bridge_ridge_v4",
+    "observed_probe_design": true,
+    "offline_physics_operator": "lwc84_cfs_cpml_saved_grid_arrival_window_v4",
+    "online_bridge_weight": 0.5,
+    "online_defect_weight": 0.0,
+    "online_observed_weight": 1.0,
+    "projection_uses_parent_rms": true,
+    "trust_fraction_learned_offline": true
+  },
+  "reload_device": "cpu",
+  "schema_version": 9,
+  "status": "complete"
+}

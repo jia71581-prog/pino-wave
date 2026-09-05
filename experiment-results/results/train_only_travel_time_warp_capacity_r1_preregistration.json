@@ -1,0 +1,44 @@
+{
+  "schema": "train_only_travel_time_warp_capacity_preregistration_v1",
+  "registered_at_utc": "2026-08-12T10:10:55Z",
+  "status": "registered_before_probe",
+  "hypothesis": "Most residual error of the routed 10 m LWC84 Marmousi backbone is representable by one causal global travel-time warp, so an oracle scale on a fixed grid can reduce every sampled train record to at most 5 percent relative L2.",
+  "purpose": "Cheap capacity rejection test before training any phase-warp adapter. Oracle truth-dependent choices are diagnostic upper bounds and are prohibited at deployment.",
+  "data_contract": {
+    "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/dataset_v5_dt1e5_t401_mixed.h5",
+    "dataset_sha256": "2dd814839ee51c59a28f55cdf12b40a92c99da5616535a6573b218d3b48092a8",
+    "travel_cache": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/hybrid_travel_train_validation_v5.h5",
+    "travel_cache_sha256": "1f63d0e3d860409bdad40ce1fa457be73cc97563fec735112f56f16a1547adf6",
+    "required_split": "train",
+    "required_family": "marmousi",
+    "selection": "Six stable f0 quantiles after excluding every medium group in all three DRP experiments.",
+    "source_indices": [2280, 2326, 2574, 2237, 2407, 2286],
+    "source_f0_hz": [8.127003342002535, 12.063144940279065, 15.870286411842134, 19.994851583779408, 23.68361055099689, 29.79580912430751],
+    "expected_sample_sha256": ["409bd1fc0646dfcdf39be4e325b1f0d16082760a0ad735b5f93a9cd331f2464b", "b6ef006243c7cdeb2f378ccb8fba8ee4c35b66d50d50dbbc3ea49edc859ccd4e", "3d9a7603d6fb24c2a18f51831693cd2abc94dce4ed41b74b9930ee3a459789b1", "3c01a480d0947178c304015f0dc44c5c232ce4c0b9ed4159a7ba4b0f85d8c8f7", "066dce13e9802016b253bd98e5a0b345a1324de6ce61ecd57e3c4e94235437ff", "bd430a1b4ba76a0be636c6cacdd6cf193d0154571daef17daf32ce71771dde59"]
+  },
+  "probe_contract": {
+    "physical_backbone_route": "Taylor-8 below 24 Hz; DRP-0.45 at or above 24 Hz.",
+    "warp_definition": "p_warp(t,x,z)=p_backbone(t+s*T(x,z),x,z), with linear interpolation and zero outside the stored time interval.",
+    "warp_scales": [-0.04, -0.03, -0.02, -0.015, -0.01, -0.0075, -0.005, -0.0025, 0.0, 0.0025, 0.005, 0.0075, 0.01, 0.015, 0.02, 0.03, 0.04],
+    "reported_bounds": ["best per-record fixed-amplitude warp", "best per-record warp plus oracle scalar amplitude"],
+    "capacity_pass_rule": "All six best fixed-amplitude oracle errors are <= 0.05. The amplitude oracle is reported only to distinguish phase versus amplitude capacity.",
+    "failure_signal": "Any fixed-amplitude oracle record exceeds 0.05, any sample/cache digest differs, or any non-train record is read.",
+    "rollback": "Reject one-scalar travel-time warping and move to a multiscale learned residual closure conditioned on the physical backbone."
+  },
+  "code_sha256": {
+    "scripts/probe_train_only_travel_time_warp_capacity.py": "f21e27652e48c397716737d27842b5875e96094e021d882c272e1837827c8ed7",
+    "tests/test_train_only_travel_time_warp.py": "9b3486619b304979060870ba9e1aad56baf827ba0e2f1e271a95854e23ce3a96",
+    "src/fno_acoustic/data_generation/solver_lwc84.py": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad",
+    "src/fno_acoustic/data_generation/hdf5_lwc84.py": "ce40b14f35698ea357b2c275601c2bba15cd389aeaaeff20139302d1649076ab"
+  },
+  "test_evidence": {
+    "result": "19 passed",
+    "coverage": "warp identity, half-step interpolation and zero-outside semantics plus fused solver regression tests"
+  },
+  "frozen_holdout_truth_status_at_registration": "not_generated",
+  "prohibited_uses": [
+    "Oracle scale and amplitude may never be used as online adaptation inputs.",
+    "No validation or test_id wavefield may be read.",
+    "No 5 percent or 10x claim may be made from this train-only capacity probe."
+  ]
+}

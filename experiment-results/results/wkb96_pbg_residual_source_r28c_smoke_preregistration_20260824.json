@@ -1,0 +1,39 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_pbg_residual_source_r28c_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "manifest_bound_train_only_pbg_residual_smoke",
+  "hypothesis": "The current-manifest P_bg cache will reproduce its 0.1597 aggregate baseline at update zero and support two finite truth-P_bg residual updates with complete bindings and peak CUDA below 4 GiB.",
+  "single_conceptual_variable": {
+    "name": "manifest_compatible_coarse_cache",
+    "parent": "incompatible mixed-v5 P_bg",
+    "candidate": "P_bg regenerated from current manifest 281f42... for source indices 2100-2104",
+    "held_constant": "model, panels, residual target, zero head, optimizer, learning rates and seed"
+  },
+  "primary_metric": "update-0 P_bg baseline consistency and two finite residual updates",
+  "acceptance": {
+    "baseline_aggregate_relative_l2_expected": 0.15974240412311422,
+    "baseline_absolute_tolerance": 0.005,
+    "updates_completed": 2,
+    "peak_cuda_bytes_max": 4294967296,
+    "finite_metrics": true
+  },
+  "failure_signal": "Baseline mismatch, cache/manifest miss, update-two missing encoder gradient, non-finite value, OOM or missing binding blocks long training.",
+  "panels": {
+    "fit": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_marmousi_00003"],
+    "confirmation": ["train_marmousi_00004"],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "cache_sha256": "b3c1c43a72d35099076ba52fb55f2b7756ae82233043fabd6cfd8da842ba9da1",
+    "cache_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "training_script_sha256": "f6fb5f35a093822e66b4339f4f07530c8d967c9f114bd50c99bbd57ef072618d",
+    "parent_checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd"
+  },
+  "optimization": {"updates": 2, "evaluate_every": 1, "evaluation_frames": 32, "evaluation_time_block": 32, "evaluation_macro_records": 1, "learning_rate": 0.00001, "target_relative_l2": 0.001, "seed": 372},
+  "rollback": "Preserve cache and all checkpoints; on failure do not start long training.",
+  "command": "use train_wkb_frequency_train_panel with current five-record P_bg, zero head, two updates"
+}

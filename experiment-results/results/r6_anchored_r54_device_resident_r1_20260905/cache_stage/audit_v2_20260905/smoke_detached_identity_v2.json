@@ -1,0 +1,27 @@
+{
+  "schema": "r6_cache_smoke_detached_identity_v2",
+  "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+  "supervisor_pid": 691346,
+  "child_pid": 691347,
+  "started_UTC": "2026-09-05T04:38:00.252000+00:00",
+  "argv": [
+    "env",
+    "-u",
+    "CUBLAS_WORKSPACE_CONFIG",
+    "CUDA_VISIBLE_DEVICES=0",
+    "python",
+    "scripts/build_r6_device_residual_cache.py",
+    "--smoke",
+    "--preregistration",
+    "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+    "--device",
+    "cuda:0"
+  ],
+  "cwd": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2",
+  "log": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_v2.log",
+  "release_sha256": "6d96c7c03d1a196cfab8f28173e7b2bf402e4e5d540bfa5aec4908710607db90",
+  "preregistration_sha256": "4f192d62f4304b1c3ca3637aad90889a6b4ab3d2e01c23cc3800f1205577eed2",
+  "retry": false,
+  "terminal": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/smoke_terminal.json",
+  "checkpoint_output": null
+}

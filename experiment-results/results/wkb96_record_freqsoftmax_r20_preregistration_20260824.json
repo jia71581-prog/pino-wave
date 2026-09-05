@@ -1,0 +1,88 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_record_freqsoftmax_r20_continue4000_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "project_train_three_record_mapper_capacity",
+  "parent_run": "wkb96_r13_expanded_no_surface_r18_continue3000_20260823",
+  "hypothesis": "Adding only a zero-initialized record-conditioned softmax gate over the 96 WKB Helmholtz bins, and supervising the exact gated coefficients consumed by synthesis, will reduce the parent's all-saved Marmousi relative L2 from 0.053137 to no more than 0.04 while retaining all-saved aggregate, uniform, and layered relative L2 no greater than 0.04 on the same three project-train records within 4000 updates.",
+  "expected_mechanism": "The parent fits low frequencies substantially better than middle and high frequencies (relative L2 0.0373 versus 0.3359 and 0.4150). A zero-initialized linear map from each record's pooled rendered features to 96 softmax logits starts as an exact identity, then permits record-specific spectral emphasis without changing the analytic WKB time basis or exact-time query invariance. Applying the gate before coefficient loss gives the new parameters a direct gradient.",
+  "single_conceptual_variable": {
+    "name": "record_conditioned_frequency_attention",
+    "parent": "independent 96-bin WKB coefficient head without frequency attention",
+    "candidate": "same head multiplied by a zero-initialized record-conditioned 96-bin softmax gate",
+    "held_constant": "parent checkpoint, width 128, depth 8, spectral rank 112, modes 32, local-field channels [1,1,2,2], 96 bins, WKB phase, coefficient supervision, disabled legacy causal gate and free-surface factor, AdamW learning rates, three train records, seed 372, exact stored-time axis and metric implementation"
+  },
+  "primary_metric": "all-saved relative L2 on the same project-train uniform/layered/marmousi triplet",
+  "acceptance": {
+    "all_saved_aggregate_relative_l2_max": 0.04,
+    "all_saved_each_family_relative_l2_max": 0.04,
+    "minimum_marmousi_relative_improvement_vs_parent": 0.247225
+  },
+  "failure_signal": {
+    "static": "any non-identity update-0 prediction, missing frequency-gate gradient, or identical gate weights across distinct records after a nonzero conditioned perturbation",
+    "pilot": "no reduction in the fixed-panel worst-family gate score by update 500",
+    "formal": "all-saved aggregate or any family remains above 0.04 at the selected checkpoint",
+    "interpretation_if_rejected": "Record-level spectral reweighting is not the missing capacity. Stop multiplicative head-gate variants and return to a coarse-propagator residual or structurally nonlocal frequency mapper."
+  },
+  "data": {
+    "scope": "train_only",
+    "sample_ids": [
+      "train_uniform_00000",
+      "train_layered_00000",
+      "train_marmousi_00000"
+    ],
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "validation_opened": false,
+    "test_id_opened": false,
+    "future_truth_sealed": true
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "updates": 4000,
+    "evaluate_every": 100,
+    "microbatch_records": 1,
+    "coefficient_target_frames": 401,
+    "fixed_evaluation_frames": 32,
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "smoke_updates": 2,
+    "formal_updates_max": 4000,
+    "formal_wall_time_max_minutes": 45,
+    "expected_peak_cuda_gb_max": 3.0,
+    "checkpoint_storage_gb_max": 4.5
+  },
+  "parent_checkpoint": {
+    "path": "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/checkpoints/update_3000.pt",
+    "sha256": "5b14cd5e07ddb0a8b06f9f416a26497ec23cecfaa8731fd8a591a1307a3e773b",
+    "identity_path": "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/run_identity.json",
+    "identity_sha256": "2caf2a5fda5bcc944c5b131b796ecf1a056dc6497fddd5719f5a0779e20bbd2d",
+    "all_saved_metrics": {
+      "aggregate_relative_l2": 0.031127258858052936,
+      "uniform_relative_l2": 0.025430829484220745,
+      "layered_relative_l2": 0.014813924654577926,
+      "marmousi_relative_l2": 0.05313702243536013
+    }
+  },
+  "rollback": "Preserve r18 and r20 artifacts. If r20 is rejected, do not open validation or test_id and do not continue frequency-gate tuning.",
+  "bindings": {
+    "training_script_sha256": "744dbed963ac96444fbdc83a0e854284fbdff95720722a0cce9f249bd0db051d",
+    "local_field_sha256": "d2abfb44d126fecd964fda8bd391ee90a22dade25109882332eac1e0d0cf26b6",
+    "operator_sha256": "bd2e7c1558e2508f6e3a8487eefa78bea601941d32f26175ed41b61292e31aff",
+    "probe_sha256": "e96a308197ef87550c7472855ad17640ce722679bc9a2177e1e236be5272b90a",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "manifest_sha256": "273c2a492e31027571bf6780ea4a6668428ef47bf252023fe39eabefc355c8b2",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "helmholtz_test_sha256": "254a63280c61ca93f406f4351ccb429beea17139551624b4259c9c43eebd85bd",
+    "coefficient_test_sha256": "b76dac27d33e0bfaea37c79d6a8089d6e37bb2c2ef9fc8c611f5e97bd1226374",
+    "tests": "61 passed"
+  },
+  "smoke_command": "bash runs/0824-wkb96-record-freqsoftmax-r20/run_smoke.sh",
+  "formal_command": "bash runs/0824-wkb96-record-freqsoftmax-r20/run_full.sh"
+}

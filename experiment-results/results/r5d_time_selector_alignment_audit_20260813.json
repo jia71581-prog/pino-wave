@@ -1,0 +1,44 @@
+{
+  "schema": "fixed_train_gate_time_selector_alignment_audit_v1",
+  "date_utc": "2026-08-13",
+  "evidence_split": "train",
+  "record_count": 48,
+  "panel_seed": 372,
+  "training_selector": {
+    "seed": 372,
+    "frames_per_record": 24,
+    "panel_offset": 0
+  },
+  "r5d_gate_selector": {
+    "seed": 8291,
+    "seed_offset": 7919,
+    "frames_per_record": 32,
+    "intersection_frames_per_record": {
+      "minimum": 0,
+      "median": 2.0,
+      "mean": 2.0,
+      "maximum": 4
+    },
+    "mean_fraction_of_training_frames": 0.08333333333333333,
+    "mean_fraction_of_gate_frames": 0.0625
+  },
+  "corrected_same_seed_control": {
+    "seed": 372,
+    "seed_offset": 0,
+    "frames_per_record": 32,
+    "intersection_frames_per_record": {
+      "minimum": 24,
+      "median": 24.0,
+      "mean": 24.0,
+      "maximum": 24
+    },
+    "mean_fraction_of_training_frames": 1.0,
+    "mean_fraction_of_gate_frames": 0.75
+  },
+  "family_mean_intersection_frames_r5d": {
+    "uniform": 2.0714285714285716,
+    "layered": 1.9583333333333333,
+    "marmousi": 2.0
+  },
+  "conclusion": "r5d is not a valid aligned-time ablation; r5e binds seed offset zero and fails closed otherwise"
+}

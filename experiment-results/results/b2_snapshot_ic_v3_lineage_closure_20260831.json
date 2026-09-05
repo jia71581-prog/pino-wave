@@ -1,0 +1,50 @@
+{
+  "schema": "b2_snapshot_ic_v3_lineage_closure_v1",
+  "created_utc": "2026-08-31T09:43:31Z",
+  "raw_run_identities_modified": false,
+  "preregistration": {
+    "path": "results/b2_snapshot_ic_v3_preregistration_20260831.json",
+    "sha256": "c063465a26773fa37fabd9ec474bd6b035a1527229bdbc3680c35089c56944de"
+  },
+  "deviation": {
+    "field": "preregistration",
+    "observed_in_all_four_run_identities": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/b2_snapshot_ic_preregistration_20260830.json",
+    "expected": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/b2_snapshot_ic_v3_preregistration_20260831.json",
+    "classification": "lineage_pointer_error",
+    "effect_on_claim": "Gate C/D may be judged from the frozen external preregistration and verified bindings, but the lanes are not eligible for reproducibility promotion."
+  },
+  "verified_bindings": {
+    "trainer_sha256": "e35603ba20f0a585b0e378ef24310b3545d19880d1ab86876b64ef584112fd22",
+    "manifest_selection_sha256": "92c0e169fb7ee7451674d1c9e2b2a15edbb0535c22488cb63a3ed5ba7af44fb8",
+    "manifest_file_sha256": "3812b0058ae5a68753a08bd26e16da1e175bc07fd0b7dbae85c33d0de75687eb",
+    "lanes": [
+      {
+        "name": "b2_snapshot_ic_v3_armA_w64_s372_20260831",
+        "status": "complete",
+        "best_checkpoint_sha256": "cb27939ae36cc99a55c5d1a6a54cb5f650f5198343cdb36f60d4cdd4495ead74"
+      },
+      {
+        "name": "b2_snapshot_ic_v3_armA_w64_s733_20260831",
+        "status": "complete",
+        "best_checkpoint_sha256": "202b371effb839c44d501be1ab69f4f161c7a3f5099487ec0ad7d77bd7b9e188"
+      },
+      {
+        "name": "b2_snapshot_ic_v3_armB_w128_s372_20260831",
+        "status": "complete",
+        "best_checkpoint_sha256": "16094a9f77ed2f3fe76e5806d96ad868e55afa5f69e9c46ceafeb259d64c3d68"
+      },
+      {
+        "name": "b2_snapshot_ic_v3_armB_w128_s733_20260831",
+        "status": "complete",
+        "best_checkpoint_sha256": "c129c6ef68c56eb2f2cc40d0d8fddddb8ec5bb01a933440415c73d596e9fc33f"
+      }
+    ]
+  },
+  "judgement": {
+    "gate_C_budget_recovers": "pass",
+    "gate_D_capacity_beats_budget": "fail",
+    "status": "judged_with_lineage_deviation",
+    "promotion": "denied"
+  },
+  "decision_report": "results/b2_snapshot_ic_v3_decision_report_20260831.md"
+}

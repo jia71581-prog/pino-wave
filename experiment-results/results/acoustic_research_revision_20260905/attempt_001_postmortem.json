@@ -1,0 +1,16 @@
+{
+  "status": "failed_preserved",
+  "failure": "Manifest uses ood_canonical; prereg expected ood. Counts are otherwise exactly expected.",
+  "observed_unique_crops": {
+    "train": 140,
+    "validation": 30,
+    "test_id": 30,
+    "ood_canonical": 1
+  },
+  "formal_aggregate_executed": false,
+  "physics_thresholds_changed": false,
+  "h5_accesses": 0,
+  "future_accesses": 0,
+  "checkpoint_accesses": 0,
+  "remediation": "Use actual manifest split label ood_canonical; preserve failed terminal and prereg; freeze and independently audit attempt_002 before rerun."
+}

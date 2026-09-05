@@ -1,0 +1,64 @@
+{
+  "config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/baselines/patch_deeponet_fixed_train_gate_20260813.yaml",
+  "config_sha256": "3ef6126019a713a273b0dcafd64c5a3a0c8f184cc8f7120913977b5ac62bbfd5",
+  "epoch_audits": [
+    {
+      "appearances": 4480,
+      "epoch": 0,
+      "macro_count": 560,
+      "maximum_appearances": 6,
+      "minimum_appearances": 1,
+      "optimizer_updates": 140,
+      "record_count": 2240
+    },
+    {
+      "appearances": 4480,
+      "epoch": 1,
+      "macro_count": 560,
+      "maximum_appearances": 6,
+      "minimum_appearances": 1,
+      "optimizer_updates": 140,
+      "record_count": 2240
+    },
+    {
+      "appearances": 4480,
+      "epoch": 2,
+      "macro_count": 560,
+      "maximum_appearances": 7,
+      "minimum_appearances": 1,
+      "optimizer_updates": 140,
+      "record_count": 2240
+    }
+  ],
+  "fixed_position_frequency_hz": 19.0,
+  "frequency_generalization_permitted": false,
+  "launch_authorized": false,
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "model_config": {
+    "branch_blocks": 4,
+    "branch_bottleneck_width": 32,
+    "branch_global_width": 5591,
+    "branch_width": 64,
+    "fourier_bands": 16,
+    "latent_dim": 64,
+    "local_residual_width": 32,
+    "parameter_tolerance_fraction": 0.001,
+    "query_channels": 10,
+    "ricker_bias_init": 0.1,
+    "static_channels": 4,
+    "target_parameters": 32420564,
+    "trunk_depth": 4,
+    "trunk_width": 48
+  },
+  "parameter_match": {
+    "absolute_difference": -99,
+    "parameter_count": 32420465,
+    "relative_difference": 3.053617450948725e-06,
+    "target_parameters": 32420564,
+    "within_tolerance": true
+  },
+  "schedule_digest": "74e243d925b5ad7cf7c8002fbc9cbe69eb4b23104e27930d3d31d2c105a5a075",
+  "schema": "patch_deeponet_training_static_audit_v1",
+  "selection_split": "train",
+  "status": "pass"
+}

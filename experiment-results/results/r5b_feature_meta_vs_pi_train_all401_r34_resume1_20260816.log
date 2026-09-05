@@ -1,0 +1,18 @@
+/root/miniconda3/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+[1/6] train_uniform_00146 ours=0.0876454 pi=0.612933
+[2/6] train_uniform_00165 ours=0.113217 pi=0.586254
+[3/6] train_layered_00109 ours=0.242729 pi=0.490733
+[4/6] train_layered_00581 ours=0.242525 pi=0.501568
+[5/6] train_marmousi_00107 ours=0.499138 pi=0.770618
+[6/6] train_marmousi_00564 ours=0.62327 pi=0.731707
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/compare_r33_feature_meta_vs_pi_train.py", line 304, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/compare_r33_feature_meta_vs_pi_train.py", line 298, in main
+    result = run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/compare_r33_feature_meta_vs_pi_train.py", line 226, in run
+    dataset.close()
+AttributeError: 'ExactStoredTimeBatchDataset' object has no attribute 'close'

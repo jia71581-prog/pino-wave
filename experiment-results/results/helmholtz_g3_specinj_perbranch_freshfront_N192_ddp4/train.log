@@ -1,0 +1,92 @@
+{"agg": 20.796158704264986, "family": {"layered": 23.253158522776424, "marmousi": 6.038070220992987, "uniform": 33.097247369025546}, "update": 0}
+{"agg": 0.1712448303626153, "family": {"layered": 0.17644854216183053, "marmousi": 0.054764159381052877, "uniform": 0.28252178954496254}, "update": 48}
+{"agg": 0.13187517016983852, "family": {"layered": 0.14071450313820588, "marmousi": 0.04531284703011239, "uniform": 0.2095981603411973}, "update": 96}
+{"agg": 0.13360619700300555, "family": {"layered": 0.17774662451154435, "marmousi": 0.04532656197561403, "uniform": 0.1777454045218583}, "update": 144}
+{"agg": 0.09528472450286174, "family": {"layered": 0.10627578440444457, "marmousi": 0.04582792278696514, "uniform": 0.1337504663171755}, "update": 192}
+{"agg": 0.1444577374814468, "family": {"layered": 0.14851823137971418, "marmousi": 0.04520603853652102, "uniform": 0.2396489425281052}, "update": 240}
+{"agg": 0.08519870057077034, "family": {"layered": 0.10431953121646576, "marmousi": 0.04449839321044123, "uniform": 0.106778177285404}, "update": 288}
+{"agg": 0.10486621242479656, "family": {"layered": 0.12137608181855619, "marmousi": 0.04451172579595695, "uniform": 0.14871082965987653}, "update": 336}
+{"agg": 0.09377987309780911, "family": {"layered": 0.10138040199423207, "marmousi": 0.04439436871684422, "uniform": 0.13556484858235104}, "update": 384}
+{"agg": 0.08905542888110708, "family": {"layered": 0.10069898136116336, "marmousi": 0.044537608391907124, "uniform": 0.1219296968902508}, "update": 432}
+{"agg": 0.09753758500183406, "family": {"layered": 0.10496870157809676, "marmousi": 0.04454012857031489, "uniform": 0.1431039248570905}, "update": 480}
+{"agg": 0.0710434198059637, "family": {"layered": 0.08919689663507277, "marmousi": 0.04435128165161958, "uniform": 0.07958208113119873}, "update": 528}
+{"agg": 0.07181667673807786, "family": {"layered": 0.08945336700306535, "marmousi": 0.04433725080846076, "uniform": 0.08165941240270747}, "update": 576}
+{"agg": 0.05936822090317893, "family": {"layered": 0.08439981423311617, "marmousi": 0.044405505340012814, "uniform": 0.049299343136407825}, "update": 624}
+{"agg": 0.05953175317200793, "family": {"layered": 0.08253644671290628, "marmousi": 0.04430741144858466, "uniform": 0.05175140135453285}, "update": 672}
+{"agg": 0.056828788174118815, "family": {"layered": 0.08222189763399848, "marmousi": 0.04436104966997957, "uniform": 0.04390341721837837}, "update": 720}
+{"agg": 0.055301510528939946, "family": {"layered": 0.0810302185576765, "marmousi": 0.04428147986904195, "uniform": 0.040592833160101364}, "update": 768}
+^C[2026-08-04 17:47:49,071] torch.distributed.elastic.agent.server.api: [WARNING] Received Signals.SIGINT death signal, shutting down workers
+[2026-08-04 17:47:49,078] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 505088 closing signal SIGINT
+[2026-08-04 17:47:49,079] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 505089 closing signal SIGINT
+[2026-08-04 17:47:49,079] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 505090 closing signal SIGINT
+[2026-08-04 17:47:49,079] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 505091 closing signal SIGINT
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 664, in <module>
+    best_checkpoint = str(checkpoint_path)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 567, in main
+    "macro_records": int(args.macro_records),
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2446, in _train_update
+    (loss * family_scale * field_piece_weight).backward(retain_graph=_retain)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 664, in <module>
+    best_checkpoint = str(checkpoint_path)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 567, in main
+    "macro_records": int(args.macro_records),
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2446, in _train_update
+    (loss * family_scale * field_piece_weight).backward(retain_graph=_retain)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 664, in <module>
+    best_checkpoint = str(checkpoint_path)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 567, in main
+    "macro_records": int(args.macro_records),
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2446, in _train_update
+    (loss * family_scale * field_piece_weight).backward(retain_graph=_retain)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 664, in <module>
+    best_checkpoint = str(checkpoint_path)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 567, in main
+    "macro_records": int(args.macro_records),
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2446, in _train_update
+    (loss * family_scale * field_piece_weight).backward(retain_graph=_retain)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 736, in run
+    result = self._invoke_run(role)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 877, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 505020 got signal: 2

@@ -1,0 +1,83 @@
+{
+  "schema": "frozen_fine_grid_target_terminal_v1",
+  "status": "target_met",
+  "method": "five-metre LWC84 physics backbone with fourth-order 0.000625 s time stepping, CUDA Graph replay, and registered binomial5 two-times output restriction",
+  "protocol": {
+    "target_families": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "excluded_for_both_methods": [
+      "anomaly"
+    ],
+    "complete_validation_records": 480,
+    "complete_test_id_records": 480,
+    "maximum_relative_l2": 0.05,
+    "minimum_mean_and_p95_speedup": 10.0,
+    "traditional_reference_s": 20.34137312322855,
+    "future_truth_used_by_method": false,
+    "post_validation_tuning": false
+  },
+  "validation": {
+    "status": "target_gate_passed",
+    "aggregate_relative_l2": 0.002689297423639035,
+    "family_relative_l2": {
+      "uniform": 0.0022078448462351887,
+      "layered": 0.0010436201226778955,
+      "marmousi": 0.002801588552176318
+    },
+    "maximum_instance_relative_l2": 0.012815195477012936,
+    "mean_runtime_s": 0.880352280473259,
+    "p95_runtime_s": 0.9018363887444139,
+    "mean_speedup": 23.105946987827934,
+    "p95_speedup": 22.555502724334428,
+    "report_sha256": "8a987314eeb9d1fb4609c9d4395fa673f565fadc6fb4d98782d835dda6096a42",
+    "terminal_sha256": "6276ad2c720fa2a15bc8a75b0ca1f19270e31731686b0104edd9e60221a1114e"
+  },
+  "test_id": {
+    "status": "target_gate_passed",
+    "aggregate_relative_l2": 0.002629802713257318,
+    "family_relative_l2": {
+      "uniform": 0.001844287511733737,
+      "layered": 0.0008531061315786132,
+      "marmousi": 0.002776403330055869
+    },
+    "maximum_instance_relative_l2": 0.012265597498494218,
+    "mean_runtime_s": 0.8783298938535153,
+    "p95_runtime_s": 0.8937289696186781,
+    "mean_speedup": 23.159149273611096,
+    "p95_speedup": 22.7601138764781,
+    "report_sha256": "5203f52917311bb58273505c332f481235e2ebecbd5ac6a6ea3086343634493b",
+    "terminal_sha256": "c812914780752c77e94d773f7d1e1a3406c6f4cb62d79199d3ab39517950a2b0"
+  },
+  "reproducibility": {
+    "frozen_candidate_sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "evaluation_script_sha256": "2b23e284f3aef644708a1421b77e39065051243097216be8b3a71f8b54986411",
+    "aggregation_script_sha256": "37ffe234cb8f27b4994263d646f61e722f4e69796a5a847bcc01117a67c22ef3"
+  },
+  "pi_deeponet_frozen_comparator": {
+    "role": "comparison_only",
+    "training_status": "completed",
+    "complete_train_records": 2240,
+    "epochs": 100,
+    "global_optimizer_updates": 14000,
+    "selected_epoch": 96,
+    "selected_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "fixed_train_panel_aggregate_relative_l2": 0.5628880142534579,
+    "fixed_train_panel_family_relative_l2": {
+      "uniform": 0.5393527644161541,
+      "layered": 0.5013494958614068,
+      "marmousi": 0.7435298081666064
+    },
+    "terminal_sha256": "dd844039664d387b0ed2d29ca2e961135128e34cbab97d978501d49a45d1f1b8",
+    "best_metadata_sha256": "a2016fcc144bf99b10a7a2c02a098b0ea29c1847d5f26652a95b960a84b3f526",
+    "comparison_caveat": "These PI-DeepONet values are from its frozen train-selection panel and are not used as a same-split quantitative ratio against the complete validation or test_id results."
+  },
+  "claim": "The frozen proposed physics-guided per-instance propagator satisfies the registered accuracy and end-to-end runtime targets independently on the complete validation and test_id target-family splits."
+}

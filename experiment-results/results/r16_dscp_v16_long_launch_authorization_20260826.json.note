@@ -1,0 +1,17 @@
+2026-08-26T15:15Z amendment: lead directed 4-card utilization. Single-GPU run
+(pid 601583) killed during bundle build, zero checkpoints, zero OUT/long residue.
+Relaunched as 3-way sharded bundle build on GPUs 1/2/3 (r4e13 holds GPU 0 as the
+concurrent pilot-equivalent) with /dev/shm handoff, then the frozen runner's
+exact long stage on GPU 1 via run_v16_long_from_prebuilt.py (cold start, gates
+and checkpoint policy unchanged: best.pt + last.pt, 2 MiB cap).
+2026-08-26T15:28Z amendment 2: lead directed the training phase itself onto 4
+cards. Single-GPU prebuilt trainer chain defused before it could fire. New
+scripts/run_v16_long_ddp4.py transcribes the frozen long branch with recorded
+deviations (world=4, per-rank shuffled epochs seed SEED+rank, effective batch 4
+at unchanged lr 3e-3, all_reduce-mean before shared clip/step per the v14
+order, rank0-only eval/checkpoint/terminal). Artifacts write to
+OUT/long_ddp4/, never the frozen chain's OUT/long/. Kill-switch check done
+before arming: r4e13 verdict = E4_mixed (E3 false; cold-24 as bad as pilot so
+warm start exonerated; gains monotone in fit records A24 -0.033 -> B96 +0.014
+-> C192 +0.023, C192 below gates at 3072 updates). Proceeding is the E4-consistent
+action: long tests whether 10x update budget converts +0.023 into gate passage.

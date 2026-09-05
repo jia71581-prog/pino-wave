@@ -1,0 +1,74 @@
+{
+  "schema": "b2_v4_aux_seed_replication_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-08-31T11:47:16Z",
+  "candidate": "b2_v4_aux_seed_replication_v1",
+  "purpose": "Use otherwise idle GPUs 2 and 3 for non-blocking seed replication while preserving the already-progressed primary seed 372/733 run.",
+  "decision_basis": {
+    "primary_progress_at_decision": "28/70 epochs",
+    "primary_remaining_estimate_hours": 2.1,
+    "two_rank_ddp_epoch_s": 144.2,
+    "single_gpu_recent_epoch_s": 179.5,
+    "ddp_speedup": 1.2448,
+    "reason_not_to_restart": "A from-scratch 2x2 DDP restart projects about 2.8 hours and would finish roughly 42 minutes after the current primary run."
+  },
+  "design": {
+    "seeds": [1049, 1403],
+    "gpus": [2, 3],
+    "epochs": 70,
+    "width": 64,
+    "spectral_rank": 32,
+    "ic_frames": 8,
+    "fit_records": 240,
+    "calibration_records": 60,
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "micro_records": 3,
+    "maximum_epoch1_s": 360
+  },
+  "claim_and_gate_scope": {
+    "role": "replication_only",
+    "primary_gate_unchanged": "Only preregistered primary seeds 372 and 733 determine whether train confirmation may open.",
+    "auxiliary_result_use": "Report seed variance and family/nonworse stability. Auxiliary success cannot rescue a failed primary gate or tune thresholds.",
+    "confirmation_opening_authority": false,
+    "validation_or_test_authority": false
+  },
+  "bindings": {
+    "trainer_sha256": "71e50bd815bc22e9e1f76849fd8846f8e2f8f6815700c071ebde375dfd2178ff",
+    "supervisor_sha256": "e6b777566c42d0ada378ad6087708c23d8a2fe27a40e5ac392dc8df446181f15",
+    "manifest_sha256": {
+      "results/b2_v4_fit_manifest_240rec_20260831.json": "8b8a4e96b1b998c70c86fc84ae3fd84934cf1bc23145a4dad255637e25a0632a",
+      "results/b2_v4_calibration_manifest_60rec_20260831.json": "34ab3c2bb0db7044dc7d82b37e8872ae6809e78d3af4c3e1d1176508aed9c4ea"
+    },
+    "cache_sha256": {
+      "results/b2_v4_fit_cache_240rec_20260831.h5": "d49077526d5c02aac49d9ff62c4aec190d3b2083cecd9a4e75a877766a715336",
+      "results/b2_v4_calibration_cache_60rec_20260831.h5": "5da6cbae5d48418d8bbffbc21160aa6e69e51dfe1256e8fbf2be54c31cdcd08f"
+    },
+    "ddp_benchmark_terminal_sha256": "f3418bfb7dde8957082fbe955ce5369dc42d1c0fd0ebb5c6402b821ed2ddfef3"
+  },
+  "data_access": {
+    "fit": "train truth",
+    "calibration": "group-disjoint train truth",
+    "confirmation_cache_created": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "budget": {
+    "estimated_hours": 3.5,
+    "gpus": 2,
+    "disk_checkpoint_bytes_estimate": 4000000,
+    "abort_on": [
+      "binding drift",
+      "non-finite loss or metric",
+      "CUDA OOM",
+      "epoch-1 wall time above 360 seconds",
+      "confirmation, validation, or test access"
+    ]
+  },
+  "command": "screen -dmS b2_v4_aux_seeds_20260831 bash scripts/run_b2_group_disjoint_v4_aux.sh",
+  "outputs": [
+    "results/b2_v4_group_disjoint_aux_s1049_20260831",
+    "results/b2_v4_group_disjoint_aux_s1403_20260831"
+  ],
+  "rollback": "additive replication only; preserve primary run, DDP benchmark, and all protected checkpoint families"
+}

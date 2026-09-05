@@ -1,0 +1,442 @@
+{
+  "aggregate": {
+    "arithmetic_mean_per_record_speedup_x": 1.6077199445326793,
+    "arithmetic_mean_runtime_s": 12.652311868034303,
+    "count": 9,
+    "gate_peak_cuda_allocated_bytes": 4775640064,
+    "gate_peak_cuda_reserved_bytes": 5834276864,
+    "maximum_runtime_s": 12.656147628091276,
+    "measured_peak_cuda_allocated_bytes": 4775640064,
+    "measured_peak_cuda_reserved_bytes": 5834276864,
+    "minimum_runtime_s": 12.647839054465294,
+    "nearest_rank_p95_runtime_s": 12.656147628091276,
+    "reference_over_mean_speedup_x": 1.6077198645901574,
+    "reference_over_p95_speedup_x": 1.6072326051317019,
+    "traditional_reference_s": 20.34137312322855
+  },
+  "budget": {
+    "one_gpu_seconds_maximum": 900.0,
+    "one_gpu_seconds_used": 127.96022150758654,
+    "within_budget": true
+  },
+  "candidate": "r4e7_parent_e2e_runtime_train9_v1",
+  "checkpoint_attestation": {
+    "rollback_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "rollback_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "rollback_sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "unchanged": true,
+    "writes": 0
+  },
+  "claim_scope": "train_only_runtime_only",
+  "completed_utc": "2026-08-25T05:22:26.723840Z",
+  "decision": "fail_gate",
+  "disk_free_bytes_after": 2313998336,
+  "disk_free_bytes_at_binding_gate": 2313998336,
+  "disk_free_bytes_before": 2313998336,
+  "exact_blocker": "one or more preregistered runtime or peak-memory gates failed",
+  "gate": {
+    "conservative_peak_reserved": {
+      "includes_unscored_warmup": true,
+      "maximum_bytes": 25232932864,
+      "passed": true,
+      "value_bytes": 5834276864
+    },
+    "joint_passed": false,
+    "mean_runtime": {
+      "maximum_s": 2.034137312322855,
+      "passed": false,
+      "value_s": 12.652311868034303
+    },
+    "nearest_rank_p95_runtime": {
+      "maximum_s": 2.034137312322855,
+      "passed": false,
+      "rank_for_nine": 9,
+      "value_s": 12.656147628091276
+    }
+  },
+  "gpu": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cuda_visible_devices": "0",
+    "driver_version": "580.105.08",
+    "memory_total_mib": 24564,
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "nvidia_driver_cuda_version": "13.0",
+    "physical_index": 0,
+    "torch_name": "NVIDIA GeForce RTX 4090 D",
+    "torch_total_memory_bytes": 25250627584,
+    "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+    "visible_index": 0
+  },
+  "measurements": [
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "uniform",
+      "group_id": "train:uniform:00000",
+      "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+      "nontruth_input_sha256": "1e1ca53aae3e9165b9e5d76d4854f009f0f33a2b88043c737dc5152de7001461",
+      "ordinal": 1,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 7.869184770470383e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.652156135067344,
+      "sample_id": "train_uniform_00000",
+      "source_index": 0,
+      "speedup_x": 1.6077396537060897,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "uniform",
+      "group_id": "train:uniform:00001",
+      "manifest_sample_sha256": "7cfbc998c508e425c4ed5b39de32ea507bd12fa555d559f59d03e464e4ab6195",
+      "nontruth_input_sha256": "37a41b906b58fd4c372e1d26584735f787f6b7a126e66e69a081b6cf88ee8a07",
+      "ordinal": 2,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 2.2370482355427157e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.648327322676778,
+      "sample_id": "train_uniform_00001",
+      "source_index": 1,
+      "speedup_x": 1.608226337308583,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "uniform",
+      "group_id": "train:uniform:00002",
+      "manifest_sample_sha256": "73f6beb623d7c17c445965b8c1adc743b1a1446c5d4e26a6b5491b06c123c4fb",
+      "nontruth_input_sha256": "0a3d4ce3a8f259fa714169e2389b86b39aa3072f5bdb8eadb5f5e0db33d8871e",
+      "ordinal": 3,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 1.6206760378167928e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.647839054465294,
+      "sample_id": "train_uniform_00002",
+      "source_index": 2,
+      "speedup_x": 1.6082884226809535,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "layered",
+      "group_id": "train:layered:00000",
+      "manifest_sample_sha256": "9b482204732d18f506d4af9e17b59bfa78c144ffe3de780e9b3a99e31dd8b75e",
+      "nontruth_input_sha256": "842527a9a251dc738c147a9c14a49cd690eea1ba3528e938555ae14cbcefe1b4",
+      "ordinal": 4,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 1.3668576492875673e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.655253951437771,
+      "sample_id": "train_layered_00000",
+      "source_index": 420,
+      "speedup_x": 1.6073461031509015,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "layered",
+      "group_id": "train:layered:00001",
+      "manifest_sample_sha256": "b5dfbc6c175eb850b3e97cb042966591c14dd6c6ffd40acbb6d79bab9f6eb24b",
+      "nontruth_input_sha256": "abe67bbc543df25ef7830832aff5263d491fac1ef5f5a8fa84f35b813b5ac6c5",
+      "ordinal": 5,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 1.5189920432590043e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.651611616834998,
+      "sample_id": "train_layered_00004",
+      "source_index": 424,
+      "speedup_x": 1.6078088499145113,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "layered",
+      "group_id": "train:layered:00002",
+      "manifest_sample_sha256": "d52f835b79b638338bd65772a0cefa330dd8379eeb6602f297064ad3a7b3a0be",
+      "nontruth_input_sha256": "264d7144c3c807ac3c500c7f1708f537c9c564e4a33c509a89ba0aa4438ff6aa",
+      "ordinal": 6,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 2.5994435048914966e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.656147628091276,
+      "sample_id": "train_layered_00008",
+      "source_index": 428,
+      "speedup_x": 1.6072326051317019,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "marmousi",
+      "group_id": "train:marmousi:x0.0:z0.0",
+      "manifest_sample_sha256": "9b1b6372dfa355eaa4e77bdf7457dcc572827db973d92d0ea08ef626cbf32d95",
+      "nontruth_input_sha256": "de49aa9ab121fe9df8f24c9cd2ceef065ff1db43a58b962ce8860a06748b1f81",
+      "ordinal": 7,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 8.908749293823348e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.655566385947168,
+      "sample_id": "train_marmousi_00000",
+      "source_index": 2100,
+      "speedup_x": 1.6073064217667696,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "marmousi",
+      "group_id": "train:marmousi:x150.0:z0.0",
+      "manifest_sample_sha256": "54b7b0dd18dac742108ebf263261d44a102bd0e848a9b56d0c41f41cfddec0eb",
+      "nontruth_input_sha256": "9da6b127afe09d37757cc5f594a1ff3bb17ae907833f9227c2b9b2f1bebb8f52",
+      "ordinal": 8,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 9.985742366325212e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.652666319161654,
+      "sample_id": "train_marmousi_00005",
+      "source_index": 2105,
+      "speedup_x": 1.6076748260106126,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    },
+    {
+      "disk_free_bytes_before_record": 2313998336,
+      "family": "marmousi",
+      "group_id": "train:marmousi:x300.0:z0.0",
+      "manifest_sample_sha256": "52918357b7e58fdce9aa2bb784b5ec713a691fddd2e3277ec2cea035bc551ca1",
+      "nontruth_input_sha256": "264a0b1bf334cd7845ced8c060353924eadf12c69b82f574692cfc1bb09c74de",
+      "ordinal": 9,
+      "output": {
+        "c_contiguous": true,
+        "device": "cpu",
+        "dtype": "float32",
+        "finite": true,
+        "maximum_absolute_value": 8.236120407900671e-08,
+        "serialized": false,
+        "shape": [
+          1,
+          401,
+          201,
+          201
+        ]
+      },
+      "peak_cuda_allocated_bytes": 4775640064,
+      "peak_cuda_reserved_bytes": 5834276864,
+      "runtime_s": 12.651238398626447,
+      "sample_id": "train_marmousi_00010",
+      "source_index": 2110,
+      "speedup_x": 1.6078562811239907,
+      "split": "train",
+      "split_id": 0,
+      "traditional_reference_s": 20.34137312322855
+    }
+  ],
+  "preregistration_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_preregistration_20260825.json",
+  "preregistration_sha256": "7bbab5b3d772e92d66f9520f05412c3dd66f8307ddd8eef58fdc9fe803ccc1e8",
+  "result_size_bytes_maximum": 10485760,
+  "run_binding": {
+    "checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "run_digest": "5de1af3455fc834271fe19e30995a45fb65fac09e4bd6cba92a1ed12b0bb7a2d",
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+  },
+  "sample_census": {
+    "all_train": true,
+    "by_family": {
+      "layered": 3,
+      "marmousi": 3,
+      "uniform": 3
+    },
+    "count": 9,
+    "unique_group_count": 9
+  },
+  "schema": "r4_parent_trainonly_runtime_result_v1",
+  "sealed_data_attestation": {
+    "onset_truth_opened": false,
+    "prediction_arrays_written_to_disk": false,
+    "test_id_opened": false,
+    "train_truth_opened": false,
+    "truth_read_attempts": 0,
+    "validation_opened": false
+  },
+  "software": {
+    "cudnn": "8902",
+    "h5py": "3.16.0",
+    "numpy": "1.26.3",
+    "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121",
+    "torch_cuda_build": "12.1"
+  },
+  "started_utc": "2026-08-25T05:20:17.375262Z",
+  "status": "success",
+  "timing_boundary": {
+    "end": "after parent inference at all 401 ordered stored times, physical decode, blocking D2H, explicit CUDA synchronization, C-contiguous CPU copy, and shape/finite/contiguity checks",
+    "excluded": [
+      "record input disk I/O",
+      "one-time model/checkpoint/normalizer loading"
+    ],
+    "included": [
+      "per-record CPU tensor construction",
+      "per-record H2D transfers for velocity, source, source map, time axis, x axis, z axis, and record mapping",
+      "medium encoding",
+      "source preparation",
+      "dense-grid preparation",
+      "parent inference for all 401 stored times in manifest order",
+      "physical pressure decode",
+      "blocking D2H transfer",
+      "explicit CUDA synchronization",
+      "C-contiguous CPU output copy and shape/finite/contiguity verification"
+    ],
+    "start": "after excluded record disk reads and a pre-timing CUDA synchronization; before all per-record CPU tensor construction and H2D transfer"
+  },
+  "warmup": {
+    "output": {
+      "c_contiguous": true,
+      "device": "cpu",
+      "dtype": "float32",
+      "finite": true,
+      "maximum_absolute_value": 7.869184770470383e-08,
+      "serialized": false,
+      "shape": [
+        1,
+        401,
+        201,
+        201
+      ]
+    },
+    "peak_cuda_allocated_bytes": 4775564288,
+    "peak_cuda_reserved_bytes": 5834276864,
+    "record": {
+      "family": "uniform",
+      "group_id": "train:uniform:00000",
+      "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+      "sample_id": "train_uniform_00000",
+      "source_index": 0,
+      "split": "train",
+      "split_id": 0
+    },
+    "runtime_s": 13.100882697850466,
+    "unscored": true
+  }
+}

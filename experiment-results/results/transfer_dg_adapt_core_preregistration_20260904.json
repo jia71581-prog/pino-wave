@@ -1,0 +1,72 @@
+{
+  "schema": "transfer_dg_adapt_core_preregistration_v1",
+  "candidate": "transfer_dg_adapt_core_v1",
+  "claim_scope": "CPU-only static implementation and unit-test evidence; no train, validation, test_id, accuracy, or runtime promotion claim",
+  "hypothesis": "A frequency-domain DG defect operator coupled to a linear correction basis can form a deterministic two-onset-frame ridge system with exact zero-correction rollback, while a precision-first LoRA interface can preserve the frozen layer exactly and reject uncompensated quantized candidates before deployment.",
+  "allowed_files": [
+    "saved_time_phase_operator_v4/instance_adaptation/transfer_dg_adapt.py",
+    "saved_time_phase_operator_v4/instance_adaptation/precision_lora.py",
+    "tests/saved_time_phase_operator_v4/test_transfer_dg_adapt.py",
+    "tests/saved_time_phase_operator_v4/test_precision_lora.py",
+    "results/transfer_dg_adapt_core_preregistration_20260904.json",
+    "results/transfer_dg_adapt_core_static_evidence_20260904.json"
+  ],
+  "dg_contract": {
+    "state": "complex pressure Fourier coefficients",
+    "volume_operator": "interior constant-density Helmholtz residual",
+    "interface_operator": "one-sided normal-derivative jump on Cartesian element faces",
+    "element_intervals": 20,
+    "physical_grid": [201, 201],
+    "spacing_m": 10.0,
+    "top_boundary": "hard pressure-release projection remains external to the residual",
+    "cpml": "left, right, and bottom exterior CPML are excluded until auxiliary-state semantics are bound",
+    "fixed_skeleton_pressure_lifting": false
+  },
+  "online_access": {
+    "true_frames": "exactly two adjacent onset frames",
+    "allowed": [
+      "velocity",
+      "source parameters and map",
+      "time and frequency axes",
+      "two onset frames",
+      "frozen parent prediction",
+      "physics residuals derived from allowed inputs"
+    ],
+    "forbidden": [
+      "future truth",
+      "future-derived statistics",
+      "validation labels",
+      "test_id labels"
+    ]
+  },
+  "precision_contract": {
+    "default": "full-precision frozen base plus FP32 LoRA/DoRA residual",
+    "full_precision_zero_init": "bit-exact parent layer",
+    "quantization": "optional groupwise symmetric INT8/INT4 numerical candidate only",
+    "quantization_compensation": "SVD low-rank initialization analogous to LoftQ",
+    "protected_modules": [
+      "complex spectral and WFP paths",
+      "FFT",
+      "phase and travel encodings",
+      "normalization",
+      "physical output head",
+      "CPML output head"
+    ],
+    "fallback": "return full-precision output whenever candidate/reference relative error exceeds the frozen tolerance",
+    "cuda_packing_claim": false
+  },
+  "unit_gates": [
+    "discrete plane wave has near-zero matched Helmholtz residual",
+    "smooth plane wave has near-zero DG normal-flux jump",
+    "linear ridge solve lowers the registered online objective",
+    "zero correction is exactly the parent",
+    "non-adjacent or more-than-two observations are rejected",
+    "full-precision LoRA zero initialization is bit-exact",
+    "quantization-error compensation strictly lowers reference output error",
+    "unsafe quantized candidate falls back to full precision"
+  ],
+  "failure_signal": "Any failed physics identity, future-access contract, finite check, exact rollback, LoRA identity, compensation, or fallback test rejects the core before GPU integration.",
+  "rollback": "All additions are isolated. The running pretraining model, trainer, logs, latest checkpoint, and all protected checkpoint families remain untouched.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

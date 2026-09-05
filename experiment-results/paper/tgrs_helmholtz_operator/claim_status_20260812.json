@@ -1,0 +1,99 @@
+{
+  "schema": "tgrs_claim_status_v1",
+  "observed_at_utc": "2026-08-14T04:00:00Z",
+  "submission_ready": false,
+  "primary_hypothesis": "A local ray-travel-time-aligned operator with a bounded characteristic warp and rank-32 time-shared latent basis improves complete-transient phase and high-band accuracy over sanity-checked matched neural baselines; source-position evidence is evaluated at fixed 19 Hz, and any LWC-84 speed claim requires matched accuracy.",
+  "active_model": {
+    "checkpoint_role": "r5b accepted train-gate diagnostic parent",
+    "parameter_count": 32420564,
+    "components": ["global source-conditioned operator", "translation-equivariant local propagation residual", "bounded travel-time-gradient warp", "rank-32 continuous time-shared latent basis"],
+    "inactive_historical_components": ["Helmholtz temporal-frequency synthesis", "smoothed-velocity numerical background solve"]
+  },
+  "generalization_scope": {
+    "included": "position-only boundary test on 30 unseen Marmousi slices times eight positions at fixed 19 Hz",
+    "excluded": "source-frequency generalization and any frequency sweep"
+  },
+  "claims": [
+    {
+      "id": "time_query_set_independence",
+      "status": "supported_by_construction",
+      "evidence": "Each requested frame uses its own time features without query-axis mixing; the rank-32 spatial anchors are shared across time. This is not a single static temporal-frequency state."
+    },
+    {
+      "id": "representation_oracle_below_0p05",
+      "status": "development_only",
+      "record_count": 3,
+      "evidence": "Zero-training oracle on one uniform, one layered, and one Marmousi record.",
+      "authorized_wording": "The representation is feasible on the three-record development diagnostic."
+    },
+    {
+      "id": "heldout_generalization",
+      "status": "not_authorized",
+      "reason": "The completed fixed-19-Hz position test has mean complete error 0.581776 and degrades to 0.651418 outside the training-position range."
+    },
+    {
+      "id": "fixed19hz_source_position_generalization",
+      "status": "rejected_by_registered_gate",
+      "velocity_slice_count": 30,
+      "position_record_count": 240,
+      "complete_relative_l2": 0.5817764396468799,
+      "complete_relative_l2_ci95": [0.5534449739381672, 0.6113720705918968],
+      "interpolation_relative_l2": 0.5399914038181305,
+      "outside_range_relative_l2": 0.6514181660281287,
+      "late_relative_l2": 0.7774297838409742,
+      "high_spatial_band_relative_l2": 0.8548684641718864,
+      "frequency_generalization_claim_authorized": false
+    },
+    {
+      "id": "twenty_x_operator_accuracy",
+      "status": "not_authorized",
+      "reason": "The three-record baselines collapse to the zero predictor and have not passed an overfit sanity gate."
+    },
+    {
+      "id": "target5_absolute_accuracy",
+      "status": "not_achieved",
+      "threshold": 0.05,
+      "current_a3_r4_fixed_gate_best": 0.2772543673381241,
+      "corrected_aligned_gate_parent": 0.27717799602124693,
+      "corrected_r5e_best_candidate": 0.27718377962083424,
+      "current_gate_record_count": 48,
+      "caveat": "Fixed 48-record train-only epoch-control gate for r5b; not a complete frozen validation protocol."
+    },
+    {
+      "id": "target10_end_to_end_speed",
+      "status": "not_measured",
+      "threshold_mean": 10.0,
+      "threshold_p95": 10.0
+    },
+    {
+      "id": "cpadc_r7_relative_improvement",
+      "status": "supported_under_separate_old_parent_protocol",
+      "validation_records": 480,
+      "test_id_records": 480,
+      "validation_mean_improvement": 0.02700602799115145,
+      "test_id_mean_improvement": 0.028420,
+      "validation_nonworse_fraction": 0.9729166666666667,
+      "test_id_nonworse_fraction": 0.970833,
+      "absolute_accuracy_claim_authorized": false
+    },
+    {
+      "id": "drp_0p45_stencil",
+      "status": "rejected_by_preregistered_gate",
+      "train_only_records": 24,
+      "mean_relative_improvement": 0.12689144233451435,
+      "high_frequency_relative_improvement": 0.2398168206327608,
+      "paired_win_fraction": 0.5416666666666666,
+      "required_paired_win_fraction": 0.625,
+      "promotion_passed": false
+    }
+  ],
+  "required_before_submission": [
+    "Allow the active r5f uniform-replay and queued r5g dropout train-only ablations to terminate naturally.",
+    "Test an information-preserving late-coda output path and a primary-metric-aligned temporal objective on train-only evidence.",
+    "Reproduce the selected algorithm from a clean train-only-selected lineage.",
+    "Run complete registered validation once and independent test_id once without retuning if validation passes.",
+    "Measure synchronized same-GPU end-to-end mean and nearest-rank P95 speedup at the frozen accuracy gate.",
+    "Replace collapsed pilot baselines with sanity-checked parameter-matched Patch-DeepONet and matched FNO comparisons.",
+    "Bind every table row to manifest, checkpoint, code, config, metric, and prediction-seal digests."
+  ]
+}

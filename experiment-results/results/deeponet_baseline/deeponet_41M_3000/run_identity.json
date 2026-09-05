@@ -1,0 +1,44 @@
+{
+  "branch_width": 1024,
+  "comparison_to": "capacity_ladder W2/W3 (SavedTimePhaseOperatorV4)",
+  "evaluate_every": 150,
+  "exact_saved_times_only": true,
+  "families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "fourier_bands": 16,
+  "gradient_weight": 0.1,
+  "latent_dim": 1536,
+  "learning_rate": 0.002,
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "model": "pure_deeponet_branch_trunk_inner_product",
+  "one_source_per_record": true,
+  "parameter_count": 40712065,
+  "receiver_input": false,
+  "record_indices": [
+    0,
+    420,
+    1540
+  ],
+  "run_digest": "3b230c15790f5d7a4c81c3bcfb06de4ae305fe49c29af67fddd031602e3f1224",
+  "sample_ids": [
+    "train_uniform_00000",
+    "train_layered_00000",
+    "train_marmousi_00000"
+  ],
+  "schema": "deeponet_baseline_three_record_overfit_v1",
+  "seed": 372,
+  "smoke": false,
+  "split": "train",
+  "training_frames_per_record": 16,
+  "trunk_depth": 12,
+  "trunk_width": 1536,
+  "updates": 3000,
+  "validation_frames_per_record": 32,
+  "wavefield_shape": [
+    201,
+    201
+  ]
+}

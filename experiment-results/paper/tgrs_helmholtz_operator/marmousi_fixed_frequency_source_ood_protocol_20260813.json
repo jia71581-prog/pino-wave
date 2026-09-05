@@ -1,0 +1,112 @@
+{
+  "schema": "marmousi_fixed_frequency_source_position_control_v1",
+  "registered_utc_date": "2026-08-13",
+  "status": "registered_before_reference_generation_or_model_prediction",
+  "purpose": "isolate source-position interpolation and extrapolation on fixed unseen Marmousi velocity slices",
+  "generalization_scope": {
+    "varied_variable": "source position (x_m, z_m) only",
+    "fixed_nuisance_variables": ["source frequency", "source amplitude", "source onset rule", "source wavelet", "velocity slice within each eight-position block"],
+    "source_frequency_generalization_in_scope": false,
+    "frequency_sweep_permitted": false,
+    "claim_boundary": "results may support source-position interpolation or outside-range position generalization only; they cannot support source-frequency generalization"
+  },
+  "velocity_panel": {
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "selection_rule": "use the complete census of all 30 validation Marmousi velocity maps; input-only first-difference-energy rank 15 is locked for qualitative figures",
+    "saved_velocity_shape_zx": [201, 201],
+    "cross_split_velocity_hash_overlap": false,
+    "slices": [
+      {"rank": 1, "source_sample_id": "validation_marmousi_00135", "source_group_id": "validation:marmousi:x1300.0:z50.0", "crop_x0_m": 1300.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 10554.858657882083, "saved_velocity_bytes_sha256": "e9084603b68cf7b7fdb44540aaeaf70b01d80288df0654e678b2f7082b6b0929"},
+      {"rank": 2, "source_sample_id": "validation_marmousi_00040", "source_group_id": "validation:marmousi:x1250.0:z0.0", "crop_x0_m": 1250.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 10603.161746294736, "saved_velocity_bytes_sha256": "b0659203d0d94af282b14e95f3fc55b8b70522aee93d10425a742c52203f3965"},
+      {"rank": 3, "source_sample_id": "validation_marmousi_00130", "source_group_id": "validation:marmousi:x1150.0:z50.0", "crop_x0_m": 1150.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 10616.475809812973, "saved_velocity_bytes_sha256": "9ef83d5bc138faa955c573a2d445b9a896c0d09a5b8ec4d3110313743639ebd8"},
+      {"rank": 4, "source_sample_id": "validation_marmousi_00035", "source_group_id": "validation:marmousi:x1100.0:z0.0", "crop_x0_m": 1100.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 10679.935590080893, "saved_velocity_bytes_sha256": "4eb8d5ec9c7122e856fe79b549cf5c237e3e9c552cf8750fc490abb44e1bcc7e"},
+      {"rank": 5, "source_sample_id": "validation_marmousi_00125", "source_group_id": "validation:marmousi:x1000.0:z50.0", "crop_x0_m": 1000.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 10684.697994186665, "saved_velocity_bytes_sha256": "eaaf2f7355bbb706f1e4e492d66ae7100221e1f6de51f6e1a3ec4608a005983a"},
+      {"rank": 6, "source_sample_id": "validation_marmousi_00120", "source_group_id": "validation:marmousi:x850.0:z50.0", "crop_x0_m": 850.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 10727.955760141913, "saved_velocity_bytes_sha256": "d93e99763325861feab479cacb6c79dc1252743cf21cb2183eb14185471625cf"},
+      {"rank": 7, "source_sample_id": "validation_marmousi_00030", "source_group_id": "validation:marmousi:x950.0:z0.0", "crop_x0_m": 950.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 10741.842711621914, "saved_velocity_bytes_sha256": "9c5dc8976e683cd5d61f26cc6be50ef6b46531a50f63ec1f36d0f69132bda788"},
+      {"rank": 8, "source_sample_id": "validation_marmousi_00025", "source_group_id": "validation:marmousi:x800.0:z0.0", "crop_x0_m": 800.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 10825.978598914022, "saved_velocity_bytes_sha256": "fdedf7115888cd79fb49c94788d0ae4a15c2d21a69deb4fc31df7aeea279b064"},
+      {"rank": 9, "source_sample_id": "validation_marmousi_00115", "source_group_id": "validation:marmousi:x700.0:z50.0", "crop_x0_m": 700.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 10847.486370269897, "saved_velocity_bytes_sha256": "9f27f8fcefb97a56eae56979c8358f2e43980f3caad1085d05032a4d5e31fbd6"},
+      {"rank": 10, "source_sample_id": "validation_marmousi_00020", "source_group_id": "validation:marmousi:x650.0:z0.0", "crop_x0_m": 650.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 10933.620230921666, "saved_velocity_bytes_sha256": "69052f6e8245253a846e3088066dcca4b47a365a23b9d8891322a83db14bbd95"},
+      {"rank": 11, "source_sample_id": "validation_marmousi_00110", "source_group_id": "validation:marmousi:x550.0:z50.0", "crop_x0_m": 550.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 10951.40830971477, "saved_velocity_bytes_sha256": "e819fcb26625778d37751ff14728d6fbcf7ef2dd0f5d508547af4acef391fc72"},
+      {"rank": 12, "source_sample_id": "validation_marmousi_00105", "source_group_id": "validation:marmousi:x400.0:z50.0", "crop_x0_m": 400.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 11047.753359603787, "saved_velocity_bytes_sha256": "5d697081e4680798fb7e75e037c3a8868ce66598d0eb0fef191193e9000e1b91"},
+      {"rank": 13, "source_sample_id": "validation_marmousi_00015", "source_group_id": "validation:marmousi:x500.0:z0.0", "crop_x0_m": 500.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 11047.815149953674, "saved_velocity_bytes_sha256": "a6920cae0090ce9720a2da8e07821d0ce82ffefb79e1b41f013f65a38fb3bd5d"},
+      {"rank": 14, "source_sample_id": "validation_marmousi_00100", "source_group_id": "validation:marmousi:x250.0:z50.0", "crop_x0_m": 250.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 11120.872300431587, "saved_velocity_bytes_sha256": "6cfc540d723f1e6a4772dcf221fe29dd1e0aaa4b01f3c51b203b0d47368cd023"},
+      {"rank": 15, "source_sample_id": "validation_marmousi_00010", "source_group_id": "validation:marmousi:x350.0:z0.0", "crop_x0_m": 350.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 11127.945926199067, "saved_velocity_bytes_sha256": "0c3ab8df22e5b9297b44e5d986c2dedcbb6b8771f0139195f0cc0da723d3203f", "qualitative_main_figure": true},
+      {"rank": 16, "source_sample_id": "validation_marmousi_00005", "source_group_id": "validation:marmousi:x200.0:z0.0", "crop_x0_m": 200.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 11191.512294695021, "saved_velocity_bytes_sha256": "7c7cd4198ed228f73116b04fdf5674ba7df7458e314d78294302e0015b385571"},
+      {"rank": 17, "source_sample_id": "validation_marmousi_00095", "source_group_id": "validation:marmousi:x100.0:z50.0", "crop_x0_m": 100.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 11193.59307570856, "saved_velocity_bytes_sha256": "9164fd78fd46bff090218ccd3905c0367378cb9c20e42a557621e49ac20f3efb"},
+      {"rank": 18, "source_sample_id": "validation_marmousi_00000", "source_group_id": "validation:marmousi:x50.0:z0.0", "crop_x0_m": 50.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 11262.24644569468, "saved_velocity_bytes_sha256": "4636c41cfe36e36bdbc381542750d29861e790e21a388be7283fdb07e1e2633d"},
+      {"rank": 19, "source_sample_id": "validation_marmousi_00085", "source_group_id": "validation:marmousi:x7050.0:z0.0", "crop_x0_m": 7050.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 12920.856930561307, "saved_velocity_bytes_sha256": "470eb5555ffccf3a0b7e05b02954de01521f5afabb06d23109e8bfbb21a41d06"},
+      {"rank": 20, "source_sample_id": "validation_marmousi_00090", "source_group_id": "validation:marmousi:x7200.0:z0.0", "crop_x0_m": 7200.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 13020.043532504544, "saved_velocity_bytes_sha256": "443e8c29b8f138024cd149c1550645d771ceab6100ea12ffce7119ccca24c153"},
+      {"rank": 21, "source_sample_id": "validation_marmousi_00080", "source_group_id": "validation:marmousi:x6900.0:z0.0", "crop_x0_m": 6900.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 13042.910452867443, "saved_velocity_bytes_sha256": "94bce5233bae251b41429a4db4f3785e8eba4bb20a33a2ff350a8f314be82f52"},
+      {"rank": 22, "source_sample_id": "validation_marmousi_00075", "source_group_id": "validation:marmousi:x6750.0:z0.0", "crop_x0_m": 6750.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 13242.403374463835, "saved_velocity_bytes_sha256": "9a338f5a84d1f83a4930476badc0f75bc2b8b6eb5515fab968274288e046a781"},
+      {"rank": 23, "source_sample_id": "validation_marmousi_00070", "source_group_id": "validation:marmousi:x6600.0:z0.0", "crop_x0_m": 6600.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 13688.867034327413, "saved_velocity_bytes_sha256": "a2ceee233f72799f779b889f5b237affe57bde672b5e7ba654840c3dabc2dedd"},
+      {"rank": 24, "source_sample_id": "validation_marmousi_00065", "source_group_id": "validation:marmousi:x6450.0:z0.0", "crop_x0_m": 6450.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 14437.265772375538, "saved_velocity_bytes_sha256": "63cf8c6630cbd202843aae19468cc525bf28e9a86d0a9b0dbab3db187b1786dc"},
+      {"rank": 25, "source_sample_id": "validation_marmousi_00045", "source_group_id": "validation:marmousi:x5850.0:z0.0", "crop_x0_m": 5850.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 15117.207223190437, "saved_velocity_bytes_sha256": "f013a6d0d3820090523fd631c5e8099e78c7e9497528b8a5a0446cae1cd4b88f"},
+      {"rank": 26, "source_sample_id": "validation_marmousi_00060", "source_group_id": "validation:marmousi:x6300.0:z0.0", "crop_x0_m": 6300.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 15244.226286538673, "saved_velocity_bytes_sha256": "1a902f120e8125b34a9864910616e652c5691e5165673af7086d636ed5a21bfc"},
+      {"rank": 27, "source_sample_id": "validation_marmousi_00140", "source_group_id": "validation:marmousi:x5900.0:z50.0", "crop_x0_m": 5900.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 15275.668185614597, "saved_velocity_bytes_sha256": "64f69977ba8242eeeb3cc3db9fd3c3bab886b8f8b90427edbbdb57c77dd73677"},
+      {"rank": 28, "source_sample_id": "validation_marmousi_00050", "source_group_id": "validation:marmousi:x6000.0:z0.0", "crop_x0_m": 6000.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 15762.45449243215, "saved_velocity_bytes_sha256": "dddc29cb0fa3dfe8fa1c9df0745495e4ced4241fe5e3eea9f1d7f513f919bd79"},
+      {"rank": 29, "source_sample_id": "validation_marmousi_00145", "source_group_id": "validation:marmousi:x6050.0:z50.0", "crop_x0_m": 6050.0, "crop_z0_m": 50.0, "velocity_gradient_energy": 15917.607669009973, "saved_velocity_bytes_sha256": "1b353deedf92739fc56b2fc18648ffcefce688ad0434431802e946dfcb6387cb"},
+      {"rank": 30, "source_sample_id": "validation_marmousi_00055", "source_group_id": "validation:marmousi:x6150.0:z0.0", "crop_x0_m": 6150.0, "crop_z0_m": 0.0, "velocity_gradient_energy": 16007.40471809217, "saved_velocity_bytes_sha256": "af23a8e511c351204d384ce7404e554cff17a3881a0bc2c7166ad2650cca9c0d"}
+    ]
+  },
+  "fixed_source_parameters": {
+    "source_f0_hz": 19.0,
+    "source_t0_s": 0.07894736842105263,
+    "source_t0_rule": "1.5 / f0",
+    "source_amplitude": 1.0,
+    "source_kind": "bilinear unit-mass nodal Ricker point source"
+  },
+  "position_support_from_training_marmousi": {
+    "x_m_min": 204.154921,
+    "x_m_max": 1795.12493,
+    "z_m_min": 50.0675952,
+    "z_m_max": 299.456321
+  },
+  "positions_m": [
+    {"case_id": "interp_left_shallow", "x_m": 400.0, "z_m": 100.0, "role": "interpolation", "nearest_train_position_distance_m": 4.255115479867024, "nearest_train_position_distance_domain_diagonal": 0.0015044105052729115},
+    {"case_id": "interp_left_deep", "x_m": 700.0, "z_m": 250.0, "role": "interpolation", "nearest_train_position_distance_m": 8.075434216520744, "nearest_train_position_distance_domain_diagonal": 0.0028550971477638463},
+    {"case_id": "interp_center", "x_m": 1000.0, "z_m": 175.0, "role": "interpolation", "nearest_train_position_distance_m": 9.633552239725137, "nearest_train_position_distance_domain_diagonal": 0.003405975057812249},
+    {"case_id": "interp_right_shallow", "x_m": 1300.0, "z_m": 100.0, "role": "interpolation", "nearest_train_position_distance_m": 12.102208478722467, "nearest_train_position_distance_domain_diagonal": 0.004278776841318993},
+    {"case_id": "interp_right_deep", "x_m": 1600.0, "z_m": 250.0, "role": "interpolation", "nearest_train_position_distance_m": 14.218146557031757, "nearest_train_position_distance_domain_diagonal": 0.005026873923190659},
+    {"case_id": "extrap_left", "x_m": 100.0, "z_m": 175.0, "role": "outside_train_position_range", "nearest_train_position_distance_m": 104.51443498236986, "nearest_train_position_distance_domain_diagonal": 0.03695143285395713},
+    {"case_id": "extrap_right", "x_m": 1900.0, "z_m": 175.0, "role": "outside_train_position_range", "nearest_train_position_distance_m": 121.66184055767637, "nearest_train_position_distance_domain_diagonal": 0.043013956234984746},
+    {"case_id": "extrap_deep", "x_m": 1000.0, "z_m": 400.0, "role": "outside_train_position_range", "nearest_train_position_distance_m": 111.84010447588538, "nearest_train_position_distance_domain_diagonal": 0.039541448141755246}
+  ],
+  "reference_solver": {
+    "method": "the same LWC-84 CPML implementation and numerical settings as dataset_v1.h5",
+    "frozen_config": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml",
+    "canonical_config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+    "dataset_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "generator_git_commit": "02749b1bee7ce5dfea201d586ad623e7ef39df94",
+    "marmousi_original_sha256": "f4302792e84bb7ddbdc9d4d0f963b9df32d9f648960084884127e186119b99dd",
+    "local_prepared_marmousi_npy": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/prepared/marmousi1_vp_zx_751x2301_4m.npy",
+    "local_prepared_marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "solver_grid_zx": [401, 401],
+    "solver_spacing_m": [5.0, 5.0],
+    "saved_grid_zx": [201, 201],
+    "saved_spacing_m": [10.0, 10.0],
+    "saved_times": 401,
+    "time_range_s": [0.0, 1.0],
+    "saved_dt_s": 0.0025,
+    "generation_timing": "only after the active r5c four-GPU job ends naturally"
+  },
+  "evaluation": {
+    "prediction_before_truth": true,
+    "record_count": 240,
+    "independent_velocity_slice_count": 30,
+    "uncertainty_unit": "velocity slice, with the eight positions treated as repeated conditions within slice",
+    "snapshot_indices": [80, 240, 400],
+    "receiver_z_index": 4,
+    "receiver_x_indices": {"start": 10, "stop_inclusive": 190, "step": 2},
+    "metrics": [
+      "record_relative_l2",
+      "early_middle_late_relative_l2",
+      "late_error_slope_per_s",
+      "spatial_spectrum_relative_l2",
+      "receiver_lag_abs_s",
+      "receiver_phase_error",
+      "receiver_phase_coherence",
+      "komega_high"
+    ],
+    "reporting_rule": "report interpolation and outside-range cases separately; failure on outside-range cases forbids an extrapolation claim"
+  }
+}

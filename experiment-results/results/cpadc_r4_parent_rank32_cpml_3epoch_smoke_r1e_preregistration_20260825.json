@@ -1,0 +1,34 @@
+{
+  "schema": "acoustic_cpadc_training_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "cpadc_r4_parent_rank32_cpml_3epoch_smoke_r1e",
+  "date_utc": "2026-08-25",
+  "hypothesis": "Three outer epochs at 5e-6 will reveal whether the r4-specific rank-32 CPML-aware basis learns a useful correction direction after the first pre-update random-basis epoch.",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "training": {
+    "ddp_world_size": 3,
+    "balanced_records": 3,
+    "epochs": 3,
+    "warmup_epochs": 0,
+    "rank": 32,
+    "phase_rank": 8,
+    "width": 16,
+    "learning_rate": 0.000005
+  },
+  "primary_metric": "best train-patch relative improvement in epochs 2-3",
+  "acceptance": {
+    "best_epoch_2_or_3_relative_improvement_min": 0.0,
+    "inner_acceptance_fraction_each_epoch": 1.0,
+    "finite_losses": true,
+    "terminal_complete": true
+  },
+  "failure_signal": "If epochs 2 and 3 remain nonpositive, the learned-basis route is rejected for this parent under the current parameterization.",
+  "bindings": {
+    "config_sha256": "4f05d3f62613cca6cafdee9b6934f0d86ddcd43118c618520cec195ab39c416a",
+    "trainer_sha256": "a296173907ec1db0f07676c4c213b475ce0875ce2abc07bf3b7179df9e78d3b1",
+    "parent_identity_sha256": "be848406b21871068a228bf14dbed80732a9eebf71b866e62e996193d2c1fecc"
+  },
+  "data_policy": "three balanced train episodes only; validation and test_id unopened",
+  "artifact_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_r4_parent_rank32_cpml_3epoch_smoke_r1e_20260825",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0,1,2 torchrun --standalone --nproc_per_node=3 scripts/train_causal_defect_basis.py --config <rank32-config> --output-dir <r1e> --parent-checkpoint <r4-epoch7> --parent-checkpoint-identity <r4-identity> --device cuda --smoke --epochs 3 --rank 32 --phase-rank 8 --width 16 --patch-size 201 --physics-point-count 64 --rank-chunk-size 4 --learning-rate 5e-6 --warmup-epochs 0"
+}

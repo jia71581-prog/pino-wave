@@ -1,0 +1,25 @@
+{
+  "schema": "wkb64_zero_init_overfit_preregistration_v1",
+  "status": "frozen_before_launch",
+  "experiment_id": "wkb64_zeroinit_coeffsup_current_train_r9_overfit800_20260823",
+  "hypothesis": "Zero-initializing the WKB coefficient output map removes the enormous random oscillatory field and gradient transient, allowing global-energy full-trace coefficient supervision to use its 800 updates to learn the train triplet rather than first cancel random output.",
+  "expected_mechanism": "The initial neural field is exactly zero, so relative L2 starts at one instead of 32.97. The first step trains the coefficient affine map; once nonzero, gradients propagate into the U-Net and encoders. No architecture or inference computation changes.",
+  "single_conceptual_change_from_r5": "final independent coefficient head initialization changes from default random to exact zero; loss, WKB phase, data, optimizer, model size, and deployment remain unchanged",
+  "primary_gate": {"all_saved_aggregate_relative_l2_maximum": 0.10, "all_saved_each_family_relative_l2_maximum": 0.12, "record_count": 3, "stored_frames": 401},
+  "failure_signals": ["primary gate failure at update 800", "initial field not exactly zero", "non-finite value", "CUDA OOM", "numerical background access"],
+  "deployment_contract": {"neural_only": true, "background_cache": null, "numerical_wavefield_input": false, "future_truth_input": false, "inference": "unchanged WKB U-Net plus fixed Fourier synthesis"},
+  "evidence_scope": {"split": "train", "records_per_family": 1, "validation_opened": false, "test_id_opened": false},
+  "compute_budget": {"gpus": 1, "optimizer_updates": 800, "evaluate_every_updates": 50, "wall_ceiling_minutes": 20},
+  "parent_checkpoint": null,
+  "rollback": "Preserve r5 and all protected checkpoints; reject zero initialization if the memorization gate fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/wkb64_zeroinit_coeffsup_current_train_r9_overfit800_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-coefficient-supervision --helmholtz-zero-init-head --updates 800 --evaluate-every 50 --training-frames 401 --validation-frames 32 --microbatch-records 1 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "script_sha256": "1f1eb5f19e31f8505453754b1e2fee4987c18fe8faaee051eaa16b4ca44d72a6",
+    "zero_init_test_sha256": "28eeb5ebfa86f304a729b6a8d7bbb9246c83051c046d7888c6763ea7c1cb6cc4",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

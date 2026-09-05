@@ -1,0 +1,20 @@
+{
+  "schema": "pa_cora_p1_multiwindow_holdout_cache_preregistration_v1",
+  "status": "frozen_before_build",
+  "purpose": "build train-only group-disjoint mid/late holdout windows after P1 GPU training",
+  "bindings": {
+    "cache_builder_sha256": "9bf3001dde80f1721830539fcdcd0e3184d8b4efdb8e067eed81c526a514935e",
+    "manifest_sha256": {
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa",
+      "results/pa_cora_p1_holdout_slot3.json": "935f1e946f51880c6a669c062e6ed627bc3a29d5b623b4b85d541fc97058a591"
+    }
+  },
+  "reused_slot0": {
+    "manifest": "results/b2_v9_parent_holdout_manifest_24rec_20260901.json",
+    "cache": "results/b2_v9_parent_holdout_cache_24rec_20260901.h5"
+  },
+  "future_truth_opened_for_window_selection": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

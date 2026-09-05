@@ -1,0 +1,26 @@
+{
+  "schema": "wkb64_coefficient_overfit_preregistration_v1",
+  "status": "frozen_before_launch",
+  "experiment_id": "wkb64_coeffsup_current_train_r5_overfit800_20260823",
+  "hypothesis": "Analytically rotating each train target coefficient by its eikonal arrival phase converts the oscillatory raw frequency fields rejected by r4 into smooth WKB amplitude envelopes that the same U-Net can memorize below the historical structural floor.",
+  "expected_mechanism": "For every frequency and pixel, the exact raw cosine/sine target is rotated into the retarded-time basis used by the existing WKB synthesis head. This removes the known sub-wavelength phase mapping from the learned target while preserving exact fixed synthesis and full 401-frame labels.",
+  "single_conceptual_change_from_r4": "enable the existing WKB retarded-time phase and supervise the exactly rotated coefficient targets; network size, records, optimizer, update budget, coefficient count, and deployment solver ban remain unchanged",
+  "primary_gate": {"all_saved_aggregate_relative_l2_maximum": 0.10, "all_saved_each_family_relative_l2_maximum": 0.12, "record_count": 3, "stored_frames": 401},
+  "failure_signals": ["primary gate failure at update 800", "non-finite value", "CUDA OOM", "numerical background access", "arrival-map contract mismatch"],
+  "deployment_contract": {"neural_only": true, "background_cache": null, "numerical_wavefield_input": false, "future_truth_input": false, "allowed_phase_feature": "precomputed eikonal travel time", "inference": "WKB coefficient U-Net plus fixed retarded-time Fourier synthesis"},
+  "evidence_scope": {"split": "train", "records_per_family": 1, "validation_opened": false, "test_id_opened": false},
+  "compute_budget": {"gpus": 1, "optimizer_updates": 800, "evaluate_every_updates": 50, "full_trace_label_frames": 401, "sentinel_forward_frames": 4, "wall_ceiling_minutes": 30},
+  "parent_checkpoint": null,
+  "rollback": "Preserve r4 and all protected checkpoints; reject WKB coefficient supervision if it cannot memorize the triplet.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/wkb64_coeffsup_current_train_r5_overfit800_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-coefficient-supervision --updates 800 --evaluate-every 50 --training-frames 401 --validation-frames 32 --microbatch-records 1 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "script_sha256": "b40255b26aef93bd4c163febde4321cedaada5e0b5ced14837e2b4fd13b9a45c",
+    "coefficient_test_sha256": "72e2b0883618cbc9a8790ed89fe938e0fb895a0e03751803645a4545c8d9785a",
+    "r4_terminal_sha256": "ff27d73a8ee829ced81f8c01b61057740860e9093f3d003cbe00514f6d1caab2",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

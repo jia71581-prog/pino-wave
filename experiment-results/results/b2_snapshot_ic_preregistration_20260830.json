@@ -1,0 +1,78 @@
+{
+  "amendment_v2": {
+    "change": "trainer script written and bound",
+    "date_local": "2026-08-30T22:5x+08:00",
+    "kind": "infrastructure_only_before_any_training_step",
+    "trainer_script": "scripts/train_b2_snapshot_ic.py",
+    "trainer_sha256": "4f9a3ed7436952c1b7358006f737d0641a781371c888d1fe8b3acb5a759d649e"
+  },
+  "amendment_v3": {
+    "date_local": "2026-08-30T23:5x+08:00",
+    "diagnosis": "structural throttle in CausalSemigroupPropagator.forward_anchored: correction decode(h_k) never sees base_k (anchor enters only the next-step recurrence) and the decoder is 1x1-conv only (zero spatial receptive field), so the per-frame correction cannot express displacement/reshaping of the current render",
+    "fix": "FrameConditionedPropagator subclass: decode input = step_norm(h_k+cond_latent+base_latent_k) (same driven state as the recurrence, so the correction is conditioned on the current anchor frame) + 3x3-conv decoder with GELU; final conv zero-init preserves the exact no-op warm start (CPU-verified: bit-exact base reproduction, gradient reach, causal prefix invariance)",
+    "judgement_unchanged": "gates A/B, budget (60 ep), metric, manifest, and seeds are identical to the frozen v1 judgement; v2 lanes write to *_v2_* directories",
+    "kind": "structural_fix_after_v1_interruption",
+    "single_variable_caveat": "the fix bundles decode-input conditioning + receptive field; attribution between them is NOT claimed",
+    "trainer_sha256_v2": "a7ba8b78692d36af28bc0ffda6cc325edf3a5b100644536d0758c54e68da6279",
+    "v1_outcome": "all 4 lanes interrupted at ep23 by the user: train_loss==eval==baseline (~0.1258-0.1262) plateau from ep10, max frozen at 0.5046 -- UNDERFIT (train loss could not descend), not an optimizer or budget issue; v1 lanes preserved in results/b2_snapshot_ic_ic*_20260830/"
+  },
+  "bindings": {
+    "dev_manifest": "results/b2_dev_snapshot_manifest_90rec_20260830.json",
+    "dev_manifest_selection_sha256": "92c0e169fb7ee7451674d1c9e2b2a15edbb0535c22488cb63a3ed5ba7af44fb8",
+    "dev_manifest_sha256": "3812b0058ae5a68753a08bd26e16da1e175bc07fd0b7dbae85c33d0de75687eb",
+    "manifest_builder_sha256": "a80ef79e1d7705f3ec58d173872a7c7b6f3bae15611deb47c304835067812539",
+    "propagator_module_sha256": "727c518355d5feef3c91e543cfa82d921ea2963b53d1d217d4c570e19e525cb2",
+    "smoke_driver_sha256": "e67539e0435ec7792f500e65b28c97581274468a0432324c9e5eab60a02f11e1",
+    "smoke_evidence": [
+      "results/smoke_b2_v4_ic2_s372_gpu0.json",
+      "results/smoke_b2_v4_ic8_s372_gpu1.json",
+      "results/smoke_b2_v4_ic2_s733_gpu2.json",
+      "results/smoke_b2_v4_ic8_s733_gpu3.json"
+    ],
+    "trainer_script": "scripts/train_b2_snapshot_ic.py (to be written; its sha256 recorded in an infra-only amendment before launch)",
+    "warp_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt",
+    "warp_checkpoint_sha256": "b598995130c11d361f08e3921cc7be65990dd2089e20a7cf6e4e0ee7119fd072"
+  },
+  "budget": {
+    "abort_rule": "abort a lane if epoch-1 wall time projects > 6 h for that lane, or on NaN loss",
+    "artifact_policy": "per lane: best.pt + metrics.jsonl + terminal.json; rendered base_seq cache ~90x64x201x201 fp16 ~ 465 MB shared once",
+    "disk_free_gb_at_freeze": 89,
+    "estimate_basis": "smoke: 15 records/step-batch at 4.2 s/step; 90 records => 30 micro-steps/epoch x 60 epochs x ~6s projected(width 64 ~2x width 32 cost) / parallel lanes",
+    "estimated_hours_per_lane": 3.0,
+    "gpus": 4
+  },
+  "created_local": "2026-08-30T22:45+08:00",
+  "data_access": {
+    "test_id_read": false,
+    "train_split_read": false,
+    "truth_policy": "true wavefield frames are train-only supervision EXCEPT the first 8 frames of each window, which the deployment contract designates as inference-time inputs",
+    "validation_read": true
+  },
+  "design": {
+    "anchor": "warp_r1/run/best.pt rendered per record over the manifest window (frames [window_start, window_start+64)), rendered once and cached to disk before training",
+    "gate_fix": "gate_init=1.0 with gate frozen (requires_grad=False) + zero-init decoder output conv; smoke-validated; note this bundles two sub-factors that were NOT separately attributed - any deeper claim about the mechanism needs its own ablation",
+    "grid": "2 arms (ic2, ic8) x 2 seeds (372, 733), one lane per GPU, 4 GPUs total",
+    "ic_rule": "initial_state = LAST ic_frames of the 8 visible true frames; both arms see the same 8 visible frames; loss/metric only on frames >= 8",
+    "model": "CausalSemigroupPropagator width=64, spectral_rank=32, modes=24, depth=4 (module defaults), state_channels = 2 or 8 per arm, cond_channels=7 (r25 static_features recipe)",
+    "parallelism_note": "per-lane single-GPU; v3 smoke measured that widening batch does NOT speed up the 64-frame serial rollout (4.96 s/step at bs15 vs 4.2 s/step at bs3), so throughput is taken as 4 independent lanes",
+    "records": "the frozen 90-record manifest, identical for every lane",
+    "training": "AdamW lr 1e-3 cosine to 1e-5, weight_decay 1e-6, grad clip 1.0, micro_records 3, 60 epochs over 90 records (1800 steps), eval every epoch on all 90"
+  },
+  "evidence_boundary": "success on this development subset authorizes nothing beyond continuing the line; validation full-split and test_id stay sealed",
+  "judgement_frozen": {
+    "baseline": "warp_r1 anchor aggregate on the same window/records, computed once at lane start (was 0.13149 on the 15-record smoke; the 90-record value is measured, not assumed)",
+    "failure_signal": "no arm passes gate A: the anchored-B2 correction lever is noise-level at this capacity/budget on this subset; next lever is capacity/rollout-structure, not IC frames",
+    "gate_A_beats_anchor": "an arm counts as beating the anchor iff BOTH its seeds' best scores are below baseline - 0.002",
+    "gate_B_ic_difference": "ic8 counts as different from ic2 iff |mean(ic8) - mean(ic2)| > max(arm noise bands) AND the sign is consistent across both seed pairings",
+    "no_post_hoc_extension": "60 epochs per lane; no budget extension without a new preregistration",
+    "noise_band": "per arm: |seed372_best - seed733_best|; the arm-level score is the mean of the two seeds",
+    "primary_metric": "eval-window aggregate relative L2 (frames 8..63, per-record joint, float64, mean over 90 records), best over epochs per lane"
+  },
+  "motivation": "User-mandated deployment contract: high-fidelity solver output is train-only supervision; at prediction time the model receives ONLY the first N true wavefield snapshots plus solve-free inputs. The anchored CausalSemigroupPropagator (B2) over the frozen warp_r1 render satisfies this contract (straight-ray travel time is closed-form, no PDE solve at inference). The 4-lane smoke (results/smoke_b2_v4_*.json) validated the pipeline: zero-conv warm-start fixes the documented gate-collapse mode, all lanes beat the anchor (-0.0028 to -0.0038 vs base 0.13149), and IC frames 2-vs-8 were indistinguishable at 200 steps (arm gap 0.0001 < seed gap 0.0004-0.0009), leaving the IC-capacity question to this longer run.",
+  "question": "With epoch-scale training on the frozen 90-record subset, does an 8-frame true-snapshot IC beat a 2-frame IC by more than the seed-to-seed noise band, and does either arm deliver a real improvement over the frozen warp_r1 anchor?",
+  "research_variant": "b2_anchored_snapshot_ic_frames_2v8",
+  "rollback": "additive line; no prior checkpoint (R54/R56/warp_r1) is modified",
+  "schema": "b2_snapshot_ic_preregistration_v1",
+  "smoke_overlap_disclosure": "3 of the 90 manifest records (validation_layered_00092, validation_marmousi_00127, validation_uniform_00074) also appeared in the 15-record smoke used to de-risk this pipeline. The smoke trained tiny width-32 models for 200 steps that are NOT warm-started into this run, so no weight leakage; disclosed for completeness.",
+  "status": "frozen_before_training"
+}

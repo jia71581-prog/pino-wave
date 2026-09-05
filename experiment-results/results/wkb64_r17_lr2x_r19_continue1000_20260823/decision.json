@@ -1,0 +1,34 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "candidate": "wkb64_r17_lr2x_r19_continue1000",
+  "status": "accepted_for_disjoint_train_confirmation",
+  "protocol_scope": "train_only_three_record_short_continuation",
+  "pre_registered_gate": {
+    "all_saved_aggregate_relative_l2_max": 0.05,
+    "all_saved_each_family_relative_l2_max": 0.05
+  },
+  "observed": {
+    "all_saved_aggregate_relative_l2": 0.0352970592880389,
+    "all_saved_family_relative_l2": {
+      "uniform": 0.03255127270631519,
+      "layered": 0.02359110468054388,
+      "marmousi": 0.04974880047725762
+    },
+    "all_saved_frame_count": 1203,
+    "all_saved_record_count": 3,
+    "best_checkpoint": "results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt"
+  },
+  "gate_passed": true,
+  "diagnostic_0p04_gate_passed": false,
+  "decision": "Advance only to mutually disjoint train-only fit, calibration, and confirmation panels. Keep validation and test_id sealed.",
+  "hashes": {
+    "best_checkpoint_sha256": "f8327d4fb0853f4e0a11446ecd7864ebbfb577ef902dbe5c041c2be633cb2629",
+    "run_identity_sha256": "3b82a656432c76677800919eb3819369acb0f05f4065c51e1f0d46743d119e6a",
+    "terminal_sha256": "c39a4e937bf66a28b5d37253ddf7465f89e5dbc0843e91ee165f25152a059cc3"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  }
+}

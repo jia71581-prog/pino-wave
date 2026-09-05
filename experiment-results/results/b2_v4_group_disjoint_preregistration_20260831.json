@@ -1,0 +1,124 @@
+{
+  "schema": "b2_v4_group_disjoint_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-08-31T10:08:45Z",
+  "candidate": "b2_v4_group_disjoint_fit_calibration_v1",
+  "question": "Does broader independent medium-group coverage make the fixed width-64 IC8 B2 correction generalize from train fit groups to disjoint train calibration groups?",
+  "hypothesis": "The v3 failure was dominated by same-panel record fitting. Holding architecture, loss, optimizer, anchor, IC count, and total gradient record exposure approximately fixed while increasing fit coverage from 75 development groups to 240 train groups will produce seed-consistent calibration gains.",
+  "mechanism": "More independent velocity/source groups constrain the shared recurrent correction toward a conditional propagation rule instead of a record-specific residual. No new loss, architecture, selector, or validation feedback is introduced.",
+  "one_variable": "group-disjoint train coverage and protocol; v3 width-64 FrameConditionedPropagator recipe remains fixed",
+  "exposure_control": {
+    "v3_gradient_record_exposures": 16200,
+    "v4_gradient_record_exposures": 16800,
+    "v3_formula": "90 records x 180 epochs",
+    "v4_formula": "240 records x 70 epochs"
+  },
+  "design": {
+    "fit_records": 240,
+    "fit_unique_groups": 240,
+    "fit_per_family": 80,
+    "calibration_records": 60,
+    "calibration_unique_groups": 60,
+    "calibration_per_family": 20,
+    "confirmation_records": 60,
+    "confirmation_unique_groups": 60,
+    "confirmation_per_family": 20,
+    "seeds": [372, 733],
+    "epochs": 70,
+    "width": 64,
+    "spectral_rank": 32,
+    "modes": 24,
+    "depth": 4,
+    "ic_frames": 8,
+    "learning_rate": 0.001,
+    "optimizer": "AdamW",
+    "weight_decay": 0.000001,
+    "schedule": "fresh 70-epoch cosine to 0.01x learning rate",
+    "micro_records": 3,
+    "checkpoint_selection": "minimum calibration aggregate relative L2 over epochs; both seeds must pass independently",
+    "no_post_hoc_extension": true
+  },
+  "calibration_gate": {
+    "primary_metric": "per-record relative L2 on frames 8 through 63 averaged over 60 calibration records",
+    "minimum_absolute_gain_vs_anchor": 0.01,
+    "minimum_nonworse_records": 54,
+    "family_gate": "candidate mean must be strictly below the same-panel warp anchor for uniform, layered, and marmousi",
+    "seed_gate": "aggregate, nonworse, and family gates must pass for both seeds",
+    "failure_signal": "if either seed fails any subgate, reject the fixed B2 architecture before opening confirmation cache or metrics"
+  },
+  "confirmation_gate_frozen_now": {
+    "opening_condition": "both calibration seed gates pass and output checkpoint hashes are recorded without code or hyperparameter changes",
+    "evaluation_count": "one evaluation per seed on the complete 60-record confirmation manifest",
+    "minimum_absolute_gain_vs_anchor": 0.008,
+    "minimum_nonworse_records": 54,
+    "family_gate": "candidate mean must be strictly below the same-panel warp anchor for all three families",
+    "seed_gate": "all subgates must pass for both seeds",
+    "failure_signal": "reject B2-v4 and do not open validation or test_id"
+  },
+  "data_access": {
+    "split": "train only",
+    "fit_truth": "future train truth is used for optimization",
+    "calibration_truth": "future train truth is used for checkpoint selection and the frozen calibration gate",
+    "confirmation_truth": "manifest and onset windows are frozen, but no confirmation cache or future metric may be created until the calibration opening condition passes",
+    "model_inputs": "static medium/source features, first eight true frames, and solve-free warp anchor",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_selection_sha256": {
+      "results/b2_v4_fit_manifest_240rec_20260831.json": "95707a0512925e5efc228727b05e7b4923df629238c49587d0f4dc4a00bf47e1",
+      "results/b2_v4_calibration_manifest_60rec_20260831.json": "77e5e7a4bed8f4bf01cb599e815ac1ed2ee679fc4480c579616643e70823fbfd",
+      "results/b2_v4_confirmation_manifest_60rec_20260831.json": "d46148f8250de9f6ac7b817432d80b37c8659f689c6035672ef9cb997c157c15"
+    },
+    "manifest_sha256": {
+      "results/b2_v4_fit_manifest_240rec_20260831.json": "8b8a4e96b1b998c70c86fc84ae3fd84934cf1bc23145a4dad255637e25a0632a",
+      "results/b2_v4_calibration_manifest_60rec_20260831.json": "34ab3c2bb0db7044dc7d82b37e8872ae6809e78d3af4c3e1d1176508aed9c4ea",
+      "results/b2_v4_confirmation_manifest_60rec_20260831.json": "69ad8242059b4e41238cfcabbd4b1f3d81178cc5ed09c7b7466e7310aae883d0"
+    },
+    "excluded_probe_manifest_sha256": {
+      "results/b2_train_generalization_manifest_30rec_20260831.json": "78e5c1f13cf698e00b5d26ef18855c02d894e55741e2c7fe68d5e752e3d2213b",
+      "results/b2_causal_selector_manifest_30rec_20260831.json": "7b11849f29935d3e9423ad8f322f39394b2a5b35f9ac689212bb4621da8a16b8"
+    },
+    "manifest_builder_sha256": "7937ec52f66401df5577df1b3c88f0538267ae19b939c590d1b6849244c66dc6",
+    "cache_builder_sha256": "41c64d89bc448fdaf8e02b3335fe758b226a72bb79bcd89ff8b376e73681cdc3",
+    "trainer_sha256": "71e50bd815bc22e9e1f76849fd8846f8e2f8f6815700c071ebde375dfd2178ff",
+    "supervisor_sha256": "33a0a184121854daa20752d04dea4e073850fd377aa53d1dfce10a03402dd9f5",
+    "base_trainer_sha256": "de3626913eccb74a5611a679d32410d5becdd9c3e773c5493566d11b4f695ece",
+    "test_sha256": "c69616fd889820790a207fa0ee4acbc98dc7bf0c91a19d8f09397c18649fb1c2",
+    "warp_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt",
+    "warp_checkpoint_sha256": "b598995130c11d361f08e3921cc7be65990dd2089e20a7cf6e4e0ee7119fd072",
+    "warp_config_sha256": "69c987d42c10a607176f9004206d42d8038ce04ea5bae21fea8eb19099547571",
+    "warp_parent_identity_sha256": "425c1aee8069678cda94dceb34b63b8ee66f82ce1a2719ccb1092b77e9a3f647"
+  },
+  "budget": {
+    "gpus": [0, 1],
+    "cache_build_gpu": 0,
+    "estimated_fit_cache_bytes": 2620000000,
+    "estimated_calibration_cache_bytes": 655000000,
+    "confirmation_cache_policy": "not built during this launch",
+    "estimated_training_wall_hours": 4.5,
+    "hard_training_wall_hours": 7.0,
+    "epoch1_abort_seconds": 360,
+    "disk_free_gb_at_freeze": 202,
+    "abort_on": [
+      "binding drift",
+      "fit/calibration group overlap",
+      "validation or test_id access",
+      "confirmation cache creation",
+      "non-finite loss or metric",
+      "CUDA OOM",
+      "missing cache identity",
+      "epoch-1 wall time above 360 seconds"
+    ]
+  },
+  "command": "screen -dmS b2_v4_group_disjoint_20260831 bash scripts/run_b2_group_disjoint_v4.sh",
+  "supervisor_output": "results/b2_v4_group_disjoint_supervisor_20260831",
+  "lane_outputs": [
+    "results/b2_v4_group_disjoint_s372_20260831",
+    "results/b2_v4_group_disjoint_s733_20260831"
+  ],
+  "rollback": "additive run from scratch; preserve all v2/v3 and protected A3/B2-H/Helmholtz/ASAM/CPADC checkpoints",
+  "claim_scope": "A calibration pass authorizes only one frozen train-confirmation evaluation. It is not validation, test_id, target achievement, or runtime evidence."
+}

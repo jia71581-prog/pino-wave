@@ -1,0 +1,109 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "direct48_pbg_pilot_r49_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "project_train_three_record_mapper_capacity",
+  "hypothesis": "After aligning supervision to the r48b-accepted representation, the r4 direct-frequency architecture can overfit three project-train Marmousi records by predicting the lowest 48 complex P_bg frequency fields on a 64x64 grid, reaching all-saved aggregate relative L2 no greater than 0.10 and every-record relative L2 no greater than 0.12 within 800 updates.",
+  "expected_mechanism": "The 48-bin P_bg representation has a measured oracle calibration floor of 0.0316. Removing unnecessary high-frequency bins and the 201x201 optimization burden while retaining complete complex multipath fields should let the unchanged direct-frequency mapper learn the three-record target.",
+  "single_conceptual_variable": {
+    "name": "supervised_representation_alignment",
+    "parent": "64-bin 201x201 full-wavefield direct coefficients",
+    "candidate": "r48b-aligned 48-bin 64x64 P_bg direct coefficients"
+  },
+  "primary_metric": "all-saved aggregate relative L2 after 800 project-train overfit updates",
+  "acceptance": {
+    "accepted_capacity_aggregate_relative_l2_max": 0.10,
+    "accepted_capacity_each_record_relative_l2_max": 0.12,
+    "strong_capacity_aggregate_relative_l2_max": 0.06
+  },
+  "failure_signal": {
+    "rejected_aggregate_relative_l2_min": 0.30,
+    "optimization_stall": "no material decrease over the final 200 updates"
+  },
+  "data": {
+    "project_data_scope": "train_only",
+    "sample_ids": [
+      "train_marmousi_00000",
+      "train_marmousi_00002",
+      "train_marmousi_00003"
+    ],
+    "fit_records": 3,
+    "calibration_opened": false,
+    "confirmation_opened": false,
+    "validation_opened": false,
+    "test_id_opened": false,
+    "numerical_wavefield_model_input": false,
+    "pbg_wavefield_use": "project-train labels only"
+  },
+  "model": {
+    "family": "SavedTimePhaseOperatorV4 direct-frequency head",
+    "width": 128,
+    "dense_depth": 8,
+    "dense_spectral_rank": 112,
+    "dense_modes": 32,
+    "local_field_channels": [1, 1, 2, 2],
+    "helmholtz_frequencies": 48,
+    "helmholtz_rank": 0,
+    "wkb_phase": false,
+    "head_shape": [3, 96, 64, 64],
+    "synthesis_shape": [3, 401, 64, 64],
+    "causal_gate": false,
+    "free_surface_factor": false,
+    "hard_causality": false
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "dense_learning_rate": 0.0001,
+    "backbone_learning_rate": 0.00005,
+    "updates": 800,
+    "evaluate_every": 50,
+    "microbatch_records": 1,
+    "seed": 372,
+    "gradient_clipping": {
+      "mode": "prefix_limits",
+      "local_field": 20.0,
+      "medium_encoder": 2.0,
+      "source_encoder": 5.0
+    }
+  },
+  "normalization": {
+    "pressure_scale_pa": 1.894229157173348e-08,
+    "amplitude": 1.0,
+    "per_record_target_normalization": false,
+    "per_frequency_target_normalization": false
+  },
+  "compute_budget": {
+    "device": "single CUDA GPU",
+    "smoke_updates": 2,
+    "formal_updates": 800,
+    "formal_wall_time_max_minutes": 25,
+    "expected_peak_cuda_gb_max": 3.0
+  },
+  "parent_checkpoint": {
+    "path": null,
+    "sha256": null,
+    "reason": "fresh random initialization; contaminated paper weights and rejected r4 weights are not reused"
+  },
+  "bindings": {
+    "training_script_sha256": "f578e80f77f5159bb3feab1231b564a40393ba9ba2a2bc65ce980e02d73eca86",
+    "normalization_builder_sha256": "cb71314b4a6f1c10e479c93e7b3004c7f54665ff3777b7169c45ee7c76ca4e3a",
+    "base_config_sha256": "ac2533c334732483169f361566c4b0f430fce327fd9693edad29aac0e1d4bce6",
+    "run_config_sha256": "b449301c97b7de57d3a9d4ddecc95bcfe0e9e74fde70b5a9bcae4300fd42e91b",
+    "normalization_sha256": "bbc0963a4b89be6aa16ff981c72e19a29d3a0ad833f3c07aa3758eefa373ae99",
+    "test_sha256": "73434e3de21a6f74a13192e08424284bed530dd0c1062c83a415fb4b5cfdd7f1",
+    "direct_frequency_helper_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8",
+    "three_record_helper_sha256": "c7f4617d47b02014311485277dce59674f0aa23528fb062e599af87011c6ed2e",
+    "local_field_sha256": "8afd8bfb8c0ab48877d593189bef2a3d6f873b9198cb75664477f5b87cd20304",
+    "operator_sha256": "8b586a3577512f9c6a7da922e1b217f65a9780b6672e7f2ac2959f27764f2a09",
+    "probe_sha256": "f0a4fc07d2edd92b10886b19e235276a5fb77190b72760ef46316cc806c5b29c",
+    "vds_sha256": "9904e4a46b58290c79570034881cf5cb744ef6721b04ad3f0d937c6009eb2bdb",
+    "split_sha256": "e72cc8916b0be6f5d4ff6435f949ec12904fb0412cb0c3db0a33916ac7f3a3fa",
+    "eikonal_cache_sha256": "87ab172d29f975f382d473625f8390fe730094ad3507e69f1ce6ea92c3331f20",
+    "r48b_terminal_sha256": "0e8c0b1cb6d05181acabed72741806c91610f34a3ff0ebbca191f1afba7a57b4",
+    "tests": "73 directly relevant tests passed; CC also reported 169 relevant tests passed"
+  },
+  "rollback": "Preserve r48b, r4, and every checkpoint. If r49 is rejected, stop rank-0 raw direct-frequency tuning and move to a train-only rank-8 WKB envelope mapper; do not open calibration, confirmation, validation, or test_id.",
+  "smoke_command": "python scripts/train_direct48_pbg_pilot.py --base-config configs/saved_time_v4/direct48_pbg_pilot.yaml --run-config configs/saved_time_v4/direct48_pbg_pilot_run.yaml --output-dir results/direct48_pbg_pilot_r49_smoke_20260823 --device cuda --smoke",
+  "formal_command": "python scripts/train_direct48_pbg_pilot.py --base-config configs/saved_time_v4/direct48_pbg_pilot.yaml --run-config configs/saved_time_v4/direct48_pbg_pilot_run.yaml --output-dir results/direct48_pbg_pilot_r49_20260823 --device cuda"
+}

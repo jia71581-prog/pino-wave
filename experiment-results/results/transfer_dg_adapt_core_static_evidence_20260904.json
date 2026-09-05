@@ -1,0 +1,72 @@
+{
+  "schema": "transfer_dg_adapt_core_static_evidence_v1",
+  "candidate": "transfer_dg_adapt_core_v1",
+  "status": "passed_static_and_cpu_unit_gates",
+  "claim_scope": "CPU-only implementation evidence; no train, validation, test_id, accuracy, quantized-speed, or deployment promotion claim",
+  "bindings": {
+    "preregistration_sha256": "2997487246e0d527117ff9c7690da08b3b15155e837c8cdbad7756d7d17ecf65",
+    "transfer_dg_adapt_sha256": "2b57ad54abfa093fa468447850139a374ec2b06fcf9856f317573347339eb8c9",
+    "precision_lora_sha256": "f66e4770a53304fbe2f395f81335d4c2a9dc6d065bf0c5767df0b540c3a631bb",
+    "transfer_dg_test_sha256": "1fb4e1f984219e64d96ed8562623681d7417db6ae73806f0bed0f9d9fb8a0723",
+    "precision_lora_test_sha256": "2ecacd3ac565a84adfd13d30df8f4cd06dfdcdb5ed735531b63131c94530b286"
+  },
+  "tests": {
+    "new_core_command": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=$PWD:$PWD/src pytest -q tests/saved_time_phase_operator_v4/test_transfer_dg_adapt.py tests/saved_time_phase_operator_v4/test_precision_lora.py",
+    "new_core_result": "13 passed",
+    "related_regression_command": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=$PWD:$PWD/src pytest -q tests/saved_time_phase_operator_v4/test_dg_interface.py tests/saved_time_phase_operator_v4/test_transfer_dg_elements.py tests/saved_time_phase_operator_v4/test_instance_contracts.py tests/saved_time_phase_operator_v4/test_instance_data_guard.py tests/saved_time_phase_operator_v4/test_instance_trainer.py tests/saved_time_phase_operator_v4/test_precision_lora.py tests/saved_time_phase_operator_v4/test_transfer_dg_adapt.py",
+    "related_regression_result": "43 passed",
+    "gpu_used": false
+  },
+  "verified_contracts": {
+    "discrete_plane_wave_matched_helmholtz_residual": "near_zero",
+    "affine_internal_normal_flux_jump": "near_zero",
+    "physical_state": "complex pressure Fourier coefficient pairs",
+    "online_true_observations": "exactly two adjacent onset frames",
+    "future_truth_argument": false,
+    "linear_system": "deterministic ridge least squares over observation and DG feature rows",
+    "correction_trust_region": true,
+    "exact_parent_rollback": true,
+    "fixed_skeleton_pressure_lifting": false,
+    "cpml_policy": "exterior CPML excluded pending an explicit auxiliary-state equation binding",
+    "full_precision_lora_zero_initialization": "bit_exact",
+    "lora_dora_merge_equivalence": true,
+    "quantization_compensation": "full-rank SVD compensation reduced synthetic INT2 output error by more than the registered factor",
+    "unsafe_quantization_fallback": "bit_exact_full_precision_output",
+    "quantized_cuda_packing_or_speed_claim": false
+  },
+  "precision_policy": {
+    "deployment_default": "full-precision frozen base plus FP32 LoRA or DoRA residual",
+    "quantized_candidate": "groupwise symmetric numerical reference with SVD error compensation",
+    "protected": [
+      "complex spectral and WFP paths",
+      "FFT",
+      "phase and travel encoding",
+      "normalization",
+      "physical output head",
+      "CPML output head"
+    ],
+    "promotion": "quantized mode remains disabled until a separate train-only same-protocol accuracy and runtime experiment passes"
+  },
+  "upstream_evidence": {
+    "passive_local_dtn_mean_relative_flux_error": 0.5823239687680342,
+    "passive_local_dtn_gain_vs_zero_flux": 0.41767603123196584,
+    "hcais_mean_relative_flux_error": 0.5807052670646723,
+    "hcais_incremental_gain": 0.002779727076641543,
+    "q1_fe_weak_future_error_change": -0.018153828693876304,
+    "fixed_skeleton_oracle_improved_records": 0,
+    "fixed_skeleton_oracle_record_count": 72,
+    "design_consequence": "learn/choose pressure correction directions with DG defects; do not directly lift predicted flux through the rejected fixed skeleton"
+  },
+  "pretraining_noninterference_snapshot": {
+    "epoch": 19,
+    "step": 625,
+    "update": 13225,
+    "latest_logged_loss": 0.26864537891931833,
+    "ddp_ranks": 4,
+    "all_gpus_utilization_percent": 100,
+    "pretraining_files_modified": false
+  },
+  "next_evidence_tier": "bind the completed PyramidMoE checkpoint, expose a train-only pressure-correction basis, and run a one-record two-onset-frame GPU smoke before any balanced train confirmation",
+  "validation_opened": false,
+  "test_id_opened": false
+}

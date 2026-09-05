@@ -1,0 +1,37 @@
+{
+  "schema": "marmousi_fixed19hz_position_240_post_r5d_preregistration_v1",
+  "registered_utc_date": "2026-08-13",
+  "status": "registered_before_r5d_completion_or_any_controlled_prediction",
+  "generalization_variable": "source position only",
+  "fixed_source_frequency_hz": 19.0,
+  "frequency_generalization_claim_permitted": false,
+  "protocol": "paper/tgrs_helmholtz_operator/marmousi_fixed_frequency_source_ood_protocol_20260813.json",
+  "protocol_sha256": "25738716ebe8d93d65a18969b42d247c38e2f6b223b2acc756b602de2c7218ed",
+  "evaluation_script": "scripts/evaluate_marmousi_source_position_control.py",
+  "evaluation_script_sha256": "9b6fdb9cdb97a5d0c56416cd235f87cf108d943e9ffcbb819c1159fdbac2f73f",
+  "selection_rule": "after r5d exits naturally, use r5d best.pt only if at least one epoch_accepted event exists; otherwise use the immutable r5b best.pt",
+  "r5b_fallback": {
+    "config": "configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag.yaml",
+    "config_sha256": "b76650fc4e506f1eb68174a6d0cdc24db4c54083e2e74eace0e1907a2b2df034",
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/best.pt",
+    "checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "checkpoint_identity": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json",
+    "checkpoint_identity_sha256": "a8141ab179e7cc18331c0878743d5ecaec106f0ff727e7a20ec198d126c03449"
+  },
+  "r5d_candidate": {
+    "config": "configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5d_metric_aligned_time_train_diag.yaml",
+    "config_sha256": "f6811ea0f4bceed4d4f9d7173c3776926f590c510a55f6e3a46ce4d329a37b38",
+    "training_preregistration": "results/r5d_metric_aligned_time_train_diag_preregistration_20260813.json",
+    "training_preregistration_sha256": "16ee971879d98f9d0eb3d1a74ed4442324839ec63626ed9379be9481fbf6a7d2"
+  },
+  "evaluation_order": [
+    "input-only prediction and SHA-256 seal",
+    "stored-reference solver reproduction gate",
+    "new LWC-84 reference generation",
+    "complete-transient scoring and locked figures"
+  ],
+  "independent_velocity_slices": 30,
+  "repeated_positions_per_slice": 8,
+  "controlled_record_count": 240,
+  "gpu_policy": "wait for r5d terminal, dead torchrun PID, and no GPU compute processes; never signal, stop, restart, or renice training"
+}

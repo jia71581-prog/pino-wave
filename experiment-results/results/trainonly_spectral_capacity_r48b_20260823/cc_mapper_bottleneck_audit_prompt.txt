@@ -1,0 +1,16 @@
+你是只读定点代码审计员。工作目录 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2。不得修改文件、启动训练、读取 validation/test_id/confirmation 波场。
+
+新证据：results/trainonly_spectral_capacity_r48b_20260823/result.json 在 project-train fit70/cal70 上冻结选择 48 个最低时间 rFFT bin、完整 64x64 空间复场，oracle 截断 fit=0.0320、cal=0.0316，表示容量通过。
+
+请定点比较：
+1. results/directfreq64_coeffsup_current_train_r4_overfit800_20260823（含 terminal/config/run_identity/checkpoint metadata）及其构建/训练代码；
+2. saved_time_phase_operator_v4 中 direct_frequency_head / HelmholtzSynthesisHead / 相关 probe 配置；
+3. results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z 的模型配置/代码（仅架构参考，权重已知 validation 选点不可复用）；
+4. 当前 P_bg VDS 与 r48b 的 48-bin目标定义。
+
+输出紧凑、证据路径精确：
+- r4 实际预测的张量、频率 bin、目标变换/相位锚、归一化、loss 权重、参数量和输入；
+- r4 失败是表示头容量、目标尺度/频带不平衡、空间相位、优化，还是 target 定义不一致；给能从日志/代码证明的结论，不能猜时标为 unknown；
+- Phase4b 相比 r4 的关键结构差异，明确是否使用数值 P_bg 作为模型输入；
+- 提出一个“只改变一个概念变量”的最小 train-only 3-record capacity pilot：目标必须与 r48b 的 48-bin完整复场一致，输入只能速度/源/旅行时/解析源参数；给要复用的类、需改文件、张量形状、固定归一化、accept/reject 门和预计 GPU预算。不写代码。
+- 最后声明没有读 future truth。

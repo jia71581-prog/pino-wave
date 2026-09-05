@@ -1,0 +1,275 @@
+{
+  "schema": "frozen_fine_grid_r6_current_env_reattest_preregistration_v1",
+  "candidate": "frozen_fine_grid_r6_current_env_reattest_v1_20260905",
+  "status": "smoke_passed_run_pending_independent_audit",
+  "launch_authorized": false,
+  "claim_scope": "Current-environment exposed-train regression reattest of the frozen R6 fine-grid solver plus a read-only audit that frozen historical Target-5 artifacts remain bound and passed. This is not fresh or independent confirmation and does not reopen validation/test_id.",
+  "hypothesis": "The unchanged frozen R6 fine-grid CUDA-graph solver will retain aggregate, every-family, and maximum-instance relative L2 <=0.05 and outer synchronized mean/P95 runtime <=2.034137312322855 seconds on a deterministic 60-record exposed train regression panel in the current environment.",
+  "fresh": false,
+  "independent_confirmation": false,
+  "exposure_assumption": "all_selected_records_treated_as_exposed",
+  "conservative_overlap": {"records": 60, "groups": 29},
+  "selection": {
+    "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
+    "namespace": "R6_current_environment_reattest_v1",
+    "family_order": ["uniform", "layered", "marmousi"],
+    "record_counts": {"uniform": 20, "layered": 20, "marmousi": 20},
+    "group_counts": {"uniform": 20, "layered": 5, "marmousi": 4},
+    "smoke_indices": [311, 780, 2165],
+    "digests": {
+      "indices": "fd5cac5d541dd65bbe15dbe79e4334992492346ff4e5eba9e9ea0869b2241664",
+      "sample_ids": "024fb03cdb2f685c2a52b8cbbdb603fafdf89180723b31e2801144913bff43a8",
+      "groups_first_occurrence": "08172ad3cb404858412ee708337eb72eb0b30b9cf1821cbc12774253f7141e3d",
+      "sample_hashes": "cced838665a127c477d304e54d453fd230b3d62022baf675e49f54b1bb031b49",
+      "records": "2083c95b9742c9eb4b0c42efb2f340377a8a554016fa2153c562d01c1b342b98"
+    },
+    "metadata_only_build": true,
+    "wavefield_read_during_selection": false
+  },
+  "solver": {
+    "class": "FusedLWC84CPMLSolver",
+    "grid_shape": [401, 401],
+    "spacing_m": 5.0,
+    "domain_m": [2000.0, 2000.0],
+    "centering": "node",
+    "npml": 40,
+    "dt_s": 0.000625,
+    "c_ref_mps": 6750.0,
+    "kappa_max": 3.0,
+    "minimum_frequency_hz": 8.0,
+    "dtype": "float32",
+    "output_restriction_factor": 2,
+    "output_restriction": "binomial5_lowpass_then_decimate2",
+    "cuda_graphs": true,
+    "device": "cuda:0",
+    "stored_time_count": 401,
+    "prediction_shape": [401, 201, 201]
+  },
+  "record_state_machine": {
+    "order": [
+      "metadata_loaded",
+      "fine_velocity_and_exact_restriction_QC_outside_timer",
+      "pre_synchronize",
+      "outer_timer_start",
+      "complete_solver_simulate_including_CPU_output_materialization",
+      "post_synchronize",
+      "outer_timer_stop",
+      "contiguous_float32_prediction_QC_and_SHA256",
+      "prediction_hashed",
+      "train_truth_authorized",
+      "one_HDF5_wavefield_0_401_read",
+      "float64_scoring",
+      "scored"
+    ],
+    "truth_guard": "Reject truth before a 64-hex prediction SHA, wrong index/sample/split/family, anomaly, validation, test_id, or second read.",
+    "required_prediction_QC": [
+      "shape exactly (401,201,201)",
+      "C-contiguous float32",
+      "all finite",
+      "top row exactly zero",
+      "64-hex SHA-256 before truth"
+    ],
+    "run_truth_contract": "60 unique selected train indices, exactly one truth read and one score per record; every ledger row proves prediction_hashed_before_truth=true."
+  },
+  "metrics": {
+    "precision": "Accumulate numerator and denominator in float64, then sqrt once.",
+    "families": ["uniform", "layered", "marmousi"],
+    "temporal_ranges": {"early": [0, 134], "middle": [134, 267], "late": [267, 401]},
+    "maximum_instance": true,
+    "runtime": "Outer pre/post synchronized timer around complete solver.simulate. Warmup, disk IO, fine velocity, restriction QC, prediction hashing, truth read, and scoring are excluded; simulate CPU output materialization is included.",
+    "runtime_gate_source": "outer_runtime_s only; solver_internal_compute_elapsed_s is diagnostic only",
+    "p95": "nearest rank ceil(0.95*N); for N=60 use sorted element 57 (one-indexed)"
+  },
+  "run_gate": {
+    "record_count": 60,
+    "aggregate_relative_l2_max_inclusive": 0.05,
+    "every_family_relative_l2_max_inclusive": 0.05,
+    "maximum_instance_relative_l2_max_inclusive": 0.05,
+    "outer_runtime_mean_s_max_inclusive": 2.034137312322855,
+    "outer_runtime_p95_nearest_rank_s_max_inclusive": 2.034137312322855,
+    "required_prediction_QC_count": 60,
+    "required_truth_once_count": 60,
+    "passed_status": "current_environment_reattest_passed",
+    "complete_gate_failure_status": "rejected",
+    "contract_failure_status": "invalid",
+    "passed_claim": "current environment exposed train regression panel passed and frozen historical Target-5 artifact bindings remain passed; not fresh/new validation"
+  },
+  "historical_target5_audit": {
+    "function": "scripts.audit_target5.audit",
+    "timing": "before solver construction or any wavefield read",
+    "required_passed": true,
+    "embed_complete_result": true,
+    "scope": "Reads historical JSON reports and bound files only; does not read truth.",
+    "historical_validation_previously_consumed": true,
+    "historical_test_id_previously_consumed": true,
+    "validation_truth_reopened_this_run": false,
+    "test_id_truth_reopened_this_run": false
+  },
+  "dependency_closure": {
+    "manifest": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
+    "resolver": "Recursive AST local-import closure from frozen roots, restricted to workspace scripts/ and src/fno_acoustic/.",
+    "file_count": 29,
+    "runtime_policy": "Recompute from roots and reject missing, extra, or hash-drifted files. Explicit bindings are also recomputed."
+  },
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "CUDA_VISIBLE_DEVICES": "0",
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121",
+    "torch_cuda": "12.1",
+    "cudnn": 8902,
+    "numpy": "1.26.3",
+    "h5py": "3.16.0",
+    "scipy": "1.15.3",
+    "nvidia_driver": "580.76.05",
+    "gpu_model": "NVIDIA GeForce RTX 4090 D"
+  },
+  "algorithm_flags": {
+    "deterministic_algorithms": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "contract": "Match the historical default R6 algorithm environment."
+  },
+  "smoke": {
+    "required_preregistration_status": "draft_pending_audit",
+    "records": 3,
+    "indices": [311, 780, 2165],
+    "purpose": "implementation and path gate only",
+    "status": "smoke_complete",
+    "claim": "no reattest claim",
+    "budget": {"wall_seconds_max": 120, "peak_allocated_bytes_max": 8589934592, "output_bytes_max": 33554432},
+    "failure": "Atomic invalid report on path, binding, dependency, environment, historical audit, order, QC, ledger, finite, resource, or sealed-split failure.",
+    "output": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/smoke_report.json",
+    "subsequent_audit": "Smoke output requires independent review and frozen path/hash before run authorization."
+  },
+  "run": {
+    "required_preregistration_status": "smoke_passed_run_pending_independent_audit",
+    "records": 60,
+    "required_smoke_prerequisite": true,
+    "budget": {"wall_seconds_max": 300, "peak_allocated_bytes_max": 8589934592, "output_bytes_max": 33554432},
+    "failure": "Atomic invalid report for contract/binding/order/QC/ledger failures; complete metric/runtime gate failures are rejected.",
+    "output": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json",
+    "subsequent_audit": "A passed report supports only the exact exposed-train/current-environment claim and must be independently audited."
+  },
+  "prerequisites": {
+    "smoke": {
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/smoke_report.json",
+      "sha256": "e2ae84ac8e166967c5d9ed05c307dd6344a9cafdf7d8596a6d907ac91f13f70b",
+      "status": "passed"
+    }
+  },
+  "attempt_history": [
+    {
+      "stage": "smoke",
+      "attempt": 1,
+      "status": "smoke_complete",
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/smoke_report.json",
+      "sha256": "e2ae84ac8e166967c5d9ed05c307dd6344a9cafdf7d8596a6d907ac91f13f70b",
+      "indices": [311, 780, 2165],
+      "families": ["uniform", "layered", "marmousi"],
+      "prediction_sha256": [
+        "27f15ee03464229ca6e722f2ed8d34e5af4eb162506072de42d8d5f2664dc5ae",
+        "1bdad3a491a7cde99a5395dcb0492a34cd8cf079a96738f0080465401d2f9e3b",
+        "829d02fd14d81e3809a23c7df180badac15eb7ddfa8091c622c2a4d89436eec9"
+      ],
+      "prediction_QC": {
+        "count": 3,
+        "shape": [401, 201, 201],
+        "float32": true,
+        "contiguous": true,
+        "finite": true,
+        "top_row_exact_zero": true,
+        "prediction_hashed_before_truth": true
+      },
+      "truth_ledger": {
+        "truth_read_count": 3,
+        "unique_truth_indices": 3,
+        "scored_count": 3,
+        "transition_count": 12,
+        "all_truth_counts_at_most_one": true
+      },
+      "historical_target5_audit": {
+        "passed": true,
+        "checks_passed": 39,
+        "checks_total": 39
+      },
+      "input_hashes": {
+        "count": 44,
+        "before_equals_after": true
+      },
+      "preregistration_sha256_observed_before": "f4477af63eb6a3b92a2d0e3156e889509a8b271ff947360a5f04ec1fdf91ca03",
+      "preregistration_sha256_observed_after": "f4477af63eb6a3b92a2d0e3156e889509a8b271ff947360a5f04ec1fdf91ca03",
+      "resources": {
+        "elapsed_seconds": 12.150468111038208,
+        "peak_allocated_bytes": 110917632,
+        "output_bytes": 29394
+      },
+      "fresh": false,
+      "independent_confirmation": false,
+      "historical_validation_previously_consumed": true,
+      "historical_test_id_previously_consumed": true,
+      "validation_truth_reopened_this_run": false,
+      "test_id_truth_reopened_this_run": false,
+      "promotion_authorized": false
+    }
+  ],
+  "paths": {
+    "preregistration": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/preregistration.json",
+    "script": "scripts/reattest_frozen_fine_grid_r6_train.py",
+    "test": "tests/test_reattest_frozen_fine_grid_r6_train.py",
+    "selection": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
+    "dependency_manifest": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_manifest": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
+    "marmousi_npy": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+    "reference_report": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json",
+    "target_terminal": "results/frozen_fine_grid_target_met_r6_20260815.json",
+    "frozen_candidate": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
+    "validation_report": "results/frozen_fine_grid_validation_r6_resume1_20260815/complete_validation_gate.json",
+    "validation_terminal": "results/frozen_fine_grid_validation_r6_resume1_20260815/terminal.json",
+    "test_id_report": "results/frozen_fine_grid_test_id_r6_20260815/complete_test_id_gate.json",
+    "test_id_terminal": "results/frozen_fine_grid_test_id_r6_20260815/terminal.json",
+    "smoke_output": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/smoke_report.json",
+    "run_output": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json"
+  },
+  "exact_argv": {
+    "smoke": "env -u CUBLAS_WORKSPACE_CONFIG CUDA_VISIBLE_DEVICES=0 python scripts/reattest_frozen_fine_grid_r6_train.py --smoke --preregistration results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/preregistration.json --selection results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json --source-h5 /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --manifest /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl --marmousi /root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy --reference /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json --output results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/smoke_report.json",
+    "run": "env -u CUBLAS_WORKSPACE_CONFIG CUDA_VISIBLE_DEVICES=0 python scripts/reattest_frozen_fine_grid_r6_train.py --run --preregistration results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/preregistration.json --selection results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json --source-h5 /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --manifest /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl --marmousi /root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy --reference /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json --output results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json"
+  },
+  "bindings": {
+    "script_sha256": "f71dbac57931127b9c62cfc3024899dc9cad1ef167f30683d3419e44a27af143",
+    "test_sha256": "d06e69ed9ac96cd28454184ad8e998a72b3bad737bdd28a9713d847be5157276",
+    "selection_sha256": "8edca614165744138df8b8d4aa35713b7a6df1ed19306b0bedb7747eaeb068a6",
+    "dependency_manifest_sha256": "cdc9f45e3fe27464f0718db7aef632cc567a77af812b1ea9cfbd155bd660ab11",
+    "target_terminal_sha256": "279ff6d92a3058b62c7a0a4985fdf2176af459fad2ba75a3ec64b071585a29a8",
+    "frozen_candidate_sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947",
+    "validation_report_sha256": "8a987314eeb9d1fb4609c9d4395fa673f565fadc6fb4d98782d835dda6096a42",
+    "validation_terminal_sha256": "6276ad2c720fa2a15bc8a75b0ca1f19270e31731686b0104edd9e60221a1114e",
+    "test_id_report_sha256": "5203f52917311bb58273505c332f481235e2ebecbd5ac6a6ea3086343634493b",
+    "test_id_terminal_sha256": "c812914780752c77e94d773f7d1e1a3406c6f4cb62d79199d3ab39517950a2b0",
+    "reference_report_sha256": "116a1cb7cdd13869e86e14b08ef0a80c31284d5d248cb9c0952a880f2aba5bd8",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "source_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "audit_target5_sha256": "fddb927ac9cfc169517c6e2fab495ced4e34b451865aed49e37859d136904a4c"
+  },
+  "output_contract": {
+    "atomic_json": true,
+    "serialization": "UTF-8 json.dumps(indent=2,sort_keys=True,allow_nan=False) plus one trailing LF",
+    "output_bytes": "Fixed-point self-inclusive byte length equal to the exact atomically written byte string and gated below 32 MiB.",
+    "weights_or_checkpoints": false,
+    "full_predictions": false,
+    "prediction_sha256_only": true,
+    "promotion_authorized": false,
+    "historical_validation_previously_consumed": true,
+    "historical_test_id_previously_consumed": true,
+    "validation_truth_reopened_this_run": false,
+    "test_id_truth_reopened_this_run": false
+  },
+  "rollback": "No model weights are changed or written. Preserve all historical Target-5 artifacts and every A3, B2-H, Helmholtz, ASAM, CPADC, and K4 checkpoint/artifact.",
+  "promotion_authorized": false,
+  "historical_validation_previously_consumed": true,
+  "historical_test_id_previously_consumed": true,
+  "validation_truth_reopened_this_run": false,
+  "test_id_truth_reopened_this_run": false
+}

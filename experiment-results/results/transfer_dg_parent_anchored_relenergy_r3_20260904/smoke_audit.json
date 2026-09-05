@@ -1,0 +1,36 @@
+{
+  "schema": "transfer_dg_parent_anchored_relenergy_r3_smoke_audit_v1",
+  "status": "approved_for_12_epoch_train_only_pilot",
+  "audited_utc": "2026-09-04T12:30:58Z",
+  "candidate": "transfer_dg_parent_anchored_relenergy_r3_20260904",
+  "one_variable_changed": "loss normalization only",
+  "static_contracts": {
+    "pytest_passed": 36,
+    "unbiased_window_expectation_matches_complete_squared_relative_l2": true,
+    "zero_correction_gradient_finite": true,
+    "real_train_record_future_energy_finite_positive": true,
+    "real_train_record_delta_energy_finite_positive": true
+  },
+  "smoke": {
+    "path": "results/transfer_dg_parent_anchored_relenergy_r3_20260904/smoke_u1",
+    "updates": 1,
+    "loss": 0.00714194867759943,
+    "gradient_norm": 0.005551464390009642,
+    "checkpoint_sha256": "3c1c4212918a7500a0e9304cff4184769bd1bf814176305fc40505762efc4a1a",
+    "finite_loss": true,
+    "finite_gradient": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "preregistration_sha256": "380f35623fa554182c33ab7be6781975173ac31d5a8039c2a4c1d33fe3e33150",
+    "trainer_sha256": "19df07b15f3d90cd860852db2d0e9beadeede44c6702c61eb2407d6b36f8fd85",
+    "relative_loss_sha256": "60752f2c239d6e330da4eb5608bdaf3d6511b589e569f1ec578e4c0eef24d10b",
+    "corrector_sha256": "701adc66c4eb3c2d3cab731487b1532b1eec2b9129fd4d64b925faba7a831c73",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "parent_checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e"
+  },
+  "promotion_scope": "Train-only fit, calibration, and one confirmation. Validation and test_id are not authorized.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

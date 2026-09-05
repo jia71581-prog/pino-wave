@@ -1,0 +1,12 @@
+{
+  "schema": "acoustic_smoke_disposition_v1",
+  "date_utc": "2026-08-24",
+  "candidate": "a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4_probe_b",
+  "status": "failed_before_update",
+  "error": "velocity/record mapping must be [medium,z,x] and [record]",
+  "cause": "The packed medium velocity includes an explicit singleton channel: [medium,1,z,x].",
+  "parameter_updates": 0,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "followup": "probe_c supports both packed [medium,1,z,x] and canonical [medium,z,x] forms and tests both."
+}

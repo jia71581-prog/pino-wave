@@ -1,0 +1,32 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "accepted_mechanism_only",
+  "candidate": "wkb96_record_freqsoftmax_r20_gate_ablation_20260824",
+  "date_utc": "2026-08-24",
+  "decision": "Accept that the learned record-conditioned gate materially contributes to r20, but do not promote the r20 checkpoint because its complete-time Marmousi gate failed.",
+  "primary_result": {
+    "learned_gate_marmousi_relative_l2": 0.04903445557174407,
+    "identity_gate_marmousi_relative_l2": 0.06068094538160326,
+    "absolute_marmousi_improvement": 0.01164648980985919,
+    "relative_marmousi_improvement": 0.19192993346788026,
+    "preregistered_minimum_absolute_improvement": 0.0004103,
+    "gate_passed": true
+  },
+  "aggregate_effect": {
+    "learned_gate_relative_l2": 0.028942556014755788,
+    "identity_gate_relative_l2": 0.04198338963169245,
+    "relative_improvement": 0.31061888359515377
+  },
+  "mechanism_nuance": "The gate improved early, middle, late, and all three family time-domain metrics, but did not improve the middle/high spectrum-relative-L2 summaries. Its benefit is therefore consistent with record-specific cross-frequency interference reweighting, not direct recovery of missing high-frequency coefficient accuracy.",
+  "bindings": {
+    "result_sha256": "3b9282f51ca5ae5b26a50d4344ab1e16fa1294af5db318530d7b73d096faff61",
+    "terminal_sha256": "c6653d56ced08fb6dcebbf7628954853f7c73344f06053350b066ea2faa750fc",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd"
+  },
+  "data_access": {
+    "scope": "train_only",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "next_action": "Do not tune another multiplicative gate variant. Check existing disjoint-train evidence for this WKB mapper family; if absent, measure same-protocol train-only generalization before any validation access."
+}

@@ -1,0 +1,53 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "a3_alltrain_relative_l2_current_vds_r3_smoke",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "latest_vds_relative_l2_only_ddp4_smoke",
+  "hypothesis": "Replacing the composite recovery objective with the per-record relative-L2 frame term will align gradients with aggregate_relative_l2 while preserving finite four-GPU optimization and current-data bindings.",
+  "single_conceptual_change": {
+    "name": "training_objective_alignment",
+    "active_term": "mean per-record relative L2 over selected exact stored frames",
+    "disabled_terms": [
+      "delta",
+      "temporal_difference",
+      "spatial_gradient",
+      "spectrum",
+      "per_frame_normalization",
+      "late_frame_reweighting"
+    ],
+    "unchanged": "dataset, model, trainable prefixes, optimizer rates, adaptive sampler, schedule and train-only epoch gate"
+  },
+  "primary_metric": "finite smoke updates with total loss equal to frame relative L2 and every disabled loss component equal to zero",
+  "acceptance": {
+    "ddp_world_size": 4,
+    "smoke_epochs": 1,
+    "updates": 2,
+    "finite_losses_and_gradients": true,
+    "total_equals_frame": true,
+    "disabled_components_zero": true,
+    "peak_cuda_gib_max": 23.5,
+    "checkpoint_required": true
+  },
+  "failure_signal": "Any binding mismatch, nonzero disabled component, total/frame mismatch, non-finite gradient, OOM, missing checkpoint or validation/test_id read blocks the full run.",
+  "data": {
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "train_records": 2240,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "config_sha256": "5f4aa66f6e1e960ce1c0e4e33046e9098f18bcc6fff5750ecc1d2c46a13e98ce",
+    "parent_checkpoint_sha256": "926ee1536636453ac1b58794121867b649d6bb13d8e79ec90db811c029a7a629",
+    "parent_identity_sha256": "e143356585f12cc611fa5593b2a2d5ed465e19d7121d8aabe88ca21bfb2f58cb",
+    "training_script_sha256": "fe5b7e2475e7275a080679e86ff18eb4121332fb8857094cec20f1060f7f21c1",
+    "vds_dependency_audit_sha256": "93a0a32242a71fb1cdca67195573ec9673090b6de76e910729c4e4fd6565e782",
+    "numeric_train_audit_sha256": "14b15d4faaa3aaf315da963d68cba154c0ddb359c0b940d3b35a5e22b6c617a6",
+    "full_schedule_digest": "f5e4f1c501869efd2f0731376393e7a0ae285963f3a7b54f6551b9251eb4ddae",
+    "contract_tests": "selected relative-loss and full-support tests passed"
+  },
+  "parent_train_panel_score": 0.28469252999081746,
+  "rollback": "Preserve the r2 epoch-0 checkpoint and all r2 evidence. Do not launch the full r3 run if smoke acceptance fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --standalone --nproc_per_node=4 scripts/train_saved_time_v4_full_support.py --config configs/saved_time_v4/generated/a3_alltrain_relative_l2_current_vds_r3.yaml --smoke-updates 2 --smoke-epochs 1 --workers-override 0"
+}

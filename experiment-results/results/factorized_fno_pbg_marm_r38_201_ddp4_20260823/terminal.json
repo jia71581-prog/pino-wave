@@ -1,0 +1,23 @@
+{
+  "schema": "factorized_pbg_ddp_terminal_v1",
+  "status": "rejected",
+  "epochs_completed": 100,
+  "best_calibration_relative_l2": 0.9984432806571325,
+  "best_epoch": 5,
+  "final_train_loss": 0.4832,
+  "final_calibration_relative_l2": 1.2978,
+  "prediction_finite_ratio": 1.0,
+  "peak_allocated_mb_per_gpu": 8401,
+  "peak_reserved_mb_per_gpu": 9710,
+  "checkpoint_best": "results/factorized_fno_pbg_marm_r38_201_ddp4_20260823/checkpoints/best.pt",
+  "project_validation_opened": false,
+  "project_test_id_opened": false,
+  "confirmation_opened": false,
+  "interpretation": "Increasing temporal resolution from 101 to 201 did not close the 120-record train-calibration generalization gap.",
+  "artifact_path_note": "The launcher log and screen PID are in factorized_pbg_marm_r38_201_ddp4_20260823; config-bound checkpoints/logs/result use factorized_fno_pbg_marm_r38_201_ddp4_20260823.",
+  "bindings": {
+    "preregistration_sha256": "3b48e024db5e23bfa49a36ec1728a38669e95925926a732e430c8b7404df60a1",
+    "result_sha256": "992f1a779c89bdc1f7638b2644f9fc6e2a4baf97da47dd0b6e9ada3c4869ae15",
+    "best_checkpoint_sha256": "c899dcc9932010a82f4cb2ff6dcef14d48d4d83d608cbd09e68772701047e5a8"
+  }
+}

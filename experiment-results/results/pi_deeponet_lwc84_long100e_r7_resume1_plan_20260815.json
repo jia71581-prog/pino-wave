@@ -1,0 +1,47 @@
+{
+  "schema": "train_only_interrupted_resume_plan_v1",
+  "created_utc": "2026-08-15",
+  "status": "registered_before_resume",
+  "hypothesis": "Completing the interrupted, otherwise unchanged PI-DeepONet r7 schedule through epoch 100 and global step 14000 will retain finite optimization and reduce the fixed 48-record train-selection aggregate relative L2 from the incumbent 0.5649911568627677 to at most 0.50.",
+  "expected_mechanism": "The final 1460 registered full-support updates continue exact saved-time appearance coverage at the original late cosine learning rates without changing the model, loss, optimizer, manifest, or train-only selector.",
+  "primary_metric": "aggregate relative L2 on the unchanged fixed 48-record train-only selection panel",
+  "failure_signal": "Non-finite optimization, binding mismatch, missing atomic checkpoint, final global step other than 14000, or a final lineage-best train-selection aggregate relative L2 above 0.50.",
+  "compute_budget": {
+    "gpus": 4,
+    "resume_from": {
+      "epoch": 90,
+      "update_in_epoch": 80,
+      "global_step": 12540
+    },
+    "target": {
+      "epoch": 100,
+      "update_in_epoch": 140,
+      "global_step": 14000
+    },
+    "remaining_optimizer_updates": 1460,
+    "rollback_of_uncheckpointed_updates": 15,
+    "estimated_wall_hours": "0.8-1.2"
+  },
+  "single_conceptual_change": "No algorithmic change; repair resume bookkeeping so a rolling checkpoint continues at its exact epoch-local cursor and inherits the prior train-only incumbent score.",
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1/latest.pt",
+    "checkpoint_sha256": "85aea56025cae9c28e345053cb18cbc2d247b8f2c73eafef4256a81c2c1646ae",
+    "best_metadata_sha256": "5848137fd380901b46720611ec75e7cd38d2a96ab49ffae92134db6bd210bfa3",
+    "run_digest": "6f7f6d361eae034187dccd844113e9fce0873128ce77e67f71ffe711f8c66003"
+  },
+  "bindings": {
+    "config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "training_runner_sha256": "44ae9d72c920af3f76f1e132c12b07e0865593cd44de5e5b61964c2220c9c45f",
+    "resume_regression_test_sha256": "b89be96160679f55bc1c0cb00833c458c8ae2205f685a69cdc2c7785381ff7d1",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "schedule_digest": "955bae34cfb51e65e147080c7c1cf900c94c13e00ccb27f99103589b3a3b16fb"
+  },
+  "leakage_boundary": {
+    "training_split": "train",
+    "selection_split": "train",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "downstream_if_complete": "Run the already preregistered CPADC-LSPG-RAD candidate, strict no-online-defect ablation, and sample-paired disjoint-train gate in that order. The downstream chain cannot open validation or test_id.",
+  "rollback": "Preserve the interrupted latest checkpoint and all existing A3, B2-H, Helmholtz, ASAM, and CPADC checkpoints; on failure retain the isolated resume artifacts and diagnose before any further launch."
+}

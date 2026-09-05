@@ -1,0 +1,71 @@
+{
+  "background_caches": [
+    "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-0.h5",
+    "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-1.h5",
+    "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-2.h5",
+    "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-3.h5",
+    "/dev/shm/g3cache/background_pbg_sigma2_g3pool_N420.h5"
+  ],
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_reflection_mixed_v5_directfreq32_batch32_t96_s201_marm700_ep1_20260808T143310Z/checkpoints/update_0097.pt",
+  "checkpoint_metadata": {
+    "checkpoint_epoch": 0,
+    "checkpoint_global_step": 97,
+    "conditioner_tensor_count": 21,
+    "width": 128
+  },
+  "coefficient_relative_l2": 0.9779713688036661,
+  "design_columns": 129,
+  "design_rows": 80802,
+  "direct_frequencies": 32,
+  "normalization_json": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization.before_tgrs_ablation_identity_20260726T1050.json",
+  "propagation_modes": 48,
+  "records": [
+    {
+      "current_direct_output": {
+        "cosine_similarity": 0.00602506757156476,
+        "prediction_to_target_l2_ratio": 0.08548675974748088,
+        "relative_l2": 1.0031340185061106
+      },
+      "dt_used_s": 0.000125,
+      "medium_type": "layered",
+      "output_projection_oracle": {
+        "cosine_similarity": 0.09988957293532197,
+        "prediction_to_target_l2_ratio": 1.738613615221847,
+        "relative_l2": 1.9171433331878678
+      },
+      "sample_id": "train_layered_00000",
+      "source_f0_hz": 8.19206587488009,
+      "temporal_projection": {
+        "cosine_similarity": 0.9989965202880622,
+        "prediction_to_target_l2_ratio": 0.9989963147455885,
+        "relative_l2": 0.044787860547087895
+      }
+    },
+    {
+      "current_direct_output": {
+        "cosine_similarity": 0.018579442184420984,
+        "prediction_to_target_l2_ratio": 0.0031120287604694146,
+        "relative_l2": 0.999947021199695
+      },
+      "dt_used_s": 1e-05,
+      "medium_type": "marmousi",
+      "output_projection_oracle": {
+        "cosine_similarity": 0.21661513969936516,
+        "prediction_to_target_l2_ratio": 0.19735529195464074,
+        "relative_l2": 0.9764470405445318
+      },
+      "sample_id": "train_marmousi_00000",
+      "source_f0_hz": 16.021511683973483,
+      "temporal_projection": {
+        "cosine_similarity": 0.9892237363662334,
+        "prediction_to_target_l2_ratio": 0.9892236204574035,
+        "relative_l2": 0.14641174614641517
+      }
+    }
+  ],
+  "ridge_absolute": 0.0006457164572014457,
+  "ridge_relative": 1e-08,
+  "schema": "helmholtz_output_projection_oracle_v1",
+  "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/dataset_v5_dt1e5_t401_mixed.h5",
+  "travel_time_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/hybrid_travel_train_validation_v5.h5"
+}

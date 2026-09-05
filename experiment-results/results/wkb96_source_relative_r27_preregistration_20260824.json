@@ -1,0 +1,73 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_source_relative_r27_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "nature_evidence_gate_train_only_source_geometry_pilot",
+  "control": "wkb96_r20_source_support_r23_20260824",
+  "hypothesis": "Adding only an exact-zero source-relative spatial projection (dx,dz,r) will improve same-medium unseen-source calibration and independent confirmation by at least 20% over r23 after the same 1000 updates, without regressing either fit family by more than 5%.",
+  "expected_mechanism": "Explicit displacement and radius features expose the source-centered Green-field geometry at every pixel. The U-Net can then learn how a source move changes coefficient fields instead of inferring relative position indirectly from a global embedding and blurred source map.",
+  "nature_evidence_role": "This experiment tests general utility across unseen source configurations with an independent confirmation panel. Passing it is necessary but not sufficient for a broad Nature-level method claim.",
+  "single_conceptual_variable": {
+    "name": "source_relative_spatial_features",
+    "control": "r23 without explicit relative coordinates",
+    "candidate": "zero-init projection of dx,dz,r before the Helmholtz U-Net",
+    "held_constant": "r20 update-2600 initialization, onset-phase off, fit/calibration/confirmation records, 96 bins, frequency gate, loss, optimizer, learning rates, update budget, seed and metric"
+  },
+  "panels": {
+    "fit": ["train_layered_00000", "train_layered_00001", "train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_layered_00002", "train_marmousi_00003"],
+    "confirmation": ["train_layered_00003", "train_marmousi_00004"],
+    "confirmation_truth_access": "opened once at all saved times after checkpoint freeze",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "relative reduction versus r23 in all-saved calibration and confirmation aggregate relative L2",
+  "acceptance": {
+    "calibration_aggregate_relative_reduction_vs_r23_min": 0.20,
+    "confirmation_aggregate_relative_reduction_vs_r23_min": 0.20,
+    "fit_family_regression_tolerance": 0.05,
+    "r23_fit_layered": 0.09389919030814406,
+    "r23_fit_marmousi": 0.27941603556369493,
+    "r23_calibration_aggregate": 1.5039313699886732,
+    "r23_confirmation_aggregate": 2.200595381447492,
+    "strong_source_gate": "all fit, calibration and confirmation aggregate/family relative L2 <= 0.10"
+  },
+  "failure_signal": "Reject if calibration or confirmation improves by less than 20%, either fit family exceeds 1.05 times its r23 value, or any non-finite/OOM/binding/resource failure occurs.",
+  "optimization": {
+    "updates_max": 1000,
+    "evaluate_every": 100,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "family_gradient_weights": {"layered": 1.0, "marmousi": 1.0},
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "optimizer_updates_max": 1000,
+    "wall_time_max_minutes": 20,
+    "peak_cuda_bytes_max": 4294967296,
+    "checkpoint_storage_gib_max": 1.3
+  },
+  "parent": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50"
+  },
+  "bindings": {
+    "training_script_sha256": "2d566dacf5f9b118a703374c287453db3009c71e8e9bc91e170997c3a168734a",
+    "diagnostic_script_sha256": "0d21eb15dc19e2d5f625187ebec79e8ea6940b9e6c341efde4524b1e33da0a06",
+    "local_field_sha256": "d300fc611fb824359134a7d7e0d331ebf6ddf477eb3daabaaa9000909faca7ef",
+    "operator_sha256": "97d0ebb4552920ce0bd8e5aa4747e1dabccac6d0680e452dd36ab711c8ba12cf",
+    "smoke_terminal_sha256": "e3814071a433e9238725412d3fbfc3bae62ec596bdd046fd3d08c0e7a9637c9f",
+    "nature_evidence_gate_sha256": "14af9c8cb94760e40973fa9859ab05e3f07486ee38f9202a914f6e9f21952b82",
+    "tests": "47 passed"
+  },
+  "rollback": "Preserve r20-r27 artifacts. On failure disable the optional source-relative branch and move to the coarse-propagator residual priority; do not tune validation/test_id.",
+  "command": "bash runs/0824-wkb96-source-relative-r27/run_full.sh"
+}

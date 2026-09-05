@@ -1,0 +1,11 @@
+{"completed": 8, "elapsed_s": 8.563646160066128, "event": "batch_complete", "total": 120, "worker": 1}
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/eval_coarse_lwc84_dispersion_validation_streaming.py", line 704, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/eval_coarse_lwc84_dispersion_validation_streaming.py", line 700, in main
+    run_worker(int(worker_raw))
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/eval_coarse_lwc84_dispersion_validation_streaming.py", line 344, in run_worker
+    _validate_solver_batch(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/evaluate_coarse_lwc84_201_shard.py", line 220, in _validate_solver_batch
+    raise FloatingPointError(
+FloatingPointError: unstable solver symbol for validation_uniform_00041: {'vmin_mps': 5674.30322265625, 'vmax_mps': 5674.30322265625, 'cfl_2d': 0.40123382872489144, 'lwc_qmax': 1.0466813419730359, 'dt_used_s': 0.0005, 'qc_max_abs': 1.1566260837980735e-08, 'qc_final_energy_ratio': 6.574251289186741e-10, 'finite': True, 'compute_elapsed_s': 5.564210092648864}

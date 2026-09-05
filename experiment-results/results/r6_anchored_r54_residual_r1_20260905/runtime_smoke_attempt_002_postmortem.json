@@ -1,0 +1,46 @@
+{
+  "schema": "r6_anchored_r54_runtime_smoke_postmortem_v1",
+  "candidate": "r6_anchored_r54_residual_r1_20260905",
+  "record_type": "retrospective_smoke_failure_postmortem",
+  "attempt": 2,
+  "retrospective": true,
+  "derived_after_failed_attempt": true,
+  "original_terminal": {
+    "path": "results/r6_anchored_r54_residual_r1_20260905/runtime_smoke_attempt_002.json",
+    "exists": true,
+    "sha256": "9d79c477dc72b711141d86a273c1309585059acdc1aeb1be816d6481e7c3160d",
+    "size_bytes": 26668,
+    "status": "invalid",
+    "error": "RuntimeError('candidate is not byte-identical to parent')",
+    "formal_record_count": 0,
+    "formal_identity_count": 0
+  },
+  "inference": {
+    "summary": "The byte mismatch is consistent with ordinary floating-point addition canonicalizing the sign bit of parent negative zero when the correction is numerically plus or minus zero.",
+    "evidence_level": "inferred from the failing operation and IEEE-754 signed-zero behavior; the original terminal did not serialize parent, correction, or candidate signed-zero counts",
+    "parent_signed_zero_count": null,
+    "correction_signed_zero_count": null,
+    "candidate_signed_zero_count": null,
+    "numeric_mismatch_count": null,
+    "byte_mismatch_count": null,
+    "exact_counts_known": false,
+    "stability_gate_had_passed": true,
+    "observed_uniform_cfl_2d": 1.0161783042420762,
+    "observed_uniform_lwc_qmax": 6.713658325819664
+  },
+  "corrective_scope": {
+    "runtime_inference_only": "torch.where(correction==0,parent,parent+correction) preserves parent bits at zero-correction positions",
+    "future_training_loss": "MUST use differentiable ordinary parent+correction unless a separately audited straight-through estimator is preregistered",
+    "training_semantics_changed": false
+  },
+  "access_and_artifact_audit": {
+    "truth_reads": 0,
+    "wavefield_reads": 0,
+    "validation_truth_opened": false,
+    "test_id_truth_opened": false,
+    "weights_loaded_or_written": 0,
+    "cache_files_written": 0,
+    "predictions_persisted": 0,
+    "promotion_authorized": false
+  }
+}

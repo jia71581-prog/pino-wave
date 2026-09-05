@@ -1,0 +1,84 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb64_r19_disjoint_train_r23_smoke_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_disjoint_panel_operational_preflight",
+  "hypothesis": "The current disjoint-panel implementation can load the frozen r19 parent, execute one balanced full-trace coefficient update, keep fit/calibration/confirmation records mutually disjoint, defer confirmation truth until checkpoint freeze, and stay below 4 GiB peak CUDA allocation.",
+  "expected_mechanism": "A one-record-per-family schedule exercises the same streaming target, coefficient update, checkpoint-selection, all-saved evaluation, and immutable binding paths as the full run without using validation or test_id.",
+  "single_conceptual_variable": {
+    "name": "train_record_support",
+    "parent": "one anchor record per family",
+    "candidate": "one non-anchor fit record per family with separate one-per-family calibration and confirmation panels"
+  },
+  "accuracy_selection_allowed": false,
+  "operational_acceptance": {
+    "process_exit_code": 0,
+    "updates_completed": 1,
+    "panels_disjoint": true,
+    "confirmation_opened_only_after_checkpoint_freeze": true,
+    "validation_opened": false,
+    "test_id_opened": false,
+    "peak_cuda_bytes_max": 4294967296,
+    "terminal_and_binding_hashes_present": true
+  },
+  "panels": {
+    "split": "train",
+    "skip_anchor_records_per_family": 1,
+    "fit_records_per_family": 1,
+    "calibration_records_per_family": 1,
+    "confirmation_records_per_family": 1,
+    "mutually_disjoint": true
+  },
+  "fixed": {
+    "frequency_bins": 64,
+    "family_gradient_weights": {
+      "uniform": 1.0,
+      "layered": 1.0,
+      "marmousi": 10.0
+    },
+    "dense_learning_rate": 0.00002,
+    "backbone_learning_rate": 0.00001,
+    "local_field_learning_rate": 0.00002,
+    "free_surface_taper": false,
+    "local_causal_gate": false,
+    "global_hard_causality": true,
+    "seed": 372
+  },
+  "training": {
+    "updates": 1,
+    "evaluate_every": 1,
+    "evaluation_frames_per_record": 32,
+    "microbatch_records": 1,
+    "balanced_records_per_update": 3
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt",
+    "checkpoint_sha256": "f8327d4fb0853f4e0a11446ecd7864ebbfb577ef902dbe5c041c2be633cb2629",
+    "identity": "results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json",
+    "identity_sha256": "3b82a656432c76677800919eb3819369acb0f05f4065c51e1f0d46743d119e6a"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "bindings": {
+    "script_sha256": "7c00b3af9b8ceb2759287a74db4d8a0dd30463673e3b66ca59c827464c4e8a47",
+    "diagnostic_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8",
+    "panel_test_sha256": "00adda5d776316651cc74cb573ec8d69db62489d88b91dc3b2d5aa25027953c5",
+    "coefficient_test_sha256": "445aca172c9b6255b6d87a0afcbc8439dc3e1712f126d880d3cc014314e50e3f",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "normalization_json_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "tests": "12 passed"
+  },
+  "supersedes": {
+    "preregistration": "results/wkb64_r19_disjoint_train_r21_preregistration_20260823.json",
+    "reason": "The older preregistration bound an unavailable script hash. This record binds the current instrumentation-only revision before launch."
+  },
+  "rollback": "Preserve the r19 parent and all existing checkpoints; reject the panel runner without launching the full run if any operational gate fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb64_r19_disjoint_train_r23_smoke_20260823 --preregistration results/wkb64_r19_disjoint_train_r23_smoke_preregistration_20260823.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt --parent-identity results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --fit-records-per-family 1 --calibration-records-per-family 1 --confirm-records-per-family 1 --skip-records-per-family 1 --updates 1 --evaluate-every 1 --evaluation-frames 32 --dense-learning-rate 2e-5 --backbone-learning-rate 1e-5 --local-field-learning-rate 2e-5 --family-gradient-weights uniform:1,layered:1,marmousi:10 --target-relative-l2 0.05 --seed 372"
+}

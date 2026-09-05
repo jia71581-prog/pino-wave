@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "reviewer": "acoustic_experiment_auditor",
+  "review_mode": "independent_read_only_postrun",
+  "checks": {
+    "input_bindings_verified": 49,
+    "terminal_output_digests_verified": true,
+    "csv_hypothesis_recomputation_matches": true,
+    "independent_70_decimal_digit_direct_cos_acos_comparisons": 4,
+    "max_difference_in_phase_velocity_error": 2.25e-16,
+    "spatial_refinement_bands_improved": 32,
+    "temporal_refinement_bands_improved": 32,
+    "smallest_spatial_comparison_gap": 6.15e-14,
+    "unit_tests_passed": 14
+  },
+  "allowed_claim": "Measured uniform periodic source-free local dispersion and metadata overlap conclusions only; no model promotion, fresh generalization, CPML/startup or trained correction claim.",
+  "caveats": [
+    "R6 qmax=9.25714 meets safety 9.6, but full spectrum is not entirely on the monotone q<6 branch. Selected 95% energy bands have no alias or folding.",
+    "Binomial5 amplitude and energy transmission describe observation filtering; they are not phase correction."
+  ],
+  "visual_check": {
+    "worker_checked_png": true,
+    "lead_independently_checked_png": true,
+    "layout_issue_found": false
+  },
+  "protected_artifact_verification": {
+    "provider": "root lead independent postrun check",
+    "r54_checkpoint_unchanged": true,
+    "r54_sha256": "2a544eac37f4782193d79f512d55786858c85f93658885bedfc43e9d59a0073a",
+    "original_r6_report_unchanged": true,
+    "production_lwc84_stencils_restriction_unchanged": true,
+    "final_gpu_memory_mb": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "final_research_gpu_jobs": 0,
+    "workspace_free_gb_approx": 109
+  },
+  "first_attempt_failure_preserved": true,
+  "second_attempt_only_metadata_label_fix": true
+}

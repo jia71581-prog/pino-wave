@@ -1,0 +1,31 @@
+{
+ "schema": "r16_dscp_v20_validation_once_preregistration_v1",
+ "candidate": "r16_dscp_v18_B_data_hinge_validation_once",
+ "frozen_utc": "2026-08-27T12:40:00Z",
+ "unseal_authorization": "lead explicit approval 2026-08-27 (Beijing evening): '批准解封', following the presented plan 'sealed validation one-shot evaluation of B_data_hinge/best.pt'. The validation split is opened ONCE by this stage and permanently loses unseen status for this line; test_id remains sealed.",
+ "checkpoint": {
+  "path": "results/r16_dscp_v18/B_data_hinge/best.pt",
+  "sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+  "basis": "v18 passed (calibration joint +0.0363) AND v19 off-panel CONSISTENT (+0.0265, 23/24, worst -0.0116); A_data is NOT evaluated (v19 INCONSISTENT), avoiding double use of the unseal"
+ },
+ "evaluation_set": "all 480 validation records of the three routed families (layered 240 / marmousi 150 / uniform 90); anomaly (120) excluded as unrouted (no basis); a record whose deployment routing abstains or exceeds CONDITION_MAXIMUM is EXCLUDED and disclosed by id (production would abstain identically)",
+ "scoring": "frozen v16.score_bundle semantics verbatim in fp32 (no fp16 storage detour): convention-iii global-energy rel_l2 for corrected and parent, gain_iii, nonworse; per-record rows all recorded",
+ "readouts_frozen": {
+  "R1_inherited_absolute_acceptance": {
+   "gate": "corrected rel_l2 <= 0.05 evaluated BOTH as per-record max (v14 THRESHOLDS.absolute_rel_l2_max verbatim) and as mean (weaker form); verdicts recorded separately",
+   "expectation_disclosed": "parent absolute quality on train confirm (0.05-0.78 by family) makes PASS unlikely; the number is recorded as-is either way, no reinterpretation after seeing it"
+  },
+  "R2_correction_transport": {
+   "joint_improvement": 0.01,
+   "per_family_improvement": 0.005,
+   "nonworse_within_tolerance": {"tolerance": 0.01, "min_fraction": 0.90},
+   "worst_harm_floor": -0.02,
+   "provenance": "v18 gate values transported; fraction form (>=90%) replaces the 24-count for the 480-record set; frozen before any validation number exists"
+  }
+ },
+ "one_shot": "no retry, no second checkpoint, no threshold motion; whatever the numbers are, they are the line's validation record",
+ "truth_scope": "validation split opened for exactly the 480 listed-family records via an audited loader (split binding + sample_id binding checked per read); train side untouched; test_id sealed",
+ "outputs": "results/r16_dscp_v20_validation_once/terminal.json (+ 4 worker shards)",
+ "parent_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+ "chain": {"v18_prereg": "0a9af4e6bad30b6a8e91788f234381673d9bb9f8c8d4f66d3153d9f060059a05", "v18_amendment1": "a92fadaddabbf19dfaa15744a0418afc165d829bb5c0fc97497348f04dc844f9", "v19_prereg": "375ce27c8bfdbff7a24d6444abc373ef6467d1f6b2e0fb23da589a88fa8c6078"}
+}

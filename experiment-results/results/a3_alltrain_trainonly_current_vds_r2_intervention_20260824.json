@@ -1,0 +1,26 @@
+{
+  "schema": "acoustic_training_intervention_v1",
+  "date_utc": "2026-08-24",
+  "run": "a3_alltrain_trainonly_current_vds_r2",
+  "status": "stopped_for_user_directed_loss_alignment",
+  "supervisor_pid": 788512,
+  "last_observed_state": {
+    "epoch": 1,
+    "attempt": 4,
+    "update": 85,
+    "updates_per_epoch": 91,
+    "accepted_epoch": 0,
+    "accepted_score": 0.28469252999081746
+  },
+  "rejected_candidate_scores": [
+    0.2871948050167655,
+    0.28845218829850966,
+    0.2864135664425627
+  ],
+  "preserved_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_trainonly_current_vds_r2/run/latest.pt",
+  "preserved_checkpoint_sha256": "926ee1536636453ac1b58794121867b649d6bb13d8e79ec90db811c029a7a629",
+  "preserved_run_identity_sha256": "e143356585f12cc611fa5593b2a2d5ed465e19d7121d8aabe88ca21bfb2f58cb",
+  "reason": "Replace the composite recovery objective with the per-record relative-L2 objective that matches aggregate_relative_l2 accounting. No candidate epoch had been accepted, so no accepted progress was discarded.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

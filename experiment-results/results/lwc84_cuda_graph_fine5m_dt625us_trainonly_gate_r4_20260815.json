@@ -1,0 +1,424 @@
+{
+  "aggregate_relative_l2": 0.0008374826175044914,
+  "bindings": {
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "gate_script_sha256": "5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8",
+    "manifest": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "family_counts": {
+    "layered": 3,
+    "marmousi": 3,
+    "uniform": 3
+  },
+  "family_relative_l2": {
+    "layered": 0.00046443781035175293,
+    "marmousi": 0.0009402913602072575,
+    "uniform": 0.0001602531002876547
+  },
+  "internal_grid": {
+    "internal_dt_s": 0.000625,
+    "npml": 40,
+    "output_restriction": "binomial5_lowpass_then_decimate2",
+    "shape": [
+      401,
+      401
+    ],
+    "spacing_m": 5.0
+  },
+  "maximum_instance_relative_l2": 0.002773080627664936,
+  "measurements": [
+    {
+      "family": "uniform",
+      "fine_velocity_metadata": {
+        "velocity_mps": 2536.0079911851453
+      },
+      "fine_velocity_range_mps": [
+        2536.008056640625,
+        2536.008056640625
+      ],
+      "lwc_qmax": 1.3066843150925531,
+      "relative_l2": 5.820483404206013e-05,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 1.0314839938655496,
+      "sample_id": "train_uniform_00397",
+      "solver_reported_runtime_s": 0.9081257171928883,
+      "source_f0_hz": 8.003645260046683,
+      "source_index": 397,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 1.3738898314496047e-05,
+        "late": 9.418713378054472e-05,
+        "middle": 4.374758340751478e-05
+      }
+    },
+    {
+      "family": "uniform",
+      "fine_velocity_metadata": {
+        "velocity_mps": 4840.999645570493
+      },
+      "fine_velocity_range_mps": [
+        4840.99951171875,
+        4840.99951171875
+      ],
+      "lwc_qmax": 4.761452956944494,
+      "relative_l2": 0.0005585527583066881,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8683952493593097,
+      "sample_id": "train_uniform_00245",
+      "solver_reported_runtime_s": 0.7635881155729294,
+      "source_f0_hz": 18.990088804366742,
+      "source_index": 245,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.0002642463047207321,
+        "late": 0.20312998336233948,
+        "middle": 0.0007759540219323364
+      }
+    },
+    {
+      "family": "uniform",
+      "fine_velocity_metadata": {
+        "velocity_mps": 5375.926751961043
+      },
+      "fine_velocity_range_mps": [
+        5375.9267578125,
+        5375.9267578125
+      ],
+      "lwc_qmax": 5.871865601089914,
+      "relative_l2": 0.0013474625698966542,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8591850651428103,
+      "sample_id": "train_uniform_00021",
+      "solver_reported_runtime_s": 0.7593251895159483,
+      "source_f0_hz": 29.98278460379438,
+      "source_index": 21,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.0009356727979090663,
+        "late": 1.1490177400222479,
+        "middle": 0.0026226098801560753
+      }
+    },
+    {
+      "family": "layered",
+      "fine_velocity_metadata": {
+        "base_interface_z_m": [
+          650.4555693495367,
+          880.2208437697254,
+          1229.3481520194314
+        ],
+        "interface_shift_amplitude_m": 0.0,
+        "interface_style": "horizontal",
+        "layer_velocity_mps": [
+          4914.6988921585,
+          3049.378097815567,
+          2838.303200312621,
+          1877.3084552215162
+        ],
+        "minimum_realized_thickness_m": 229.7652744201887,
+        "model_type": "layered",
+        "n_layers": 4,
+        "seed": 21260992
+      },
+      "fine_velocity_range_mps": [
+        1877.3084716796875,
+        4914.69873046875
+      ],
+      "lwc_qmax": 4.907532924194772,
+      "relative_l2": 5.308979464629789e-05,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8719075499102473,
+      "sample_id": "train_layered_01105",
+      "solver_reported_runtime_s": 0.7643515868112445,
+      "source_f0_hz": 8.009038744452269,
+      "source_index": 1525,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 1.454020430431346e-05,
+        "late": 0.00012270601006852258,
+        "middle": 4.3964835029671556e-05
+      }
+    },
+    {
+      "family": "layered",
+      "fine_velocity_metadata": {
+        "base_interface_z_m": [
+          271.5039091017497
+        ],
+        "interface_shift_amplitude_m": 50.0,
+        "interface_style": "gently_wavy",
+        "layer_velocity_mps": [
+          3899.9009742705834,
+          3333.475859179981
+        ],
+        "minimum_realized_thickness_m": 221.50456512152914,
+        "model_type": "layered",
+        "n_layers": 2,
+        "seed": 21260843
+      },
+      "fine_velocity_range_mps": [
+        3333.475830078125,
+        3899.90087890625
+      ],
+      "lwc_qmax": 3.09012863294857,
+      "relative_l2": 0.000812242721996002,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8764599217101932,
+      "sample_id": "train_layered_00510",
+      "solver_reported_runtime_s": 0.7679709484800696,
+      "source_f0_hz": 18.992878874307557,
+      "source_index": 930,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.0003333935250876282,
+        "late": 0.0015794297961969626,
+        "middle": 0.0010613746850914503
+      }
+    },
+    {
+      "family": "layered",
+      "fine_velocity_metadata": {
+        "base_interface_z_m": [
+          436.02057687154934,
+          797.5182369343952,
+          1464.1818916767388
+        ],
+        "interface_shift_amplitude_m": 50.0,
+        "interface_style": "tilted",
+        "layer_velocity_mps": [
+          5883.083476046558,
+          4063.4099936897755,
+          3136.150317008922,
+          2381.498864850926
+        ],
+        "minimum_realized_thickness_m": 361.49766006284585,
+        "model_type": "layered",
+        "n_layers": 4,
+        "seed": 21260841
+      },
+      "fine_velocity_range_mps": [
+        2381.498779296875,
+        5883.08349609375
+      ],
+      "lwc_qmax": 7.032009431773595,
+      "relative_l2": 0.001276101300679151,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8706030882894993,
+      "sample_id": "train_layered_00500",
+      "solver_reported_runtime_s": 0.7597788600251079,
+      "source_f0_hz": 29.989522917546186,
+      "source_index": 920,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.0003061240593358982,
+        "late": 0.004646087069714652,
+        "middle": 0.002293168136917088
+      }
+    },
+    {
+      "family": "marmousi",
+      "fine_velocity_metadata": {
+        "clipped": false,
+        "crop_bbox_m": [
+          200.0,
+          2200.0,
+          200.0,
+          2200.0
+        ],
+        "crop_sha256": "6e04fcb0e0d6b752344d2ac4a2375b785a4de720fb74a25a5d6721d8e33f3ea3",
+        "crop_velocity_range_mps": [
+          1608.75,
+          4364.375
+        ],
+        "crop_x0_m": 200.0,
+        "crop_z0_m": 200.0,
+        "interpolation": "linear",
+        "source_dx_m": 4.0,
+        "source_dz_m": 4.0,
+        "source_format_evidence": "npy",
+        "source_path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+        "source_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+        "source_shape": [
+          751,
+          2301
+        ],
+        "source_unit_original": "m/s",
+        "source_velocity_range_mps": [
+          1500.0,
+          5500.0
+        ],
+        "velocity_unit": "m/s"
+      },
+      "fine_velocity_range_mps": [
+        1608.75,
+        4364.375
+      ],
+      "lwc_qmax": 3.8700229365079366,
+      "relative_l2": 6.986546641540553e-05,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8650426166132092,
+      "sample_id": "train_marmousi_00380",
+      "solver_reported_runtime_s": 0.762980543076992,
+      "source_f0_hz": 8.028230837828447,
+      "source_index": 2480,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 1.6277676238192576e-05,
+        "late": 9.507779052524892e-05,
+        "middle": 5.1757896677513164e-05
+      }
+    },
+    {
+      "family": "marmousi",
+      "fine_velocity_metadata": {
+        "clipped": false,
+        "crop_bbox_m": [
+          800.0,
+          2800.0,
+          350.0,
+          2350.0
+        ],
+        "crop_sha256": "d020377911aba203730aaadeb87fc52866642d11a692be19d26635e6ef020f6a",
+        "crop_velocity_range_mps": [
+          1607.5,
+          4750.0
+        ],
+        "crop_x0_m": 800.0,
+        "crop_z0_m": 350.0,
+        "interpolation": "linear",
+        "source_dx_m": 4.0,
+        "source_dz_m": 4.0,
+        "source_format_evidence": "npy",
+        "source_path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+        "source_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+        "source_shape": [
+          751,
+          2301
+        ],
+        "source_unit_original": "m/s",
+        "source_velocity_range_mps": [
+          1500.0,
+          5500.0
+        ],
+        "velocity_unit": "m/s"
+      },
+      "fine_velocity_range_mps": [
+        1607.5,
+        4750.0
+      ],
+      "lwc_qmax": 4.584126984126985,
+      "relative_l2": 0.002773080627664936,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8753659343346953,
+      "sample_id": "train_marmousi_00680",
+      "solver_reported_runtime_s": 0.7622410412877798,
+      "source_f0_hz": 18.99760907314326,
+      "source_index": 2780,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.000705806291093992,
+        "late": 0.004014747957532733,
+        "middle": 0.002296938562528532
+      }
+    },
+    {
+      "family": "marmousi",
+      "fine_velocity_metadata": {
+        "clipped": false,
+        "crop_bbox_m": [
+          6700.0,
+          8700.0,
+          300.0,
+          2300.0
+        ],
+        "crop_sha256": "ad2f063fe1297c546135fdf65d63de83b36d8aaaef17da5c036f38b7b0f3167d",
+        "crop_velocity_range_mps": [
+          1605.0,
+          5500.0
+        ],
+        "crop_x0_m": 6700.0,
+        "crop_z0_m": 300.0,
+        "interpolation": "linear",
+        "source_dx_m": 4.0,
+        "source_dz_m": 4.0,
+        "source_format_evidence": "npy",
+        "source_path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+        "source_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+        "source_shape": [
+          751,
+          2301
+        ],
+        "source_unit_original": "m/s",
+        "source_velocity_range_mps": [
+          1500.0,
+          5500.0
+        ],
+        "velocity_unit": "m/s"
+      },
+      "fine_velocity_range_mps": [
+        1605.0,
+        5500.0
+      ],
+      "lwc_qmax": 6.1460317460317455,
+      "relative_l2": 0.0020160571513689243,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8770706057548523,
+      "sample_id": "train_marmousi_00636",
+      "solver_reported_runtime_s": 0.7623760094866157,
+      "source_f0_hz": 29.949679429197367,
+      "source_index": 2736,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.0006225570607834658,
+        "late": 0.002943902366936539,
+        "middle": 0.001967912703664179
+      }
+    }
+  ],
+  "promotion_gate": {
+    "maximum_relative_l2": 0.05,
+    "maximum_runtime_s": 2.034137312322855,
+    "passed_train_only": true,
+    "passes_accuracy": true,
+    "passes_runtime": true
+  },
+  "runtime_s": {
+    "maximum": 1.0314839938655496,
+    "mean": 0.8883904472200407,
+    "minimum": 0.8591850651428103,
+    "p95_nearest_rank": 1.0314839938655496,
+    "warmup_excluded": 0.13343952782452106
+  },
+  "schema": "lwc84_cuda_graph_fine_grid_trainonly_gate_v1",
+  "selection_scope": "train_only",
+  "source_indices": [
+    397,
+    245,
+    21,
+    1525,
+    930,
+    920,
+    2480,
+    2780,
+    2736
+  ],
+  "speedup_over_traditional_reference": {
+    "mean": 22.89688411990579,
+    "p95": 19.720493235186332,
+    "reference_s": 20.34137312322855
+  },
+  "status": "accepted_train_only",
+  "temporal_band_relative_l2": {
+    "early": 0.0002711601619447576,
+    "late": 0.001162110320922776,
+    "middle": 0.0006722915670161849
+  },
+  "test_id_access": false,
+  "validation_access": false
+}

@@ -1,0 +1,69 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_pbg_marm_r35_spectral_pilot_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_spectral_temporal_factorized_fno_disjoint_pilot",
+  "hypothesis": "At the same 120-record fit and 60-record calibration support used by r28/r32, the global spectral-temporal Factorized FNO will escape the zero-output floor and reduce low-resolution train-only calibration relative L2 below 0.8 within 20 epochs.",
+  "expected_mechanism": "Global temporal Fourier modes carry long-horizon phase while 2D spatial spectral blocks share smooth propagator structure across source and medium variation.",
+  "single_conceptual_variable": {
+    "name": "temporal_mixer",
+    "parent": "local temporal convolution in r32",
+    "candidate": "global 32-mode temporal Fourier mixer"
+  },
+  "primary_metric": "best low-resolution train-only calibration relative L2",
+  "acceptance": {
+    "target_gate_max": 0.05,
+    "advancement_gate_calibration_max": 0.8,
+    "prediction_finite_ratio": 1.0,
+    "peak_allocated_mb_max": 20000
+  },
+  "early_failure": {
+    "minimum_epoch": 5,
+    "calibration_relative_l2_max": 0.98,
+    "must_beat_zero_baseline": true,
+    "stop_on_failure": true
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 120,
+    "calibration_records": 60,
+    "confirmation_records": 60,
+    "confirmation_access": "sealed_until_checkpoint_freeze",
+    "selected_resolution": [64, 64, 101]
+  },
+  "training": {
+    "epochs_max": 20,
+    "batch_size": 2,
+    "learning_rate": 0.0003,
+    "scheduler": "cosine",
+    "early_stopping_patience": 5,
+    "normalization_stats": "frozen_r31_train_only_16_sample_stats",
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "failure_signal": "Failure to beat 0.98 after epoch 5, non-finite prediction, OOM, missing checkpoint, or calibration above 0.8 rejects the broad spectral-temporal pilot without opening confirmation or project validation/test_id.",
+  "compute_budget": {
+    "gpus": 1,
+    "epochs_max": 20,
+    "wall_ceiling_minutes": 180,
+    "peak_allocated_mb_max": 20000
+  },
+  "bindings": {
+    "config_sha256": "ff68499462c06322bd3defbd7bf25ba3c3126e3636577fad90908b0277e199d6",
+    "model_sha256": "0ab24496d4e33435c0ee3ed1395d6f21f9ec9c4eec88ad4a75ed1b49c0411e03",
+    "data_loader_sha256": "e46716ad0ce7de476345e5c3697dbd4169c337f1cdfcba779c2685ff5e201f6e",
+    "trainer_sha256": "409a59a9bdd3e89247d4bcf29d89a8ec0d3ab5ef28e4cb83eda20bd01413a4c2",
+    "vds_sha256": "c8dbded99eaa05f03616211e65b5dd5399c685bb1241717e27147fad60e3ae17",
+    "split_sha256": "d5ea622d782728d76dbf3a26311253b5377cfc75ae139bc9688d58a03c56958f",
+    "normalization_stats_sha256": "7764d837a4305b7f430d8115739b58b043682f258acba8a7e23a4593238e9756",
+    "r34_capacity_result_sha256": "67f88bf2706f7ee3bd93c7211f3df6989853aa42b4ba0933839bb39f032d66ec",
+    "tests": "29 passed"
+  },
+  "rollback": "Preserve r34 and all prior artifacts; if rejected, diagnose train-only source/medium generalization before any higher-resolution run.",
+  "command": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r35_spectral_pilot.yaml --device cuda --output-json results/factorized_pbg_marm_r35_spectral_pilot_20260823/result.json"
+}

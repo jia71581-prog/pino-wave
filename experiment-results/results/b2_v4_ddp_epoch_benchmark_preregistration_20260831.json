@@ -1,0 +1,65 @@
+{
+  "schema": "b2_v4_ddp_epoch_benchmark_preregistration_v1",
+  "status": "frozen_with_pre_step_dispatch_amendment",
+  "created_utc": "2026-08-31T11:39:59Z",
+  "candidate": "b2_v4_ddp_full_epoch_benchmark_v1",
+  "question": "Can two-rank exact-global-batch DDP materially reduce one full B2-v4 epoch without changing sample, optimizer-step, or calibration semantics?",
+  "mechanism": "The global batch of three is split as two samples on rank 0 and one on rank 1. Each local mean is scaled by local_count*world_size/global_count, so DDP's rank-average gradient equals the original three-sample global mean. Both ranks execute the original 80 optimizer and scheduler steps per epoch.",
+  "scope": "throughput and distributed-contract benchmark only; metrics do not select or promote a model",
+  "design": {
+    "seed": 999,
+    "world_size": 2,
+    "visible_gpus": [2, 3],
+    "fit_records": 240,
+    "calibration_records": 60,
+    "epochs": 1,
+    "global_micro_records": 3,
+    "rank_local_counts": [2, 1],
+    "optimizer_steps": 80,
+    "maximum_epoch1_s": 240
+  },
+  "acceptance": {
+    "contract": "finite train/calibration metrics, world_size=2 identity, 80 optimizer steps, best.pt and complete terminal",
+    "speed_signal": "epoch wall time below the measured single-GPU 179.5 second recent mean",
+    "meaningful_switch_signal": "epoch wall time <= 130 seconds",
+    "failure_signal": "OOM, non-finite metric, binding drift, missing rank/checkpoint/terminal, or epoch wall time above 240 seconds"
+  },
+  "bindings": {
+    "ddp_trainer_sha256": "7157766ca7d37a11d72493904b5b51dba87ea529c6b0f5d363f0268b2b3fe4d8",
+    "base_trainer_sha256": "71e50bd815bc22e9e1f76849fd8846f8e2f8f6815700c071ebde375dfd2178ff",
+    "test_sha256": "34c54d4b6a4dc739f121f780b407531cd2a477ca686f4e8a678ba80aae243050",
+    "manifest_sha256": {
+      "results/b2_v4_fit_manifest_240rec_20260831.json": "8b8a4e96b1b998c70c86fc84ae3fd84934cf1bc23145a4dad255637e25a0632a",
+      "results/b2_v4_calibration_manifest_60rec_20260831.json": "34ab3c2bb0db7044dc7d82b37e8872ae6809e78d3af4c3e1d1176508aed9c4ea"
+    },
+    "cache_sha256": {
+      "results/b2_v4_fit_cache_240rec_20260831.h5": "d49077526d5c02aac49d9ff62c4aec190d3b2083cecd9a4e75a877766a715336",
+      "results/b2_v4_calibration_cache_60rec_20260831.h5": "5da6cbae5d48418d8bbffbc21160aa6e69e51dfe1256e8fbf2be54c31cdcd08f"
+    },
+    "source_preregistration_sha256": "13a3f1cd0894e33d66fabe4627a0fc1d4c143f96f943b8ad4d700951ee9977ef"
+  },
+  "amendments": [
+    {
+      "kind": "pre_optimizer_step_forward_dispatch",
+      "reason": "Attempt 1 exited before its first model forward because DistributedDataParallel invoked the free-running forward signature. A wrapper now exposes forward_anchored as the DDP-visible forward method.",
+      "scientific_change": false,
+      "data_change": false,
+      "optimizer_step_executed_before_failure": false,
+      "old_ddp_trainer_sha256": "6415766109b63c4a90162894fbe7d51e23913d128e15a980c2a6ff6106b393e4",
+      "new_ddp_trainer_sha256": "7157766ca7d37a11d72493904b5b51dba87ea529c6b0f5d363f0268b2b3fe4d8",
+      "failed_terminal_sha256": "c1eecfe1be42c03132b10099179a186774920d071fbe94246a3516b82daedd35",
+      "failed_log_sha256": "f0cbb75c02d9e2e16eca1869cd7f1e8f16042e0cc6b031b003567cb66baa1201"
+    }
+  ],
+  "data_access": {
+    "fit": "train truth",
+    "calibration": "disjoint train truth",
+    "confirmation_cache_created": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "command": "CUDA_VISIBLE_DEVICES=2,3 torchrun --standalone --master-port=29999 --nproc-per-node=2 scripts/train_b2_group_disjoint_ddp.py --fit-manifest results/b2_v4_fit_manifest_240rec_20260831.json --calibration-manifest results/b2_v4_calibration_manifest_60rec_20260831.json --fit-cache results/b2_v4_fit_cache_240rec_20260831.h5 --calibration-cache results/b2_v4_calibration_cache_60rec_20260831.h5 --preregistration results/b2_v4_ddp_epoch_benchmark_preregistration_20260831.json --output-dir results/b2_v4_ddp_epoch_benchmark_20260831 --seed 999 --epochs 1 --global-micro-records 3 --calibration-micro-records 3 --maximum-epoch1-s 240",
+  "log": "results/b2_v4_ddp_epoch_benchmark_20260831.log",
+  "rollback": "additive benchmark; current seed 372/733 single-GPU jobs and all protected checkpoints remain untouched",
+  "claim_scope": "The benchmark can authorize a four-GPU restart amendment but is not accuracy evidence."
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "wkb64_frequency_balanced_low_lr_decision_v1",
+  "status": "rejected",
+  "decision": "frequency_balanced_refinement_failed_parent_preservation_gate",
+  "parent_all_saved_aggregate_relative_l2": 0.5539981065573109,
+  "update_800_fixed_aggregate_relative_l2": 0.6268766229899122,
+  "best_checkpoint": "checkpoints/update_0000.pt",
+  "parent_restored_for_final_all_saved_evaluation": true,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {"terminal_sha256": "8274e6a87b000dfb52e97f0f1cb777bced4d21bb2f8b27187ce07179deeab62c"},
+  "diagnosis": "A tenfold smaller step avoided catastrophic drift but converged to a field worse than the parent. Frequency-balanced coefficient loss is not aligned with the field target for this shared head."
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "factorized_pbg_smoke_terminal_v1",
+  "status": "failed",
+  "failure_stage": "normalization_statistics_gate",
+  "error": "ValueError: invalid wavefield std from train split",
+  "diagnosis": "The inherited normalization epsilon 1e-6 exceeds the physical P_bg pressure standard deviation scale near 1e-8.",
+  "optimizer_updates": 0,
+  "checkpoint_created": false,
+  "result_created": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {
+    "preregistration_sha256": "23d53056be64be77d06258576678d2a8e5158aa972265dace7f620667045b260",
+    "config_sha256": "f7cf01128ce96d6f34557414bf23ae065dfcc13ae8d8c809facfb626d27c6303",
+    "launch_log_sha256": "4e92478e446cc7ebf46ede6d52d254e401c2c3aeb70a3633a9a86abbc20ddbc2"
+  },
+  "rollback": "Preserve r30; retry only under a new preregistration with a physical-scale epsilon."
+}

@@ -1,0 +1,52 @@
+{
+  "candidate_model_types": [
+    "universal",
+    "velocity_linear"
+  ],
+  "candidate_ridge_fractions": [
+    0.0,
+    0.0001,
+    0.001,
+    0.01,
+    0.1
+  ],
+  "created_utc": "2026-08-27T22:24:40.520774+00:00",
+  "final_gate": {
+    "max_lte_0p05": true,
+    "mean_lte_0p05": true
+  },
+  "final_validation_opened": false,
+  "internal_split": {
+    "calibration_groups": 66,
+    "calibration_records": 207,
+    "estimation_groups": 262,
+    "estimation_records": 825,
+    "fraction": 0.2,
+    "per_family": {
+      "layered": {
+        "all_groups": 96,
+        "calibration_groups": 19,
+        "estimation_groups": 77
+      },
+      "marmousi": {
+        "all_groups": 104,
+        "calibration_groups": 21,
+        "estimation_groups": 83
+      },
+      "uniform": {
+        "all_groups": 128,
+        "calibration_groups": 26,
+        "estimation_groups": 102
+      }
+    },
+    "seed": 410828
+  },
+  "preregistration_sha256": "d5e535f3c733adf1b53d4d72c2ac56b4f74608c54933f81fd1fdd1b613bde306",
+  "r29b_opened": false,
+  "schema": "r41_dispersion_transfer_preregistration_v1",
+  "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/run_r41_dispersion_transfer_diagnostic.py",
+  "script_sha256": "7b0b33461ef5e64faa86a6900bfc3cd8b093f3c4261e32fe50d0601e16bd9258",
+  "selection_score": "candidate_proxy_max_plus_0p25_mean",
+  "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e",
+  "test_id_opened": false
+}

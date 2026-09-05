@@ -1,0 +1,29 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected",
+  "candidate": "wkb96_source_onset_phase_r25_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The onset-aligned phase produced a strong calibration improvement but failed the preregistered confirmation advancement gate. Confirmation aggregate improved 12.56% versus the required 20%, and fit aggregate regressed 2.96%.",
+  "selected_checkpoint": {
+    "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0800.pt",
+    "sha256": "7ad1f70d08d28a9c4e9a68d6492c1f2178dc39fe014d37af1ff0a11f5ba8fb61"
+  },
+  "comparison_to_r23": {
+    "fit": {"control": 0.20520929746147462, "candidate": 0.2112843016732795, "relative_improvement": -0.029603942350347832},
+    "calibration": {"control": 1.5039313699886732, "candidate": 0.9741625161796907, "relative_improvement": 0.3522560034192068},
+    "confirmation": {"control": 2.200595381447492, "candidate": 1.9242831383722894, "relative_improvement": 0.12556249340733053}
+  },
+  "mechanism_evidence": "Analytic onset alignment is real: calibration phase correlation rose from -0.060 to 0.482 and xcorr shift fell from 30.23 to 11.90 cells; confirmation phase correlation rose from -0.047 to 0.353 and shift fell from 34.94 to 9.85 cells. However source-position/frequency mapping remains far above the absolute gate.",
+  "all_saved_candidate": {
+    "fit": {"aggregate": 0.2112843016732795, "layered": 0.10564141408238932, "marmousi": 0.28171289340053957},
+    "calibration": {"aggregate": 0.9741625161796907, "layered": 1.0841395303232735, "marmousi": 0.8641855020361081},
+    "confirmation": {"aggregate": 1.9242831383722894, "layered": 2.971351697799036, "marmousi": 0.8772145789455426}
+  },
+  "bindings": {
+    "terminal_sha256": "4f1b0b1cb05f7a6453cf064a64de0c0d3d3fc9844545a55ff7f30c97b5ae5ccf",
+    "run_identity_sha256": "863acb7e2c28280a2f520dbdab8a4100eec91982026e4ee73fc948f6fa5c9bc8"
+  },
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Preserve r25 but do not promote or continue onset-phase tuning. Return the optional flag to off for accepted code paths and move to a train-only explicit source-centered spatial operator or the coarse-propagator residual priority."
+}

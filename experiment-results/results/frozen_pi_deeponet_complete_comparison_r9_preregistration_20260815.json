@@ -1,0 +1,54 @@
+{
+  "schema": "frozen_pi_deeponet_complete_comparison_preregistration_v1",
+  "status": "frozen_before_launch",
+  "role": "comparison_only",
+  "hypothesis": "The parameter-matched PI-DeepONet trained on all 2240 registered target-family training records for 100 epochs will remain far above the proposed method's relative-error target on complete validation and test_id, even when PI-DeepONet is evaluated on only 32 deterministic exact frames per record.",
+  "comparison_protocol": {
+    "checkpoint_selection": "frozen train-only best at epoch 96 and global step 13440",
+    "checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "training_records": 2240,
+    "completed_training_epochs": 100,
+    "completed_optimizer_updates": 14000,
+    "splits": [
+      "complete validation target families, 480 records",
+      "complete test_id target families, 480 records"
+    ],
+    "frames_per_record": 32,
+    "frame_policy": "validation_fixed deterministic exact stored frames",
+    "target_families": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "excluded_for_both_methods": [
+      "anomaly"
+    ],
+    "future_truth_used_for_training_or_checkpoint_selection": false,
+    "post_validation_tuning": false
+  },
+  "primary_metrics": [
+    "global energy relative L2",
+    "mean per-record relative L2",
+    "family relative L2",
+    "maximum instance relative L2"
+  ],
+  "runtime_accounting": "Exclude disk I/O; include inference synchronization and CPU materialization of all 32 requested fields. This deliberately favors PI-DeepONet because the proposed method runtime materializes all 401 fields.",
+  "train_smoke": {
+    "sample_id": "train_uniform_00000",
+    "relative_l2": 0.5491418746869854,
+    "runtime_s": 0.5523741655051708,
+    "artifact_sha256": "816b574bf4eb5839a119db3a38c7a64cca9395acc7107fb3dd6812cee78b49b5"
+  },
+  "compute_budget": "Four RTX 4090 D workers, expected roughly two to six minutes per complete split.",
+  "failure_policy": "Preserve any completed worker artifacts. Do not optimize PI-DeepONet; it remains a frozen comparator regardless of accuracy.",
+  "bindings": {
+    "training_config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "evaluation_script_sha256": "3426d33ca9674634a5d061791f890bec999aba439c1c5e82446f404fe12e9916",
+    "aggregation_script_sha256": "b687f56b7eb6ed7a503018164927bff5bff1515058c93904950533cda00a996e",
+    "launcher_sha256": "7b0fde7b87c4698edc396cd23c6ecaa3c5f8d5f4748b3ff9d921c298aac7ab18"
+  }
+}

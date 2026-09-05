@@ -1,0 +1,6 @@
+{
+ "launched_utc": "2026-08-27T03:08:16Z",
+ "runner_sha256": "a96da5d6aa75342da3bfd67c4494c2cdec206315de00a200a715fa0f713b297c",
+ "implementation_note": "fp16 storage uses an exact power-of-two exponent shift (x*2^30 at store, /2^30 at load) because fields are ~1e-8, below the fp16 subnormal floor; discovered in smoke (numeric explosion), fidelity-checked at 1.14e-4 max relative deviation on parent_rel over 24 fp32 shard records, consistent with the frozen prereg's ~1e-4 disclosure.",
+ "smoke": "4-rank tiny-panel two-arm chain clean (build 40 records incl fp16 path, both terminals + chain terminal written, exit 0); fail_gate readings are the expected 2-epoch micro-budget outcome, not evidence"
+}

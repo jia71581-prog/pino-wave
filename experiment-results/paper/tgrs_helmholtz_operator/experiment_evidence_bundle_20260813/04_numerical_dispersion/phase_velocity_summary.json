@@ -1,0 +1,39 @@
+{
+  "claim": "Finite-difference dispersion is quantified; no scheme is claimed dispersion free.",
+  "highlighted_points_per_wavelength": [
+    4.0,
+    6.0,
+    10.0
+  ],
+  "maximum_absolute_phase_error_percent": {
+    "fd2": {
+      "ppw_10": 1.538729830014618,
+      "ppw_4": 9.492734194143072,
+      "ppw_6": 4.256589580556236
+    },
+    "fd4": {
+      "ppw_10": 0.04460171021525294,
+      "ppw_4": 2.372520508054843,
+      "ppw_6": 0.42743116027710304
+    },
+    "lwc84": {
+      "ppw_10": 0.0003546601269999172,
+      "ppw_4": 0.33718893318421816,
+      "ppw_6": 0.017916564720843464
+    }
+  },
+  "schemes": {
+    "fd2": {
+      "courant_axis": 0.25,
+      "label": "2nd-order (FD2)"
+    },
+    "fd4": {
+      "courant_axis": 0.2,
+      "label": "4th-order (FD4)"
+    },
+    "lwc84": {
+      "courant_axis": 0.1,
+      "label": "LWC-84 (8th/4th)"
+    }
+  }
+}

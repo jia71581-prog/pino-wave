@@ -1,0 +1,3481 @@
+{
+  "absolute_goal": {
+    "max_lte_0p05": false,
+    "mean_lte_0p05": true,
+    "passed": false
+  },
+  "aggregate": {
+    "candidate_max": 0.0689438710429713,
+    "candidate_mean": 0.021016626546109772,
+    "candidate_median": 0.015120174555777802,
+    "count": 56,
+    "max_relative_improvement": 0.6159042867634026,
+    "mean_relative_improvement": 0.5387403255276254,
+    "parent_max": 0.17949659073779578,
+    "parent_mean": 0.04556354632593941
+  },
+  "checkpoint_aggregation": "arithmetic_mean_of_corrections",
+  "checkpoints": [
+    {
+      "epoch": 10,
+      "global_step": 16320,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r28_expanded_tail_spectral_v1_20260828/best.pt",
+      "sha256": "fb29350348c6d9ab2c39ad3825d0e9b659b55d79b6f56e2a8ad2ba13827781e0"
+    }
+  ],
+  "per_family": {
+    "layered": {
+      "candidate_max": 0.05170016115503259,
+      "candidate_mean": 0.019350464288910414,
+      "candidate_median": 0.01312024264671596,
+      "count": 20,
+      "max_relative_improvement": 0.535447980777246,
+      "mean_relative_improvement": 0.5685300838294619,
+      "parent_max": 0.1112903593477703,
+      "parent_mean": 0.04484777168395249
+    },
+    "marmousi": {
+      "candidate_max": 0.0689438710429713,
+      "candidate_mean": 0.03370455177998569,
+      "candidate_median": 0.03296019432076282,
+      "count": 20,
+      "max_relative_improvement": 0.6159042867634026,
+      "mean_relative_improvement": 0.5327942940314148,
+      "parent_max": 0.17949659073779578,
+      "parent_mean": 0.07214071093183946
+    },
+    "uniform": {
+      "candidate_max": 0.013065300983557935,
+      "candidate_mean": 0.007239422825264075,
+      "candidate_median": 0.006340071066324572,
+      "count": 16,
+      "max_relative_improvement": 0.6174825738419365,
+      "mean_relative_improvement": 0.45308397999925976,
+      "parent_max": 0.03415609352698903,
+      "parent_mean": 0.01323680887104802
+    }
+  },
+  "records": [
+    {
+      "candidate_rel_l2": 0.008346713205858601,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.008310454919187289,
+      "family": "uniform",
+      "first_half_rel_l2": 0.008326920223155272,
+      "odd_time_rel_l2": 0.00838288447851889,
+      "parent_rel_l2": 0.010900920229357866,
+      "sample_id": "train_uniform_00357",
+      "second_half_rel_l2": 0.00836853259443427,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.6408589328909151e-06,
+          "frame_index": 42,
+          "record_error_fraction": 0.023552676283619366,
+          "time_s": 0.10499999672174454
+        },
+        {
+          "frame_error_over_record_target": 1.5308358144741044e-06,
+          "frame_index": 41,
+          "record_error_fraction": 0.0219734187131834,
+          "time_s": 0.10249999910593033
+        },
+        {
+          "frame_error_over_record_target": 1.4125784259539086e-06,
+          "frame_index": 43,
+          "record_error_fraction": 0.020275967497767097,
+          "time_s": 0.10750000178813934
+        },
+        {
+          "frame_error_over_record_target": 8.059910777104552e-07,
+          "frame_index": 44,
+          "record_error_fraction": 0.011569091382739764,
+          "time_s": 0.10999999940395355
+        },
+        {
+          "frame_error_over_record_target": 5.6596437575402e-07,
+          "frame_index": 52,
+          "record_error_fraction": 0.008123779237201086,
+          "time_s": 0.12999999523162842
+        },
+        {
+          "frame_error_over_record_target": 5.361747855644073e-07,
+          "frame_index": 51,
+          "record_error_fraction": 0.007696183323686761,
+          "time_s": 0.1274999976158142
+        },
+        {
+          "frame_error_over_record_target": 5.213616797993587e-07,
+          "frame_index": 53,
+          "record_error_fraction": 0.0074835579249728544,
+          "time_s": 0.13249999284744263
+        },
+        {
+          "frame_error_over_record_target": 3.972320479909122e-07,
+          "frame_index": 45,
+          "record_error_fraction": 0.005701817291097437,
+          "time_s": 0.11249999701976776
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.003715189790484837,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.0037342053131031038,
+      "family": "uniform",
+      "first_half_rel_l2": 0.0031733192824913207,
+      "odd_time_rel_l2": 0.003696076432924612,
+      "parent_rel_l2": 0.003958003392631022,
+      "sample_id": "train_uniform_00186",
+      "second_half_rel_l2": 0.008043057954506638,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 4.409235267371428e-07,
+          "frame_index": 62,
+          "record_error_fraction": 0.03194488016300499,
+          "time_s": 0.1550000011920929
+        },
+        {
+          "frame_error_over_record_target": 4.0007961852969296e-07,
+          "frame_index": 61,
+          "record_error_fraction": 0.02898574173205982,
+          "time_s": 0.1525000035762787
+        },
+        {
+          "frame_error_over_record_target": 3.348917866762812e-07,
+          "frame_index": 60,
+          "record_error_fraction": 0.02426288765336423,
+          "time_s": 0.15000000596046448
+        },
+        {
+          "frame_error_over_record_target": 2.598550396777093e-07,
+          "frame_index": 59,
+          "record_error_fraction": 0.018826480327973082,
+          "time_s": 0.14749999344348907
+        },
+        {
+          "frame_error_over_record_target": 2.1676307349268745e-07,
+          "frame_index": 65,
+          "record_error_fraction": 0.01570447024618983,
+          "time_s": 0.16249999403953552
+        },
+        {
+          "frame_error_over_record_target": 2.159985225110384e-07,
+          "frame_index": 66,
+          "record_error_fraction": 0.015649078578460006,
+          "time_s": 0.16500000655651093
+        },
+        {
+          "frame_error_over_record_target": 2.0216429139156063e-07,
+          "frame_index": 64,
+          "record_error_fraction": 0.014646789454698888,
+          "time_s": 0.1599999964237213
+        },
+        {
+          "frame_error_over_record_target": 1.9081542444673813e-07,
+          "frame_index": 63,
+          "record_error_fraction": 0.013824564799958769,
+          "time_s": 0.1574999988079071
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.006065372199579329,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.006028267212275821,
+      "family": "uniform",
+      "first_half_rel_l2": 0.0053615728183299665,
+      "odd_time_rel_l2": 0.00610225189810736,
+      "parent_rel_l2": 0.009484390512616967,
+      "sample_id": "train_uniform_00243",
+      "second_half_rel_l2": 0.007254540200951038,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.1546345789075894e-06,
+          "frame_index": 47,
+          "record_error_fraction": 0.0313855430068094,
+          "time_s": 0.11749999970197678
+        },
+        {
+          "frame_error_over_record_target": 1.0339139048333762e-06,
+          "frame_index": 46,
+          "record_error_fraction": 0.028104085845226782,
+          "time_s": 0.11500000208616257
+        },
+        {
+          "frame_error_over_record_target": 8.125899145877776e-07,
+          "frame_index": 45,
+          "record_error_fraction": 0.022088006177091495,
+          "time_s": 0.11249999701976776
+        },
+        {
+          "frame_error_over_record_target": 5.474911076132121e-07,
+          "frame_index": 44,
+          "record_error_fraction": 0.014882029360403764,
+          "time_s": 0.10999999940395355
+        },
+        {
+          "frame_error_over_record_target": 3.0605055954916193e-07,
+          "frame_index": 43,
+          "record_error_fraction": 0.008319136785316282,
+          "time_s": 0.10750000178813934
+        },
+        {
+          "frame_error_over_record_target": 2.8809973366277314e-07,
+          "frame_index": 48,
+          "record_error_fraction": 0.007831193302454338,
+          "time_s": 0.11999999731779099
+        },
+        {
+          "frame_error_over_record_target": 2.74024221549525e-07,
+          "frame_index": 49,
+          "record_error_fraction": 0.00744858949095999,
+          "time_s": 0.12250000238418579
+        },
+        {
+          "frame_error_over_record_target": 2.230405779175063e-07,
+          "frame_index": 50,
+          "record_error_fraction": 0.0060627403495195145,
+          "time_s": 0.125
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.004613521275815103,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.004589130969713376,
+      "family": "uniform",
+      "first_half_rel_l2": 0.004227059798383911,
+      "odd_time_rel_l2": 0.004637783332621035,
+      "parent_rel_l2": 0.005345761375107274,
+      "sample_id": "train_uniform_00037",
+      "second_half_rel_l2": 0.0121135440643406,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 6.371555619220844e-07,
+          "frame_index": 41,
+          "record_error_fraction": 0.029935079994850577,
+          "time_s": 0.10249999910593033
+        },
+        {
+          "frame_error_over_record_target": 5.425036529417307e-07,
+          "frame_index": 40,
+          "record_error_fraction": 0.025488108742736337,
+          "time_s": 0.10000000149011612
+        },
+        {
+          "frame_error_over_record_target": 3.8521366821031014e-07,
+          "frame_index": 39,
+          "record_error_fraction": 0.018098252078658932,
+          "time_s": 0.09749999642372131
+        },
+        {
+          "frame_error_over_record_target": 2.6430639742755875e-07,
+          "frame_index": 167,
+          "record_error_fraction": 0.012417741636401624,
+          "time_s": 0.41749998927116394
+        },
+        {
+          "frame_error_over_record_target": 2.6340940973155406e-07,
+          "frame_index": 166,
+          "record_error_fraction": 0.012375599026277818,
+          "time_s": 0.41499999165534973
+        },
+        {
+          "frame_error_over_record_target": 2.4199628847317373e-07,
+          "frame_index": 165,
+          "record_error_fraction": 0.011369559785444136,
+          "time_s": 0.4124999940395355
+        },
+        {
+          "frame_error_over_record_target": 2.4113594346073717e-07,
+          "frame_index": 168,
+          "record_error_fraction": 0.01132913873553167,
+          "time_s": 0.41999998688697815
+        },
+        {
+          "frame_error_over_record_target": 2.1810176729763627e-07,
+          "frame_index": 38,
+          "record_error_fraction": 0.01024693848920905,
+          "time_s": 0.0949999988079071
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.02960667152321827,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.029412867591438907,
+      "family": "layered",
+      "first_half_rel_l2": 0.02506071730429368,
+      "odd_time_rel_l2": 0.029799315478789917,
+      "parent_rel_l2": 0.0830231453728146,
+      "sample_id": "train_layered_00548",
+      "second_half_rel_l2": 0.0391372552654116,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.9904143270208842e-05,
+          "frame_index": 21,
+          "record_error_fraction": 0.022707238336553203,
+          "time_s": 0.05249999836087227
+        },
+        {
+          "frame_error_over_record_target": 7.4331326164368265e-06,
+          "frame_index": 20,
+          "record_error_fraction": 0.008479938654846074,
+          "time_s": 0.05000000074505806
+        },
+        {
+          "frame_error_over_record_target": 4.428850320594915e-06,
+          "frame_index": 17,
+          "record_error_fraction": 0.005052564102931802,
+          "time_s": 0.042500000447034836
+        },
+        {
+          "frame_error_over_record_target": 4.424629443042057e-06,
+          "frame_index": 16,
+          "record_error_fraction": 0.0050477488003447465,
+          "time_s": 0.03999999910593033
+        },
+        {
+          "frame_error_over_record_target": 3.3569765394619946e-06,
+          "frame_index": 54,
+          "record_error_fraction": 0.0038297386296386573,
+          "time_s": 0.13500000536441803
+        },
+        {
+          "frame_error_over_record_target": 3.309370758267e-06,
+          "frame_index": 64,
+          "record_error_fraction": 0.0037754285392661412,
+          "time_s": 0.1599999964237213
+        },
+        {
+          "frame_error_over_record_target": 3.305313012486941e-06,
+          "frame_index": 65,
+          "record_error_fraction": 0.0037707993422549414,
+          "time_s": 0.16249999403953552
+        },
+        {
+          "frame_error_over_record_target": 3.2840405080155026e-06,
+          "frame_index": 63,
+          "record_error_fraction": 0.003746531036782516,
+          "time_s": 0.1574999988079071
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.03297635196180234,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.03299938373620965,
+      "family": "layered",
+      "first_half_rel_l2": 0.019322048692127215,
+      "odd_time_rel_l2": 0.03295330265691879,
+      "parent_rel_l2": 0.09334167136931967,
+      "sample_id": "train_layered_00768",
+      "second_half_rel_l2": 0.07483050693467828,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 5.995527800009766e-06,
+          "frame_index": 131,
+          "record_error_fraction": 0.00551343427219033,
+          "time_s": 0.32749998569488525
+        },
+        {
+          "frame_error_over_record_target": 5.7102344623689945e-06,
+          "frame_index": 130,
+          "record_error_fraction": 0.005251081045277825,
+          "time_s": 0.32499998807907104
+        },
+        {
+          "frame_error_over_record_target": 5.659874400584735e-06,
+          "frame_index": 245,
+          "record_error_fraction": 0.005204770378418686,
+          "time_s": 0.612500011920929
+        },
+        {
+          "frame_error_over_record_target": 5.640814203021631e-06,
+          "frame_index": 232,
+          "record_error_fraction": 0.0051872427895250164,
+          "time_s": 0.5799999833106995
+        },
+        {
+          "frame_error_over_record_target": 5.566794162038605e-06,
+          "frame_index": 246,
+          "record_error_fraction": 0.005119174615312885,
+          "time_s": 0.6150000095367432
+        },
+        {
+          "frame_error_over_record_target": 5.542078038498981e-06,
+          "frame_index": 250,
+          "record_error_fraction": 0.005096445886976602,
+          "time_s": 0.625
+        },
+        {
+          "frame_error_over_record_target": 5.453921647152646e-06,
+          "frame_index": 249,
+          "record_error_fraction": 0.005015378050153175,
+          "time_s": 0.6225000023841858
+        },
+        {
+          "frame_error_over_record_target": 5.383672869660838e-06,
+          "frame_index": 132,
+          "record_error_fraction": 0.004950777896451582,
+          "time_s": 0.33000001311302185
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.01067059753105708,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.010488465975723475,
+      "family": "layered",
+      "first_half_rel_l2": 0.010170141842136928,
+      "odd_time_rel_l2": 0.010849672397501339,
+      "parent_rel_l2": 0.020075707633313677,
+      "sample_id": "train_layered_00816",
+      "second_half_rel_l2": 0.020401578107070002,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 8.742545235017405e-06,
+          "frame_index": 23,
+          "record_error_fraction": 0.07678217474282531,
+          "time_s": 0.057500001043081284
+        },
+        {
+          "frame_error_over_record_target": 5.565447722879327e-06,
+          "frame_index": 22,
+          "record_error_fraction": 0.04887903557748409,
+          "time_s": 0.054999999701976776
+        },
+        {
+          "frame_error_over_record_target": 1.7401244672492102e-06,
+          "frame_index": 21,
+          "record_error_fraction": 0.01528279663723452,
+          "time_s": 0.05249999836087227
+        },
+        {
+          "frame_error_over_record_target": 1.6701294696587784e-06,
+          "frame_index": 17,
+          "record_error_fraction": 0.014668059396346628,
+          "time_s": 0.042500000447034836
+        },
+        {
+          "frame_error_over_record_target": 1.6204509018456011e-06,
+          "frame_index": 29,
+          "record_error_fraction": 0.014231752992174267,
+          "time_s": 0.07249999791383743
+        },
+        {
+          "frame_error_over_record_target": 1.5725354613998383e-06,
+          "frame_index": 30,
+          "record_error_fraction": 0.01381093140963902,
+          "time_s": 0.07500000298023224
+        },
+        {
+          "frame_error_over_record_target": 1.559450050423178e-06,
+          "frame_index": 18,
+          "record_error_fraction": 0.01369600763341796,
+          "time_s": 0.04500000178813934
+        },
+        {
+          "frame_error_over_record_target": 1.5265116614343326e-06,
+          "frame_index": 24,
+          "record_error_fraction": 0.013406723326491107,
+          "time_s": 0.05999999865889549
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.009413341424842096,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.009441189211787574,
+      "family": "layered",
+      "first_half_rel_l2": 0.007072666874891467,
+      "odd_time_rel_l2": 0.009385410207550945,
+      "parent_rel_l2": 0.017753804065186805,
+      "sample_id": "train_layered_00040",
+      "second_half_rel_l2": 0.02340425789227296,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.9130419851829293e-06,
+          "frame_index": 38,
+          "record_error_fraction": 0.02158921640299976,
+          "time_s": 0.0949999988079071
+        },
+        {
+          "frame_error_over_record_target": 1.4575141818936538e-06,
+          "frame_index": 37,
+          "record_error_fraction": 0.016448457131135227,
+          "time_s": 0.0925000011920929
+        },
+        {
+          "frame_error_over_record_target": 9.151180768323517e-07,
+          "frame_index": 39,
+          "record_error_fraction": 0.010327364662172548,
+          "time_s": 0.09749999642372131
+        },
+        {
+          "frame_error_over_record_target": 8.864039095260465e-07,
+          "frame_index": 36,
+          "record_error_fraction": 0.01000331721490835,
+          "time_s": 0.09000000357627869
+        },
+        {
+          "frame_error_over_record_target": 6.937092431355344e-07,
+          "frame_index": 215,
+          "record_error_fraction": 0.007828703753923168,
+          "time_s": 0.5375000238418579
+        },
+        {
+          "frame_error_over_record_target": 6.575304816362007e-07,
+          "frame_index": 214,
+          "record_error_fraction": 0.007420416263501497,
+          "time_s": 0.5350000262260437
+        },
+        {
+          "frame_error_over_record_target": 6.329649077326392e-07,
+          "frame_index": 216,
+          "record_error_fraction": 0.007143186858618802,
+          "time_s": 0.5400000214576721
+        },
+        {
+          "frame_error_over_record_target": 6.278403201144358e-07,
+          "frame_index": 40,
+          "record_error_fraction": 0.0070853544472433945,
+          "time_s": 0.10000000149011612
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.033653754694602245,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.03366942136524487,
+      "family": "layered",
+      "first_half_rel_l2": 0.009082224450592242,
+      "odd_time_rel_l2": 0.03363807329427142,
+      "parent_rel_l2": 0.057323695721493366,
+      "sample_id": "train_layered_00236",
+      "second_half_rel_l2": 0.08311058235664848,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 2.052795595545257e-05,
+          "frame_index": 321,
+          "record_error_fraction": 0.01812502680971784,
+          "time_s": 0.8025000095367432
+        },
+        {
+          "frame_error_over_record_target": 1.9450261584697335e-05,
+          "frame_index": 322,
+          "record_error_fraction": 0.017173483489720007,
+          "time_s": 0.8050000071525574
+        },
+        {
+          "frame_error_over_record_target": 1.9236841535520956e-05,
+          "frame_index": 320,
+          "record_error_fraction": 0.01698504562861744,
+          "time_s": 0.800000011920929
+        },
+        {
+          "frame_error_over_record_target": 1.6022530033033448e-05,
+          "frame_index": 333,
+          "record_error_fraction": 0.014146989940861748,
+          "time_s": 0.8324999809265137
+        },
+        {
+          "frame_error_over_record_target": 1.5692428988505202e-05,
+          "frame_index": 319,
+          "record_error_fraction": 0.013855529344639985,
+          "time_s": 0.7975000143051147
+        },
+        {
+          "frame_error_over_record_target": 1.5178376196704968e-05,
+          "frame_index": 323,
+          "record_error_fraction": 0.013401649735135331,
+          "time_s": 0.8075000047683716
+        },
+        {
+          "frame_error_over_record_target": 1.5172844741789375e-05,
+          "frame_index": 332,
+          "record_error_fraction": 0.01339676577255964,
+          "time_s": 0.8299999833106995
+        },
+        {
+          "frame_error_over_record_target": 1.4080639068732387e-05,
+          "frame_index": 334,
+          "record_error_fraction": 0.012432409791435976,
+          "time_s": 0.8349999785423279
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.02916324527820262,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.02918379062644031,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.02223929755263562,
+      "odd_time_rel_l2": 0.029142660433938698,
+      "parent_rel_l2": 0.026129704393654758,
+      "sample_id": "train_marmousi_00275",
+      "second_half_rel_l2": 0.03283866026664132,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 4.816752696047112e-06,
+          "frame_index": 267,
+          "record_error_fraction": 0.005663470570778183,
+          "time_s": 0.6675000190734863
+        },
+        {
+          "frame_error_over_record_target": 4.739136329875043e-06,
+          "frame_index": 268,
+          "record_error_fraction": 0.005572210331076237,
+          "time_s": 0.6700000166893005
+        },
+        {
+          "frame_error_over_record_target": 4.735434877825411e-06,
+          "frame_index": 266,
+          "record_error_fraction": 0.0055678582154342115,
+          "time_s": 0.6650000214576721
+        },
+        {
+          "frame_error_over_record_target": 4.561724281963231e-06,
+          "frame_index": 394,
+          "record_error_fraction": 0.005363611722085037,
+          "time_s": 0.9850000143051147
+        },
+        {
+          "frame_error_over_record_target": 4.5373619590350305e-06,
+          "frame_index": 395,
+          "record_error_fraction": 0.005334966842921346,
+          "time_s": 0.987500011920929
+        },
+        {
+          "frame_error_over_record_target": 4.533363720078226e-06,
+          "frame_index": 338,
+          "record_error_fraction": 0.005330265769377465,
+          "time_s": 0.8450000286102295
+        },
+        {
+          "frame_error_over_record_target": 4.528652698549463e-06,
+          "frame_index": 269,
+          "record_error_fraction": 0.005324726616037011,
+          "time_s": 0.6725000143051147
+        },
+        {
+          "frame_error_over_record_target": 4.518372946391774e-06,
+          "frame_index": 393,
+          "record_error_fraction": 0.005312639826971061,
+          "time_s": 0.9825000166893005
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.02109376819787907,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.021259735455440118,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.01756469825131051,
+      "odd_time_rel_l2": 0.02092607903654119,
+      "parent_rel_l2": 0.04948843478680308,
+      "sample_id": "train_marmousi_00279",
+      "second_half_rel_l2": 0.02348977600448059,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.1987261572902157e-05,
+          "frame_index": 38,
+          "record_error_fraction": 0.02694087170616216,
+          "time_s": 0.0949999988079071
+        },
+        {
+          "frame_error_over_record_target": 9.286725459650483e-06,
+          "frame_index": 37,
+          "record_error_fraction": 0.020871529135926,
+          "time_s": 0.0925000011920929
+        },
+        {
+          "frame_error_over_record_target": 5.885846259582983e-06,
+          "frame_index": 36,
+          "record_error_fraction": 0.013228194612860967,
+          "time_s": 0.09000000357627869
+        },
+        {
+          "frame_error_over_record_target": 3.3866067525902103e-06,
+          "frame_index": 369,
+          "record_error_fraction": 0.007611257791104183,
+          "time_s": 0.9225000143051147
+        },
+        {
+          "frame_error_over_record_target": 3.38468132665981e-06,
+          "frame_index": 368,
+          "record_error_fraction": 0.00760693047642475,
+          "time_s": 0.9200000166893005
+        },
+        {
+          "frame_error_over_record_target": 3.3751729472258415e-06,
+          "frame_index": 393,
+          "record_error_fraction": 0.007585560789202513,
+          "time_s": 0.9825000166893005
+        },
+        {
+          "frame_error_over_record_target": 3.356255069335559e-06,
+          "frame_index": 382,
+          "record_error_fraction": 0.007543043645641796,
+          "time_s": 0.9549999833106995
+        },
+        {
+          "frame_error_over_record_target": 3.3526321376615834e-06,
+          "frame_index": 392,
+          "record_error_fraction": 0.0075349012574211695,
+          "time_s": 0.9800000190734863
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.039303818242728016,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.03941328088111994,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.02451142245614445,
+      "odd_time_rel_l2": 0.039193997685935594,
+      "parent_rel_l2": 0.08772773191784133,
+      "sample_id": "train_marmousi_00653",
+      "second_half_rel_l2": 0.05247900265235876,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 9.820960116294154e-06,
+          "frame_index": 342,
+          "record_error_fraction": 0.006357472083344547,
+          "time_s": 0.8550000190734863
+        },
+        {
+          "frame_error_over_record_target": 9.788132932179816e-06,
+          "frame_index": 341,
+          "record_error_fraction": 0.00633622182836841,
+          "time_s": 0.8525000214576721
+        },
+        {
+          "frame_error_over_record_target": 9.746092248211827e-06,
+          "frame_index": 343,
+          "record_error_fraction": 0.00630900733288871,
+          "time_s": 0.8575000166893005
+        },
+        {
+          "frame_error_over_record_target": 9.531996598906111e-06,
+          "frame_index": 340,
+          "record_error_fraction": 0.006170415270859217,
+          "time_s": 0.8500000238418579
+        },
+        {
+          "frame_error_over_record_target": 9.513936580445487e-06,
+          "frame_index": 344,
+          "record_error_fraction": 0.006158724350437128,
+          "time_s": 0.8600000143051147
+        },
+        {
+          "frame_error_over_record_target": 9.395161435475921e-06,
+          "frame_index": 345,
+          "record_error_fraction": 0.006081836789608284,
+          "time_s": 0.862500011920929
+        },
+        {
+          "frame_error_over_record_target": 9.320456511858637e-06,
+          "frame_index": 350,
+          "record_error_fraction": 0.006033477519153932,
+          "time_s": 0.875
+        },
+        {
+          "frame_error_over_record_target": 9.281881054409502e-06,
+          "frame_index": 379,
+          "record_error_fraction": 0.0060085061934453355,
+          "time_s": 0.9474999904632568
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.022421445305233628,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.02264965670690278,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.020151422381894133,
+      "odd_time_rel_l2": 0.02219026174154211,
+      "parent_rel_l2": 0.050530722241473223,
+      "sample_id": "train_marmousi_00397",
+      "second_half_rel_l2": 0.02411921580192939,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.8418940350958124e-05,
+          "frame_index": 32,
+          "record_error_fraction": 0.03663847874353285,
+          "time_s": 0.07999999821186066
+        },
+        {
+          "frame_error_over_record_target": 1.2658656806383115e-05,
+          "frame_index": 31,
+          "record_error_fraction": 0.02518027201810333,
+          "time_s": 0.07750000059604645
+        },
+        {
+          "frame_error_over_record_target": 6.375945085563417e-06,
+          "frame_index": 30,
+          "record_error_fraction": 0.012682864705362718,
+          "time_s": 0.07500000298023224
+        },
+        {
+          "frame_error_over_record_target": 3.4366486569423264e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.006836092433505401,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 3.151885266206559e-06,
+          "frame_index": 24,
+          "record_error_fraction": 0.006269648477468265,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 2.8738483109510194e-06,
+          "frame_index": 26,
+          "record_error_fraction": 0.005716584572545157,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 2.765193183398095e-06,
+          "frame_index": 377,
+          "record_error_fraction": 0.005500450609061391,
+          "time_s": 0.9424999952316284
+        },
+        {
+          "frame_error_over_record_target": 2.724772696217554e-06,
+          "frame_index": 378,
+          "record_error_fraction": 0.005420047223625026,
+          "time_s": 0.9449999928474426
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.038893871717639146,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.039063737471089675,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.029776632393963998,
+      "odd_time_rel_l2": 0.038723119290956606,
+      "parent_rel_l2": 0.10113622938420137,
+      "sample_id": "train_marmousi_00266",
+      "second_half_rel_l2": 0.04575636061402685,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.8467600258660253e-05,
+          "frame_index": 24,
+          "record_error_fraction": 0.012208100913301366,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 7.087426798886277e-06,
+          "frame_index": 379,
+          "record_error_fraction": 0.004685179469155192,
+          "time_s": 0.9474999904632568
+        },
+        {
+          "frame_error_over_record_target": 7.076512296321434e-06,
+          "frame_index": 380,
+          "record_error_fraction": 0.00467796438182041,
+          "time_s": 0.949999988079071
+        },
+        {
+          "frame_error_over_record_target": 7.030847235803076e-06,
+          "frame_index": 344,
+          "record_error_fraction": 0.004647777261717532,
+          "time_s": 0.8600000143051147
+        },
+        {
+          "frame_error_over_record_target": 6.933334614804085e-06,
+          "frame_index": 378,
+          "record_error_fraction": 0.004583316048522387,
+          "time_s": 0.9449999928474426
+        },
+        {
+          "frame_error_over_record_target": 6.870227396412403e-06,
+          "frame_index": 345,
+          "record_error_fraction": 0.004541598701401333,
+          "time_s": 0.862500011920929
+        },
+        {
+          "frame_error_over_record_target": 6.855118234745391e-06,
+          "frame_index": 353,
+          "record_error_fraction": 0.004531610713370253,
+          "time_s": 0.8824999928474426
+        },
+        {
+          "frame_error_over_record_target": 6.849028415064814e-06,
+          "frame_index": 343,
+          "record_error_fraction": 0.004527585007151633,
+          "time_s": 0.8575000166893005
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.005394032214359056,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.005364663896697505,
+      "family": "uniform",
+      "first_half_rel_l2": 0.005388813240777586,
+      "odd_time_rel_l2": 0.005423241544366288,
+      "parent_rel_l2": 0.006017817048333636,
+      "sample_id": "train_uniform_00102",
+      "second_half_rel_l2": 0.005401686089324916,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 9.667375715999897e-07,
+          "frame_index": 73,
+          "record_error_fraction": 0.033226265100281545,
+          "time_s": 0.18250000476837158
+        },
+        {
+          "frame_error_over_record_target": 9.069869350873792e-07,
+          "frame_index": 72,
+          "record_error_fraction": 0.031172666950172595,
+          "time_s": 0.18000000715255737
+        },
+        {
+          "frame_error_over_record_target": 7.932022708908718e-07,
+          "frame_index": 71,
+          "record_error_fraction": 0.027261947507788084,
+          "time_s": 0.17749999463558197
+        },
+        {
+          "frame_error_over_record_target": 6.636977021229041e-07,
+          "frame_index": 70,
+          "record_error_fraction": 0.02281094316080633,
+          "time_s": 0.17499999701976776
+        },
+        {
+          "frame_error_over_record_target": 5.178071396227384e-07,
+          "frame_index": 69,
+          "record_error_fraction": 0.017796760772883766,
+          "time_s": 0.17249999940395355
+        },
+        {
+          "frame_error_over_record_target": 3.7570474575551667e-07,
+          "frame_index": 68,
+          "record_error_fraction": 0.012912775761105845,
+          "time_s": 0.17000000178813934
+        },
+        {
+          "frame_error_over_record_target": 3.663713381494456e-07,
+          "frame_index": 75,
+          "record_error_fraction": 0.01259199141950314,
+          "time_s": 0.1875
+        },
+        {
+          "frame_error_over_record_target": 3.5198744368142266e-07,
+          "frame_index": 76,
+          "record_error_fraction": 0.012097624483936519,
+          "time_s": 0.1899999976158142
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.010260228521389345,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.010161489157506177,
+      "family": "uniform",
+      "first_half_rel_l2": 0.009922110129815311,
+      "odd_time_rel_l2": 0.010358138480802918,
+      "parent_rel_l2": 0.02561672894007038,
+      "sample_id": "train_uniform_00369",
+      "second_half_rel_l2": 0.010725181395274404,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 4.9531032804396144e-06,
+          "frame_index": 31,
+          "record_error_fraction": 0.04705039961466743,
+          "time_s": 0.07750000059604645
+        },
+        {
+          "frame_error_over_record_target": 3.48680752277302e-06,
+          "frame_index": 30,
+          "record_error_fraction": 0.033121798201498104,
+          "time_s": 0.07500000298023224
+        },
+        {
+          "frame_error_over_record_target": 1.7656673337603299e-06,
+          "frame_index": 29,
+          "record_error_fraction": 0.016772384692251865,
+          "time_s": 0.07249999791383743
+        },
+        {
+          "frame_error_over_record_target": 1.176930686050702e-06,
+          "frame_index": 33,
+          "record_error_fraction": 0.01117987168087789,
+          "time_s": 0.08250000327825546
+        },
+        {
+          "frame_error_over_record_target": 1.0849316070907994e-06,
+          "frame_index": 32,
+          "record_error_fraction": 0.01030595624157363,
+          "time_s": 0.07999999821186066
+        },
+        {
+          "frame_error_over_record_target": 1.0757280094847612e-06,
+          "frame_index": 34,
+          "record_error_fraction": 0.010218529648438213,
+          "time_s": 0.08500000089406967
+        },
+        {
+          "frame_error_over_record_target": 9.193713380581292e-07,
+          "frame_index": 24,
+          "record_error_fraction": 0.00873327011385622,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 8.373321537276318e-07,
+          "frame_index": 23,
+          "record_error_fraction": 0.007953965466191235,
+          "time_s": 0.057500001043081284
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0075063558923271125,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.007511049043365329,
+      "family": "uniform",
+      "first_half_rel_l2": 0.0062775151184800175,
+      "odd_time_rel_l2": 0.00750165847311234,
+      "parent_rel_l2": 0.009740331112386001,
+      "sample_id": "train_uniform_00384",
+      "second_half_rel_l2": 0.008811447983328556,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.214732253659195e-06,
+          "frame_index": 54,
+          "record_error_fraction": 0.021558684667878122,
+          "time_s": 0.13500000536441803
+        },
+        {
+          "frame_error_over_record_target": 1.1181649995053914e-06,
+          "frame_index": 55,
+          "record_error_fraction": 0.019844839517826826,
+          "time_s": 0.13750000298023224
+        },
+        {
+          "frame_error_over_record_target": 1.02781386331331e-06,
+          "frame_index": 53,
+          "record_error_fraction": 0.01824131606755045,
+          "time_s": 0.13249999284744263
+        },
+        {
+          "frame_error_over_record_target": 7.985849347546434e-07,
+          "frame_index": 52,
+          "record_error_fraction": 0.014173033388247897,
+          "time_s": 0.12999999523162842
+        },
+        {
+          "frame_error_over_record_target": 7.908155448952957e-07,
+          "frame_index": 56,
+          "record_error_fraction": 0.014035144709047253,
+          "time_s": 0.14000000059604645
+        },
+        {
+          "frame_error_over_record_target": 5.510223288582778e-07,
+          "frame_index": 57,
+          "record_error_fraction": 0.009779370389672975,
+          "time_s": 0.14249999821186066
+        },
+        {
+          "frame_error_over_record_target": 5.465393945299192e-07,
+          "frame_index": 51,
+          "record_error_fraction": 0.009699808686029428,
+          "time_s": 0.1274999976158142
+        },
+        {
+          "frame_error_over_record_target": 4.6128806598731367e-07,
+          "frame_index": 336,
+          "record_error_fraction": 0.008186795012414276,
+          "time_s": 0.8399999737739563
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.006614769933069814,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.0065476258888269336,
+      "family": "uniform",
+      "first_half_rel_l2": 0.0064084287196563994,
+      "odd_time_rel_l2": 0.006681239187440262,
+      "parent_rel_l2": 0.008934824198754155,
+      "sample_id": "train_uniform_00149",
+      "second_half_rel_l2": 0.007228596908771365,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 2.0254862083580784e-06,
+          "frame_index": 43,
+          "record_error_fraction": 0.046291345383252226,
+          "time_s": 0.10750000178813934
+        },
+        {
+          "frame_error_over_record_target": 1.6313398488521821e-06,
+          "frame_index": 42,
+          "record_error_fraction": 0.03728335254471824,
+          "time_s": 0.10499999672174454
+        },
+        {
+          "frame_error_over_record_target": 1.1144149296444435e-06,
+          "frame_index": 41,
+          "record_error_fraction": 0.02546932494309221,
+          "time_s": 0.10249999910593033
+        },
+        {
+          "frame_error_over_record_target": 6.13145450527905e-07,
+          "frame_index": 40,
+          "record_error_fraction": 0.014013093598679919,
+          "time_s": 0.10000000149011612
+        },
+        {
+          "frame_error_over_record_target": 4.59158383365631e-07,
+          "frame_index": 45,
+          "record_error_fraction": 0.010493805992006318,
+          "time_s": 0.11249999701976776
+        },
+        {
+          "frame_error_over_record_target": 4.291217049160301e-07,
+          "frame_index": 44,
+          "record_error_fraction": 0.009807334639825008,
+          "time_s": 0.10999999940395355
+        },
+        {
+          "frame_error_over_record_target": 4.113295457632324e-07,
+          "frame_index": 33,
+          "record_error_fraction": 0.009400704873077,
+          "time_s": 0.08250000327825546
+        },
+        {
+          "frame_error_over_record_target": 4.033103255596161e-07,
+          "frame_index": 46,
+          "record_error_fraction": 0.009217430116320756,
+          "time_s": 0.11500000208616257
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.011903726008483459,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.012025546953843516,
+      "family": "layered",
+      "first_half_rel_l2": 0.009856800416691968,
+      "odd_time_rel_l2": 0.011780607233924958,
+      "parent_rel_l2": 0.03266682487520783,
+      "sample_id": "train_layered_00549",
+      "second_half_rel_l2": 0.016653068035510116,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 5.899065859128494e-06,
+          "frame_index": 34,
+          "record_error_fraction": 0.04163105346295727,
+          "time_s": 0.08500000089406967
+        },
+        {
+          "frame_error_over_record_target": 4.864523512546997e-06,
+          "frame_index": 33,
+          "record_error_fraction": 0.03433005212329933,
+          "time_s": 0.08250000327825546
+        },
+        {
+          "frame_error_over_record_target": 3.1195271369936646e-06,
+          "frame_index": 32,
+          "record_error_fraction": 0.02201521463239193,
+          "time_s": 0.07999999821186066
+        },
+        {
+          "frame_error_over_record_target": 1.4044585077708955e-06,
+          "frame_index": 31,
+          "record_error_fraction": 0.009911584074457738,
+          "time_s": 0.07750000059604645
+        },
+        {
+          "frame_error_over_record_target": 1.0920449776802995e-06,
+          "frame_index": 26,
+          "record_error_fraction": 0.00770681052482419,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 1.0695460763750263e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.007548030645862811,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 9.72819485188843e-07,
+          "frame_index": 43,
+          "record_error_fraction": 0.006865409026588921,
+          "time_s": 0.10750000178813934
+        },
+        {
+          "frame_error_over_record_target": 9.143243770305437e-07,
+          "frame_index": 44,
+          "record_error_fraction": 0.006452595704409908,
+          "time_s": 0.10999999940395355
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.020916782593333585,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.021023862120842528,
+      "family": "layered",
+      "first_half_rel_l2": 0.014321927243461978,
+      "odd_time_rel_l2": 0.020809145932842655,
+      "parent_rel_l2": 0.07479774730321916,
+      "sample_id": "train_layered_00769",
+      "second_half_rel_l2": 0.04508215982830574,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 8.183274346962753e-06,
+          "frame_index": 26,
+          "record_error_fraction": 0.018704122855944496,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 5.721585811744658e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.013077557884078612,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 3.0012045576513405e-06,
+          "frame_index": 133,
+          "record_error_fraction": 0.006859711208749328,
+          "time_s": 0.33250001072883606
+        },
+        {
+          "frame_error_over_record_target": 2.78272098119003e-06,
+          "frame_index": 134,
+          "record_error_fraction": 0.006360333638980422,
+          "time_s": 0.33500000834465027
+        },
+        {
+          "frame_error_over_record_target": 2.690974080962319e-06,
+          "frame_index": 139,
+          "record_error_fraction": 0.006150632091561557,
+          "time_s": 0.3474999964237213
+        },
+        {
+          "frame_error_over_record_target": 2.445889743406889e-06,
+          "frame_index": 24,
+          "record_error_fraction": 0.0055904544211885804,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 2.4361534906133066e-06,
+          "frame_index": 140,
+          "record_error_fraction": 0.005568200729000528,
+          "time_s": 0.3499999940395355
+        },
+        {
+          "frame_error_over_record_target": 2.2097863615066028e-06,
+          "frame_index": 132,
+          "record_error_fraction": 0.005050804096082959,
+          "time_s": 0.33000001311302185
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0050928209119807805,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.005119738105990877,
+      "family": "layered",
+      "first_half_rel_l2": 0.004646907738705318,
+      "odd_time_rel_l2": 0.005065760671705365,
+      "parent_rel_l2": 0.0056135797382719285,
+      "sample_id": "train_layered_00817",
+      "second_half_rel_l2": 0.007127224882200106,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 8.720127407804125e-07,
+          "frame_index": 64,
+          "record_error_fraction": 0.03362064347155021,
+          "time_s": 0.1599999964237213
+        },
+        {
+          "frame_error_over_record_target": 8.38214915000503e-07,
+          "frame_index": 63,
+          "record_error_fraction": 0.0323175608472723,
+          "time_s": 0.1574999988079071
+        },
+        {
+          "frame_error_over_record_target": 7.458365224221199e-07,
+          "frame_index": 62,
+          "record_error_fraction": 0.028755891554948496,
+          "time_s": 0.1550000011920929
+        },
+        {
+          "frame_error_over_record_target": 6.182969941516117e-07,
+          "frame_index": 61,
+          "record_error_fraction": 0.023838576924115326,
+          "time_s": 0.1525000035762787
+        },
+        {
+          "frame_error_over_record_target": 4.705128981828838e-07,
+          "frame_index": 60,
+          "record_error_fraction": 0.018140728522401277,
+          "time_s": 0.15000000596046448
+        },
+        {
+          "frame_error_over_record_target": 3.745975818391205e-07,
+          "frame_index": 67,
+          "record_error_fraction": 0.014442692354525305,
+          "time_s": 0.16750000417232513
+        },
+        {
+          "frame_error_over_record_target": 3.676614401672012e-07,
+          "frame_index": 66,
+          "record_error_fraction": 0.014175267883168318,
+          "time_s": 0.16500000655651093
+        },
+        {
+          "frame_error_over_record_target": 3.523636456963311e-07,
+          "frame_index": 68,
+          "record_error_fraction": 0.013585458044672288,
+          "time_s": 0.17000000178813934
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.013524669396557895,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.013725250025201448,
+      "family": "layered",
+      "first_half_rel_l2": 0.01113760058698804,
+      "odd_time_rel_l2": 0.013321066661917848,
+      "parent_rel_l2": 0.032627497877710625,
+      "sample_id": "train_layered_00041",
+      "second_half_rel_l2": 0.048567173873717166,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.0685886839540082e-05,
+          "frame_index": 20,
+          "record_error_fraction": 0.058419421924682885,
+          "time_s": 0.05000000074505806
+        },
+        {
+          "frame_error_over_record_target": 5.616611511141311e-06,
+          "frame_index": 19,
+          "record_error_fraction": 0.030705846186044498,
+          "time_s": 0.04749999940395355
+        },
+        {
+          "frame_error_over_record_target": 2.0993507822931773e-06,
+          "frame_index": 15,
+          "record_error_fraction": 0.011477087579188394,
+          "time_s": 0.03750000149011612
+        },
+        {
+          "frame_error_over_record_target": 1.6992648035392712e-06,
+          "frame_index": 16,
+          "record_error_fraction": 0.00928982956776254,
+          "time_s": 0.03999999910593033
+        },
+        {
+          "frame_error_over_record_target": 1.6029564786602523e-06,
+          "frame_index": 21,
+          "record_error_fraction": 0.008763314852563759,
+          "time_s": 0.05249999836087227
+        },
+        {
+          "frame_error_over_record_target": 1.4179904498431726e-06,
+          "frame_index": 14,
+          "record_error_fraction": 0.007752111136722885,
+          "time_s": 0.03500000014901161
+        },
+        {
+          "frame_error_over_record_target": 1.293753654458564e-06,
+          "frame_index": 26,
+          "record_error_fraction": 0.007072912313346956,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 1.0550654837862394e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.005768011263923398,
+          "time_s": 0.0625
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.016715679714997708,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.01673070610133242,
+      "family": "layered",
+      "first_half_rel_l2": 0.006023782539505993,
+      "odd_time_rel_l2": 0.016700633046192227,
+      "parent_rel_l2": 0.02746022607188471,
+      "sample_id": "train_layered_00237",
+      "second_half_rel_l2": 0.03285885586733256,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.9829565769680802e-06,
+          "frame_index": 347,
+          "record_error_fraction": 0.007096841760365511,
+          "time_s": 0.8675000071525574
+        },
+        {
+          "frame_error_over_record_target": 1.956747242124605e-06,
+          "frame_index": 348,
+          "record_error_fraction": 0.007003040663463542,
+          "time_s": 0.8700000047683716
+        },
+        {
+          "frame_error_over_record_target": 1.912061182992536e-06,
+          "frame_index": 346,
+          "record_error_fraction": 0.006843112859578136,
+          "time_s": 0.8650000095367432
+        },
+        {
+          "frame_error_over_record_target": 1.8031103714892318e-06,
+          "frame_index": 349,
+          "record_error_fraction": 0.00645318668676976,
+          "time_s": 0.8725000023841858
+        },
+        {
+          "frame_error_over_record_target": 1.786629636236379e-06,
+          "frame_index": 345,
+          "record_error_fraction": 0.006394203463666203,
+          "time_s": 0.862500011920929
+        },
+        {
+          "frame_error_over_record_target": 1.779842484951683e-06,
+          "frame_index": 362,
+          "record_error_fraction": 0.006369912796270553,
+          "time_s": 0.9049999713897705
+        },
+        {
+          "frame_error_over_record_target": 1.7781482139608984e-06,
+          "frame_index": 361,
+          "record_error_fraction": 0.006363849136954744,
+          "time_s": 0.9024999737739563
+        },
+        {
+          "frame_error_over_record_target": 1.7511704436937504e-06,
+          "frame_index": 234,
+          "record_error_fraction": 0.0062672978716082385,
+          "time_s": 0.5849999785423279
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0367410171358587,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.03686585443194661,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.029459248480364165,
+      "odd_time_rel_l2": 0.03661560969887852,
+      "parent_rel_l2": 0.08069350773607192,
+      "sample_id": "train_marmousi_00276",
+      "second_half_rel_l2": 0.04240264336391901,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.232520529255658e-05,
+          "frame_index": 26,
+          "record_error_fraction": 0.009130442199941862,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 8.223056462410077e-06,
+          "frame_index": 367,
+          "record_error_fraction": 0.00609159360471147,
+          "time_s": 0.9175000190734863
+        },
+        {
+          "frame_error_over_record_target": 8.125310747362517e-06,
+          "frame_index": 366,
+          "record_error_fraction": 0.006019184133197619,
+          "time_s": 0.9150000214576721
+        },
+        {
+          "frame_error_over_record_target": 8.11872607795369e-06,
+          "frame_index": 386,
+          "record_error_fraction": 0.0060143062474329635,
+          "time_s": 0.9649999737739563
+        },
+        {
+          "frame_error_over_record_target": 8.030936957575719e-06,
+          "frame_index": 385,
+          "record_error_fraction": 0.005949272564798981,
+          "time_s": 0.9624999761581421
+        },
+        {
+          "frame_error_over_record_target": 7.947647392397425e-06,
+          "frame_index": 387,
+          "record_error_fraction": 0.005887572127145585,
+          "time_s": 0.9674999713897705
+        },
+        {
+          "frame_error_over_record_target": 7.933136338707944e-06,
+          "frame_index": 368,
+          "record_error_fraction": 0.005876822420846406,
+          "time_s": 0.9200000166893005
+        },
+        {
+          "frame_error_over_record_target": 7.831979071965413e-06,
+          "frame_index": 396,
+          "record_error_fraction": 0.0058018856911795525,
+          "time_s": 0.9900000095367432
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.026142962284903117,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.026143610417725942,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.019871529867937044,
+      "odd_time_rel_l2": 0.0261423135959379,
+      "parent_rel_l2": 0.04957449120469276,
+      "sample_id": "train_marmousi_00650",
+      "second_half_rel_l2": 0.030982563793979952,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 3.856135266010541e-06,
+          "frame_index": 293,
+          "record_error_fraction": 0.005642124524179581,
+          "time_s": 0.7325000166893005
+        },
+        {
+          "frame_error_over_record_target": 3.8123938575310437e-06,
+          "frame_index": 294,
+          "record_error_fraction": 0.005578124053117356,
+          "time_s": 0.7350000143051147
+        },
+        {
+          "frame_error_over_record_target": 3.7431677877831643e-06,
+          "frame_index": 389,
+          "record_error_fraction": 0.005476835566357098,
+          "time_s": 0.9725000262260437
+        },
+        {
+          "frame_error_over_record_target": 3.6860524549315756e-06,
+          "frame_index": 390,
+          "record_error_fraction": 0.005393266967758111,
+          "time_s": 0.9750000238418579
+        },
+        {
+          "frame_error_over_record_target": 3.653231142364963e-06,
+          "frame_index": 388,
+          "record_error_fraction": 0.005345244292262231,
+          "time_s": 0.9700000286102295
+        },
+        {
+          "frame_error_over_record_target": 3.6203195473698224e-06,
+          "frame_index": 292,
+          "record_error_fraction": 0.005297089519557885,
+          "time_s": 0.7300000190734863
+        },
+        {
+          "frame_error_over_record_target": 3.6155218293772607e-06,
+          "frame_index": 295,
+          "record_error_fraction": 0.005290069713332587,
+          "time_s": 0.737500011920929
+        },
+        {
+          "frame_error_over_record_target": 3.612347971420679e-06,
+          "frame_index": 367,
+          "record_error_fraction": 0.005285425866429463,
+          "time_s": 0.9175000190734863
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.01731440732902699,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.01725368543123624,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.015100971136999422,
+      "odd_time_rel_l2": 0.017375008811368314,
+      "parent_rel_l2": 0.05270146870134422,
+      "sample_id": "train_marmousi_00654",
+      "second_half_rel_l2": 0.01889718205392765,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 6.7710533040464135e-06,
+          "frame_index": 49,
+          "record_error_fraction": 0.022586085726209883,
+          "time_s": 0.12250000238418579
+        },
+        {
+          "frame_error_over_record_target": 5.632596089573107e-06,
+          "frame_index": 48,
+          "record_error_fraction": 0.018788553630819372,
+          "time_s": 0.11999999731779099
+        },
+        {
+          "frame_error_over_record_target": 4.28769248432384e-06,
+          "frame_index": 47,
+          "record_error_fraction": 0.01430238187029051,
+          "time_s": 0.11749999970197678
+        },
+        {
+          "frame_error_over_record_target": 3.004948771645715e-06,
+          "frame_index": 46,
+          "record_error_fraction": 0.01002355579134191,
+          "time_s": 0.11500000208616257
+        },
+        {
+          "frame_error_over_record_target": 2.40272670565148e-06,
+          "frame_index": 400,
+          "record_error_fraction": 0.008014734032305912,
+          "time_s": 1.0
+        },
+        {
+          "frame_error_over_record_target": 2.352518098011925e-06,
+          "frame_index": 399,
+          "record_error_fraction": 0.007847254045748587,
+          "time_s": 0.9975000023841858
+        },
+        {
+          "frame_error_over_record_target": 2.303174985262581e-06,
+          "frame_index": 398,
+          "record_error_fraction": 0.007682661075569383,
+          "time_s": 0.9950000047683716
+        },
+        {
+          "frame_error_over_record_target": 2.251404534077387e-06,
+          "frame_index": 397,
+          "record_error_fraction": 0.007509971274433924,
+          "time_s": 0.9925000071525574
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.026636549676302166,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.026535293597655336,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.028948453469314142,
+      "odd_time_rel_l2": 0.02673757056124857,
+      "parent_rel_l2": 0.058570059801232165,
+      "sample_id": "train_marmousi_00398",
+      "second_half_rel_l2": 0.024394569357473583,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 9.149886745154738e-06,
+          "frame_index": 27,
+          "record_error_fraction": 0.012896141258299404,
+          "time_s": 0.06750000268220901
+        },
+        {
+          "frame_error_over_record_target": 4.800121772413986e-06,
+          "frame_index": 26,
+          "record_error_fraction": 0.006765444224418366,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 4.296570988275596e-06,
+          "frame_index": 41,
+          "record_error_fraction": 0.006055723741111301,
+          "time_s": 0.10249999910593033
+        },
+        {
+          "frame_error_over_record_target": 4.112000251505235e-06,
+          "frame_index": 49,
+          "record_error_fraction": 0.005795583877107038,
+          "time_s": 0.12250000238418579
+        },
+        {
+          "frame_error_over_record_target": 4.092072989493998e-06,
+          "frame_index": 59,
+          "record_error_fraction": 0.005767497760530333,
+          "time_s": 0.14749999344348907
+        },
+        {
+          "frame_error_over_record_target": 3.9189452205671665e-06,
+          "frame_index": 68,
+          "record_error_fraction": 0.005523485979182664,
+          "time_s": 0.17000000178813934
+        },
+        {
+          "frame_error_over_record_target": 3.863559186207655e-06,
+          "frame_index": 40,
+          "record_error_fraction": 0.00544542314160541,
+          "time_s": 0.10000000149011612
+        },
+        {
+          "frame_error_over_record_target": 3.858900934751081e-06,
+          "frame_index": 48,
+          "record_error_fraction": 0.005438857653914267,
+          "time_s": 0.11999999731779099
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0689438710429713,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.06899328510766839,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.04470538420056931,
+      "odd_time_rel_l2": 0.06889440647388745,
+      "parent_rel_l2": 0.15131704478648472,
+      "sample_id": "train_marmousi_00267",
+      "second_half_rel_l2": 0.08609189855402599,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 3.1114963008396477e-05,
+          "frame_index": 329,
+          "record_error_fraction": 0.006546029530603965,
+          "time_s": 0.8224999904632568
+        },
+        {
+          "frame_error_over_record_target": 3.026226381864813e-05,
+          "frame_index": 328,
+          "record_error_fraction": 0.006366636931766278,
+          "time_s": 0.8199999928474426
+        },
+        {
+          "frame_error_over_record_target": 3.0113711607680037e-05,
+          "frame_index": 330,
+          "record_error_fraction": 0.006335384213915666,
+          "time_s": 0.824999988079071
+        },
+        {
+          "frame_error_over_record_target": 2.9735032696974223e-05,
+          "frame_index": 334,
+          "record_error_fraction": 0.006255716970492356,
+          "time_s": 0.8349999785423279
+        },
+        {
+          "frame_error_over_record_target": 2.9421125230429584e-05,
+          "frame_index": 331,
+          "record_error_fraction": 0.006189676475913469,
+          "time_s": 0.8274999856948853
+        },
+        {
+          "frame_error_over_record_target": 2.914444886447465e-05,
+          "frame_index": 333,
+          "record_error_fraction": 0.0061314687363936615,
+          "time_s": 0.8324999809265137
+        },
+        {
+          "frame_error_over_record_target": 2.8856195499419258e-05,
+          "frame_index": 350,
+          "record_error_fraction": 0.006070825404134537,
+          "time_s": 0.875
+        },
+        {
+          "frame_error_over_record_target": 2.872460180851159e-05,
+          "frame_index": 335,
+          "record_error_fraction": 0.006043140454405035,
+          "time_s": 0.8374999761581421
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.013065300983557935,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.012837135127228571,
+      "family": "uniform",
+      "first_half_rel_l2": 0.013033810681096835,
+      "odd_time_rel_l2": 0.013289549978069227,
+      "parent_rel_l2": 0.03181112320900252,
+      "sample_id": "train_uniform_00003",
+      "second_half_rel_l2": 0.013263702643409417,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.2848586738020269e-05,
+          "frame_index": 21,
+          "record_error_fraction": 0.0752690652689403,
+          "time_s": 0.05249999836087227
+        },
+        {
+          "frame_error_over_record_target": 7.39608415946004e-06,
+          "frame_index": 20,
+          "record_error_fraction": 0.04332743769286721,
+          "time_s": 0.05000000074505806
+        },
+        {
+          "frame_error_over_record_target": 2.352731945651341e-06,
+          "frame_index": 16,
+          "record_error_fraction": 0.013782678047658778,
+          "time_s": 0.03999999910593033
+        },
+        {
+          "frame_error_over_record_target": 2.0925621262657377e-06,
+          "frame_index": 22,
+          "record_error_fraction": 0.012258561853743374,
+          "time_s": 0.054999999701976776
+        },
+        {
+          "frame_error_over_record_target": 1.868990347646427e-06,
+          "frame_index": 19,
+          "record_error_fraction": 0.010948842805235564,
+          "time_s": 0.04749999940395355
+        },
+        {
+          "frame_error_over_record_target": 1.7862795261094483e-06,
+          "frame_index": 15,
+          "record_error_fraction": 0.010464309653718406,
+          "time_s": 0.03750000149011612
+        },
+        {
+          "frame_error_over_record_target": 1.7066230274241658e-06,
+          "frame_index": 17,
+          "record_error_fraction": 0.009997669211396764,
+          "time_s": 0.042500000447034836
+        },
+        {
+          "frame_error_over_record_target": 1.4546323139026002e-06,
+          "frame_index": 27,
+          "record_error_fraction": 0.008521467520895195,
+          "time_s": 0.06750000268220901
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0072699988152597934,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.007324652652192773,
+      "family": "uniform",
+      "first_half_rel_l2": 0.006551538431092953,
+      "odd_time_rel_l2": 0.0072149238664101665,
+      "parent_rel_l2": 0.009575003913547054,
+      "sample_id": "train_uniform_00303",
+      "second_half_rel_l2": 0.00830397897826365,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.9558182186886172e-06,
+          "frame_index": 58,
+          "record_error_fraction": 0.03700494875665005,
+          "time_s": 0.14499999582767487
+        },
+        {
+          "frame_error_over_record_target": 1.7654326253599265e-06,
+          "frame_index": 57,
+          "record_error_fraction": 0.03340276883122914,
+          "time_s": 0.14249999821186066
+        },
+        {
+          "frame_error_over_record_target": 1.4670823350522669e-06,
+          "frame_index": 56,
+          "record_error_fraction": 0.02775784892053864,
+          "time_s": 0.14000000059604645
+        },
+        {
+          "frame_error_over_record_target": 1.1160319170868095e-06,
+          "frame_index": 55,
+          "record_error_fraction": 0.021115819204442336,
+          "time_s": 0.13750000298023224
+        },
+        {
+          "frame_error_over_record_target": 7.510074689910771e-07,
+          "frame_index": 54,
+          "record_error_fraction": 0.01420939463612841,
+          "time_s": 0.13500000536441803
+        },
+        {
+          "frame_error_over_record_target": 4.5017883222899554e-07,
+          "frame_index": 60,
+          "record_error_fraction": 0.008517583310545267,
+          "time_s": 0.15000000596046448
+        },
+        {
+          "frame_error_over_record_target": 4.476129961743531e-07,
+          "frame_index": 59,
+          "record_error_fraction": 0.008469036553585578,
+          "time_s": 0.14749999344348907
+        },
+        {
+          "frame_error_over_record_target": 4.358702211469324e-07,
+          "frame_index": 53,
+          "record_error_fraction": 0.008246858038221335,
+          "time_s": 0.13249999284744263
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0051959972565198366,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.005151753703544554,
+      "family": "uniform",
+      "first_half_rel_l2": 0.004793430209667211,
+      "odd_time_rel_l2": 0.0052398672247248625,
+      "parent_rel_l2": 0.006379396915018256,
+      "sample_id": "train_uniform_00048",
+      "second_half_rel_l2": 0.008577930586578386,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.1917546623540338e-06,
+          "frame_index": 47,
+          "record_error_fraction": 0.044141697825693146,
+          "time_s": 0.11749999970197678
+        },
+        {
+          "frame_error_over_record_target": 9.82075858692128e-07,
+          "frame_index": 46,
+          "record_error_fraction": 0.03637535238223213,
+          "time_s": 0.11500000208616257
+        },
+        {
+          "frame_error_over_record_target": 7.131283374614319e-07,
+          "frame_index": 45,
+          "record_error_fraction": 0.026413738143874873,
+          "time_s": 0.11249999701976776
+        },
+        {
+          "frame_error_over_record_target": 4.3382472936295473e-07,
+          "frame_index": 44,
+          "record_error_fraction": 0.01606854222414097,
+          "time_s": 0.10999999940395355
+        },
+        {
+          "frame_error_over_record_target": 3.5043929910939987e-07,
+          "frame_index": 49,
+          "record_error_fraction": 0.012980008500222228,
+          "time_s": 0.12250000238418579
+        },
+        {
+          "frame_error_over_record_target": 3.4366088373003654e-07,
+          "frame_index": 48,
+          "record_error_fraction": 0.01272894108436512,
+          "time_s": 0.11999999731779099
+        },
+        {
+          "frame_error_over_record_target": 3.2431151897314935e-07,
+          "frame_index": 50,
+          "record_error_fraction": 0.012012255142872321,
+          "time_s": 0.125
+        },
+        {
+          "frame_error_over_record_target": 2.591139722828756e-07,
+          "frame_index": 51,
+          "record_error_fraction": 0.009597386969171283,
+          "time_s": 0.1274999976158142
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.011641557838342274,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.012083565764535151,
+      "family": "uniform",
+      "first_half_rel_l2": 0.011836082662594154,
+      "odd_time_rel_l2": 0.011182091522621434,
+      "parent_rel_l2": 0.03415609352698903,
+      "sample_id": "train_uniform_00315",
+      "second_half_rel_l2": 0.01088870790624181,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 2.134505170458358e-05,
+          "frame_index": 24,
+          "record_error_fraction": 0.15749798822383573,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 1.2389189844096814e-05,
+          "frame_index": 23,
+          "record_error_fraction": 0.09141568280902379,
+          "time_s": 0.057500001043081284
+        },
+        {
+          "frame_error_over_record_target": 4.036003115441203e-06,
+          "frame_index": 18,
+          "record_error_fraction": 0.029780315360427183,
+          "time_s": 0.04500000178813934
+        },
+        {
+          "frame_error_over_record_target": 3.917877065709568e-06,
+          "frame_index": 19,
+          "record_error_fraction": 0.02890870279902186,
+          "time_s": 0.04749999940395355
+        },
+        {
+          "frame_error_over_record_target": 3.753419614998725e-06,
+          "frame_index": 22,
+          "record_error_fraction": 0.027695226345843888,
+          "time_s": 0.054999999701976776
+        },
+        {
+          "frame_error_over_record_target": 3.0461236276878142e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.022476326123815435,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 2.832163175537475e-06,
+          "frame_index": 17,
+          "record_error_fraction": 0.020897583601214548,
+          "time_s": 0.042500000447034836
+        },
+        {
+          "frame_error_over_record_target": 2.239325250256237e-06,
+          "frame_index": 31,
+          "record_error_fraction": 0.01652323108772134,
+          "time_s": 0.07750000059604645
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.012715815896874021,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.01275810210331149,
+      "family": "layered",
+      "first_half_rel_l2": 0.011621554586793922,
+      "odd_time_rel_l2": 0.012673353094936744,
+      "parent_rel_l2": 0.028366539540307344,
+      "sample_id": "train_layered_00550",
+      "second_half_rel_l2": 0.014696060331040735,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 2.5688835683957247e-06,
+          "frame_index": 40,
+          "record_error_fraction": 0.015887514426758002,
+          "time_s": 0.10000000149011612
+        },
+        {
+          "frame_error_over_record_target": 1.949097647494707e-06,
+          "frame_index": 39,
+          "record_error_fraction": 0.012054387117696736,
+          "time_s": 0.09749999642372131
+        },
+        {
+          "frame_error_over_record_target": 1.2098395243544459e-06,
+          "frame_index": 38,
+          "record_error_fraction": 0.007482372161089061,
+          "time_s": 0.0949999988079071
+        },
+        {
+          "frame_error_over_record_target": 1.148512616848042e-06,
+          "frame_index": 83,
+          "record_error_fraction": 0.007103089837926039,
+          "time_s": 0.20749999582767487
+        },
+        {
+          "frame_error_over_record_target": 1.1348874953821575e-06,
+          "frame_index": 82,
+          "record_error_fraction": 0.007018823927038238,
+          "time_s": 0.20499999821186066
+        },
+        {
+          "frame_error_over_record_target": 1.0020124020893143e-06,
+          "frame_index": 81,
+          "record_error_fraction": 0.006197044774561808,
+          "time_s": 0.20250000059604645
+        },
+        {
+          "frame_error_over_record_target": 9.897368444798417e-07,
+          "frame_index": 84,
+          "record_error_fraction": 0.006121125374781931,
+          "time_s": 0.20999999344348907
+        },
+        {
+          "frame_error_over_record_target": 8.534823199682049e-07,
+          "frame_index": 73,
+          "record_error_fraction": 0.00527844579579207,
+          "time_s": 0.18250000476837158
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.044436609199493764,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.04452562671152223,
+      "family": "layered",
+      "first_half_rel_l2": 0.026211844815133507,
+      "odd_time_rel_l2": 0.04434740744880942,
+      "parent_rel_l2": 0.1112903593477703,
+      "sample_id": "train_layered_00770",
+      "second_half_rel_l2": 0.10426050107970485,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.0475911129434897e-05,
+          "frame_index": 20,
+          "record_error_fraction": 0.005305300419166236,
+          "time_s": 0.05000000074505806
+        },
+        {
+          "frame_error_over_record_target": 9.428304765395763e-06,
+          "frame_index": 244,
+          "record_error_fraction": 0.004774762653659453,
+          "time_s": 0.6100000143051147
+        },
+        {
+          "frame_error_over_record_target": 9.115376452247035e-06,
+          "frame_index": 243,
+          "record_error_fraction": 0.00461628682369062,
+          "time_s": 0.6075000166893005
+        },
+        {
+          "frame_error_over_record_target": 9.021934623243045e-06,
+          "frame_index": 235,
+          "record_error_fraction": 0.004568965214290019,
+          "time_s": 0.5874999761581421
+        },
+        {
+          "frame_error_over_record_target": 8.929645173391615e-06,
+          "frame_index": 261,
+          "record_error_fraction": 0.004522227202585654,
+          "time_s": 0.6524999737739563
+        },
+        {
+          "frame_error_over_record_target": 8.850364414305747e-06,
+          "frame_index": 248,
+          "record_error_fraction": 0.004482077163203565,
+          "time_s": 0.6200000047683716
+        },
+        {
+          "frame_error_over_record_target": 8.8472578256559e-06,
+          "frame_index": 234,
+          "record_error_fraction": 0.004480503898037169,
+          "time_s": 0.5849999785423279
+        },
+        {
+          "frame_error_over_record_target": 8.81542457421147e-06,
+          "frame_index": 253,
+          "record_error_fraction": 0.004464382630860986,
+          "time_s": 0.6324999928474426
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.005634148806199926,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.005617464287253883,
+      "family": "layered",
+      "first_half_rel_l2": 0.005077685615075203,
+      "odd_time_rel_l2": 0.005650784044267079,
+      "parent_rel_l2": 0.0064205767346208805,
+      "sample_id": "train_layered_00818",
+      "second_half_rel_l2": 0.010118132676742518,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 4.629249372655355e-07,
+          "frame_index": 49,
+          "record_error_fraction": 0.014583237546054915,
+          "time_s": 0.12250000238418579
+        },
+        {
+          "frame_error_over_record_target": 3.948586728049232e-07,
+          "frame_index": 48,
+          "record_error_fraction": 0.01243898817948357,
+          "time_s": 0.11999999731779099
+        },
+        {
+          "frame_error_over_record_target": 2.9702324677634955e-07,
+          "frame_index": 47,
+          "record_error_fraction": 0.009356939356143167,
+          "time_s": 0.11749999970197678
+        },
+        {
+          "frame_error_over_record_target": 2.4767801754721437e-07,
+          "frame_index": 174,
+          "record_error_fraction": 0.0078024471659757615,
+          "time_s": 0.4350000023841858
+        },
+        {
+          "frame_error_over_record_target": 2.4487615566084773e-07,
+          "frame_index": 173,
+          "record_error_fraction": 0.007714181846545184,
+          "time_s": 0.4325000047683716
+        },
+        {
+          "frame_error_over_record_target": 2.4389226505831886e-07,
+          "frame_index": 175,
+          "record_error_fraction": 0.007683186950351508,
+          "time_s": 0.4375
+        },
+        {
+          "frame_error_over_record_target": 2.362167944562185e-07,
+          "frame_index": 172,
+          "record_error_fraction": 0.00744139135444049,
+          "time_s": 0.4300000071525574
+        },
+        {
+          "frame_error_over_record_target": 2.3522664012725663e-07,
+          "frame_index": 147,
+          "record_error_fraction": 0.007410199135952976,
+          "time_s": 0.3675000071525574
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.009052966621200923,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.00908049382025986,
+      "family": "layered",
+      "first_half_rel_l2": 0.006698185445171478,
+      "odd_time_rel_l2": 0.009025354548930619,
+      "parent_rel_l2": 0.013271817033201317,
+      "sample_id": "train_layered_00042",
+      "second_half_rel_l2": 0.019862360661193068,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.5204089166005572e-06,
+          "frame_index": 50,
+          "record_error_fraction": 0.018551480308222672,
+          "time_s": 0.125
+        },
+        {
+          "frame_error_over_record_target": 1.3177252505337472e-06,
+          "frame_index": 49,
+          "record_error_fraction": 0.01607840744027089,
+          "time_s": 0.12250000238418579
+        },
+        {
+          "frame_error_over_record_target": 1.0193868860332755e-06,
+          "frame_index": 48,
+          "record_error_fraction": 0.012438190500085764,
+          "time_s": 0.11999999731779099
+        },
+        {
+          "frame_error_over_record_target": 6.767418603427056e-07,
+          "frame_index": 47,
+          "record_error_fraction": 0.008257359687134765,
+          "time_s": 0.11749999970197678
+        },
+        {
+          "frame_error_over_record_target": 5.584129928348662e-07,
+          "frame_index": 51,
+          "record_error_fraction": 0.006813553595564275,
+          "time_s": 0.1274999976158142
+        },
+        {
+          "frame_error_over_record_target": 5.211974000946599e-07,
+          "frame_index": 227,
+          "record_error_fraction": 0.006359462378168346,
+          "time_s": 0.5674999952316284
+        },
+        {
+          "frame_error_over_record_target": 5.175549240989785e-07,
+          "frame_index": 226,
+          "record_error_fraction": 0.006315018202019904,
+          "time_s": 0.5649999976158142
+        },
+        {
+          "frame_error_over_record_target": 5.063246219076638e-07,
+          "frame_index": 242,
+          "record_error_fraction": 0.0061779901119562225,
+          "time_s": 0.6050000190734863
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.027781740546122903,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.027816450223158713,
+      "family": "layered",
+      "first_half_rel_l2": 0.008272345493872837,
+      "odd_time_rel_l2": 0.027746968512842834,
+      "parent_rel_l2": 0.050100578352246135,
+      "sample_id": "train_layered_00238",
+      "second_half_rel_l2": 0.05974821819161966,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 5.62946173535336e-06,
+          "frame_index": 384,
+          "record_error_fraction": 0.007293701226697684,
+          "time_s": 0.9599999785423279
+        },
+        {
+          "frame_error_over_record_target": 5.608686129663203e-06,
+          "frame_index": 385,
+          "record_error_fraction": 0.007266783722355118,
+          "time_s": 0.9624999761581421
+        },
+        {
+          "frame_error_over_record_target": 5.5844396190254916e-06,
+          "frame_index": 386,
+          "record_error_fraction": 0.007235369208375778,
+          "time_s": 0.9649999737739563
+        },
+        {
+          "frame_error_over_record_target": 5.582649965216674e-06,
+          "frame_index": 383,
+          "record_error_fraction": 0.007233050478665127,
+          "time_s": 0.9574999809265137
+        },
+        {
+          "frame_error_over_record_target": 5.559408108122423e-06,
+          "frame_index": 387,
+          "record_error_fraction": 0.007202937624262994,
+          "time_s": 0.9674999713897705
+        },
+        {
+          "frame_error_over_record_target": 5.539431881337962e-06,
+          "frame_index": 388,
+          "record_error_fraction": 0.007177055819456044,
+          "time_s": 0.9700000286102295
+        },
+        {
+          "frame_error_over_record_target": 5.498986500062861e-06,
+          "frame_index": 382,
+          "record_error_fraction": 0.007124653557767707,
+          "time_s": 0.9549999833106995
+        },
+        {
+          "frame_error_over_record_target": 5.48503278965721e-06,
+          "frame_index": 389,
+          "record_error_fraction": 0.007106574707695145,
+          "time_s": 0.9725000262260437
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.022674283543068424,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.02271005259266698,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.0174783979554834,
+      "odd_time_rel_l2": 0.02263839175291615,
+      "parent_rel_l2": 0.04182414377352204,
+      "sample_id": "train_marmousi_00277",
+      "second_half_rel_l2": 0.0265168056970255,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 3.6719653706426063e-06,
+          "frame_index": 362,
+          "record_error_fraction": 0.007142190511262108,
+          "time_s": 0.9049999713897705
+        },
+        {
+          "frame_error_over_record_target": 3.6634068308118556e-06,
+          "frame_index": 346,
+          "record_error_fraction": 0.007125543643495284,
+          "time_s": 0.8650000095367432
+        },
+        {
+          "frame_error_over_record_target": 3.663197297523484e-06,
+          "frame_index": 363,
+          "record_error_fraction": 0.0071251360888173534,
+          "time_s": 0.9075000286102295
+        },
+        {
+          "frame_error_over_record_target": 3.646365747409919e-06,
+          "frame_index": 345,
+          "record_error_fraction": 0.007092397725195504,
+          "time_s": 0.862500011920929
+        },
+        {
+          "frame_error_over_record_target": 3.636652181533745e-06,
+          "frame_index": 347,
+          "record_error_fraction": 0.007073504263240228,
+          "time_s": 0.8675000071525574
+        },
+        {
+          "frame_error_over_record_target": 3.612586991907838e-06,
+          "frame_index": 361,
+          "record_error_fraction": 0.007026696041579957,
+          "time_s": 0.9024999737739563
+        },
+        {
+          "frame_error_over_record_target": 3.5984683775439704e-06,
+          "frame_index": 364,
+          "record_error_fraction": 0.006999234498955404,
+          "time_s": 0.9100000262260437
+        },
+        {
+          "frame_error_over_record_target": 3.5916794077295065e-06,
+          "frame_index": 348,
+          "record_error_fraction": 0.006986029549862536,
+          "time_s": 0.8700000047683716
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.027202081597062156,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.0272029687993336,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.02302844712507061,
+      "odd_time_rel_l2": 0.027201192637652638,
+      "parent_rel_l2": 0.03508373077888676,
+      "sample_id": "train_marmousi_00651",
+      "second_half_rel_l2": 0.02993368422453922,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 5.336304129929633e-06,
+          "frame_index": 346,
+          "record_error_fraction": 0.00721167746593943,
+          "time_s": 0.8650000095367432
+        },
+        {
+          "frame_error_over_record_target": 5.333716342742386e-06,
+          "frame_index": 347,
+          "record_error_fraction": 0.007208180235254948,
+          "time_s": 0.8675000071525574
+        },
+        {
+          "frame_error_over_record_target": 5.200560570035343e-06,
+          "frame_index": 345,
+          "record_error_fraction": 0.007028228631652513,
+          "time_s": 0.862500011920929
+        },
+        {
+          "frame_error_over_record_target": 5.115722623389194e-06,
+          "frame_index": 348,
+          "record_error_fraction": 0.006913575513466636,
+          "time_s": 0.8700000047683716
+        },
+        {
+          "frame_error_over_record_target": 5.0503318673678734e-06,
+          "frame_index": 400,
+          "record_error_fraction": 0.006825204043213512,
+          "time_s": 1.0
+        },
+        {
+          "frame_error_over_record_target": 5.048407837677175e-06,
+          "frame_index": 392,
+          "record_error_fraction": 0.006822603838797429,
+          "time_s": 0.9800000190734863
+        },
+        {
+          "frame_error_over_record_target": 5.0338799545632e-06,
+          "frame_index": 393,
+          "record_error_fraction": 0.006802970323778442,
+          "time_s": 0.9825000166893005
+        },
+        {
+          "frame_error_over_record_target": 5.023130722127559e-06,
+          "frame_index": 344,
+          "record_error_fraction": 0.0067884434161201105,
+          "time_s": 0.8600000143051147
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.034553264750266724,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.03453788651957101,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.030685925229769418,
+      "odd_time_rel_l2": 0.034568679415841456,
+      "parent_rel_l2": 0.0852299280531865,
+      "sample_id": "train_marmousi_00395",
+      "second_half_rel_l2": 0.03727284956870037,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 6.665665811050908e-06,
+          "frame_index": 375,
+          "record_error_fraction": 0.005582970853674561,
+          "time_s": 0.9375
+        },
+        {
+          "frame_error_over_record_target": 6.389693596127089e-06,
+          "frame_index": 380,
+          "record_error_fraction": 0.005351824427193156,
+          "time_s": 0.949999988079071
+        },
+        {
+          "frame_error_over_record_target": 6.2170571650034064e-06,
+          "frame_index": 374,
+          "record_error_fraction": 0.00520722909484871,
+          "time_s": 0.9350000023841858
+        },
+        {
+          "frame_error_over_record_target": 6.197367887055863e-06,
+          "frame_index": 381,
+          "record_error_fraction": 0.005190737919319209,
+          "time_s": 0.9524999856948853
+        },
+        {
+          "frame_error_over_record_target": 6.06664137934249e-06,
+          "frame_index": 376,
+          "record_error_fraction": 0.005081245138994635,
+          "time_s": 0.9399999976158142
+        },
+        {
+          "frame_error_over_record_target": 6.028118973677808e-06,
+          "frame_index": 384,
+          "record_error_fraction": 0.005048979874858112,
+          "time_s": 0.9599999785423279
+        },
+        {
+          "frame_error_over_record_target": 5.962190460573531e-06,
+          "frame_index": 379,
+          "record_error_fraction": 0.0049937600397327074,
+          "time_s": 0.9474999904632568
+        },
+        {
+          "frame_error_over_record_target": 5.842987516414924e-06,
+          "frame_index": 385,
+          "record_error_fraction": 0.0048939190663364164,
+          "time_s": 0.9624999761581421
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.035721342441861946,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.035319494711914305,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.03214669633365689,
+      "odd_time_rel_l2": 0.036119349853367955,
+      "parent_rel_l2": 0.17949659073779578,
+      "sample_id": "train_marmousi_00399",
+      "second_half_rel_l2": 0.03840605395115661,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 4.160921412463861e-05,
+          "frame_index": 21,
+          "record_error_fraction": 0.03260873638635374,
+          "time_s": 0.05249999836087227
+        },
+        {
+          "frame_error_over_record_target": 1.6424549231252303e-05,
+          "frame_index": 22,
+          "record_error_fraction": 0.012871759474771071,
+          "time_s": 0.054999999701976776
+        },
+        {
+          "frame_error_over_record_target": 1.5509960378797287e-05,
+          "frame_index": 23,
+          "record_error_fraction": 0.012155005087094627,
+          "time_s": 0.057500001043081284
+        },
+        {
+          "frame_error_over_record_target": 1.4734829717452638e-05,
+          "frame_index": 17,
+          "record_error_fraction": 0.011547542727314064,
+          "time_s": 0.042500000447034836
+        },
+        {
+          "frame_error_over_record_target": 1.2993633003825152e-05,
+          "frame_index": 18,
+          "record_error_fraction": 0.010182983799058716,
+          "time_s": 0.04500000178813934
+        },
+        {
+          "frame_error_over_record_target": 1.0179574610173018e-05,
+          "frame_index": 16,
+          "record_error_fraction": 0.0079776336076435,
+          "time_s": 0.03999999910593033
+        },
+        {
+          "frame_error_over_record_target": 9.192362903680168e-06,
+          "frame_index": 20,
+          "record_error_fraction": 0.007203965395643175,
+          "time_s": 0.05000000074505806
+        },
+        {
+          "frame_error_over_record_target": 7.028386546678634e-06,
+          "frame_index": 28,
+          "record_error_fraction": 0.005508078173154615,
+          "time_s": 0.07000000029802322
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0530731704413927,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.052992890016231205,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.043732949716212895,
+      "odd_time_rel_l2": 0.0531534699786571,
+      "parent_rel_l2": 0.1048958672865705,
+      "sample_id": "train_marmousi_00268",
+      "second_half_rel_l2": 0.060584254889173225,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.9769099860656318e-05,
+          "frame_index": 25,
+          "record_error_fraction": 0.007018379233458683,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 1.4211258953617228e-05,
+          "frame_index": 374,
+          "record_error_fraction": 0.0050452476554013245,
+          "time_s": 0.9350000023841858
+        },
+        {
+          "frame_error_over_record_target": 1.4117048468751677e-05,
+          "frame_index": 375,
+          "record_error_fraction": 0.005011801271134211,
+          "time_s": 0.9375
+        },
+        {
+          "frame_error_over_record_target": 1.3895996745373013e-05,
+          "frame_index": 376,
+          "record_error_fraction": 0.0049333240093561645,
+          "time_s": 0.9399999976158142
+        },
+        {
+          "frame_error_over_record_target": 1.378777712613384e-05,
+          "frame_index": 369,
+          "record_error_fraction": 0.0048949041352255975,
+          "time_s": 0.9225000143051147
+        },
+        {
+          "frame_error_over_record_target": 1.374492740869389e-05,
+          "frame_index": 377,
+          "record_error_fraction": 0.0048796917295440105,
+          "time_s": 0.9424999952316284
+        },
+        {
+          "frame_error_over_record_target": 1.3623862256180534e-05,
+          "frame_index": 378,
+          "record_error_fraction": 0.004836711464469511,
+          "time_s": 0.9449999928474426
+        },
+        {
+          "frame_error_over_record_target": 1.3613985892061276e-05,
+          "frame_index": 368,
+          "record_error_fraction": 0.0048332051809601324,
+          "time_s": 0.9200000166893005
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.009950045232187609,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.010166240763485969,
+      "family": "uniform",
+      "first_half_rel_l2": 0.009842532745511608,
+      "odd_time_rel_l2": 0.009729046802009879,
+      "parent_rel_l2": 0.025615018099054244,
+      "sample_id": "train_uniform_00085",
+      "second_half_rel_l2": 0.010586058774131343,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 6.961446960732944e-06,
+          "frame_index": 22,
+          "record_error_fraction": 0.07031523111442382,
+          "time_s": 0.054999999701976776
+        },
+        {
+          "frame_error_over_record_target": 2.75176876967412e-06,
+          "frame_index": 21,
+          "record_error_fraction": 0.027794689538612454,
+          "time_s": 0.05249999836087227
+        },
+        {
+          "frame_error_over_record_target": 1.6704908418554368e-06,
+          "frame_index": 17,
+          "record_error_fraction": 0.016873065367322207,
+          "time_s": 0.042500000447034836
+        },
+        {
+          "frame_error_over_record_target": 1.4852109354836522e-06,
+          "frame_index": 18,
+          "record_error_fraction": 0.015001615435881632,
+          "time_s": 0.04500000178813934
+        },
+        {
+          "frame_error_over_record_target": 1.1823590012804312e-06,
+          "frame_index": 16,
+          "record_error_fraction": 0.011942610049922666,
+          "time_s": 0.03999999910593033
+        },
+        {
+          "frame_error_over_record_target": 1.008047016003072e-06,
+          "frame_index": 23,
+          "record_error_fraction": 0.010181943395428598,
+          "time_s": 0.057500001043081284
+        },
+        {
+          "frame_error_over_record_target": 9.790358353075915e-07,
+          "frame_index": 24,
+          "record_error_fraction": 0.009888911230275072,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 9.002554002932612e-07,
+          "frame_index": 29,
+          "record_error_fraction": 0.009093176589678995,
+          "time_s": 0.07249999791383743
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.0053017112322103835,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.00527540468110921,
+      "family": "uniform",
+      "first_half_rel_l2": 0.004989046154252802,
+      "odd_time_rel_l2": 0.005327887888502959,
+      "parent_rel_l2": 0.0082636490127448,
+      "sample_id": "train_uniform_00020",
+      "second_half_rel_l2": 0.026321590339999,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 9.850848748223975e-07,
+          "frame_index": 27,
+          "record_error_fraction": 0.035046246570896465,
+          "time_s": 0.06750000268220901
+        },
+        {
+          "frame_error_over_record_target": 6.919418354017466e-07,
+          "frame_index": 26,
+          "record_error_fraction": 0.024617131778193562,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 4.691192260396705e-07,
+          "frame_index": 28,
+          "record_error_fraction": 0.016689798500762236,
+          "time_s": 0.07000000029802322
+        },
+        {
+          "frame_error_over_record_target": 3.0351761680645836e-07,
+          "frame_index": 25,
+          "record_error_fraction": 0.010798209889404503,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 2.992844003251804e-07,
+          "frame_index": 29,
+          "record_error_fraction": 0.010647605253821604,
+          "time_s": 0.07249999791383743
+        },
+        {
+          "frame_error_over_record_target": 2.8454424826206933e-07,
+          "frame_index": 161,
+          "record_error_fraction": 0.010123196629854626,
+          "time_s": 0.4025000035762787
+        },
+        {
+          "frame_error_over_record_target": 2.747589500566052e-07,
+          "frame_index": 162,
+          "record_error_fraction": 0.009775066247951974,
+          "time_s": 0.4050000011920929
+        },
+        {
+          "frame_error_over_record_target": 2.7432058827996726e-07,
+          "frame_index": 160,
+          "record_error_fraction": 0.009759470703543601,
+          "time_s": 0.4000000059604645
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.005159504249993146,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.005179411626445042,
+      "family": "uniform",
+      "first_half_rel_l2": 0.004620948125033988,
+      "odd_time_rel_l2": 0.00513951679010755,
+      "parent_rel_l2": 0.0068324594742475145,
+      "sample_id": "train_uniform_00027",
+      "second_half_rel_l2": 0.005837563663940615,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 5.69924376661523e-07,
+          "frame_index": 62,
+          "record_error_fraction": 0.021409241635074076,
+          "time_s": 0.1550000011920929
+        },
+        {
+          "frame_error_over_record_target": 5.328751026522329e-07,
+          "frame_index": 61,
+          "record_error_fraction": 0.02001748354900077,
+          "time_s": 0.1525000035762787
+        },
+        {
+          "frame_error_over_record_target": 4.602269413722221e-07,
+          "frame_index": 60,
+          "record_error_fraction": 0.017288451237208118,
+          "time_s": 0.15000000596046448
+        },
+        {
+          "frame_error_over_record_target": 3.67667318159289e-07,
+          "frame_index": 59,
+          "record_error_fraction": 0.013811443725044826,
+          "time_s": 0.14749999344348907
+        },
+        {
+          "frame_error_over_record_target": 2.6754751300214497e-07,
+          "frame_index": 58,
+          "record_error_fraction": 0.010050437548011541,
+          "time_s": 0.14499999582767487
+        },
+        {
+          "frame_error_over_record_target": 2.031232885826392e-07,
+          "frame_index": 63,
+          "record_error_fraction": 0.007630337892283732,
+          "time_s": 0.1574999988079071
+        },
+        {
+          "frame_error_over_record_target": 1.9048698289046548e-07,
+          "frame_index": 64,
+          "record_error_fraction": 0.0071556543500160205,
+          "time_s": 0.1599999964237213
+        },
+        {
+          "frame_error_over_record_target": 1.7377048829254408e-07,
+          "frame_index": 57,
+          "record_error_fraction": 0.006527698279362004,
+          "time_s": 0.14249999821186066
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.005730466563271018,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.005807397292805209,
+      "family": "uniform",
+      "first_half_rel_l2": 0.005405987123620851,
+      "odd_time_rel_l2": 0.005652488934290524,
+      "parent_rel_l2": 0.009157420976907603,
+      "sample_id": "train_uniform_00116",
+      "second_half_rel_l2": 0.007121120061066938,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 2.0666903015060847e-06,
+          "frame_index": 40,
+          "record_error_fraction": 0.06293546362093776,
+          "time_s": 0.10000000149011612
+        },
+        {
+          "frame_error_over_record_target": 1.6342176851483528e-06,
+          "frame_index": 39,
+          "record_error_fraction": 0.04976567974282162,
+          "time_s": 0.09749999642372131
+        },
+        {
+          "frame_error_over_record_target": 1.0575061311896515e-06,
+          "frame_index": 38,
+          "record_error_fraction": 0.03220348912456973,
+          "time_s": 0.0949999988079071
+        },
+        {
+          "frame_error_over_record_target": 5.256440862787164e-07,
+          "frame_index": 37,
+          "record_error_fraction": 0.016007069005669217,
+          "time_s": 0.0925000011920929
+        },
+        {
+          "frame_error_over_record_target": 5.132218700977559e-07,
+          "frame_index": 42,
+          "record_error_fraction": 0.015628784008648363,
+          "time_s": 0.10499999672174454
+        },
+        {
+          "frame_error_over_record_target": 4.917349981392567e-07,
+          "frame_index": 41,
+          "record_error_fraction": 0.0149744594359311,
+          "time_s": 0.10249999910593033
+        },
+        {
+          "frame_error_over_record_target": 4.4572972796711387e-07,
+          "frame_index": 43,
+          "record_error_fraction": 0.01357349335737529,
+          "time_s": 0.10750000178813934
+        },
+        {
+          "frame_error_over_record_target": 4.179589621362178e-07,
+          "frame_index": 30,
+          "record_error_fraction": 0.012727809792013671,
+          "time_s": 0.07500000298023224
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.012673450563046843,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.01255954357286064,
+      "family": "layered",
+      "first_half_rel_l2": 0.010729070478123482,
+      "odd_time_rel_l2": 0.012786421506358706,
+      "parent_rel_l2": 0.0297366235574754,
+      "sample_id": "train_layered_00551",
+      "second_half_rel_l2": 0.016154755938284582,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 7.502132644179524e-06,
+          "frame_index": 39,
+          "record_error_fraction": 0.04670839975358064,
+          "time_s": 0.09749999642372131
+        },
+        {
+          "frame_error_over_record_target": 6.262651346360099e-06,
+          "frame_index": 38,
+          "record_error_fraction": 0.03899136905157706,
+          "time_s": 0.0949999988079071
+        },
+        {
+          "frame_error_over_record_target": 4.2589292884505795e-06,
+          "frame_index": 37,
+          "record_error_fraction": 0.026516162958211503,
+          "time_s": 0.0925000011920929
+        },
+        {
+          "frame_error_over_record_target": 2.2558400648807895e-06,
+          "frame_index": 36,
+          "record_error_fraction": 0.014044896901728759,
+          "time_s": 0.09000000357627869
+        },
+        {
+          "frame_error_over_record_target": 1.469165388199504e-06,
+          "frame_index": 40,
+          "record_error_fraction": 0.009147047581115095,
+          "time_s": 0.10000000149011612
+        },
+        {
+          "frame_error_over_record_target": 1.4450515404246004e-06,
+          "frame_index": 29,
+          "record_error_fraction": 0.00899691437301446,
+          "time_s": 0.07249999791383743
+        },
+        {
+          "frame_error_over_record_target": 1.4221565487657161e-06,
+          "frame_index": 30,
+          "record_error_fraction": 0.008854369782898774,
+          "time_s": 0.07500000298023224
+        },
+        {
+          "frame_error_over_record_target": 1.3252874168951475e-06,
+          "frame_index": 41,
+          "record_error_fraction": 0.008251260993732908,
+          "time_s": 0.10249999910593033
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.023077564115790296,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.023027614391925657,
+      "family": "layered",
+      "first_half_rel_l2": 0.016013298057655615,
+      "odd_time_rel_l2": 0.02312740794905525,
+      "parent_rel_l2": 0.07942701637710346,
+      "sample_id": "train_layered_00771",
+      "second_half_rel_l2": 0.050559011760837505,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 8.273080712528502e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.015534144077950594,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 5.78515033439544e-06,
+          "frame_index": 24,
+          "record_error_fraction": 0.010862623239129097,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 3.7683964688037293e-06,
+          "frame_index": 138,
+          "record_error_fraction": 0.007075818032403333,
+          "time_s": 0.3449999988079071
+        },
+        {
+          "frame_error_over_record_target": 3.6844556673925746e-06,
+          "frame_index": 132,
+          "record_error_fraction": 0.006918204617467726,
+          "time_s": 0.33000001311302185
+        },
+        {
+          "frame_error_over_record_target": 3.4594121363875263e-06,
+          "frame_index": 133,
+          "record_error_fraction": 0.006495646352183412,
+          "time_s": 0.33250001072883606
+        },
+        {
+          "frame_error_over_record_target": 3.361952962210831e-06,
+          "frame_index": 139,
+          "record_error_fraction": 0.006312649847497293,
+          "time_s": 0.3474999964237213
+        },
+        {
+          "frame_error_over_record_target": 3.0989749148477844e-06,
+          "frame_index": 137,
+          "record_error_fraction": 0.005818862947668155,
+          "time_s": 0.3425000011920929
+        },
+        {
+          "frame_error_over_record_target": 2.764689413872303e-06,
+          "frame_index": 131,
+          "record_error_fraction": 0.005191183934763186,
+          "time_s": 0.32749998569488525
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.007179000418975686,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.00716934891481669,
+      "family": "layered",
+      "first_half_rel_l2": 0.006673814314603875,
+      "odd_time_rel_l2": 0.007188638909068501,
+      "parent_rel_l2": 0.0125123341894588,
+      "sample_id": "train_layered_00819",
+      "second_half_rel_l2": 0.017939328417503925,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.0173297409089484e-06,
+          "frame_index": 27,
+          "record_error_fraction": 0.019739392542367118,
+          "time_s": 0.06750000268220901
+        },
+        {
+          "frame_error_over_record_target": 7.69390972521243e-07,
+          "frame_index": 28,
+          "record_error_fraction": 0.014928601626824634,
+          "time_s": 0.07000000029802322
+        },
+        {
+          "frame_error_over_record_target": 7.017906516239775e-07,
+          "frame_index": 26,
+          "record_error_fraction": 0.013616943059771559,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 5.265669697837805e-07,
+          "frame_index": 29,
+          "record_error_fraction": 0.010217053231059614,
+          "time_s": 0.07249999791383743
+        },
+        {
+          "frame_error_over_record_target": 3.976851037854306e-07,
+          "frame_index": 124,
+          "record_error_fraction": 0.0077163401955189755,
+          "time_s": 0.3100000023841858
+        },
+        {
+          "frame_error_over_record_target": 3.919179509432515e-07,
+          "frame_index": 123,
+          "record_error_fraction": 0.007604439314982552,
+          "time_s": 0.3075000047683716
+        },
+        {
+          "frame_error_over_record_target": 3.9124768160571185e-07,
+          "frame_index": 125,
+          "record_error_fraction": 0.00759143398442868,
+          "time_s": 0.3125
+        },
+        {
+          "frame_error_over_record_target": 3.7114500541471784e-07,
+          "frame_index": 122,
+          "record_error_fraction": 0.007201378921129745,
+          "time_s": 0.3050000071525574
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.008283432694595846,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.008366930669833211,
+      "family": "layered",
+      "first_half_rel_l2": 0.006717733854385475,
+      "odd_time_rel_l2": 0.008199083221294647,
+      "parent_rel_l2": 0.019101351977122972,
+      "sample_id": "train_layered_00043",
+      "second_half_rel_l2": 0.02561711402513204,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 3.361637244239014e-06,
+          "frame_index": 26,
+          "record_error_fraction": 0.04899256202088516,
+          "time_s": 0.06499999761581421
+        },
+        {
+          "frame_error_over_record_target": 2.308620700080029e-06,
+          "frame_index": 25,
+          "record_error_fraction": 0.033645879853694376,
+          "time_s": 0.0625
+        },
+        {
+          "frame_error_over_record_target": 9.415607973543312e-07,
+          "frame_index": 24,
+          "record_error_fraction": 0.01372232409664971,
+          "time_s": 0.05999999865889549
+        },
+        {
+          "frame_error_over_record_target": 8.690914430438199e-07,
+          "frame_index": 27,
+          "record_error_fraction": 0.012666154415713494,
+          "time_s": 0.06750000268220901
+        },
+        {
+          "frame_error_over_record_target": 6.48530622289678e-07,
+          "frame_index": 20,
+          "record_error_fraction": 0.009451697023354137,
+          "time_s": 0.05000000074505806
+        },
+        {
+          "frame_error_over_record_target": 6.16167553161151e-07,
+          "frame_index": 19,
+          "record_error_fraction": 0.008980037068318009,
+          "time_s": 0.04749999940395355
+        },
+        {
+          "frame_error_over_record_target": 5.313338749179705e-07,
+          "frame_index": 28,
+          "record_error_fraction": 0.007743669506674785,
+          "time_s": 0.07000000029802322
+        },
+        {
+          "frame_error_over_record_target": 4.662981089916582e-07,
+          "frame_index": 33,
+          "record_error_fraction": 0.006795837077348547,
+          "time_s": 0.08250000327825546
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.05170016115503259,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.051786359628145685,
+      "family": "layered",
+      "first_half_rel_l2": 0.01900526525756672,
+      "odd_time_rel_l2": 0.051613786821320416,
+      "parent_rel_l2": 0.10204433654132099,
+      "sample_id": "train_layered_00239",
+      "second_half_rel_l2": 0.1496606573608105,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 2.8803813637756347e-05,
+          "frame_index": 300,
+          "record_error_fraction": 0.010776213786870537,
+          "time_s": 0.75
+        },
+        {
+          "frame_error_over_record_target": 2.7277846552065755e-05,
+          "frame_index": 299,
+          "record_error_fraction": 0.010205312039138964,
+          "time_s": 0.7475000023841858
+        },
+        {
+          "frame_error_over_record_target": 2.166802198165385e-05,
+          "frame_index": 298,
+          "record_error_fraction": 0.008106538951732377,
+          "time_s": 0.7450000047683716
+        },
+        {
+          "frame_error_over_record_target": 2.1334374297325636e-05,
+          "frame_index": 301,
+          "record_error_fraction": 0.00798171316230628,
+          "time_s": 0.7524999976158142
+        },
+        {
+          "frame_error_over_record_target": 2.1046554653544642e-05,
+          "frame_index": 309,
+          "record_error_fraction": 0.007874032767881727,
+          "time_s": 0.7724999785423279
+        },
+        {
+          "frame_error_over_record_target": 2.097904191394781e-05,
+          "frame_index": 308,
+          "record_error_fraction": 0.007848774594627921,
+          "time_s": 0.7699999809265137
+        },
+        {
+          "frame_error_over_record_target": 2.0563376414791185e-05,
+          "frame_index": 306,
+          "record_error_fraction": 0.0076932639272187095,
+          "time_s": 0.7649999856948853
+        },
+        {
+          "frame_error_over_record_target": 2.0263455558440403e-05,
+          "frame_index": 307,
+          "record_error_fraction": 0.007581056172099062,
+          "time_s": 0.7674999833106995
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.04611778344969328,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.0460830876148178,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.03160472853001128,
+      "odd_time_rel_l2": 0.0461524758147305,
+      "parent_rel_l2": 0.07916938155611009,
+      "sample_id": "train_marmousi_00278",
+      "second_half_rel_l2": 0.05640845083897161,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.2903675306149198e-05,
+          "frame_index": 27,
+          "record_error_fraction": 0.006067036042787789,
+          "time_s": 0.06750000268220901
+        },
+        {
+          "frame_error_over_record_target": 1.1677337826468468e-05,
+          "frame_index": 361,
+          "record_error_fraction": 0.005490438018324255,
+          "time_s": 0.9024999737739563
+        },
+        {
+          "frame_error_over_record_target": 1.155466919142801e-05,
+          "frame_index": 375,
+          "record_error_fraction": 0.005432761812712092,
+          "time_s": 0.9375
+        },
+        {
+          "frame_error_over_record_target": 1.1544445388174802e-05,
+          "frame_index": 360,
+          "record_error_fraction": 0.005427954796000969,
+          "time_s": 0.8999999761581421
+        },
+        {
+          "frame_error_over_record_target": 1.1510034885714968e-05,
+          "frame_index": 374,
+          "record_error_fraction": 0.005411775703322252,
+          "time_s": 0.9350000023841858
+        },
+        {
+          "frame_error_over_record_target": 1.1459952396817439e-05,
+          "frame_index": 362,
+          "record_error_fraction": 0.005388227973079146,
+          "time_s": 0.9049999713897705
+        },
+        {
+          "frame_error_over_record_target": 1.1296360219957012e-05,
+          "frame_index": 359,
+          "record_error_fraction": 0.00531131038101471,
+          "time_s": 0.8974999785423279
+        },
+        {
+          "frame_error_over_record_target": 1.1186269043823308e-05,
+          "frame_index": 366,
+          "record_error_fraction": 0.005259547831372921,
+          "time_s": 0.9150000214576721
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.031367123891258904,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.03140946412031983,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.018840575405404326,
+      "odd_time_rel_l2": 0.03132469751460204,
+      "parent_rel_l2": 0.05401480087193737,
+      "sample_id": "train_marmousi_00652",
+      "second_half_rel_l2": 0.039095016718962046,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.1134596122295766e-05,
+          "frame_index": 323,
+          "record_error_fraction": 0.011316837249934906,
+          "time_s": 0.8075000047683716
+        },
+        {
+          "frame_error_over_record_target": 1.070164553990135e-05,
+          "frame_index": 322,
+          "record_error_fraction": 0.010876800518974258,
+          "time_s": 0.8050000071525574
+        },
+        {
+          "frame_error_over_record_target": 1.0618783406520855e-05,
+          "frame_index": 313,
+          "record_error_fraction": 0.010792582172179287,
+          "time_s": 0.7825000286102295
+        },
+        {
+          "frame_error_over_record_target": 1.0377432603646057e-05,
+          "frame_index": 314,
+          "record_error_fraction": 0.010547281154856706,
+          "time_s": 0.7850000262260437
+        },
+        {
+          "frame_error_over_record_target": 1.0325792818048024e-05,
+          "frame_index": 324,
+          "record_error_fraction": 0.010494796175355358,
+          "time_s": 0.8100000023841858
+        },
+        {
+          "frame_error_over_record_target": 1.02856690827629e-05,
+          "frame_index": 312,
+          "record_error_fraction": 0.010454015730596166,
+          "time_s": 0.7799999713897705
+        },
+        {
+          "frame_error_over_record_target": 9.866743163335612e-06,
+          "frame_index": 311,
+          "record_error_fraction": 0.01002823320576396,
+          "time_s": 0.7774999737739563
+        },
+        {
+          "frame_error_over_record_target": 9.674352263610316e-06,
+          "frame_index": 307,
+          "record_error_fraction": 0.00983269342357105,
+          "time_s": 0.7674999833106995
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.010319187245479406,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.01039067982923506,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.010780934396559218,
+      "odd_time_rel_l2": 0.010246965069119277,
+      "parent_rel_l2": 0.01808234986290047,
+      "sample_id": "train_marmousi_00396",
+      "second_half_rel_l2": 0.009963022935847894,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 3.1227258622710647e-06,
+          "frame_index": 58,
+          "record_error_fraction": 0.029325327717500738,
+          "time_s": 0.14499999582767487
+        },
+        {
+          "frame_error_over_record_target": 2.7746616267859545e-06,
+          "frame_index": 57,
+          "record_error_fraction": 0.026056677755086525,
+          "time_s": 0.14249999821186066
+        },
+        {
+          "frame_error_over_record_target": 2.2541781345905468e-06,
+          "frame_index": 56,
+          "record_error_fraction": 0.021168849090844127,
+          "time_s": 0.14000000059604645
+        },
+        {
+          "frame_error_over_record_target": 1.6665499861030444e-06,
+          "frame_index": 55,
+          "record_error_fraction": 0.015650469063116814,
+          "time_s": 0.13750000298023224
+        },
+        {
+          "frame_error_over_record_target": 1.0960574517787912e-06,
+          "frame_index": 54,
+          "record_error_fraction": 0.01029300854070031,
+          "time_s": 0.13500000536441803
+        },
+        {
+          "frame_error_over_record_target": 6.167408046084268e-07,
+          "frame_index": 53,
+          "record_error_fraction": 0.005791775202048542,
+          "time_s": 0.13249999284744263
+        },
+        {
+          "frame_error_over_record_target": 6.03783576147011e-07,
+          "frame_index": 61,
+          "record_error_fraction": 0.005670094661488634,
+          "time_s": 0.1525000035762787
+        },
+        {
+          "frame_error_over_record_target": 5.985648034458941e-07,
+          "frame_index": 60,
+          "record_error_fraction": 0.005621085486013943,
+          "time_s": 0.15000000596046448
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.03657554768813882,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.036676327318156725,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.02347657566297252,
+      "odd_time_rel_l2": 0.036474336651277084,
+      "parent_rel_l2": 0.07412155612562522,
+      "sample_id": "train_marmousi_00265",
+      "second_half_rel_l2": 0.04516934424652634,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.0425104452340387e-05,
+          "frame_index": 400,
+          "record_error_fraction": 0.0077928934611132695,
+          "time_s": 1.0
+        },
+        {
+          "frame_error_over_record_target": 1.0094320447275277e-05,
+          "frame_index": 392,
+          "record_error_fraction": 0.007545628359655792,
+          "time_s": 0.9800000190734863
+        },
+        {
+          "frame_error_over_record_target": 1.0075755129564893e-05,
+          "frame_index": 365,
+          "record_error_fraction": 0.007531750556929675,
+          "time_s": 0.9125000238418579
+        },
+        {
+          "frame_error_over_record_target": 1.0022228113157195e-05,
+          "frame_index": 393,
+          "record_error_fraction": 0.007491738455558085,
+          "time_s": 0.9825000166893005
+        },
+        {
+          "frame_error_over_record_target": 9.984302750280882e-06,
+          "frame_index": 391,
+          "record_error_fraction": 0.007463388781584045,
+          "time_s": 0.9775000214576721
+        },
+        {
+          "frame_error_over_record_target": 9.966497703165523e-06,
+          "frame_index": 399,
+          "record_error_fraction": 0.007450079290453819,
+          "time_s": 0.9975000023841858
+        },
+        {
+          "frame_error_over_record_target": 9.96330549387549e-06,
+          "frame_index": 394,
+          "record_error_fraction": 0.0074476930748512285,
+          "time_s": 0.9850000143051147
+        },
+        {
+          "frame_error_over_record_target": 9.949478574262236e-06,
+          "frame_index": 395,
+          "record_error_fraction": 0.007437357282827844,
+          "time_s": 0.987500011920929
+        }
+      ]
+    },
+    {
+      "candidate_rel_l2": 0.04983229434074665,
+      "ensemble_disagreement_rel_l2": 0.0,
+      "even_time_rel_l2": 0.04985870916416629,
+      "family": "marmousi",
+      "first_half_rel_l2": 0.046567436560592534,
+      "odd_time_rel_l2": 0.04980582529931585,
+      "parent_rel_l2": 0.0630264746364548,
+      "sample_id": "train_marmousi_00269",
+      "second_half_rel_l2": 0.052174395127267105,
+      "top_error_frames": [
+        {
+          "frame_error_over_record_target": 1.2038299425975485e-05,
+          "frame_index": 211,
+          "record_error_fraction": 0.00484778527344913,
+          "time_s": 0.5274999737739563
+        },
+        {
+          "frame_error_over_record_target": 1.191112971511491e-05,
+          "frame_index": 212,
+          "record_error_fraction": 0.004796574431309047,
+          "time_s": 0.5299999713897705
+        },
+        {
+          "frame_error_over_record_target": 1.1904201857479043e-05,
+          "frame_index": 210,
+          "record_error_fraction": 0.004793784604853058,
+          "time_s": 0.5249999761581421
+        },
+        {
+          "frame_error_over_record_target": 1.1785450993810515e-05,
+          "frame_index": 205,
+          "record_error_fraction": 0.0047459640059685105,
+          "time_s": 0.512499988079071
+        },
+        {
+          "frame_error_over_record_target": 1.1701474245549077e-05,
+          "frame_index": 213,
+          "record_error_fraction": 0.004712146833863991,
+          "time_s": 0.5325000286102295
+        },
+        {
+          "frame_error_over_record_target": 1.1682147886984237e-05,
+          "frame_index": 209,
+          "record_error_fraction": 0.004704364170123473,
+          "time_s": 0.5224999785423279
+        },
+        {
+          "frame_error_over_record_target": 1.1669623039735676e-05,
+          "frame_index": 206,
+          "record_error_fraction": 0.00469932045357388,
+          "time_s": 0.5149999856948853
+        },
+        {
+          "frame_error_over_record_target": 1.1604872871903764e-05,
+          "frame_index": 204,
+          "record_error_fraction": 0.004673245764868961,
+          "time_s": 0.5099999904632568
+        }
+      ]
+    }
+  ],
+  "role": "already_opened_train_holdout_diagnostic_only",
+  "schema": "r28_tail_parity_ensemble_diagnostic_v1",
+  "script_sha256": "b3856e06b46c711d66bc7ecd8e8121a11c9be26721a97bb95b5fa6964d0b7b6d",
+  "test_id_opened": false,
+  "validation_opened": false
+}

@@ -1,0 +1,69 @@
+=== sparse-frame diagnostic: validation_layered_00048  n_obs=24 lr=0.005 pde_w=0.1 ===
+  step  100: held-out 0.1582  observed-frames 0.0050  (obs_l 0.005 pde_l 0.456)
+  step  400: held-out 0.1309  observed-frames 0.0024  (obs_l 0.002 pde_l 0.310)
+  step  800: held-out 0.1230  observed-frames 0.0022  (obs_l 0.002 pde_l 0.240)
+  step 1500: held-out 0.1244  observed-frames 0.0022  (obs_l 0.002 pde_l 0.209)
+{
+  "sample_id": "validation_layered_00048",
+  "medium": "layered",
+  "n_obs": 24,
+  "obs_idx": [
+    44,
+    57,
+    69,
+    82,
+    95,
+    108,
+    120,
+    133,
+    146,
+    159,
+    171,
+    184,
+    197,
+    210,
+    222,
+    235,
+    248,
+    261,
+    273,
+    286,
+    299,
+    312,
+    324,
+    337
+  ],
+  "parent_baseline_heldout": 0.21415437757968903,
+  "parent_baseline_energetic_global": 0.21421308815479279,
+  "best_heldout_relL2": 0.12296732515096664,
+  "history": [
+    {
+      "step": 100,
+      "heldout_relL2": 0.15817897021770477,
+      "observed_relL2": 0.005036092363297939,
+      "obs_loss": 0.0050390735268592834,
+      "pde_loss": 0.45608341693878174
+    },
+    {
+      "step": 400,
+      "heldout_relL2": 0.13088153302669525,
+      "observed_relL2": 0.0024472048971801996,
+      "obs_loss": 0.0024478218983858824,
+      "pde_loss": 0.3102290630340576
+    },
+    {
+      "step": 800,
+      "heldout_relL2": 0.12296732515096664,
+      "observed_relL2": 0.002230443060398102,
+      "obs_loss": 0.00223272992298007,
+      "pde_loss": 0.24030426144599915
+    },
+    {
+      "step": 1500,
+      "heldout_relL2": 0.1244465708732605,
+      "observed_relL2": 0.002160916570574045,
+      "obs_loss": 0.0021633715368807316,
+      "pde_loss": 0.2092355191707611
+    }
+  ]
+}

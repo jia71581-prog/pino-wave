@@ -1,0 +1,75 @@
+{
+  "additive_heads": {
+    "band_adapter_rank": 0,
+    "family_expert_rank": 0,
+    "temporal_basis_rank": 0
+  },
+  "backbone_learning_rate": 5e-05,
+  "base_config": "configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+  "coefficient_frequency_energy_floor_fraction": 0.0,
+  "coefficient_target_frames": 401,
+  "dataset_forward_frames_per_record": 4,
+  "dense_depth": 8,
+  "dense_learning_rate": 0.0001,
+  "dense_modes": 32,
+  "dense_spectral_rank": 112,
+  "direct_frequency_zero_initialization": null,
+  "evaluate_every": 1,
+  "exact_init_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/checkpoints/update_0750.pt",
+  "exact_init_identity": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/run_identity.json",
+  "families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "family_gradient_weights": null,
+  "front_end_transfer": {
+    "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/checkpoints/update_0750.pt",
+    "checkpoint_sha256": "c8018cc93b2ef9d2fc5e46208a0e2ade8fabbcde333485fe02f5c51b70b4af06",
+    "identity": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/run_identity.json",
+    "identity_sha256": "6d377b4dcff89c40ee9a014e81a121722e1b36f3f9a96f414a801c47b25c4e7d",
+    "optimizer_state_restored": false,
+    "parent_global_step": 750,
+    "parent_run_digest": "7cd3823ebf0d0eec734458880be620c095d966a8d81944526b61f362c417ec1c",
+    "rng_state_restored": false,
+    "schema": "exact_model_initialization_v1",
+    "strict_state_dict": true
+  },
+  "helmholtz_apply_causal_gate": false,
+  "helmholtz_coefficient_supervision": true,
+  "local_field": true,
+  "local_field_causal_width_s": 0.005,
+  "local_field_channel_multipliers": [
+    1,
+    1,
+    2,
+    2
+  ],
+  "local_field_grad_clip": 20.0,
+  "local_field_learning_rate": null,
+  "local_field_residual": false,
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "microbatch_records": 1,
+  "parameter_count": 25700654,
+  "record_indices": [
+    0,
+    420,
+    1540
+  ],
+  "run_digest": "61d1ff1272170e4259f8eeedcdb7d75ee88e1264fa81da1f6f046f070685ffc7",
+  "sample_ids": [
+    "train_uniform_00000",
+    "train_layered_00000",
+    "train_marmousi_00000"
+  ],
+  "schema": "saved_time_capacity_ladder_overfit_v1",
+  "seed": 372,
+  "smoke": false,
+  "split": "train",
+  "training_frames_per_record": 401,
+  "updates": 1,
+  "validation_frames_per_record": 32,
+  "warmstart_checkpoint": null,
+  "warmstart_frontend": null,
+  "width": 128
+}

@@ -1,0 +1,70 @@
+[2026-08-27 14:35:20,540] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+2026-08-27T06:35:24Z [rank2] partition fit 541 confirm 6
+2026-08-27T06:35:24Z [rank0] partition fit 542 confirm 6
+2026-08-27T06:35:24Z [rank1] partition fit 541 confirm 6
+2026-08-27T06:35:24Z [rank3] partition fit 541 confirm 6
+2026-08-27T06:48:53Z [rank0] build 50/548 (798s, rss 4.6GiB)
+2026-08-27T06:49:00Z [rank1] build 50/547 (796s, rss 4.6GiB)
+2026-08-27T06:49:04Z [rank3] build 50/547 (796s, rss 4.6GiB)
+2026-08-27T06:49:05Z [rank2] build 50/547 (798s, rss 4.6GiB)
+2026-08-27T07:02:10Z [rank0] build 100/548 (1595s, rss 7.6GiB)
+2026-08-27T07:02:16Z [rank1] build 100/547 (1593s, rss 7.6GiB)
+2026-08-27T07:02:20Z [rank3] build 100/547 (1592s, rss 7.6GiB)
+2026-08-27T07:02:23Z [rank2] build 100/547 (1596s, rss 7.6GiB)
+2026-08-27T07:15:26Z [rank0] build 150/548 (2391s, rss 10.7GiB)
+2026-08-27T07:15:31Z [rank1] build 150/547 (2388s, rss 10.7GiB)
+2026-08-27T07:15:35Z [rank3] build 150/547 (2387s, rss 10.7GiB)
+2026-08-27T07:15:41Z [rank2] build 150/547 (2395s, rss 10.7GiB)
+2026-08-27T07:28:42Z [rank0] build 200/548 (3187s, rss 13.7GiB)
+2026-08-27T07:28:46Z [rank1] build 200/547 (3182s, rss 13.7GiB)
+2026-08-27T07:28:50Z [rank3] build 200/547 (3182s, rss 13.7GiB)
+2026-08-27T07:28:58Z [rank2] build 200/547 (3192s, rss 13.7GiB)
+2026-08-27T07:41:58Z [rank0] build 250/548 (3983s, rss 16.8GiB)
+2026-08-27T07:42:01Z [rank1] build 250/547 (3977s, rss 16.8GiB)
+2026-08-27T07:42:05Z [rank3] build 250/547 (3977s, rss 16.8GiB)
+2026-08-27T07:42:16Z [rank2] build 250/547 (3990s, rss 16.8GiB)
+2026-08-27T07:55:12Z [rank0] build 300/548 (4777s, rss 19.8GiB)
+2026-08-27T07:55:14Z [rank1] build 300/547 (4770s, rss 19.8GiB)
+2026-08-27T07:55:17Z [rank3] build 300/547 (4770s, rss 19.8GiB)
+2026-08-27T07:55:31Z [rank2] build 300/547 (4785s, rss 19.8GiB)
+2026-08-27T08:08:26Z [rank0] build 350/548 (5571s, rss 22.8GiB)
+2026-08-27T08:08:27Z [rank1] build 350/547 (5564s, rss 22.9GiB)
+2026-08-27T08:08:31Z [rank3] build 350/547 (5563s, rss 22.9GiB)
+2026-08-27T08:08:47Z [rank2] build 350/547 (5581s, rss 22.9GiB)
+2026-08-27T08:21:40Z [rank0] build 400/548 (6365s, rss 25.9GiB)
+2026-08-27T08:21:41Z [rank1] build 400/547 (6357s, rss 25.9GiB)
+2026-08-27T08:21:52Z [rank3] build 400/547 (6364s, rss 25.9GiB)
+2026-08-27T08:22:03Z [rank2] build 400/547 (6376s, rss 25.9GiB)
+[2026-08-27 16:28:47,169] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 40484 closing signal SIGTERM
+[2026-08-27 16:28:47,170] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 40486 closing signal SIGTERM
+[2026-08-27 16:28:47,171] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 40487 closing signal SIGTERM
+[2026-08-27 16:28:50,107] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: -9) local_rank: 1 (pid: 40485) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+======================================================
+scripts/run_v18_alldata_ddp4.py FAILED
+------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-27_16:28:47
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : -9 (pid: 40485)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 40485
+======================================================

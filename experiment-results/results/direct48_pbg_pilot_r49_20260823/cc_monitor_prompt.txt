@@ -1,0 +1,10 @@
+你是只读静默训练监控员。工作目录 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2。
+
+监控正式 r49：screen 891385.r49-direct48；PID/launch.log/run_identity.json/updates.jsonl/metrics.jsonl/checkpoints/terminal.json 均在 results/direct48_pbg_pilot_r49_20260823。它应为单GPU、800 updates、每50步评估。
+
+要求：
+1. 只读，绝不改文件/杀进程/启动任务，不读 calibration/confirmation/validation/test_id 波场。
+2. 用低开销 shell 循环每30秒检查一次，最多2小时；中间不输出。
+3. 每次检查 PID、screen、日志、updates最后步、metrics最后评估、checkpoint数量和mtime、nvidia-smi PID/显存；只有 terminal 产生或异常退出才结束。
+4. 正常结束后紧凑中文输出：status、updates、初始/最佳/最终 all-saved aggregate、每记录值、coefficient rel-L2、最后200步趋势、checkpoint与SHA是否存在、elapsed、peak GPU、access flags、是否达到 strong/accepted/rejected gate。
+5. 异常退出无 terminal 时输出最后日志和缺失项，不作修复。

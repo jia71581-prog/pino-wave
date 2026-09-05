@@ -1,0 +1,16 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "accepted_smoke_only",
+  "candidate": "wkb96_r20_source_support_r22b_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The exact r20 checkpoint loaded, both optimizer updates and all panel evaluations were finite, the source panels were disjoint, checkpoint/terminal bindings were written, and peak CUDA allocation was 2,883,307,520 bytes below the 4 GiB gate.",
+  "updates_completed": 2,
+  "peak_cuda_bytes": 2883307520,
+  "terminal_sha256": "50bd7c6d182fa6ec831cbc60268d754dd01666728c5f09b5aceb3192fb898c65",
+  "run_identity_sha256": "4e977834164aabeb3df53d8b933d7e4558c6eb8d2e8d5ba0255678278fab22bd",
+  "checkpoint_sha256": "be0eabcc506b7e4b5c67afff879ff3faa667169df7ee030e755bca089cffee1d",
+  "accuracy_claim": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "next_action": "Launch a separately preregistered 1000-update train-only source-support pilot from the original r20 checkpoint."
+}

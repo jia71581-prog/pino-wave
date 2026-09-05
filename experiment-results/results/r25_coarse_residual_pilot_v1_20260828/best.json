@@ -1,0 +1,324 @@
+{
+  "epoch": 10,
+  "metrics": {
+    "absolute_goal": {
+      "max_lte_0p05": false,
+      "mean_lte_0p05": true,
+      "passed": false
+    },
+    "aggregate": {
+      "candidate_max": 0.08478186883887778,
+      "candidate_mean": 0.019421995445982793,
+      "candidate_median": 0.011272528692062514,
+      "count": 24,
+      "max_relative_improvement": 0.4730236800939702,
+      "mean_relative_improvement": 0.47637161570057107,
+      "parent_max": 0.16088364056661228,
+      "parent_mean": 0.037091181510276225
+    },
+    "elapsed_seconds": 478.44429112412035,
+    "epoch": 10,
+    "event": "holdout_evaluation",
+    "global_step": 7680,
+    "per_family": {
+      "layered": {
+        "candidate_max": 0.019679171222241533,
+        "candidate_mean": 0.012629961964096334,
+        "candidate_median": 0.01226972839713945,
+        "count": 8,
+        "max_relative_improvement": 0.5638076514055896,
+        "mean_relative_improvement": 0.5276319088199949,
+        "parent_max": 0.045115810228345016,
+        "parent_mean": 0.026737542606965464
+      },
+      "marmousi": {
+        "candidate_max": 0.08478186883887778,
+        "candidate_mean": 0.03937712864283345,
+        "candidate_median": 0.035179290815557845,
+        "count": 8,
+        "max_relative_improvement": 0.4730236800939702,
+        "mean_relative_improvement": 0.44322261221655535,
+        "parent_max": 0.16088364056661228,
+        "parent_mean": 0.07072328996620272
+      },
+      "uniform": {
+        "candidate_max": 0.009759169367088857,
+        "candidate_mean": 0.0062588957310186,
+        "candidate_median": 0.006247226172165301,
+        "count": 8,
+        "max_relative_improvement": 0.6651406686061689,
+        "mean_relative_improvement": 0.5468742307662884,
+        "parent_max": 0.02914408664219368,
+        "parent_mean": 0.013812711957660498
+      }
+    },
+    "records": [
+      {
+        "candidate_error_square": 0.14131688462041225,
+        "candidate_rel_l2": 0.006137503854027104,
+        "correction_square": 0.8840848098081722,
+        "family": "uniform",
+        "parent_error_square": 0.7330435846905949,
+        "parent_rel_l2": 0.013978470335834943,
+        "relative_improvement": 0.5609316537094109,
+        "sample_id": "train_uniform_00080",
+        "target_square": 3751.547926652152
+      },
+      {
+        "candidate_error_square": 0.1656563630025829,
+        "candidate_rel_l2": 0.0045545248989592255,
+        "correction_square": 0.1705895834898854,
+        "family": "uniform",
+        "parent_error_square": 0.34953498159141816,
+        "parent_rel_l2": 0.006615830088194936,
+        "relative_improvement": 0.3115716639872348,
+        "sample_id": "train_uniform_00362",
+        "target_square": 7985.864938224241
+      },
+      {
+        "candidate_error_square": 0.47506522947880114,
+        "candidate_rel_l2": 0.006766202421314637,
+        "correction_square": 1.80894129880285,
+        "family": "layered",
+        "parent_error_square": 2.0400398416710175,
+        "parent_rel_l2": 0.014021280845213355,
+        "relative_improvement": 0.517433357479284,
+        "sample_id": "train_layered_00820",
+        "target_square": 10376.795850355342
+      },
+      {
+        "candidate_error_square": 1.1627792777426826,
+        "candidate_rel_l2": 0.012980961105609047,
+        "correction_square": 2.0109027342097505,
+        "family": "layered",
+        "parent_error_square": 3.5470739770325643,
+        "parent_rel_l2": 0.02267218256316061,
+        "relative_improvement": 0.4274498686023531,
+        "sample_id": "train_layered_01068",
+        "target_square": 6900.548079258021
+      },
+      {
+        "candidate_error_square": 3.0863362908045175,
+        "candidate_rel_l2": 0.03818575018274785,
+        "correction_square": 17.98432958860144,
+        "family": "marmousi",
+        "parent_error_square": 15.63130044932091,
+        "parent_rel_l2": 0.08593642040167128,
+        "relative_improvement": 0.555651142969818,
+        "sample_id": "train_marmousi_00475",
+        "target_square": 2116.608771298093
+      },
+      {
+        "candidate_error_square": 1.1533227142791702,
+        "candidate_rel_l2": 0.010986561695455173,
+        "correction_square": 3.158948401677364,
+        "family": "marmousi",
+        "parent_error_square": 3.5413789934184194,
+        "parent_rel_l2": 0.019251854891534675,
+        "relative_improvement": 0.42932451146376926,
+        "sample_id": "train_marmousi_00479",
+        "target_square": 9554.924234488288
+      },
+      {
+        "candidate_error_square": 0.2171402698335534,
+        "candidate_rel_l2": 0.00908431287208311,
+        "correction_square": 1.7969908098459797,
+        "family": "uniform",
+        "parent_error_square": 2.2348949040967234,
+        "parent_rel_l2": 0.02914408664219368,
+        "relative_improvement": 0.6882965322052264,
+        "sample_id": "train_uniform_00375",
+        "target_square": 2631.214213966082
+      },
+      {
+        "candidate_error_square": 0.5654674846995746,
+        "candidate_rel_l2": 0.009759169367088857,
+        "correction_square": 1.5311263439777605,
+        "family": "uniform",
+        "parent_error_square": 2.6970154788826406,
+        "parent_rel_l2": 0.021313302843084362,
+        "relative_improvement": 0.5421090086816147,
+        "sample_id": "train_uniform_00312",
+        "target_square": 5937.203395303486
+      },
+      {
+        "candidate_error_square": 0.8582451491529355,
+        "candidate_rel_l2": 0.015890394185179648,
+        "correction_square": 3.7406512954325706,
+        "family": "layered",
+        "parent_error_square": 4.84595421196002,
+        "parent_rel_l2": 0.03775884011704805,
+        "relative_improvement": 0.5791609557941595,
+        "sample_id": "train_layered_00821",
+        "target_square": 3398.928400341716
+      },
+      {
+        "candidate_error_square": 1.1208317812231101,
+        "candidate_rel_l2": 0.010950791155133675,
+        "correction_square": 1.3538092828048036,
+        "family": "layered",
+        "parent_error_square": 2.9898862849754906,
+        "parent_rel_l2": 0.017885562926051108,
+        "relative_improvement": 0.3877301374068933,
+        "sample_id": "train_layered_01069",
+        "target_square": 9346.509330266823
+      },
+      {
+        "candidate_error_square": 29.47147113141274,
+        "candidate_rel_l2": 0.08478186883887778,
+        "correction_square": 45.68425999303628,
+        "family": "marmousi",
+        "parent_error_square": 74.04037191732489,
+        "parent_rel_l2": 0.13438053744863915,
+        "relative_improvement": 0.36909116120121344,
+        "sample_id": "train_marmousi_00476",
+        "target_square": 4100.113170799893
+      },
+      {
+        "candidate_error_square": 5.148360050740028,
+        "candidate_rel_l2": 0.02016511065421788,
+        "correction_square": 3.725258361664757,
+        "family": "marmousi",
+        "parent_error_square": 12.003265603343028,
+        "parent_rel_l2": 0.03079043763355242,
+        "relative_improvement": 0.3450852860810296,
+        "sample_id": "train_marmousi_00420",
+        "target_square": 12660.990784806194
+      },
+      {
+        "candidate_error_square": 0.134536024421525,
+        "candidate_rel_l2": 0.0035896060315745906,
+        "correction_square": 0.4842246247984576,
+        "family": "uniform",
+        "parent_error_square": 0.4957942406458109,
+        "parent_rel_l2": 0.006890936216142654,
+        "relative_improvement": 0.4790829694279266,
+        "sample_id": "train_uniform_00189",
+        "target_square": 10441.070242032203
+      },
+      {
+        "candidate_error_square": 0.2372511237128272,
+        "candidate_rel_l2": 0.007201928135476159,
+        "correction_square": 0.8967108223566953,
+        "family": "uniform",
+        "parent_error_square": 0.7984199292325691,
+        "parent_rel_l2": 0.013211749441651006,
+        "relative_improvement": 0.45488459592099484,
+        "sample_id": "train_uniform_00099",
+        "target_square": 4574.153253324617
+      },
+      {
+        "candidate_error_square": 0.4934413982857748,
+        "candidate_rel_l2": 0.007133591149619092,
+        "correction_square": 2.4100347901461703,
+        "family": "layered",
+        "parent_error_square": 2.928608730821175,
+        "parent_rel_l2": 0.017378852604549206,
+        "relative_improvement": 0.5895246186879015,
+        "sample_id": "train_layered_00822",
+        "target_square": 9696.592686125543
+      },
+      {
+        "candidate_error_square": 1.182110187847119,
+        "candidate_rel_l2": 0.011558495688669854,
+        "correction_square": 1.3666358070540099,
+        "family": "layered",
+        "parent_error_square": 2.9293674347864602,
+        "parent_rel_l2": 0.018195301647739262,
+        "relative_improvement": 0.36475382972801773,
+        "sample_id": "train_layered_01070",
+        "target_square": 8848.208127695323
+      },
+      {
+        "candidate_error_square": 11.679628270220004,
+        "candidate_rel_l2": 0.03217283144836784,
+        "correction_square": 4.040977810017836,
+        "family": "marmousi",
+        "parent_error_square": 6.925478073470568,
+        "parent_rel_l2": 0.02477420076572058,
+        "relative_improvement": -0.2986425577403311,
+        "sample_id": "train_marmousi_00477",
+        "target_square": 11283.671995123485
+      },
+      {
+        "candidate_error_square": 8.754621977732075,
+        "candidate_rel_l2": 0.04434928998652526,
+        "correction_square": 16.841234853505625,
+        "family": "marmousi",
+        "parent_error_square": 20.165411554551685,
+        "parent_rel_l2": 0.06730874875566183,
+        "relative_improvement": 0.34110660491523814,
+        "sample_id": "train_marmousi_00421",
+        "target_square": 4451.066219236118
+      },
+      {
+        "candidate_error_square": 0.18064565060140225,
+        "candidate_rel_l2": 0.006356948490303497,
+        "correction_square": 0.8028777681098802,
+        "family": "uniform",
+        "parent_error_square": 0.7530928412861435,
+        "parent_rel_l2": 0.012979536895546909,
+        "relative_improvement": 0.5102330274599802,
+        "sample_id": "train_uniform_00165",
+        "target_square": 4470.232634304453
+      },
+      {
+        "candidate_error_square": 0.11736541556187419,
+        "candidate_rel_l2": 0.003387172198636257,
+        "correction_square": 0.27039015213482287,
+        "family": "uniform",
+        "parent_error_square": 0.414803226800597,
+        "parent_rel_l2": 0.006367783198635489,
+        "relative_improvement": 0.46807670849062954,
+        "sample_id": "train_uniform_00063",
+        "target_square": 10229.763387843668
+      },
+      {
+        "candidate_error_square": 0.7757980952060848,
+        "candidate_rel_l2": 0.016080088785003187,
+        "correction_square": 4.491634020453006,
+        "family": "layered",
+        "parent_error_square": 5.012269800537666,
+        "parent_rel_l2": 0.04087250992361711,
+        "relative_improvement": 0.6065793655673755,
+        "sample_id": "train_layered_00823",
+        "target_square": 3000.3493424042717
+      },
+      {
+        "candidate_error_square": 1.0725099839705123,
+        "candidate_rel_l2": 0.019679171222241533,
+        "correction_square": 4.058877575238398,
+        "family": "layered",
+        "parent_error_square": 5.636963949108299,
+        "parent_rel_l2": 0.045115810228345016,
+        "relative_improvement": 0.5638076514055896,
+        "sample_id": "train_layered_01071",
+        "target_square": 2769.4130535728864
+      },
+      {
+        "candidate_error_square": 8.239412843051841,
+        "candidate_rel_l2": 0.060723679733816836,
+        "correction_square": 51.434812010818106,
+        "family": "marmousi",
+        "parent_error_square": 57.83674886704885,
+        "parent_rel_l2": 0.16088364056661228,
+        "relative_improvement": 0.6225615014680452,
+        "sample_id": "train_marmousi_00478",
+        "target_square": 2234.498677636888
+      },
+      {
+        "candidate_error_square": 3.7494888740066337,
+        "candidate_rel_l2": 0.023651936602658984,
+        "correction_square": 8.617116708187737,
+        "family": "marmousi",
+        "parent_error_square": 12.08393667048404,
+        "parent_rel_l2": 0.042460479266229506,
+        "relative_improvement": 0.44296585880813877,
+        "sample_id": "train_marmousi_00422",
+        "target_square": 6702.528306164095
+      }
+    ],
+    "train_loss": 0.00046180778872861866
+  },
+  "score": 0.10420386428486057
+}

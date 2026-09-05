@@ -1,0 +1,69 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_pbg_residual_source_r28_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_pbg_residual_smoke_marmousi_source_holdout",
+  "hypothesis": "A fixed source-aware sigma-2 LWC84 P_bg field can serve as the exact update-0 coarse prediction while a zero-initialized 96-bin WKB head learns truth-P_bg with finite gradients, bounded memory, and exact full-field reconstruction on Marmousi source-holdout panels.",
+  "expected_mechanism": "P_bg already supplies source position, onset, phase and causality. The learned mapper therefore predicts only the smaller heterogeneous scattering closure rather than reconstructing the full Green field from source metadata.",
+  "single_conceptual_variable": {
+    "name": "coarse_propagator_residual_target",
+    "control": "neural mapper predicts the complete field",
+    "candidate": "fixed P_bg plus a zero-init neural truth-P_bg residual",
+    "held_constant": "r20 front-end/state, 96-bin WKB architecture, frequency gate, optimizer, learning rates, seed, source panels and metric"
+  },
+  "scope_limit": "The available complete cache covers train/Marmousi only. This smoke makes no layered, uniform, validation, test_id or final-runtime claim.",
+  "panels": {
+    "fit": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_marmousi_00003"],
+    "confirmation": ["train_marmousi_00004"],
+    "same_group_id": "train:marmousi:x0.0:z0.0",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "exact P_bg update-0 baseline plus two finite scattering-residual updates with terminal/checkpoint/cache bindings",
+  "acceptance": {
+    "zero_head_at_initialization": true,
+    "updates_completed": 2,
+    "finite_scattering_metrics": true,
+    "peak_cuda_bytes_max": 4294967296,
+    "all_cache_rows_and_401_times_covered": true
+  },
+  "failure_signal": "Any cache miss, nonzero head at initialization, target/background shape mismatch, missing gradient, non-finite metric, OOM, missing binding, or peak CUDA above 4 GiB blocks long training.",
+  "optimization": {
+    "updates": 2,
+    "evaluate_every": 1,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "target_relative_l2": 0.001,
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "wall_time_max_minutes": 5,
+    "checkpoint_storage_gib_max": 0.4
+  },
+  "parent": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50"
+  },
+  "cache_bindings": {
+    "shard_0_sha256": "71693f6175c7f36d2bcc540053f64e786878582d7fdcf3b32b7864bf037b3bcc",
+    "shard_1_sha256": "fb9511335bb2c3c26162bc3bf0e1e7716b76f4b1740ca4cd57db9baedec3e58b",
+    "shard_2_sha256": "9a332219e0482be9aea49ad78272fae231c2a29019de278ae613e418ec351705",
+    "shard_3_sha256": "ebf7b2d6957fefa8af4771b7d53bb9ad63e329084b73731c44dab502de2359ef"
+  },
+  "bindings": {
+    "training_script_sha256": "23fcce9c615e8deffa997ce017dd03f2a8dfd1dfb40121c83ac02c69be7555e0",
+    "test_sha256": "68568fc2d7483c764d92d06814ba032145661650ff12ddcb70dbe14c257f0067",
+    "tests": "54 passed"
+  },
+  "rollback": "Preserve every cache and checkpoint. On smoke failure do not launch the residual long run or regenerate numerical data.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb96_pbg_residual_source_r28_smoke_20260824 --preregistration results/wkb96_pbg_residual_source_r28_smoke_preregistration_20260824.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt --parent-identity results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --panel-families marmousi --panel-selection anchor_group_source_holdout --helmholtz-frequencies 96 --helmholtz-frequency-softmax --background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-0.h5 --background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-1.h5 --background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-2.h5 --background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-3.h5 --zero-initialize-helmholtz-head --updates 2 --evaluate-every 1 --evaluation-frames 32 --evaluation-time-block 32 --evaluation-macro-records 1 --dense-learning-rate 1e-5 --backbone-learning-rate 5e-6 --local-field-learning-rate 1e-5 --family-gradient-weights marmousi:1 --target-relative-l2 0.001 --seed 372"
+}

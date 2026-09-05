@@ -1,0 +1,37 @@
+{
+  "candidate": "transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904",
+  "classification": {
+    "classification": "invalid",
+    "flags": {
+      "invalid": true
+    },
+    "invalid_failures": [
+      "RuntimeError('Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility')"
+    ]
+  },
+  "error": "RuntimeError('Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility')",
+  "inclusion_gate": {
+    "delta_max_absolute_error": 0.0,
+    "frame_max_absolute_error": 0.0
+  },
+  "input_hashes_before": {
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "checkpoint_sha256": "40f1fde41f68b8b7893dba8c4aa8e6761db79989d132e3b2971a6677a5b539c5",
+    "corrector_sha256": "701adc66c4eb3c2d3cab731487b1532b1eec2b9129fd4d64b925faba7a831c73",
+    "relative_loss_sha256": "60752f2c239d6e330da4eb5608bdaf3d6511b589e569f1ec578e4c0eef24d10b",
+    "rollback_parent_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "script_sha256": "734fedcc8dee793ad4bd9cd7f151f8907bd6bb316201ae21e2c50e1325417ab3",
+    "selection_manifest_sha256": "bd6ffbf48caeaea871543e108ea4f01fd2c23fa21a57f51d7e0110216b25a735",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "test_sha256": "3bfeabd40e95f6447eb4f488723d2968d1a2e43819e7d3b8cba6f1b7b5f28f4e",
+    "training_window_sha256": "19df07b15f3d90cd860852db2d0e9beadeede44c6702c61eb2407d6b36f8fd85",
+    "upstream_selection_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e"
+  },
+  "mode": "smoke",
+  "promotion_authorized": false,
+  "schema": "transfer_dg_r3_exact_gradient_sampling_audit_v1",
+  "status": "failed",
+  "test_id_opened": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/audit_transfer_dg_r3_exact_gradient_sampling.py\", line 1126, in main\n    full_report, full_gradient, _ = audit_full_graph(\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/audit_transfer_dg_r3_exact_gradient_sampling.py\", line 645, in audit_full_graph\n    coefficients, condition, parent, target = full_parent_and_truth(cache, position, device)\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/audit_transfer_dg_r3_exact_gradient_sampling.py\", line 589, in full_parent_and_truth\n    parent = render_retained_rfft_frames(\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/parent_anchored_block.py\", line 93, in render_retained_rfft_frames\n    torch.einsum(\"tf,bfij->btij\", cosine, real)\n  File \"/root/miniconda3/lib/python3.10/site-packages/torch/functional.py\", line 377, in einsum\n    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]\nRuntimeError: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility\n",
+  "validation_opened": false
+}

@@ -1,0 +1,191 @@
+{
+  "adaptive_sampling": "vrba",
+  "allow_travel_source_path_alias": true,
+  "anomaly_excluded": true,
+  "backbone_learning_rate": 1e-05,
+  "background_cache": "/dev/shm/g3cache/background_pbg_sigma2_g3pool_N420.h5",
+  "background_cache_shards": [],
+  "background_conditioner_only": true,
+  "background_conditioner_output_only": false,
+  "background_conditioner_with_late_head": true,
+  "best_warmstart_required": false,
+  "checkpoint_selection_metric": "scattering_relative_l2",
+  "dense_depth": 8,
+  "dense_learning_rate": 2e-05,
+  "dense_modes": 32,
+  "dense_spectral_rank": 112,
+  "epochs": 1,
+  "evaluate_every": 1,
+  "evaluation_is_generalization": true,
+  "excluded_medium_types": [
+    "",
+    "anomaly"
+  ],
+  "families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "family_gradient_weights": {
+    "layered": 1.0,
+    "marmousi": 1.0,
+    "uniform": 0.1
+  },
+  "family_sampling_weights": {
+    "layered": 1.0,
+    "marmousi": 32.0,
+    "uniform": 0.1
+  },
+  "frame_energy_floor_fraction": 0.05,
+  "frame_rba": true,
+  "front_end_transfer": {
+    "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_reflection_original_valid_output_stage_ep5_20260808T084944Z/checkpoints/update_0071.pt",
+    "fresh_tensors": 6,
+    "mode": "continue_pretrain_full_helmholtz",
+    "transferred_tensor_count": 341
+  },
+  "heldout_indices": [
+    0,
+    90,
+    330
+  ],
+  "heldout_sample_ids": [
+    "validation_uniform_00000",
+    "validation_layered_00000",
+    "validation_marmousi_00000"
+  ],
+  "helmholtz_background_conditioning": true,
+  "helmholtz_background_global_propagator": true,
+  "helmholtz_background_propagation_modes": 48,
+  "helmholtz_background_sigma_cells": 2.0,
+  "helmholtz_frequencies": 64,
+  "helmholtz_late_frequencies": 24,
+  "helmholtz_late_rank": 32,
+  "helmholtz_rank": 8,
+  "helmholtz_spectral_bypass": false,
+  "helmholtz_spectral_bypass_per_branch": false,
+  "helmholtz_wkb_phase": true,
+  "late_frame_gain": 0.0,
+  "late_frame_start_fraction": 0.4,
+  "local_field_learning_rate": 1e-06,
+  "macro_records": 6,
+  "macros_per_update": 4,
+  "manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+  "microbatch_records": 1,
+  "normalization_binding": {
+    "filtered_source_manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+    "mode": "parent_binding_on_filtered_source",
+    "normalization_manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+    "normalization_record_count": 2240
+  },
+  "optimizer": "adamw",
+  "optimizer_report": {
+    "core_learning_rate": 1e-06,
+    "core_parameter_count": 6751616,
+    "kind": "background_conditioner_stage2_layered_adamw",
+    "late_learning_rate": 1e-05,
+    "late_parameter_count": 203808,
+    "output_learning_rate": 1e-05,
+    "output_parameter_count": 16512
+  },
+  "parameter_count": 32790230,
+  "per_frame_frame": true,
+  "rad_ema_momentum": 0.3,
+  "rad_potential": "quadratic",
+  "rad_recompute_epochs": 1,
+  "rad_uniform_fraction": 0.2,
+  "rba_eta": 0.01,
+  "rba_gamma": 0.999,
+  "rba_lambda_bound": 9.999999999999991,
+  "rba_phi": 0.9,
+  "rba_potential": "quadratic",
+  "record_oversample": 2.0,
+  "records_per_family": 0,
+  "requested_family_record_limits": {
+    "layered": 420,
+    "marmousi": 4,
+    "uniform": 420
+  },
+  "residual_activation": null,
+  "run_digest": "738c7a5310bfb26c1d538ba301d592b1610acc26a3b8032f17922d247fdfc9fe",
+  "schedule_updates": 8,
+  "schema": "helmholtz_g3_heldout_v1",
+  "seed": 372,
+  "smoke_updates": 8,
+  "source_family_counts": {
+    "ood_canonical/layered": 1,
+    "ood_canonical/marmousi": 1,
+    "ood_canonical/uniform": 1,
+    "test_id/layered": 240,
+    "test_id/marmousi": 150,
+    "test_id/uniform": 90,
+    "train/layered": 1120,
+    "train/marmousi": 4,
+    "train/uniform": 420,
+    "validation/layered": 240,
+    "validation/marmousi": 150,
+    "validation/uniform": 90
+  },
+  "source_h5": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.invalidated_source_for_hybrid_v2.h5",
+  "source_invalidation_audit": {
+    "family_counts": {
+      "ood_canonical/layered": 1,
+      "ood_canonical/marmousi": 1,
+      "ood_canonical/uniform": 1,
+      "test_id/layered": 240,
+      "test_id/marmousi": 150,
+      "test_id/uniform": 90,
+      "train/layered": 1120,
+      "train/marmousi": 4,
+      "train/uniform": 420,
+      "validation/layered": 240,
+      "validation/marmousi": 150,
+      "validation/uniform": 90
+    },
+    "filtered_manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+    "invalid_sample_count": 696,
+    "reason": "696 legacy train/Marmousi source records were intentionally removed and the original VDS returned HDF5 fill values for those slots",
+    "report": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.INVALID_AFTER_MARMOUSI_CLEANUP.json",
+    "retained_source_sha256": "b256fc7880745810e067977ee188f42f8b6174754549e48938fd04f2a2bdee99",
+    "split_counts": {
+      "ood_canonical": 3,
+      "test_id": 480,
+      "train": 1544,
+      "validation": 480
+    }
+  },
+  "source_split_counts": {
+    "ood_canonical": 3,
+    "test_id": 480,
+    "train": 1544,
+    "validation": 480
+  },
+  "time_adaptive_sampling": false,
+  "time_residual_ema_momentum": 0.3,
+  "time_sampling_potential": "quadratic",
+  "time_sampling_uniform_fraction": 0.25,
+  "total_updates": 8,
+  "train_record_count": 844,
+  "trainable_parameter_count": 6971936,
+  "training_frames_per_record": 64,
+  "training_pool_family_counts": {
+    "layered": 420,
+    "marmousi": 4,
+    "uniform": 420
+  },
+  "training_split_counts": {
+    "train": 1544
+  },
+  "training_splits": [
+    "train"
+  ],
+  "training_time_policy": "appearance16",
+  "training_time_pool": null,
+  "training_time_pool_count": null,
+  "updates_per_epoch": 8,
+  "validation_frames_per_record": 401,
+  "warmstart_frontend": null,
+  "warmstart_helmholtz": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_reflection_original_valid_output_stage_ep5_20260808T084944Z/checkpoints/update_0071.pt",
+  "warmstart_selection": null,
+  "width": 128
+}

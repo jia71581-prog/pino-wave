@@ -1,0 +1,70 @@
+{
+  "schema": "transfer_dg_pyramid_head_basis_oracle_preregistration_v1",
+  "candidate": "transfer_dg_pyramid_u13650_head_basis_oracle_20260904",
+  "claim_scope": "Train-only one-record oracle capacity diagnostic of a physical-head neuron-linear-transformation span. Oracle coefficients are not an online adapter and are forbidden for deployment.",
+  "hypothesis": "Replacing the rejected branch-trunk span with the 64 highest-energy learned physical-head channel contributions will raise 5%-trust-capped oracle future-field improvement from 0.0483% to at least 1% on the same update-13650 Marmousi development record.",
+  "expected_mechanism": "The last physical head directly synthesizes local pressure structure. Channel-wise output contributions therefore span corrections closer to the predicted field than the low-capacity branch-trunk term, while top-energy selection uses only the frozen prediction and not truth.",
+  "conceptual_variable": "correction basis only: branch-trunk rank contributions versus physical-head channel contributions",
+  "primary_metric": "Trust-capped oracle future-field relative-L2 improvement over the unadapted update-13650 prediction.",
+  "acceptance": {
+    "minimum_trust_capped_future_relative_improvement": 0.01,
+    "must_exceed_branch_basis_improvement": 0.00048266013078102077,
+    "interpretation_if_pass": "retain physical-head NLT span and develop a causal/meta-learned coefficient predictor",
+    "interpretation_if_fail": "stop frozen internal-feature spans and train an explicit parent-error basis offline"
+  },
+  "failure_signal": "Reject on binding drift, non-finite output, effective-rank failure, process failure, non-train truth, or any validation/test_id access.",
+  "compute_budget": {
+    "device": "cpu",
+    "threads": 16,
+    "record_count": 1,
+    "wall_seconds_max": 3600,
+    "new_disk_bytes_max": 16777216
+  },
+  "data": {
+    "split": "train",
+    "family": "marmousi",
+    "sample_id": "train_marmousi_00260",
+    "sample_sha256": "7e37dfeb4a46a94d5573bd0edc7f44fdd7d581257ded6088e07667841d7d234a",
+    "role": "development_after_single-record_smoke",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "checkpoint_update": 13650,
+    "checkpoint_training_complete": false
+  },
+  "oracle": {
+    "basis": "final 1x1 physical-head output contribution of each penultimate channel across all 64 frequencies",
+    "top_energy_channels": 64,
+    "selection": "largest complete-coefficient L2 norm using frozen parent activations only",
+    "basis_relative_tolerance": 1e-06,
+    "objective": "weighted leading-64-bin coefficient error from complete train truth",
+    "relative_ridge": 1e-08,
+    "trust_ratio_cap": 0.05,
+    "future_truth_used": true,
+    "deployment_candidate": false
+  },
+  "literature_basis": [
+    "https://arxiv.org/abs/2512.17969",
+    "https://arxiv.org/abs/2604.03449",
+    "https://arxiv.org/abs/2504.15933",
+    "https://arxiv.org/abs/2308.12208"
+  ],
+  "bindings": {
+    "diagnostic_sha256": "b9a57c196c1fdeb9b223797c062a1b85deb2d3c03b131810abb24efe2ad7abf8",
+    "integration_runner_sha256": "41ba67dfd7d56ff14737edca34dae93bae3851839a41a5c7df47f15b62b385dc",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "candidate_checkpoint_sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "allowed_files": [
+    "scripts/diagnose_transfer_dg_pyramid_head_basis_oracle_cpu.py",
+    "results/transfer_dg_pyramid_u13650_head_basis_oracle_20260904/preregistration.json",
+    "results/transfer_dg_pyramid_u13650_head_basis_oracle_20260904/run/*"
+  ],
+  "rollback": "This diagnostic changes no checkpoint or deployed adapter. Preserve all prior artifacts and discard oracle coefficients after reporting capacity.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

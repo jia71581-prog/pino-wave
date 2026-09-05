@@ -1,0 +1,26 @@
+{
+  "schema": "acoustic_train_only_capacity_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "parent_correction_scale_oracle_r4_train6_r1b",
+  "date_utc": "2026-08-25",
+  "hypothesis": "A single per-instance multiplier on parent-minus-coarse has at least 1 percent mean oracle improvement capacity on six balanced train records.",
+  "scope": "offline train future-truth capacity diagnostic; not deployable",
+  "effective_correction_scale_range": [0.0, 2.0],
+  "sample_ids": [
+    "train_uniform_00057", "train_layered_00767", "train_marmousi_00609",
+    "train_uniform_00350", "train_layered_00996", "train_marmousi_00054"
+  ],
+  "acceptance": {
+    "minimum_mean_oracle_improvement": 0.01,
+    "minimum_each_family_mean_oracle_improvement": 0.005,
+    "minimum_records_with_nonzero_best_multiplier": 3
+  },
+  "bindings": {
+    "script_sha256": "a90aab1acc993911b05c195d8cd26b82914e190cfc60ef3e34b7bd95bb8152d1",
+    "config_sha256": "1128a54355c713dcc7d323a10617bede3876233eb7fc15f5e12f46d79c1a8ad4",
+    "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789"
+  },
+  "validation_opened": false,
+  "test_id_opened": false,
+  "output": "results/parent_correction_scale_oracle_r4_train6_r1b_20260825.json"
+}

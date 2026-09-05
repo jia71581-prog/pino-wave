@@ -1,0 +1,110 @@
+{
+  "adaptation": {
+    "access_audit": {
+      "allowed_indices": [
+        17,
+        18
+      ],
+      "future_truth_used": false,
+      "requested_indices": [
+        17,
+        18
+      ]
+    },
+    "adapted_coefficients": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/run_v2/adapted_coefficients.pt",
+    "adapted_coefficients_sha256": "5d07774fba78438918e24dacfc47968e3f71674743666a7b2db2c24c978e2e47",
+    "basis": {
+      "effective_rank": 63,
+      "gram_eigenvalue_max": 0.00010457122119827732,
+      "gram_eigenvalue_min_kept": 5.818442824894942e-10,
+      "input_rank": 64,
+      "mode_norm": 51.2431755065918,
+      "relative_tolerance": 1e-06
+    },
+    "candidate_online_objective": 0.9522005915641785,
+    "checkpoint": {
+      "epoch": 20,
+      "next_step": 350,
+      "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+      "test_id_opened": false,
+      "update": 13650,
+      "validation_opened": false
+    },
+    "condition_number": 250.75833154601466,
+    "correction_ratio": 0.050000037997961044,
+    "elapsed_s": 411.36691451072693,
+    "family": "marmousi",
+    "future_truth_used": false,
+    "observed_indices": [
+      17,
+      18
+    ],
+    "online_objective_improvement": 0.13454647874016845,
+    "parent_online_objective": 1.1002330780029297,
+    "sample_id": "train_marmousi_00260",
+    "schema": "transfer_dg_pyramid_instance_adaptation_terminal_v1",
+    "status": "accepted",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "elapsed_s": 412.4187066555023,
+  "evaluation": {
+    "adaptation_status": "accepted",
+    "checkpoint": {
+      "epoch": 20,
+      "next_step": 350,
+      "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+      "test_id_opened": false,
+      "update": 13650,
+      "validation_opened": false
+    },
+    "elapsed_s": 412.4181532859802,
+    "family": "marmousi",
+    "future_truth_opened_only_after_adaptation_serialized": true,
+    "max_rss_kib": 15746404,
+    "metrics": {
+      "adapted_full_relative_l2": 0.721803640510769,
+      "adapted_future_relative_l2": 0.7214127984306884,
+      "adapted_onset_relative_l2": 335.6323672152014,
+      "adapted_target_0p05_pass": false,
+      "full_relative_improvement": -0.0013938860787716667,
+      "future_frame_count": 382,
+      "future_relative_improvement": -0.0012918889640731734,
+      "future_start_index": 19,
+      "future_time_bands": {
+        "early": {
+          "adapted_relative_l2": 0.3358044839957845,
+          "parent_relative_l2": 0.3348995509504711,
+          "start": 19,
+          "stop": 146
+        },
+        "late": {
+          "adapted_relative_l2": 0.869211711627334,
+          "parent_relative_l2": 0.8684467043041625,
+          "start": 274,
+          "stop": 400
+        },
+        "middle": {
+          "adapted_relative_l2": 0.7935942862195,
+          "parent_relative_l2": 0.7923608001075989,
+          "start": 147,
+          "stop": 273
+        }
+      },
+      "parent_full_relative_l2": 0.7207989289181564,
+      "parent_future_relative_l2": 0.7204820156658365,
+      "parent_onset_relative_l2": 365.4731836967913,
+      "time_count": 401
+    },
+    "sample_id": "train_marmousi_00260",
+    "schema": "transfer_dg_pyramid_instance_adaptation_evaluation_v1",
+    "scope": "post-seal train-only single-record diagnostic",
+    "status": "complete",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "schema": "transfer_dg_pyramid_instance_adaptation_run_terminal_v1",
+  "status": "complete",
+  "test_id_opened": false,
+  "validation_opened": false
+}

@@ -1,0 +1,56 @@
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"generate_session_title"}
+[claude-code:unrecognized_model] {"model":"deepseek-v4-pro[1m]","query_source":"auto_mode"}
+脚本已自然返回（未使用任何后台/超时包装）。以下为解析后的监控报告：
+
+## 监控报告 — direct48_pbg_pilot_r49_20260823（终端 v1）
+
+### status
+**`rejected`** — interpretation: "train-overfit aggregate >= rejected gate; capacity is insufficient"（训练过拟合能力试点，800 updates 已完成，非中途截断）
+
+### updates
+`updates_completed = 800`（完整跑满；日志中最后一条为 update 800，随后正常写出 terminal JSON 并退出）
+
+### aggregate rel-L2（初始 / 最佳 / 最终）
+| 项 | 值 | 位置 |
+|---|---|---|
+| 初始 | **37.0689** | initial_aggregate_relative_l2 |
+| 最佳（固定） | **1.02648** | update 350（best_fixed_aggregate_relative_l2） |
+| 最终（all-saved） | **1.08974** | update 800 |
+
+energy-weighted 最终 = 1.09659；coarse 参考基准相同（reference_kind=coarse，correction_to_coarse_l2_ratio=0.0）。
+
+### 每记录 rel-L2（最终，3 条 fit 记录）
+- `train_marmousi_00000`: **1.13878**（记录最大值）
+- `train_marmousi_00002`: **1.06077**
+- `train_marmousi_00003`: **1.06966**
+- all_saved_record_maximum = 1.13878
+
+### coefficient rel-L2
+- 终端值：**0.946894**（coefficient_loss_total = 0.89906）
+- 最后 4 步 loss_components.coefficient_relative_l2：0.92698 / 0.93544 / 0.92815 / 0.94689 —— 稳定徘徊在 ~0.93，未见收敛到可接受区间。
+
+### 最后 200 步趋势（600→800）
+| update | 600 | 650 | 700 | 750 | 800 |
+|---|---|---|---|---|---|
+| agg | 1.04405 | **1.03422** | 1.05302 | 1.06693 | **1.08974** |
+
+趋势：650 处为 200 步窗口最低点后**持续恶化**（1.034 → 1.090，单调上升约 +5.4%），离 accepted gate（0.1）越来越远，无任何回升迹象。
+
+### checkpoint / 绑定
+- 最佳 checkpoint：`checkpoints/update_0350.pt`（best_fixed_agg 1.02648）；终端 checkpoint sha256 `f0b16f90…`
+- 共 17 个 checkpoint（update_0000 至 0800，约每 ~59s 一个）；除 update_0000（102.9 MB）外均为 197.86 MB
+- 绑定：base_config `direct48_pbg_pilot.yaml` (ac2533c3…)、run_config (b449301c…)、script `train_direct48_pbg_pilot.py` (f578e80f…)、normalization_json (bbc0963a…)、source_h5 dataset_v1.h5 (9904e4a4…)、split_manifest (e72cc891…)、run_identity `1f3e7f8f…`、vds_provenance 700 train samples（acoustic_lwc84_401_to_201_v1）
+
+### elapsed / peak GPU
+- elapsed = **942.74 s（≈15.7 min）**
+- peak_cuda_bytes = **529,725,952 B（≈505.2 MiB）**；update 日志中 gpu 监控字段为 null（无显存/功耗/利用率采样）
+
+### access flags
+- fit_opened=true（fit_record_count=3），**calibration_opened=false、confirmation_opened=false、test_id_opened=false、validation_opened=false**
+- wavefield_use = `fit_panel_train_labels_only`；读取数据集：sample_id/split/sha256/time_s/x_m/z_m + fit-only 的 velocity、source_map、source 元数据、travel_time、wavefield（train labels）—— 未触碰任何非 fit 行数据，符合只读边界
+
+### 门判定
+- gates：accepted ≤ 0.10（aggregate）/ ≤ 0.12（record）；strong ≤ 0.06；rejected ≥ 0.30
+- 实测：aggregate 1.0897 ≥ 0.30，record_max 1.1388 ≥ 0.30 → **rejected（能力不足）**；capability 备注：本 pilot 的 accepted/strong 不作为最终候选声明
+
+**结论**：训练过拟合 rel-L2 最低仅到 1.026，800 步后反弹至 1.090，远未触及 accepted 门（0.1），判定 rejected 成立；数据访问全程限于 fit 行训练标签，无越界。

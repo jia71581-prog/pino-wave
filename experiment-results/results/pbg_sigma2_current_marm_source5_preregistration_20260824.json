@@ -1,0 +1,37 @@
+{
+  "schema": "acoustic_train_only_cache_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "pbg_sigma2_current_marm_source5_20260824",
+  "date_utc": "2026-08-24",
+  "hypothesis": "A sigma-2 smoothed-velocity LWC84 solve generated from the current manifest-bound source file will provide a source-compatible P_bg for the five frozen Marmousi source-holdout records.",
+  "records": {
+    "sample_ids": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002", "train_marmousi_00003", "train_marmousi_00004"],
+    "source_indices": [2100, 2101, 2102, 2103, 2104],
+    "split": "train",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "solver": {
+    "kind": "LWC84 gaussian-smoothed velocity background",
+    "sigma_saved_cells": 2.0,
+    "time_count": 401,
+    "batch_size": 1,
+    "device": "cuda:0"
+  },
+  "bindings": {
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "source_config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+    "frozen_config_sha256": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+    "builder_sha256": "7fd182eb74c1bc8b42d46e6c86718b7c25e6042942ca78914b689bef9f2f6572"
+  },
+  "output": "artifacts/pbg_sigma2_current_marm_source5_20260824.h5",
+  "compute_budget": {
+    "records": 5,
+    "wall_time_max_minutes": 20,
+    "storage_gib_max": 0.5
+  },
+  "failure_signal": "Any source-index/sample-id mismatch, non-complete cache status, manifest mismatch, non-finite field, missing frame, OOM, or output above 0.5 GiB blocks residual training.",
+  "rollback": "Preserve source data and all checkpoints; do not use or overwrite an incomplete cache.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/build_smoothed_background_cache.py --records 2100 2101 2102 2103 2104 --sigma 2 --out artifacts/pbg_sigma2_current_marm_source5_20260824.h5 --device cuda --batch-size 1 --source-h5 /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --frozen-config /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml --time-count 401"
+}

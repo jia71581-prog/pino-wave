@@ -1,0 +1,42 @@
+{
+  "schema": "cpadc_scalecontract_smoke_preregistration_v1",
+  "status": "frozen_before_execution",
+  "hypothesis": "After preserving the r5b checkpoint correction amplitude, CPADC offline training will receive a parent with sub-unit train-patch relative L2 instead of the prior approximately 6.06 corrupted parent.",
+  "mechanism": "The parent correction branch remains at its learned scale 0.0285414904 rather than being amplified 35.04 times; CPADC then learns modes of the actual r5b residual distribution.",
+  "scope": {
+    "split": "train",
+    "per_family": 1,
+    "record_count": 3,
+    "epochs": 3,
+    "validation_truth_allowed": false,
+    "test_id_allowed": false
+  },
+  "single_conceptual_change": "Preserve the checkpoint correction amplitude when the legacy parent correction policy is enabled.",
+  "primary_metric": "mean_train_patch_relative_l2_before",
+  "secondary_metric": "best train-patch relative improvement after CPADC",
+  "predictions": {
+    "maximum_epoch1_mean_train_patch_relative_l2_before": 1.0,
+    "minimum_best_relative_improvement": 0.0
+  },
+  "failure_signal": "The epoch-1 parent patch error is at least 1.0 or no epoch produces a nonnegative relative improvement.",
+  "compute_budget": {
+    "gpu_count": 1,
+    "rank": 8,
+    "phase_rank": 2,
+    "width": 16,
+    "physics_point_count": 64,
+    "rank_chunk_size": 2,
+    "expected_wall_time_s": 90
+  },
+  "rollback": "Preserve the old CPADC checkpoints and reject this isolated output directory if the gate fails.",
+  "bindings": {
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "config": "configs/saved_time_v5/causal_defect_basis_r5b_marmousi1_4m_v2.yaml",
+    "config_sha256": "b22587c01ce80c38b012d119a2b30a2516d6c7a1aeaceff8ea9c183531d0e52c",
+    "parent_loader": "scripts/run_v5_instance_adaptation.py",
+    "parent_loader_sha256": "f9efdd2483e33eb9bb132a08c839cce9daa768a302c92aff1a48b8e560df4e58",
+    "trainer": "scripts/train_causal_defect_basis.py",
+    "trainer_sha256": "7c042569a65e5e35fde8c854dfdabf3368a800b4f901a1cfd1e3273599e940d1"
+  },
+  "output_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r5b_scalecontract_smoke_rank8_pf1_ep3_r19_20260816"
+}

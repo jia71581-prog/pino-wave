@@ -1,0 +1,2139 @@
+{
+  "arms": {
+    "fe_weak": {
+      "accepted": 12,
+      "aggregate": 0.13776353816265421,
+      "mean_runtime_s": 0.4005846440171202,
+      "nonworse": 4,
+      "parent_aggregate": 0.13530719453207002,
+      "per_family": {
+        "layered": 0.176640428486879,
+        "marmousi": 0.15982546216241303,
+        "uniform": 0.07682472383867062
+      },
+      "relative_gain": -0.018153828693876304
+    },
+    "observed_only": {
+      "accepted": 12,
+      "aggregate": 0.1379209205896114,
+      "mean_runtime_s": 0.4794667673607667,
+      "nonworse": 3,
+      "parent_aggregate": 0.13530719453207002,
+      "per_family": {
+        "layered": 0.17755048417056252,
+        "marmousi": 0.16138029509487842,
+        "uniform": 0.07483198250339329
+      },
+      "relative_gain": -0.019316977686074745
+    }
+  },
+  "family_counts": {
+    "layered": 4,
+    "marmousi": 4,
+    "uniform": 4
+  },
+  "fe_increment_vs_observed": 0.0011411062678842795,
+  "judgement": {
+    "fe_acceptance_pass": true,
+    "fe_family_pass": false,
+    "fe_gain_pass": false,
+    "fe_increment_pass": true,
+    "fe_nonworse_pass": false,
+    "fe_runtime_pass": true,
+    "passed": false
+  },
+  "record_count": 12,
+  "records": [
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.13178077340126038,
+            "coeff_norm": 2.8262219429016113,
+            "correction_ratio": 0.010161935351788998,
+            "elapsed_s": 0.3890017122030258,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.032408878207206726,
+              "ridge": 0.12480515986680984,
+              "weak": 0.9935941100120544
+            },
+            "parent_objective": 0.14179620146751404,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 61,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.14179620146751404,
+                "observed": 0.04179619997739792,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.14037524163722992,
+                "observed": 0.04045581445097923,
+                "ridge": 0.0023598317056894302,
+                "step": 2,
+                "weak": 0.9991918802261353
+              },
+              {
+                "objective": 0.13900142908096313,
+                "observed": 0.03916194289922714,
+                "ridge": 0.009008113294839859,
+                "step": 3,
+                "weak": 0.9983858466148376
+              },
+              {
+                "objective": 0.1376754492521286,
+                "observed": 0.03791533038020134,
+                "ridge": 0.019772417843341827,
+                "step": 4,
+                "weak": 0.9975813627243042
+              },
+              {
+                "objective": 0.13639800250530243,
+                "observed": 0.03671662136912346,
+                "ridge": 0.034415386617183685,
+                "step": 5,
+                "weak": 0.9967794418334961
+              },
+              {
+                "objective": 0.13516955077648163,
+                "observed": 0.035566333681344986,
+                "ridge": 0.05258941650390625,
+                "step": 6,
+                "weak": 0.9959795475006104
+              },
+              {
+                "objective": 0.13399042189121246,
+                "observed": 0.03446483239531517,
+                "ridge": 0.07394483685493469,
+                "step": 7,
+                "weak": 0.9951819181442261
+              },
+              {
+                "objective": 0.13286085426807404,
+                "observed": 0.03341234102845192,
+                "ridge": 0.09812866151332855,
+                "step": 8,
+                "weak": 0.9943868517875671
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "b8b6b0980b9f89a0e80906c73e975d74c1fc41d832220830455880a15d124ca8",
+          "relative_gain": 0.005751045931339644,
+          "relative_l2": 0.09658013332661414
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.03243426978588104,
+            "coeff_norm": 2.7996344566345215,
+            "correction_ratio": 0.010184931568801403,
+            "elapsed_s": 1.2883599884808064,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.03242202475667,
+              "ridge": 0.1224680244922638,
+              "weak": 0.9937553405761719
+            },
+            "parent_objective": 0.04179619997739792,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 61,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.04179619997739792,
+                "observed": 0.04179619997739792,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.04045526683330536,
+                "observed": 0.040455032140016556,
+                "ridge": 0.0023599565029144287,
+                "step": 2,
+                "weak": 0.9992194175720215
+              },
+              {
+                "objective": 0.039162132889032364,
+                "observed": 0.039161231368780136,
+                "ridge": 0.00900348462164402,
+                "step": 3,
+                "weak": 0.998440146446228
+              },
+              {
+                "objective": 0.03791751340031624,
+                "observed": 0.037915538996458054,
+                "ridge": 0.01973075419664383,
+                "step": 4,
+                "weak": 0.9976616501808167
+              },
+              {
+                "objective": 0.03672194853425026,
+                "observed": 0.03671852499246597,
+                "ridge": 0.03424995392560959,
+                "step": 5,
+                "weak": 0.99688321352005
+              },
+              {
+                "objective": 0.03557576611638069,
+                "observed": 0.035570550709962845,
+                "ridge": 0.0521417073905468,
+                "step": 6,
+                "weak": 0.9961031079292297
+              },
+              {
+                "objective": 0.034479085355997086,
+                "observed": 0.0344717837870121,
+                "ridge": 0.07302305102348328,
+                "step": 7,
+                "weak": 0.9953207969665527
+              },
+              {
+                "objective": 0.03343193978071213,
+                "observed": 0.033422283828258514,
+                "ridge": 0.09656284749507904,
+                "step": 8,
+                "weak": 0.9945378303527832
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "5c2925c33c748d9ad1361b3e438615563df4be8a1257e8191a5a67c253ea837d",
+          "relative_gain": 0.005840770473276487,
+          "relative_l2": 0.09657141759381153
+        }
+      },
+      "family": "uniform",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.09713878292895298,
+      "record_index": 0,
+      "sample_id": "train_uniform_00002",
+      "source_off_frame": 61
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.10844369232654572,
+            "coeff_norm": 2.4662976264953613,
+            "correction_ratio": 0.011030074208974838,
+            "elapsed_s": 0.4358959421515465,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.008801518008112907,
+              "ridge": 0.09504100680351257,
+              "weak": 0.9963266253471375
+            },
+            "parent_objective": 0.11228301376104355,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 34,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.11228301376104355,
+                "observed": 0.012283014133572578,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.11168930679559708,
+                "observed": 0.011734266765415668,
+                "ridge": 0.0023312969133257866,
+                "step": 2,
+                "weak": 0.999548077583313
+              },
+              {
+                "objective": 0.1111329048871994,
+                "observed": 0.011222220957279205,
+                "ridge": 0.008491629734635353,
+                "step": 3,
+                "weak": 0.9990983009338379
+              },
+              {
+                "objective": 0.11061165481805801,
+                "observed": 0.01074534934014082,
+                "ridge": 0.01781770959496498,
+                "step": 4,
+                "weak": 0.9986452460289001
+              },
+              {
+                "objective": 0.1101214736700058,
+                "observed": 0.010299986228346825,
+                "ridge": 0.029536301270127296,
+                "step": 5,
+                "weak": 0.9981853365898132
+              },
+              {
+                "objective": 0.10966011136770248,
+                "observed": 0.009883674792945385,
+                "ridge": 0.043232716619968414,
+                "step": 6,
+                "weak": 0.9977211952209473
+              },
+              {
+                "objective": 0.10922695696353912,
+                "observed": 0.009495495818555355,
+                "ridge": 0.058787617832422256,
+                "step": 7,
+                "weak": 0.997255802154541
+              },
+              {
+                "objective": 0.10882162302732468,
+                "observed": 0.00913493987172842,
+                "ridge": 0.0761096179485321,
+                "step": 8,
+                "weak": 0.9967906475067139
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "23e6def226c127904ae7993ae902b3ea8751ff6e3ab45348cf10a4c5816a6ca7",
+          "relative_gain": -0.0018654119266662975,
+          "relative_l2": 0.06980276587970244
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.008804124779999256,
+            "coeff_norm": 2.4172203540802,
+            "correction_ratio": 0.007972084917128086,
+            "elapsed_s": 0.41804955154657364,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.0087949950248003,
+              "ridge": 0.09129615128040314,
+              "weak": 0.9985239505767822
+            },
+            "parent_objective": 0.012283014133572578,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 34,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.012283014133572578,
+                "observed": 0.012283014133572578,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.011734499596059322,
+                "observed": 0.011734266765415668,
+                "ridge": 0.002330259419977665,
+                "step": 2,
+                "weak": 0.999548077583313
+              },
+              {
+                "objective": 0.011223050765693188,
+                "observed": 0.011222205124795437,
+                "ridge": 0.008461003191769123,
+                "step": 3,
+                "weak": 0.9991176128387451
+              },
+              {
+                "objective": 0.010747766122221947,
+                "observed": 0.010745987296104431,
+                "ridge": 0.017786476761102676,
+                "step": 4,
+                "weak": 0.9987360239028931
+              },
+              {
+                "objective": 0.010305467993021011,
+                "observed": 0.010302528738975525,
+                "ridge": 0.029392581433057785,
+                "step": 5,
+                "weak": 0.9984467625617981
+              },
+              {
+                "objective": 0.009891927242279053,
+                "observed": 0.00988766085356474,
+                "ridge": 0.042662084102630615,
+                "step": 6,
+                "weak": 0.9982877969741821
+              },
+              {
+                "objective": 0.009504457004368305,
+                "observed": 0.0094987154006958,
+                "ridge": 0.05741988867521286,
+                "step": 7,
+                "weak": 0.9982635378837585
+              },
+              {
+                "objective": 0.009141986258327961,
+                "observed": 0.009134621359407902,
+                "ridge": 0.07364894449710846,
+                "step": 8,
+                "weak": 0.9983513951301575
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "5a9f2d8b4ca60c5c832582bf28c98ea186f8077357ab8b17a276f98edb9b4501",
+          "relative_gain": 0.0006051063531937697,
+          "relative_l2": 0.069630637960086
+        }
+      },
+      "family": "uniform",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.06967279741244506,
+      "record_index": 1,
+      "sample_id": "train_uniform_00009",
+      "source_off_frame": 34
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.11690422147512436,
+            "coeff_norm": 2.9219610691070557,
+            "correction_ratio": 0.008525604382157326,
+            "elapsed_s": 0.40956493839621544,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.017322855070233345,
+              "ridge": 0.13340401649475098,
+              "weak": 0.9956802129745483
+            },
+            "parent_objective": 0.1250755935907364,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 61,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.1250755935907364,
+                "observed": 0.02507558837532997,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.12388879805803299,
+                "observed": 0.02394266054034233,
+                "ridge": 0.0024336259812116623,
+                "step": 2,
+                "weak": 0.999458909034729
+              },
+              {
+                "objective": 0.12274835258722305,
+                "observed": 0.02285551279783249,
+                "ridge": 0.009547296911478043,
+                "step": 3,
+                "weak": 0.9989188313484192
+              },
+              {
+                "objective": 0.12165491282939911,
+                "observed": 0.021814892068505287,
+                "ridge": 0.021008092910051346,
+                "step": 4,
+                "weak": 0.9983791708946228
+              },
+              {
+                "objective": 0.12060904502868652,
+                "observed": 0.020821381360292435,
+                "ridge": 0.036482732743024826,
+                "step": 5,
+                "weak": 0.997840166091919
+              },
+              {
+                "objective": 0.11961108446121216,
+                "observed": 0.019875377416610718,
+                "ridge": 0.0557192824780941,
+                "step": 6,
+                "weak": 0.9973013401031494
+              },
+              {
+                "objective": 0.11866114288568497,
+                "observed": 0.018977060914039612,
+                "ridge": 0.07847564667463303,
+                "step": 7,
+                "weak": 0.9967623353004456
+              },
+              {
+                "objective": 0.11775901168584824,
+                "observed": 0.018126346170902252,
+                "ridge": 0.1044701337814331,
+                "step": 8,
+                "weak": 0.996222198009491
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "12b8be75681af1d7cfba752ede5241ff2b935659dc9014d75989e3736a67f956",
+          "relative_gain": 0.01896669409693706,
+          "relative_l2": 0.05830117335986244
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.017335837706923485,
+            "coeff_norm": 2.9260828495025635,
+            "correction_ratio": 0.008490841835737228,
+            "elapsed_s": 0.41493548080325127,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.017322460189461708,
+              "ridge": 0.13378064334392548,
+              "weak": 0.995734453201294
+            },
+            "parent_objective": 0.02507558837532997,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 61,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.02507558837532997,
+                "observed": 0.02507558837532997,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.02394290454685688,
+                "observed": 0.02394266054034233,
+                "ridge": 0.002433472778648138,
+                "step": 2,
+                "weak": 0.999458909034729
+              },
+              {
+                "objective": 0.022856462746858597,
+                "observed": 0.02285550907254219,
+                "ridge": 0.0095458859577775,
+                "step": 3,
+                "weak": 0.9989190697669983
+              },
+              {
+                "objective": 0.02181696705520153,
+                "observed": 0.021814865991473198,
+                "ridge": 0.021008513867855072,
+                "step": 4,
+                "weak": 0.9983816742897034
+              },
+              {
+                "objective": 0.02082495577633381,
+                "observed": 0.020821306854486465,
+                "ridge": 0.036492086946964264,
+                "step": 5,
+                "weak": 0.9978461265563965
+              },
+              {
+                "objective": 0.019880808889865875,
+                "observed": 0.019875233992934227,
+                "ridge": 0.05575279891490936,
+                "step": 6,
+                "weak": 0.9973131418228149
+              },
+              {
+                "objective": 0.018984675407409668,
+                "observed": 0.018976818770170212,
+                "ridge": 0.0785626545548439,
+                "step": 7,
+                "weak": 0.9967833757400513
+              },
+              {
+                "objective": 0.01813647150993347,
+                "observed": 0.018126005306839943,
+                "ridge": 0.10466217994689941,
+                "step": 8,
+                "weak": 0.9962570071220398
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "3da3909fa2c73c64bdda3d4180c9bb1e8c549010250bb141b459799be5f8b92f",
+          "relative_gain": 0.01895938520807589,
+          "relative_l2": 0.05830160771493887
+        }
+      },
+      "family": "uniform",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.0594283323604339,
+      "record_index": 2,
+      "sample_id": "train_uniform_00010",
+      "source_off_frame": 61
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.12334693968296051,
+            "coeff_norm": 2.8282480239868164,
+            "correction_ratio": 0.03904397785663605,
+            "elapsed_s": 0.4211863577365875,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.0326540507376194,
+              "ridge": 0.12498416006565094,
+              "weak": 0.9068037867546082
+            },
+            "parent_objective": 0.13667550683021545,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 61,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.13667550683021545,
+                "observed": 0.03667551279067993,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.13471341133117676,
+                "observed": 0.03590903803706169,
+                "ridge": 0.002495733555406332,
+                "step": 2,
+                "weak": 0.9880411624908447
+              },
+              {
+                "objective": 0.13290230929851532,
+                "observed": 0.0352836474776268,
+                "ridge": 0.009318184107542038,
+                "step": 3,
+                "weak": 0.9761772751808167
+              },
+              {
+                "objective": 0.13119201362133026,
+                "observed": 0.034751247614622116,
+                "ridge": 0.02010278031229973,
+                "step": 4,
+                "weak": 0.9643874764442444
+              },
+              {
+                "objective": 0.12955258786678314,
+                "observed": 0.034280769526958466,
+                "ridge": 0.03444761037826538,
+                "step": 5,
+                "weak": 0.952683687210083
+              },
+              {
+                "objective": 0.12796121835708618,
+                "observed": 0.03384912759065628,
+                "ridge": 0.05215853080153465,
+                "step": 6,
+                "weak": 0.9410687685012817
+              },
+              {
+                "objective": 0.12640155851840973,
+                "observed": 0.03343959525227547,
+                "ridge": 0.07316429913043976,
+                "step": 7,
+                "weak": 0.9295464158058167
+              },
+              {
+                "objective": 0.12486430257558823,
+                "observed": 0.03304232656955719,
+                "ridge": 0.09743699431419373,
+                "step": 8,
+                "weak": 0.9181222915649414
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "9df36db716ecd22a07ed0f702ff8f8db90b1d6b9c0aed7140eee94f46f89060b",
+          "relative_gain": -0.1504405672883934,
+          "relative_l2": 0.08261482278850343
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.03279935196042061,
+            "coeff_norm": 2.1673872470855713,
+            "correction_ratio": 0.02209683693945408,
+            "elapsed_s": 0.39389224350452423,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.03279201313853264,
+              "ridge": 0.07339949160814285,
+              "weak": 1.0043290853500366
+            },
+            "parent_objective": 0.03667551279067993,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 61,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.03667551279067993,
+                "observed": 0.03667551279067993,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.03580479323863983,
+                "observed": 0.03580455109477043,
+                "ridge": 0.0024373866617679596,
+                "step": 2,
+                "weak": 1.0008540153503418
+              },
+              {
+                "objective": 0.03526148572564125,
+                "observed": 0.035260673612356186,
+                "ridge": 0.008133414201438427,
+                "step": 3,
+                "weak": 1.0020941495895386
+              },
+              {
+                "objective": 0.03486156836152077,
+                "observed": 0.0348600372672081,
+                "ridge": 0.015319108963012695,
+                "step": 4,
+                "weak": 1.0032166242599487
+              },
+              {
+                "objective": 0.03447304666042328,
+                "observed": 0.03447068855166435,
+                "ridge": 0.023567982017993927,
+                "step": 5,
+                "weak": 1.003882884979248
+              },
+              {
+                "objective": 0.034062668681144714,
+                "observed": 0.03405935689806938,
+                "ridge": 0.0331139974296093,
+                "step": 6,
+                "weak": 1.00421142578125
+              },
+              {
+                "objective": 0.03363621607422829,
+                "observed": 0.03363178297877312,
+                "ridge": 0.04434259980916977,
+                "step": 7,
+                "weak": 1.004334568977356
+              },
+              {
+                "objective": 0.03320993110537529,
+                "observed": 0.03320416435599327,
+                "ridge": 0.05765610560774803,
+                "step": 8,
+                "weak": 1.0043463706970215
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "46ccdb77f0dc791ef613e3858f859b419086607cb8a76a0d87150e0ab8f66a9c",
+          "relative_gain": -0.04195432460253215,
+          "relative_l2": 0.07482426674473672
+        }
+      },
+      "family": "uniform",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.07181146522260413,
+      "record_index": 3,
+      "sample_id": "train_uniform_00013",
+      "source_off_frame": 61
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.10955201089382172,
+            "coeff_norm": 2.2702481746673584,
+            "correction_ratio": 0.009683565236628056,
+            "elapsed_s": 0.3930540978908539,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.009889944456517696,
+              "ridge": 0.08053167164325714,
+              "weak": 0.9965400695800781
+            },
+            "parent_objective": 0.11142297089099884,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 31,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.11142297089099884,
+                "observed": 0.011422970332205296,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.11114382743835449,
+                "observed": 0.011187894269824028,
+                "ridge": 0.0019649791065603495,
+                "step": 2,
+                "weak": 0.999557375907898
+              },
+              {
+                "objective": 0.11087742447853088,
+                "observed": 0.010964995250105858,
+                "ridge": 0.006530040875077248,
+                "step": 3,
+                "weak": 0.9991176724433899
+              },
+              {
+                "objective": 0.11062389612197876,
+                "observed": 0.01075444184243679,
+                "ridge": 0.013945316895842552,
+                "step": 4,
+                "weak": 0.998680591583252
+              },
+              {
+                "objective": 0.11038342118263245,
+                "observed": 0.010556381195783615,
+                "ridge": 0.023865506052970886,
+                "step": 5,
+                "weak": 0.9982465505599976
+              },
+              {
+                "objective": 0.11015602201223373,
+                "observed": 0.010370904579758644,
+                "ridge": 0.03581426292657852,
+                "step": 6,
+                "weak": 0.9978153705596924
+              },
+              {
+                "objective": 0.10994172096252441,
+                "observed": 0.010198044590651989,
+                "ridge": 0.04941119626164436,
+                "step": 7,
+                "weak": 0.9973873496055603
+              },
+              {
+                "objective": 0.10974042117595673,
+                "observed": 0.010037761181592941,
+                "ridge": 0.06438449025154114,
+                "step": 8,
+                "weak": 0.9969621896743774
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "bcba6a94962099dc4f7633f585fee3a57eed7214d31861c65b6b3cf2a0428ec0",
+          "relative_gain": -0.001629893039704521,
+          "relative_l2": 0.40616219758947547
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.009894290007650852,
+            "coeff_norm": 2.2381882667541504,
+            "correction_ratio": 0.007636311464011669,
+            "elapsed_s": 0.43539608269929886,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.009886462241411209,
+              "ridge": 0.0782732367515564,
+              "weak": 0.9982597231864929
+            },
+            "parent_objective": 0.011422970332205296,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 31,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.011422970332205296,
+                "observed": 0.011422970332205296,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.011188089847564697,
+                "observed": 0.011187893338501453,
+                "ridge": 0.001964782364666462,
+                "step": 2,
+                "weak": 0.9995577335357666
+              },
+              {
+                "objective": 0.010965654626488686,
+                "observed": 0.01096500176936388,
+                "ridge": 0.006524532102048397,
+                "step": 3,
+                "weak": 0.9991306662559509
+              },
+              {
+                "objective": 0.010755836963653564,
+                "observed": 0.010754445567727089,
+                "ridge": 0.013909458182752132,
+                "step": 4,
+                "weak": 0.9987367987632751
+              },
+              {
+                "objective": 0.010558691807091236,
+                "observed": 0.010556318797171116,
+                "ridge": 0.023733969777822495,
+                "step": 5,
+                "weak": 0.9984075427055359
+              },
+              {
+                "objective": 0.010374147444963455,
+                "observed": 0.010370601899921894,
+                "ridge": 0.03545683994889259,
+                "step": 6,
+                "weak": 0.9981829524040222
+              },
+              {
+                "objective": 0.010202036239206791,
+                "observed": 0.010197172872722149,
+                "ridge": 0.04863637685775757,
+                "step": 7,
+                "weak": 0.9980893135070801
+              },
+              {
+                "objective": 0.010042156092822552,
+                "observed": 0.010035858489573002,
+                "ridge": 0.0629744902253151,
+                "step": 8,
+                "weak": 0.9981228113174438
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "f0454602b4238ab1c764e395aaa9438abd81c9e29dd306dfbfcee61a86169e86",
+          "relative_gain": -0.0010160415865513308,
+          "relative_l2": 0.40591328004324534
+        }
+      },
+      "family": "layered",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.40550127388557805,
+      "record_index": 80,
+      "sample_id": "train_layered_00012",
+      "source_off_frame": 31
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.10927323251962662,
+            "coeff_norm": 1.709472894668579,
+            "correction_ratio": 0.005258817225694656,
+            "elapsed_s": 0.4005647860467434,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.009537255391478539,
+              "ridge": 0.045660898089408875,
+              "weak": 0.9973140358924866
+            },
+            "parent_objective": 0.1098804920911789,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 35,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.1098804920911789,
+                "observed": 0.009880486875772476,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.10979373753070831,
+                "observed": 0.00982761662453413,
+                "ridge": 0.0017187262419611216,
+                "step": 2,
+                "weak": 0.999659538269043
+              },
+              {
+                "objective": 0.10971005260944366,
+                "observed": 0.009777589701116085,
+                "ridge": 0.004498561844229698,
+                "step": 3,
+                "weak": 0.9993201494216919
+              },
+              {
+                "objective": 0.10962953418493271,
+                "observed": 0.009730412624776363,
+                "ridge": 0.008506916463375092,
+                "step": 4,
+                "weak": 0.9989826679229736
+              },
+              {
+                "objective": 0.10955208539962769,
+                "observed": 0.009686091914772987,
+                "ridge": 0.013684979639947414,
+                "step": 5,
+                "weak": 0.9986462593078613
+              },
+              {
+                "objective": 0.10947778075933456,
+                "observed": 0.00964463222771883,
+                "ridge": 0.020053492859005928,
+                "step": 6,
+                "weak": 0.9983114004135132
+              },
+              {
+                "objective": 0.10940654575824738,
+                "observed": 0.009606029838323593,
+                "ridge": 0.027592618018388748,
+                "step": 7,
+                "weak": 0.997977614402771
+              },
+              {
+                "objective": 0.10933840274810791,
+                "observed": 0.009570254012942314,
+                "ridge": 0.03619232773780823,
+                "step": 8,
+                "weak": 0.9976452589035034
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "e3cbb5c48b6b6cb474d538d52870e460828bf62ab819763f75358f94d2463623",
+          "relative_gain": -0.005638719619181989,
+          "relative_l2": 0.0938220425413183
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.009541798382997513,
+            "coeff_norm": 1.7248293161392212,
+            "correction_ratio": 0.005328896455466747,
+            "elapsed_s": 0.47221681103110313,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.009537150152027607,
+              "ridge": 0.04648493975400925,
+              "weak": 0.9973250031471252
+            },
+            "parent_objective": 0.009880486875772476,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 35,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.009880486875772476,
+                "observed": 0.009880486875772476,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.009827769361436367,
+                "observed": 0.009827597066760063,
+                "ridge": 0.0017212310340255499,
+                "step": 2,
+                "weak": 0.9996595978736877
+              },
+              {
+                "objective": 0.009778016246855259,
+                "observed": 0.009777550585567951,
+                "ridge": 0.004658770747482777,
+                "step": 3,
+                "weak": 0.9993206262588501
+              },
+              {
+                "objective": 0.009731229394674301,
+                "observed": 0.009730355814099312,
+                "ridge": 0.008736826479434967,
+                "step": 4,
+                "weak": 0.9989834427833557
+              },
+              {
+                "objective": 0.009687409736216068,
+                "observed": 0.009686021134257317,
+                "ridge": 0.013883903622627258,
+                "step": 5,
+                "weak": 0.998647928237915
+              },
+              {
+                "objective": 0.009646568447351456,
+                "observed": 0.009644545614719391,
+                "ridge": 0.02022397704422474,
+                "step": 6,
+                "weak": 0.998314380645752
+              },
+              {
+                "objective": 0.009608710184693336,
+                "observed": 0.00960592646151781,
+                "ridge": 0.02783866971731186,
+                "step": 7,
+                "weak": 0.9979825615882874
+              },
+              {
+                "objective": 0.009573807939887047,
+                "observed": 0.00957014225423336,
+                "ridge": 0.036660730838775635,
+                "step": 8,
+                "weak": 0.9976527094841003
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "57eb3eff817f0782dc8413f423c763fe36edc3de37511c6053b9e2250fde81c9",
+          "relative_gain": -0.005681712578433429,
+          "relative_l2": 0.09382605361127133
+        }
+      },
+      "family": "layered",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.09329597270960996,
+      "record_index": 81,
+      "sample_id": "train_layered_00023",
+      "source_off_frame": 35
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.10664830356836319,
+            "coeff_norm": 1.946643352508545,
+            "correction_ratio": 0.0055930158123373985,
+            "elapsed_s": 0.3992741145193577,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.006901566870510578,
+              "ridge": 0.05920968949794769,
+              "weak": 0.9974080920219421
+            },
+            "parent_objective": 0.10780909657478333,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 48,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.10780909657478333,
+                "observed": 0.00780909787863493,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.10764094442129135,
+                "observed": 0.007673586718738079,
+                "ridge": 0.0018718078499659896,
+                "step": 2,
+                "weak": 0.9996717572212219
+              },
+              {
+                "objective": 0.1074795350432396,
+                "observed": 0.007544500753283501,
+                "ridge": 0.005776645615696907,
+                "step": 3,
+                "weak": 0.999344527721405
+              },
+              {
+                "objective": 0.10732477903366089,
+                "observed": 0.007421772461384535,
+                "ridge": 0.011554261669516563,
+                "step": 4,
+                "weak": 0.9990185499191284
+              },
+              {
+                "objective": 0.10717656463384628,
+                "observed": 0.007305302191525698,
+                "ridge": 0.018718836829066277,
+                "step": 5,
+                "weak": 0.9986939430236816
+              },
+              {
+                "objective": 0.10703480988740921,
+                "observed": 0.007195020094513893,
+                "ridge": 0.02707264944911003,
+                "step": 6,
+                "weak": 0.998370885848999
+              },
+              {
+                "objective": 0.10689950734376907,
+                "observed": 0.007090948987752199,
+                "ridge": 0.03660567104816437,
+                "step": 7,
+                "weak": 0.9980489611625671
+              },
+              {
+                "objective": 0.10677069425582886,
+                "observed": 0.006993137300014496,
+                "ridge": 0.047322828322649,
+                "step": 8,
+                "weak": 0.9977282285690308
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "4025ff304053a7ed00473d21cab8dd718a5309a30d9c48342d1b05523e90bfaf",
+          "relative_gain": 0.007323271744916625,
+          "relative_l2": 0.13471287131482676
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.006892159581184387,
+            "coeff_norm": 1.9261876344680786,
+            "correction_ratio": 0.004398752003908157,
+            "elapsed_s": 0.41356590390205383,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.006886362563818693,
+              "ridge": 0.057971857488155365,
+              "weak": 1.002490520477295
+            },
+            "parent_objective": 0.00780909787863493,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 48,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.00780909787863493,
+                "observed": 0.00780909787863493,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.007671256549656391,
+                "observed": 0.007671068422496319,
+                "ridge": 0.0018803784623742104,
+                "step": 2,
+                "weak": 1.0003118515014648
+              },
+              {
+                "objective": 0.007540371268987656,
+                "observed": 0.007539794780313969,
+                "ridge": 0.0057661449536681175,
+                "step": 3,
+                "weak": 1.0006238222122192
+              },
+              {
+                "objective": 0.00741595821455121,
+                "observed": 0.007414814084768295,
+                "ridge": 0.011441764421761036,
+                "step": 4,
+                "weak": 1.0009360313415527
+              },
+              {
+                "objective": 0.007297982927411795,
+                "observed": 0.007296143565326929,
+                "ridge": 0.018393173813819885,
+                "step": 5,
+                "weak": 1.001247763633728
+              },
+              {
+                "objective": 0.007186613976955414,
+                "observed": 0.007183967158198357,
+                "ridge": 0.026468954980373383,
+                "step": 6,
+                "weak": 1.0015593767166138
+              },
+              {
+                "objective": 0.007081921212375164,
+                "observed": 0.0070783463306725025,
+                "ridge": 0.03574957698583603,
+                "step": 7,
+                "weak": 1.0018703937530518
+              },
+              {
+                "objective": 0.006983821280300617,
+                "observed": 0.0069791958667337894,
+                "ridge": 0.046255096793174744,
+                "step": 8,
+                "weak": 1.002180814743042
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "f7c67ca32aba7d73e9b9fd23db34fab0f10db1ad175d0d329487baf240fa8f95",
+          "relative_gain": -0.006689940666190676,
+          "relative_l2": 0.1366145579631711
+        }
+      },
+      "family": "layered",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.1357066882706353,
+      "record_index": 82,
+      "sample_id": "train_layered_00056",
+      "source_off_frame": 48
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.11242984980344772,
+            "coeff_norm": 2.4064717292785645,
+            "correction_ratio": 0.007351277396082878,
+            "elapsed_s": 0.40876292809844017,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.012884092517197132,
+              "ridge": 0.09048603475093842,
+              "weak": 0.9953671097755432
+            },
+            "parent_objective": 0.11450421810150146,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 60,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.11450421810150146,
+                "observed": 0.014504214748740196,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.11417924612760544,
+                "observed": 0.014237593859434128,
+                "ridge": 0.0023436853662133217,
+                "step": 2,
+                "weak": 0.9994142055511475
+              },
+              {
+                "objective": 0.11387326568365097,
+                "observed": 0.01398937776684761,
+                "ridge": 0.008531566709280014,
+                "step": 3,
+                "weak": 0.9988303184509277
+              },
+              {
+                "objective": 0.11358631402254105,
+                "observed": 0.013759699650108814,
+                "ridge": 0.017814956605434418,
+                "step": 4,
+                "weak": 0.998248279094696
+              },
+              {
+                "objective": 0.1133183091878891,
+                "observed": 0.013548541814088821,
+                "ridge": 0.029508477076888084,
+                "step": 5,
+                "weak": 0.9976682066917419
+              },
+              {
+                "objective": 0.1130690947175026,
+                "observed": 0.013355784118175507,
+                "ridge": 0.043008334934711456,
+                "step": 6,
+                "weak": 0.9970901012420654
+              },
+              {
+                "objective": 0.11283832788467407,
+                "observed": 0.013181156478822231,
+                "ridge": 0.057830922305583954,
+                "step": 7,
+                "weak": 0.996513843536377
+              },
+              {
+                "objective": 0.11262547969818115,
+                "observed": 0.01302416529506445,
+                "ridge": 0.07369764149188995,
+                "step": 8,
+                "weak": 0.9959394335746765
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "3d59371fc96af5ed2b2ccb94105b35029d05af2ecc1f09c700dc79b433f26ec3",
+          "relative_gain": -0.0016978535083725284,
+          "relative_l2": 0.0718646025018954
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.01286036241799593,
+            "coeff_norm": 2.3818747997283936,
+            "correction_ratio": 0.01101848017424345,
+            "elapsed_s": 0.4122339263558388,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.01285149808973074,
+              "ridge": 0.08864574134349823,
+              "weak": 1.002012848854065
+            },
+            "parent_objective": 0.014504214748740196,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 60,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.014504214748740196,
+                "observed": 0.014504214748740196,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.014227459207177162,
+                "observed": 0.014227224513888359,
+                "ridge": 0.0023435987532138824,
+                "step": 2,
+                "weak": 1.0002634525299072
+              },
+              {
+                "objective": 0.013971325941383839,
+                "observed": 0.013970473781228065,
+                "ridge": 0.008524157106876373,
+                "step": 3,
+                "weak": 1.0005286931991577
+              },
+              {
+                "objective": 0.013735895976424217,
+                "observed": 0.013734118081629276,
+                "ridge": 0.0177752822637558,
+                "step": 4,
+                "weak": 1.0007940530776978
+              },
+              {
+                "objective": 0.013521065935492516,
+                "observed": 0.013518128544092178,
+                "ridge": 0.029369913041591644,
+                "step": 5,
+                "weak": 1.0010569095611572
+              },
+              {
+                "objective": 0.013326626271009445,
+                "observed": 0.013322359882295132,
+                "ridge": 0.04266377165913582,
+                "step": 6,
+                "weak": 1.0013145208358765
+              },
+              {
+                "objective": 0.01315216813236475,
+                "observed": 0.013146452605724335,
+                "ridge": 0.057150840759277344,
+                "step": 7,
+                "weak": 1.0015628337860107
+              },
+              {
+                "objective": 0.01299704983830452,
+                "observed": 0.012989796698093414,
+                "ridge": 0.07253178209066391,
+                "step": 8,
+                "weak": 1.0017973184585571
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "366e7847227a592c7a01d261e5078a5807fba5d65fa7685dca073276f917a790",
+          "relative_gain": -0.029344428990762002,
+          "relative_l2": 0.07384804506456229
+        }
+      },
+      "family": "layered",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.0717427937478302,
+      "record_index": 83,
+      "sample_id": "train_layered_00101",
+      "source_off_frame": 60
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.14367160201072693,
+            "coeff_norm": 3.013078451156616,
+            "correction_ratio": 0.03450574725866318,
+            "elapsed_s": 0.38400374352931976,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.05000430345535278,
+              "ridge": 0.14185377955436707,
+              "weak": 0.9365310668945312
+            },
+            "parent_objective": 0.1553248167037964,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 41,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.1553248167037964,
+                "observed": 0.05532481148838997,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.15362121164798737,
+                "observed": 0.054415199905633926,
+                "ridge": 0.002495406661182642,
+                "step": 2,
+                "weak": 0.9920576214790344
+              },
+              {
+                "objective": 0.15199024975299835,
+                "observed": 0.053574129939079285,
+                "ridge": 0.009614572860300541,
+                "step": 3,
+                "weak": 0.9841516017913818
+              },
+              {
+                "objective": 0.15043146908283234,
+                "observed": 0.052803244441747665,
+                "ridge": 0.02110399678349495,
+                "step": 4,
+                "weak": 0.9762611389160156
+              },
+              {
+                "objective": 0.1489439159631729,
+                "observed": 0.05210360512137413,
+                "ridge": 0.03696082904934883,
+                "step": 5,
+                "weak": 0.9683662056922913
+              },
+              {
+                "objective": 0.1475258320569992,
+                "observed": 0.051476091146469116,
+                "ridge": 0.057111553847789764,
+                "step": 6,
+                "weak": 0.9604403972625732
+              },
+              {
+                "objective": 0.1461753398180008,
+                "observed": 0.05091950297355652,
+                "ridge": 0.08141550421714783,
+                "step": 7,
+                "weak": 0.952476978302002
+              },
+              {
+                "objective": 0.14489096403121948,
+                "observed": 0.05043046921491623,
+                "ridge": 0.10971959680318832,
+                "step": 8,
+                "weak": 0.9444952011108398
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "edf92e4252fa41741aafe71158e8281be2c0fa49e6b9f7f101c14e956c418f4b",
+          "relative_gain": 0.0034882517286257543,
+          "relative_l2": 0.09885937052127836
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.048548996448516846,
+            "coeff_norm": 2.9222097396850586,
+            "correction_ratio": 0.04426402226090431,
+            "elapsed_s": 0.38908637687563896,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.048535652458667755,
+              "ridge": 0.1334267258644104,
+              "weak": 1.0261367559432983
+            },
+            "parent_objective": 0.05532481148838997,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 41,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.05532481148838997,
+                "observed": 0.05532481148838997,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.054181113839149475,
+                "observed": 0.05418086424469948,
+                "ridge": 0.0024959170259535313,
+                "step": 2,
+                "weak": 1.003237247467041
+              },
+              {
+                "objective": 0.05312959849834442,
+                "observed": 0.053128618746995926,
+                "ridge": 0.009798064827919006,
+                "step": 3,
+                "weak": 1.0064822435379028
+              },
+              {
+                "objective": 0.052167199552059174,
+                "observed": 0.05216503515839577,
+                "ridge": 0.021639559417963028,
+                "step": 4,
+                "weak": 1.0097373723983765
+              },
+              {
+                "objective": 0.051291730254888535,
+                "observed": 0.05128796771168709,
+                "ridge": 0.037636999040842056,
+                "step": 5,
+                "weak": 1.0130127668380737
+              },
+              {
+                "objective": 0.050499264150857925,
+                "observed": 0.05049353837966919,
+                "ridge": 0.057266708463430405,
+                "step": 6,
+                "weak": 1.0163060426712036
+              },
+              {
+                "objective": 0.049783673137426376,
+                "observed": 0.04977566748857498,
+                "ridge": 0.08004245162010193,
+                "step": 7,
+                "weak": 1.0196040868759155
+              },
+              {
+                "objective": 0.04913678392767906,
+                "observed": 0.04912623018026352,
+                "ridge": 0.10554569214582443,
+                "step": 8,
+                "weak": 1.0228886604309082
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "b2891b3a890737d113146804021a6cac8cca74d97f2af947804d4bbbbb898eba",
+          "relative_gain": -0.13678717159133585,
+          "relative_l2": 0.11277545337034958
+        }
+      },
+      "family": "marmousi",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.09920542401308104,
+      "record_index": 160,
+      "sample_id": "train_marmousi_00002",
+      "source_off_frame": 41
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.16345930099487305,
+            "coeff_norm": 2.3715338706970215,
+            "correction_ratio": 0.043112531304359436,
+            "elapsed_s": 0.4300585985183716,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.06800580769777298,
+              "ridge": 0.08787769824266434,
+              "weak": 0.9544470310211182
+            },
+            "parent_objective": 0.17639005184173584,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 46,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.17639005184173584,
+                "observed": 0.07639005780220032,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.1736655980348587,
+                "observed": 0.07418588548898697,
+                "ridge": 0.0024995983112603426,
+                "step": 2,
+                "weak": 0.9947945475578308
+              },
+              {
+                "objective": 0.17149850726127625,
+                "observed": 0.07255201041698456,
+                "ridge": 0.009494409896433353,
+                "step": 3,
+                "weak": 0.9894553422927856
+              },
+              {
+                "objective": 0.16976132988929749,
+                "observed": 0.07138427346944809,
+                "ridge": 0.019697297364473343,
+                "step": 4,
+                "weak": 0.9837508797645569
+              },
+              {
+                "objective": 0.16830779612064362,
+                "observed": 0.07052131742238998,
+                "ridge": 0.03199341893196106,
+                "step": 5,
+                "weak": 0.9778327941894531
+              },
+              {
+                "objective": 0.16702334582805634,
+                "observed": 0.06983082741498947,
+                "ridge": 0.045475415885448456,
+                "step": 6,
+                "weak": 0.9718797206878662
+              },
+              {
+                "objective": 0.16582143306732178,
+                "observed": 0.069217748939991,
+                "ridge": 0.05947580561041832,
+                "step": 7,
+                "weak": 0.9659773707389832
+              },
+              {
+                "objective": 0.164643794298172,
+                "observed": 0.06862019002437592,
+                "ridge": 0.07363557815551758,
+                "step": 8,
+                "weak": 0.9601624011993408
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "79f061a49c37b527f4ffd4cf6c0a326121b0c42f2d8c9e60437de04e6072ef47",
+          "relative_gain": -0.011494853479210957,
+          "relative_l2": 0.20692430775875909
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.06796665489673615,
+            "coeff_norm": 2.283022165298462,
+            "correction_ratio": 0.04092714935541153,
+            "elapsed_s": 0.36249537020921707,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.06795851141214371,
+              "ridge": 0.08144046366214752,
+              "weak": 0.9851237535476685
+            },
+            "parent_objective": 0.07639005780220032,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 46,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.07639005780220032,
+                "observed": 0.07639005780220032,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.07419179379940033,
+                "observed": 0.07419154793024063,
+                "ridge": 0.0024958490394055843,
+                "step": 2,
+                "weak": 0.9959647059440613
+              },
+              {
+                "objective": 0.07258408516645432,
+                "observed": 0.0725831463932991,
+                "ridge": 0.009412056766450405,
+                "step": 3,
+                "weak": 0.9920095205307007
+              },
+              {
+                "objective": 0.07143807411193848,
+                "observed": 0.07143612951040268,
+                "ridge": 0.01947612687945366,
+                "step": 4,
+                "weak": 0.9889158606529236
+              },
+              {
+                "objective": 0.07059036940336227,
+                "observed": 0.07058723270893097,
+                "ridge": 0.03133636713027954,
+                "step": 5,
+                "weak": 0.9870315790176392
+              },
+              {
+                "objective": 0.0698966458439827,
+                "observed": 0.06989225000143051,
+                "ridge": 0.04395604133605957,
+                "step": 6,
+                "weak": 0.9859265089035034
+              },
+              {
+                "objective": 0.06926117092370987,
+                "observed": 0.06925550103187561,
+                "ridge": 0.05669444054365158,
+                "step": 7,
+                "weak": 0.9853096604347229
+              },
+              {
+                "objective": 0.06862696260213852,
+                "observed": 0.06862004101276398,
+                "ridge": 0.06921660155057907,
+                "step": 8,
+                "weak": 0.9850592017173767
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "4b1a5065f14a0791853ad8376d1fca323ea65cbcfcf1316596eddf24443c4cc8",
+          "relative_gain": -0.010444047091995819,
+          "relative_l2": 0.2067093413815056
+        }
+      },
+      "family": "marmousi",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.20457277369925042,
+      "record_index": 161,
+      "sample_id": "train_marmousi_00015",
+      "source_off_frame": 46
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.14424018561840057,
+            "coeff_norm": 2.681687116622925,
+            "correction_ratio": 0.05000000074505806,
+            "elapsed_s": 0.36408256739377975,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.051725950092077255,
+              "ridge": 0.11236634105443954,
+              "weak": 0.9250299334526062
+            },
+            "parent_objective": 0.15848365426063538,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 54,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.15848365426063538,
+                "observed": 0.05848365277051926,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.15609152615070343,
+                "observed": 0.057208139449357986,
+                "ridge": 0.0024984399788081646,
+                "step": 2,
+                "weak": 0.9888313412666321
+              },
+              {
+                "objective": 0.1538267284631729,
+                "observed": 0.05604483559727669,
+                "ridge": 0.009939643554389477,
+                "step": 3,
+                "weak": 0.9778088927268982
+              },
+              {
+                "objective": 0.15168984234333038,
+                "observed": 0.054993342608213425,
+                "ridge": 0.022177308797836304,
+                "step": 4,
+                "weak": 0.9669427871704102
+              },
+              {
+                "objective": 0.1496778130531311,
+                "observed": 0.054049719125032425,
+                "ridge": 0.038952842354774475,
+                "step": 5,
+                "weak": 0.9562420845031738
+              },
+              {
+                "objective": 0.1477828174829483,
+                "observed": 0.05320529267191887,
+                "ridge": 0.05996526777744293,
+                "step": 6,
+                "weak": 0.9457153081893921
+              },
+              {
+                "objective": 0.145993173122406,
+                "observed": 0.05244750156998634,
+                "ridge": 0.08491542935371399,
+                "step": 7,
+                "weak": 0.9353717565536499
+              },
+              {
+                "objective": 0.1442958116531372,
+                "observed": 0.051762714982032776,
+                "ridge": 0.11348418891429901,
+                "step": 8,
+                "weak": 0.9252173900604248
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "d7230ae956e14248fad869e7589dc294a62aebe8840e30d9dd5a40d2023bce9c",
+          "relative_gain": -0.15587283473567354,
+          "relative_l2": 0.10942011954529957
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.050457414239645004,
+            "coeff_norm": 2.8687427043914795,
+            "correction_ratio": 0.02347949706017971,
+            "elapsed_s": 0.3767137713730335,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.050444554537534714,
+              "ridge": 0.12858882546424866,
+              "weak": 0.9762502908706665
+            },
+            "parent_objective": 0.05848365277051926,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 54,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.05848365277051926,
+                "observed": 0.05848365277051926,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.05713069438934326,
+                "observed": 0.05713044852018356,
+                "ridge": 0.00247261137701571,
+                "step": 2,
+                "weak": 0.9966323971748352
+              },
+              {
+                "objective": 0.05589056760072708,
+                "observed": 0.055889613926410675,
+                "ridge": 0.00953852478414774,
+                "step": 3,
+                "weak": 0.9917505383491516
+              },
+              {
+                "objective": 0.05475878342986107,
+                "observed": 0.054756682366132736,
+                "ridge": 0.021024124696850777,
+                "step": 4,
+                "weak": 0.9869635701179504
+              },
+              {
+                "objective": 0.05373067781329155,
+                "observed": 0.05372702702879906,
+                "ridge": 0.03650742024183273,
+                "step": 5,
+                "weak": 0.9827278852462769
+              },
+              {
+                "objective": 0.052797600626945496,
+                "observed": 0.052792053669691086,
+                "ridge": 0.05547332763671875,
+                "step": 6,
+                "weak": 0.9794000387191772
+              },
+              {
+                "objective": 0.05194822698831558,
+                "observed": 0.05194048583507538,
+                "ridge": 0.07740271091461182,
+                "step": 7,
+                "weak": 0.9772211313247681
+              },
+              {
+                "objective": 0.051171302795410156,
+                "observed": 0.05116111785173416,
+                "ridge": 0.10186511278152466,
+                "step": 8,
+                "weak": 0.9762178659439087
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "424128e2d92aa12898529407f6ced951cbf7c5df09cbaaf624bd9791a11d797a",
+          "relative_gain": -0.04020499337992135,
+          "relative_l2": 0.09847048161943947
+        }
+      },
+      "family": "marmousi",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.09466449617731686,
+      "record_index": 162,
+      "sample_id": "train_marmousi_00023",
+      "source_off_frame": 54
+    },
+    {
+      "arms": {
+        "fe_weak": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.1699932962656021,
+            "coeff_norm": 2.9770967960357666,
+            "correction_ratio": 0.047053322196006775,
+            "elapsed_s": 0.37156594172120094,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.07023105770349503,
+              "ridge": 0.13848601281642914,
+              "weak": 0.9974838495254517
+            },
+            "parent_objective": 0.19480067491531372,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 31,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.19480067491531372,
+                "observed": 0.0948006734251976,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.19087141752243042,
+                "observed": 0.09090396761894226,
+                "ridge": 0.0024996951688081026,
+                "step": 2,
+                "weak": 0.9996719360351562
+              },
+              {
+                "objective": 0.18718433380126953,
+                "observed": 0.08724699169397354,
+                "ridge": 0.009932324290275574,
+                "step": 3,
+                "weak": 0.9993634223937988
+              },
+              {
+                "objective": 0.1837410032749176,
+                "observed": 0.08383224159479141,
+                "ridge": 0.022067442536354065,
+                "step": 4,
+                "weak": 0.9990654587745667
+              },
+              {
+                "objective": 0.18053868412971497,
+                "observed": 0.08065812289714813,
+                "ridge": 0.03847270831465721,
+                "step": 5,
+                "weak": 0.9987671375274658
+              },
+              {
+                "objective": 0.17757070064544678,
+                "observed": 0.07771872729063034,
+                "ridge": 0.058672189712524414,
+                "step": 6,
+                "weak": 0.9984610676765442
+              },
+              {
+                "objective": 0.1748289167881012,
+                "observed": 0.07500612735748291,
+                "ridge": 0.08228668570518494,
+                "step": 7,
+                "weak": 0.9981455206871033
+              },
+              {
+                "objective": 0.17230550944805145,
+                "observed": 0.07251263409852982,
+                "ridge": 0.10899181663990021,
+                "step": 8,
+                "weak": 0.9978197813034058
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "e05848a07dde5f66600feae21e9427330fc359afcc54811384c8e52a34f85046",
+          "relative_gain": -0.014268298665068223,
+          "relative_l2": 0.22409805082431508
+        },
+        "observed_only": {
+          "adaptation": {
+            "accepted": true,
+            "adapted_objective": 0.07011163234710693,
+            "coeff_norm": 3.007817029953003,
+            "correction_ratio": 0.04146682471036911,
+            "elapsed_s": 0.3766557015478611,
+            "future_truth_used": false,
+            "objective_parts": {
+              "observed": 0.07009749859571457,
+              "ridge": 0.14135879278182983,
+              "weak": 1.015388011932373
+            },
+            "parent_objective": 0.0948006734251976,
+            "physics_contract": "Q1-FE weak residual is a mismatched-discretization feature, not truth",
+            "schema": "b2_fe_weak_instance_adaptation_v1",
+            "source_off_frame": 31,
+            "steps": 8,
+            "trace": [
+              {
+                "objective": 0.0948006734251976,
+                "observed": 0.0948006734251976,
+                "ridge": 0.0,
+                "step": 1,
+                "weak": 1.0
+              },
+              {
+                "objective": 0.09088944643735886,
+                "observed": 0.09088919311761856,
+                "ridge": 0.0024996926076710224,
+                "step": 2,
+                "weak": 1.0018926858901978
+              },
+              {
+                "objective": 0.08721645176410675,
+                "observed": 0.08721546083688736,
+                "ridge": 0.009945090860128403,
+                "step": 3,
+                "weak": 1.0037992000579834
+              },
+              {
+                "objective": 0.0837840735912323,
+                "observed": 0.08378185331821442,
+                "ridge": 0.02217547595500946,
+                "step": 4,
+                "weak": 1.005717396736145
+              },
+              {
+                "objective": 0.08059162646532059,
+                "observed": 0.08058773726224899,
+                "ridge": 0.0388818234205246,
+                "step": 5,
+                "weak": 1.0076454877853394
+              },
+              {
+                "objective": 0.07763493806123734,
+                "observed": 0.0776289775967598,
+                "ridge": 0.05961155891418457,
+                "step": 6,
+                "weak": 1.0095813274383545
+              },
+              {
+                "objective": 0.07490746676921844,
+                "observed": 0.07489907741546631,
+                "ridge": 0.08387550711631775,
+                "step": 7,
+                "weak": 1.0115196704864502
+              },
+              {
+                "objective": 0.07240208983421326,
+                "observed": 0.07239096611738205,
+                "ridge": 0.11124497652053833,
+                "step": 8,
+                "weak": 1.0134556293487549
+              }
+            ],
+            "trainable_parameters": 64
+          },
+          "candidate_sha256": "960007e7c9e97eac3251b12a05c494d0cb7f2f9d5d56c11b062cc9202a5d410e",
+          "relative_gain": -0.02996381023208269,
+          "relative_l2": 0.22756590400821897
+        }
+      },
+      "family": "marmousi",
+      "paired_candidates_sealed_before_future_truth": true,
+      "parent_relative_l2": 0.22094553395710217,
+      "record_index": 163,
+      "sample_id": "train_marmousi_00025",
+      "source_off_frame": 31
+    }
+  ],
+  "schema": "b2_fe_weak_balanced_panel_v1",
+  "test_id_opened": false,
+  "validation_opened": false
+}

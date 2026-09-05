@@ -1,0 +1,46 @@
+{
+  "experiment_id": "r5b_feature_meta_train_pilot_r23_20260816",
+  "registered_at_utc": "2026-08-16",
+  "status": "preregistered_before_execution",
+  "question": "Can an onset-conditioned FiLM adapter learn a useful correction direction for the correctly loaded frozen r5b parent, after additive residual corrections failed?",
+  "hypothesis": "Conditioning the parent's medium features on velocity, source parameters, and two true onset frames will be better aligned with future wavefield error than an additive future-field residual generated from the same sparse inputs.",
+  "scope": "train_split_only_falsification_pilot",
+  "forbidden_data": [
+    "validation",
+    "test_id"
+  ],
+  "physical_wavefield_propagator": false,
+  "synthetic_bridge": false,
+  "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+  "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "loader_sha256": "f9efdd2483e33eb9bb132a08c839cce9daa768a302c92aff1a48b8e560df4e58",
+  "trainer_sha256": "f7da50b3b7bad843719fac61e59097030952195108b2b7a343cb6b3a0d83e802",
+  "adapter_sha256": "7e99a52f925fb0734ac349104f80db6c7830bfb654320327f642f73044e8e798",
+  "config": "configs/saved_time_v5/feature_meta_r5b_marmousi1_4m_v2_no_propagator.yaml",
+  "config_sha256": "4a464572182cf4c3e99449a25c3596e6d62240b53d6a2a43e32c573671720fe7",
+  "registered_training_protocol": {
+    "seed": 372,
+    "families": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "episodes_per_family": 4,
+    "epochs": 3,
+    "batch_size": 2,
+    "future_time_points_per_episode_per_epoch": 24,
+    "time_block": 1,
+    "learning_rate": 0.0001,
+    "latent_dim": 16,
+    "lora_rank": 4,
+    "max_scale": 0.05,
+    "max_bias": 0.02,
+    "parent_parameters_frozen": true
+  },
+  "pilot_success_conditions": [
+    "training completes without nonfinite loss",
+    "best.pt exists and records the exact training sample and group IDs",
+    "the parent checkpoint hash recorded in best.pt matches the registered r5b checkpoint"
+  ],
+  "promotion_rule": "No validation access follows this training run. The checkpoint must first pass a separately preregistered, group-disjoint train-split gate comparing the parent, zero-shot adapter, and onset-only latent-refined adapter under one common metric."
+}

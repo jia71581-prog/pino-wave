@@ -1,0 +1,18 @@
+{
+  "architecture": "R28_tail_spectral_residual_unet_plus_patch_HFS",
+  "created_utc": "2026-08-27T20:57:46.382727+00:00",
+  "evidence_boundary": "R28 opened development holdout only; R29B fresh holdout, validation, and test remain unopened",
+  "initialization": {
+    "lambda_dc": 0.0,
+    "lambda_hfc": 0.0,
+    "property": "exact identity before fine-tuning"
+  },
+  "optimizer": {
+    "base_learning_rate": "1.0e-6",
+    "hfs_learning_rate_multiplier": 100.0,
+    "hfs_weight_decay": 0.0
+  },
+  "patch_size": 8,
+  "schema": "r39_hfs_method_v1",
+  "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r39_hfs_tail_finetune.py"
+}

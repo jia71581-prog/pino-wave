@@ -1,0 +1,2401 @@
+{
+  "created_utc": "2026-08-28T01:09:35.910196+00:00",
+  "data_boundary": {
+    "final_validation_opened": false,
+    "fit_truth_used": false,
+    "opened_development_truth_used": true,
+    "paper_modified": false,
+    "r29b_opened": false,
+    "test_id_opened": false
+  },
+  "deployable": false,
+  "evidence": {
+    "r40_script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r40_frequency_residual_operator.py",
+    "r40_script_sha256": "937ce44917c980464033386c226ba83f5bb39b0ce8c2cf04c2895c0f4972a7cc",
+    "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/analyze_r48_development_spectral_block_oracle.py",
+    "script_sha256": "6b684a3fa793c957a473f530bcad48a23cff212d15cd4ef38da13052142c152e"
+  },
+  "maximum_parent_energy_contract_difference": 3.469446951953614e-18,
+  "purpose": "capacity diagnostic for a fit-only low-variance spatial-wavenumber correction",
+  "results": {
+    "16x16": {
+      "absolute_goal": {
+        "max_lte_0p05": true,
+        "mean_lte_0p05": true,
+        "passed": true
+      },
+      "aggregate": {
+        "candidate_max": 0.046471946927399345,
+        "candidate_mean": 0.015892652421090607,
+        "count": 56,
+        "max_relative_improvement": 0.2941960194901565,
+        "mean_relative_improvement": 0.20720975670888642,
+        "parent_max": 0.06584256849023427,
+        "parent_mean": 0.02004647831577161
+      },
+      "records": [
+        {
+          "candidate_rel_l2": 0.005485526095911513,
+          "family": "uniform",
+          "group_id": "train:uniform:00357",
+          "parent_rel_l2": 0.007761601285902062,
+          "relative_improvement": 0.2932481463747363,
+          "sample_id": "train_uniform_00357"
+        },
+        {
+          "candidate_rel_l2": 0.0031635690807764742,
+          "family": "uniform",
+          "group_id": "train:uniform:00186",
+          "parent_rel_l2": 0.003739791140155689,
+          "relative_improvement": 0.15407867385749952,
+          "sample_id": "train_uniform_00186"
+        },
+        {
+          "candidate_rel_l2": 0.005842320856511551,
+          "family": "uniform",
+          "group_id": "train:uniform:00243",
+          "parent_rel_l2": 0.007496103743712724,
+          "relative_improvement": 0.22061899671389495,
+          "sample_id": "train_uniform_00243"
+        },
+        {
+          "candidate_rel_l2": 0.004136950039720871,
+          "family": "uniform",
+          "group_id": "train:uniform:00037",
+          "parent_rel_l2": 0.00473861360505982,
+          "relative_improvement": 0.12697037899365793,
+          "sample_id": "train_uniform_00037"
+        },
+        {
+          "candidate_rel_l2": 0.023140045489538543,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.030080552327722145,
+          "relative_improvement": 0.23073069811245628,
+          "sample_id": "train_layered_00548"
+        },
+        {
+          "candidate_rel_l2": 0.028396488863324628,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.031786030164966096,
+          "relative_improvement": 0.10663619470723806,
+          "sample_id": "train_layered_00768"
+        },
+        {
+          "candidate_rel_l2": 0.009077352970184414,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.010896826896234864,
+          "relative_improvement": 0.16697282093002008,
+          "sample_id": "train_layered_00816"
+        },
+        {
+          "candidate_rel_l2": 0.006949104093012676,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.008156284993091853,
+          "relative_improvement": 0.14800621865244112,
+          "sample_id": "train_layered_00040"
+        },
+        {
+          "candidate_rel_l2": 0.026480127542613963,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.030860267719047756,
+          "relative_improvement": 0.1419346136692864,
+          "sample_id": "train_layered_00236"
+        },
+        {
+          "candidate_rel_l2": 0.014743578946994356,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021399457177760654,
+          "relative_improvement": 0.3110302366773773,
+          "sample_id": "train_marmousi_00275"
+        },
+        {
+          "candidate_rel_l2": 0.017985780691332436,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021103001332318388,
+          "relative_improvement": 0.14771456400431804,
+          "sample_id": "train_marmousi_00279"
+        },
+        {
+          "candidate_rel_l2": 0.034405902283162336,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.038945127097742005,
+          "relative_improvement": 0.1165543715697066,
+          "sample_id": "train_marmousi_00653"
+        },
+        {
+          "candidate_rel_l2": 0.014167040770440434,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.021548181188135788,
+          "relative_improvement": 0.3425412267165887,
+          "sample_id": "train_marmousi_00397"
+        },
+        {
+          "candidate_rel_l2": 0.03268861313098681,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03808602581966861,
+          "relative_improvement": 0.14171635324299026,
+          "sample_id": "train_marmousi_00266"
+        },
+        {
+          "candidate_rel_l2": 0.004798991275264145,
+          "family": "uniform",
+          "group_id": "train:uniform:00102",
+          "parent_rel_l2": 0.0063186999557381125,
+          "relative_improvement": 0.24050970787019188,
+          "sample_id": "train_uniform_00102"
+        },
+        {
+          "candidate_rel_l2": 0.007198351308355884,
+          "family": "uniform",
+          "group_id": "train:uniform:00369",
+          "parent_rel_l2": 0.009224765687632946,
+          "relative_improvement": 0.21967109495190185,
+          "sample_id": "train_uniform_00369"
+        },
+        {
+          "candidate_rel_l2": 0.006467969793398218,
+          "family": "uniform",
+          "group_id": "train:uniform:00384",
+          "parent_rel_l2": 0.007867005700390797,
+          "relative_improvement": 0.1778358832157807,
+          "sample_id": "train_uniform_00384"
+        },
+        {
+          "candidate_rel_l2": 0.005435262849872581,
+          "family": "uniform",
+          "group_id": "train:uniform:00149",
+          "parent_rel_l2": 0.007419209486645002,
+          "relative_improvement": 0.2674067419640377,
+          "sample_id": "train_uniform_00149"
+        },
+        {
+          "candidate_rel_l2": 0.00920926044522738,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.010867968077264605,
+          "relative_improvement": 0.1526235281742483,
+          "sample_id": "train_layered_00549"
+        },
+        {
+          "candidate_rel_l2": 0.017453147081984602,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.019358006048365316,
+          "relative_improvement": 0.0984016102496037,
+          "sample_id": "train_layered_00769"
+        },
+        {
+          "candidate_rel_l2": 0.004524919567018406,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.00587755167241041,
+          "relative_improvement": 0.2301352979577097,
+          "sample_id": "train_layered_00817"
+        },
+        {
+          "candidate_rel_l2": 0.010837790874615132,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.012456982583764932,
+          "relative_improvement": 0.12998265818080834,
+          "sample_id": "train_layered_00041"
+        },
+        {
+          "candidate_rel_l2": 0.01461400760271059,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.01635944173281901,
+          "relative_improvement": 0.10669276853175669,
+          "sample_id": "train_layered_00237"
+        },
+        {
+          "candidate_rel_l2": 0.030341852110935152,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.03556123991492152,
+          "relative_improvement": 0.14677181719404309,
+          "sample_id": "train_marmousi_00276"
+        },
+        {
+          "candidate_rel_l2": 0.01775257255551713,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02538444877176727,
+          "relative_improvement": 0.3006516424630168,
+          "sample_id": "train_marmousi_00650"
+        },
+        {
+          "candidate_rel_l2": 0.015120939150812232,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.016699574415683597,
+          "relative_improvement": 0.09453146682521274,
+          "sample_id": "train_marmousi_00654"
+        },
+        {
+          "candidate_rel_l2": 0.02010453524729009,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.027110446256720933,
+          "relative_improvement": 0.25842108769028516,
+          "sample_id": "train_marmousi_00398"
+        },
+        {
+          "candidate_rel_l2": 0.046471946927399345,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.06584256849023427,
+          "relative_improvement": 0.2941960194901565,
+          "sample_id": "train_marmousi_00267"
+        },
+        {
+          "candidate_rel_l2": 0.008543190737781509,
+          "family": "uniform",
+          "group_id": "train:uniform:00003",
+          "parent_rel_l2": 0.013525070147901446,
+          "relative_improvement": 0.36834407183410633,
+          "sample_id": "train_uniform_00003"
+        },
+        {
+          "candidate_rel_l2": 0.006903217901947182,
+          "family": "uniform",
+          "group_id": "train:uniform:00303",
+          "parent_rel_l2": 0.008286745324826818,
+          "relative_improvement": 0.16695667220936938,
+          "sample_id": "train_uniform_00303"
+        },
+        {
+          "candidate_rel_l2": 0.004457813614619561,
+          "family": "uniform",
+          "group_id": "train:uniform:00048",
+          "parent_rel_l2": 0.005506107977836912,
+          "relative_improvement": 0.1903875418783879,
+          "sample_id": "train_uniform_00048"
+        },
+        {
+          "candidate_rel_l2": 0.009432533010207102,
+          "family": "uniform",
+          "group_id": "train:uniform:00315",
+          "parent_rel_l2": 0.011583220807161412,
+          "relative_improvement": 0.18567269266114927,
+          "sample_id": "train_uniform_00315"
+        },
+        {
+          "candidate_rel_l2": 0.010929856921578789,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013687499917038892,
+          "relative_improvement": 0.20147163559265113,
+          "sample_id": "train_layered_00550"
+        },
+        {
+          "candidate_rel_l2": 0.03817468873139583,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.04352604114784856,
+          "relative_improvement": 0.12294599452027677,
+          "sample_id": "train_layered_00770"
+        },
+        {
+          "candidate_rel_l2": 0.004448742829276978,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.005378120198053275,
+          "relative_improvement": 0.17280710258441323,
+          "sample_id": "train_layered_00818"
+        },
+        {
+          "candidate_rel_l2": 0.00657124351341485,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007860803855722484,
+          "relative_improvement": 0.16404942369460906,
+          "sample_id": "train_layered_00042"
+        },
+        {
+          "candidate_rel_l2": 0.02007846944175576,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.023108984298939664,
+          "relative_improvement": 0.1311401149432153,
+          "sample_id": "train_layered_00238"
+        },
+        {
+          "candidate_rel_l2": 0.018083137974629973,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.023779795306037205,
+          "relative_improvement": 0.23955872025361657,
+          "sample_id": "train_marmousi_00277"
+        },
+        {
+          "candidate_rel_l2": 0.01543830422868366,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02090527646214626,
+          "relative_improvement": 0.2615115970057508,
+          "sample_id": "train_marmousi_00651"
+        },
+        {
+          "candidate_rel_l2": 0.024515508949281832,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03066122452157824,
+          "relative_improvement": 0.20043933887804377,
+          "sample_id": "train_marmousi_00395"
+        },
+        {
+          "candidate_rel_l2": 0.0315012963113491,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03425927065403125,
+          "relative_improvement": 0.08050300809184396,
+          "sample_id": "train_marmousi_00399"
+        },
+        {
+          "candidate_rel_l2": 0.03554918885338466,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.052437303317063935,
+          "relative_improvement": 0.32206298561092517,
+          "sample_id": "train_marmousi_00268"
+        },
+        {
+          "candidate_rel_l2": 0.007195677610778463,
+          "family": "uniform",
+          "group_id": "train:uniform:00085",
+          "parent_rel_l2": 0.010231812487459432,
+          "relative_improvement": 0.29673480435672495,
+          "sample_id": "train_uniform_00085"
+        },
+        {
+          "candidate_rel_l2": 0.005025154250545761,
+          "family": "uniform",
+          "group_id": "train:uniform:00020",
+          "parent_rel_l2": 0.005937042527801285,
+          "relative_improvement": 0.15359301756479615,
+          "sample_id": "train_uniform_00020"
+        },
+        {
+          "candidate_rel_l2": 0.005337651094992024,
+          "family": "uniform",
+          "group_id": "train:uniform:00027",
+          "parent_rel_l2": 0.006208620005242049,
+          "relative_improvement": 0.14028381661539113,
+          "sample_id": "train_uniform_00027"
+        },
+        {
+          "candidate_rel_l2": 0.00495527786734888,
+          "family": "uniform",
+          "group_id": "train:uniform:00116",
+          "parent_rel_l2": 0.0060344854556598215,
+          "relative_improvement": 0.17884003470399257,
+          "sample_id": "train_uniform_00116"
+        },
+        {
+          "candidate_rel_l2": 0.011240912542031191,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013944441579781695,
+          "relative_improvement": 0.19387861624164293,
+          "sample_id": "train_layered_00551"
+        },
+        {
+          "candidate_rel_l2": 0.018720139697312746,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.021035246598349808,
+          "relative_improvement": 0.11005846260051355,
+          "sample_id": "train_layered_00771"
+        },
+        {
+          "candidate_rel_l2": 0.005872053178637169,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.006705822501003184,
+          "relative_improvement": 0.12433513148331687,
+          "sample_id": "train_layered_00819"
+        },
+        {
+          "candidate_rel_l2": 0.006642230708795634,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007501716410116902,
+          "relative_improvement": 0.11457187319986606,
+          "sample_id": "train_layered_00043"
+        },
+        {
+          "candidate_rel_l2": 0.0402070482138924,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.04476293195057233,
+          "relative_improvement": 0.10177804576587124,
+          "sample_id": "train_layered_00239"
+        },
+        {
+          "candidate_rel_l2": 0.031621005532811046,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.04351809488292597,
+          "relative_improvement": 0.27338258676352734,
+          "sample_id": "train_marmousi_00278"
+        },
+        {
+          "candidate_rel_l2": 0.023238754331153303,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02899105625644208,
+          "relative_improvement": 0.19841643141272447,
+          "sample_id": "train_marmousi_00652"
+        },
+        {
+          "candidate_rel_l2": 0.007736755165897753,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.010446111535328225,
+          "relative_improvement": 0.25936506232654755,
+          "sample_id": "train_marmousi_00396"
+        },
+        {
+          "candidate_rel_l2": 0.030399099834800915,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03484968871509947,
+          "relative_improvement": 0.12770813870627862,
+          "sample_id": "train_marmousi_00265"
+        },
+        {
+          "candidate_rel_l2": 0.020175634887857938,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.04498447755536454,
+          "relative_improvement": 0.5514978502745347,
+          "sample_id": "train_marmousi_00269"
+        }
+      ],
+      "spatial_dct_blocks": 256,
+      "worst_record": {
+        "candidate_rel_l2": 0.046471946927399345,
+        "family": "marmousi",
+        "group_id": "train:marmousi:x6800.0:z100.0",
+        "parent_rel_l2": 0.06584256849023427,
+        "relative_improvement": 0.2941960194901565,
+        "sample_id": "train_marmousi_00267"
+      }
+    },
+    "1x1": {
+      "absolute_goal": {
+        "max_lte_0p05": false,
+        "mean_lte_0p05": true,
+        "passed": false
+      },
+      "aggregate": {
+        "candidate_max": 0.05489493933521011,
+        "candidate_mean": 0.01814021193722345,
+        "count": 56,
+        "max_relative_improvement": 0.16626977662100018,
+        "mean_relative_improvement": 0.09509233235487546,
+        "parent_max": 0.06584256849023427,
+        "parent_mean": 0.02004647831577161
+      },
+      "records": [
+        {
+          "candidate_rel_l2": 0.006643395397713605,
+          "family": "uniform",
+          "group_id": "train:uniform:00357",
+          "parent_rel_l2": 0.007761601285902062,
+          "relative_improvement": 0.14406896811609382,
+          "sample_id": "train_uniform_00357"
+        },
+        {
+          "candidate_rel_l2": 0.003643981649960736,
+          "family": "uniform",
+          "group_id": "train:uniform:00186",
+          "parent_rel_l2": 0.003739791140155689,
+          "relative_improvement": 0.025618941433976472,
+          "sample_id": "train_uniform_00186"
+        },
+        {
+          "candidate_rel_l2": 0.006504391204570799,
+          "family": "uniform",
+          "group_id": "train:uniform:00243",
+          "parent_rel_l2": 0.007496103743712724,
+          "relative_improvement": 0.13229706698946286,
+          "sample_id": "train_uniform_00243"
+        },
+        {
+          "candidate_rel_l2": 0.004668543274878842,
+          "family": "uniform",
+          "group_id": "train:uniform:00037",
+          "parent_rel_l2": 0.00473861360505982,
+          "relative_improvement": 0.014787095133934947,
+          "sample_id": "train_uniform_00037"
+        },
+        {
+          "candidate_rel_l2": 0.029009604119167146,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.030080552327722145,
+          "relative_improvement": 0.03560267766652725,
+          "sample_id": "train_layered_00548"
+        },
+        {
+          "candidate_rel_l2": 0.030808693852243205,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.031786030164966096,
+          "relative_improvement": 0.030747353716416348,
+          "sample_id": "train_layered_00768"
+        },
+        {
+          "candidate_rel_l2": 0.010242583414960066,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.010896826896234864,
+          "relative_improvement": 0.060039815948701225,
+          "sample_id": "train_layered_00816"
+        },
+        {
+          "candidate_rel_l2": 0.007829150215042087,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.008156284993091853,
+          "relative_improvement": 0.04010830645653518,
+          "sample_id": "train_layered_00040"
+        },
+        {
+          "candidate_rel_l2": 0.02924733530357736,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.030860267719047756,
+          "relative_improvement": 0.05226566503422947,
+          "sample_id": "train_layered_00236"
+        },
+        {
+          "candidate_rel_l2": 0.015619100071452112,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021399457177760654,
+          "relative_improvement": 0.2701169968140952,
+          "sample_id": "train_marmousi_00275"
+        },
+        {
+          "candidate_rel_l2": 0.020168381168892104,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021103001332318388,
+          "relative_improvement": 0.04428849473628904,
+          "sample_id": "train_marmousi_00279"
+        },
+        {
+          "candidate_rel_l2": 0.03831555828478319,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.038945127097742005,
+          "relative_improvement": 0.016165534943017756,
+          "sample_id": "train_marmousi_00653"
+        },
+        {
+          "candidate_rel_l2": 0.016726667846613044,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.021548181188135788,
+          "relative_improvement": 0.22375500277384985,
+          "sample_id": "train_marmousi_00397"
+        },
+        {
+          "candidate_rel_l2": 0.03733832817446829,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03808602581966861,
+          "relative_improvement": 0.019631810594798016,
+          "sample_id": "train_marmousi_00266"
+        },
+        {
+          "candidate_rel_l2": 0.005362320780882162,
+          "family": "uniform",
+          "group_id": "train:uniform:00102",
+          "parent_rel_l2": 0.0063186999557381125,
+          "relative_improvement": 0.1513569534168887,
+          "sample_id": "train_uniform_00102"
+        },
+        {
+          "candidate_rel_l2": 0.008592176470786394,
+          "family": "uniform",
+          "group_id": "train:uniform:00369",
+          "parent_rel_l2": 0.009224765687632946,
+          "relative_improvement": 0.06857509862766753,
+          "sample_id": "train_uniform_00369"
+        },
+        {
+          "candidate_rel_l2": 0.007151679828138302,
+          "family": "uniform",
+          "group_id": "train:uniform:00384",
+          "parent_rel_l2": 0.007867005700390797,
+          "relative_improvement": 0.09092733620581472,
+          "sample_id": "train_uniform_00384"
+        },
+        {
+          "candidate_rel_l2": 0.006124161280336998,
+          "family": "uniform",
+          "group_id": "train:uniform:00149",
+          "parent_rel_l2": 0.007419209486645002,
+          "relative_improvement": 0.17455339529624603,
+          "sample_id": "train_uniform_00149"
+        },
+        {
+          "candidate_rel_l2": 0.010349380057700015,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.010867968077264605,
+          "relative_improvement": 0.04771710920364747,
+          "sample_id": "train_layered_00549"
+        },
+        {
+          "candidate_rel_l2": 0.0189694914936346,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.019358006048365316,
+          "relative_improvement": 0.020069967627865504,
+          "sample_id": "train_layered_00769"
+        },
+        {
+          "candidate_rel_l2": 0.005109690954449809,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.00587755167241041,
+          "relative_improvement": 0.13064295488289568,
+          "sample_id": "train_layered_00817"
+        },
+        {
+          "candidate_rel_l2": 0.012165708932491743,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.012456982583764932,
+          "relative_improvement": 0.02338235999886551,
+          "sample_id": "train_layered_00041"
+        },
+        {
+          "candidate_rel_l2": 0.015697973919530754,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.01635944173281901,
+          "relative_improvement": 0.04043339767281129,
+          "sample_id": "train_layered_00237"
+        },
+        {
+          "candidate_rel_l2": 0.034974200195654045,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.03556123991492152,
+          "relative_improvement": 0.01650785295090773,
+          "sample_id": "train_marmousi_00276"
+        },
+        {
+          "candidate_rel_l2": 0.01923097322548127,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02538444877176727,
+          "relative_improvement": 0.24241123380744545,
+          "sample_id": "train_marmousi_00650"
+        },
+        {
+          "candidate_rel_l2": 0.016397672255881762,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.016699574415683597,
+          "relative_improvement": 0.01807843435329104,
+          "sample_id": "train_marmousi_00654"
+        },
+        {
+          "candidate_rel_l2": 0.022860329786083648,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.027110446256720933,
+          "relative_improvement": 0.1567704356612588,
+          "sample_id": "train_marmousi_00398"
+        },
+        {
+          "candidate_rel_l2": 0.05489493933521011,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.06584256849023427,
+          "relative_improvement": 0.16626977662100018,
+          "sample_id": "train_marmousi_00267"
+        },
+        {
+          "candidate_rel_l2": 0.012402642867994418,
+          "family": "uniform",
+          "group_id": "train:uniform:00003",
+          "parent_rel_l2": 0.013525070147901446,
+          "relative_improvement": 0.08298864757320201,
+          "sample_id": "train_uniform_00003"
+        },
+        {
+          "candidate_rel_l2": 0.007503259983014897,
+          "family": "uniform",
+          "group_id": "train:uniform:00303",
+          "parent_rel_l2": 0.008286745324826818,
+          "relative_improvement": 0.09454681073214899,
+          "sample_id": "train_uniform_00303"
+        },
+        {
+          "candidate_rel_l2": 0.0050835369598211085,
+          "family": "uniform",
+          "group_id": "train:uniform:00048",
+          "parent_rel_l2": 0.005506107977836912,
+          "relative_improvement": 0.07674586472272771,
+          "sample_id": "train_uniform_00048"
+        },
+        {
+          "candidate_rel_l2": 0.010693856971275536,
+          "family": "uniform",
+          "group_id": "train:uniform:00315",
+          "parent_rel_l2": 0.011583220807161412,
+          "relative_improvement": 0.07678035761314517,
+          "sample_id": "train_uniform_00315"
+        },
+        {
+          "candidate_rel_l2": 0.013108447912254387,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013687499917038892,
+          "relative_improvement": 0.04230516955573982,
+          "sample_id": "train_layered_00550"
+        },
+        {
+          "candidate_rel_l2": 0.042230184620545896,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.04352604114784856,
+          "relative_improvement": 0.029771982315159762,
+          "sample_id": "train_layered_00770"
+        },
+        {
+          "candidate_rel_l2": 0.004967678911739554,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.005378120198053275,
+          "relative_improvement": 0.0763168674553405,
+          "sample_id": "train_layered_00818"
+        },
+        {
+          "candidate_rel_l2": 0.007464058767161333,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007860803855722484,
+          "relative_improvement": 0.050471312583677985,
+          "sample_id": "train_layered_00042"
+        },
+        {
+          "candidate_rel_l2": 0.02204390341168602,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.023108984298939664,
+          "relative_improvement": 0.04608947210641856,
+          "sample_id": "train_layered_00238"
+        },
+        {
+          "candidate_rel_l2": 0.019371970987314045,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.023779795306037205,
+          "relative_improvement": 0.18536006143013783,
+          "sample_id": "train_marmousi_00277"
+        },
+        {
+          "candidate_rel_l2": 0.017111060621075928,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02090527646214626,
+          "relative_improvement": 0.18149560700336198,
+          "sample_id": "train_marmousi_00651"
+        },
+        {
+          "candidate_rel_l2": 0.02865179059483584,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03066122452157824,
+          "relative_improvement": 0.06553664956623739,
+          "sample_id": "train_marmousi_00395"
+        },
+        {
+          "candidate_rel_l2": 0.03331951214972816,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03425927065403125,
+          "relative_improvement": 0.027430779650660875,
+          "sample_id": "train_marmousi_00399"
+        },
+        {
+          "candidate_rel_l2": 0.04404444832616613,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.052437303317063935,
+          "relative_improvement": 0.16005504593075892,
+          "sample_id": "train_marmousi_00268"
+        },
+        {
+          "candidate_rel_l2": 0.009303264069505957,
+          "family": "uniform",
+          "group_id": "train:uniform:00085",
+          "parent_rel_l2": 0.010231812487459432,
+          "relative_improvement": 0.09075111756509868,
+          "sample_id": "train_uniform_00085"
+        },
+        {
+          "candidate_rel_l2": 0.005477084180801252,
+          "family": "uniform",
+          "group_id": "train:uniform:00020",
+          "parent_rel_l2": 0.005937042527801285,
+          "relative_improvement": 0.077472638076314,
+          "sample_id": "train_uniform_00020"
+        },
+        {
+          "candidate_rel_l2": 0.0058654250491839205,
+          "family": "uniform",
+          "group_id": "train:uniform:00027",
+          "parent_rel_l2": 0.006208620005242049,
+          "relative_improvement": 0.055277172023471044,
+          "sample_id": "train_uniform_00027"
+        },
+        {
+          "candidate_rel_l2": 0.005721598937386541,
+          "family": "uniform",
+          "group_id": "train:uniform:00116",
+          "parent_rel_l2": 0.0060344854556598215,
+          "relative_improvement": 0.05184974271167064,
+          "sample_id": "train_uniform_00116"
+        },
+        {
+          "candidate_rel_l2": 0.013208802086800406,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013944441579781695,
+          "relative_improvement": 0.05275503423872541,
+          "sample_id": "train_layered_00551"
+        },
+        {
+          "candidate_rel_l2": 0.02061788122216891,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.021035246598349808,
+          "relative_improvement": 0.0198412399982818,
+          "sample_id": "train_layered_00771"
+        },
+        {
+          "candidate_rel_l2": 0.006572106193721939,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.006705822501003184,
+          "relative_improvement": 0.01994032905899934,
+          "sample_id": "train_layered_00819"
+        },
+        {
+          "candidate_rel_l2": 0.0073428263318187316,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007501716410116902,
+          "relative_improvement": 0.021180496517288927,
+          "sample_id": "train_layered_00043"
+        },
+        {
+          "candidate_rel_l2": 0.0438683704953696,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.04476293195057233,
+          "relative_improvement": 0.019984424974452297,
+          "sample_id": "train_layered_00239"
+        },
+        {
+          "candidate_rel_l2": 0.04142364349692068,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.04351809488292597,
+          "relative_improvement": 0.048128287592548835,
+          "sample_id": "train_marmousi_00278"
+        },
+        {
+          "candidate_rel_l2": 0.026946994571795023,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02899105625644208,
+          "relative_improvement": 0.07050663027128745,
+          "sample_id": "train_marmousi_00652"
+        },
+        {
+          "candidate_rel_l2": 0.010099439335178994,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.010446111535328225,
+          "relative_improvement": 0.0331867220617742,
+          "sample_id": "train_marmousi_00396"
+        },
+        {
+          "candidate_rel_l2": 0.03421487458502837,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03484968871509947,
+          "relative_improvement": 0.018215776194180133,
+          "sample_id": "train_marmousi_00265"
+        },
+        {
+          "candidate_rel_l2": 0.022546792349635386,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.04498447755536454,
+          "relative_improvement": 0.4987872800815354,
+          "sample_id": "train_marmousi_00269"
+        }
+      ],
+      "spatial_dct_blocks": 1,
+      "worst_record": {
+        "candidate_rel_l2": 0.05489493933521011,
+        "family": "marmousi",
+        "group_id": "train:marmousi:x6800.0:z100.0",
+        "parent_rel_l2": 0.06584256849023427,
+        "relative_improvement": 0.16626977662100018,
+        "sample_id": "train_marmousi_00267"
+      }
+    },
+    "2x2": {
+      "absolute_goal": {
+        "max_lte_0p05": false,
+        "mean_lte_0p05": true,
+        "passed": false
+      },
+      "aggregate": {
+        "candidate_max": 0.051341324218304646,
+        "candidate_mean": 0.01766376945478011,
+        "count": 56,
+        "max_relative_improvement": 0.2202411692684869,
+        "mean_relative_improvement": 0.11885922422178763,
+        "parent_max": 0.06584256849023427,
+        "parent_mean": 0.02004647831577161
+      },
+      "records": [
+        {
+          "candidate_rel_l2": 0.006485416348069103,
+          "family": "uniform",
+          "group_id": "train:uniform:00357",
+          "parent_rel_l2": 0.007761601285902062,
+          "relative_improvement": 0.1644228930119076,
+          "sample_id": "train_uniform_00357"
+        },
+        {
+          "candidate_rel_l2": 0.0034747132453020273,
+          "family": "uniform",
+          "group_id": "train:uniform:00186",
+          "parent_rel_l2": 0.003739791140155689,
+          "relative_improvement": 0.07088040078158653,
+          "sample_id": "train_uniform_00186"
+        },
+        {
+          "candidate_rel_l2": 0.006400210668954864,
+          "family": "uniform",
+          "group_id": "train:uniform:00243",
+          "parent_rel_l2": 0.007496103743712724,
+          "relative_improvement": 0.1461950250724623,
+          "sample_id": "train_uniform_00243"
+        },
+        {
+          "candidate_rel_l2": 0.00451237072086752,
+          "family": "uniform",
+          "group_id": "train:uniform:00037",
+          "parent_rel_l2": 0.00473861360505982,
+          "relative_improvement": 0.04774453100601428,
+          "sample_id": "train_uniform_00037"
+        },
+        {
+          "candidate_rel_l2": 0.02833423678302943,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.030080552327722145,
+          "relative_improvement": 0.05805463695170632,
+          "sample_id": "train_layered_00548"
+        },
+        {
+          "candidate_rel_l2": 0.030531189157523324,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.031786030164966096,
+          "relative_improvement": 0.03947775173339607,
+          "sample_id": "train_layered_00768"
+        },
+        {
+          "candidate_rel_l2": 0.009976502636565302,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.010896826896234864,
+          "relative_improvement": 0.08445800492504452,
+          "sample_id": "train_layered_00816"
+        },
+        {
+          "candidate_rel_l2": 0.00771906429483409,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.008156284993091853,
+          "relative_improvement": 0.053605372866210255,
+          "sample_id": "train_layered_00040"
+        },
+        {
+          "candidate_rel_l2": 0.02917956422687166,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.030860267719047756,
+          "relative_improvement": 0.054461727535134896,
+          "sample_id": "train_layered_00236"
+        },
+        {
+          "candidate_rel_l2": 0.015543253089355025,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021399457177760654,
+          "relative_improvement": 0.2736613382180403,
+          "sample_id": "train_marmousi_00275"
+        },
+        {
+          "candidate_rel_l2": 0.019867296567299176,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021103001332318388,
+          "relative_improvement": 0.058555877695310565,
+          "sample_id": "train_marmousi_00279"
+        },
+        {
+          "candidate_rel_l2": 0.037707824249350055,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.038945127097742005,
+          "relative_improvement": 0.03177041495555133,
+          "sample_id": "train_marmousi_00653"
+        },
+        {
+          "candidate_rel_l2": 0.01610358179692885,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.021548181188135788,
+          "relative_improvement": 0.25267094905460874,
+          "sample_id": "train_marmousi_00397"
+        },
+        {
+          "candidate_rel_l2": 0.0365851202468656,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03808602581966861,
+          "relative_improvement": 0.039408301089474795,
+          "sample_id": "train_marmousi_00266"
+        },
+        {
+          "candidate_rel_l2": 0.005196374241497483,
+          "family": "uniform",
+          "group_id": "train:uniform:00102",
+          "parent_rel_l2": 0.0063186999557381125,
+          "relative_improvement": 0.17761971957877631,
+          "sample_id": "train_uniform_00102"
+        },
+        {
+          "candidate_rel_l2": 0.008274387549175621,
+          "family": "uniform",
+          "group_id": "train:uniform:00369",
+          "parent_rel_l2": 0.009224765687632946,
+          "relative_improvement": 0.10302463722535915,
+          "sample_id": "train_uniform_00369"
+        },
+        {
+          "candidate_rel_l2": 0.007017343396025271,
+          "family": "uniform",
+          "group_id": "train:uniform:00384",
+          "parent_rel_l2": 0.007867005700390797,
+          "relative_improvement": 0.10800326537494676,
+          "sample_id": "train_uniform_00384"
+        },
+        {
+          "candidate_rel_l2": 0.005941288032234817,
+          "family": "uniform",
+          "group_id": "train:uniform:00149",
+          "parent_rel_l2": 0.007419209486645002,
+          "relative_improvement": 0.1992020116254336,
+          "sample_id": "train_uniform_00149"
+        },
+        {
+          "candidate_rel_l2": 0.010144681197311017,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.010867968077264605,
+          "relative_improvement": 0.06655217192500573,
+          "sample_id": "train_layered_00549"
+        },
+        {
+          "candidate_rel_l2": 0.01877322402072209,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.019358006048365316,
+          "relative_improvement": 0.030208794551575657,
+          "sample_id": "train_layered_00769"
+        },
+        {
+          "candidate_rel_l2": 0.004926930815501703,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.00587755167241041,
+          "relative_improvement": 0.16173755840735182,
+          "sample_id": "train_layered_00817"
+        },
+        {
+          "candidate_rel_l2": 0.011862381534206287,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.012456982583764932,
+          "relative_improvement": 0.04773234975326879,
+          "sample_id": "train_layered_00041"
+        },
+        {
+          "candidate_rel_l2": 0.015669264980171193,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.01635944173281901,
+          "relative_improvement": 0.04218828270057884,
+          "sample_id": "train_layered_00237"
+        },
+        {
+          "candidate_rel_l2": 0.033804751219687505,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.03556123991492152,
+          "relative_improvement": 0.0493933479101496,
+          "sample_id": "train_marmousi_00276"
+        },
+        {
+          "candidate_rel_l2": 0.019158826738991903,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02538444877176727,
+          "relative_improvement": 0.2452533867782679,
+          "sample_id": "train_marmousi_00650"
+        },
+        {
+          "candidate_rel_l2": 0.01619930105238505,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.016699574415683597,
+          "relative_improvement": 0.0299572522536089,
+          "sample_id": "train_marmousi_00654"
+        },
+        {
+          "candidate_rel_l2": 0.022283794637354696,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.027110446256720933,
+          "relative_improvement": 0.17803659790991688,
+          "sample_id": "train_marmousi_00398"
+        },
+        {
+          "candidate_rel_l2": 0.051341324218304646,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.06584256849023427,
+          "relative_improvement": 0.2202411692684869,
+          "sample_id": "train_marmousi_00267"
+        },
+        {
+          "candidate_rel_l2": 0.011358990366108932,
+          "family": "uniform",
+          "group_id": "train:uniform:00003",
+          "parent_rel_l2": 0.013525070147901446,
+          "relative_improvement": 0.1601529425064463,
+          "sample_id": "train_uniform_00003"
+        },
+        {
+          "candidate_rel_l2": 0.007323111821547933,
+          "family": "uniform",
+          "group_id": "train:uniform:00303",
+          "parent_rel_l2": 0.008286745324826818,
+          "relative_improvement": 0.1162861250715489,
+          "sample_id": "train_uniform_00303"
+        },
+        {
+          "candidate_rel_l2": 0.0048959100464426,
+          "family": "uniform",
+          "group_id": "train:uniform:00048",
+          "parent_rel_l2": 0.005506107977836912,
+          "relative_improvement": 0.11082200600686909,
+          "sample_id": "train_uniform_00048"
+        },
+        {
+          "candidate_rel_l2": 0.010342113421858893,
+          "family": "uniform",
+          "group_id": "train:uniform:00315",
+          "parent_rel_l2": 0.011583220807161412,
+          "relative_improvement": 0.107147002199526,
+          "sample_id": "train_uniform_00315"
+        },
+        {
+          "candidate_rel_l2": 0.012982045919549148,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013687499917038892,
+          "relative_improvement": 0.05154001839383093,
+          "sample_id": "train_layered_00550"
+        },
+        {
+          "candidate_rel_l2": 0.041522391910849235,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.04352604114784856,
+          "relative_improvement": 0.046033344272991994,
+          "sample_id": "train_layered_00770"
+        },
+        {
+          "candidate_rel_l2": 0.004871961853741157,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.005378120198053275,
+          "relative_improvement": 0.0941143607194449,
+          "sample_id": "train_layered_00818"
+        },
+        {
+          "candidate_rel_l2": 0.007325125834729256,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007860803855722484,
+          "relative_improvement": 0.06814545062121935,
+          "sample_id": "train_layered_00042"
+        },
+        {
+          "candidate_rel_l2": 0.021995282880430064,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.023108984298939664,
+          "relative_improvement": 0.04819343871209003,
+          "sample_id": "train_layered_00238"
+        },
+        {
+          "candidate_rel_l2": 0.019286581876891758,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.023779795306037205,
+          "relative_improvement": 0.18895088756313694,
+          "sample_id": "train_marmousi_00277"
+        },
+        {
+          "candidate_rel_l2": 0.016901707342378055,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02090527646214626,
+          "relative_improvement": 0.19150998203815073,
+          "sample_id": "train_marmousi_00651"
+        },
+        {
+          "candidate_rel_l2": 0.027438860251663158,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03066122452157824,
+          "relative_improvement": 0.10509574618089046,
+          "sample_id": "train_marmousi_00395"
+        },
+        {
+          "candidate_rel_l2": 0.033065710737422316,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03425927065403125,
+          "relative_improvement": 0.03483903462692328,
+          "sample_id": "train_marmousi_00399"
+        },
+        {
+          "candidate_rel_l2": 0.04084951077809702,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.052437303317063935,
+          "relative_improvement": 0.220983761672505,
+          "sample_id": "train_marmousi_00268"
+        },
+        {
+          "candidate_rel_l2": 0.009005279544049234,
+          "family": "uniform",
+          "group_id": "train:uniform:00085",
+          "parent_rel_l2": 0.010231812487459432,
+          "relative_improvement": 0.11987445478633352,
+          "sample_id": "train_uniform_00085"
+        },
+        {
+          "candidate_rel_l2": 0.005390108691600074,
+          "family": "uniform",
+          "group_id": "train:uniform:00020",
+          "parent_rel_l2": 0.005937042527801285,
+          "relative_improvement": 0.09212227024483888,
+          "sample_id": "train_uniform_00020"
+        },
+        {
+          "candidate_rel_l2": 0.005778600181061608,
+          "family": "uniform",
+          "group_id": "train:uniform:00027",
+          "parent_rel_l2": 0.006208620005242049,
+          "relative_improvement": 0.0692617399385641,
+          "sample_id": "train_uniform_00027"
+        },
+        {
+          "candidate_rel_l2": 0.005527385540962896,
+          "family": "uniform",
+          "group_id": "train:uniform:00116",
+          "parent_rel_l2": 0.0060344854556598215,
+          "relative_improvement": 0.08403366259194645,
+          "sample_id": "train_uniform_00116"
+        },
+        {
+          "candidate_rel_l2": 0.012988348788256873,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013944441579781695,
+          "relative_improvement": 0.06856443738206619,
+          "sample_id": "train_layered_00551"
+        },
+        {
+          "candidate_rel_l2": 0.02042257228840256,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.021035246598349808,
+          "relative_improvement": 0.029126081649801683,
+          "sample_id": "train_layered_00771"
+        },
+        {
+          "candidate_rel_l2": 0.00648125739491894,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.006705822501003184,
+          "relative_improvement": 0.033488077868248034,
+          "sample_id": "train_layered_00819"
+        },
+        {
+          "candidate_rel_l2": 0.007201006857414001,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007501716410116902,
+          "relative_improvement": 0.04008543328795533,
+          "sample_id": "train_layered_00043"
+        },
+        {
+          "candidate_rel_l2": 0.04367814088782472,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.04476293195057233,
+          "relative_improvement": 0.024234137834077685,
+          "sample_id": "train_layered_00239"
+        },
+        {
+          "candidate_rel_l2": 0.03711761256546521,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.04351809488292597,
+          "relative_improvement": 0.14707634455689245,
+          "sample_id": "train_marmousi_00278"
+        },
+        {
+          "candidate_rel_l2": 0.026793180821010273,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02899105625644208,
+          "relative_improvement": 0.07581218897270836,
+          "sample_id": "train_marmousi_00652"
+        },
+        {
+          "candidate_rel_l2": 0.009805903078072423,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.010446111535328225,
+          "relative_improvement": 0.06128677212479017,
+          "sample_id": "train_marmousi_00396"
+        },
+        {
+          "candidate_rel_l2": 0.03346854486565584,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03484968871509947,
+          "relative_improvement": 0.039631454407947575,
+          "sample_id": "train_marmousi_00265"
+        },
+        {
+          "candidate_rel_l2": 0.022339625255896788,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.04498447755536454,
+          "relative_improvement": 0.5033925818433181,
+          "sample_id": "train_marmousi_00269"
+        }
+      ],
+      "spatial_dct_blocks": 4,
+      "worst_record": {
+        "candidate_rel_l2": 0.051341324218304646,
+        "family": "marmousi",
+        "group_id": "train:marmousi:x6800.0:z100.0",
+        "parent_rel_l2": 0.06584256849023427,
+        "relative_improvement": 0.2202411692684869,
+        "sample_id": "train_marmousi_00267"
+      }
+    },
+    "4x4": {
+      "absolute_goal": {
+        "max_lte_0p05": true,
+        "mean_lte_0p05": true,
+        "passed": true
+      },
+      "aggregate": {
+        "candidate_max": 0.049488738862151285,
+        "candidate_mean": 0.017091076690649406,
+        "count": 56,
+        "max_relative_improvement": 0.24837775929881256,
+        "mean_relative_improvement": 0.14742747222573427,
+        "parent_max": 0.06584256849023427,
+        "parent_mean": 0.02004647831577161
+      },
+      "records": [
+        {
+          "candidate_rel_l2": 0.006073047538954613,
+          "family": "uniform",
+          "group_id": "train:uniform:00357",
+          "parent_rel_l2": 0.007761601285902062,
+          "relative_improvement": 0.21755224015622743,
+          "sample_id": "train_uniform_00357"
+        },
+        {
+          "candidate_rel_l2": 0.003362889186556594,
+          "family": "uniform",
+          "group_id": "train:uniform:00186",
+          "parent_rel_l2": 0.003739791140155689,
+          "relative_improvement": 0.10078155155568513,
+          "sample_id": "train_uniform_00186"
+        },
+        {
+          "candidate_rel_l2": 0.006247943429955249,
+          "family": "uniform",
+          "group_id": "train:uniform:00243",
+          "parent_rel_l2": 0.007496103743712724,
+          "relative_improvement": 0.16650787614890683,
+          "sample_id": "train_uniform_00243"
+        },
+        {
+          "candidate_rel_l2": 0.004378280677931177,
+          "family": "uniform",
+          "group_id": "train:uniform:00037",
+          "parent_rel_l2": 0.00473861360505982,
+          "relative_improvement": 0.07604184623618282,
+          "sample_id": "train_uniform_00037"
+        },
+        {
+          "candidate_rel_l2": 0.026157431904356238,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.030080552327722145,
+          "relative_improvement": 0.13042049163938962,
+          "sample_id": "train_layered_00548"
+        },
+        {
+          "candidate_rel_l2": 0.030075671114532996,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.031786030164966096,
+          "relative_improvement": 0.05380851404080722,
+          "sample_id": "train_layered_00768"
+        },
+        {
+          "candidate_rel_l2": 0.009772368090017207,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.010896826896234864,
+          "relative_improvement": 0.10319139846171055,
+          "sample_id": "train_layered_00816"
+        },
+        {
+          "candidate_rel_l2": 0.0074077850718763105,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.008156284993091853,
+          "relative_improvement": 0.0917697115597973,
+          "sample_id": "train_layered_00040"
+        },
+        {
+          "candidate_rel_l2": 0.028530350710926324,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.030860267719047756,
+          "relative_improvement": 0.07549892403180114,
+          "sample_id": "train_layered_00236"
+        },
+        {
+          "candidate_rel_l2": 0.015351991092314774,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021399457177760654,
+          "relative_improvement": 0.2825990414247842,
+          "sample_id": "train_marmousi_00275"
+        },
+        {
+          "candidate_rel_l2": 0.0193168539361957,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021103001332318388,
+          "relative_improvement": 0.08463949596530973,
+          "sample_id": "train_marmousi_00279"
+        },
+        {
+          "candidate_rel_l2": 0.036543869894574484,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.038945127097742005,
+          "relative_improvement": 0.061657449393886954,
+          "sample_id": "train_marmousi_00653"
+        },
+        {
+          "candidate_rel_l2": 0.015418419148938808,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.021548181188135788,
+          "relative_improvement": 0.2844677230843021,
+          "sample_id": "train_marmousi_00397"
+        },
+        {
+          "candidate_rel_l2": 0.035647510403502884,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03808602581966861,
+          "relative_improvement": 0.06402651270866955,
+          "sample_id": "train_marmousi_00266"
+        },
+        {
+          "candidate_rel_l2": 0.005093301050097318,
+          "family": "uniform",
+          "group_id": "train:uniform:00102",
+          "parent_rel_l2": 0.0063186999557381125,
+          "relative_improvement": 0.19393212436491625,
+          "sample_id": "train_uniform_00102"
+        },
+        {
+          "candidate_rel_l2": 0.007845657675568359,
+          "family": "uniform",
+          "group_id": "train:uniform:00369",
+          "parent_rel_l2": 0.009224765687632946,
+          "relative_improvement": 0.14950060074842542,
+          "sample_id": "train_uniform_00369"
+        },
+        {
+          "candidate_rel_l2": 0.006797728244073827,
+          "family": "uniform",
+          "group_id": "train:uniform:00384",
+          "parent_rel_l2": 0.007867005700390797,
+          "relative_improvement": 0.13591924259872512,
+          "sample_id": "train_uniform_00384"
+        },
+        {
+          "candidate_rel_l2": 0.005770161195312042,
+          "family": "uniform",
+          "group_id": "train:uniform:00149",
+          "parent_rel_l2": 0.007419209486645002,
+          "relative_improvement": 0.2222673849958463,
+          "sample_id": "train_uniform_00149"
+        },
+        {
+          "candidate_rel_l2": 0.00987206955579647,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.010867968077264605,
+          "relative_improvement": 0.09163612870298343,
+          "sample_id": "train_layered_00549"
+        },
+        {
+          "candidate_rel_l2": 0.018520006529628714,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.019358006048365316,
+          "relative_improvement": 0.04328955764570419,
+          "sample_id": "train_layered_00769"
+        },
+        {
+          "candidate_rel_l2": 0.00482509341672272,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.00587755167241041,
+          "relative_improvement": 0.1790640583608979,
+          "sample_id": "train_layered_00817"
+        },
+        {
+          "candidate_rel_l2": 0.011535789008365601,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.012456982583764932,
+          "relative_improvement": 0.07394997698719707,
+          "sample_id": "train_layered_00041"
+        },
+        {
+          "candidate_rel_l2": 0.015478130026436433,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.01635944173281901,
+          "relative_improvement": 0.0538717470177823,
+          "sample_id": "train_layered_00237"
+        },
+        {
+          "candidate_rel_l2": 0.03272759648152321,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.03556123991492152,
+          "relative_improvement": 0.07968348235825473,
+          "sample_id": "train_marmousi_00276"
+        },
+        {
+          "candidate_rel_l2": 0.018761233674794587,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02538444877176727,
+          "relative_improvement": 0.2609162466564592,
+          "sample_id": "train_marmousi_00650"
+        },
+        {
+          "candidate_rel_l2": 0.01600066796847615,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.016699574415683597,
+          "relative_improvement": 0.04185175201537239,
+          "sample_id": "train_marmousi_00654"
+        },
+        {
+          "candidate_rel_l2": 0.021683970688587517,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.027110446256720933,
+          "relative_improvement": 0.20016179434110726,
+          "sample_id": "train_marmousi_00398"
+        },
+        {
+          "candidate_rel_l2": 0.049488738862151285,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.06584256849023427,
+          "relative_improvement": 0.24837775929881256,
+          "sample_id": "train_marmousi_00267"
+        },
+        {
+          "candidate_rel_l2": 0.00944303294753179,
+          "family": "uniform",
+          "group_id": "train:uniform:00003",
+          "parent_rel_l2": 0.013525070147901446,
+          "relative_improvement": 0.30181264538602237,
+          "sample_id": "train_uniform_00003"
+        },
+        {
+          "candidate_rel_l2": 0.007204245211527517,
+          "family": "uniform",
+          "group_id": "train:uniform:00303",
+          "parent_rel_l2": 0.008286745324826818,
+          "relative_improvement": 0.13063031031690653,
+          "sample_id": "train_uniform_00303"
+        },
+        {
+          "candidate_rel_l2": 0.004759661231730546,
+          "family": "uniform",
+          "group_id": "train:uniform:00048",
+          "parent_rel_l2": 0.005506107977836912,
+          "relative_improvement": 0.13556703739028542,
+          "sample_id": "train_uniform_00048"
+        },
+        {
+          "candidate_rel_l2": 0.009984431151029843,
+          "family": "uniform",
+          "group_id": "train:uniform:00315",
+          "parent_rel_l2": 0.011583220807161412,
+          "relative_improvement": 0.13802634714026218,
+          "sample_id": "train_uniform_00315"
+        },
+        {
+          "candidate_rel_l2": 0.012599862774460506,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013687499917038892,
+          "relative_improvement": 0.0794620748252528,
+          "sample_id": "train_layered_00550"
+        },
+        {
+          "candidate_rel_l2": 0.040664260656411995,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.04352604114784856,
+          "relative_improvement": 0.06574869700912422,
+          "sample_id": "train_layered_00770"
+        },
+        {
+          "candidate_rel_l2": 0.0048034579136287765,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.005378120198053275,
+          "relative_improvement": 0.10685188565188819,
+          "sample_id": "train_layered_00818"
+        },
+        {
+          "candidate_rel_l2": 0.0070598358040041545,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007860803855722484,
+          "relative_improvement": 0.10189391141406523,
+          "sample_id": "train_layered_00042"
+        },
+        {
+          "candidate_rel_l2": 0.021376179275574423,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.023108984298939664,
+          "relative_improvement": 0.07498404087992516,
+          "sample_id": "train_layered_00238"
+        },
+        {
+          "candidate_rel_l2": 0.018990003342469638,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.023779795306037205,
+          "relative_improvement": 0.20142275835114265,
+          "sample_id": "train_marmousi_00277"
+        },
+        {
+          "candidate_rel_l2": 0.016629167380260254,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02090527646214626,
+          "relative_improvement": 0.20454688028780055,
+          "sample_id": "train_marmousi_00651"
+        },
+        {
+          "candidate_rel_l2": 0.026492274351287617,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03066122452157824,
+          "relative_improvement": 0.13596815637146742,
+          "sample_id": "train_marmousi_00395"
+        },
+        {
+          "candidate_rel_l2": 0.03265498484481365,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03425927065403125,
+          "relative_improvement": 0.046827786423667694,
+          "sample_id": "train_marmousi_00399"
+        },
+        {
+          "candidate_rel_l2": 0.03872821252893861,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.052437303317063935,
+          "relative_improvement": 0.26143775367762223,
+          "sample_id": "train_marmousi_00268"
+        },
+        {
+          "candidate_rel_l2": 0.00789305178141466,
+          "family": "uniform",
+          "group_id": "train:uniform:00085",
+          "parent_rel_l2": 0.010231812487459432,
+          "relative_improvement": 0.22857736192011546,
+          "sample_id": "train_uniform_00085"
+        },
+        {
+          "candidate_rel_l2": 0.005299000618932233,
+          "family": "uniform",
+          "group_id": "train:uniform:00020",
+          "parent_rel_l2": 0.005937042527801285,
+          "relative_improvement": 0.107467970101495,
+          "sample_id": "train_uniform_00020"
+        },
+        {
+          "candidate_rel_l2": 0.005649658879536057,
+          "family": "uniform",
+          "group_id": "train:uniform:00027",
+          "parent_rel_l2": 0.006208620005242049,
+          "relative_improvement": 0.0900298496661176,
+          "sample_id": "train_uniform_00027"
+        },
+        {
+          "candidate_rel_l2": 0.005331711741002693,
+          "family": "uniform",
+          "group_id": "train:uniform:00116",
+          "parent_rel_l2": 0.0060344854556598215,
+          "relative_improvement": 0.1164595920929743,
+          "sample_id": "train_uniform_00116"
+        },
+        {
+          "candidate_rel_l2": 0.012808976956756719,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013944441579781695,
+          "relative_improvement": 0.08142775861826601,
+          "sample_id": "train_layered_00551"
+        },
+        {
+          "candidate_rel_l2": 0.020062585986716296,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.021035246598349808,
+          "relative_improvement": 0.04623956306315968,
+          "sample_id": "train_layered_00771"
+        },
+        {
+          "candidate_rel_l2": 0.006370432737072876,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.006705822501003184,
+          "relative_improvement": 0.050014709437974814,
+          "sample_id": "train_layered_00819"
+        },
+        {
+          "candidate_rel_l2": 0.006997436582003019,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007501716410116902,
+          "relative_improvement": 0.06722192636258617,
+          "sample_id": "train_layered_00043"
+        },
+        {
+          "candidate_rel_l2": 0.04285076496252133,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.04476293195057233,
+          "relative_improvement": 0.04271764392382582,
+          "sample_id": "train_layered_00239"
+        },
+        {
+          "candidate_rel_l2": 0.034780412925692374,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.04351809488292597,
+          "relative_improvement": 0.20078273143022551,
+          "sample_id": "train_marmousi_00278"
+        },
+        {
+          "candidate_rel_l2": 0.025704081832152583,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02899105625644208,
+          "relative_improvement": 0.11337891228295971,
+          "sample_id": "train_marmousi_00652"
+        },
+        {
+          "candidate_rel_l2": 0.00861139798261336,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.010446111535328225,
+          "relative_improvement": 0.17563602939811196,
+          "sample_id": "train_marmousi_00396"
+        },
+        {
+          "candidate_rel_l2": 0.03291132582503335,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03484968871509947,
+          "relative_improvement": 0.05562066582322944,
+          "sample_id": "train_marmousi_00265"
+        },
+        {
+          "candidate_rel_l2": 0.02175528987308232,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.04498447755536454,
+          "relative_improvement": 0.5163822932853439,
+          "sample_id": "train_marmousi_00269"
+        }
+      ],
+      "spatial_dct_blocks": 16,
+      "worst_record": {
+        "candidate_rel_l2": 0.049488738862151285,
+        "family": "marmousi",
+        "group_id": "train:marmousi:x6800.0:z100.0",
+        "parent_rel_l2": 0.06584256849023427,
+        "relative_improvement": 0.24837775929881256,
+        "sample_id": "train_marmousi_00267"
+      }
+    },
+    "8x8": {
+      "absolute_goal": {
+        "max_lte_0p05": true,
+        "mean_lte_0p05": true,
+        "passed": true
+      },
+      "aggregate": {
+        "candidate_max": 0.048147435504850754,
+        "candidate_mean": 0.016591993665997642,
+        "count": 56,
+        "max_relative_improvement": 0.26874912979751164,
+        "mean_relative_improvement": 0.17232376656682613,
+        "parent_max": 0.06584256849023427,
+        "parent_mean": 0.02004647831577161
+      },
+      "records": [
+        {
+          "candidate_rel_l2": 0.00578131849575752,
+          "family": "uniform",
+          "group_id": "train:uniform:00357",
+          "parent_rel_l2": 0.007761601285902062,
+          "relative_improvement": 0.25513843306296446,
+          "sample_id": "train_uniform_00357"
+        },
+        {
+          "candidate_rel_l2": 0.003276695679007054,
+          "family": "uniform",
+          "group_id": "train:uniform:00186",
+          "parent_rel_l2": 0.003739791140155689,
+          "relative_improvement": 0.123829231043463,
+          "sample_id": "train_uniform_00186"
+        },
+        {
+          "candidate_rel_l2": 0.006070801339657708,
+          "family": "uniform",
+          "group_id": "train:uniform:00243",
+          "parent_rel_l2": 0.007496103743712724,
+          "relative_improvement": 0.190139097961454,
+          "sample_id": "train_uniform_00243"
+        },
+        {
+          "candidate_rel_l2": 0.004278994594829808,
+          "family": "uniform",
+          "group_id": "train:uniform:00037",
+          "parent_rel_l2": 0.00473861360505982,
+          "relative_improvement": 0.0969944056504708,
+          "sample_id": "train_uniform_00037"
+        },
+        {
+          "candidate_rel_l2": 0.024593806668376447,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.030080552327722145,
+          "relative_improvement": 0.18240175910231304,
+          "sample_id": "train_layered_00548"
+        },
+        {
+          "candidate_rel_l2": 0.02953905321378367,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.031786030164966096,
+          "relative_improvement": 0.07069070719183412,
+          "sample_id": "train_layered_00768"
+        },
+        {
+          "candidate_rel_l2": 0.00946067900749209,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.010896826896234864,
+          "relative_improvement": 0.13179505395639535,
+          "sample_id": "train_layered_00816"
+        },
+        {
+          "candidate_rel_l2": 0.00719621648553086,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.008156284993091853,
+          "relative_improvement": 0.11770904380782965,
+          "sample_id": "train_layered_00040"
+        },
+        {
+          "candidate_rel_l2": 0.02818703663731862,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.030860267719047756,
+          "relative_improvement": 0.0866237164909347,
+          "sample_id": "train_layered_00236"
+        },
+        {
+          "candidate_rel_l2": 0.015152875198155195,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021399457177760654,
+          "relative_improvement": 0.2919037584793136,
+          "sample_id": "train_marmousi_00275"
+        },
+        {
+          "candidate_rel_l2": 0.018793393183006164,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.021103001332318388,
+          "relative_improvement": 0.10944453411824184,
+          "sample_id": "train_marmousi_00279"
+        },
+        {
+          "candidate_rel_l2": 0.0355857722346068,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.038945127097742005,
+          "relative_improvement": 0.08625866991534292,
+          "sample_id": "train_marmousi_00653"
+        },
+        {
+          "candidate_rel_l2": 0.014867301006198274,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.021548181188135788,
+          "relative_improvement": 0.310043809433714,
+          "sample_id": "train_marmousi_00397"
+        },
+        {
+          "candidate_rel_l2": 0.0342966545763602,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03808602581966861,
+          "relative_improvement": 0.09949505525334923,
+          "sample_id": "train_marmousi_00266"
+        },
+        {
+          "candidate_rel_l2": 0.004975865405004801,
+          "family": "uniform",
+          "group_id": "train:uniform:00102",
+          "parent_rel_l2": 0.0063186999557381125,
+          "relative_improvement": 0.21251753685722363,
+          "sample_id": "train_uniform_00102"
+        },
+        {
+          "candidate_rel_l2": 0.007508771916829875,
+          "family": "uniform",
+          "group_id": "train:uniform:00369",
+          "parent_rel_l2": 0.009224765687632946,
+          "relative_improvement": 0.18602030977367745,
+          "sample_id": "train_uniform_00369"
+        },
+        {
+          "candidate_rel_l2": 0.006669211129187853,
+          "family": "uniform",
+          "group_id": "train:uniform:00384",
+          "parent_rel_l2": 0.007867005700390797,
+          "relative_improvement": 0.15225545993228962,
+          "sample_id": "train_uniform_00384"
+        },
+        {
+          "candidate_rel_l2": 0.005642541787342757,
+          "family": "uniform",
+          "group_id": "train:uniform:00149",
+          "parent_rel_l2": 0.007419209486645002,
+          "relative_improvement": 0.23946859870992288,
+          "sample_id": "train_uniform_00149"
+        },
+        {
+          "candidate_rel_l2": 0.009653705239716284,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.010867968077264605,
+          "relative_improvement": 0.11172859810736058,
+          "sample_id": "train_layered_00549"
+        },
+        {
+          "candidate_rel_l2": 0.01824139359030578,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.019358006048365316,
+          "relative_improvement": 0.05768220421409709,
+          "sample_id": "train_layered_00769"
+        },
+        {
+          "candidate_rel_l2": 0.004740907682154873,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.00587755167241041,
+          "relative_improvement": 0.19338732411167292,
+          "sample_id": "train_layered_00817"
+        },
+        {
+          "candidate_rel_l2": 0.011249544717326516,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.012456982583764932,
+          "relative_improvement": 0.09692859874525783,
+          "sample_id": "train_layered_00041"
+        },
+        {
+          "candidate_rel_l2": 0.015156217243009387,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.01635944173281901,
+          "relative_improvement": 0.0735492389936393,
+          "sample_id": "train_layered_00237"
+        },
+        {
+          "candidate_rel_l2": 0.03163516523585881,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.03556123991492152,
+          "relative_improvement": 0.11040319990123082,
+          "sample_id": "train_marmousi_00276"
+        },
+        {
+          "candidate_rel_l2": 0.018342033865960047,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02538444877176727,
+          "relative_improvement": 0.27743028691014304,
+          "sample_id": "train_marmousi_00650"
+        },
+        {
+          "candidate_rel_l2": 0.015643251597387626,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.016699574415683597,
+          "relative_improvement": 0.06325447535380979,
+          "sample_id": "train_marmousi_00654"
+        },
+        {
+          "candidate_rel_l2": 0.020955008890327736,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.027110446256720933,
+          "relative_improvement": 0.227050388920367,
+          "sample_id": "train_marmousi_00398"
+        },
+        {
+          "candidate_rel_l2": 0.048147435504850754,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.06584256849023427,
+          "relative_improvement": 0.26874912979751164,
+          "sample_id": "train_marmousi_00267"
+        },
+        {
+          "candidate_rel_l2": 0.008936382852038332,
+          "family": "uniform",
+          "group_id": "train:uniform:00003",
+          "parent_rel_l2": 0.013525070147901446,
+          "relative_improvement": 0.3392727169385584,
+          "sample_id": "train_uniform_00003"
+        },
+        {
+          "candidate_rel_l2": 0.007100753981040662,
+          "family": "uniform",
+          "group_id": "train:uniform:00303",
+          "parent_rel_l2": 0.008286745324826818,
+          "relative_improvement": 0.1431190771885995,
+          "sample_id": "train_uniform_00303"
+        },
+        {
+          "candidate_rel_l2": 0.004642308026150241,
+          "family": "uniform",
+          "group_id": "train:uniform:00048",
+          "parent_rel_l2": 0.005506107977836912,
+          "relative_improvement": 0.15688031458220997,
+          "sample_id": "train_uniform_00048"
+        },
+        {
+          "candidate_rel_l2": 0.00972123790349589,
+          "family": "uniform",
+          "group_id": "train:uniform:00315",
+          "parent_rel_l2": 0.011583220807161412,
+          "relative_improvement": 0.16074828708387723,
+          "sample_id": "train_uniform_00315"
+        },
+        {
+          "candidate_rel_l2": 0.01181062359921816,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013687499917038892,
+          "relative_improvement": 0.13712338478148967,
+          "sample_id": "train_layered_00550"
+        },
+        {
+          "candidate_rel_l2": 0.039825324960894984,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.04352604114784856,
+          "relative_improvement": 0.08502303653996568,
+          "sample_id": "train_layered_00770"
+        },
+        {
+          "candidate_rel_l2": 0.004699132723217746,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.005378120198053275,
+          "relative_improvement": 0.12624996278091793,
+          "sample_id": "train_layered_00818"
+        },
+        {
+          "candidate_rel_l2": 0.006844510138270809,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007860803855722484,
+          "relative_improvement": 0.12928623282106655,
+          "sample_id": "train_layered_00042"
+        },
+        {
+          "candidate_rel_l2": 0.021070043147180115,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.023108984298939664,
+          "relative_improvement": 0.08823153477381973,
+          "sample_id": "train_layered_00238"
+        },
+        {
+          "candidate_rel_l2": 0.018593549694132735,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.023779795306037205,
+          "relative_improvement": 0.21809462803019963,
+          "sample_id": "train_marmousi_00277"
+        },
+        {
+          "candidate_rel_l2": 0.016045383503516558,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02090527646214626,
+          "relative_improvement": 0.2324720731356813,
+          "sample_id": "train_marmousi_00651"
+        },
+        {
+          "candidate_rel_l2": 0.025645910729231686,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03066122452157824,
+          "relative_improvement": 0.16357186872353913,
+          "sample_id": "train_marmousi_00395"
+        },
+        {
+          "candidate_rel_l2": 0.03211347299729222,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.03425927065403125,
+          "relative_improvement": 0.06263407293192147,
+          "sample_id": "train_marmousi_00399"
+        },
+        {
+          "candidate_rel_l2": 0.03721369603201287,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.052437303317063935,
+          "relative_improvement": 0.290320178995495,
+          "sample_id": "train_marmousi_00268"
+        },
+        {
+          "candidate_rel_l2": 0.007527326165160589,
+          "family": "uniform",
+          "group_id": "train:uniform:00085",
+          "parent_rel_l2": 0.010231812487459432,
+          "relative_improvement": 0.2643213336457819,
+          "sample_id": "train_uniform_00085"
+        },
+        {
+          "candidate_rel_l2": 0.0051728452869663245,
+          "family": "uniform",
+          "group_id": "train:uniform:00020",
+          "parent_rel_l2": 0.005937042527801285,
+          "relative_improvement": 0.12871682108667193,
+          "sample_id": "train_uniform_00020"
+        },
+        {
+          "candidate_rel_l2": 0.00550863187286175,
+          "family": "uniform",
+          "group_id": "train:uniform:00027",
+          "parent_rel_l2": 0.006208620005242049,
+          "relative_improvement": 0.11274456027092761,
+          "sample_id": "train_uniform_00027"
+        },
+        {
+          "candidate_rel_l2": 0.005113642466532348,
+          "family": "uniform",
+          "group_id": "train:uniform:00116",
+          "parent_rel_l2": 0.0060344854556598215,
+          "relative_improvement": 0.15259676999698502,
+          "sample_id": "train_uniform_00116"
+        },
+        {
+          "candidate_rel_l2": 0.01212615103587262,
+          "family": "layered",
+          "group_id": "train:layered:00137",
+          "parent_rel_l2": 0.013944441579781695,
+          "relative_improvement": 0.1303953645978515,
+          "sample_id": "train_layered_00551"
+        },
+        {
+          "candidate_rel_l2": 0.019673516884478458,
+          "family": "layered",
+          "group_id": "train:layered:00192",
+          "parent_rel_l2": 0.021035246598349808,
+          "relative_improvement": 0.06473561921437976,
+          "sample_id": "train_layered_00771"
+        },
+        {
+          "candidate_rel_l2": 0.0062098627445627075,
+          "family": "layered",
+          "group_id": "train:layered:00204",
+          "parent_rel_l2": 0.006705822501003184,
+          "relative_improvement": 0.07395957115868812,
+          "sample_id": "train_layered_00819"
+        },
+        {
+          "candidate_rel_l2": 0.006839193014348593,
+          "family": "layered",
+          "group_id": "train:layered:00010",
+          "parent_rel_l2": 0.007501716410116902,
+          "relative_improvement": 0.08831624118379389,
+          "sample_id": "train_layered_00043"
+        },
+        {
+          "candidate_rel_l2": 0.042099644083159214,
+          "family": "layered",
+          "group_id": "train:layered:00059",
+          "parent_rel_l2": 0.04476293195057233,
+          "relative_improvement": 0.05949761893063532,
+          "sample_id": "train_layered_00239"
+        },
+        {
+          "candidate_rel_l2": 0.03342712027114824,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7100.0:z100.0",
+          "parent_rel_l2": 0.04351809488292597,
+          "relative_improvement": 0.23187997174335984,
+          "sample_id": "train_marmousi_00278"
+        },
+        {
+          "candidate_rel_l2": 0.024592931886840416,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x7150.0:z300.0",
+          "parent_rel_l2": 0.02899105625644208,
+          "relative_improvement": 0.151706247978611,
+          "sample_id": "train_marmousi_00652"
+        },
+        {
+          "candidate_rel_l2": 0.008137941861638097,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x650.0:z200.0",
+          "parent_rel_l2": 0.010446111535328225,
+          "relative_improvement": 0.22095970025631206,
+          "sample_id": "train_marmousi_00396"
+        },
+        {
+          "candidate_rel_l2": 0.03195362447486218,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.03484968871509947,
+          "relative_improvement": 0.08310158130573209,
+          "sample_id": "train_marmousi_00265"
+        },
+        {
+          "candidate_rel_l2": 0.020865230834399905,
+          "family": "marmousi",
+          "group_id": "train:marmousi:x6800.0:z100.0",
+          "parent_rel_l2": 0.04498447755536454,
+          "relative_improvement": 0.5361682080508755,
+          "sample_id": "train_marmousi_00269"
+        }
+      ],
+      "spatial_dct_blocks": 64,
+      "worst_record": {
+        "candidate_rel_l2": 0.048147435504850754,
+        "family": "marmousi",
+        "group_id": "train:marmousi:x6800.0:z100.0",
+        "parent_rel_l2": 0.06584256849023427,
+        "relative_improvement": 0.26874912979751164,
+        "sample_id": "train_marmousi_00267"
+      }
+    }
+  },
+  "retained_dct": 96,
+  "schema": "r48_development_spectral_block_complex_gain_oracle_v2",
+  "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e",
+  "unmodeled_error_policy": "preserve temporal-unselected and spatial-DCT-truncated parent error exactly"
+}

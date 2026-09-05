@@ -1,0 +1,74 @@
+{
+  "aggregate": {
+    "drp_coarse_rel_l2": {
+      "max": 0.13017974423515052,
+      "mean": 0.1161812159307587
+    },
+    "r28_drp_rel_l2": {
+      "max": 0.08285467552539272,
+      "mean": 0.06716546059668345
+    },
+    "r28_pair_oracle_rel_l2": {
+      "max": 0.06835179322221191,
+      "mean": 0.0594414089143296
+    },
+    "r28_standard_rel_l2": {
+      "max": 0.0689438710429713,
+      "mean": 0.060322016099001924
+    },
+    "standard_coarse_rel_l2": {
+      "max": 0.15131704478648478,
+      "mean": 0.12668069066390286
+    }
+  },
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r28_expanded_tail_spectral_v1_20260828/best_epoch10_preserved.pt",
+  "checkpoint_sha256": "fb29350348c6d9ab2c39ad3825d0e9b659b55d79b6f56e2a8ad2ba13827781e0",
+  "drp_max_nyquist_fraction": 0.45,
+  "elapsed_seconds": 49.39062351267785,
+  "grid": [
+    201,
+    201
+  ],
+  "internal_dt_s": 0.000125,
+  "manifest_sha256": "5d84f89a596fb88493fc6099b9f5cfec6ee18204511ddee6fa6960211e7dd674",
+  "records": [
+    {
+      "drp_coarse_rel_l2": 0.13017974423515052,
+      "family": "marmousi",
+      "group_id": "train:marmousi:x6800.0:z100.0",
+      "r28_drp_rel_l2": 0.08285467552539272,
+      "r28_pair_oracle_rel_l2": 0.06835179322221191,
+      "r28_pair_oracle_weight_drp": 0.1614488722094127,
+      "r28_standard_rel_l2": 0.0689438710429713,
+      "sample_id": "train_marmousi_00267",
+      "solver_seconds": 21.90383699350059,
+      "source_f0_hz": 27.556425094604492,
+      "source_index": 2367,
+      "standard_coarse_rel_l2": 0.15131704478648478
+    },
+    {
+      "drp_coarse_rel_l2": 0.10218268762636687,
+      "family": "layered",
+      "group_id": "train:layered:00059",
+      "r28_drp_rel_l2": 0.05147624566797417,
+      "r28_pair_oracle_rel_l2": 0.05053102460644729,
+      "r28_pair_oracle_weight_drp": 0.5268235505550733,
+      "r28_standard_rel_l2": 0.051700161155032544,
+      "sample_id": "train_layered_00239",
+      "solver_seconds": 21.184315860271454,
+      "source_f0_hz": 27.044910430908203,
+      "source_index": 659,
+      "standard_coarse_rel_l2": 0.10204433654132092
+    }
+  ],
+  "role": "selected_R28_already_opened_train_holdout_diagnostic_only",
+  "schema": "r34_drp45_r28_train_holdout_tail_diagnostic_v1",
+  "script_sha256": "7b2bff3a692004d86637ad1fb08ce9545f0cddc56f8b09839c5137840ff6a709",
+  "selection_sha256": "e80a4d16d4c73ebe76afeaa7bf9dede541ef371f82b96957935137abb1cdd7de",
+  "spacing_m": [
+    10.0,
+    10.0
+  ],
+  "test_id_opened": false,
+  "validation_opened": false
+}

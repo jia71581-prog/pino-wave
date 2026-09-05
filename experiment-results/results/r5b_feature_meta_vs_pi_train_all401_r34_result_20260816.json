@@ -1,0 +1,229 @@
+{
+  "bindings": {
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "pi_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1_resume1/best.pt",
+    "pi_checkpoint_epoch": 96,
+    "pi_checkpoint_global_step": 13440,
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "pi_config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "pi_training_epochs": 100,
+    "pi_training_records": 2240,
+    "r33_adapter_checkpoint_sha256": "77b8866f8aaba20d66bf5c2e0d9c0a1b93d39ca95dda1edf62795183cea42162",
+    "r33_summary": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/r5b_feature_meta_parent_residual_disjoint_gate_r33_20260816/summary.json",
+    "r33_summary_sha256": "ea42d7370ac42533c58ae7cf86e554c7a0ead50f0e69cf0300565dbca01b0f97",
+    "r5b_identity_sha256": "a8141ab179e7cc18331c0878743d5ecaec106f0ff727e7a20ec198d126c03449",
+    "script_sha256": "b3e1976b70db0c6b499ead059d5aed78390226d187ca61fb2ea83ea1949622b3"
+  },
+  "comparison": {
+    "our_better_than_pi_on_this_train_panel": true,
+    "our_relative_improvement_from_r5b_parent": 1.2506244622402346e-06,
+    "our_relative_improvement_over_pi": 0.3079111263999145,
+    "pi_error_over_our_error": 1.4449011364656572
+  },
+  "elapsed_s": 16.58366043586284,
+  "method_identity": {
+    "baseline": "full_training_set_pi_deeponet",
+    "ours": "frozen_r5b_plus_parent_residual_conditioned_instance_finetuning",
+    "pde_loss_weight": 0.0,
+    "physical_wavefield_propagator": false
+  },
+  "metrics": {
+    "our_instance_adapted": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.24266200389476478,
+          "squared_error": 6.379888993381121e-13,
+          "truth_squared_norm": 1.0834517189954747e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.549300378976065,
+          "squared_error": 1.1199839970661421e-11,
+          "truth_squared_norm": 3.711863695501083e-11
+        },
+        "uniform": {
+          "relative_l2": 0.10635423935782459,
+          "squared_error": 2.89339889908948e-14,
+          "truth_squared_norm": 2.557989162281602e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.48469945617279603,
+        "squared_error": 1.1866762858990426e-11,
+        "truth_squared_norm": 5.0511143307247174e-11
+      },
+      "mean_record_relative_l2": 0.30142085020267095
+    },
+    "pi_deeponet": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.49433636764763195,
+          "squared_error": 2.6476141113073694e-12,
+          "truth_squared_norm": 1.0834517189954747e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.7561653507749597,
+          "squared_error": 2.1223918349798792e-11,
+          "truth_squared_norm": 3.711863695501083e-11
+        },
+        "uniform": {
+          "relative_l2": 0.5942052992955602,
+          "squared_error": 9.031746540836125e-13,
+          "truth_squared_norm": 2.557989162281602e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.700342795068359,
+        "squared_error": 2.4774707115189775e-11,
+        "truth_squared_norm": 5.0511143307247174e-11
+      },
+      "mean_record_relative_l2": 0.6156354159371821
+    },
+    "r5b_parent": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.24266764863035697,
+          "squared_error": 6.380185811216273e-13,
+          "truth_squared_norm": 1.0834517189954747e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.549300378976065,
+          "squared_error": 1.1199839970661421e-11,
+          "truth_squared_norm": 3.711863695501083e-11
+        },
+        "uniform": {
+          "relative_l2": 0.10635423935782459,
+          "squared_error": 2.89339889908948e-14,
+          "truth_squared_norm": 2.557989162281602e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.48470006235055085,
+        "squared_error": 1.1866792540773943e-11,
+        "truth_squared_norm": 5.0511143307247174e-11
+      },
+      "mean_record_relative_l2": 0.3014222828358786
+    }
+  },
+  "protocol": {
+    "family_count": {
+      "layered": 2,
+      "marmousi": 2,
+      "uniform": 2
+    },
+    "frames": "all saved frames strictly after the second guarded onset observation",
+    "physical_pressure_float64_energy_metric": true,
+    "record_count": 6,
+    "same_future_time_indices": true,
+    "same_records": true,
+    "split": "train",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "records": [
+    {
+      "family": "uniform",
+      "future_frame_count": 391,
+      "future_truth_squared_norm": 7.504389534324123e-13,
+      "observed_indices": [
+        8,
+        9
+      ],
+      "our_instance_adapted_relative_l2": 0.08764544871597889,
+      "our_instance_adapted_squared_error": 5.76466542988437e-15,
+      "pi_deeponet_relative_l2": 0.6129334191177869,
+      "pi_deeponet_squared_error": 2.819304414668937e-13,
+      "r5b_parent_relative_l2": 0.08764544871597889,
+      "r5b_parent_squared_error": 5.76466542988437e-15,
+      "sample_id": "train_uniform_00146",
+      "source_index": 146
+    },
+    {
+      "family": "uniform",
+      "future_frame_count": 390,
+      "future_truth_squared_norm": 1.8075502088491897e-12,
+      "observed_indices": [
+        9,
+        10
+      ],
+      "our_instance_adapted_relative_l2": 0.11321696078861075,
+      "our_instance_adapted_squared_error": 2.3169323561010432e-14,
+      "pi_deeponet_relative_l2": 0.5862542352004831,
+      "pi_deeponet_squared_error": 6.212442126167188e-13,
+      "r5b_parent_relative_l2": 0.11321696078861075,
+      "r5b_parent_squared_error": 2.3169323561010432e-14,
+      "sample_id": "train_uniform_00165",
+      "source_index": 165
+    },
+    {
+      "family": "layered",
+      "future_frame_count": 377,
+      "future_truth_squared_norm": 7.257082099534632e-12,
+      "observed_indices": [
+        22,
+        23
+      ],
+      "our_instance_adapted_relative_l2": 0.2427293094696127,
+      "our_instance_adapted_squared_error": 4.2756926287257584e-13,
+      "pi_deeponet_relative_l2": 0.4907325096460184,
+      "pi_deeponet_squared_error": 1.7476388710206352e-12,
+      "r5b_parent_relative_l2": 0.24273756863544507,
+      "r5b_parent_squared_error": 4.2759836051664816e-13,
+      "sample_id": "train_layered_00109",
+      "source_index": 529
+    },
+    {
+      "family": "layered",
+      "future_frame_count": 382,
+      "future_truth_squared_norm": 3.5774350904201153e-12,
+      "observed_indices": [
+        17,
+        18
+      ],
+      "our_instance_adapted_relative_l2": 0.24252541236062367,
+      "our_instance_adapted_squared_error": 2.104196364655362e-13,
+      "pi_deeponet_relative_l2": 0.5015675134363113,
+      "pi_deeponet_squared_error": 8.999752402867342e-13,
+      "r5b_parent_relative_l2": 0.24252574899403712,
+      "r5b_parent_squared_error": 2.1042022060497916e-13,
+      "sample_id": "train_layered_00581",
+      "source_index": 1001
+    },
+    {
+      "family": "marmousi",
+      "future_frame_count": 390,
+      "future_truth_squared_norm": 2.3107328530610695e-11,
+      "observed_indices": [
+        9,
+        10
+      ],
+      "our_instance_adapted_relative_l2": 0.49913797826183787,
+      "our_instance_adapted_squared_error": 5.756930283776248e-12,
+      "pi_deeponet_relative_l2": 0.770618007279797,
+      "pi_deeponet_squared_error": 1.3722335877013148e-11,
+      "r5b_parent_relative_l2": 0.49913797826183787,
+      "r5b_parent_squared_error": 5.756930283776248e-12,
+      "sample_id": "train_marmousi_00107",
+      "source_index": 2207
+    },
+    {
+      "family": "marmousi",
+      "future_frame_count": 391,
+      "future_truth_squared_norm": 1.401130842440013e-11,
+      "observed_indices": [
+        8,
+        9
+      ],
+      "our_instance_adapted_relative_l2": 0.6232699916193618,
+      "our_instance_adapted_squared_error": 5.442909686885172e-12,
+      "pi_deeponet_relative_l2": 0.7317068109426952,
+      "pi_deeponet_squared_error": 7.501582472785644e-12,
+      "r5b_parent_relative_l2": 0.6232699916193618,
+      "r5b_parent_squared_error": 5.442909686885172e-12,
+      "sample_id": "train_marmousi_00564",
+      "source_index": 2664
+    }
+  ],
+  "role": "development_evidence_not_validation_or_test_evidence",
+  "schema": "r33_feature_meta_vs_pi_train_all401_v1",
+  "status": "complete_train_only_comparison"
+}

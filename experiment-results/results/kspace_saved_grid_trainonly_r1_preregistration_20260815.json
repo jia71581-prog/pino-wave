@@ -1,0 +1,42 @@
+{
+  "schema": "kspace_saved_grid_trainonly_preregistration_v1",
+  "status": "frozen_before_launch",
+  "hypothesis": "A record-local-reference k-space PSTD propagator on the 201x201 saved grid at dt=0.000625 s can retain raw relative-L2 no greater than 0.05 for every selected train record and family while completing one materialized 401-frame instance in no more than 2.034137312322855 s.",
+  "mechanism": "Fourier pseudospectral spatial derivatives and the k-space phase correction reduce saved-grid dispersion enough to permit four internal steps per stored frame, importing a low-dispersion propagation tool used in computational acoustics and medical ultrasound.",
+  "selection_scope": "train_only",
+  "validation_access": false,
+  "test_id_access": false,
+  "records_per_family": 3,
+  "record_frequency_selection": "deterministic_low_mid_high",
+  "parameters": {
+    "internal_dt_s": 0.000625,
+    "temporal_order": 2,
+    "correction_reference_mps": "record_local_maximum",
+    "match_fine_grid_restriction": false,
+    "device": "cuda:0"
+  },
+  "primary_metrics": [
+    "raw aggregate relative-L2",
+    "raw relative-L2 for every family",
+    "maximum per-record raw relative-L2",
+    "mean and maximum end-to-end runtime"
+  ],
+  "promotion_gate": {
+    "maximum_aggregate_relative_l2": 0.05,
+    "maximum_each_family_relative_l2": 0.05,
+    "maximum_each_record_relative_l2": 0.05,
+    "maximum_mean_runtime_s": 2.034137312322855,
+    "maximum_instance_runtime_s": 2.034137312322855
+  },
+  "failure_signal": "Any accuracy gate failure or any measured instance exceeding the conservative 10x runtime ceiling rejects this parameterization before further work.",
+  "compute_budget": "Nine train records on one RTX 4090 D; no optimization and no holdout access.",
+  "parent_checkpoint": null,
+  "rollback": "Preserve all existing CPADC and neural-operator checkpoints; reject the k-space parameterization without opening validation or test_id.",
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "probe_script_sha256": "94e599657c6c1ba02c49c83aaa6f0feafe60d0b8f6762c57066348a5618b0286",
+    "solver_script_sha256": "36a3fd632e4d49f5d37e2a67f00b3235e65e36de6774af5291aa25d329a47965",
+    "traditional_runtime_report_sha256": "116a1cb7cdd13869e86e14b08ef0a80c31284d5d248cb9c0952a880f2aba5bd8"
+  },
+  "output": "results/kspace_saved_grid_trainonly_r1_dt625us_20260815.json"
+}

@@ -1,0 +1,48 @@
+{
+  "schema": "train_only_r5b_pi_exact32_preregistration_v1",
+  "status": "registered_not_launched",
+  "date_utc": "2026-08-16",
+  "hypothesis": "The r5b parent is materially better on pretraining records than on validation records, so its large frozen-validation deficit is primarily a record-distribution generalization failure rather than a universal inability to fit the acoustic field.",
+  "expected_mechanism": "The r5b lineage repeatedly selected checkpoints on a fixed 48-record train gate while the architecture retained record-specific medium and source encodings. This can reward in-split fitting without guaranteeing transfer to new source-medium records.",
+  "primary_metric": "global_energy_relative_l2 over the same 32 exact stored frames and same records for r5b and PI-DeepONet",
+  "primary_prediction": "r5b global-energy relative L2 is lower than PI-DeepONet on the fresh-to-gate train panel",
+  "failure_signal": "r5b global-energy relative L2 is not lower than PI-DeepONet, or target/time-index equality fails",
+  "selection": {
+    "split": "train",
+    "per_family": 32,
+    "total_records": 96,
+    "selection_seed": 62315,
+    "frames_per_record": 32,
+    "time_policy": "validation_fixed",
+    "time_selector_seed": 372,
+    "exclude_fixed_r5b_epoch_gate_records": true,
+    "validation_truth_opened": false,
+    "test_id_truth_opened": false
+  },
+  "secondary_diagnostics": [
+    "mean per-record relative L2",
+    "family global-energy and mean-record relative L2",
+    "early-middle-late relative L2",
+    "spatial-frequency-band relative L2",
+    "phase correlation and displacement"
+  ],
+  "compute_budget": {
+    "gpus": 1,
+    "maximum_records": 96,
+    "expected_wall_minutes": 5,
+    "maximum_artifact_megabytes": 2
+  },
+  "parent_checkpoint": {
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b"
+  },
+  "comparison_checkpoint": {
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1_resume1/best.pt",
+    "sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1"
+  },
+  "evaluator": {
+    "path": "scripts/audit_r5b_vs_pi_train_exact32.py",
+    "sha256": "90219266cccf46498612a719e1330ee64fc92cb71b13902090904710745d5c82"
+  },
+  "rollback": "Read-only diagnostic. Preserve all r5b, CPADC, A3, B2-H, and Helmholtz checkpoints; do not promote any new checkpoint from this audit."
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected",
+  "candidate": "wkb96_source_relative_r27_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The source-relative projection failed every preregistered advancement condition: calibration improved only 1.37%, confirmation improved only 2.06%, and fit layered relative L2 regressed 29.28%, above the 5% tolerance.",
+  "selected_checkpoint": {
+    "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_1000.pt",
+    "sha256": "35abaac720e927392a9a94739159e24ce0649a60eefcf4ad465f6dac556879f4"
+  },
+  "comparison_to_r23": {
+    "fit_aggregate": {"control": 0.20520929746147462, "candidate": 0.18754114172426278, "relative_improvement": 0.08609822242839073},
+    "fit_layered": {"control": 0.09389919030814406, "candidate": 0.12139315084894539, "relative_improvement": -0.292803},
+    "fit_marmousi": {"control": 0.27941603556369493, "candidate": 0.2316398023078077, "relative_improvement": 0.170985},
+    "calibration_aggregate": {"control": 1.5039313699886732, "candidate": 1.483286103962357, "relative_improvement": 0.013727532012628742},
+    "confirmation_aggregate": {"control": 2.200595381447492, "candidate": 2.1551873349415454, "relative_improvement": 0.020634436884112053}
+  },
+  "diagnosis": "A zero-init linear projection of dx, dz and radius helps fit some Marmousi sources but does not change the held-out source phase/displacement failure. The missing mechanism is not coordinate availability alone; the mapper needs a physically propagated source-conditioned field or source-centered nonlocal operator.",
+  "bindings": {
+    "terminal_sha256": "a0ba02ea937362ce6ea45dd012a4fe9bbd444d8014f5891c04e59a45e8298173",
+    "run_identity_sha256": "ea69055edc2bea060117e4305e1b4d4f86344de7b8e9231b974738a5275aa2b0"
+  },
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Keep the optional branch default-off and preserve all artifacts. Do not tune coordinate channels or source-panel learning rates. Move to the coarse-propagator residual priority using train-only evidence."
+}

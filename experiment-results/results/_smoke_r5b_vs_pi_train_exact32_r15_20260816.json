@@ -1,0 +1,282 @@
+{
+  "bindings": {
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "pi_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1_resume1/best.pt",
+    "pi_checkpoint_epoch": 96,
+    "pi_checkpoint_global_step": 13440,
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "pi_config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/baselines/pi_deeponet_lwc84_long100e_r7_authorized_20260814.yaml",
+    "pi_config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "r5b_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "r5b_checkpoint_epoch": 3,
+    "r5b_checkpoint_global_step": 420,
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "r5b_identity": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json",
+    "r5b_identity_sha256": "a8141ab179e7cc18331c0878743d5ecaec106f0ff727e7a20ec198d126c03449",
+    "script_sha256": "90219266cccf46498612a719e1330ee64fc92cb71b13902090904710745d5c82"
+  },
+  "comparison": {
+    "r5b_better_than_pi_on_this_train_panel": true,
+    "r5b_minus_pi_global_energy_relative_l2": -0.1280727137823351,
+    "r5b_over_pi_global_error_ratio": 0.8205693747472191
+  },
+  "elapsed_s": 3.97042734362185,
+  "measurements": [
+    {
+      "family": "uniform",
+      "pi_deeponet_error_numerator": 1286.2571422323522,
+      "pi_deeponet_relative_l2": 0.6082832774212501,
+      "r5b_error_numerator": 55.222484991905795,
+      "r5b_over_pi_error_ratio": 0.20720206211217607,
+      "r5b_relative_l2": 0.1260375494300359,
+      "sample_id": "train_uniform_00104",
+      "source_f0_hz": 12.111079216003418,
+      "source_index": 104,
+      "time_indices": [
+        7,
+        17,
+        18,
+        21,
+        34,
+        36,
+        62,
+        93,
+        104,
+        122,
+        134,
+        141,
+        148,
+        161,
+        163,
+        179,
+        194,
+        210,
+        211,
+        215,
+        236,
+        247,
+        279,
+        292,
+        293,
+        302,
+        309,
+        330,
+        345,
+        349,
+        357,
+        395
+      ],
+      "truth_denominator": 3476.2903656189014
+    },
+    {
+      "family": "layered",
+      "pi_deeponet_error_numerator": 39.51400411037758,
+      "pi_deeponet_relative_l2": 0.7090791314853083,
+      "r5b_error_numerator": 8.747400808154254,
+      "r5b_over_pi_error_ratio": 0.4705047290530252,
+      "r5b_relative_l2": 0.3336250846366494,
+      "sample_id": "train_layered_00664",
+      "source_f0_hz": 29.51904296875,
+      "source_index": 1084,
+      "time_indices": [
+        2,
+        44,
+        48,
+        51,
+        77,
+        80,
+        84,
+        109,
+        113,
+        117,
+        136,
+        138,
+        154,
+        158,
+        160,
+        161,
+        171,
+        199,
+        206,
+        217,
+        249,
+        250,
+        278,
+        282,
+        290,
+        302,
+        313,
+        319,
+        358,
+        360,
+        366,
+        391
+      ],
+      "truth_denominator": 78.58897645094268
+    },
+    {
+      "family": "marmousi",
+      "pi_deeponet_error_numerator": 3049.7201862416105,
+      "pi_deeponet_relative_l2": 0.7783927414938745,
+      "r5b_error_numerator": 2882.1976273148734,
+      "r5b_over_pi_error_ratio": 0.9721468671969196,
+      "r5b_relative_l2": 0.7567120650920918,
+      "sample_id": "train_marmousi_00155",
+      "source_f0_hz": 27.13147735595703,
+      "source_index": 2255,
+      "time_indices": [
+        5,
+        15,
+        37,
+        49,
+        57,
+        82,
+        89,
+        95,
+        100,
+        128,
+        129,
+        135,
+        149,
+        152,
+        156,
+        165,
+        170,
+        193,
+        201,
+        225,
+        264,
+        266,
+        299,
+        306,
+        308,
+        309,
+        319,
+        321,
+        345,
+        366,
+        375,
+        392
+      ],
+      "truth_denominator": 5033.411527579066
+    }
+  ],
+  "metrics": {
+    "pi_deeponet": {
+      "centroid_shift_cells": 28.879115681846116,
+      "family_global_energy_relative_l2": {
+        "layered": 0.7090791314853083,
+        "marmousi": 0.7783927414938745,
+        "uniform": 0.6082832774212501
+      },
+      "family_mean_record_relative_l2": {
+        "layered": 0.7090791313434057,
+        "marmousi": 0.778392741493351,
+        "uniform": 0.60828327745734
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.6569735190165871,
+          "late": 1.147327356156444,
+          "middle": 0.8609076216073408,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.44078287264485183,
+          "late": 0.9990242499624378,
+          "middle": 0.844172117497568,
+          "pre_onset": 0.7828747712783292
+        },
+        "uniform": {
+          "early": 0.5002511362567941,
+          "late": 0.9399182037207822,
+          "middle": 0.6672762849065841,
+          "pre_onset": 0.4563135463384354
+        }
+      },
+      "global_energy_relative_l2": 0.7137728779683342,
+      "mean_record_relative_l2": 0.6985850501334777,
+      "near_zero_frame_count": 0,
+      "phase_correlation": 0.48658867850400744,
+      "spectrum_relative_l2": {
+        "high": 0.9615986774477073,
+        "low": 0.7138332168409323,
+        "middle": 0.8327087095115218
+      },
+      "time_bin_relative_l2": {
+        "early": 0.47617079852879285,
+        "late": 0.9893713751935943,
+        "middle": 0.7778449415501908,
+        "pre_onset": 0.4962164346867033
+      },
+      "xcorr_peak_shift_cells": 12.083538330462316
+    },
+    "r5b": {
+      "centroid_shift_cells": 18.282776302422437,
+      "family_global_energy_relative_l2": {
+        "layered": 0.3336250846366494,
+        "marmousi": 0.7567120650920918,
+        "uniform": 0.1260375494300359
+      },
+      "family_mean_record_relative_l2": {
+        "layered": 0.33362508464293966,
+        "marmousi": 0.7567120651227828,
+        "uniform": 0.1260375494374321
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.24464761126694634,
+          "late": 0.9196876411257376,
+          "middle": 0.5170952775329299,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.35094574103630655,
+          "late": 1.020075172930767,
+          "middle": 0.8089344408326301,
+          "pre_onset": 0.5580720780591253
+        },
+        "uniform": {
+          "early": 0.09021940060703733,
+          "late": 0.2623952844528467,
+          "middle": 0.12320371455300713,
+          "pre_onset": 0.17909837445882476
+        }
+      },
+      "global_energy_relative_l2": 0.5857001641859991,
+      "mean_record_relative_l2": 0.4054582330529257,
+      "near_zero_frame_count": 0,
+      "phase_correlation": 0.7005903085755029,
+      "spectrum_relative_l2": {
+        "high": 0.8389942183389707,
+        "low": 0.5752981395593036,
+        "middle": 0.7738010958110844
+      },
+      "time_bin_relative_l2": {
+        "early": 0.25162072208939135,
+        "late": 0.9356066846839677,
+        "middle": 0.6284774824729675,
+        "pre_onset": 0.24148680874742828
+      },
+      "xcorr_peak_shift_cells": 5.788604195157812
+    }
+  },
+  "role": "train_only_diagnostic_not_validation_evidence",
+  "schema": "r5b_vs_pi_train_exact32_audit_v1",
+  "selection": {
+    "excluded_r5b_fixed_gate_record_count": 48,
+    "frames_per_record": 32,
+    "overlap_with_r5b_fixed_gate": 0,
+    "per_family": 1,
+    "record_count": 3,
+    "records_are_fresh_to_r5b_epoch_gate": true,
+    "records_are_unseen_by_pretraining": false,
+    "selection_seed": 62315,
+    "split": "train",
+    "test_id_truth_opened": false,
+    "time_policy": "validation_fixed",
+    "time_selector_seed": 372,
+    "validation_truth_opened": false
+  },
+  "status": "complete"
+}

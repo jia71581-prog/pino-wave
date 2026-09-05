@@ -1,0 +1,116 @@
+{
+  "schema": "transfer_dg_local_dtn_hcais_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-09-02T08:15:37Z",
+  "method": "Transfer DG",
+  "stage": "local_DtN_HCAIS_v1",
+  "claim_scope": "train-only adaptive-sampling efficiency for local flux learning; not full-wavefield promotion",
+  "hypothesis": "At fixed model, source-group split, seed, batch size, epoch count and sampled-row count, hierarchical coverage-constrained adaptive importance sampling yields strictly lower complete holdout robust flux error than uniform source-group training while preserving ESS and sampler-overhead gates.",
+  "algorithm": {
+    "name": "Transfer DG-HCAIS",
+    "sampling_unit": "local element x source group x relative frequency",
+    "strata": [
+      "family",
+      "nearest frequency ratio in [0.50,0.75,1.00,1.25]",
+      "element type in [smooth,interface,free_surface]"
+    ],
+    "coverage_distribution": "0.5 uniform samples + 0.5 equal nonempty strata",
+    "minimum_coverage_mix": 0.4,
+    "adaptive_remainder": {
+      "difficulty_fraction": 0.6666666666666666,
+      "leverage_fraction": 0.3333333333333333
+    },
+    "effective_floor_mixture_at_minimum": {
+      "coverage": 0.4,
+      "difficulty": 0.4,
+      "leverage": 0.2
+    },
+    "difficulty_rank_weights": {
+      "flux_error_ema": 0.5,
+      "trace_high_mode_energy": 0.2,
+      "velocity_interface_strength": 0.2,
+      "slow_residual_decay": 0.1
+    },
+    "temperature_power": "linear 0 to 1 over epochs 1 to 25",
+    "score_refresh_period_epochs": 10,
+    "error_ema_decay": 0.8,
+    "leverage": "regularized trace+frequency+interface+free-surface Gram leverage with ridge 1e-3",
+    "importance_weight": "unclipped Horvitz-Thompson 1/(N*q_i)",
+    "ess_response": "increase coverage_mix by 0.10 when epoch ESS P5 < 0.50; decrease by 0.05 toward 0.40 when ESS P5 > 0.70"
+  },
+  "real_data_probability_audit": {
+    "fit_samples": 5164,
+    "holdout_samples": 1728,
+    "nonempty_strata": 28,
+    "normalized_entropy": 0.9699902614026126,
+    "probability_minimum": 0.00009711991434761284,
+    "probability_maximum": 0.0008565688375640946,
+    "uniform_probability": 0.00019364833462432224,
+    "simulated_ess_mean_fraction": 0.7199843278004551,
+    "simulated_ess_p5_fraction": 0.6977372695013397,
+    "simulated_maximum_weight": 1.99390965205358
+  },
+  "paired_baseline": {
+    "supervisor": "results/transfer_dg_local_dtn_supervisor_20260902/terminal.json",
+    "lane_terminals": [
+      "results/transfer_dg_local_dtn_s372_20260902/terminal.json",
+      "results/transfer_dg_local_dtn_s733_20260902/terminal.json",
+      "results/transfer_dg_local_dtn_s1049_20260902/terminal.json",
+      "results/transfer_dg_local_dtn_s1403_20260902/terminal.json"
+    ],
+    "same_model_and_hyperparameters": true
+  },
+  "lanes": [
+    {
+      "gpu": 0,
+      "seed": 372
+    },
+    {
+      "gpu": 1,
+      "seed": 733
+    },
+    {
+      "gpu": 2,
+      "seed": 1049
+    },
+    {
+      "gpu": 3,
+      "seed": 1403
+    }
+  ],
+  "hyperparameters": {
+    "epochs": 120,
+    "batch_size": 256,
+    "rows_drawn_per_epoch": 5164,
+    "learning_rate": 0.001,
+    "schedule": "cosine_to_1e-5",
+    "weight_decay": 0.000001,
+    "gradient_clip": 1.0,
+    "flux_denominator_floor": 10.0,
+    "near_zero_trace_threshold": 0.000001
+  },
+  "primary_gate": "four-seed mean best complete holdout robust flux error must be strictly below the paired uniform-sampling mean; no minimum percentage",
+  "safety_gates": {
+    "minimum_each_lane_epoch_ess_p5_fraction": 0.5,
+    "maximum_each_lane_sampling_overhead_fraction": 0.1,
+    "minimum_dissipation_quadratic": -0.000001,
+    "holdout_is_never_adaptively_sampled": true
+  },
+  "failure_signal": "no strict paired improvement, ESS or overhead gate failure, passivity violation, source-group leakage, nonfinite/OOM, binding drift, or sealed-split violation",
+  "bindings": {
+    "trainer_sha256": "ec2b5524487ce1cbc80ea63d657e2033fd834cf96ba090e8fdd00932307e62f7",
+    "summarizer_sha256": "50eeaa9f89d406cde23139a477c1f4ca277c03fbeeb222f16856bee3e32ccf03",
+    "runner_sha256": "87a5fe98ec86f23193f3aa1a3246a80a084af4d4798a163f8b5455105d4e8702",
+    "queue_sha256": "097761dd20e3ddad6944db010f469f4f731fa7a7cbc7c20929440ea69f05d845",
+    "hcais_sha256": "b92183bb871ba67a3432f6f80b25993338ec69d95333a95839720761bc32010d",
+    "baseline_trainer_sha256": "47b3896b8bb0f53d2c5ccbf42b5403a51ffc4a11c946c9e339af87200c0c9aa7",
+    "element_module_sha256": "1ce6a457f11499fbd9c9863a102efa7ee41f043c08f39d235a9f9e24b13ef198",
+    "hcais_test_sha256": "08f4d63cb531743ee03d5cd0982d4d7bb752f5c19ccae89a7128aa209d0c6fa6",
+    "trainer_test_sha256": "89e7d74c8c9fee4b89101488a2ff2f5d2edb49937eb0012dc50b0b7a1b832347",
+    "dataset_sha256": "69450da776f911c33a4146e25f7d0c399702c939e7be26efc1b3e95cf6f866df"
+  },
+  "queue_after": "results/transfer_dg_local_dtn_supervisor_20260902/terminal.json",
+  "rollback": "HCAIS is additive; rejection retains the uniform local DtN baseline and all earlier checkpoints",
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,1043 @@
+--- results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/build_r6_device_residual_cache.py
++++ scripts/build_r6_device_residual_cache.py
+@@ -179,6 +179,76 @@
+             "truth_frame_energy_mean_norm": float(energies.mean())}
+ 
+ 
++def quantization_diagnostic(parent: np.ndarray, truth: np.ndarray, cached_parent: np.ndarray,
++                            cached_truth: np.ndarray, static: np.ndarray, cached_static: np.ndarray,
++                            time_indices: Sequence[int]) -> dict[str, Any]:
++    """Measure smoke-only f16 storage error from actual HDF5 readback, without another truth read.
++
++    P/T are the pre-storage normalized f32 arrays. qP/qT are stored f16 arrays
++    converted to f32; differences, sums, dot products and norms then use f64.
++    The record gate is deliberately separate from diagnostic temporal bands.
++    """
++    if parent.dtype != np.float32 or truth.dtype != np.float32 or parent.shape != truth.shape:
++        raise RuntimeError("quantization diagnostic native field contract")
++    if (cached_parent.dtype != np.float16 or cached_truth.dtype != np.float16
++            or cached_parent.shape != parent.shape or cached_truth.shape != truth.shape
++            or len(time_indices) != parent.shape[0]):
++        raise RuntimeError("quantization diagnostic stored field contract")
++    if any(not np.isfinite(value).all() for value in (parent, truth, cached_parent, cached_truth, static, cached_static)):
++        raise RuntimeError("nonfinite quantization diagnostic input")
++    qparent = cached_parent.astype(np.float32); qtruth = cached_truth.astype(np.float32)
++    indices = np.asarray(time_indices, np.int64)
++    frame_sums = {name: [] for name in ("truth", "parent", "native", "cached", "quantization",
++                                      "parent_error", "truth_error", "residual_dot")}
++    zero_truth_preserved = []
++    for frame in range(len(indices)):
++        p = parent[frame].astype(np.float64); t = truth[frame].astype(np.float64)
++        qp = qparent[frame].astype(np.float64); qt = qtruth[frame].astype(np.float64)
++        native = t - p; cached = qt - qp
++        for name, value in (("truth", t), ("parent", p), ("native", native), ("cached", cached),
++                            ("quantization", cached - native), ("parent_error", qp - p), ("truth_error", qt - t)):
++            frame_sums[name].append(float(np.square(value).sum(dtype=np.float64)))
++        frame_sums["residual_dot"].append(float(np.multiply(native, cached).sum(dtype=np.float64)))
++        zero_truth_preserved.append(bool(np.all(qt[t == 0] == 0)))
++    sums = {name: np.asarray(values, np.float64) for name, values in frame_sums.items()}
++
++    def metrics(mask: np.ndarray) -> dict[str, Any]:
++        totals = {name: float(values[mask].sum(dtype=np.float64)) for name, values in sums.items()}
++        def relative(numerator: str, denominator: str) -> float | None:
++            return math.sqrt(totals[numerator] / totals[denominator]) if totals[denominator] > 0 else None
++        native = relative("native", "truth"); error = relative("quantization", "truth")
++        ratio = relative("quantization", "native")
++        return {"frame_count": int(mask.sum()), "time_indices": indices[mask].tolist(),
++                "R_native": native, "R_cached": relative("cached", "truth"), "E_q": error,
++                "E_q_over_R_native": ratio,
++                "residual_cosine": (totals["residual_dot"] / math.sqrt(totals["native"] * totals["cached"])
++                                    if totals["native"] > 0 and totals["cached"] > 0 else None),
++                "qP_field_relative_error": relative("parent_error", "parent"),
++                "qT_field_relative_error": relative("truth_error", "truth"),
++                "qP_error_over_truth_norm": relative("parent_error", "truth"),
++                "square_norms_float64": totals,
++                "truth_norm_zero": totals["truth"] == 0,
++                "zero_truth_values_preserved": bool(all(np.asarray(zero_truth_preserved)[mask])),
++                "near_zero_native_residual": native is None or native < 1e-5}
++
++    record = metrics(np.ones(len(indices), dtype=bool))
++    static_exact = (cached_static.dtype == np.float16 and cached_static.shape == static.shape
++                    and cached_static.tobytes() == static.astype(np.float16).tobytes())
++    ratio_applies = record["R_native"] is not None and record["R_native"] >= 1e-5
++    absolute_passed = record["E_q"] is None or record["E_q"] < 1e-3
++    ratio_passed = not ratio_applies or record["E_q_over_R_native"] <= .25
++    passed = bool(absolute_passed and ratio_passed and record["zero_truth_values_preserved"] and static_exact)
++    return {"schema": "r6_cache_quantization_diagnostic_v1", "record": record,
++            "bands": {"early": metrics(indices < 134), "mid": metrics((indices >= 134) & (indices < 267)),
++                      "late": metrics(indices >= 267)},
++            "static_features_stored_float16_bytes_exact": bool(static_exact),
++            "gate": {"passed": passed, "scope": "record_only_bands_diagnostic",
++                     "E_q_lt_1e_minus_3": bool(absolute_passed), "residual_ratio_gate_applies": bool(ratio_applies),
++                     "E_q_over_R_native_lte_0p25": bool(ratio_passed),
++                     "zero_truth_checked_explicitly": True,
++                     "failure_classification": None if passed else "cache_representation_rejected"}}
++
++
+ def dataset_contract(role: str, count: int) -> dict[str, dict[str, Any]]:
+     frames = len(role_time_indices(role))
+     return {"source_index": {"shape": [count], "dtype": "int64"},
+@@ -340,6 +410,7 @@
+     if output.exists(): raise FileExistsError(output)
+     output.parent.mkdir(parents=True, exist_ok=True); temporary = output.with_name(f".{output.name}.tmp.{os.getpid()}")
+     time_indices = role_time_indices(role); guard = TruthGuard(records, role); started = time.time()
++    quantization_records = []
+     grid = AcousticGrid(nx=401, nz=401, dx_m=5, dz_m=5, lx_m=2000, lz_m=2000, centering="node")
+     with h5py.File(source_h5, "r", swmr=True) as source:
+         time_s = np.asarray(source["time_s"][:], np.float64); manifest_rows = _read_manifest_rows(source_manifest, {r["sample_id"] for r in records})
+@@ -381,13 +452,22 @@
+                 values = normalized_cache_values(parent, truth, time_indices)
+                 datasets["field_scale"][position] = values["scale"]; datasets["source_f0_hz"][position] = metadata["source_f0_hz"]; datasets["source_t0_s"][position] = metadata["source_t0_s"]
+                 datasets["coarse_norm"][position] = values["parent_norm"].astype(np.float16); datasets["truth_norm"][position] = values["truth_norm"].astype(np.float16)
+-                axis = np.linspace(0, 2000, 201, dtype=np.float32); datasets["static_features"][position] = static_features(stored, x_m=axis, z_m=axis, source_x_m=metadata["source_x_m"], source_z_m=metadata["source_z_m"]).astype(np.float16)
++                axis = np.linspace(0, 2000, 201, dtype=np.float32)
++                static = static_features(stored, x_m=axis, z_m=axis, source_x_m=metadata["source_x_m"], source_z_m=metadata["source_z_m"])
++                datasets["static_features"][position] = static.astype(np.float16)
+                 for name in ("truth_frame_energy_max_norm", "truth_frame_energy_mean_norm", "baseline_error_square_norm", "target_square_norm"): datasets[name][position] = values[name]
+                 cache.flush()
+                 if smoke:
+-                    if (datasets["coarse_norm"][position].tobytes() != values["parent_norm"].astype(np.float16).tobytes()
+-                            or datasets["truth_norm"][position].tobytes() != values["truth_norm"].astype(np.float16).tobytes()):
++                    cached_parent = datasets["coarse_norm"][position]; cached_truth = datasets["truth_norm"][position]
++                    if (cached_parent.tobytes() != values["parent_norm"].astype(np.float16).tobytes()
++                            or cached_truth.tobytes() != values["truth_norm"].astype(np.float16).tobytes()):
+                         raise RuntimeError("smoke stored float16 byte reconstruction failure")
++                    diagnostic = quantization_diagnostic(values["parent_norm"], values["truth_norm"],
++                                                         cached_parent, cached_truth, static,
++                                                         datasets["static_features"][position], time_indices)
++                    diagnostic.update({"sample_id": row["sample_id"], "source_index": index,
++                                       "family": row["family"], "role": role, "additional_truth_reads": 0})
++                    quantization_records.append(diagnostic)
+                 progress = {"schema": "r6_device_residual_cache_progress_v1", "role": role,
+                             "shard_index": int(shard_index), "completed_records": position + 1,
+                             "record_count": len(records), "last_sample_id": row["sample_id"],
+@@ -401,6 +481,9 @@
+                "elapsed_seconds": time.time() - started, "smoke": smoke,
+                "legacy_device_parity_passed": bool(smoke), "stored_float16_bytes_reconstructed": bool(smoke),
+                "validation_opened": False, "test_id_opened": False}
++    if smoke:
++        summary["quantization_diagnostics"] = quantization_records
++        summary["cache_representation_gate_passed"] = all(row["gate"]["passed"] for row in quantization_records)
+     atomic_write_bytes(report_bytes_fixed_point(summary), output.with_suffix(".summary.json")); return summary
+ 
+ 
+@@ -482,7 +565,11 @@
+             after = verify_stage_inputs(prereg)
+             elapsed = time.time() - started; peak = int(torch.cuda.max_memory_allocated(device))
+             if elapsed > 180 or peak >= 8 * 2**30: raise RuntimeError("cache smoke resource budget")
+-            payload = {"schema": "r6_device_residual_cache_smoke_terminal_v1", "status": "complete",
++            representation_passed = all(summary["cache_representation_gate_passed"] for summary in summaries)
++            payload = {"schema": "r6_device_residual_cache_smoke_terminal_v1",
++                       "status": "complete" if representation_passed else "cache_representation_rejected",
++                       "cache_representation_gate_passed": representation_passed,
++                       "operator_failure_claimed": False, "smoke_artifacts_preserved": True,
+                        "record_count": 6, "summaries": summaries, "legacy_device_parity": True,
+                        "input_hashes_before": before, "input_hashes_after": after, "input_hashes_unchanged": before == after,
+                        "environment": environment, "target5_audit": target,
+@@ -490,6 +577,7 @@
+                        "promotion_authorized": False, "confirmation_opened": False,
+                        "validation_opened": False, "test_id_opened": False}
+             atomic_write_bytes(report_bytes_fixed_point(payload), terminal)
++            if not representation_passed: return 2
+         else:
+             for role in ("fit", "development"):
+                 summaries.append(build_role_cache(records=shard_records(roles[role], shard), role=role,
+--- results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/test_r6_device_residual_cache.py
++++ tests/test_r6_device_residual_cache.py
+@@ -17,6 +17,7 @@
+     cache_output, canonical_sha256, cleanup_role_temporary, dataset_contract, load_roles, normalized_cache_values,
+     predicted_cache_bytes, raw_schema_bytes, role_digests, role_time_indices, shard_records,
+     aggregate_worker_terminals, validate_invocation, validate_source_identity,
++    quantization_diagnostic, verify_stage_inputs,
+ )
+ from scripts.launch_r6_device_residual_cache import child_argv, disk_gate, validate_launch
+ from scripts.reattest_frozen_fine_grid_r6_train import dependency_closure
+@@ -114,6 +115,61 @@
+     expected_error = np.square(values["parent_norm"].astype(np.float64) - values["truth_norm"].astype(np.float64)).sum()
+     assert values["baseline_error_square_norm"] == expected_error
+     assert values["parent_norm"].astype(np.float16).dtype == np.float16
++
++
++def test_quantization_uses_actual_hdf_readback_and_float64_norms(tmp_path: Path) -> None:
++    parent = np.asarray([0., .3111, .5444, .7777], np.float32)[:, None, None]
++    truth = np.asarray([0., .9111, .9444, .9777], np.float32)[:, None, None]
++    static = np.full((7, 1, 1), .3333, np.float32)
++    with h5py.File(tmp_path / "quantization.h5", "x") as cache:
++        for name, value in (("P", parent), ("T", truth), ("static", static)):
++            cache.create_dataset(name, data=value.astype(np.float16), compression="lzf", shuffle=True)
++        cache.flush()
++        qp, qt = cache["P"][:], cache["T"][:]
++        result = quantization_diagnostic(parent, truth, qp, qt, static, cache["static"][:], [0, 100, 200, 400])
++    residual = truth.astype(np.float64) - parent.astype(np.float64)
++    cached = qt.astype(np.float32).astype(np.float64) - qp.astype(np.float32).astype(np.float64)
++    truth_norm = np.linalg.norm(truth.astype(np.float64))
++    assert result["record"]["R_native"] == pytest.approx(np.linalg.norm(residual) / truth_norm, abs=1e-15)
++    assert result["record"]["E_q"] == pytest.approx(np.linalg.norm(cached - residual) / truth_norm, abs=1e-15)
++    assert result["gate"]["passed"] and result["static_features_stored_float16_bytes_exact"]
++    assert [result["bands"][name]["frame_count"] for name in ("early", "mid", "late")] == [2, 1, 1]
++
++
++def test_quantization_rejects_residual_lost_despite_small_absolute_error() -> None:
++    parent = np.ones((3, 1, 1), np.float32); truth = parent + np.float32(.0001)
++    static = np.zeros((7, 1, 1), np.float32)
++    result = quantization_diagnostic(parent, truth, parent.astype(np.float16), truth.astype(np.float16),
++                                     static, static.astype(np.float16), [0, 200, 400])
++    assert result["record"]["E_q"] < 1e-3
++    assert result["record"]["E_q_over_R_native"] == 1 and result["record"]["residual_cosine"] is None
++    assert not result["gate"]["passed"]
++    assert result["gate"]["failure_classification"] == "cache_representation_rejected"
++
++
++def test_quantization_near_zero_and_zero_truth_are_explicit() -> None:
++    parent = np.ones((3, 1, 1), np.float32); truth = parent + np.float32(1e-6)
++    static = np.zeros((7, 1, 1), np.float32)
++    result = quantization_diagnostic(parent, truth, parent.astype(np.float16), truth.astype(np.float16),
++                                     static, static.astype(np.float16), [0, 200, 400])
++    assert result["gate"]["passed"] and not result["gate"]["residual_ratio_gate_applies"]
++    zero = np.zeros_like(parent)
++    result = quantization_diagnostic(zero, zero, zero.astype(np.float16), zero.astype(np.float16),
++                                     static, static.astype(np.float16), [0, 200, 400])
++    assert result["record"]["truth_norm_zero"] and result["record"]["R_native"] is None
++    assert result["record"]["zero_truth_values_preserved"] and result["gate"]["passed"]
++    corrupted = zero.astype(np.float16); corrupted[0, 0, 0] = 1e-3
++    result = quantization_diagnostic(zero, zero, zero.astype(np.float16), corrupted,
++                                     static, static.astype(np.float16), [0, 200, 400])
++    assert not result["record"]["zero_truth_values_preserved"] and not result["gate"]["passed"]
++
++
++def test_quantization_rejects_static_readback_drift() -> None:
++    parent = np.zeros((3, 1, 1), np.float32); truth = np.ones_like(parent)
++    static = np.zeros((7, 1, 1), np.float32); corrupted = np.ones_like(static, dtype=np.float16)
++    result = quantization_diagnostic(parent, truth, parent.astype(np.float16), truth.astype(np.float16),
++                                     static, corrupted, [0, 200, 400])
++    assert not result["static_features_stored_float16_bytes_exact"] and not result["gate"]["passed"]
+ 
+ 
+ def test_dataset_contract_has_sample_hash_float16_lzf_shuffle() -> None:
+@@ -255,6 +311,23 @@
+         assert hashlib.sha256(path.read_bytes()).hexdigest() == row["sha256"]
+ 
+ 
++def test_real_preregistration_verify_stage_inputs_without_truth_or_cuda(monkeypatch) -> None:
++    import torch
++    def forbidden(*args, **kwargs):
++        raise AssertionError("static binding verification must not open HDF5 or CUDA")
++    monkeypatch.setattr(h5py, "File", forbidden)
++    monkeypatch.setattr(torch.cuda, "init", forbidden)
++    prereg = json.loads((BASE / "preregistration.json").read_text())
++    assert set(prereg["binding_paths"]) == set(prereg["bindings"])
++    verified = verify_stage_inputs(prereg)
++    assert verified["explicit_bindings"] == prereg["bindings"]
++    assert verified["dependency_closure"]
++    broken = dict(prereg); broken["binding_paths"] = dict(prereg["binding_paths"])
++    del broken["binding_paths"]["R6_selection"]
++    with pytest.raises(RuntimeError, match="cache stage input binding drift"):
++        verify_stage_inputs(broken)
++
++
+ def test_single_source_wavefield_index_is_guarded_and_no_sealed_roles() -> None:
+     builder = (ROOT / "scripts/build_r6_device_residual_cache.py").read_text(); auditor = (ROOT / "scripts/audit_r6_device_residual_cache.py").read_text()
+     count = 0
+--- results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/preregistration.json
++++ results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json
+@@ -2,31 +2,156 @@
+   "schema": "r6_device_residual_cache_preregistration_v1",
+   "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+   "stage": "device_residual_cache",
+-  "status": "draft_pending_static_audit",
++  "status": "runtime_passed_cache_smoke_pending_audit",
+   "launch_authorized": false,
+-  "claim": "Train-only cache construction and exact replay audit; no confirmation, validation, test_id, training, or promotion authorization.",
+-  "DAG": ["static_audit", "isolated_six_record_smoke", "detached_four_gpu_build", "independent_cache_audit"],
++  "claim": "Only six-record train-only quantization smoke preparation; launch awaits independent audit and explicit lead release. No full build, training, confirmation, validation, test_id or promotion authorization.",
++  "DAG": [
++    "static_audit",
++    "isolated_six_record_smoke",
++    "detached_four_gpu_build",
++    "independent_cache_audit"
++  ],
+   "prerequisites": {
+-    "runtime": {"path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json", "sha256": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5", "status": "passed"},
+-    "smoke": {"path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/smoke_terminal.json", "sha256": null, "status": "pending"},
+-    "build": {"path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/build_terminal.json", "sha256": null, "status": "pending"}
++    "runtime": {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json",
++      "sha256": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5",
++      "status": "passed"
++    },
++    "smoke": {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/smoke_terminal.json",
++      "sha256": null,
++      "status": "pending"
++    },
++    "build": {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/build_terminal.json",
++      "sha256": null,
++      "status": "pending"
++    }
+   },
+   "selection": {
+     "R38_manifest_sha256": "f411c616769d3478701f11dde24114019f44d1d6ee739d24c9a616433897d7e6",
+     "R38_selection_sha256": "5005f614d1ec7cbd77ddad440ac6132d0b79b5953aea70c566a8713d1433b937",
+     "roles": {
+-      "fit": {"records": 2128, "groups": 790, "family_records": {"uniform": 388, "layered": 1080, "marmousi": 660}, "digests": {"sample_ids": "6a6edfb9149e16559ba7b8d9ab5cb060c80f690083ec658db29b1d8fe234d7bd", "groups": "953cbb2ed5e242b613d0dcf8b7196f11cd0e4365d20a0b095e4fe843cdaf53bb", "sample_hashes": "7f9018789449d8c075d6ee4c9d5f5166bde0830c450c527ff03392af99f9af15", "source_indices": "4c9904a3f5f0ce476be8778e54d5582b7bd5dc8c51b560925e07805fe9301055", "records": "f0da53220f8d6638661511e4abef8343f90e28eb62d27821c656374ee1863b14"}},
+-      "development": {"source_role": "R38 holdout mapped to development", "records": 56, "groups": 25, "family_records": {"uniform": 16, "layered": 20, "marmousi": 20}, "digests": {"sample_ids": "d5b4d0dc57eef029a1025bde1fa74f1b79f216ef94ca311eae43b9beb77d424e", "groups": "471c86904490aefcdbdf8db1bfe807c046098712aabd6dcd31a1fbb11269ea5a", "sample_hashes": "4987c3e81f88d56b53730151f6939bddef8a20bd75b9ae046a0adb9dabbb6c5b", "source_indices": "862b5718e70208c4c603b8fa96ff533955896f729ac4f9724e6caac8ac2c1968", "records": "c045e599fddf6d25f83bfbb102a4dc2012715902fd9a034f462c4e0cefe7d009"}}
++      "fit": {
++        "records": 2128,
++        "groups": 790,
++        "family_records": {
++          "uniform": 388,
++          "layered": 1080,
++          "marmousi": 660
++        },
++        "digests": {
++          "sample_ids": "6a6edfb9149e16559ba7b8d9ab5cb060c80f690083ec658db29b1d8fe234d7bd",
++          "groups": "953cbb2ed5e242b613d0dcf8b7196f11cd0e4365d20a0b095e4fe843cdaf53bb",
++          "sample_hashes": "7f9018789449d8c075d6ee4c9d5f5166bde0830c450c527ff03392af99f9af15",
++          "source_indices": "4c9904a3f5f0ce476be8778e54d5582b7bd5dc8c51b560925e07805fe9301055",
++          "records": "f0da53220f8d6638661511e4abef8343f90e28eb62d27821c656374ee1863b14"
++        }
++      },
++      "development": {
++        "source_role": "R38 holdout mapped to development",
++        "records": 56,
++        "groups": 25,
++        "family_records": {
++          "uniform": 16,
++          "layered": 20,
++          "marmousi": 20
++        },
++        "digests": {
++          "sample_ids": "d5b4d0dc57eef029a1025bde1fa74f1b79f216ef94ca311eae43b9beb77d424e",
++          "groups": "471c86904490aefcdbdf8db1bfe807c046098712aabd6dcd31a1fbb11269ea5a",
++          "sample_hashes": "4987c3e81f88d56b53730151f6939bddef8a20bd75b9ae046a0adb9dabbb6c5b",
++          "source_indices": "862b5718e70208c4c603b8fa96ff533955896f729ac4f9724e6caac8ac2c1968",
++          "records": "c045e599fddf6d25f83bfbb102a4dc2012715902fd9a034f462c4e0cefe7d009"
++        }
++      }
+     },
+     "fit_development_group_overlap": 0,
+-    "R29B_exclusion": {"manifest_sha256": "a350a5d04c32dfffba358577eb28dd96c456892ab696399029aa15f3cf3d42a1", "selection_sha256": "6ba657675616fda446801fc231914aa3a4cffeceade8a17a082822a2cbf31e6d", "cached": false},
++    "R29B_exclusion": {
++      "manifest_sha256": "a350a5d04c32dfffba358577eb28dd96c456892ab696399029aa15f3cf3d42a1",
++      "selection_sha256": "6ba657675616fda446801fc231914aa3a4cffeceade8a17a082822a2cbf31e6d",
++      "cached": false
++    },
+     "confirmation_cached": false,
+     "validation_cached": false,
+     "test_id_cached": false
+   },
+   "time_indices": {
+-    "fit": {"count": 64, "values": [0,6,13,19,25,32,38,44,51,57,63,70,76,83,89,95,102,108,114,121,127,133,140,146,152,159,165,171,178,184,190,197,203,210,216,222,229,235,241,248,254,260,267,273,279,286,292,298,305,311,317,324,330,337,343,349,356,362,368,375,381,387,394,400], "sha256": "680b8aa0e5b1fd613f8f5b25205c8d4d32e0a39b07679f46cb217185b3a29a82"},
+-    "development": {"count": 401, "definition": "integer range 0..400 inclusive", "sha256": "9dfdf6adf0a9f5a5596566bf52c2ced0dc5ff6af5ca3eecec44f8904f71b4002"}
++    "fit": {
++      "count": 64,
++      "values": [
++        0,
++        6,
++        13,
++        19,
++        25,
++        32,
++        38,
++        44,
++        51,
++        57,
++        63,
++        70,
++        76,
++        83,
++        89,
++        95,
++        102,
++        108,
++        114,
++        121,
++        127,
++        133,
++        140,
++        146,
++        152,
++        159,
++        165,
++        171,
++        178,
++        184,
++        190,
++        197,
++        203,
++        210,
++        216,
++        222,
++        229,
++        235,
++        241,
++        248,
++        254,
++        260,
++        267,
++        273,
++        279,
++        286,
++        292,
++        298,
++        305,
++        311,
++        317,
++        324,
++        330,
++        337,
++        343,
++        349,
++        356,
++        362,
++        368,
++        375,
++        381,
++        387,
++        394,
++        400
++      ],
++      "sha256": "680b8aa0e5b1fd613f8f5b25205c8d4d32e0a39b07679f46cb217185b3a29a82"
++    },
++    "development": {
++      "count": 401,
++      "definition": "integer range 0..400 inclusive",
++      "sha256": "9dfdf6adf0a9f5a5596566bf52c2ced0dc5ff6af5ca3eecec44f8904f71b4002"
++    }
+   },
+   "cache_contract": {
+     "schema": "r25_coarse_residual_cache_v1",
+@@ -38,22 +163,171 @@
+     "parent_full_hash_before_truth": true,
+     "truth_read": "one same-index train wavefield read after parent hash",
+     "static_features": "R25 exact static7",
+-    "storage": {"coarse_norm": "float16 LZF shuffle chunks[1,1,201,201]", "truth_norm": "float16 LZF shuffle chunks[1,1,201,201]", "static_features": "float16 LZF shuffle chunks[1,7,201,201]", "sample_sha256": "UTF-8", "parent_full_sha256": "UTF-8 64hex per record, ordered digest repeated in truth ledger"},
+-    "scalar_definitions": {"baseline_error_square_norm": "float64 sum((parent_norm-truth_norm)^2)", "target_square_norm": "float64 sum(truth_norm^2)", "truth_frame_energy_max_norm": "float32 max_t mean_zx(truth_norm^2)", "truth_frame_energy_mean_norm": "float32 mean_t mean_zx(truth_norm^2)"}
+-  },
+-  "truth_ledger": {"expected_reads": 2184, "expected_frames": 158648, "expected_raw_bytes": 25638151392, "confirmation_opened": false, "validation_opened": false, "test_id_opened": false},
+-  "sharding": {"worker_count": 4, "ownership": "records[shard_index::4] in frozen role order", "per_worker": {"fit_records": 532, "development_records": 14}, "outputs": ["shards/fit_shard_0.h5","shards/development_shard_0.h5","shards/fit_shard_1.h5","shards/development_shard_1.h5","shards/fit_shard_2.h5","shards/development_shard_2.h5","shards/fit_shard_3.h5","shards/development_shard_3.h5"], "temporary_then_atomic_final": true},
+-  "smoke": {"records": 6, "selection": "first fit and first development record in each family", "GPU": 0, "legacy_device_parent_parity": true, "stored_float16_bytes_reconstruction": true, "budget": {"wall_seconds": 180, "peak_bytes": 8589934592}},
+-  "audit": {"all_eight_shards": true, "all_summaries_worker_terminals_build_terminal": true, "all_time_finite_order_hash_ledger_summary_scalar_contracts": true, "replay_records": 12, "replay_frames": 2790, "replay_rule": "first two fit and first two development per family", "truth_after_parent_hash": true, "cached_parent_truth_static_bytes_exact": true, "float64_scalar_atol": 1e-12},
+-  "disk": {"raw_schema_bytes": 26873547168, "schema_chunk_metadata_summary_progress_atomic_overhead_bytes": 603979776, "predicted_total_bytes": 27477526944, "predicted_GiB": 25.59044113755226, "hard_cache_bytes_max": 30064771072, "free_before_min": "predicted_total_bytes + 40 GiB", "free_after_min": 42949672960},
+-  "budgets": {"smoke_wall_seconds": 180, "full_build_wall_seconds": 1800, "audit_wall_seconds": 600, "peak_bytes_per_GPU": 8589934592, "cache_bytes_max": 30064771072, "audit_JSON_bytes_max": 67108864},
++    "storage": {
++      "coarse_norm": "float16 LZF shuffle chunks[1,1,201,201]",
++      "truth_norm": "float16 LZF shuffle chunks[1,1,201,201]",
++      "static_features": "float16 LZF shuffle chunks[1,7,201,201]",
++      "sample_sha256": "UTF-8",
++      "parent_full_sha256": "UTF-8 64hex per record, ordered digest repeated in truth ledger"
++    },
++    "scalar_definitions": {
++      "baseline_error_square_norm": "float64 sum((parent_norm-truth_norm)^2)",
++      "target_square_norm": "float64 sum(truth_norm^2)",
++      "truth_frame_energy_max_norm": "float32 max_t mean_zx(truth_norm^2)",
++      "truth_frame_energy_mean_norm": "float32 mean_t mean_zx(truth_norm^2)"
++    }
++  },
++  "truth_ledger": {
++    "expected_reads": 2184,
++    "expected_frames": 158648,
++    "expected_raw_bytes": 25638151392,
++    "confirmation_opened": false,
++    "validation_opened": false,
++    "test_id_opened": false
++  },
++  "sharding": {
++    "worker_count": 4,
++    "ownership": "records[shard_index::4] in frozen role order",
++    "per_worker": {
++      "fit_records": 532,
++      "development_records": 14
++    },
++    "outputs": [
++      "shards/fit_shard_0.h5",
++      "shards/development_shard_0.h5",
++      "shards/fit_shard_1.h5",
++      "shards/development_shard_1.h5",
++      "shards/fit_shard_2.h5",
++      "shards/development_shard_2.h5",
++      "shards/fit_shard_3.h5",
++      "shards/development_shard_3.h5"
++    ],
++    "temporary_then_atomic_final": true
++  },
++  "smoke": {
++    "records": 6,
++    "selection": "first fit and first development record in each family",
++    "GPU": 0,
++    "legacy_device_parent_parity": true,
++    "stored_float16_bytes_reconstruction": true,
++    "budget": {
++      "wall_seconds": 180,
++      "peak_bytes": 8589934592
++    },
++    "quantization_diagnostic": {
++      "input": "same authorized single train truth read after parent hash; no additional truth access",
++      "P_T": "pre-storage normalized float32 parent/truth; scale unchanged",
++      "qP_qT": "actual HDF5 float16 readback converted to float32; then cast to float64 for differences, dot products and norms",
++      "norms": "float64 sums over all selected frames and spatial nodes",
++      "metrics": {
++        "R_native": "norm(T-P)/norm(T)",
++        "R_cached": "norm(qT-qP)/norm(T)",
++        "E_q": "norm((qT-qP)-(T-P))/norm(T)",
++        "E_q_over_R_native": "norm((qT-qP)-(T-P))/norm(T-P)",
++        "residual_cosine": "dot(T-P,qT-qP)/(norm(T-P)*norm(qT-qP))",
++        "qP_field_relative_error": "norm(qP-P)/norm(P)",
++        "qT_field_relative_error": "norm(qT-T)/norm(T)"
++      },
++      "undefined_ratios": "JSON null for zero denominator; raw squared norms retained; no epsilon denominator",
++      "time_bands": {
++        "early": "selected output indices 0..133",
++        "mid": "selected output indices 134..266",
++        "late": "selected output indices 267..400"
++      },
++      "static_features": "actual HDF5 readback bytes equal original static7.astype(float16) bytes",
++      "cheap_rejection_gate": {
++        "scope": "six full records; temporal bands diagnostic only",
++        "E_q_lt": 0.001,
++        "ratio_applies_if_R_native_gte": 1e-05,
++        "E_q_over_R_native_lte": 0.25,
++        "zero_truth": "all zero truth elements must remain exactly zero in qT",
++        "failure_classification": "cache_representation_rejected",
++        "preserve_smoke_artifacts": true
++      },
++      "gate_zero_truth_record": "relative thresholds undefined; explicitly require all qT zero and static bytes exact",
++      "near_zero_bands": "diagnostic only; do not gate temporal bands",
++      "output": "quantization_diagnostics in both smoke role summaries and embedded smoke terminal summaries"
++    }
++  },
++  "audit": {
++    "all_eight_shards": true,
++    "all_summaries_worker_terminals_build_terminal": true,
++    "all_time_finite_order_hash_ledger_summary_scalar_contracts": true,
++    "replay_records": 12,
++    "replay_frames": 2790,
++    "replay_rule": "first two fit and first two development per family",
++    "truth_after_parent_hash": true,
++    "cached_parent_truth_static_bytes_exact": true,
++    "float64_scalar_atol": 1e-12
++  },
++  "disk": {
++    "raw_schema_bytes": 26873547168,
++    "schema_chunk_metadata_summary_progress_atomic_overhead_bytes": 603979776,
++    "predicted_total_bytes": 27477526944,
++    "predicted_GiB": 25.59044113755226,
++    "hard_cache_bytes_max": 30064771072,
++    "free_before_min": "predicted_total_bytes + 40 GiB",
++    "free_after_min": 42949672960
++  },
++  "budgets": {
++    "smoke_wall_seconds": 180,
++    "full_build_wall_seconds": 1800,
++    "audit_wall_seconds": 600,
++    "peak_bytes_per_GPU": 8589934592,
++    "cache_bytes_max": 30064771072,
++    "audit_JSON_bytes_max": 67108864
++  },
+   "output_inventory": {
+-    "smoke": ["smoke/smoke_fit_shard_0.h5", "smoke/smoke_fit_shard_0.summary.json", "smoke/smoke_fit_shard_0.progress.json", "smoke/smoke_development_shard_0.h5", "smoke/smoke_development_shard_0.summary.json", "smoke/smoke_development_shard_0.progress.json", "smoke_terminal.json"],
+-    "full_HDF": ["shards/fit_shard_0.h5", "shards/development_shard_0.h5", "shards/fit_shard_1.h5", "shards/development_shard_1.h5", "shards/fit_shard_2.h5", "shards/development_shard_2.h5", "shards/fit_shard_3.h5", "shards/development_shard_3.h5"],
+-    "full_sidecars": {"summary_template": "shards/{role}_shard_{0..3}.summary.json", "progress_template": "shards/{role}_shard_{0..3}.progress.json", "worker_terminal_template": "terminals/worker_{0..3}.json", "worker_identity_template": "identities/worker_{0..3}.json", "worker_log_template": "logs/worker_{0..3}.log"},
+-    "stage_terminals": ["launch_supervisor.json", "build_terminal.json", "audit_report.json"]
+-  },
+-  "environment": {"CUBLAS_WORKSPACE_CONFIG": null, "CUDA_VISIBLE_DEVICES": "worker_shard_index", "python": "3.10.8", "torch": "2.1.2+cu121", "torch_cuda": "12.1", "cudnn": 8902, "numpy": "1.26.3", "h5py": "3.16.0", "scipy": "1.15.3", "driver": "580.76.05", "gpu": "NVIDIA GeForce RTX 4090 D", "deterministic": false, "cudnn_benchmark": false, "cudnn_deterministic": false, "tf32_matmul": false, "tf32_cudnn": false},
++    "smoke": [
++      "smoke/smoke_fit_shard_0.h5",
++      "smoke/smoke_fit_shard_0.summary.json",
++      "smoke/smoke_fit_shard_0.progress.json",
++      "smoke/smoke_development_shard_0.h5",
++      "smoke/smoke_development_shard_0.summary.json",
++      "smoke/smoke_development_shard_0.progress.json",
++      "smoke_terminal.json"
++    ],
++    "full_HDF": [
++      "shards/fit_shard_0.h5",
++      "shards/development_shard_0.h5",
++      "shards/fit_shard_1.h5",
++      "shards/development_shard_1.h5",
++      "shards/fit_shard_2.h5",
++      "shards/development_shard_2.h5",
++      "shards/fit_shard_3.h5",
++      "shards/development_shard_3.h5"
++    ],
++    "full_sidecars": {
++      "summary_template": "shards/{role}_shard_{0..3}.summary.json",
++      "progress_template": "shards/{role}_shard_{0..3}.progress.json",
++      "worker_terminal_template": "terminals/worker_{0..3}.json",
++      "worker_identity_template": "identities/worker_{0..3}.json",
++      "worker_log_template": "logs/worker_{0..3}.log"
++    },
++    "stage_terminals": [
++      "launch_supervisor.json",
++      "build_terminal.json",
++      "audit_report.json"
++    ]
++  },
++  "environment": {
++    "CUBLAS_WORKSPACE_CONFIG": null,
++    "CUDA_VISIBLE_DEVICES": "worker_shard_index",
++    "python": "3.10.8",
++    "torch": "2.1.2+cu121",
++    "torch_cuda": "12.1",
++    "cudnn": 8902,
++    "numpy": "1.26.3",
++    "h5py": "3.16.0",
++    "scipy": "1.15.3",
++    "driver": "580.76.05",
++    "gpu": "NVIDIA GeForce RTX 4090 D",
++    "deterministic": false,
++    "cudnn_benchmark": false,
++    "cudnn_deterministic": false,
++    "tf32_matmul": false,
++    "tf32_cudnn": false
++  },
+   "paths": {
+     "preregistration": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+     "stage_dir": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage",
+@@ -107,15 +381,25 @@
+     "R54_best": "results/r54_scratch_fullpool_40ep_v2_20260829/best.pt",
+     "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+     "source_manifest": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
+-    "marmousi": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy"
++    "marmousi": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
++    "R6_current": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json",
++    "R6_dependencies": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
++    "R6_postrun": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/postrun_audit.json",
++    "R6_selection": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
++    "R6_target": "results/frozen_fine_grid_target_met_r6_20260815.json",
++    "runtime_dependency_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_dependency_manifest.json",
++    "runtime_master": "results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json",
++    "runtime_preregistration": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_preregistration.json",
++    "runtime_runner": "scripts/gate_r6_anchored_r54_device_runtime.py",
++    "runtime_test": "tests/test_gate_r6_anchored_r54_device_runtime.py"
+   },
+   "bindings": {
+-    "builder": "a63a4c38d146d4e18ba7d2a164d63950f73bff23aef3e725031013b64a56f39c",
++    "builder": "77d0c9d1dc838dd63d3af64e9492ecbff5ab22daa0e37dafe5193b0a7f34039b",
+     "launcher": "cb8856d8f92af77d16a293ebfde92e2d716a3347f33964bfb6e0aebcae9bcece",
+     "auditor": "5e7efbb02e9978b660cfb9acbf9986a2a49ea83d571473cd8f7980f5644243a7",
+-    "test": "1de3bdcefdbf9847bd8fe6465d5bb112bb349da7ac251c42fb1fb649c17ba7e5",
+-    "master_reference": "2e55b6e69d71e963a4db6eadef31f4c7face818c6fda5b02e70458d55dfa2fe8",
+-    "dependency_manifest": "68ce59503a37aeb6921a957626a66ab5f2ffd60d02e653f231764b4eeccc5170",
++    "test": "c2ac25383dcc17923840b227e6bc2874d9e6921a6b0eefb3656ba08ee5ee5191",
++    "master_reference": "e407d25bde83a96a795738847815dbe31281ebdf80fe5cadd56404267ebad84a",
++    "dependency_manifest": "36e2857297484be777a37a3b4d9c05cf4c5bd74a8af20a123d05e0ff27141431",
+     "runtime_report": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5",
+     "runtime_runner": "eacf8c115c67088b4a74e1acdac2164a21471af384f83d573694e43272ab58b8",
+     "runtime_test": "65eb4305f4a47a48a598c693bc3e20713a4fd43abf403f30b67b00d6510b90f2",
+@@ -141,9 +425,39 @@
+     "source_manifest": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+     "marmousi": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb"
+   },
+-  "failure_contract": {"atomic_terminal": true, "input_hashes_before_after": true, "no_overwrite": true, "no_restart": true, "no_kill": true},
++  "failure_contract": {
++    "atomic_terminal": true,
++    "input_hashes_before_after": true,
++    "no_overwrite": true,
++    "no_restart": true,
++    "no_kill": true
++  },
+   "promotion_authorized": false,
+   "confirmation_opened": false,
+   "validation_opened": false,
+-  "test_id_opened": false
++  "test_id_opened": false,
++  "smoke_authorized": false,
++  "full_build_authorized": false,
++  "revision": {
++    "version": 2,
++    "date_UTC": "2026-09-05",
++    "original_snapshot_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/snapshot_manifest.json",
++    "binding_paths_added": [
++      "R6_current",
++      "R6_dependencies",
++      "R6_postrun",
++      "R6_selection",
++      "R6_target",
++      "runtime_dependency_manifest",
++      "runtime_master",
++      "runtime_preregistration",
++      "runtime_runner",
++      "runtime_test"
++    ],
++    "changes": "Repair missing binding paths without relaxing checks; smoke-only actual stored f16 quantization diagnostics and cheap record rejection gate."
++  },
++  "rollback_definition": {
++    "path": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
++    "sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947"
++  }
+ }
+--- results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/dependency_manifest.json
++++ results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/dependency_manifest.json
+@@ -1,70 +1,260 @@
+ {
+   "schema": "r6_device_residual_cache_dependency_manifest_v1",
+-  "roots": ["scripts/build_r6_device_residual_cache.py", "scripts/launch_r6_device_residual_cache.py", "scripts/audit_r6_device_residual_cache.py"],
++  "roots": [
++    "scripts/build_r6_device_residual_cache.py",
++    "scripts/launch_r6_device_residual_cache.py",
++    "scripts/audit_r6_device_residual_cache.py"
++  ],
+   "files": [
+-    {"path":"scripts/__init__.py","sha256":"54141206e87dd197940ee77e5cfeb04b32e71293f93f1e7f331261e5f1b722a9"},
+-    {"path":"scripts/audit_r6_device_residual_cache.py","sha256":"5e7efbb02e9978b660cfb9acbf9986a2a49ea83d571473cd8f7980f5644243a7"},
+-    {"path":"scripts/audit_target5.py","sha256":"fddb927ac9cfc169517c6e2fab495ced4e34b451865aed49e37859d136904a4c"},
+-    {"path":"scripts/build_r25_coarse_residual_cache.py","sha256":"bc9e0aa3711676ce4e1db3383a4f96d6e218b29a31a311e91ee96cb3826afc50"},
+-    {"path":"scripts/build_r6_device_residual_cache.py","sha256":"a63a4c38d146d4e18ba7d2a164d63950f73bff23aef3e725031013b64a56f39c"},
+-    {"path":"scripts/evaluate_coarse_lwc84_201.py","sha256":"898465bd814a9c2bd533d2823cc12fc962791a5b36ba76b8d3d1e4060979c9e0"},
+-    {"path":"scripts/evaluate_coarse_lwc84_201_shard.py","sha256":"45ffeab6bfcdb0516cd458264e74f7674d64c27f905b153b4146ad6dae07e393"},
+-    {"path":"scripts/gate_lwc84_cuda_graph_fine_grid_trainonly.py","sha256":"5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8"},
+-    {"path":"scripts/gate_r6_anchored_r54_device_runtime.py","sha256":"eacf8c115c67088b4a74e1acdac2164a21471af384f83d573694e43272ab58b8"},
+-    {"path":"scripts/gate_r6_anchored_r54_runtime.py","sha256":"bd9d7fe191815e1cbaa900057d5592b12042ed40f5fd2111eddd81d6dba86624"},
+-    {"path":"scripts/launch_r6_device_residual_cache.py","sha256":"cb8856d8f92af77d16a293ebfde92e2d716a3347f33964bfb6e0aebcae9bcece"},
+-    {"path":"scripts/reattest_frozen_fine_grid_r6_train.py","sha256":"f71dbac57931127b9c62cfc3024899dc9cad1ef167f30683d3419e44a27af143"},
+-    {"path":"src/fno_acoustic/__init__.py","sha256":"e4944c4bff6d6aa510db7bb74cd5f79e031e05cf5485f8837b7aebae4a79ec95"},
+-    {"path":"src/fno_acoustic/ais_model_components.py","sha256":"57ea2a7db505990b963d93c29a50bfe37c01b769fa86d469ff896cf398cd55f3"},
+-    {"path":"src/fno_acoustic/data.py","sha256":"c29ca63a8b6d62ee340df6fd37b1de6dfe0d51714ec7f17a4cd8f7e386b8af17"},
+-    {"path":"src/fno_acoustic/data_generation/__init__.py","sha256":"1f033310f59a21c33bb50be2484cd5954c911c0b231c6ce50fcbf66705915479"},
+-    {"path":"src/fno_acoustic/data_generation/cpml.py","sha256":"dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f"},
+-    {"path":"src/fno_acoustic/data_generation/free_surface.py","sha256":"bf150fedffd0eb2a11ec494ccec88d85a8796e12727ab88f9bbfcb278e003da8"},
+-    {"path":"src/fno_acoustic/data_generation/fused_lwc84.py","sha256":"a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c"},
+-    {"path":"src/fno_acoustic/data_generation/grid.py","sha256":"6b372859fc1a5c50775f0468870a36abc2815a9a77fe5283d36a661cd8e51cf9"},
+-    {"path":"src/fno_acoustic/data_generation/lwc84.py","sha256":"ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118"},
+-    {"path":"src/fno_acoustic/data_generation/model_marmousi.py","sha256":"ceca4d0d001c8aeccce79eab030c36a8cd5bce6977a0d043c4a137b04ff15a5c"},
+-    {"path":"src/fno_acoustic/data_generation/restriction.py","sha256":"be53a93bced3a8aa7d3ca303e7f367444fb16ca564f2218a4fcec5ac04224792"},
+-    {"path":"src/fno_acoustic/data_generation/ricker.py","sha256":"b07c7d632df1ee2c1e52dd2730264cc05a589b0e25317fd01517dde92f2a6217"},
+-    {"path":"src/fno_acoustic/data_generation/solver_lwc84.py","sha256":"76ba84ce775cab0e75dd26da325a774f5a4cb331b254889b808c7bb2546e6022"},
+-    {"path":"src/fno_acoustic/data_generation/solver_lwc84_fused.py","sha256":"6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310"},
+-    {"path":"src/fno_acoustic/data_generation/solver_lwc84_fused_device.py","sha256":"8e00b75650a021cf52acba047abb0aae7cc779a3593f36249521bc806ff35015"},
+-    {"path":"src/fno_acoustic/data_generation/source.py","sha256":"533d9894dc5fcdd70e004def6d9d15e2fcec68ce591da7e239fc85d12e1a94a6"},
+-    {"path":"src/fno_acoustic/data_generation/stencils.py","sha256":"0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c"},
+-    {"path":"src/fno_acoustic/data_generation/velocity_models_lwc84.py","sha256":"8ec8de7be39cc86e3f053bbe25f61ab61bc53c682d4f31e8591864895d03d0c7"},
+-    {"path":"src/fno_acoustic/model.py","sha256":"030da2e4faba54a8109e35cf8fb036126bae0d830f71e8d2b0175dcee170a24a"},
+-    {"path":"src/fno_acoustic/model_ais_mqfno.py","sha256":"3bfff753e395fd221bfd10bb593c88841d1946a5596572ca6d48c0d4c0d8da79"},
+-    {"path":"src/fno_acoustic/model_factorized.py","sha256":"04806b4325c9c90d9f0cdfac77c6321dfce64447f283b0435fbc0593898b8c79"},
+-    {"path":"src/fno_acoustic/normalization.py","sha256":"96de1eeb82e3da3ca85e342ef3cd2e10560496d0210606bf266770092c6774d8"},
+-    {"path":"src/fno_acoustic/numerics/__init__.py","sha256":"147e5534732dfeb0a1d117599aac9f65b9ba45f26fb1a137c297bb4a5ce45e51"},
+-    {"path":"src/fno_acoustic/numerics/drp_coefficients.py","sha256":"0a5cfe4c0b298dbba760862bf8db86761aa56991cd50ddb2d8c80dfc5ffa0f1b"},
+-    {"path":"src/fno_acoustic/schema.py","sha256":"e82f519adf3685c1af74894a6266a91e0a97741c967e70141f6fcb4f5da0e43a"},
+-    {"path":"src/fno_acoustic/temporal_operator.py","sha256":"7d07394f619134638b7138fc0fc06ab4449882b011be2a1ead2046612576a9c1"}
++    {
++      "path": "scripts/__init__.py",
++      "sha256": "54141206e87dd197940ee77e5cfeb04b32e71293f93f1e7f331261e5f1b722a9"
++    },
++    {
++      "path": "scripts/audit_r6_device_residual_cache.py",
++      "sha256": "5e7efbb02e9978b660cfb9acbf9986a2a49ea83d571473cd8f7980f5644243a7"
++    },
++    {
++      "path": "scripts/audit_target5.py",
++      "sha256": "fddb927ac9cfc169517c6e2fab495ced4e34b451865aed49e37859d136904a4c"
++    },
++    {
++      "path": "scripts/build_r25_coarse_residual_cache.py",
++      "sha256": "bc9e0aa3711676ce4e1db3383a4f96d6e218b29a31a311e91ee96cb3826afc50"
++    },
++    {
++      "path": "scripts/build_r6_device_residual_cache.py",
++      "sha256": "77d0c9d1dc838dd63d3af64e9492ecbff5ab22daa0e37dafe5193b0a7f34039b"
++    },
++    {
++      "path": "scripts/evaluate_coarse_lwc84_201.py",
++      "sha256": "898465bd814a9c2bd533d2823cc12fc962791a5b36ba76b8d3d1e4060979c9e0"
++    },
++    {
++      "path": "scripts/evaluate_coarse_lwc84_201_shard.py",
++      "sha256": "45ffeab6bfcdb0516cd458264e74f7674d64c27f905b153b4146ad6dae07e393"
++    },
++    {
++      "path": "scripts/gate_lwc84_cuda_graph_fine_grid_trainonly.py",
++      "sha256": "5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8"
++    },
++    {
++      "path": "scripts/gate_r6_anchored_r54_device_runtime.py",
++      "sha256": "eacf8c115c67088b4a74e1acdac2164a21471af384f83d573694e43272ab58b8"
++    },
++    {
++      "path": "scripts/gate_r6_anchored_r54_runtime.py",
++      "sha256": "bd9d7fe191815e1cbaa900057d5592b12042ed40f5fd2111eddd81d6dba86624"
++    },
++    {
++      "path": "scripts/launch_r6_device_residual_cache.py",
++      "sha256": "cb8856d8f92af77d16a293ebfde92e2d716a3347f33964bfb6e0aebcae9bcece"
++    },
++    {
++      "path": "scripts/reattest_frozen_fine_grid_r6_train.py",
++      "sha256": "f71dbac57931127b9c62cfc3024899dc9cad1ef167f30683d3419e44a27af143"
++    },
++    {
++      "path": "src/fno_acoustic/__init__.py",
++      "sha256": "e4944c4bff6d6aa510db7bb74cd5f79e031e05cf5485f8837b7aebae4a79ec95"
++    },
++    {
++      "path": "src/fno_acoustic/ais_model_components.py",
++      "sha256": "57ea2a7db505990b963d93c29a50bfe37c01b769fa86d469ff896cf398cd55f3"
++    },
++    {
++      "path": "src/fno_acoustic/data.py",
++      "sha256": "c29ca63a8b6d62ee340df6fd37b1de6dfe0d51714ec7f17a4cd8f7e386b8af17"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/__init__.py",
++      "sha256": "1f033310f59a21c33bb50be2484cd5954c911c0b231c6ce50fcbf66705915479"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/cpml.py",
++      "sha256": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/free_surface.py",
++      "sha256": "bf150fedffd0eb2a11ec494ccec88d85a8796e12727ab88f9bbfcb278e003da8"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/fused_lwc84.py",
++      "sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/grid.py",
++      "sha256": "6b372859fc1a5c50775f0468870a36abc2815a9a77fe5283d36a661cd8e51cf9"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/lwc84.py",
++      "sha256": "ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/model_marmousi.py",
++      "sha256": "ceca4d0d001c8aeccce79eab030c36a8cd5bce6977a0d043c4a137b04ff15a5c"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/restriction.py",
++      "sha256": "be53a93bced3a8aa7d3ca303e7f367444fb16ca564f2218a4fcec5ac04224792"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/ricker.py",
++      "sha256": "b07c7d632df1ee2c1e52dd2730264cc05a589b0e25317fd01517dde92f2a6217"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/solver_lwc84.py",
++      "sha256": "76ba84ce775cab0e75dd26da325a774f5a4cb331b254889b808c7bb2546e6022"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/solver_lwc84_fused.py",
++      "sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/solver_lwc84_fused_device.py",
++      "sha256": "8e00b75650a021cf52acba047abb0aae7cc779a3593f36249521bc806ff35015"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/source.py",
++      "sha256": "533d9894dc5fcdd70e004def6d9d15e2fcec68ce591da7e239fc85d12e1a94a6"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/stencils.py",
++      "sha256": "0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c"
++    },
++    {
++      "path": "src/fno_acoustic/data_generation/velocity_models_lwc84.py",
++      "sha256": "8ec8de7be39cc86e3f053bbe25f61ab61bc53c682d4f31e8591864895d03d0c7"
++    },
++    {
++      "path": "src/fno_acoustic/model.py",
++      "sha256": "030da2e4faba54a8109e35cf8fb036126bae0d830f71e8d2b0175dcee170a24a"
++    },
++    {
++      "path": "src/fno_acoustic/model_ais_mqfno.py",
++      "sha256": "3bfff753e395fd221bfd10bb593c88841d1946a5596572ca6d48c0d4c0d8da79"
++    },
++    {
++      "path": "src/fno_acoustic/model_factorized.py",
++      "sha256": "04806b4325c9c90d9f0cdfac77c6321dfce64447f283b0435fbc0593898b8c79"
++    },
++    {
++      "path": "src/fno_acoustic/normalization.py",
++      "sha256": "96de1eeb82e3da3ca85e342ef3cd2e10560496d0210606bf266770092c6774d8"
++    },
++    {
++      "path": "src/fno_acoustic/numerics/__init__.py",
++      "sha256": "147e5534732dfeb0a1d117599aac9f65b9ba45f26fb1a137c297bb4a5ce45e51"
++    },
++    {
++      "path": "src/fno_acoustic/numerics/drp_coefficients.py",
++      "sha256": "0a5cfe4c0b298dbba760862bf8db86761aa56991cd50ddb2d8c80dfc5ffa0f1b"
++    },
++    {
++      "path": "src/fno_acoustic/schema.py",
++      "sha256": "e82f519adf3685c1af74894a6266a91e0a97741c967e70141f6fcb4f5da0e43a"
++    },
++    {
++      "path": "src/fno_acoustic/temporal_operator.py",
++      "sha256": "7d07394f619134638b7138fc0fc06ab4449882b011be2a1ead2046612576a9c1"
++    }
+   ],
+   "explicit_bindings": [
+-    {"path":"tests/test_r6_device_residual_cache.py","sha256":"1de3bdcefdbf9847bd8fe6465d5bb112bb349da7ac251c42fb1fb649c17ba7e5"},
+-    {"path":"results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/master_reference.json","sha256":"2e55b6e69d71e963a4db6eadef31f4c7face818c6fda5b02e70458d55dfa2fe8"},
+-    {"path":"results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json","sha256":"6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5"},
+-    {"path":"scripts/gate_r6_anchored_r54_device_runtime.py","sha256":"eacf8c115c67088b4a74e1acdac2164a21471af384f83d573694e43272ab58b8"},
+-    {"path":"tests/test_gate_r6_anchored_r54_device_runtime.py","sha256":"65eb4305f4a47a48a598c693bc3e20713a4fd43abf403f30b67b00d6510b90f2"},
+-    {"path":"results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json","sha256":"e75660c6cd7244a277e255ff288198fc64ea26eacc2544b3e81724e15eb2ae0a"},
+-    {"path":"results/r6_anchored_r54_device_resident_r1_20260905/runtime_dependency_manifest.json","sha256":"a2901bf4b40fb43c92cb03b5a7e86886b681c0f46ff361de749da63b1b17d26b"},
+-    {"path":"results/r6_anchored_r54_device_resident_r1_20260905/runtime_preregistration.json","sha256":"8450972abd8ef69d65bee84c5710d1773de7d2215e0a772a3ec8bcafa790f18a"},
+-    {"path":"results/r38_full_coverage_manifest_20260828.json","sha256":"f411c616769d3478701f11dde24114019f44d1d6ee739d24c9a616433897d7e6"},
+-    {"path":"results/r28_expanded_manifest_20260828.json","sha256":"5d84f89a596fb88493fc6099b9f5cfec6ee18204511ddee6fa6960211e7dd674"},
+-    {"path":"results/r29b_fresh_holdout_manifest_20260828.json","sha256":"a350a5d04c32dfffba358577eb28dd96c456892ab696399029aa15f3cf3d42a1"},
+-    {"path":"results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json","sha256":"cdc9f45e3fe27464f0718db7aef632cc567a77af812b1ea9cfbd155bd660ab11"},
+-    {"path":"results/frozen_fine_grid_target_met_r6_20260815.json","sha256":"279ff6d92a3058b62c7a0a4985fdf2176af459fad2ba75a3ec64b071585a29a8"},
+-    {"path":"results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json","sha256":"b62823631696f816e2366ddf915a69d9558d2a7a7f8f4f46af559c027ba25eb7"},
+-    {"path":"results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/postrun_audit.json","sha256":"589bfc5760d220efe5e17885db743cd4cf534cf579659623c4fe0ff0330fb752"},
+-    {"path":"scripts/train_r25_coarse_residual_operator.py","sha256":"99c56c179a5c294f8d00747965a759b38d4afa3a5fdfc5499288688cce08beed"},
+-    {"path":"scripts/train_r26_tail_spectral_pilot.py","sha256":"bd88c42db8c46a511fbf9c71bc16b08d95c62a6f1c90fcc10ceb54c75f48102c"},
+-    {"path":"results/r54_scratch_fullpool_preregistration_20260829.json","sha256":"f13411b9c5f44a9d8a5da7893ec17df4c08df31da05ed717d314e4aa1bb3d677"},
+-    {"path":"results/r54_scratch_fullpool_40ep_v2_20260829/terminal.json","sha256":"d8e757a9b0410e1380e6db0ecf4ee9a9c4d1459ea00d513229b6037bccdb4654"},
+-    {"path":"results/r54_scratch_fullpool_40ep_v2_20260829/best.pt","sha256":"2a544eac37f4782193d79f512d55786858c85f93658885bedfc43e9d59a0073a"},
+-    {"path":"results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json","sha256":"8edca614165744138df8b8d4aa35713b7a6df1ed19306b0bedb7747eaeb068a6"},
+-    {"path":"/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5","sha256":"c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"},
+-    {"path":"/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl","sha256":"281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d"},
+-    {"path":"/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy","sha256":"004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb"}
++    {
++      "path": "tests/test_r6_device_residual_cache.py",
++      "sha256": "c2ac25383dcc17923840b227e6bc2874d9e6921a6b0eefb3656ba08ee5ee5191"
++    },
++    {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/master_reference.json",
++      "sha256": "e407d25bde83a96a795738847815dbe31281ebdf80fe5cadd56404267ebad84a"
++    },
++    {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json",
++      "sha256": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5"
++    },
++    {
++      "path": "scripts/gate_r6_anchored_r54_device_runtime.py",
++      "sha256": "eacf8c115c67088b4a74e1acdac2164a21471af384f83d573694e43272ab58b8"
++    },
++    {
++      "path": "tests/test_gate_r6_anchored_r54_device_runtime.py",
++      "sha256": "65eb4305f4a47a48a598c693bc3e20713a4fd43abf403f30b67b00d6510b90f2"
++    },
++    {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json",
++      "sha256": "e75660c6cd7244a277e255ff288198fc64ea26eacc2544b3e81724e15eb2ae0a"
++    },
++    {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_dependency_manifest.json",
++      "sha256": "a2901bf4b40fb43c92cb03b5a7e86886b681c0f46ff361de749da63b1b17d26b"
++    },
++    {
++      "path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_preregistration.json",
++      "sha256": "8450972abd8ef69d65bee84c5710d1773de7d2215e0a772a3ec8bcafa790f18a"
++    },
++    {
++      "path": "results/r38_full_coverage_manifest_20260828.json",
++      "sha256": "f411c616769d3478701f11dde24114019f44d1d6ee739d24c9a616433897d7e6"
++    },
++    {
++      "path": "results/r28_expanded_manifest_20260828.json",
++      "sha256": "5d84f89a596fb88493fc6099b9f5cfec6ee18204511ddee6fa6960211e7dd674"
++    },
++    {
++      "path": "results/r29b_fresh_holdout_manifest_20260828.json",
++      "sha256": "a350a5d04c32dfffba358577eb28dd96c456892ab696399029aa15f3cf3d42a1"
++    },
++    {
++      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
++      "sha256": "cdc9f45e3fe27464f0718db7aef632cc567a77af812b1ea9cfbd155bd660ab11"
++    },
++    {
++      "path": "results/frozen_fine_grid_target_met_r6_20260815.json",
++      "sha256": "279ff6d92a3058b62c7a0a4985fdf2176af459fad2ba75a3ec64b071585a29a8"
++    },
++    {
++      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json",
++      "sha256": "b62823631696f816e2366ddf915a69d9558d2a7a7f8f4f46af559c027ba25eb7"
++    },
++    {
++      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/postrun_audit.json",
++      "sha256": "589bfc5760d220efe5e17885db743cd4cf534cf579659623c4fe0ff0330fb752"
++    },
++    {
++      "path": "scripts/train_r25_coarse_residual_operator.py",
++      "sha256": "99c56c179a5c294f8d00747965a759b38d4afa3a5fdfc5499288688cce08beed"
++    },
++    {
++      "path": "scripts/train_r26_tail_spectral_pilot.py",
++      "sha256": "bd88c42db8c46a511fbf9c71bc16b08d95c62a6f1c90fcc10ceb54c75f48102c"
++    },
++    {
++      "path": "results/r54_scratch_fullpool_preregistration_20260829.json",
++      "sha256": "f13411b9c5f44a9d8a5da7893ec17df4c08df31da05ed717d314e4aa1bb3d677"
++    },
++    {
++      "path": "results/r54_scratch_fullpool_40ep_v2_20260829/terminal.json",
++      "sha256": "d8e757a9b0410e1380e6db0ecf4ee9a9c4d1459ea00d513229b6037bccdb4654"
++    },
++    {
++      "path": "results/r54_scratch_fullpool_40ep_v2_20260829/best.pt",
++      "sha256": "2a544eac37f4782193d79f512d55786858c85f93658885bedfc43e9d59a0073a"
++    },
++    {
++      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
++      "sha256": "8edca614165744138df8b8d4aa35713b7a6df1ed19306b0bedb7747eaeb068a6"
++    },
++    {
++      "path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
++      "sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
++    },
++    {
++      "path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
++      "sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d"
++    },
++    {
++      "path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
++      "sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb"
++    }
+   ]
+ }
+--- results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/master_reference.json
++++ results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/master_reference.json
+@@ -1,8 +1,13 @@
+ {
+   "schema": "r6_device_residual_cache_stage_master_reference_v1",
+   "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+-  "status": "draft_pending_static_audit",
+-  "immutable_DAG": ["static_audit", "isolated_six_record_smoke", "detached_four_gpu_build", "independent_cache_audit"],
++  "status": "runtime_passed_cache_smoke_pending_audit",
++  "immutable_DAG": [
++    "static_audit",
++    "isolated_six_record_smoke",
++    "detached_four_gpu_build",
++    "independent_cache_audit"
++  ],
+   "parent_master": {
+     "path": "results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json",
+     "sha256": "e75660c6cd7244a277e255ff288198fc64ea26eacc2544b3e81724e15eb2ae0a"
+@@ -12,11 +17,26 @@
+     "sha256": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5",
+     "status": "runtime_identity_passed_cache_prereg_pending_audit"
+   },
+-  "stage_claim": "Train-only cache construction and audit only; no model training, validation, test_id, synthetic confirmation, or promotion authorization.",
++  "stage_claim": "Only six-record train-only quantization smoke preparation; launch awaits independent audit and explicit lead release. No full build, training, confirmation, validation, test_id or promotion authorization.",
+   "rollback": "R6 remains the accepted fallback; preserve all prior runtime, R25/R26/R54, A3, B2-H, Helmholtz, ASAM, and CPADC artifacts.",
+   "launch_authorized": false,
+   "promotion_authorized": false,
+   "confirmation_opened": false,
+   "validation_opened": false,
+-  "test_id_opened": false
++  "test_id_opened": false,
++  "smoke_authorized": false,
++  "full_build_authorized": false,
++  "rollback_definition": {
++    "path": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
++    "sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947"
++  },
++  "quantization_gate": {
++    "scope": "six full records; temporal bands diagnostic only",
++    "E_q_lt": 0.001,
++    "ratio_applies_if_R_native_gte": 1e-05,
++    "E_q_over_R_native_lte": 0.25,
++    "zero_truth": "all zero truth elements must remain exactly zero in qT",
++    "failure_classification": "cache_representation_rejected",
++    "preserve_smoke_artifacts": true
++  }
+ }

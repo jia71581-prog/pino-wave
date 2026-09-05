@@ -1,0 +1,41 @@
+{
+  "schema": "b2_v9_interim_parent_snapshot_selection_v1",
+  "status": "passed",
+  "created_utc": "2026-09-01T07:50:00Z",
+  "claim_scope": "train-only implementation smoke; not a V9 terminal decision and not eligible for promotion",
+  "selection_rule": {
+    "variant_gate": "both current seed-best aggregates strictly below their same-cache warp-anchor aggregate",
+    "variant_choice": "smallest current worst-seed best aggregate",
+    "seed_choice": "smallest current best aggregate within selected variant"
+  },
+  "baseline_aggregate": 0.13081749244945332,
+  "current_seed_best_aggregates": {
+    "physics_cond_s372": 0.12611824217911635,
+    "physics_cond_s733": 0.12425374222842085,
+    "spectral_s372": 0.12641224626799016,
+    "spectral_s733": 0.12653960854808885
+  },
+  "selected": {
+    "lane": "physics_cond_s733",
+    "variant": "physics_cond",
+    "seed": 733,
+    "epoch": 33,
+    "checkpoint": "results/b2_v9_interim_snapshot_physics_cond_s733_e33_20260901.pt",
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "aggregate": 0.12425374222842085,
+    "per_family": {
+      "uniform": 0.0697129393520399,
+      "layered": 0.13180723048143522,
+      "marmousi": 0.17124105685178748
+    }
+  },
+  "source_bindings": {
+    "v9_preregistration_sha256": "e72f668fb927f1829c40361a9f80a1c2aa7d63bf40c719ef620a0b2f56811808",
+    "lane_run_identity_sha256": "cec97a982eb8883d62debee93e4d907d1fdb5c99a4e91fbd9667a1c46a36cf8c",
+    "b2_v10_design_sha256": "a8b49637ad6059a62a7390625b41a3a4823fd0a2329e35b26e3d9f416948a08b"
+  },
+  "rollback": "immutable snapshot only; live V9 checkpoints and all protected checkpoints remain untouched",
+  "v9_terminal_complete": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

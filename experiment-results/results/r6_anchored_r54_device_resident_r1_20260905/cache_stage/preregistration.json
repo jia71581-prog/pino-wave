@@ -1,0 +1,463 @@
+{
+  "schema": "r6_device_residual_cache_preregistration_v1",
+  "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+  "stage": "device_residual_cache",
+  "status": "runtime_passed_cache_smoke_pending_audit",
+  "launch_authorized": false,
+  "claim": "Only six-record train-only quantization smoke preparation; launch awaits independent audit and explicit lead release. No full build, training, confirmation, validation, test_id or promotion authorization.",
+  "DAG": [
+    "static_audit",
+    "isolated_six_record_smoke",
+    "detached_four_gpu_build",
+    "independent_cache_audit"
+  ],
+  "prerequisites": {
+    "runtime": {
+      "path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json",
+      "sha256": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5",
+      "status": "passed"
+    },
+    "smoke": {
+      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/smoke_terminal.json",
+      "sha256": null,
+      "status": "pending"
+    },
+    "build": {
+      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/build_terminal.json",
+      "sha256": null,
+      "status": "pending"
+    }
+  },
+  "selection": {
+    "R38_manifest_sha256": "f411c616769d3478701f11dde24114019f44d1d6ee739d24c9a616433897d7e6",
+    "R38_selection_sha256": "5005f614d1ec7cbd77ddad440ac6132d0b79b5953aea70c566a8713d1433b937",
+    "roles": {
+      "fit": {
+        "records": 2128,
+        "groups": 790,
+        "family_records": {
+          "uniform": 388,
+          "layered": 1080,
+          "marmousi": 660
+        },
+        "digests": {
+          "sample_ids": "6a6edfb9149e16559ba7b8d9ab5cb060c80f690083ec658db29b1d8fe234d7bd",
+          "groups": "953cbb2ed5e242b613d0dcf8b7196f11cd0e4365d20a0b095e4fe843cdaf53bb",
+          "sample_hashes": "7f9018789449d8c075d6ee4c9d5f5166bde0830c450c527ff03392af99f9af15",
+          "source_indices": "4c9904a3f5f0ce476be8778e54d5582b7bd5dc8c51b560925e07805fe9301055",
+          "records": "f0da53220f8d6638661511e4abef8343f90e28eb62d27821c656374ee1863b14"
+        }
+      },
+      "development": {
+        "source_role": "R38 holdout mapped to development",
+        "records": 56,
+        "groups": 25,
+        "family_records": {
+          "uniform": 16,
+          "layered": 20,
+          "marmousi": 20
+        },
+        "digests": {
+          "sample_ids": "d5b4d0dc57eef029a1025bde1fa74f1b79f216ef94ca311eae43b9beb77d424e",
+          "groups": "471c86904490aefcdbdf8db1bfe807c046098712aabd6dcd31a1fbb11269ea5a",
+          "sample_hashes": "4987c3e81f88d56b53730151f6939bddef8a20bd75b9ae046a0adb9dabbb6c5b",
+          "source_indices": "862b5718e70208c4c603b8fa96ff533955896f729ac4f9724e6caac8ac2c1968",
+          "records": "c045e599fddf6d25f83bfbb102a4dc2012715902fd9a034f462c4e0cefe7d009"
+        }
+      }
+    },
+    "fit_development_group_overlap": 0,
+    "R29B_exclusion": {
+      "manifest_sha256": "a350a5d04c32dfffba358577eb28dd96c456892ab696399029aa15f3cf3d42a1",
+      "selection_sha256": "6ba657675616fda446801fc231914aa3a4cffeceade8a17a082822a2cbf31e6d",
+      "cached": false
+    },
+    "confirmation_cached": false,
+    "validation_cached": false,
+    "test_id_cached": false
+  },
+  "time_indices": {
+    "fit": {
+      "count": 64,
+      "values": [
+        0,
+        6,
+        13,
+        19,
+        25,
+        32,
+        38,
+        44,
+        51,
+        57,
+        63,
+        70,
+        76,
+        83,
+        89,
+        95,
+        102,
+        108,
+        114,
+        121,
+        127,
+        133,
+        140,
+        146,
+        152,
+        159,
+        165,
+        171,
+        178,
+        184,
+        190,
+        197,
+        203,
+        210,
+        216,
+        222,
+        229,
+        235,
+        241,
+        248,
+        254,
+        260,
+        267,
+        273,
+        279,
+        286,
+        292,
+        298,
+        305,
+        311,
+        317,
+        324,
+        330,
+        337,
+        343,
+        349,
+        356,
+        362,
+        368,
+        375,
+        381,
+        387,
+        394,
+        400
+      ],
+      "sha256": "680b8aa0e5b1fd613f8f5b25205c8d4d32e0a39b07679f46cb217185b3a29a82"
+    },
+    "development": {
+      "count": 401,
+      "definition": "integer range 0..400 inclusive",
+      "sha256": "9dfdf6adf0a9f5a5596566bf52c2ced0dc5ff6af5ca3eecec44f8904f71b4002"
+    }
+  },
+  "cache_contract": {
+    "schema": "r25_coarse_residual_cache_v1",
+    "parent_kind": "R6_device_resident_dt625us_restricted2x",
+    "parent_internal_dt_s": 0.000625,
+    "parent_output_restriction_factor": 2,
+    "field_scale": "max(max(abs(full401_parent)),1e-12)",
+    "parent_before_truth": true,
+    "parent_full_hash_before_truth": true,
+    "truth_read": "one same-index train wavefield read after parent hash",
+    "static_features": "R25 exact static7",
+    "storage": {
+      "coarse_norm": "float16 LZF shuffle chunks[1,1,201,201]",
+      "truth_norm": "float16 LZF shuffle chunks[1,1,201,201]",
+      "static_features": "float16 LZF shuffle chunks[1,7,201,201]",
+      "sample_sha256": "UTF-8",
+      "parent_full_sha256": "UTF-8 64hex per record, ordered digest repeated in truth ledger"
+    },
+    "scalar_definitions": {
+      "baseline_error_square_norm": "float64 sum((parent_norm-truth_norm)^2)",
+      "target_square_norm": "float64 sum(truth_norm^2)",
+      "truth_frame_energy_max_norm": "float32 max_t mean_zx(truth_norm^2)",
+      "truth_frame_energy_mean_norm": "float32 mean_t mean_zx(truth_norm^2)"
+    }
+  },
+  "truth_ledger": {
+    "expected_reads": 2184,
+    "expected_frames": 158648,
+    "expected_raw_bytes": 25638151392,
+    "confirmation_opened": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "sharding": {
+    "worker_count": 4,
+    "ownership": "records[shard_index::4] in frozen role order",
+    "per_worker": {
+      "fit_records": 532,
+      "development_records": 14
+    },
+    "outputs": [
+      "shards/fit_shard_0.h5",
+      "shards/development_shard_0.h5",
+      "shards/fit_shard_1.h5",
+      "shards/development_shard_1.h5",
+      "shards/fit_shard_2.h5",
+      "shards/development_shard_2.h5",
+      "shards/fit_shard_3.h5",
+      "shards/development_shard_3.h5"
+    ],
+    "temporary_then_atomic_final": true
+  },
+  "smoke": {
+    "records": 6,
+    "selection": "first fit and first development record in each family",
+    "GPU": 0,
+    "legacy_device_parent_parity": true,
+    "stored_float16_bytes_reconstruction": true,
+    "budget": {
+      "wall_seconds": 180,
+      "peak_bytes": 8589934592
+    },
+    "quantization_diagnostic": {
+      "input": "same authorized single train truth read after parent hash; no additional truth access",
+      "P_T": "pre-storage normalized float32 parent/truth; scale unchanged",
+      "qP_qT": "actual HDF5 float16 readback converted to float32; then cast to float64 for differences, dot products and norms",
+      "norms": "float64 sums over all selected frames and spatial nodes",
+      "metrics": {
+        "R_native": "norm(T-P)/norm(T)",
+        "R_cached": "norm(qT-qP)/norm(T)",
+        "E_q": "norm((qT-qP)-(T-P))/norm(T)",
+        "E_q_over_R_native": "norm((qT-qP)-(T-P))/norm(T-P)",
+        "residual_cosine": "dot(T-P,qT-qP)/(norm(T-P)*norm(qT-qP))",
+        "qP_field_relative_error": "norm(qP-P)/norm(P)",
+        "qT_field_relative_error": "norm(qT-T)/norm(T)"
+      },
+      "undefined_ratios": "JSON null for zero denominator; raw squared norms retained; no epsilon denominator",
+      "time_bands": {
+        "early": "selected output indices 0..133",
+        "mid": "selected output indices 134..266",
+        "late": "selected output indices 267..400"
+      },
+      "static_features": "actual HDF5 readback bytes equal original static7.astype(float16) bytes",
+      "cheap_rejection_gate": {
+        "scope": "six full records; temporal bands diagnostic only",
+        "E_q_lt": 0.001,
+        "ratio_applies_if_R_native_gte": 1e-05,
+        "E_q_over_R_native_lte": 0.25,
+        "zero_truth": "all zero truth elements must remain exactly zero in qT",
+        "failure_classification": "cache_representation_rejected",
+        "preserve_smoke_artifacts": true
+      },
+      "gate_zero_truth_record": "relative thresholds undefined; explicitly require all qT zero and static bytes exact",
+      "near_zero_bands": "diagnostic only; do not gate temporal bands",
+      "output": "quantization_diagnostics in both smoke role summaries and embedded smoke terminal summaries"
+    }
+  },
+  "audit": {
+    "all_eight_shards": true,
+    "all_summaries_worker_terminals_build_terminal": true,
+    "all_time_finite_order_hash_ledger_summary_scalar_contracts": true,
+    "replay_records": 12,
+    "replay_frames": 2790,
+    "replay_rule": "first two fit and first two development per family",
+    "truth_after_parent_hash": true,
+    "cached_parent_truth_static_bytes_exact": true,
+    "float64_scalar_atol": 1e-12
+  },
+  "disk": {
+    "raw_schema_bytes": 26873547168,
+    "schema_chunk_metadata_summary_progress_atomic_overhead_bytes": 603979776,
+    "predicted_total_bytes": 27477526944,
+    "predicted_GiB": 25.59044113755226,
+    "hard_cache_bytes_max": 30064771072,
+    "free_before_min": "predicted_total_bytes + 40 GiB",
+    "free_after_min": 42949672960
+  },
+  "budgets": {
+    "smoke_wall_seconds": 180,
+    "full_build_wall_seconds": 1800,
+    "audit_wall_seconds": 600,
+    "peak_bytes_per_GPU": 8589934592,
+    "cache_bytes_max": 30064771072,
+    "audit_JSON_bytes_max": 67108864
+  },
+  "output_inventory": {
+    "smoke": [
+      "smoke/smoke_fit_shard_0.h5",
+      "smoke/smoke_fit_shard_0.summary.json",
+      "smoke/smoke_fit_shard_0.progress.json",
+      "smoke/smoke_development_shard_0.h5",
+      "smoke/smoke_development_shard_0.summary.json",
+      "smoke/smoke_development_shard_0.progress.json",
+      "smoke_terminal.json"
+    ],
+    "full_HDF": [
+      "shards/fit_shard_0.h5",
+      "shards/development_shard_0.h5",
+      "shards/fit_shard_1.h5",
+      "shards/development_shard_1.h5",
+      "shards/fit_shard_2.h5",
+      "shards/development_shard_2.h5",
+      "shards/fit_shard_3.h5",
+      "shards/development_shard_3.h5"
+    ],
+    "full_sidecars": {
+      "summary_template": "shards/{role}_shard_{0..3}.summary.json",
+      "progress_template": "shards/{role}_shard_{0..3}.progress.json",
+      "worker_terminal_template": "terminals/worker_{0..3}.json",
+      "worker_identity_template": "identities/worker_{0..3}.json",
+      "worker_log_template": "logs/worker_{0..3}.log"
+    },
+    "stage_terminals": [
+      "launch_supervisor.json",
+      "build_terminal.json",
+      "audit_report.json"
+    ]
+  },
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "CUDA_VISIBLE_DEVICES": "worker_shard_index",
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121",
+    "torch_cuda": "12.1",
+    "cudnn": 8902,
+    "numpy": "1.26.3",
+    "h5py": "3.16.0",
+    "scipy": "1.15.3",
+    "driver": "580.76.05",
+    "gpu": "NVIDIA GeForce RTX 4090 D",
+    "deterministic": false,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "tf32_matmul": false,
+    "tf32_cudnn": false
+  },
+  "paths": {
+    "preregistration": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+    "stage_dir": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage",
+    "master_reference": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/master_reference.json",
+    "dependency_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/dependency_manifest.json",
+    "runtime_report": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json",
+    "runtime_runner": "scripts/gate_r6_anchored_r54_device_runtime.py",
+    "runtime_test": "tests/test_gate_r6_anchored_r54_device_runtime.py",
+    "runtime_master": "results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json",
+    "runtime_dependency_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_dependency_manifest.json",
+    "runtime_preregistration": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_preregistration.json",
+    "R38_manifest": "results/r38_full_coverage_manifest_20260828.json",
+    "R28_manifest": "results/r28_expanded_manifest_20260828.json",
+    "R29B_manifest": "results/r29b_fresh_holdout_manifest_20260828.json",
+    "R6_selection": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
+    "R6_dependencies": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
+    "R6_target": "results/frozen_fine_grid_target_met_r6_20260815.json",
+    "R6_current": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json",
+    "R6_postrun": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/postrun_audit.json",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_manifest": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
+    "marmousi": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+    "reference": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json",
+    "smoke_terminal": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/smoke_terminal.json",
+    "launch_supervisor": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/launch_supervisor.json",
+    "build_terminal": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/build_terminal.json",
+    "audit_output": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_report.json"
+  },
+  "exact_argv": {
+    "smoke": "env -u CUBLAS_WORKSPACE_CONFIG CUDA_VISIBLE_DEVICES=0 python scripts/build_r6_device_residual_cache.py --smoke --preregistration results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json --device cuda:0",
+    "launcher": "env -u CUBLAS_WORKSPACE_CONFIG python scripts/launch_r6_device_residual_cache.py --preregistration results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+    "audit": "env -u CUBLAS_WORKSPACE_CONFIG CUDA_VISIBLE_DEVICES=0 python scripts/audit_r6_device_residual_cache.py --preregistration results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json --output results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_report.json"
+  },
+  "binding_paths": {
+    "builder": "scripts/build_r6_device_residual_cache.py",
+    "launcher": "scripts/launch_r6_device_residual_cache.py",
+    "auditor": "scripts/audit_r6_device_residual_cache.py",
+    "test": "tests/test_r6_device_residual_cache.py",
+    "master_reference": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/master_reference.json",
+    "dependency_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/dependency_manifest.json",
+    "runtime_report": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json",
+    "device_solver": "src/fno_acoustic/data_generation/solver_lwc84_fused_device.py",
+    "legacy_solver": "src/fno_acoustic/data_generation/solver_lwc84_fused.py",
+    "R38_manifest": "results/r38_full_coverage_manifest_20260828.json",
+    "R28_manifest": "results/r28_expanded_manifest_20260828.json",
+    "R29B_manifest": "results/r29b_fresh_holdout_manifest_20260828.json",
+    "R25": "scripts/train_r25_coarse_residual_operator.py",
+    "R26": "scripts/train_r26_tail_spectral_pilot.py",
+    "R54_prereg": "results/r54_scratch_fullpool_preregistration_20260829.json",
+    "R54_terminal": "results/r54_scratch_fullpool_40ep_v2_20260829/terminal.json",
+    "R54_best": "results/r54_scratch_fullpool_40ep_v2_20260829/best.pt",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_manifest": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
+    "marmousi": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+    "R6_current": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json",
+    "R6_dependencies": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
+    "R6_postrun": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/postrun_audit.json",
+    "R6_selection": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
+    "R6_target": "results/frozen_fine_grid_target_met_r6_20260815.json",
+    "runtime_dependency_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_dependency_manifest.json",
+    "runtime_master": "results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json",
+    "runtime_preregistration": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_preregistration.json",
+    "runtime_runner": "scripts/gate_r6_anchored_r54_device_runtime.py",
+    "runtime_test": "tests/test_gate_r6_anchored_r54_device_runtime.py"
+  },
+  "bindings": {
+    "builder": "77d0c9d1dc838dd63d3af64e9492ecbff5ab22daa0e37dafe5193b0a7f34039b",
+    "launcher": "cb8856d8f92af77d16a293ebfde92e2d716a3347f33964bfb6e0aebcae9bcece",
+    "auditor": "5e7efbb02e9978b660cfb9acbf9986a2a49ea83d571473cd8f7980f5644243a7",
+    "test": "c2ac25383dcc17923840b227e6bc2874d9e6921a6b0eefb3656ba08ee5ee5191",
+    "master_reference": "e407d25bde83a96a795738847815dbe31281ebdf80fe5cadd56404267ebad84a",
+    "dependency_manifest": "36e2857297484be777a37a3b4d9c05cf4c5bd74a8af20a123d05e0ff27141431",
+    "runtime_report": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5",
+    "runtime_runner": "eacf8c115c67088b4a74e1acdac2164a21471af384f83d573694e43272ab58b8",
+    "runtime_test": "65eb4305f4a47a48a598c693bc3e20713a4fd43abf403f30b67b00d6510b90f2",
+    "runtime_master": "e75660c6cd7244a277e255ff288198fc64ea26eacc2544b3e81724e15eb2ae0a",
+    "runtime_dependency_manifest": "a2901bf4b40fb43c92cb03b5a7e86886b681c0f46ff361de749da63b1b17d26b",
+    "runtime_preregistration": "8450972abd8ef69d65bee84c5710d1773de7d2215e0a772a3ec8bcafa790f18a",
+    "device_solver": "8e00b75650a021cf52acba047abb0aae7cc779a3593f36249521bc806ff35015",
+    "legacy_solver": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "R38_manifest": "f411c616769d3478701f11dde24114019f44d1d6ee739d24c9a616433897d7e6",
+    "R28_manifest": "5d84f89a596fb88493fc6099b9f5cfec6ee18204511ddee6fa6960211e7dd674",
+    "R29B_manifest": "a350a5d04c32dfffba358577eb28dd96c456892ab696399029aa15f3cf3d42a1",
+    "R6_selection": "8edca614165744138df8b8d4aa35713b7a6df1ed19306b0bedb7747eaeb068a6",
+    "R6_dependencies": "cdc9f45e3fe27464f0718db7aef632cc567a77af812b1ea9cfbd155bd660ab11",
+    "R6_target": "279ff6d92a3058b62c7a0a4985fdf2176af459fad2ba75a3ec64b071585a29a8",
+    "R6_current": "b62823631696f816e2366ddf915a69d9558d2a7a7f8f4f46af559c027ba25eb7",
+    "R6_postrun": "589bfc5760d220efe5e17885db743cd4cf534cf579659623c4fe0ff0330fb752",
+    "R25": "99c56c179a5c294f8d00747965a759b38d4afa3a5fdfc5499288688cce08beed",
+    "R26": "bd88c42db8c46a511fbf9c71bc16b08d95c62a6f1c90fcc10ceb54c75f48102c",
+    "R54_prereg": "f13411b9c5f44a9d8a5da7893ec17df4c08df31da05ed717d314e4aa1bb3d677",
+    "R54_terminal": "d8e757a9b0410e1380e6db0ecf4ee9a9c4d1459ea00d513229b6037bccdb4654",
+    "R54_best": "2a544eac37f4782193d79f512d55786858c85f93658885bedfc43e9d59a0073a",
+    "source_h5": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "source_manifest": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb"
+  },
+  "failure_contract": {
+    "atomic_terminal": true,
+    "input_hashes_before_after": true,
+    "no_overwrite": true,
+    "no_restart": true,
+    "no_kill": true
+  },
+  "promotion_authorized": false,
+  "confirmation_opened": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "smoke_authorized": false,
+  "full_build_authorized": false,
+  "revision": {
+    "version": 2,
+    "date_UTC": "2026-09-05",
+    "original_snapshot_manifest": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/original/snapshot_manifest.json",
+    "binding_paths_added": [
+      "R6_current",
+      "R6_dependencies",
+      "R6_postrun",
+      "R6_selection",
+      "R6_target",
+      "runtime_dependency_manifest",
+      "runtime_master",
+      "runtime_preregistration",
+      "runtime_runner",
+      "runtime_test"
+    ],
+    "changes": "Repair missing binding paths without relaxing checks; smoke-only actual stored f16 quantization diagnostics and cheap record rejection gate."
+  },
+  "rollback_definition": {
+    "path": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
+    "sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947"
+  }
+}

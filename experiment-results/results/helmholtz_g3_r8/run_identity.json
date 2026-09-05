@@ -1,0 +1,49 @@
+{
+  "backbone_learning_rate": 5e-05,
+  "dense_depth": 8,
+  "dense_learning_rate": 0.0001,
+  "dense_modes": 32,
+  "dense_spectral_rank": 112,
+  "epochs": 8,
+  "evaluate_every": 300,
+  "families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "front_end_transfer": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt",
+    "decoder_tensors_left_fresh": 122,
+    "local_field_tensors_left_fresh": 85,
+    "transferred_tensor_count": 112
+  },
+  "heldout_indices": [
+    0,
+    90,
+    330
+  ],
+  "heldout_sample_ids": [
+    "validation_uniform_00000",
+    "validation_layered_00000",
+    "validation_marmousi_00000"
+  ],
+  "helmholtz_frequencies": 64,
+  "helmholtz_rank": 8,
+  "helmholtz_wkb_phase": true,
+  "local_field_learning_rate": 0.0005,
+  "macro_records": 6,
+  "macros_per_update": 1,
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "microbatch_records": 1,
+  "parameter_count": 25818294,
+  "run_digest": "310eeeec5a13ce9215841fdc3f7fda4b66fa94ffbe26ec409e15e89cf4e432a9",
+  "schedule_updates": 2992,
+  "schema": "helmholtz_g3_heldout_v1",
+  "seed": 372,
+  "smoke_updates": 0,
+  "train_record_count": 2240,
+  "training_frames_per_record": 16,
+  "validation_frames_per_record": 32,
+  "warmstart_frontend": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/warp_r1/run/best.pt",
+  "width": 128
+}

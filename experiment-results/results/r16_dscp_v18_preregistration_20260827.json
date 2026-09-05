@@ -1,0 +1,55 @@
+{
+ "schema": "r16_dscp_v18_preregistration_v1",
+ "candidate": "r16_dscp_v18_wide128_alldata",
+ "frozen_utc": "2026-08-27T03:55:00Z",
+ "authorization": "lead directive 2026-08-27 03:4x: '开始,扩展到所有数据' following the v17 budget-falsification report; earlier standing directives: long training carries final accuracy, no memory engineering.",
+ "hypothesis": "the wide128 recipe is DATA-limited, not budget-limited (v17): expanding fit from 192 to all 2165 routed-family train records lifts confirm joint gain beyond the v16/v17 plateau (+0.0203). r4e13 monotonicity (24:-0.033 / 96:+0.014 / 192:+0.023) is the backing evidence.",
+ "panel_v2": {
+  "path": "results/r16_dscp_v18_panels_v2.json",
+  "sha256": "d0213d5bd47518c63be9e4e8f5d0396d5dafc37b480711accc8add3a8f70d117",
+  "fit2": {"total": 2165, "layered": 1095, "marmousi": 675, "uniform": 395},
+  "confirm": "v1 long_calibration 24 verbatim",
+  "rule": "fit2 = all train records of the three routed families minus every v1 confirm/smoke reservation (pilot_confirm, long_calibration, final_train_confirm, smoke); anomaly family excluded (no route/basis in this line); deterministic lexicographic, no sampling",
+  "abstain_policy": "a fit2 record whose deployment routing abstains or exceeds CONDITION_MAXIMUM is SKIPPED and listed in the terminal (v16 build refused instead; skipping is required because fit2 was never routing-screened). A confirm abstain is still a refusal."
+ },
+ "storage": {
+  "scheme": "per-rank in-process build, fp16 CPU-resident bundles in anonymous RAM, no shard files (145GB total does not fit /dev/shm or disk; cgroup 240GiB holds it)",
+  "shards": "WORLD_SHARDS=4, rank r builds and holds partition r (sorted ids, index%4), ~541 fit + ~6 confirm each, ~36GB/rank",
+  "precision_disclosure": "bundles stored fp16, all compute after load casts to fp32. Confirm metrics carry ~1e-4 relative loading noise versus the fp32 v16/v17 chain; thresholds are unchanged and this noise is immaterial at the 0.005-0.01 gate scale.",
+  "build_cost_estimate": "~2165 x 15.8 GPU-s / 4 = ~2.4h one-time; NCCL timeout raised to 6h to cover it"
+ },
+ "arms_order_fixed": ["A_data", "B_data_hinge"],
+ "arms": {
+  "A_data": {"hinge": {"enabled": false, "lam": 0.0, "margin": 0.0},
+             "role": "primary; pure data-scaling attribution"},
+  "B_data_hinge": {"hinge": {"enabled": true, "lam": 1.0, "margin": 0.02},
+                   "role": "secondary; r4e14 C-arm configuration, provenance = post-hoc observation (joint >= control on all 6 snapshots, uniform flipped positive), preregistered here for confirmation. Same bundles, cold start, same seed."}
+ },
+ "plan": {
+  "fit_role": "fit2", "eval_role": "confirm",
+  "updates_per_epoch": 1536, "max_epochs": 100, "patience": 12,
+  "arm_train_wall_s": 7200.0, "total_wall_s": 21600.0,
+  "sampling": "shuffled_epochs over the rank's own partition, generator seed SEED+rank (v16 long_ddp4 scheme verbatim)",
+  "optimizer": "AdamW lr 3e-3 constant, betas (0.9,0.99), wd 1e-4, clip 1.0, seed 372, cold start per arm",
+  "monitor": "mean confirm calibration loss; best.pt per arm by monitor"
+ },
+ "gates_per_arm": {
+  "joint_improvement": 0.01,
+  "per_family_improvement": 0.005,
+  "nonworse_tolerance": 0.01,
+  "nonworse_min_count": 24,
+  "worst_harm_floor": -0.02
+ },
+ "readouts": {
+  "data_hypothesis": "on A_data final: joint >= 0.03 strong confirmation; 0.0203 < joint < 0.03 partial (data helps, sublinear); joint <= 0.0203 data-scaling FALSIFIED at this scale",
+  "hinge_readout": "B versus A on harm count, nonworse count, worst_harm, joint; B is confirmatory for the r4e14 post-hoc observation"
+ },
+ "threshold_provenance": "gates inherited verbatim from the frozen v17 preregistration (tolerance redefinition disclosed there); readout boundaries 0.0203/0.03 fixed from the v16/v17 measured plateau and its +-0.003 oscillation band, frozen before any v18 scoring",
+ "failure_signal": "any gate fails on A_data -> fail_gate accounting; A joint <= 0.0203 -> data hypothesis falsified",
+ "kill_switch": "non-finite loss/grad refusal; vram gate 8GiB; per-rank build RSS logged, SIGKILL risk acknowledged at 240GiB cgroup; total wall 21600s",
+ "rollback": "artifacts only under results/r16_dscp_v18/; parent 448035bd sha-checked before/after; frozen v16/v17 chains and their preregs untouched; /dev/shm v16 shards untouched",
+ "truth_scope": "train split only, allowlisted to fit2+confirm; validation/test_id sealed",
+ "parent_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+ "v17_prereg_sha256": "fac4531a16a76d9c22e475b8e2de2aa01a433e1d17b5a08b147b17e36a087cf6",
+ "runner": "scripts/run_v18_alldata_ddp4.py"
+}

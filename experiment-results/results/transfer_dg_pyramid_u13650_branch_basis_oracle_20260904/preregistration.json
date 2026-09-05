@@ -1,0 +1,66 @@
+{
+  "schema": "transfer_dg_pyramid_branch_basis_oracle_preregistration_v1",
+  "candidate": "transfer_dg_pyramid_u13650_branch_basis_oracle_20260904",
+  "claim_scope": "Train-only oracle capacity diagnostic on one development Marmousi record. Future truth deliberately selects coefficients only to measure the correction span; the coefficients are forbidden for online adaptation or deployment.",
+  "hypothesis": "If the 63-dimensional learned branch-trunk pressure span is adequate and only the two-frame online objective is misaligned, a full-401 train-truth oracle solve inside the identical span will reduce future-field relative L2 by at least 1% under the same 5% correction-ratio cap.",
+  "expected_mechanism": "The oracle removes online-objective ambiguity and measures whether the learned branch-trunk modes themselves contain a future-error-aligned direction.",
+  "primary_metric": "Trust-capped oracle future-field relative-L2 improvement over the unadapted update-13650 prediction.",
+  "acceptance": {
+    "minimum_trust_capped_future_relative_improvement": 0.01,
+    "interpretation_if_pass": "retain the basis and redesign or meta-learn the online coefficient objective",
+    "interpretation_if_fail": "reject branch-trunk contributions as the sole correction basis and learn a future-error basis offline"
+  },
+  "failure_signal": "Reject the diagnostic on binding drift, non-finite output, effective-rank failure, non-train truth, process failure, or any validation/test_id access.",
+  "compute_budget": {
+    "device": "cpu",
+    "threads": 16,
+    "record_count": 1,
+    "wall_seconds_max": 3600,
+    "new_disk_bytes_max": 16777216
+  },
+  "data": {
+    "split": "train",
+    "family": "marmousi",
+    "sample_id": "train_marmousi_00260",
+    "sample_sha256": "7e37dfeb4a46a94d5573bd0edc7f44fdd7d581257ded6088e07667841d7d234a",
+    "role": "development_after_single-record_smoke",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "checkpoint_update": 13650,
+    "checkpoint_training_complete": false
+  },
+  "oracle": {
+    "basis": "same Gram-whitened branch-trunk span used by the failed two-onset Transfer-DG smoke",
+    "basis_relative_tolerance": 1e-06,
+    "objective": "weighted leading-64-bin coefficient error from complete train truth",
+    "relative_ridge": 1e-08,
+    "trust_ratio_cap": 0.05,
+    "future_truth_used": true,
+    "deployment_candidate": false
+  },
+  "literature_basis": [
+    "https://arxiv.org/abs/2308.12208",
+    "https://arxiv.org/abs/2512.17969",
+    "https://arxiv.org/abs/2604.03449",
+    "https://arxiv.org/abs/2608.07053"
+  ],
+  "bindings": {
+    "diagnostic_sha256": "d41c34340839d1ccfcbadacccb433f0ead4cad1aed83740503cf036f32dadf5c",
+    "integration_runner_sha256": "41ba67dfd7d56ff14737edca34dae93bae3851839a41a5c7df47f15b62b385dc",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "candidate_checkpoint_sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "allowed_files": [
+    "scripts/diagnose_transfer_dg_pyramid_basis_oracle_cpu.py",
+    "results/transfer_dg_pyramid_u13650_branch_basis_oracle_20260904/preregistration.json",
+    "results/transfer_dg_pyramid_u13650_branch_basis_oracle_20260904/run/*"
+  ],
+  "rollback": "This diagnostic does not change the parent or any adapter. Preserve all checkpoints and discard oracle coefficients after reporting span capacity.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

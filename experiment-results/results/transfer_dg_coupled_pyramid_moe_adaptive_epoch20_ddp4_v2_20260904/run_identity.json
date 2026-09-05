@@ -1,0 +1,101 @@
+{
+  "base_family_weights": {
+    "anomaly": 1.25,
+    "layered": 0.625,
+    "marmousi": 1.0,
+    "uniform": 1.6666666666666667
+  },
+  "control_probe_sample_ids": {
+    "anomaly": [
+      "train_anomaly_00220",
+      "train_anomaly_00256",
+      "train_anomaly_00413",
+      "train_anomaly_00491",
+      "train_anomaly_00021",
+      "train_anomaly_00536",
+      "train_anomaly_00186",
+      "train_anomaly_00548"
+    ],
+    "layered": [
+      "train_layered_00767",
+      "train_layered_01105",
+      "train_layered_00558",
+      "train_layered_00760",
+      "train_layered_01066",
+      "train_layered_00864",
+      "train_layered_00138",
+      "train_layered_00720"
+    ],
+    "marmousi": [
+      "train_marmousi_00377",
+      "train_marmousi_00449",
+      "train_marmousi_00349",
+      "train_marmousi_00060",
+      "train_marmousi_00265",
+      "train_marmousi_00166",
+      "train_marmousi_00017",
+      "train_marmousi_00650"
+    ],
+    "uniform": [
+      "train_uniform_00090",
+      "train_uniform_00387",
+      "train_uniform_00029",
+      "train_uniform_00254",
+      "train_uniform_00214",
+      "train_uniform_00051",
+      "train_uniform_00166",
+      "train_uniform_00182"
+    ]
+  },
+  "control_probe_selection_sha256": "caff174f79cabb731ceab8c3af33ca33c2258265d9362e9e3b4e6e8a267bccea",
+  "controller": {
+    "action": "family-by-frequency-block loss multiplier only",
+    "architecture_changed": false,
+    "ema_beta": 0.8,
+    "feedback_metric": "mean normalized spectral energy error per family-frequency cell",
+    "gain": 0.08,
+    "max_multiplier": 2.0,
+    "max_step_ratio": 1.1,
+    "min_multiplier": 0.5,
+    "objective": "0.5 * mean cell relative error + 0.5 * worst cell relative error",
+    "optimizer_changed": false,
+    "probe_namespace": "pyramid-moe-adaptive-v1",
+    "probe_record_count": 32,
+    "probe_records_per_family": 8,
+    "probe_selection_sha256": "caff174f79cabb731ceab8c3af33ca33c2258265d9362e9e3b4e6e8a267bccea",
+    "sampling_schedule_changed": false,
+    "schema": "bounded_full_information_family_frequency_controller_v1",
+    "updates_per_epoch": 1,
+    "worst_weight": 0.5
+  },
+  "controller_first_update_epoch": 21,
+  "controller_sha256": "480af0d1667b5ad9b0840a2b5da3a467ebff52266f6987c1920403bffa0c761e",
+  "epochs": 100,
+  "family_counts": {
+    "anomaly": 560,
+    "layered": 1120,
+    "marmousi": 700,
+    "uniform": 420
+  },
+  "frequency_block": 8,
+  "frequency_count": 64,
+  "manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+  "model": "PyramidMoECoupledWaveOperator",
+  "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+  "optimizer": "Muon+AdamW",
+  "parameter_count": 25784099,
+  "record_count": 2800,
+  "records_per_epoch": 2800,
+  "resume": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/parent_snapshot.pt",
+  "resume_epoch": 20,
+  "resume_next_step": 350,
+  "resume_sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862",
+  "resume_update": 13650,
+  "schema": "transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4_identity_v1",
+  "steps_per_epoch": 700,
+  "test_id_opened": false,
+  "total_updates": 70000,
+  "trainer_sha256": "e048b1aa654ab3be284ead9a7ed77954eb4c3e5dfaf798c43a6dcba8809bdcf3",
+  "validation_opened": false,
+  "world_size": 4
+}

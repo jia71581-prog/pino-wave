@@ -1,0 +1,62 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_pbg_residual_source_r29_long_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_long_pbg_residual_marmousi_source_holdout",
+  "hypothesis": "A zero-initialized 96-bin WKB residual trained on truth-P_bg will improve independent same-medium Marmousi source confirmation by at least 20% over the fixed current-manifest P_bg baseline within 2000 updates, while preserving fit and calibration nonworse behavior.",
+  "expected_mechanism": "The fixed LWC84 background provides source-aware phase, onset and causality at 0.134-0.174 held-out error. The learned branch only needs the smaller heterogeneous scattering correction and starts from exact abstention.",
+  "literature_basis": "Hybrid numerical-neural correction is the highest-ranked project hypothesis after source-mapper failures. The coarse solve separates physical propagation from learned fine-scale closure.",
+  "single_conceptual_variable": {
+    "name": "learned_scattering_residual_on_fixed_pbg",
+    "control": "fixed manifest-bound P_bg only",
+    "candidate": "P_bg plus zero-init learned truth-P_bg residual",
+    "held_constant": "current source data, sigma-2 cache, source panels, r20 front-end, 96-bin WKB head, frequency gate, optimizer, learning rates, seed and metric"
+  },
+  "panels": {
+    "fit": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_marmousi_00003"],
+    "confirmation": ["train_marmousi_00004"],
+    "confirmation_truth_access": "opened once after checkpoint selection is frozen",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "all-saved confirmation relative L2 versus fixed P_bg baseline",
+  "acceptance": {
+    "confirmation_relative_improvement_min": 0.20,
+    "confirmation_pbg_baseline": 0.17360634006008652,
+    "confirmation_relative_l2_max_for_advancement": 0.13888507204806923,
+    "fit_pbg_baseline": 0.17466322901759648,
+    "calibration_pbg_baseline": 0.13425537873750573,
+    "fit_and_calibration_regression_tolerance": 0.05,
+    "strong_absolute_gate": 0.05
+  },
+  "failure_signal": "Reject if confirmation improves by less than 20%, fit or calibration regresses more than 5%, predicted scattering remains near zero, or any non-finite/OOM/cache/binding/resource failure occurs.",
+  "optimization": {
+    "updates_max": 2000,
+    "evaluate_every": 200,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "wall_time_max_minutes": 30,
+    "peak_cuda_bytes_max": 4294967296,
+    "checkpoint_storage_gib_max": 1.3
+  },
+  "bindings": {
+    "cache": "artifacts/pbg_sigma2_current_marm_source5_20260824.h5",
+    "cache_sha256": "b3c1c43a72d35099076ba52fb55f2b7756ae82233043fabd6cfd8da842ba9da1",
+    "cache_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "parent_checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "training_script_sha256": "f6fb5f35a093822e66b4339f4f07530c8d967c9f114bd50c99bbd57ef072618d",
+    "smoke_terminal_sha256": "697c3e3894e44fec815cee44703af32e4aefbfe04d605dce3d04de86c15dea34"
+  },
+  "rollback": "Preserve P_bg, r20 and r29 artifacts. Do not open validation/test_id or tune cache sigma from this run.",
+  "command": "bash runs/0824-wkb96-pbg-residual-r29/run_long.sh"
+}

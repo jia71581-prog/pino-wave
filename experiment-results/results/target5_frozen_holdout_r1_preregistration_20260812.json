@@ -1,0 +1,68 @@
+{
+  "schema": "target5_frozen_holdout_preregistration_v1",
+  "status": "registered_before_truth_generation",
+  "registered_utc_date": "2026-08-12",
+  "objective": {
+    "maximum_aggregate_relative_l2": 0.05,
+    "maximum_each_family_relative_l2": 0.05,
+    "minimum_mean_end_to_end_speedup_vs_fastest_synchronized_lwc84": 10.0,
+    "minimum_p95_end_to_end_speedup_vs_fastest_synchronized_lwc84": 10.0,
+    "online_instance_finetune_device": "cpu"
+  },
+  "opening_policy": {
+    "model_and_risk_policy_frozen_before_validation_generation": true,
+    "validation_generated_before_test_id": true,
+    "test_id_generation_requires_complete_validation_gate": true,
+    "partial_metric_reads_forbidden": true,
+    "legacy_test_id_excluded_from_promotion": true
+  },
+  "holdout_contract": {
+    "manifest_sha256": "03616b9ee22dbaef38bf68f419e22060ce087bc63002bb3da82fbc6bd4d17f7c",
+    "manifest_path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_target5_frozen_r1/manifest.jsonl",
+    "validation_ordered_sample_ids_sha256": "28867eb08650a54608acf751f710168a0a86a9a571d38ec365f91aff618f774d",
+    "test_id_ordered_sample_ids_sha256": "b0720385441bb898c13668d38e7055dea15d1f83042f6a80fc36ba34a8128735",
+    "all_ordered_sample_ids_sha256": "d654a1a505e5551383a67b0909610a3d7675bb3d44864a2e2595d8c2d213208c",
+    "per_split_record_count": 480,
+    "per_split_family_record_count": {
+      "uniform": 90,
+      "layered": 240,
+      "marmousi": 150
+    },
+    "same_saved_grid_time_and_cpml_protocol": true,
+    "pretruth_historical_overlap_intersections": {
+      "sample_id": 0,
+      "group_id": 0,
+      "semantic_group_sha256": 0,
+      "problem_sha256": 0
+    },
+    "validation_test_id_internal_intersections": {
+      "sample_id": 0,
+      "group_id": 0,
+      "semantic_group_sha256": 0,
+      "problem_sha256": 0
+    },
+    "postgeneration_sample_sha256_audit_required": true
+  },
+  "frozen_inputs": {
+    "generator_config_path": "configs/datasets/acoustic_lwc84_target5_frozen_validation_r1.yaml",
+    "generator_config_sha256": "39de10baee4c2862f71032d68e68539f3f5cb9db993ddac83cbbc1d83a7aab4a",
+    "frozen_config_sha256": "ec7e9c283fe2b5ba1ec37e8f819b5528d78814f3400a89c7130e1fc69fb6b764",
+    "pretruth_audit_sha256": "9ef43bfe5fdc41d4cca494904a32ce4a62a9772551683017a7e76d7079fb649a",
+    "internal_split_audit_sha256": "5e4c88e311628d939a5db34c73f377f35ddfdffe3ef20885cb94f35c9d27ca72",
+    "plan_summary_sha256": "17cc7f0dbbef809ebe76ddfaf49352e9e447ee687315ead5e9404ce863d1993a",
+    "manifest_generator_sha256": "31ba2bba044d76dbf871c106b98e0c6cb1fb26964537136e7227d2828dc46e7b",
+    "holdout_audit_sha256": "891552e5bce4eb38074fe1661e3787a47049c6d67225929d97520420ab341af9",
+    "pipeline_sha256": "f16e1b0f0e9244b896bd5120da256de62e93636faf4600416f994c32254566bd",
+    "launcher_sha256": "3a32d794cef7fe94017eeb96652566b67b9937a911ad2ca6591078250ffb7d3a",
+    "legacy_loader_compatibility_sha256": "8b12d2defb15a6fb0468ace766a3c726a50fc8ba7040facadfd5444ac1746340",
+    "parent_loader_sha256": "24d23895bc50b023db9e656406ed57fccac7ec3e58537b9ad63a88c587b99909",
+    "cpadc_dataset_contract_sha256": "aecbda50481ec85a9689662d32939d283117250af291b45d31ee81711e647edc",
+    "cpadc_evaluator_sha256": "a7212bd4ca6b9801fd8b9735b5786aaccda4c49fe5bd9fbcb4f8d5bd321b2426",
+    "supervisor_sha256": "be1dcab081908be5e52f264f95d6ab39f0df04ef3a1c6a0b26604c31921c38ab"
+  },
+  "truth_generation_state": {
+    "validation_shards_exist": false,
+    "test_id_shards_exist": false,
+    "future_truth_opened_by_evaluator": false
+  }
+}

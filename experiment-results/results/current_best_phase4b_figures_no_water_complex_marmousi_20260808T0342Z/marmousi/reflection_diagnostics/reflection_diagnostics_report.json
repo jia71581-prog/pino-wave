@@ -1,0 +1,75 @@
+{
+  "background_to_target_relative_l2": 0.10228471266840153,
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "definition": {
+    "correction_error": "predicted_correction - true_scattering",
+    "predicted_correction": "p_prediction - P_bg",
+    "true_scattering": "p_true - P_bg"
+  },
+  "display_absolute_percentile": 99.5,
+  "outputs": {
+    "diagnostic_data": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/reflection_diagnostics/marmousi_reflection_diagnostics_data.npz",
+    "scattered_receiver_gather": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/reflection_diagnostics/marmousi_scattered_receiver_gather.png",
+    "scattered_receiver_waveforms": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/reflection_diagnostics/marmousi_scattered_receiver_waveforms.png",
+    "scattered_wavefield_snapshots": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/reflection_diagnostics/marmousi_scattered_wavefield_snapshots.png"
+  },
+  "per_snapshot": [
+    {
+      "frame_index": 60,
+      "predicted_correction_to_true_scattered_l2_ratio": 6.988584063165626e-06,
+      "scattered_field_relative_l2": 0.99999896598535,
+      "time_s": 0.15000000596046448,
+      "true_scattered_to_total_l2_ratio": 0.00924173727233589,
+      "true_scattered_to_total_peak_ratio": 0.013180423341111011
+    },
+    {
+      "frame_index": 128,
+      "predicted_correction_to_true_scattered_l2_ratio": 2.89085701270335e-06,
+      "scattered_field_relative_l2": 0.999999977831036,
+      "time_s": 0.3199999928474426,
+      "true_scattered_to_total_l2_ratio": 0.05611148185337734,
+      "true_scattered_to_total_peak_ratio": 0.07903953702166117
+    },
+    {
+      "frame_index": 196,
+      "predicted_correction_to_true_scattered_l2_ratio": 2.9136199627356084e-06,
+      "scattered_field_relative_l2": 0.9999998702912065,
+      "time_s": 0.49000000953674316,
+      "true_scattered_to_total_l2_ratio": 0.08695826586252403,
+      "true_scattered_to_total_peak_ratio": 0.10436142170130641
+    },
+    {
+      "frame_index": 264,
+      "predicted_correction_to_true_scattered_l2_ratio": 3.609719571305531e-06,
+      "scattered_field_relative_l2": 0.9999998608921956,
+      "time_s": 0.6600000262260437,
+      "true_scattered_to_total_l2_ratio": 0.11919425466324317,
+      "true_scattered_to_total_peak_ratio": 0.1465729724524657
+    },
+    {
+      "frame_index": 332,
+      "predicted_correction_to_true_scattered_l2_ratio": 3.891474437747399e-06,
+      "scattered_field_relative_l2": 0.9999999676709105,
+      "time_s": 0.8299999833106995,
+      "true_scattered_to_total_l2_ratio": 0.16197376127673738,
+      "true_scattered_to_total_peak_ratio": 0.13653602533858916
+    },
+    {
+      "frame_index": 400,
+      "predicted_correction_to_true_scattered_l2_ratio": 7.329490742844486e-06,
+      "scattered_field_relative_l2": 1.0000001013258755,
+      "time_s": 1.0,
+      "true_scattered_to_total_l2_ratio": 0.36196754101563394,
+      "true_scattered_to_total_peak_ratio": 0.35246996610498993
+    }
+  ],
+  "receiver_predicted_correction_to_true_scattered_l2_ratio": 7.541670168616172e-06,
+  "receiver_scattered_field_relative_l2": 1.0000001900378541,
+  "receiver_true_scattered_to_total_l2_ratio": 0.04844379260164281,
+  "schema": "phase4b_reflection_diagnostics_v1",
+  "source_plotted_data": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/marmousi_plotted_data.npz",
+  "source_render_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/render_report.json",
+  "source_sample_h5": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_no_water_marmousi_assets_20260808T0338Z/no_water_complex_marmousi_x5100_z1800_f15.h5",
+  "status": "complete"
+}

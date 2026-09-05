@@ -1,0 +1,126 @@
+{
+  "schema": "transfer_dg_parent_anchored_block32_training_preregistration_v2",
+  "candidate": "transfer_dg_parent_anchored_block32_r2_20260904",
+  "claim_scope": "Train-only block-32 architecture pilot from the latest persisted parent checkpoint. Validation and test_id remain sealed.",
+  "hypothesis": "A bounded parent-anchored block-32 residual corrector with two-frame residual history will improve exact full-401 group-disjoint train-confirmation future relative L2 by at least 5% over the immutable epoch-24/step-350/update-16450 pyramid parent, with no family regression.",
+  "expected_mechanism": "Joint 32-frame prediction learns local phase/amplitude closure; a detached pushforward block exposes generated-state inputs; every block is re-anchored to the frozen frequency-parent trajectory.",
+  "literature_basis": [
+    "https://arxiv.org/abs/2202.03376",
+    "https://openreview.net/forum?id=Qv6468llWS",
+    "https://arxiv.org/abs/2602.18801",
+    "https://arxiv.org/abs/2607.29135",
+    "https://arxiv.org/abs/2606.10868"
+  ],
+  "parent": {
+    "checkpoint": "results/transfer_dg_parent_anchored_block32_r2_20260904/parent_epoch24_step350_u16450.pt",
+    "checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "epoch": 24,
+    "next_step": 350,
+    "update": 16450,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "cache": {
+    "path": "results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5",
+    "sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "record_count": 136,
+    "contains_future_truth": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "data": {
+    "split": "train",
+    "record_count": 136,
+    "role_counts": {
+      "fit": 68,
+      "calibration": 34,
+      "confirmation": 34
+    },
+    "unique_group_count": 64,
+    "same_role_multi_source_groups_allowed": true,
+    "cross_role_group_overlap_count": 0,
+    "family_counts": {
+      "uniform": 32,
+      "layered": 32,
+      "anomaly": 32,
+      "marmousi": 40
+    },
+    "truth_access": "Exact float32 train wavefield slices only during offline optimization and post-prediction train metrics.",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "model": {
+    "class": "ParentAnchoredBlockCorrector",
+    "block_size": 32,
+    "history_frames": 2,
+    "condition_channels": 9,
+    "width": 32,
+    "spectral_rank": 16,
+    "modes": 16,
+    "depth": 4,
+    "parameter_count": 91396,
+    "maximum_correction_ratio": 0.5,
+    "boundary_blend_frames": 4,
+    "zero_initialized_output": true,
+    "hard_free_surface": true,
+    "full_trajectory_corrector_calls": 13,
+    "deployment_future_truth_inputs": 0
+  },
+  "training": {
+    "seed": 372,
+    "epochs": 12,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.000001,
+    "eta_ratio": 0.01,
+    "gradient_clip_norm": 1.0,
+    "rollout_blocks": 2,
+    "detached_pushforward_blocks": 1,
+    "derivative_weight": 0.1,
+    "spectral_weight": 0.1,
+    "nonworse_weight": 0.3,
+    "correction_weight": 0.01,
+    "spectral_floor_fraction": 0.005,
+    "evaluation_device": "cpu",
+    "cpu_inference_threads": 16,
+    "selection_metric": "34-record train-calibration exact full-401 future relative L2",
+    "validation_during_training": false,
+    "test_id_during_training": false
+  },
+  "acceptance": {
+    "primary_metric": "34-record group-disjoint train-confirmation exact full-401 future relative L2",
+    "minimum_confirmation_improvement_fraction": 0.05,
+    "maximum_family_regression_ratio": 1.0,
+    "runtime_gate": "Reject before validation if measured parent plus corrector runtime cannot plausibly preserve 10x end-to-end speedup."
+  },
+  "smoke": {
+    "max_updates": 1,
+    "required_finite_loss": true,
+    "required_finite_gradient": true,
+    "required_checkpoint": true,
+    "required_validation_closed": true,
+    "required_test_id_closed": true
+  },
+  "compute_budget": {
+    "gpu_count": 1,
+    "wall_seconds_max": 21600,
+    "new_disk_bytes_max": 1073741824
+  },
+  "failure_signal": "Stop on hash drift, cross-role group overlap, split mismatch, non-finite loss or gradient, correction-cap violation, OOM, missing checkpoint, less than 5% confirmation gain, family regression, or any validation/test_id access.",
+  "supersedes_failed_smoke": {
+    "path": "results/transfer_dg_parent_anchored_block32_r2_20260904/train_smoke_u1",
+    "failure": "The v1 loader incorrectly rejected multiple source records from one group even when all belonged to the same role.",
+    "parameter_updates": 0,
+    "fix": "Permit same-role multi-source records and reject only groups crossing fit/calibration/confirmation roles."
+  },
+  "rollback": "Preserve the parent and all prior artifacts; omit the additive corrector if this candidate fails.",
+  "bindings": {
+    "trainer_sha256": "4f1c02d628997c70951933dda56acee91d6ff5c33c4a7fd221c280bb19d0c309",
+    "corrector_sha256": "d64135eb892878f72c7275a84eea2dc99a078326f0a25e5e7c8f7223803adaa3",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "parent_checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e"
+  },
+  "validation_opened": false,
+  "test_id_opened": false
+}

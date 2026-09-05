@@ -1,0 +1,148 @@
+{
+  "schema": "transfer_dg_a1_boundary_halo_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-09-02T07:01:26Z",
+  "method": "Transfer DG",
+  "stage": "A1_boundary_halo",
+  "claim_scope": "train_only_paired_boundary_propagation_ablation",
+  "hypothesis": "Replacing the periodic latent spectral transform with the generator-matched odd-top and zero-side/bottom halo, while enforcing the exact pressure-release output boundary, improves the paired two-seed weighted three-window relative L2 beyond an otherwise identical no-halo continuation.",
+  "mechanism": "The padded transform removes the artificial top-bottom and left-right periodic wrap seen by every recurrent spectral step; the hard output projection enforces p(z=0)=0 exactly.",
+  "single_conceptual_variable": {
+    "halo": {
+      "boundary_halo_radius": 20,
+      "hard_free_surface": true
+    },
+    "control": {
+      "boundary_halo_radius": 0,
+      "hard_free_surface": true
+    },
+    "shared_parameter_schema": true,
+    "shared_parameter_count": 480967
+  },
+  "literature_basis": [
+    {
+      "work": "Render unto Numerics: Orthogonal Polynomial Neural Operator for PDEs with Non-periodic Boundary Conditions",
+      "url": "https://arxiv.org/abs/2206.12698",
+      "use": "boundary-matched spectral representation and exact boundary satisfaction"
+    },
+    {
+      "work": "On energy stable discontinuous Galerkin spectral element approximations of the perfectly matched layer for the wave equation",
+      "url": "https://arxiv.org/abs/1802.06388",
+      "use": "physical boundary/interface treatment must remain compatible with absorbing layers"
+    }
+  ],
+  "lanes": [
+    {
+      "gpu": 0,
+      "arm": "halo",
+      "seed": 372,
+      "parent": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt"
+    },
+    {
+      "gpu": 1,
+      "arm": "halo",
+      "seed": 733,
+      "parent": "results/pa_cora_p1b_curriculum_s733_20260902/best.pt"
+    },
+    {
+      "gpu": 2,
+      "arm": "control",
+      "seed": 372,
+      "parent": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt"
+    },
+    {
+      "gpu": 3,
+      "arm": "control",
+      "seed": 733,
+      "parent": "results/pa_cora_p1b_curriculum_s733_20260902/best.pt"
+    }
+  ],
+  "hyperparameters": {
+    "epochs": 8,
+    "steps_per_epoch": 120,
+    "total_updates": 960,
+    "micro_records": 4,
+    "learning_rate": 0.00005,
+    "schedule": "cosine_to_5e-7",
+    "weight_decay": 0.000001,
+    "gradient_clip": 1.0,
+    "gate_frozen": true,
+    "slot_weights": [
+      0.6,
+      0.25,
+      0.15
+    ],
+    "denominator_floor_fraction": 0.25,
+    "spectral_weight": 0.1,
+    "batch_stratification": "round-robin family x f0-bin with within-stratum random source"
+  },
+  "primary_metric": "two-seed mean of 0.60*slot0_aggregate + 0.25*slot1_aggregate + 0.15*slot2_aggregate on the aligned group-disjoint train holdout",
+  "primary_gate": "halo mean best score must be strictly below both paired no-halo control mean best score and hard-boundary P1b parent mean score; no minimum percentage",
+  "secondary_reports": [
+    "per-seed paired differences",
+    "slot aggregates",
+    "per-family",
+    "temporal bands",
+    "frequency bands",
+    "correction energy",
+    "runtime"
+  ],
+  "failure_signal": "halo fails either strict paired mean comparison, a lane becomes nonfinite/OOM, a binding drifts, or any validation/test future field is opened",
+  "compute_budget": {
+    "gpus": 4,
+    "gpu_type": "NVIDIA 24GiB class",
+    "maximum_updates_per_lane": 960,
+    "smoke_peak_allocated_mib": 15949.5,
+    "smoke_micro_records": 4
+  },
+  "bindings": {
+    "trainer_sha256": "2d6fb11660f8e3bcf930ffa903197705a456bd60798320ed07d305659dc9a682",
+    "runner_sha256": "60a0a3ccafb5ac7897a4302ca7d0bca59108b93d91bd9b64193dfed2a4c5925e",
+    "summarizer_sha256": "4151e3519290e644f45e7f63a5f10ff58bffbc453b64a585b1e70717cedc537a",
+    "code_sha256": {
+      "scripts/train_pa_cora_p1b_curriculum.py": "f6b5a3a7488b0213c9caae688061c35006af2427bb7ef82f3dd25592ec46f9ab",
+      "scripts/train_b2_snapshot_ic.py": "0541e1cb1897e701d7842cb1afc5b16f2c4a2e65294d6b7ec5e2b03f414b5422",
+      "saved_time_phase_operator_v4/spectral.py": "d24f1b7ebc292e1458fa6a21c8674eb522287d8d646041ce5f207ba69c3f9dff",
+      "saved_time_phase_operator_v4/propagator.py": "95c713804af03840ca6f8bfdc82f86bc7a2203ca88e720a1e40e8d033fa42b79",
+      "saved_time_phase_operator_v4/boundary_consistency.py": "5ad2be0aa161d48739ec1259c83ac3674c43828ba09bc4e33a29948c27d520d4"
+    },
+    "test_sha256": {
+      "tests/saved_time_phase_operator_v4/test_transfer_dg_a1_boundary_halo.py": "2bc76d47d4b22e6fa78f2459c6977a2c45d0eba760d436cfe24126e5ecf56ec9",
+      "tests/saved_time_phase_operator_v4/test_spectral.py": "994b7a78ece6c6022075200f68fefd8a7c8951c076bfb05355525bf363c1618b"
+    },
+    "checkpoint_sha256": {
+      "results/pa_cora_p1b_curriculum_s372_20260902/best.pt": "5d14b93cffc1324406b531b6b2d4a7eea06d9aab57537bb7f4612fea302808d3",
+      "results/pa_cora_p1b_curriculum_s733_20260902/best.pt": "f8bdf647570b22896d24ca3b59161ab0bbc44f369a86a7382a373905c263ceee"
+    },
+    "fit_manifest_sha256": {
+      "results/b2_v9_parent_fit_manifest_240rec_20260901.json": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+      "results/pa_cora_p1_fit_slot1.json": "519e0e3a833f99015ab98fc422cb5bdaa22adc374148eebc0335b39f74acef51",
+      "results/pa_cora_p1_fit_slot2.json": "edbda3411d464f830f15f1a15a9b479265e84d9de21df0a9d483985749e14945"
+    },
+    "fit_cache_sha256": {
+      "results/b2_v9_parent_fit_cache_240rec_20260901.h5": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171",
+      "results/pa_cora_p1_fit_slot1.h5": "55eb46945f9bbd9eb9148f24b820e7450fd97f1e2d9c5ca8ef28ff5dab823448",
+      "results/pa_cora_p1_fit_slot2.h5": "70fb628fa0e93c353da5907620388ec0c13ae511ba78a77ab51d34d4a617f916"
+    },
+    "holdout_manifest_sha256": {
+      "results/b2_v9_parent_holdout_manifest_24rec_20260901.json": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa"
+    },
+    "holdout_cache_sha256": {
+      "results/b2_v9_parent_holdout_cache_24rec_20260901.h5": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+      "results/pa_cora_p1_holdout_slot1.h5": "3e03f8cc8368490e578b632e63adf6209ee5317866f2bb5a1373be9f25590e3f",
+      "results/pa_cora_p1_holdout_slot2.h5": "c01cd1edcd73041bfc7ff34b648a59c10cfd17a55f6b222be74a36819ce70aed"
+    }
+  },
+  "rollback": "Keep both P1b parents and all A1 lane artifacts. If the paired gate fails, reject matched-halo propagation and retain P1b plus parameter-free hard output projection.",
+  "protected_checkpoints_preserved": [
+    "A3",
+    "B2-H",
+    "Helmholtz",
+    "ASAM",
+    "CPADC"
+  ],
+  "validation_opened": false,
+  "test_id_opened": false
+}

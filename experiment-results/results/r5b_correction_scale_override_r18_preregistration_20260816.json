@@ -1,0 +1,45 @@
+{
+  "schema": "r5b_correction_scale_override_preregistration_v1",
+  "status": "frozen_before_execution",
+  "hypothesis": "The CPADC parent loader's forced correction scale of 1.0, rather than the r5b checkpoint value 0.0285414904, is the root cause of the apparent 7.x parent error.",
+  "mechanism": "The dense decoder correction is already amplitude-calibrated by a learned checkpoint parameter. Replacing it with 1.0 amplifies the correction branch by about 35 times.",
+  "single_variable": "dense_decoder.correction_scale",
+  "held_constant": [
+    "r5b checkpoint",
+    "normalizer",
+    "train record",
+    "time coordinates",
+    "deployment_time_block=32",
+    "hard-causality policy",
+    "travel-time input"
+  ],
+  "scope": {
+    "split": "train",
+    "sample_ids": [
+      "train_uniform_00303"
+    ],
+    "validation_truth_allowed": false,
+    "test_id_allowed": false
+  },
+  "predictions": {
+    "maximum_forced_scale_future_archive_delta": 1e-05,
+    "maximum_restored_scale_exact32_archive_delta": 1e-05,
+    "maximum_restored_over_forced_exact32_ratio": 0.1
+  },
+  "failure_signal": "The forced scale does not reproduce CPADC, the restored scale does not reproduce the training audit, or the restored exact-32 error exceeds one tenth of the forced-scale error.",
+  "compute_budget": {
+    "gpu_count": 1,
+    "record_count": 1,
+    "parent_forward_passes": 2,
+    "expected_wall_time_s": 60,
+    "checkpoint_writes": 0
+  },
+  "rollback": "No checkpoint, config, or persistent model state is modified.",
+  "bindings": {
+    "script": "scripts/diagnose_r5b_correction_scale_override.py",
+    "script_sha256": "850b8dc8874f105c6e4c8a3764efc4866bc6e9100a636b83750a8927c3dcc94e",
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "exact32_audit_sha256": "cef5f145fada7d084dbb585b37f04754ec1b9268e95a2fd4e3876cbcf719b3d9",
+    "cpadc_summary_sha256": "8f7300a7581fa1410cb754e8f247b78ac6dcc11507f21233e701900496fecd25"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "aborted_by_update_96_gate",
+  "last_optimizer_update": 99,
+  "last_comparable_evaluation_update": 96,
+  "last_checkpoint": "checkpoints/update_0096.pt",
+  "baseline": {
+    "aggregate_relative_l2": 0.04106464259149871,
+    "layered_relative_l2": 0.0778448964568277,
+    "layered_late_relative_l2": 0.16068077339424006,
+    "marmousi_relative_l2": 0.04423424303282589,
+    "uniform_relative_l2": 0.0011147882848425465
+  },
+  "update_96": {
+    "aggregate_relative_l2": 0.041064541555648884,
+    "layered_relative_l2": 0.0778443891727182,
+    "layered_late_relative_l2": 0.1606796281969174,
+    "marmousi_relative_l2": 0.04423444720938591,
+    "uniform_relative_l2": 0.0011147882848425465
+  },
+  "verdict": "No material same-protocol improvement. Injecting a zero-initialized Born feature before the frozen parent U-Net is effectively invisible to the validated Helmholtz coefficients.",
+  "next_direction": "Apply the P_bg/Born correction directly to the Helmholtz frequency coefficients or train an explicit global scattering propagator, rather than passing it through the frozen render input."
+}

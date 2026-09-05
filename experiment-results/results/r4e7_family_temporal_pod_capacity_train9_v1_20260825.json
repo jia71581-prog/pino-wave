@@ -1,0 +1,423 @@
+{
+  "budget": {
+    "one_gpu_hours_maximum": 0.1,
+    "one_gpu_seconds_maximum": 360.0,
+    "one_gpu_seconds_used": 116.83316327817738,
+    "within_budget": true
+  },
+  "candidate": "r4e7_family_temporal_pod_capacity_train9_v1",
+  "checkpoint_attestation": {
+    "rollback_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "rollback_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "rollback_sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "unchanged": true,
+    "writes": 0
+  },
+  "claim_scope": "offline_train_oracle_accuracy_capacity_only_not_online_adaptation_not_validation_not_test_id",
+  "completed_utc": "2026-08-25T07:57:04.954246Z",
+  "decision": "fail_gate",
+  "disk_free_bytes_after": 2313895936,
+  "disk_free_bytes_at_binding_gate": 2313895936,
+  "disk_free_bytes_before": 2313895936,
+  "exact_blocker": "one or more preregistered family, finite-output, or peak-memory gates failed",
+  "family_results": {
+    "layered": {
+      "basis_covariance_energy_capture": {
+        "16": 0.7257281902563341,
+        "32": 0.8959963823759725,
+        "8": 0.49092841560765105
+      },
+      "basis_records": [
+        {
+          "full401_residual_energy": 2.442957266558286e-13,
+          "group_id": "train:layered:00000",
+          "manifest_sample_sha256": "9b482204732d18f506d4af9e17b59bfa78c144ffe3de780e9b3a99e31dd8b75e",
+          "nontruth_input_sha256": "842527a9a251dc738c147a9c14a49cd690eea1ba3528e938555ae14cbcefe1b4",
+          "sample_id": "train_layered_00000",
+          "train_truth_sha256": "70ae196069fb4eea83ad9a72e68cb4ded4828c91ff0b7e3baf9fe9d0e613799d"
+        },
+        {
+          "full401_residual_energy": 2.4494065191120347e-13,
+          "group_id": "train:layered:00001",
+          "manifest_sample_sha256": "b5dfbc6c175eb850b3e97cb042966591c14dd6c6ffd40acbb6d79bab9f6eb24b",
+          "nontruth_input_sha256": "abe67bbc543df25ef7830832aff5263d491fac1ef5f5a8fa84f35b813b5ac6c5",
+          "sample_id": "train_layered_00004",
+          "train_truth_sha256": "4ae6e0d2b7668127470da5e370cfa9fa34fe2ba850bd09ce4308f33867a4ee39"
+        }
+      ],
+      "confirmation_record": {
+        "future_frame_count": 389,
+        "future_residual_energy": 1.7335769570234543e-12,
+        "future_start_index": 12,
+        "group_id": "train:layered:00002",
+        "manifest_sample_sha256": "d52f835b79b638338bd65772a0cefa330dd8379eeb6602f297064ad3a7b3a0be",
+        "nontruth_input_sha256": "264d7144c3c807ac3c500c7f1708f537c9c564e4a33c509a89ba0aa4438ff6aa",
+        "observed_indices": [
+          10,
+          11
+        ],
+        "parent_mean_per_frame_relative_l2": 0.8914990110355484,
+        "ranks": {
+          "16": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 0.742798148591854,
+            "relative_error_reduction": 0.16679868469059353,
+            "residual_energy_capture": 0.21388804464958833,
+            "unexplained_residual_energy": 1.3627855714361242e-12
+          },
+          "32": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 0.5302094449063615,
+            "relative_error_reduction": 0.40526075930193106,
+            "residual_energy_capture": 0.5775764942747139,
+            "unexplained_residual_energy": 7.32303655630421e-13
+          },
+          "8": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 0.826393305840394,
+            "relative_error_reduction": 0.07302947551173253,
+            "residual_energy_capture": 0.09775898963758678,
+            "unexplained_residual_energy": 1.5641042252458392e-12
+          }
+        },
+        "sample_id": "train_layered_00008",
+        "train_truth_sha256": "28aa35c56f6a4aa0597743c4ffa0516231dfcfe10536d7a685f839808b7219b9"
+      },
+      "covariance_dtype": "float32",
+      "covariance_shape": [
+        401,
+        401
+      ],
+      "covariance_trace": 4.892363548211026e-13,
+      "eigendecomposition_dtype": "float64"
+    },
+    "marmousi": {
+      "basis_covariance_energy_capture": {
+        "16": 0.692827552630306,
+        "32": 0.8907695867401803,
+        "8": 0.48410982947011755
+      },
+      "basis_records": [
+        {
+          "full401_residual_energy": 1.1170491862655097e-11,
+          "group_id": "train:marmousi:x0.0:z0.0",
+          "manifest_sample_sha256": "9b1b6372dfa355eaa4e77bdf7457dcc572827db973d92d0ea08ef626cbf32d95",
+          "nontruth_input_sha256": "de49aa9ab121fe9df8f24c9cd2ceef065ff1db43a58b962ce8860a06748b1f81",
+          "sample_id": "train_marmousi_00000",
+          "train_truth_sha256": "a50b77ece1fbe18a537c07714e7ea5601dc7710a558dadbd4c9afb2d7eb64e99"
+        },
+        {
+          "full401_residual_energy": 8.005587653008985e-12,
+          "group_id": "train:marmousi:x150.0:z0.0",
+          "manifest_sample_sha256": "54b7b0dd18dac742108ebf263261d44a102bd0e848a9b56d0c41f41cfddec0eb",
+          "nontruth_input_sha256": "9da6b127afe09d37757cc5f594a1ff3bb17ae907833f9227c2b9b2f1bebb8f52",
+          "sample_id": "train_marmousi_00005",
+          "train_truth_sha256": "9ce94c16d8885c1928d70aadd85676091d7e80fa1d3e79574c28d55038be07b8"
+        }
+      ],
+      "confirmation_record": {
+        "future_frame_count": 391,
+        "future_residual_energy": 7.611328428711304e-12,
+        "future_start_index": 10,
+        "group_id": "train:marmousi:x300.0:z0.0",
+        "manifest_sample_sha256": "52918357b7e58fdce9aa2bb784b5ec713a691fddd2e3277ec2cea035bc551ca1",
+        "nontruth_input_sha256": "264a0b1bf334cd7845ced8c060353924eadf12c69b82f574692cfc1bb09c74de",
+        "observed_indices": [
+          8,
+          9
+        ],
+        "parent_mean_per_frame_relative_l2": 0.667449522319664,
+        "ranks": {
+          "16": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 0.5683834229098172,
+            "relative_error_reduction": 0.1484248562581197,
+            "residual_energy_capture": 0.35581611494243204,
+            "unexplained_residual_energy": 4.903095117656362e-12
+          },
+          "32": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 0.4572636291440614,
+            "relative_error_reduction": 0.31490904727164903,
+            "residual_energy_capture": 0.6139083343095582,
+            "unexplained_residual_energy": 2.9386704711581608e-12
+          },
+          "8": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 0.6138670687998684,
+            "relative_error_reduction": 0.08027940949537932,
+            "residual_energy_capture": 0.23052811565011933,
+            "unexplained_residual_energy": 5.856703228446304e-12
+          }
+        },
+        "sample_id": "train_marmousi_00010",
+        "train_truth_sha256": "1da296cd9a940fb626b2dbf4f5597251dca1ae01d8b2380a0af701de95c78a1b"
+      },
+      "covariance_dtype": "float32",
+      "covariance_shape": [
+        401,
+        401
+      ],
+      "covariance_trace": 1.917607728232647e-11,
+      "eigendecomposition_dtype": "float64"
+    },
+    "uniform": {
+      "basis_covariance_energy_capture": {
+        "16": 0.562916304466307,
+        "32": 0.7370114051293103,
+        "8": 0.4272229470673408
+      },
+      "basis_records": [
+        {
+          "full401_residual_energy": 9.45776020851032e-13,
+          "group_id": "train:uniform:00000",
+          "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+          "nontruth_input_sha256": "1e1ca53aae3e9165b9e5d76d4854f009f0f33a2b88043c737dc5152de7001461",
+          "sample_id": "train_uniform_00000",
+          "train_truth_sha256": "b7d3ce0f988c7625ba3cc649cc3af3641353d9fec484c551dada627f8ed578c4"
+        },
+        {
+          "full401_residual_energy": 2.432740187142875e-14,
+          "group_id": "train:uniform:00001",
+          "manifest_sample_sha256": "7cfbc998c508e425c4ed5b39de32ea507bd12fa555d559f59d03e464e4ab6195",
+          "nontruth_input_sha256": "37a41b906b58fd4c372e1d26584735f787f6b7a126e66e69a081b6cf88ee8a07",
+          "sample_id": "train_uniform_00001",
+          "train_truth_sha256": "9175c74e8577c2b21c3766b8f2f5fbb0c6e644249ccd05b67b2a53d6e5deb7c8"
+        }
+      ],
+      "confirmation_record": {
+        "future_frame_count": 377,
+        "future_residual_energy": 7.34389618495784e-14,
+        "future_start_index": 24,
+        "group_id": "train:uniform:00002",
+        "manifest_sample_sha256": "73f6beb623d7c17c445965b8c1adc743b1a1446c5d4e26a6b5491b06c123c4fb",
+        "nontruth_input_sha256": "0a3d4ce3a8f259fa714169e2389b86b39aa3072f5bdb8eadb5f5e0db33d8871e",
+        "observed_indices": [
+          22,
+          23
+        ],
+        "parent_mean_per_frame_relative_l2": 1.2951786505874883,
+        "ranks": {
+          "16": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 3.4179835176978304,
+            "relative_error_reduction": -1.639005450056983,
+            "residual_energy_capture": 0.23169349145061535,
+            "unexplained_residual_energy": 5.642363237014104e-14
+          },
+          "32": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 3.791460704437242,
+            "relative_error_reduction": -1.9273650416623602,
+            "residual_energy_capture": 0.4854950193510562,
+            "unexplained_residual_energy": 3.778471164529586e-14
+          },
+          "8": {
+            "coefficient_fit": "independent_least_squares_at_each_spatial_point_using_reserved_train_future_truth",
+            "corrected_mean_per_frame_relative_l2": 1.7172197976336314,
+            "relative_error_reduction": -0.32585554653383675,
+            "residual_energy_capture": 0.08173958886164712,
+            "unexplained_residual_energy": 6.743609130156767e-14
+          }
+        },
+        "sample_id": "train_uniform_00002",
+        "train_truth_sha256": "c94000033176e3dfa88d71bd32b5d406e3f07773d8269027982749d40a44a6c4"
+      },
+      "covariance_dtype": "float32",
+      "covariance_shape": [
+        401,
+        401
+      ],
+      "covariance_trace": 9.701033470474636e-13,
+      "eigendecomposition_dtype": "float64"
+    }
+  },
+  "gate": {
+    "families": {
+      "layered": {
+        "joint_passed": true,
+        "relative_error_reduction": {
+          "minimum": 0.2,
+          "passed": true,
+          "value": 0.40526075930193106
+        },
+        "residual_energy_capture": {
+          "minimum": 0.3,
+          "passed": true,
+          "value": 0.5775764942747139
+        }
+      },
+      "marmousi": {
+        "joint_passed": true,
+        "relative_error_reduction": {
+          "minimum": 0.2,
+          "passed": true,
+          "value": 0.31490904727164903
+        },
+        "residual_energy_capture": {
+          "minimum": 0.3,
+          "passed": true,
+          "value": 0.6139083343095582
+        }
+      },
+      "uniform": {
+        "joint_passed": false,
+        "relative_error_reduction": {
+          "minimum": 0.2,
+          "passed": false,
+          "value": -1.9273650416623602
+        },
+        "residual_energy_capture": {
+          "minimum": 0.3,
+          "passed": true,
+          "value": 0.4854950193510562
+        }
+      }
+    },
+    "finite_output": {
+      "passed": true,
+      "required": true,
+      "value": true
+    },
+    "joint_passed": false,
+    "peak_cuda_reserved": {
+      "maximum_bytes": 25232932864,
+      "metric": "peak_cuda_reserved",
+      "passed": true,
+      "value_bytes": 5834276864
+    }
+  },
+  "gpu": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cuda_visible_devices": "0",
+    "driver_version": "580.105.08",
+    "memory_total_mib": 24564,
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "nvidia_driver_cuda_version": "13.0",
+    "physical_index": 0,
+    "torch_name": "NVIDIA GeForce RTX 4090 D",
+    "torch_total_memory_bytes": 25250627584,
+    "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+    "visible_index": 0
+  },
+  "output_size_bytes_maximum": 10485760,
+  "peak_cuda_allocated_bytes": 4776283648,
+  "peak_cuda_reserved_bytes": 5834276864,
+  "preregistration_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_preregistration_20260825.json",
+  "preregistration_sha256": "643d91eb9f2c1b8041fffc298d8f4baa53eed447b2771bc14747996f66c7afe4",
+  "protocol": {
+    "basis_records_per_family": 2,
+    "coefficient_fit": "for each rank and reserved record, independently at each spatial point by least squares on all train future frames strictly after the second registered onset observation",
+    "confirmation_records_per_family": 1,
+    "covariance": "sum over basis records and spatial chunks of R @ R.T where R=truth-parent has shape [401, spatial_point]",
+    "covariance_accumulation_dtype": "float32",
+    "eigendecomposition_dtype": "float64",
+    "families": {
+      "layered": 3,
+      "marmousi": 3,
+      "uniform": 3
+    },
+    "globally_group_disjoint": true,
+    "metric": "mean over future frames of spatial relative L2, with numerator and denominator reductions in float64",
+    "metric_eps_squared": 1e-30,
+    "parent_truth_residual_corrected_arrays_written_to_disk": false,
+    "ranks": [
+      8,
+      16,
+      32
+    ],
+    "record_count": 9,
+    "residual_energy_capture": "1 - squared norm of oracle-unexplained future residual / squared norm of parent future residual",
+    "split": "train",
+    "time_block": 16,
+    "time_count": 401
+  },
+  "run_binding": {
+    "checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "run_digest": "5de1af3455fc834271fe19e30995a45fb65fac09e4bd6cba92a1ed12b0bb7a2d",
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+  },
+  "sample_census": {
+    "all_train": true,
+    "by_family": {
+      "layered": 3,
+      "marmousi": 3,
+      "uniform": 3
+    },
+    "count": 9,
+    "execution": [
+      {
+        "family": "uniform",
+        "role": "basis",
+        "sample_id": "train_uniform_00000"
+      },
+      {
+        "family": "uniform",
+        "role": "basis",
+        "sample_id": "train_uniform_00001"
+      },
+      {
+        "family": "uniform",
+        "role": "disjoint_confirmation",
+        "sample_id": "train_uniform_00002"
+      },
+      {
+        "family": "layered",
+        "role": "basis",
+        "sample_id": "train_layered_00000"
+      },
+      {
+        "family": "layered",
+        "role": "basis",
+        "sample_id": "train_layered_00004"
+      },
+      {
+        "family": "layered",
+        "role": "disjoint_confirmation",
+        "sample_id": "train_layered_00008"
+      },
+      {
+        "family": "marmousi",
+        "role": "basis",
+        "sample_id": "train_marmousi_00000"
+      },
+      {
+        "family": "marmousi",
+        "role": "basis",
+        "sample_id": "train_marmousi_00005"
+      },
+      {
+        "family": "marmousi",
+        "role": "disjoint_confirmation",
+        "sample_id": "train_marmousi_00010"
+      }
+    ],
+    "roles": {
+      "basis": 6,
+      "disjoint_confirmation": 3
+    },
+    "unique_group_count": 9
+  },
+  "schema": "r4_family_temporal_pod_capacity_result_v1",
+  "sealed_data_attestation": {
+    "parent_truth_residual_corrected_arrays_written_to_disk": false,
+    "test_id_opened": false,
+    "train_future_truth_opened_for_offline_oracle": true,
+    "validation_opened": false
+  },
+  "started_utc": "2026-08-25T07:55:06.792138Z",
+  "status": "success",
+  "truth_scope": {
+    "basis_truth_use": "all 401 frames only for family covariance",
+    "confirmation_truth_use": "future frames for offline oracle coefficient fit and scoring; full residual may be resident only in memory",
+    "online_adaptation_claim_permitted": false,
+    "online_deployment_compatible": false,
+    "test_id_opened": false,
+    "train_future_truth_opened": true,
+    "validation_opened": false
+  }
+}

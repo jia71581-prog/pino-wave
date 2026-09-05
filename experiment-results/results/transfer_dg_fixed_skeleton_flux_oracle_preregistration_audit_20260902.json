@@ -1,0 +1,19 @@
+{
+  "schema": "transfer_dg_fixed_skeleton_flux_oracle_audit_v1",
+  "status": "cleared_for_run",
+  "preregistration": "results/transfer_dg_fixed_skeleton_flux_oracle_preregistration_20260902.json",
+  "preregistration_sha256": "f2614e5e767812f32ef082faa6ac3ad9d5f3b9fced17f4791a85d3e3426a8773",
+  "checks": {
+    "lineage": "latest selected Transfer DG global seed372 epoch3 checkpoint hash matches",
+    "matrix": "56-DOF by 2540-constraint skeleton response is full rank with condition number 8.051",
+    "boundary": "pressure correction is zero on free surface and left/right/bottom CPML outer boundaries",
+    "cpml": "only internal faces x=40..160 and z=20..160 are sampled",
+    "solver": "fixed pseudoinverse rcond=1e-8; no truth-selected scale, ridge or trust ratio",
+    "tests": "skeleton trial-space recovery and boundary tests pass",
+    "data": "all three cache/manifest hashes match sealed train-only inputs",
+    "oracle_scope": "future truth constructs the flux residual, so the result is capacity evidence only and cannot be deployed"
+  },
+  "blocking_findings": [],
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,6064 @@
+{
+  "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "dataset_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+  "deployment_contract": {
+    "causal_backtest_prefix": 5,
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/snapshot_only/modal_context_calibration_cpu_r3/promoted/epoch_0000_backtest_p5_defect_modal_instance_localwave_lateboost_t010_w020_wmax025_r9.pt",
+    "checkpoint_epoch": 0,
+    "closure_projection_nonzero": false,
+    "defect_high_frequency_cutoff": 0.75,
+    "defect_high_frequency_radius": null,
+    "defect_memory_decay": 0.55,
+    "defect_memory_mode": "stable_modal",
+    "defect_modal_radius": 0.88,
+    "defect_trend_scale": 0.75,
+    "external_numerical_solver_used": false,
+    "fixed_modal_radius": 0.995,
+    "future_truth_used_for_propagation": false,
+    "inference_signature": "(self, wavefield_history: 'torch.Tensor', steps: 'int') -> 'torch.Tensor'",
+    "input_keys": [
+      "wavefield_history",
+      "steps"
+    ],
+    "local_wave_adaptive_boost": true,
+    "local_wave_adaptive_boost_maximum_weight": 0.25,
+    "local_wave_adaptive_boost_ramp_steps": 4,
+    "local_wave_adaptive_boost_start_step": 8,
+    "local_wave_adaptive_boost_threshold": 0.1,
+    "local_wave_adaptive_boost_width": 0.2,
+    "local_wave_blend_ramp_steps": 8,
+    "local_wave_blend_weight": 0.125,
+    "local_wave_coefficient_bounds": [
+      0.02,
+      1.5
+    ],
+    "local_wave_instance_backtest": true,
+    "local_wave_pool_size": 15,
+    "local_wave_regularization": 0.1,
+    "local_wave_substeps": 8,
+    "maximum_context_fraction": 0.3333333333333333,
+    "middle_or_late_snapshots_used": false,
+    "numerical_solver_used": true,
+    "observed_defect_memory": true,
+    "snapshot_inferred_local_wave_recurrence_used": true,
+    "source_used": false,
+    "travel_time_used": false,
+    "velocity_used": false
+  },
+  "observed_input_sha256": {
+    "train_layered_00000:end112:k8": "d58682e3eea4cecdb4d340c79d6e2dca0a78a6d6f5e86f7d2c56d921d6c36212",
+    "train_layered_00000:end120:k8": "ea396f9ac8943379d1d0b01ee57dfdd7001e3dc01145137adaa7dbdcc7f12424",
+    "train_layered_00000:end80:k8": "99da2c5678c9282195492f603884520040bada0e6427a0315033f0987c2ac0e1",
+    "train_layered_00001:end112:k8": "43dfbb6dceb7756d1ed95abff49ebfb300cd8b32ef21b825a30091b64f081cdf",
+    "train_layered_00001:end120:k8": "ca11406a828bc7f923b2a88d655c361321b90e89b8d8cf8f81b7f6fd3106ff98",
+    "train_layered_00001:end80:k8": "7aa93be01290bf3e47064016645bb3a4a98479538e052e00757424271d4adecc",
+    "train_layered_00002:end112:k8": "2a6c44a0f0058cdcb935c06ff1e482415a55df81c6a059c9c7fd004e94632ca5",
+    "train_layered_00002:end120:k8": "d288ebfcc857b1ba0d22ea2abfe0bb029c8a12b6394eeeb0af515b3b93202c90",
+    "train_layered_00002:end80:k8": "6b38684a8cbd7ca62ff6878ff0a7df2409c3e77b684d1e3c8f6bed42520f7e6e",
+    "train_layered_00003:end112:k8": "648dff3705e53aa467d264bbfacddb6728fc0f38d15ac96eb2cc86998e0bb621",
+    "train_layered_00003:end120:k8": "c5969eae414448842e47cfdb12c0c2afb0a44d8894a8eae7c9bd924a8563d3dc",
+    "train_layered_00003:end80:k8": "875865878102b7ea568219fdd2d6f382fbfe57b866756bd4cc5f1214c905f9a0",
+    "train_layered_00004:end112:k8": "65b67f04c000f7d8cccf0c848320c7f98162b7bc56c20faf921d525b12f2cb5a",
+    "train_layered_00004:end120:k8": "c1e94f7d484347daa3ffc056bf9b5f93ea073191b2885568b44ec2025e15a219",
+    "train_layered_00004:end80:k8": "f6fbc545002bc81fd5827adb257a58db6e6b0a77120808b133ae7716a36e726d",
+    "train_layered_00005:end112:k8": "f74542c624dbf43745932a83ba34583d115a81e87593a6f4d8e12516a434bb8f",
+    "train_layered_00005:end120:k8": "e93fa2b9a34efdf14085437038c383a1c2159908843c2245018e44de8ebf0d48",
+    "train_layered_00005:end80:k8": "1dc6837fa6b57b3417d84289d0b31bf16d5b7a787baa1f70c0b8f390ebf08453",
+    "train_layered_00006:end112:k8": "302fa223c1b5d3da9c39b326b18d23384d9beb3274b57a57087d79905857ca13",
+    "train_layered_00006:end120:k8": "8bb8a3916bff720762b4721dbe198053dfecaaff732fc90717a2af1018d00d18",
+    "train_layered_00006:end80:k8": "18dba0a6897c6183e266dd47b149ca136e812f8fb2aa8dad88a202b6da2edc4f",
+    "train_layered_00007:end112:k8": "852380f517ad2a5924cd8626e562f498e42a83f13ad88931a859f2f926ced5a5",
+    "train_layered_00007:end120:k8": "2c013706ea00f63e6ed5e3ca0116f2414c4a504e3ac4333752b46cf10eba292c",
+    "train_layered_00007:end80:k8": "bea097423360c625c48aa9fb6faeffcf324fd7e410ef286c5b8af1800165687c",
+    "train_layered_00008:end112:k8": "6974c7e16a083f9d9957268bf7bd255f1919cccf34ba82cc9f05398351266d11",
+    "train_layered_00008:end120:k8": "bf24a2362230d63019bf4beb074137f8ad171e60e79942441a60ff8fca9c19de",
+    "train_layered_00008:end80:k8": "a0ee5b29719e918750a2ae571f6b365ee9a1b4bd8f78beedcf5d5635a186433b",
+    "train_layered_00009:end112:k8": "ccbcd8a4f91b466edfe533d0c235a39e70b26613b028d2f2a4a6478c4ac6dd5d",
+    "train_layered_00009:end120:k8": "22af0c37003e46a678531b0a5c76feff938b7666e375e0bb2983de72d31d52c5",
+    "train_layered_00009:end80:k8": "c88aef058e2e4e7282f21da9721c58381afd9b926f42e6f73f478461e8d70add",
+    "train_layered_00010:end112:k8": "2cb0c2a0e773721b7d57deab86d30837e7ebc974ebae2cf6f08e74e9419bdbc2",
+    "train_layered_00010:end120:k8": "33d2a0b3849712971bbe56ddac1703feaa4276ff8734d422a87cebd16b700e0b",
+    "train_layered_00010:end80:k8": "232e42425fd2ab797e207778551ad332151bb046dbacfc0656f2f00712b80dba",
+    "train_layered_00011:end112:k8": "5a0a2d98ce3c90c3fe1c99ac73f1a31fc260720002d9761163be613d283beadd",
+    "train_layered_00011:end120:k8": "d6668f226e8b54707ffd6f743219dab082ab39adbe05bc49510b5b8a92aa07e5",
+    "train_layered_00011:end80:k8": "c207ee38d5cfd3dcf70b035512236492ffd1ca33072089eed457084efdee72d6",
+    "train_layered_00012:end112:k8": "17661d3156ecc00282c4dec664ebcce68dc2ac7c99c8da07b60edf060f3d22fd",
+    "train_layered_00012:end120:k8": "6882e52c4ee6f1c64cbdd801922bbd6df2a95ce80ccf32903aee299d111aab2e",
+    "train_layered_00012:end80:k8": "a2d57ce5a73ee92cd7c1719c9c438f3ea0dc9739ac0b1d9a0de1d17725452dd2",
+    "train_layered_00013:end112:k8": "773cf876e0906e43926325eea7d88dfeeda6de507cf2c96958972c3972db380c",
+    "train_layered_00013:end120:k8": "628c118ee66b45a9d3b999a0bd8622d885f19df5c8c75c52cfc5ea9d998bb7a4",
+    "train_layered_00013:end80:k8": "3716682d4855d05c2fb6a8d13ac7a00be0888575c03b03a61ffe462d08a4f4b8",
+    "train_layered_00014:end112:k8": "06eaed1878f151add237abd890870a6e27eb9e00c82b4eafbf36373052bbbadb",
+    "train_layered_00014:end120:k8": "b8994d4a348963875f9ce7e222e59451286c25b64d32438da5775a8b063c1292",
+    "train_layered_00014:end80:k8": "687bbb8f169929eea73c99f9c7489f1ae2e92ad99c066d7a75a7822f98b50aef",
+    "train_layered_00015:end112:k8": "41bc35d238f2c486c739b3e857c08439b7d90e06e058e79d3f66d125f70b44ae",
+    "train_layered_00015:end120:k8": "da61b07af784308febd161e1dd55dd2b415132aa365647cb94b5bf2a907c9b0e",
+    "train_layered_00015:end80:k8": "352a2142927d132df53dad02efb2d7c79a3b7850572ff99004cc6ce6b982bfc3",
+    "train_marmousi_00000:end112:k8": "492c7496ac3914e11e46a4b9f8f450b50fda295dd0d8f7fecbbdb88bd246158f",
+    "train_marmousi_00000:end120:k8": "cd973a4e309f24d2f25db8e00defe5ec3ae940992242199c58d3db2436e1219b",
+    "train_marmousi_00000:end80:k8": "4e6b4a126998f235d06f7655440b661fe359a0db14e77ca5cbd7cfb996e9dd61",
+    "train_marmousi_00001:end112:k8": "5af11781484e747a013eb99dcc8f0fad933b18b7a7840d8cfcd86886ecac6b56",
+    "train_marmousi_00001:end120:k8": "4eb0f2f703d2f3a71469f1380868634b7e4a9d7277aff1b9faa7856a6635ecc0",
+    "train_marmousi_00001:end80:k8": "7f7bddbc62eb6d211f3ac0bf41cb14659f52bd8e51182fde9700a0bb31d359ab",
+    "train_marmousi_00002:end112:k8": "ddcb174a49bb290766308bfa28e20b06f7e4960200d0e8dae23d9937ec072226",
+    "train_marmousi_00002:end120:k8": "98b928a8ff2033da2502318872f799e20716b4f1dbc66e823c570517e1d28e0c",
+    "train_marmousi_00002:end80:k8": "6c26db802c3ad471d70303a3c76ada6524862321b2dd5582ab03ba7d335e3212",
+    "train_marmousi_00003:end112:k8": "4ff04df58116afc671210a53c609cdc44225074827dc23986cb97f3d2ba067a9",
+    "train_marmousi_00003:end120:k8": "4a57adf85f3fe6e64b0d7c0d92611b017dc7ac01cf629f738f4435676be288f9",
+    "train_marmousi_00003:end80:k8": "ba754419e50d80b1a82f2451faca5849eefe0cfaf94831248f94a716e60520f5",
+    "train_marmousi_00004:end112:k8": "829086f34d453db5af37a4b50b182bf4f3835e926e01f811449cd24e50063778",
+    "train_marmousi_00004:end120:k8": "9a10f76376530ed0b14947321802618cfadc543b0a2ef35fd4f036be9f9ca1e9",
+    "train_marmousi_00004:end80:k8": "a6ca9e9eaae66d2f935d2a6b75625f4b0b8fb2c2f1cb26aeec1bfe8a35cac0d5",
+    "train_marmousi_00005:end112:k8": "8928400724e331e7dacce480c824cf944c6a3083c0698cf8e5d93660b4ee6274",
+    "train_marmousi_00005:end120:k8": "2191dc8755d5c2853e78c0468128fdd5ae81aa9bd40fc85e78c45a7b7fc31515",
+    "train_marmousi_00005:end80:k8": "5e3ad8e2e7e26eec5ab2f353dd55c4278c15dc0c0f8725b620a36e4b336c9962",
+    "train_marmousi_00006:end112:k8": "caa4e855039b37f3ceb708ad7bc789dcab2b95a0404638381cb1c424ad604d12",
+    "train_marmousi_00006:end120:k8": "5028dca9911b5f80399f1d178cb5c51b4886ad96bfb4c6e0899ac0ea8ec3d680",
+    "train_marmousi_00006:end80:k8": "0da30a141378621279145a7e374f2200f8380e0e28589d7709807ebe26896600",
+    "train_marmousi_00007:end112:k8": "ac91f1dc3d57ad8bb0257842b0c17971dea8df883dec1579a2b24921b0126b78",
+    "train_marmousi_00007:end120:k8": "95554371a765dc90a3ce631b78bed0451b99ff392093c0b1d230fe7cb3271918",
+    "train_marmousi_00007:end80:k8": "6568fa4a2fcd102877d55a8f3551d9d32d53562cf590c4bdb90cc58c73436c49",
+    "train_marmousi_00008:end112:k8": "79140d7085acb482a15c44eb9506e6574b6b1c4dfbc4f41e4fcf8567594853b8",
+    "train_marmousi_00008:end120:k8": "dc838bb324234f213e5671d6aaaf626ff56b5721580f27e1a1b1de4147fdc420",
+    "train_marmousi_00008:end80:k8": "55c97049522e320295d846a2179c35509cf19dc95e7f6bbd1c92a4f4ca40382f",
+    "train_marmousi_00009:end112:k8": "ff10fcc2e7f40541c1cf00d713daaed8049f962302163c6efdfe6c0d84e45cf7",
+    "train_marmousi_00009:end120:k8": "dc6f20ec765d3020c7d3f29a788925a2f39e53827a53317579b38af630b3e662",
+    "train_marmousi_00009:end80:k8": "97249e5265036f86f5b6b9572facf23624a55c5938f5cb80eedb7c4c9e89291b",
+    "train_marmousi_00010:end112:k8": "8a31e4a737fb17869d1fe4a97df9d9e8a48a9ef95e5ec53b7071d0a73c403415",
+    "train_marmousi_00010:end120:k8": "b00e747e00d873eb585af2f54c2f17e7cb9f6d6ec2322925679f015ea23681f7",
+    "train_marmousi_00010:end80:k8": "2bae88704f31f9e67af765ba03200d09e0efec0fb4ab6999bd7e12529bcf290c",
+    "train_marmousi_00011:end112:k8": "909aa96c5634ae1cd52fb322e6141531eef87ae7b1f15e1009fc9f792a4aa74e",
+    "train_marmousi_00011:end120:k8": "d9cf41da941e2af6f953ee8e7f1672e55abc322c679e46e50e46a0f7a5341172",
+    "train_marmousi_00011:end80:k8": "2d19539789166091c9d72cf7b3b2a83e0e341b61348cda1dbaea6065d1e76d26",
+    "train_marmousi_00012:end112:k8": "a6a2f677ff7b80b5fb605d895ec204918e836d8037d09d9dc520cc6fd016e278",
+    "train_marmousi_00012:end120:k8": "2fd0c71259c056ac7bf33d15b440adf9163228638f2399af014722a7b71fb8f9",
+    "train_marmousi_00012:end80:k8": "d795843d9ddb01a0262911759593055dd1be77ace97248f885f9ec1ff02abac2",
+    "train_marmousi_00013:end112:k8": "2645c01fc57749c771d7681cbd4fd70fdf0b38c99de600c92f843e89bd20a3d6",
+    "train_marmousi_00013:end120:k8": "2eeb08b65fd57d0704adb6b22d550317563267dd923c0512e5f1ed79f74badb7",
+    "train_marmousi_00013:end80:k8": "97b37cb3506e626aa72162d9beb27ec6dd7581d6c422a6ad72fd4460d70ba178",
+    "train_marmousi_00014:end112:k8": "e3d8398487a23487530c7015e1f36f8d62f0d938a18dda02e4d816c2f0b66b59",
+    "train_marmousi_00014:end120:k8": "f218d760bfa735df14ac6766eda0e3937471789b2ca1ed4fdb6b0bcdb0609712",
+    "train_marmousi_00014:end80:k8": "cd83e7163547bc21cf80a671b717fb8d384fb909a27f4c0d84cf41fa765ddf38",
+    "train_marmousi_00015:end112:k8": "4ef41d15599d38a99adb98f75e8f8f179dbf71e619c332550883d6cd9e0b1f0c",
+    "train_marmousi_00015:end120:k8": "e265125bf45d8e677f752cc058ea71f81b18927f6ad9c3f74ef7a6223d28155e",
+    "train_marmousi_00015:end80:k8": "80714efa0b6ba6685655fa87b8d102600ad0d786f370f9116ff581614e997d9c",
+    "train_uniform_00000:end112:k8": "d6e4b279ead1b7a718ca2e1889b09a0ece227107782c8c5c73fed04cc71e4bcb",
+    "train_uniform_00000:end120:k8": "b1c8b35a126b7f3c20a56df5f8f14e7e145f46906c6846aaa9c64144f41ef5d0",
+    "train_uniform_00000:end80:k8": "55792e63d01be514cbfeea971c640249e074e95257f55e1a85c99edcd237ad4b",
+    "train_uniform_00001:end112:k8": "e381a47bf493b93445e010222e1cc803f71f3699612e8a1054afc27a3c33a2fa",
+    "train_uniform_00001:end120:k8": "152d07705f0b5f8df2976aa0d07841d03760457b1b6373b0abc3dae8ba9436ea",
+    "train_uniform_00001:end80:k8": "684e3e575a07ec9c68ad45027d673f29a7253b78e7791ba4a23fe9df61ec90e4",
+    "train_uniform_00002:end112:k8": "5dda080cdddec0c20da20176278d3d6fd38d7a7f069be96397d9215151c564a8",
+    "train_uniform_00002:end120:k8": "6b30b19a06d5d7f72aeb88fe6fecb1be2fcc83734f094497a925334f906ee4e5",
+    "train_uniform_00002:end80:k8": "b794864ad8a3b7c220be7a28b02340b813f3b7dc0b961f5558fc2f2f2a0c7817",
+    "train_uniform_00003:end112:k8": "2c9b4a8aa40bdccf1db83ed3eb50c6646342ea5dd270b71ad0ee87052aacca34",
+    "train_uniform_00003:end120:k8": "57aa1d8e9a29bdbd3e88c2a530cadc03e6c6fc147337ee34be37cf206a5b0c31",
+    "train_uniform_00003:end80:k8": "9c3542b8796ff39ea9110e47a3a3b37735c14649cf2e742ca729b0eaaba1adb2",
+    "train_uniform_00004:end112:k8": "acc656f575cb20719d0270e5ac95c1185ce821fab688fd89b5b73885524be456",
+    "train_uniform_00004:end120:k8": "42aea45b6b4f3207255ffc006dced0f5cecb1accec9007f1467b8643c2b46dc4",
+    "train_uniform_00004:end80:k8": "d58766bb1359cf24806875c09156dbb155ed4e266768bb1224580ab41d5e27d8",
+    "train_uniform_00005:end112:k8": "863e136e5810857d4eacdd17dcd4cdfce48ea7d5af31c51df216e55a86ddcd84",
+    "train_uniform_00005:end120:k8": "0e61db2aecc0ed3441280a87f0dfaf62ded4841e24382818fc4069a845f84047",
+    "train_uniform_00005:end80:k8": "f3b121f6667c1e56503295720f856e565057364cefc81eee45b5d2ed691b521d",
+    "train_uniform_00006:end112:k8": "d72ec897e4b74b23db5750553cc87b63fa9e240364c556801d27ea9f8656d953",
+    "train_uniform_00006:end120:k8": "9eb9bfb5d9d7331aaafb9455d72ea8b6e2d72da81db0e73daa13b2e71a8f26e0",
+    "train_uniform_00006:end80:k8": "61a7d0b86bce979bbee793d9a5567c4a19932788fbebffdc34388d10eaf113f6",
+    "train_uniform_00007:end112:k8": "a989497c304b23eb247ebcfa5d817d56ed21d160ff3b31c1216c3d0b5a72dd0f",
+    "train_uniform_00007:end120:k8": "b838a5fa69cd96876fb1eb07d743505949607a02161164f6eb15e8664e9c0984",
+    "train_uniform_00007:end80:k8": "a8eb82a841207507ab73bf1ee7d03517e52fe2efa8930a553b8814997d96f7df",
+    "train_uniform_00008:end112:k8": "e3755f2412a04080c872ec42f1db6732c3bba04e161951fc4dfad8bba4c11ce8",
+    "train_uniform_00008:end120:k8": "d810b6150e0b59d7227e39a7e0a71ea4fb9262a207bb7d5f4a59af762dffe151",
+    "train_uniform_00008:end80:k8": "e4c3de3e27091581cbc77658ee06b4d955413e2010a151ee4eff7de82843da30",
+    "train_uniform_00009:end112:k8": "d1a50f09bec816bf6bd31bb76092790d57232b040d66e2bb00d2386651614dcb",
+    "train_uniform_00009:end120:k8": "b9bab121dd267291faebe5f4af68b021d20ffb4cd8d2c0e6e01306c68333a7fc",
+    "train_uniform_00009:end80:k8": "9e697fabca6f8a504b65814263cc5bf2c294399b2b7a24671042ef612c3c5c5a",
+    "train_uniform_00010:end112:k8": "6ff8362d595aad0d82ffd3ac6c6b3631808ad675b5e65447ebdc7c77cc554746",
+    "train_uniform_00010:end120:k8": "58cf64cd527b2bc18066c0c5617be0ae12c8ced55e57831e260ae89294374d82",
+    "train_uniform_00010:end80:k8": "4432ccf639ce48473eb52879ce2174cb799a439743a6ba301530f709a8f7e2ee",
+    "train_uniform_00011:end112:k8": "2eebe758b6e6f5c087cd820b72df99f211515efda6ab2d102f2bcb91af054a70",
+    "train_uniform_00011:end120:k8": "f953fb5114889ddc9d03e47d2a84bf15d19172b19dd79b0f7c443a92a449279d",
+    "train_uniform_00011:end80:k8": "26f2a5c1edd641da9c6f3f0bef568ffb42d89cb77fc3eb6fd16962b82fb05174",
+    "train_uniform_00012:end112:k8": "68e3ba70590d8d416c11e830cb30c894a0a99950251ad224895013b0013b6b39",
+    "train_uniform_00012:end120:k8": "d0667ba2965ed0c5a5c70dc414865bc1087e8dc498ff827ab3d2b525cb9d85e8",
+    "train_uniform_00012:end80:k8": "5b0fe1d22a1552c08fe0e1c7f4ab99aeed1f2e7a2e99afcb92322d782ac01485",
+    "train_uniform_00013:end112:k8": "74d9de60f3c3a8dc2f37f2bcd851f501e7b883fd26ae121a7f95e6b914cf94bd",
+    "train_uniform_00013:end120:k8": "2190f31faa7972dfcc325418a476cb7515eb149c9be92dee8577b9884f497c91",
+    "train_uniform_00013:end80:k8": "401a69d7a22977935dbdf59ab7fbea50adb75ea562dd5bf9dac187bed6fa7c6d",
+    "train_uniform_00014:end112:k8": "1e144c9841a0d4c3c17472f7c1cc972cea7bf091e5ac9acbb32748e6cb365f4d",
+    "train_uniform_00014:end120:k8": "6792c513cf1de7f108ad4cb42fcc4c40d705811279fc30f088c6a9730c0e7205",
+    "train_uniform_00014:end80:k8": "daf1771626a9a8a7946edfaecf82fef3b0f77db2400d5a9db8f42c420d07fc21",
+    "train_uniform_00015:end112:k8": "d6fc19211f1ae3c48a3d34f75a153f8e2fc2fe5d2d83650819fe9e831f77bced",
+    "train_uniform_00015:end120:k8": "aee9fa76f6d8eced1c27856c318b3175131e8cafeaf12fb4471852e81383d370",
+    "train_uniform_00015:end80:k8": "14bbe830123f14dd6e8e9e288d89cf21a134127df95969693ee756ae56d25b4e"
+  },
+  "records_per_family": 16,
+  "rows": [
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 0,
+      "relative_l2": 0.00042410066127771993,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 0,
+      "relative_l2": 0.027612737584681038,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 0,
+      "relative_l2": 0.08464424222114096,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 0,
+      "relative_l2": 0.3105140918669574,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 0,
+      "relative_l2": 0.0009158758738815226,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 0,
+      "relative_l2": 0.06698365697358818,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 0,
+      "relative_l2": 0.2357111786281623,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 0,
+      "relative_l2": 0.4210309287117875,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 0,
+      "relative_l2": 0.0008934303701261111,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 0,
+      "relative_l2": 0.06271204873668336,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 0,
+      "relative_l2": 0.2104628174965286,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 0,
+      "relative_l2": 0.4021966250256351,
+      "sample_id": "train_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 1,
+      "relative_l2": 0.0012743049473450195,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 1,
+      "relative_l2": 0.017378424316086452,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 1,
+      "relative_l2": 0.037002308272471966,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 1,
+      "relative_l2": 0.08085156181463092,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 1,
+      "relative_l2": 0.006356509932992017,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 1,
+      "relative_l2": 0.1760665196357598,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 1,
+      "relative_l2": 0.29698778816073107,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 1,
+      "relative_l2": 0.38724078954185376,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 1,
+      "relative_l2": 0.0075762982379672175,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 1,
+      "relative_l2": 0.17272618137264456,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 1,
+      "relative_l2": 0.31595832303262356,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 1,
+      "relative_l2": 0.4808555322400107,
+      "sample_id": "train_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2,
+      "relative_l2": 0.0005383866595947123,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2,
+      "relative_l2": 0.04461797011500633,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2,
+      "relative_l2": 0.1917073291270758,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2,
+      "relative_l2": 0.4433892616397956,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2,
+      "relative_l2": 0.00040442534731066317,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2,
+      "relative_l2": 0.03555362776629975,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2,
+      "relative_l2": 0.16267498857914253,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2,
+      "relative_l2": 0.4006560810283205,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2,
+      "relative_l2": 0.0003977187967288739,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2,
+      "relative_l2": 0.03962632140407704,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2,
+      "relative_l2": 0.15467066033582633,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2,
+      "relative_l2": 0.3184716374384936,
+      "sample_id": "train_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3,
+      "relative_l2": 0.0021050971736846944,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3,
+      "relative_l2": 0.025370463126142367,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3,
+      "relative_l2": 0.04838898898404122,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3,
+      "relative_l2": 0.09330164543229653,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3,
+      "relative_l2": 0.0016284273829612061,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3,
+      "relative_l2": 0.054820544995798824,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3,
+      "relative_l2": 0.1774122794708927,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3,
+      "relative_l2": 0.3422759511335635,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3,
+      "relative_l2": 0.007552386617632527,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3,
+      "relative_l2": 0.18128802384063966,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3,
+      "relative_l2": 0.3071598479514073,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3,
+      "relative_l2": 0.4032384046371192,
+      "sample_id": "train_uniform_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 4,
+      "relative_l2": 0.0009618066518669822,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 4,
+      "relative_l2": 0.06175063577778129,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 4,
+      "relative_l2": 0.17554708297113375,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 4,
+      "relative_l2": 0.3173403773584163,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 4,
+      "relative_l2": 0.0003228877262678092,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 4,
+      "relative_l2": 0.020151991783222172,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 4,
+      "relative_l2": 0.05999539620730167,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 4,
+      "relative_l2": 0.18683537920375348,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 4,
+      "relative_l2": 0.0004999152449611863,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 4,
+      "relative_l2": 0.0301996700329805,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 4,
+      "relative_l2": 0.1392727195637947,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 4,
+      "relative_l2": 0.3172726231136096,
+      "sample_id": "train_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 5,
+      "relative_l2": 0.0013563156894020759,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 5,
+      "relative_l2": 0.037665303292757725,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 5,
+      "relative_l2": 0.08068935478064371,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 5,
+      "relative_l2": 0.17225317538196602,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 5,
+      "relative_l2": 0.004321559335364844,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 5,
+      "relative_l2": 0.16923290425264212,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 5,
+      "relative_l2": 0.3328770532513854,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 5,
+      "relative_l2": 0.5214413561788603,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 5,
+      "relative_l2": 0.0031520721080740693,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 5,
+      "relative_l2": 0.1426835504840655,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 5,
+      "relative_l2": 0.3322804664005275,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 5,
+      "relative_l2": 0.5697257924171905,
+      "sample_id": "train_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 6,
+      "relative_l2": 0.003689161123039866,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 6,
+      "relative_l2": 0.06208492079034484,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 6,
+      "relative_l2": 0.10841108141701519,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 6,
+      "relative_l2": 0.19429697865833526,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 6,
+      "relative_l2": 0.0032595131554366045,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 6,
+      "relative_l2": 0.05275950892073479,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 6,
+      "relative_l2": 0.09077204188282498,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 6,
+      "relative_l2": 0.16436655803924755,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 6,
+      "relative_l2": 0.0031656076896672387,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 6,
+      "relative_l2": 0.05113523763627778,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 6,
+      "relative_l2": 0.08846186273169772,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 6,
+      "relative_l2": 0.1611633027519506,
+      "sample_id": "train_uniform_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 7,
+      "relative_l2": 0.0003520396323956738,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 7,
+      "relative_l2": 0.029538504676847877,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 7,
+      "relative_l2": 0.1480188970160038,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 7,
+      "relative_l2": 0.553566483455242,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 7,
+      "relative_l2": 0.0003954534445436051,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 7,
+      "relative_l2": 0.03425405109377244,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 7,
+      "relative_l2": 0.14641280722715477,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 7,
+      "relative_l2": 0.32213771446259043,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 7,
+      "relative_l2": 0.00039475618752401277,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 7,
+      "relative_l2": 0.03283979559900307,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 7,
+      "relative_l2": 0.15308145242393933,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 7,
+      "relative_l2": 0.3842940600653418,
+      "sample_id": "train_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 8,
+      "relative_l2": 0.0005853546393425801,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 8,
+      "relative_l2": 0.03349090668613981,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 8,
+      "relative_l2": 0.09682171863076569,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 8,
+      "relative_l2": 0.23951620874025356,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 8,
+      "relative_l2": 0.0007356363371304473,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 8,
+      "relative_l2": 0.04238854466713465,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 8,
+      "relative_l2": 0.12194220968882805,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 8,
+      "relative_l2": 0.25009336135071786,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 8,
+      "relative_l2": 0.0006479518434675216,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 8,
+      "relative_l2": 0.035944525385196456,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 8,
+      "relative_l2": 0.09259486044521205,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 8,
+      "relative_l2": 0.18910269632529042,
+      "sample_id": "train_uniform_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 9,
+      "relative_l2": 0.0053119401024496245,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 9,
+      "relative_l2": 0.10373492989344987,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 9,
+      "relative_l2": 0.21403554007769995,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 9,
+      "relative_l2": 0.4331028938462032,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 9,
+      "relative_l2": 0.0032014042538737676,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 9,
+      "relative_l2": 0.05310785015300776,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 9,
+      "relative_l2": 0.09442187730452957,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 9,
+      "relative_l2": 0.18257338015100735,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 9,
+      "relative_l2": 0.0030902201632224667,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 9,
+      "relative_l2": 0.051123133564800485,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 9,
+      "relative_l2": 0.0893591588400559,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 9,
+      "relative_l2": 0.1751278974720166,
+      "sample_id": "train_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 10,
+      "relative_l2": 0.0006393351091879907,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 10,
+      "relative_l2": 0.05071480075451816,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 10,
+      "relative_l2": 0.20474640834551747,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 10,
+      "relative_l2": 0.45382093877175506,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 10,
+      "relative_l2": 0.0001644848714494621,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 10,
+      "relative_l2": 0.012880458584420407,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 10,
+      "relative_l2": 0.04849055712408411,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 10,
+      "relative_l2": 0.1445856994801332,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 10,
+      "relative_l2": 0.0001909010411435389,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 10,
+      "relative_l2": 0.014392830146765906,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 10,
+      "relative_l2": 0.07368732745105919,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 10,
+      "relative_l2": 0.20074852355801584,
+      "sample_id": "train_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 11,
+      "relative_l2": 0.0011544496223421046,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 11,
+      "relative_l2": 0.01988830143454663,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 11,
+      "relative_l2": 0.039072329808818126,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 11,
+      "relative_l2": 0.07671641086141853,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 11,
+      "relative_l2": 0.0007163895898061068,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 11,
+      "relative_l2": 0.01442880540931229,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 11,
+      "relative_l2": 0.0333942159311274,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 11,
+      "relative_l2": 0.07344631527530407,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 11,
+      "relative_l2": 0.0006988123549854861,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 11,
+      "relative_l2": 0.013971290200563789,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 11,
+      "relative_l2": 0.03261647465209492,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 11,
+      "relative_l2": 0.07215329612196678,
+      "sample_id": "train_uniform_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 12,
+      "relative_l2": 0.0036844097659002365,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 12,
+      "relative_l2": 0.14428939817819278,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 12,
+      "relative_l2": 0.30672968000766426,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 12,
+      "relative_l2": 0.5170045569736086,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 12,
+      "relative_l2": 0.001520737998617734,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 12,
+      "relative_l2": 0.045109949586674206,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 12,
+      "relative_l2": 0.08946903477526717,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 12,
+      "relative_l2": 0.1808673717261811,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 12,
+      "relative_l2": 0.0014638390571531396,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 12,
+      "relative_l2": 0.04222257492529574,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 12,
+      "relative_l2": 0.08145280579577724,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 12,
+      "relative_l2": 0.1605184969423803,
+      "sample_id": "train_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 13,
+      "relative_l2": 0.00047911947763914364,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 13,
+      "relative_l2": 0.03292882350179884,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 13,
+      "relative_l2": 0.11386520889912082,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 13,
+      "relative_l2": 0.30999639116635047,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 13,
+      "relative_l2": 0.0005459112792324021,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 13,
+      "relative_l2": 0.04675402003109755,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 13,
+      "relative_l2": 0.19207580270127284,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 13,
+      "relative_l2": 0.45326406967936766,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 13,
+      "relative_l2": 0.0007573340228729289,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 13,
+      "relative_l2": 0.06301015756646305,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 13,
+      "relative_l2": 0.26482863998409906,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 13,
+      "relative_l2": 0.5306206958292231,
+      "sample_id": "train_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 14,
+      "relative_l2": 0.00037902997189231437,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 14,
+      "relative_l2": 0.016557450705891315,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 14,
+      "relative_l2": 0.041697559584147524,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 14,
+      "relative_l2": 0.13620545037173765,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 14,
+      "relative_l2": 0.0017500282985004273,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 14,
+      "relative_l2": 0.08650942669816963,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 14,
+      "relative_l2": 0.22960046589983243,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 14,
+      "relative_l2": 0.4419963940606626,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 14,
+      "relative_l2": 0.0013530546602756248,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 14,
+      "relative_l2": 0.07006316547582665,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 14,
+      "relative_l2": 0.19339270652649496,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 14,
+      "relative_l2": 0.4283057062692702,
+      "sample_id": "train_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 15,
+      "relative_l2": 0.001011637591375607,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 15,
+      "relative_l2": 0.04357492361807009,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 15,
+      "relative_l2": 0.16306319984281378,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 15,
+      "relative_l2": 0.3294893929653735,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 15,
+      "relative_l2": 0.0013434739813568287,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 15,
+      "relative_l2": 0.053456769033592005,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 15,
+      "relative_l2": 0.1550247290833193,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 15,
+      "relative_l2": 0.33674558733137183,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 15,
+      "relative_l2": 0.001660431437567157,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 15,
+      "relative_l2": 0.0891756174397804,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 15,
+      "relative_l2": 0.2575561752900696,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 15,
+      "relative_l2": 0.4468343354586973,
+      "sample_id": "train_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 420,
+      "relative_l2": 0.0005787503756430564,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 420,
+      "relative_l2": 0.05210629598750915,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 420,
+      "relative_l2": 0.24374128632492084,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 420,
+      "relative_l2": 0.5568745135962463,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 420,
+      "relative_l2": 0.0002085851069133056,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 420,
+      "relative_l2": 0.02178714609459922,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 420,
+      "relative_l2": 0.10947302825117139,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 420,
+      "relative_l2": 0.2649928969806909,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 420,
+      "relative_l2": 0.00019911659568836682,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 420,
+      "relative_l2": 0.018272840638622584,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 420,
+      "relative_l2": 0.0800603008193382,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 420,
+      "relative_l2": 0.21988479158838342,
+      "sample_id": "train_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 421,
+      "relative_l2": 0.0006879403417669667,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 421,
+      "relative_l2": 0.0548194941565667,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 421,
+      "relative_l2": 0.21980440828799713,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 421,
+      "relative_l2": 0.44640549029843535,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 421,
+      "relative_l2": 0.0002949673372102558,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 421,
+      "relative_l2": 0.025701967391601615,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 421,
+      "relative_l2": 0.10004033634097947,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 421,
+      "relative_l2": 0.2828083811118164,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 421,
+      "relative_l2": 0.0003028242920181546,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 421,
+      "relative_l2": 0.027094692328292216,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 421,
+      "relative_l2": 0.1050060552862186,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 421,
+      "relative_l2": 0.2944518434534729,
+      "sample_id": "train_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 422,
+      "relative_l2": 0.0005678798055640538,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 422,
+      "relative_l2": 0.031290761787710855,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 422,
+      "relative_l2": 0.07574425651094703,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 422,
+      "relative_l2": 0.2132945266601559,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 422,
+      "relative_l2": 0.0015834093200442045,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 422,
+      "relative_l2": 0.07906086888404429,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 422,
+      "relative_l2": 0.22922484406676497,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 422,
+      "relative_l2": 0.48618534715664513,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 422,
+      "relative_l2": 0.0013589367461712592,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 422,
+      "relative_l2": 0.07295925977733456,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 422,
+      "relative_l2": 0.2218299437672614,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 422,
+      "relative_l2": 0.5162880779024452,
+      "sample_id": "train_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 423,
+      "relative_l2": 0.007112489946256228,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 423,
+      "relative_l2": 0.1878394221072063,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 423,
+      "relative_l2": 0.3475343376066973,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 423,
+      "relative_l2": 0.5838262681020661,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 423,
+      "relative_l2": 0.007698503231809221,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 423,
+      "relative_l2": 0.2108959119115073,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 423,
+      "relative_l2": 0.4256121115766781,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 423,
+      "relative_l2": 0.7986845373316881,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 423,
+      "relative_l2": 0.006587378748006761,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 423,
+      "relative_l2": 0.1917865078903736,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 423,
+      "relative_l2": 0.40489522408517026,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 423,
+      "relative_l2": 0.7374514739997002,
+      "sample_id": "train_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 424,
+      "relative_l2": 0.0038185443262837558,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 424,
+      "relative_l2": 0.07420971320880931,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 424,
+      "relative_l2": 0.14652292526987454,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 424,
+      "relative_l2": 0.30554815283454917,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 424,
+      "relative_l2": 0.004088591603872066,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 424,
+      "relative_l2": 0.08044377165671647,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 424,
+      "relative_l2": 0.15373778077773295,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 424,
+      "relative_l2": 0.30501385355963245,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 424,
+      "relative_l2": 0.003701272978389068,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 424,
+      "relative_l2": 0.07455901149757896,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 424,
+      "relative_l2": 0.15503546419908382,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 424,
+      "relative_l2": 0.3011426921145307,
+      "sample_id": "train_layered_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 425,
+      "relative_l2": 0.00040937956485422576,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 425,
+      "relative_l2": 0.018243064246772776,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 425,
+      "relative_l2": 0.042929819503888085,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 425,
+      "relative_l2": 0.08851739535399433,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 425,
+      "relative_l2": 0.000445061887069485,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 425,
+      "relative_l2": 0.02164595166530973,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 425,
+      "relative_l2": 0.07686866456839388,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 425,
+      "relative_l2": 0.24354562512215028,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 425,
+      "relative_l2": 0.0009693304566951362,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 425,
+      "relative_l2": 0.06379269982098613,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 425,
+      "relative_l2": 0.2208853507584619,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 425,
+      "relative_l2": 0.4464346371880123,
+      "sample_id": "train_layered_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 426,
+      "relative_l2": 0.0021755959803987346,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 426,
+      "relative_l2": 0.0760923106209851,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 426,
+      "relative_l2": 0.17765429495459828,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 426,
+      "relative_l2": 0.3315671018257992,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 426,
+      "relative_l2": 0.0017707641119558324,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 426,
+      "relative_l2": 0.059233986163587195,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 426,
+      "relative_l2": 0.13890637164478153,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 426,
+      "relative_l2": 0.27660834954707336,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 426,
+      "relative_l2": 0.0016687967950555344,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 426,
+      "relative_l2": 0.054080542225400194,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 426,
+      "relative_l2": 0.12402473047986343,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 426,
+      "relative_l2": 0.25484457596492366,
+      "sample_id": "train_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 427,
+      "relative_l2": 0.00998878855170866,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 427,
+      "relative_l2": 0.17750089745085904,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 427,
+      "relative_l2": 0.30472792019266465,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 427,
+      "relative_l2": 0.49180541697394264,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 427,
+      "relative_l2": 0.0055615266709730495,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 427,
+      "relative_l2": 0.08264954609875338,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 427,
+      "relative_l2": 0.15730128425724796,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 427,
+      "relative_l2": 0.3069491844011196,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 427,
+      "relative_l2": 0.005237636822904535,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 427,
+      "relative_l2": 0.08791474223769458,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 427,
+      "relative_l2": 0.16921890063908163,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 427,
+      "relative_l2": 0.3860314869631398,
+      "sample_id": "train_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 428,
+      "relative_l2": 0.0038598521658698504,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 428,
+      "relative_l2": 0.15143040773720082,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 428,
+      "relative_l2": 0.3178300478364808,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 428,
+      "relative_l2": 0.5471502434368661,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 428,
+      "relative_l2": 0.003852156442384821,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 428,
+      "relative_l2": 0.16509748555743736,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 428,
+      "relative_l2": 0.34806519962334115,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 428,
+      "relative_l2": 0.5788199140803795,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 428,
+      "relative_l2": 0.003638335992924744,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 428,
+      "relative_l2": 0.16278528978779647,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 428,
+      "relative_l2": 0.3277139674477932,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 428,
+      "relative_l2": 0.5760026003906683,
+      "sample_id": "train_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 429,
+      "relative_l2": 0.009050746275822991,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 429,
+      "relative_l2": 0.2936640224855787,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 429,
+      "relative_l2": 0.6046727907189154,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 429,
+      "relative_l2": 0.925283062549878,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 429,
+      "relative_l2": 0.005838323906235513,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 429,
+      "relative_l2": 0.19787523352809638,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 429,
+      "relative_l2": 0.3915800679573995,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 429,
+      "relative_l2": 0.6217248304450197,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 429,
+      "relative_l2": 0.005538854532248087,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 429,
+      "relative_l2": 0.20031681985159883,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 429,
+      "relative_l2": 0.39748128185167336,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 429,
+      "relative_l2": 0.6087544316404153,
+      "sample_id": "train_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 430,
+      "relative_l2": 0.002355537465458234,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 430,
+      "relative_l2": 0.12846885576770117,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 430,
+      "relative_l2": 0.3069415718097031,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 430,
+      "relative_l2": 0.599806676645068,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 430,
+      "relative_l2": 0.002656404668447976,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 430,
+      "relative_l2": 0.12755578598971043,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 430,
+      "relative_l2": 0.3209570474696573,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 430,
+      "relative_l2": 0.5497417026500667,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 430,
+      "relative_l2": 0.002611462774773106,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 430,
+      "relative_l2": 0.11831907469605288,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 430,
+      "relative_l2": 0.2877811351723351,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 430,
+      "relative_l2": 0.5003102664927911,
+      "sample_id": "train_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 431,
+      "relative_l2": 0.004478159214970789,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 431,
+      "relative_l2": 0.20225254315458055,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 431,
+      "relative_l2": 0.4270566308330523,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 431,
+      "relative_l2": 0.7196658318504678,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 431,
+      "relative_l2": 0.0030851379069488124,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 431,
+      "relative_l2": 0.15473364592317013,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 431,
+      "relative_l2": 0.390298812225736,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 431,
+      "relative_l2": 0.6130205388956668,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 431,
+      "relative_l2": 0.002897429910284475,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 431,
+      "relative_l2": 0.13777235754450606,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 431,
+      "relative_l2": 0.3324021159801465,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 431,
+      "relative_l2": 0.579069103528884,
+      "sample_id": "train_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 432,
+      "relative_l2": 0.008725096402934169,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 432,
+      "relative_l2": 0.21702559679152458,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 432,
+      "relative_l2": 0.3764822789497198,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 432,
+      "relative_l2": 0.5319635300967244,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 432,
+      "relative_l2": 0.010828877218784798,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 432,
+      "relative_l2": 0.2432594239942662,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 432,
+      "relative_l2": 0.44410131114711404,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 432,
+      "relative_l2": 0.6527834449098824,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 432,
+      "relative_l2": 0.011175414193629614,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 432,
+      "relative_l2": 0.21613377926316255,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 432,
+      "relative_l2": 0.40094156932180164,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 432,
+      "relative_l2": 0.6491133123519848,
+      "sample_id": "train_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 433,
+      "relative_l2": 0.0005849313892175881,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 433,
+      "relative_l2": 0.03944469182665711,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 433,
+      "relative_l2": 0.14212685185783794,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 433,
+      "relative_l2": 0.3189625851791041,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 433,
+      "relative_l2": 0.0003012461325753995,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 433,
+      "relative_l2": 0.019181336381085608,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 433,
+      "relative_l2": 0.06506239547883137,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 433,
+      "relative_l2": 0.167086023640467,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 433,
+      "relative_l2": 0.00026977978433078776,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 433,
+      "relative_l2": 0.01977802655981053,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 433,
+      "relative_l2": 0.08139703484144599,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 433,
+      "relative_l2": 0.2278694703133188,
+      "sample_id": "train_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 434,
+      "relative_l2": 0.0024360751709612207,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 434,
+      "relative_l2": 0.05661243671290105,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 434,
+      "relative_l2": 0.1201738916175965,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 434,
+      "relative_l2": 0.23996389802309875,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 434,
+      "relative_l2": 0.0038986133336222487,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 434,
+      "relative_l2": 0.17590010279708604,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 434,
+      "relative_l2": 0.4200501846266313,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 434,
+      "relative_l2": 0.7145525842906915,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 434,
+      "relative_l2": 0.006662966467374696,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 434,
+      "relative_l2": 0.20373663596048247,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 434,
+      "relative_l2": 0.37889160842237735,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 434,
+      "relative_l2": 0.6882682040386247,
+      "sample_id": "train_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 435,
+      "relative_l2": 0.0025349997104207296,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 435,
+      "relative_l2": 0.07516739822180214,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 435,
+      "relative_l2": 0.145508904404171,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 435,
+      "relative_l2": 0.2675950417510496,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 435,
+      "relative_l2": 0.001778230417810658,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 435,
+      "relative_l2": 0.06514722189317665,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 435,
+      "relative_l2": 0.24756104181371036,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 435,
+      "relative_l2": 0.586833487273148,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 435,
+      "relative_l2": 0.00421549932517036,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 435,
+      "relative_l2": 0.18171678006748085,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 435,
+      "relative_l2": 0.44538679696411426,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 435,
+      "relative_l2": 0.8794018866039877,
+      "sample_id": "train_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2100,
+      "relative_l2": 0.0009088056367796093,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2100,
+      "relative_l2": 0.04210738028676044,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2100,
+      "relative_l2": 0.10580284628993389,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2100,
+      "relative_l2": 0.19946109380018512,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2100,
+      "relative_l2": 0.00155861137061991,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2100,
+      "relative_l2": 0.08345496308941486,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2100,
+      "relative_l2": 0.19669247479885815,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2100,
+      "relative_l2": 0.3579596044684131,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2100,
+      "relative_l2": 0.0015690504468349909,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2100,
+      "relative_l2": 0.08413056138853318,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2100,
+      "relative_l2": 0.21680490347841683,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2100,
+      "relative_l2": 0.3748673999511382,
+      "sample_id": "train_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2101,
+      "relative_l2": 0.006415430525388463,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2101,
+      "relative_l2": 0.1721879112357432,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2101,
+      "relative_l2": 0.32087790446879366,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2101,
+      "relative_l2": 0.48394881798446493,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2101,
+      "relative_l2": 0.003533904318563368,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2101,
+      "relative_l2": 0.07682348167076253,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2101,
+      "relative_l2": 0.15649753927384116,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2101,
+      "relative_l2": 0.27780211513125114,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2101,
+      "relative_l2": 0.0032984733282381317,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2101,
+      "relative_l2": 0.06901385727960008,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2101,
+      "relative_l2": 0.13576613322197595,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2101,
+      "relative_l2": 0.23777589482722758,
+      "sample_id": "train_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2102,
+      "relative_l2": 0.000985563018682952,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2102,
+      "relative_l2": 0.05405577908144805,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2102,
+      "relative_l2": 0.14020622626187043,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2102,
+      "relative_l2": 0.3150742187387483,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2102,
+      "relative_l2": 0.002630822613150324,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2102,
+      "relative_l2": 0.09473198939199776,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2102,
+      "relative_l2": 0.20134365384683664,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2102,
+      "relative_l2": 0.3664972715382784,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2102,
+      "relative_l2": 0.002089941455404998,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2102,
+      "relative_l2": 0.07079577010444897,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2102,
+      "relative_l2": 0.14905100460896903,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2102,
+      "relative_l2": 0.29049831634623263,
+      "sample_id": "train_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2103,
+      "relative_l2": 0.0017847082771021464,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2103,
+      "relative_l2": 0.10541547722540755,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2103,
+      "relative_l2": 0.28132716415345016,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2103,
+      "relative_l2": 0.4827739822260265,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2103,
+      "relative_l2": 0.0010406644012050938,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2103,
+      "relative_l2": 0.04815152993366204,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2103,
+      "relative_l2": 0.12054233950997102,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2103,
+      "relative_l2": 0.23455155571847233,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2103,
+      "relative_l2": 0.0009697788107903056,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2103,
+      "relative_l2": 0.04480487597292587,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2103,
+      "relative_l2": 0.1120938397369933,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2103,
+      "relative_l2": 0.22391522575818354,
+      "sample_id": "train_marmousi_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2104,
+      "relative_l2": 0.002308687684956098,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2104,
+      "relative_l2": 0.08726063915858832,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2104,
+      "relative_l2": 0.19240484785238463,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2104,
+      "relative_l2": 0.3659209916274657,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2104,
+      "relative_l2": 0.001495507640569264,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2104,
+      "relative_l2": 0.05733265622491589,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2104,
+      "relative_l2": 0.13101787949195484,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2104,
+      "relative_l2": 0.24058667581619855,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2104,
+      "relative_l2": 0.0014947651980293448,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2104,
+      "relative_l2": 0.05684876110937249,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2104,
+      "relative_l2": 0.12893789347764648,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2104,
+      "relative_l2": 0.22975619575639888,
+      "sample_id": "train_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2105,
+      "relative_l2": 0.00023029101131065514,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2105,
+      "relative_l2": 0.01500648670067488,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2105,
+      "relative_l2": 0.054952663810330024,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2105,
+      "relative_l2": 0.16186100464587239,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2105,
+      "relative_l2": 0.0009163725158288673,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2105,
+      "relative_l2": 0.06744289157789295,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2105,
+      "relative_l2": 0.22537880582976877,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2105,
+      "relative_l2": 0.44057598269791687,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2105,
+      "relative_l2": 0.0009670065367871858,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2105,
+      "relative_l2": 0.06436363608788798,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2105,
+      "relative_l2": 0.19386313049616047,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2105,
+      "relative_l2": 0.3817701658468504,
+      "sample_id": "train_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2106,
+      "relative_l2": 0.0007216198730517374,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2106,
+      "relative_l2": 0.05704944647625195,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2106,
+      "relative_l2": 0.18822086910656194,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2106,
+      "relative_l2": 0.35694870727043315,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2106,
+      "relative_l2": 0.0002557750105080179,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2106,
+      "relative_l2": 0.018327102911635765,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2106,
+      "relative_l2": 0.06067572596763537,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2106,
+      "relative_l2": 0.1345522105679457,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2106,
+      "relative_l2": 0.00022763125866889918,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2106,
+      "relative_l2": 0.016244269394391844,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2106,
+      "relative_l2": 0.052406678808179605,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2106,
+      "relative_l2": 0.11438432312673515,
+      "sample_id": "train_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2107,
+      "relative_l2": 0.003383413188943929,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2107,
+      "relative_l2": 0.08267316269787926,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2107,
+      "relative_l2": 0.15749880040174824,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2107,
+      "relative_l2": 0.2652909554959372,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2107,
+      "relative_l2": 0.0028262894354410353,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2107,
+      "relative_l2": 0.07421293067223082,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2107,
+      "relative_l2": 0.14918148487076854,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2107,
+      "relative_l2": 0.2526274267685779,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2107,
+      "relative_l2": 0.0027743019593377757,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2107,
+      "relative_l2": 0.0722548633467332,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2107,
+      "relative_l2": 0.14530133352175045,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2107,
+      "relative_l2": 0.25936295510285495,
+      "sample_id": "train_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2108,
+      "relative_l2": 0.0009357746945450921,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2108,
+      "relative_l2": 0.061067869401257774,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2108,
+      "relative_l2": 0.15949007670713897,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2108,
+      "relative_l2": 0.28773218939938305,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2108,
+      "relative_l2": 0.0005424038589096593,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2108,
+      "relative_l2": 0.03188224847539325,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2108,
+      "relative_l2": 0.08966882454339468,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2108,
+      "relative_l2": 0.18079318361973812,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2108,
+      "relative_l2": 0.0005047503741105437,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2108,
+      "relative_l2": 0.029751373433483816,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2108,
+      "relative_l2": 0.08370996818355989,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2108,
+      "relative_l2": 0.16568971815111536,
+      "sample_id": "train_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2109,
+      "relative_l2": 0.0023388192638070086,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2109,
+      "relative_l2": 0.06463524058107588,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2109,
+      "relative_l2": 0.13089929665491962,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2109,
+      "relative_l2": 0.24246926998540427,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2109,
+      "relative_l2": 0.00265525970904875,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2109,
+      "relative_l2": 0.0809486293586262,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2109,
+      "relative_l2": 0.18752730689638533,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2109,
+      "relative_l2": 0.33400352137972794,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2109,
+      "relative_l2": 0.004041215793074548,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2109,
+      "relative_l2": 0.13534121199419832,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2109,
+      "relative_l2": 0.24700410373190781,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2109,
+      "relative_l2": 0.36140050659352707,
+      "sample_id": "train_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2110,
+      "relative_l2": 0.0028294168979215747,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2110,
+      "relative_l2": 0.059739008383162304,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2110,
+      "relative_l2": 0.11710489668242804,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2110,
+      "relative_l2": 0.21859847649851438,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2110,
+      "relative_l2": 0.00574922610647666,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2110,
+      "relative_l2": 0.15903797562069624,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2110,
+      "relative_l2": 0.2881466090864039,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2110,
+      "relative_l2": 0.44410862659292843,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2110,
+      "relative_l2": 0.0046143288697275625,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2110,
+      "relative_l2": 0.13265810969609204,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2110,
+      "relative_l2": 0.25279064647278526,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2110,
+      "relative_l2": 0.4014991099883834,
+      "sample_id": "train_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2111,
+      "relative_l2": 0.0023273986158915427,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2111,
+      "relative_l2": 0.10167339642342878,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2111,
+      "relative_l2": 0.23142911725235404,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2111,
+      "relative_l2": 0.4126406385869594,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2111,
+      "relative_l2": 0.001262283233696106,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2111,
+      "relative_l2": 0.05193644115865431,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2111,
+      "relative_l2": 0.1275646967803916,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2111,
+      "relative_l2": 0.23191780063648407,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2111,
+      "relative_l2": 0.0012011634581047981,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2111,
+      "relative_l2": 0.04875459004230615,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2111,
+      "relative_l2": 0.12029269707079854,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2111,
+      "relative_l2": 0.22533473504873297,
+      "sample_id": "train_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2112,
+      "relative_l2": 0.0014698306292751419,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2112,
+      "relative_l2": 0.07094348222494105,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2112,
+      "relative_l2": 0.16471042335651123,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2112,
+      "relative_l2": 0.32312244966878656,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2112,
+      "relative_l2": 0.0009410849311622779,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2112,
+      "relative_l2": 0.04263121389672328,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2112,
+      "relative_l2": 0.10425518689339638,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2112,
+      "relative_l2": 0.19570169103621599,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2112,
+      "relative_l2": 0.0008719272017074064,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2112,
+      "relative_l2": 0.03987215023869319,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2112,
+      "relative_l2": 0.10213011470185161,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2112,
+      "relative_l2": 0.1988572596812276,
+      "sample_id": "train_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2113,
+      "relative_l2": 0.0002244055398390315,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2113,
+      "relative_l2": 0.01439385122142326,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2113,
+      "relative_l2": 0.04753920286857938,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2113,
+      "relative_l2": 0.14193041624029598,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2113,
+      "relative_l2": 0.0007537202948365593,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2113,
+      "relative_l2": 0.053999622590387306,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2113,
+      "relative_l2": 0.17538884680519276,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2113,
+      "relative_l2": 0.3999518260955355,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2113,
+      "relative_l2": 0.0008705530642786458,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2113,
+      "relative_l2": 0.06338917577445637,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2113,
+      "relative_l2": 0.2149484643539256,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2113,
+      "relative_l2": 0.4085450810929833,
+      "sample_id": "train_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2114,
+      "relative_l2": 0.0005959038573682421,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2114,
+      "relative_l2": 0.03065169066396267,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2114,
+      "relative_l2": 0.09522597044743981,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2114,
+      "relative_l2": 0.23777523372330248,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2114,
+      "relative_l2": 0.002100614492939509,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2114,
+      "relative_l2": 0.09257913284090809,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2114,
+      "relative_l2": 0.2158578695340336,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2114,
+      "relative_l2": 0.37721191674409016,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2114,
+      "relative_l2": 0.0016563138358767731,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2114,
+      "relative_l2": 0.07111029360050217,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2114,
+      "relative_l2": 0.17165870048007165,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2114,
+      "relative_l2": 0.3341408234826737,
+      "sample_id": "train_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2115,
+      "relative_l2": 0.001510394886982571,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2115,
+      "relative_l2": 0.08178828536553645,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2115,
+      "relative_l2": 0.22726338766460166,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2115,
+      "relative_l2": 0.3722800846153589,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2115,
+      "relative_l2": 0.0015914003323939197,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2115,
+      "relative_l2": 0.06597130145282454,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2115,
+      "relative_l2": 0.15253874683564578,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2115,
+      "relative_l2": 0.3040809398001811,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2115,
+      "relative_l2": 0.001425013314293698,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2115,
+      "relative_l2": 0.05842802914325345,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2115,
+      "relative_l2": 0.14079698256363857,
+      "sample_id": "train_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2115,
+      "relative_l2": 0.259191991529209,
+      "sample_id": "train_marmousi_00015"
+    }
+  ],
+  "scope": "snapshot_only_checkpoint_small_panel",
+  "split_name": "train",
+  "strict_goal_eligible": false,
+  "summary": {
+    "end112_k8_h1": {
+      "aggregate_record_mean_relative_l2": 0.002319313716056925,
+      "family_record_mean_relative_l2": {
+        "layered": 0.003368149956041103,
+        "marmousi": 0.0018658712665843326,
+        "uniform": 0.0017239199255453404
+      }
+    },
+    "end112_k8_h16": {
+      "aggregate_record_mean_relative_l2": 0.18892460205638553,
+      "family_record_mean_relative_l2": {
+        "layered": 0.2511775301141357,
+        "marmousi": 0.1613923744352799,
+        "uniform": 0.154203901619741
+      }
+    },
+    "end112_k8_h32": {
+      "aggregate_record_mean_relative_l2": 0.35482979140339205,
+      "family_record_mean_relative_l2": {
+        "layered": 0.46558441883725854,
+        "marmousi": 0.29830764678824717,
+        "uniform": 0.30059730858467015
+      }
+    },
+    "end112_k8_h8": {
+      "aggregate_record_mean_relative_l2": 0.07904358596629375,
+      "family_record_mean_relative_l2": {
+        "layered": 0.10813558662063424,
+        "marmousi": 0.06871650692917036,
+        "uniform": 0.06027866434907666
+      }
+    },
+    "end120_k8_h1": {
+      "aggregate_record_mean_relative_l2": 0.0024813746073812375,
+      "family_record_mean_relative_l2": {
+        "layered": 0.0035646897759790425,
+        "marmousi": 0.0017860134315791003,
+        "uniform": 0.0020934206145855686
+      }
+    },
+    "end120_k8_h16": {
+      "aggregate_record_mean_relative_l2": 0.19556967445554177,
+      "family_record_mean_relative_l2": {
+        "layered": 0.2583094675022604,
+        "marmousi": 0.15422228718178943,
+        "uniform": 0.1741772686825755
+      }
+    },
+    "end120_k8_h32": {
+      "aggregate_record_mean_relative_l2": 0.36610287880177017,
+      "family_record_mean_relative_l2": {
+        "layered": 0.4915824284084552,
+        "marmousi": 0.2791868563927171,
+        "uniform": 0.3275393516041382
+      }
+    },
+    "end120_k8_h8": {
+      "aggregate_record_mean_relative_l2": 0.0829561398451066,
+      "family_record_mean_relative_l2": {
+        "layered": 0.11443869125919834,
+        "marmousi": 0.06611009553792994,
+        "uniform": 0.0683196327381915
+      }
+    },
+    "end80_k8_h1": {
+      "aggregate_record_mean_relative_l2": 0.002339202481431529,
+      "family_record_mean_relative_l2": {
+        "layered": 0.0037102979180082033,
+        "marmousi": 0.0018106539751153621,
+        "uniform": 0.0014966555511710215
+      }
+    },
+    "end80_k8_h16": {
+      "aggregate_record_mean_relative_l2": 0.18060097584675383,
+      "family_record_mean_relative_l2": {
+        "layered": 0.24996576354244154,
+        "marmousi": 0.16343460587369035,
+        "uniform": 0.12840255812412962
+      }
+    },
+    "end80_k8_h32": {
+      "aggregate_record_mean_relative_l2": 0.3478630017706026,
+      "family_record_mean_relative_l2": {
+        "layered": 0.44801435844859044,
+        "marmousi": 0.3042392831566961,
+        "uniform": 0.2913353637065213
+      }
+    },
+    "end80_k8_h8": {
+      "aggregate_record_mean_relative_l2": 0.07683365653842004,
+      "family_record_mean_relative_l2": {
+        "layered": 0.11476049451652283,
+        "marmousi": 0.06879056919547136,
+        "uniform": 0.04694990590326596
+      }
+    }
+  },
+  "wavefield_shape": [
+    4003,
+    401,
+    201,
+    201
+  ]
+}

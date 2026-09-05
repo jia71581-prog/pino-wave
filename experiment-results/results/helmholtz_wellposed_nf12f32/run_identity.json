@@ -1,0 +1,55 @@
+{
+  "additive_heads": {
+    "band_adapter_rank": 0,
+    "family_expert_rank": 0,
+    "temporal_basis_rank": 0
+  },
+  "backbone_learning_rate": 5e-05,
+  "dense_depth": 8,
+  "dense_learning_rate": 0.0001,
+  "dense_modes": 32,
+  "dense_spectral_rank": 112,
+  "evaluate_every": 50,
+  "families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "family_gradient_weights": null,
+  "front_end_transfer": null,
+  "local_field": true,
+  "local_field_causal_width_s": 0.005,
+  "local_field_channel_multipliers": [
+    1,
+    1,
+    2,
+    2
+  ],
+  "local_field_grad_clip": 20.0,
+  "local_field_learning_rate": 0.0005,
+  "local_field_residual": false,
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "microbatch_records": 1,
+  "parameter_count": 25687238,
+  "record_indices": [
+    0,
+    420,
+    1540
+  ],
+  "run_digest": "89fd13fbda08697665fc72f2ebb0a7410b0edb3dc3e67a648683851946aa1788",
+  "sample_ids": [
+    "train_uniform_00000",
+    "train_layered_00000",
+    "train_marmousi_00000"
+  ],
+  "schema": "saved_time_capacity_ladder_overfit_v1",
+  "seed": 372,
+  "smoke": false,
+  "split": "train",
+  "training_frames_per_record": 32,
+  "updates": 300,
+  "validation_frames_per_record": 16,
+  "warmstart_checkpoint": null,
+  "warmstart_frontend": null,
+  "width": 128
+}

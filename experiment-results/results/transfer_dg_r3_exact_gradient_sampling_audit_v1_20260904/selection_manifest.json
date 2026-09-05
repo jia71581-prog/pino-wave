@@ -1,0 +1,83 @@
+{
+  "schema": "transfer_dg_r3_exact_gradient_sampling_selection_v1",
+  "candidate": "transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904",
+  "split": "train",
+  "role": "fit",
+  "selection_rule": "For each family in the frozen order, select the role=fit cache record with lexicographically minimum (source_index, sample_id); this rule is independent of losses, gradients, and model performance.",
+  "family_order": [
+    "uniform",
+    "layered",
+    "anomaly",
+    "marmousi"
+  ],
+  "records": [
+    {
+      "family": "uniform",
+      "sample_id": "train_uniform_00014",
+      "source_index": 14,
+      "group_id": "train:uniform:00014",
+      "role": "fit",
+      "cache_position": 12,
+      "sample_sha256": "c525b99d2fe42f5732d61a35c6ffdff1a616d8c06f5c780355a81f25645ba970"
+    },
+    {
+      "family": "layered",
+      "sample_id": "train_layered_00696",
+      "source_index": 1116,
+      "group_id": "train:layered:00174",
+      "role": "fit",
+      "cache_position": 44,
+      "sample_sha256": "14693030b443d1c837abdb448b0ddd810fb3199f30b5e2eb4f15d8dd26ce9ba9"
+    },
+    {
+      "family": "anomaly",
+      "sample_id": "train_anomaly_00096",
+      "source_index": 1636,
+      "group_id": "train:anomaly:00048",
+      "role": "fit",
+      "cache_position": 70,
+      "sample_sha256": "6a876f6e8d1287a64a2feeca9e0a00015c884c0ed31f4124350f7027a34e840d"
+    },
+    {
+      "family": "marmousi",
+      "sample_id": "train_marmousi_00230",
+      "source_index": 2330,
+      "group_id": "train:marmousi:x1300.0:z100.0",
+      "role": "fit",
+      "cache_position": 106,
+      "sample_sha256": "dfeb947dcc5e2cce0a55596a651062b1da8973e5f395fdd1ea0fd3fb849d799a"
+    }
+  ],
+  "canonical_serialization": {
+    "encoding": "UTF-8",
+    "json_sort_keys": true,
+    "json_separators": [
+      ",",
+      ":"
+    ],
+    "ensure_ascii": false,
+    "allow_nan": false,
+    "trailing_newline": false
+  },
+  "digests": {
+    "authority": {
+      "scope": "records array with all seven fields: family, group_id, role, sample_id, sample_sha256, source_index, cache_position",
+      "sha256": "e22704d9c8627b03572945a6aeee7ddfb3d0ebd6de60ee7a923f75ba85ce5464"
+    },
+    "compatibility_projection": {
+      "scope": "records array projected to six fields by excluding cache_position; non-authoritative",
+      "sha256": "b365de4d94f3526570c312e143f791887404834d5b58d545284c37a3622da2f7"
+    }
+  },
+  "inputs": {
+    "cache": "results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "upstream_selection_manifest": "results/transfer_dg_coupled_mhc_muon_pilot_manifest_20260903.json",
+    "upstream_selection_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e"
+  },
+  "future_truth_scope": "Only the four listed train/fit records may be read by the diagnostic. Validation and test_id future wavefields remain sealed.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

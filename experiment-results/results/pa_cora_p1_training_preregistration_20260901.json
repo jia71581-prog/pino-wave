@@ -1,0 +1,81 @@
+{
+  "accuracy_gate": "mean best holdout aggregate of seeds 372 and 733 must be strictly below the corresponding V9 spectral two-seed mean; no minimum percentage",
+  "bindings": {
+    "fit_cache_sha256": {
+      "results/b2_v9_parent_fit_cache_240rec_20260901.h5": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171",
+      "results/pa_cora_p1_fit_slot1.h5": "55eb46945f9bbd9eb9148f24b820e7450fd97f1e2d9c5ca8ef28ff5dab823448",
+      "results/pa_cora_p1_fit_slot2.h5": "70fb628fa0e93c353da5907620388ec0c13ae511ba78a77ab51d34d4a617f916",
+      "results/pa_cora_p1_fit_slot3.h5": "5d9885c296315202d092f3dd79e0a54692030e3b823082119588c0e1bf0a8900"
+    },
+    "fit_manifest_sha256": {
+      "results/b2_v9_parent_fit_manifest_240rec_20260901.json": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+      "results/pa_cora_p1_fit_slot1.json": "519e0e3a833f99015ab98fc422cb5bdaa22adc374148eebc0335b39f74acef51",
+      "results/pa_cora_p1_fit_slot2.json": "edbda3411d464f830f15f1a15a9b479265e84d9de21df0a9d483985749e14945",
+      "results/pa_cora_p1_fit_slot3.json": "539e2a0c6831b485bba7fdf723f8df4fa6965d18e9094a5ce7076b0e25d5f588"
+    },
+    "holdout_cache_sha256": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+    "holdout_manifest_sha256": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+    "runner_sha256": "aba9ed39e61da58b95d02bef00dbd36fab9234089031d5bc6c629c44697086c3",
+    "trainer_sha256": "26905b3e1c2d00807fc9b4893ee6a3583f6b8c9af5b339981cbba2e4726217f2"
+  },
+  "conceptual_variable": "temporal window coverage only",
+  "data_access": {
+    "fit_holdout_group_overlap": 0,
+    "fit_source_groups": 240,
+    "fit_window_records": 960,
+    "future_truth_used_for_window_selection": false,
+    "holdout_records": 24,
+    "split": "train",
+    "test_id_opened": false,
+    "validation_opened": false,
+    "windows_per_source": 4
+  },
+  "failure_signal": "two-seed mean is not strictly improved, nonfinite loss, OOM, or epoch-1 wall time above 900 seconds",
+  "hyperparameters": {
+    "architecture": "V9 FrameConditionedPropagator",
+    "conditioning_channels": 7,
+    "depth": 4,
+    "epochs": 23,
+    "gradient_clip": 1.0,
+    "ic_frames": 8,
+    "learning_rate": 0.001,
+    "loss": "relative_l2 + 0.1 * temporal_spectral",
+    "micro_records": 4,
+    "modes": 24,
+    "optimizer": "AdamW",
+    "optimizer_steps_per_epoch": 240,
+    "record_exposures": 22080,
+    "schedule": "cosine to 1e-5",
+    "seeds": [
+      372,
+      733,
+      1049,
+      1403
+    ],
+    "spectral_rank": 32,
+    "total_optimizer_steps": 5520,
+    "v9_record_exposures": 21600,
+    "weight_decay": 1e-06,
+    "width": 64
+  },
+  "hypothesis": "Four deterministic train-only temporal windows per source yield strict same-protocol aggregate improvement over V9 spectral training at matched record exposure.",
+  "method": "PA-CORA",
+  "report_only": [
+    "auxiliary seeds 1049 and 1403",
+    "per-family",
+    "early/middle/late",
+    "low/middle/high temporal frequency",
+    "nonworse",
+    "maximum",
+    "runtime"
+  ],
+  "rollback": "additive PA-CORA P1 artifacts only; V9 and all protected checkpoints remain immutable",
+  "schema": "pa_cora_p1_multiwindow_training_preregistration_v1",
+  "stage": "P1_multiwindow_only",
+  "status": "frozen_before_launch",
+  "test_id_opened": false,
+  "v9_selected_variant": "spectral",
+  "v9_selection": "results/b2_v9_parent_selection_20260901.json",
+  "v9_selection_sha256": "86c584471928cdfc2acaed0eaef28731b3733a4fd4943329dbf88d67eab28e57",
+  "validation_opened": false
+}

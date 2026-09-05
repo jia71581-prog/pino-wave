@@ -1,0 +1,1669 @@
+{
+  "budget": {
+    "one_gpu_hours_maximum": 0.1,
+    "one_gpu_seconds_maximum": 360.0,
+    "one_gpu_seconds_used": 117.94374089129269,
+    "within_budget": true
+  },
+  "candidate": "r4e7_pod_metric_balance_factorial_calibration9_v1",
+  "checkpoint_attestation": {
+    "rollback_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "rollback_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "rollback_sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "unchanged": true,
+    "writes": 0
+  },
+  "claim_scope": "offline_train_future_truth_oracle_calibration_only_not_independent_confirmation_not_online_adaptation_not_validation_not_test_id",
+  "completed_utc": "2026-08-25T18:47:36.124732Z",
+  "decision": "winner",
+  "disk_free_bytes_after": 2313695232,
+  "disk_free_bytes_at_binding_gate": 2313695232,
+  "disk_free_bytes_before": 2313695232,
+  "exact_blocker": "none",
+  "family_results": {
+    "layered": {
+      "arms": {
+        "equaltrace+ordinary": {
+          "coefficient_fit": "ordinary",
+          "future_frame_count": 389,
+          "future_parent_energy": 2.49398826706685e-12,
+          "future_residual_energy": 1.7335769570234543e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.8914990110355484,
+            "mean_squared_per_frame_relative_l2": 1.0618408353656368
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.032179322906741,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.7428512777910506,
+                "mean_squared_per_frame_relative_l2": 0.8991799290036608
+              },
+              "correction_energy": 3.707438707758775e-13,
+              "correction_energy_ratio_to_parent": 0.14865501801734815,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.14864773324449776,
+                "mean_per_frame_relative_l2_reduction": 0.16673908933654494,
+                "mean_squared_per_frame_relative_l2_absolute": -0.16266090636197594,
+                "mean_squared_per_frame_relative_l2_reduction": 0.1531876538784317
+              },
+              "raw_residual_energy_capture": 0.21386063611069417,
+              "unexplained_raw_residual_energy": 1.3628330862475768e-12,
+              "weighted_design_condition_number": 2.7472443648877487
+            },
+            "32": {
+              "basis_design_condition_number": 1.299632812705052,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.530539334791676,
+                "mean_squared_per_frame_relative_l2": 0.6648576582154041
+              },
+              "correction_energy": 1.0005911336941248e-12,
+              "correction_energy_ratio_to_parent": 0.4012012193108302,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.3609596762438724,
+                "mean_per_frame_relative_l2_reduction": 0.4048907197604049,
+                "mean_squared_per_frame_relative_l2_absolute": -0.3969831771502327,
+                "mean_squared_per_frame_relative_l2_reduction": 0.3738631666143585
+              },
+              "raw_residual_energy_capture": 0.5771829912945637,
+              "unexplained_raw_residual_energy": 7.329858233293295e-13,
+              "weighted_design_condition_number": 6.792241222739495
+            },
+            "8": {
+              "basis_design_condition_number": 1.0028873670863965,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.8263974066839272,
+                "mean_squared_per_frame_relative_l2": 0.972072008632576
+              },
+              "correction_energy": 1.6945937272593467e-13,
+              "correction_energy_ratio_to_parent": 0.06794714111675987,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.06510160435162116,
+                "mean_per_frame_relative_l2_reduction": 0.0730248755699688,
+                "mean_squared_per_frame_relative_l2_absolute": -0.08976882673306075,
+                "mean_squared_per_frame_relative_l2_reduction": 0.08454075577358026
+              },
+              "raw_residual_energy_capture": 0.0977512835754899,
+              "unexplained_raw_residual_energy": 1.5641175842975198e-12,
+              "weighted_design_condition_number": 1.2206806029087056
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "equaltrace+weighted": {
+          "coefficient_fit": "weighted",
+          "future_frame_count": 389,
+          "future_parent_energy": 2.49398826706685e-12,
+          "future_residual_energy": 1.7335769570234543e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.8914990110355484,
+            "mean_squared_per_frame_relative_l2": 1.0618408353656368
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.032179322906741,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.7321141787133492,
+                "mean_squared_per_frame_relative_l2": 0.7315407452748969
+              },
+              "correction_energy": 4.035233281286206e-13,
+              "correction_energy_ratio_to_parent": 0.161798406775666,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.15938483232219924,
+                "mean_per_frame_relative_l2_reduction": 0.17878296032775273,
+                "mean_squared_per_frame_relative_l2_absolute": -0.3303000900907399,
+                "mean_squared_per_frame_relative_l2_reduction": 0.3110636538827437
+              },
+              "raw_residual_energy_capture": 0.1820017770752662,
+              "unexplained_raw_residual_energy": 1.4180628701484532e-12,
+              "weighted_design_condition_number": 2.7472443648877487
+            },
+            "32": {
+              "basis_design_condition_number": 1.299632812705052,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.4942934390898716,
+                "mean_squared_per_frame_relative_l2": 0.3162798499916822
+              },
+              "correction_energy": 1.041756622020096e-12,
+              "correction_energy_ratio_to_parent": 0.41770710623482343,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.3972055719456768,
+                "mean_per_frame_relative_l2_reduction": 0.4455479669958246,
+                "mean_squared_per_frame_relative_l2_absolute": -0.7455609853739547,
+                "mean_squared_per_frame_relative_l2_reduction": 0.7021400576643169
+              },
+              "raw_residual_energy_capture": 0.5485715951015333,
+              "unexplained_raw_residual_energy": 7.825858804778358e-13,
+              "weighted_design_condition_number": 6.792241222739495
+            },
+            "8": {
+              "basis_design_condition_number": 1.0028873670863965,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.8407506326766157,
+                "mean_squared_per_frame_relative_l2": 0.9256012540347213
+              },
+              "correction_energy": 2.2079159770661416e-13,
+              "correction_energy_ratio_to_parent": 0.08852952542807449,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.050748378358932755,
+                "mean_per_frame_relative_l2_reduction": 0.05692477246832209,
+                "mean_squared_per_frame_relative_l2_absolute": -0.13623958133091552,
+                "mean_squared_per_frame_relative_l2_reduction": 0.12830508753602649
+              },
+              "raw_residual_energy_capture": 0.06218199510411715,
+              "unexplained_raw_residual_energy": 1.6257796831692115e-12,
+              "weighted_design_condition_number": 1.2206806029087056
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "raw+ordinary": {
+          "coefficient_fit": "ordinary",
+          "future_frame_count": 389,
+          "future_parent_energy": 2.49398826706685e-12,
+          "future_residual_energy": 1.7335769570234543e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.8914990110355484,
+            "mean_squared_per_frame_relative_l2": 1.0618408353656368
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0321915175724852,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.7427981487774101,
+                "mean_squared_per_frame_relative_l2": 0.8989576937667326
+              },
+              "correction_energy": 3.707913853996299e-13,
+              "correction_energy_ratio_to_parent": 0.14867406968025285,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.14870086225813828,
+                "mean_per_frame_relative_l2_reduction": 0.16679868448245408,
+                "mean_squared_per_frame_relative_l2_absolute": -0.16288314159890416,
+                "mean_squared_per_frame_relative_l2_reduction": 0.153396946297339
+              },
+              "raw_residual_energy_capture": 0.21388804454131483,
+              "unexplained_raw_residual_energy": 1.3627855716238247e-12,
+              "weighted_design_condition_number": 2.7400295665391043
+            },
+            "32": {
+              "basis_design_condition_number": 1.2976209196521202,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.5302094549491164,
+                "mean_squared_per_frame_relative_l2": 0.6642021960257852
+              },
+              "correction_energy": 1.0012732865576483e-12,
+              "correction_energy_ratio_to_parent": 0.4014747381852096,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.361289556086432,
+                "mean_per_frame_relative_l2_reduction": 0.40526074803691015,
+                "mean_squared_per_frame_relative_l2_absolute": -0.39763863933985155,
+                "mean_squared_per_frame_relative_l2_reduction": 0.3744804551643823
+              },
+              "raw_residual_energy_capture": 0.5775764857170407,
+              "unexplained_raw_residual_energy": 7.323036704658064e-13,
+              "weighted_design_condition_number": 6.7610798182251886
+            },
+            "8": {
+              "basis_design_condition_number": 1.0028876497003791,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.8263933059111678,
+                "mean_squared_per_frame_relative_l2": 0.9720634658125549
+              },
+              "correction_energy": 1.6947273158349096e-13,
+              "correction_energy_ratio_to_parent": 0.0679524975403376,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.06510570512438063,
+                "mean_per_frame_relative_l2_reduction": 0.07302947543234521,
+                "mean_squared_per_frame_relative_l2_absolute": -0.08977736955308191,
+                "mean_squared_per_frame_relative_l2_reduction": 0.08454880106599758
+              },
+              "raw_residual_energy_capture": 0.0977589895256078,
+              "unexplained_raw_residual_energy": 1.5641042254399633e-12,
+              "weighted_design_condition_number": 1.2204317282989077
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "raw+weighted": {
+          "coefficient_fit": "weighted",
+          "future_frame_count": 389,
+          "future_parent_energy": 2.49398826706685e-12,
+          "future_residual_energy": 1.7335769570234543e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.8914990110355484,
+            "mean_squared_per_frame_relative_l2": 1.0618408353656368
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0321915175724852,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.7321180403368127,
+                "mean_squared_per_frame_relative_l2": 0.7315660383494371
+              },
+              "correction_energy": 4.0367425961380324e-13,
+              "correction_energy_ratio_to_parent": 0.1618589248972529,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.1593809706987357,
+                "mean_per_frame_relative_l2_reduction": 0.17877862872063285,
+                "mean_squared_per_frame_relative_l2_absolute": -0.33027479701619966,
+                "mean_squared_per_frame_relative_l2_reduction": 0.3110398338584069
+              },
+              "raw_residual_energy_capture": 0.1819667323854196,
+              "unexplained_raw_residual_energy": 1.4181236228152374e-12,
+              "weighted_design_condition_number": 2.7400295665391043
+            },
+            "32": {
+              "basis_design_condition_number": 1.2976209196521202,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.4939941570197823,
+                "mean_squared_per_frame_relative_l2": 0.3157238076334575
+              },
+              "correction_energy": 1.042709033125984e-12,
+              "correction_energy_ratio_to_parent": 0.41808898898802827,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.39750485401576613,
+                "mean_per_frame_relative_l2_reduction": 0.4458836735601445,
+                "mean_squared_per_frame_relative_l2_absolute": -0.7461170277321794,
+                "mean_squared_per_frame_relative_l2_reduction": 0.7026637165213746
+              },
+              "raw_residual_energy_capture": 0.5489287806300347,
+              "unexplained_raw_residual_energy": 7.819666718762435e-13,
+              "weighted_design_condition_number": 6.7610798182251886
+            },
+            "8": {
+              "basis_design_condition_number": 1.0028876497003791,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.8407400946647846,
+                "mean_squared_per_frame_relative_l2": 0.9256352123164276
+              },
+              "correction_energy": 2.2077454994469586e-13,
+              "correction_energy_ratio_to_parent": 0.08852268988592563,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.050758916370763796,
+                "mean_per_frame_relative_l2_reduction": 0.05693659302190722,
+                "mean_squared_per_frame_relative_l2_absolute": -0.13620562304920913,
+                "mean_squared_per_frame_relative_l2_reduction": 0.12827310695986538
+              },
+              "raw_residual_energy_capture": 0.062209144471392586,
+              "unexplained_raw_residual_energy": 1.6257326176517052e-12,
+              "weighted_design_condition_number": 1.2204317282989077
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        }
+      },
+      "basis_records": [
+        {
+          "full401_residual_energy_and_covariance_trace": 2.4429572366477664e-13,
+          "group_id": "train:layered:00000",
+          "manifest_sample_sha256": "9b482204732d18f506d4af9e17b59bfa78c144ffe3de780e9b3a99e31dd8b75e",
+          "nontruth_input_sha256": "842527a9a251dc738c147a9c14a49cd690eea1ba3528e938555ae14cbcefe1b4",
+          "role": "basis",
+          "sample_id": "train_layered_00000",
+          "train_truth_sha256": "70ae196069fb4eea83ad9a72e68cb4ded4828c91ff0b7e3baf9fe9d0e613799d"
+        },
+        {
+          "full401_residual_energy_and_covariance_trace": 2.449406328415449e-13,
+          "group_id": "train:layered:00001",
+          "manifest_sample_sha256": "b5dfbc6c175eb850b3e97cb042966591c14dd6c6ffd40acbb6d79bab9f6eb24b",
+          "nontruth_input_sha256": "abe67bbc543df25ef7830832aff5263d491fac1ef5f5a8fa84f35b813b5ac6c5",
+          "role": "basis",
+          "sample_id": "train_layered_00004",
+          "train_truth_sha256": "4ae6e0d2b7668127470da5e370cfa9fa34fe2ba850bd09ce4308f33867a4ee39"
+        }
+      ],
+      "covariances": {
+        "equaltrace": {
+          "dtype": "float32",
+          "eigendecomposition_dtype": "float64",
+          "eigenvalue_energy_capture_diagnostic": {
+            "16": 0.7257785343163702,
+            "32": 0.8960236941477759,
+            "8": 0.491048133714597
+          },
+          "trace": 2.000000087927674
+        },
+        "raw": {
+          "dtype": "float32",
+          "eigendecomposition_dtype": "float64",
+          "eigenvalue_energy_capture_diagnostic": {
+            "16": 0.725728189040885,
+            "32": 0.8959963809194735,
+            "8": 0.49092841468684195
+          },
+          "trace": 4.89236356739231e-13
+        }
+      },
+      "exposed_calibration_record": {
+        "future_start_index": 12,
+        "group_id": "train:layered:00002",
+        "historical_role": "disjoint_confirmation",
+        "independent_confirmation": false,
+        "manifest_sample_sha256": "d52f835b79b638338bd65772a0cefa330dd8379eeb6602f297064ad3a7b3a0be",
+        "nontruth_input_sha256": "264d7144c3c807ac3c500c7f1708f537c9c564e4a33c509a89ba0aa4438ff6aa",
+        "observed_indices": [
+          10,
+          11
+        ],
+        "role": "exposed_calibration",
+        "sample_id": "train_layered_00008",
+        "train_truth_sha256": "28aa35c56f6a4aa0597743c4ffa0516231dfcfe10536d7a685f839808b7219b9"
+      },
+      "factorial_paired_changes": {
+        "16": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": 5.312901364051825e-05,
+              "corrected_mean_squared_per_frame_relative_l2": 0.00022223523692821434,
+              "correction_energy_ratio_to_parent": -1.905166290469551e-05,
+              "raw_residual_energy_capture": -2.7408430620656787e-05,
+              "unsquared_reduction": -5.95951459091415e-05
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": -3.861623463552455e-06,
+              "corrected_mean_squared_per_frame_relative_l2": -2.5293074540244653e-05,
+              "correction_energy_ratio_to_parent": -6.051812158688885e-05,
+              "raw_residual_energy_capture": 3.504468984660836e-05,
+              "unsquared_reduction": 4.331607119878456e-06
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": -0.010737099077701484,
+              "corrected_mean_squared_per_frame_relative_l2": -0.16763918372876396,
+              "correction_energy_ratio_to_parent": 0.013143388758317859,
+              "raw_residual_energy_capture": -0.031858859035427955,
+              "unsquared_reduction": 0.012043870991207795
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": -0.010680108440597413,
+              "corrected_mean_squared_per_frame_relative_l2": -0.1673916554172955,
+              "correction_energy_ratio_to_parent": 0.013184855217000052,
+              "raw_residual_energy_capture": -0.03192131215589522,
+              "unsquared_reduction": 0.011979944238178775
+            }
+          }
+        },
+        "32": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": 0.00032987984255961056,
+              "corrected_mean_squared_per_frame_relative_l2": 0.0006554621896188717,
+              "correction_energy_ratio_to_parent": -0.00027351887437943034,
+              "raw_residual_energy_capture": -0.00039349442247693656,
+              "unsquared_reduction": -0.00037002827650522985
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.00029928207008933505,
+              "corrected_mean_squared_per_frame_relative_l2": 0.0005560423582247065,
+              "correction_energy_ratio_to_parent": -0.0003818827532048319,
+              "raw_residual_energy_capture": -0.0003571855285013914,
+              "unsquared_reduction": -0.0003357065643199153
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": -0.03624589570180442,
+              "corrected_mean_squared_per_frame_relative_l2": -0.3485778082237219,
+              "correction_energy_ratio_to_parent": 0.01650588692399324,
+              "raw_residual_energy_capture": -0.028611396193030436,
+              "unsquared_reduction": 0.04065724723541969
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": -0.036215297929334145,
+              "corrected_mean_squared_per_frame_relative_l2": -0.34847838839232775,
+              "correction_energy_ratio_to_parent": 0.016614250802818642,
+              "raw_residual_energy_capture": -0.02864770508700598,
+              "unsquared_reduction": 0.04062292552323438
+            }
+          }
+        },
+        "8": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": 4.1007727594744026e-06,
+              "corrected_mean_squared_per_frame_relative_l2": 8.542820021162356e-06,
+              "correction_energy_ratio_to_parent": -5.356423577726477e-06,
+              "raw_residual_energy_capture": -7.705950117897764e-06,
+              "unsquared_reduction": -4.599862376414299e-06
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 1.0538011831040528e-05,
+              "corrected_mean_squared_per_frame_relative_l2": -3.3958281706381044e-05,
+              "correction_energy_ratio_to_parent": 6.835542148864171e-06,
+              "raw_residual_energy_capture": -2.7149367275436376e-05,
+              "unsquared_reduction": -1.1820553585131788e-05
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": 0.014353225992688401,
+              "corrected_mean_squared_per_frame_relative_l2": -0.04647075459785477,
+              "correction_energy_ratio_to_parent": 0.020582384311314622,
+              "raw_residual_energy_capture": -0.03556928847137275,
+              "unsquared_reduction": -0.01610010310164671
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": 0.014346788753616835,
+              "corrected_mean_squared_per_frame_relative_l2": -0.046428253496127225,
+              "correction_energy_ratio_to_parent": 0.02057019234558803,
+              "raw_residual_energy_capture": -0.03554984505421521,
+              "unsquared_reduction": -0.016092882410437992
+            }
+          }
+        }
+      },
+      "same_in_memory_parent_truth_residual_for_all_four_arms": true
+    },
+    "marmousi": {
+      "arms": {
+        "equaltrace+ordinary": {
+          "coefficient_fit": "ordinary",
+          "future_frame_count": 391,
+          "future_parent_energy": 1.3050519881721311e-11,
+          "future_residual_energy": 7.611328428711306e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.667449522319664,
+            "mean_squared_per_frame_relative_l2": 0.7292199822552592
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0000007754597935,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.5717242609252505,
+                "mean_squared_per_frame_relative_l2": 0.5799672390571262
+              },
+              "correction_energy": 2.633985951283331e-12,
+              "correction_energy_ratio_to_parent": 0.20182996349229873,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.09572526139441351,
+                "mean_per_frame_relative_l2_reduction": 0.1434194769691774,
+                "mean_squared_per_frame_relative_l2_absolute": -0.14925274319813298,
+                "mean_squared_per_frame_relative_l2_reduction": 0.2046745108883864
+              },
+              "raw_residual_energy_capture": 0.34606126590825537,
+              "unexplained_raw_residual_energy": 4.9773424774279796e-12,
+              "weighted_design_condition_number": 1.3139572144069054
+            },
+            "32": {
+              "basis_design_condition_number": 1.0000099481701872,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.461247921571852,
+                "mean_squared_per_frame_relative_l2": 0.4582042948781604
+              },
+              "correction_energy": 4.618203834175544e-12,
+              "correction_energy_ratio_to_parent": 0.3538712538681196,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.20620160074781202,
+                "mean_per_frame_relative_l2_reduction": 0.3089396184316319,
+                "mean_squared_per_frame_relative_l2_absolute": -0.2710156873770988,
+                "mean_squared_per_frame_relative_l2_reduction": 0.3716514823674036
+              },
+              "raw_residual_energy_capture": 0.6067539822292838,
+              "unexplained_raw_residual_energy": 2.9931245945357643e-12,
+              "weighted_design_condition_number": 1.5304220828280732
+            },
+            "8": {
+              "basis_design_condition_number": 1.000000490281089,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.615547157130555,
+                "mean_squared_per_frame_relative_l2": 0.6378695729731868
+              },
+              "correction_energy": 1.7090340418085669e-12,
+              "correction_energy_ratio_to_parent": 0.13095524602067823,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.05190236518910907,
+                "mean_per_frame_relative_l2_reduction": 0.07776223287826593,
+                "mean_squared_per_frame_relative_l2_absolute": -0.09135040928207239,
+                "mean_squared_per_frame_relative_l2_reduction": 0.1252714016414538
+              },
+              "raw_residual_energy_capture": 0.22453820746478081,
+              "unexplained_raw_residual_energy": 5.902294386902743e-12,
+              "weighted_design_condition_number": 1.2084842233621578
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "equaltrace+weighted": {
+          "coefficient_fit": "weighted",
+          "future_frame_count": 391,
+          "future_parent_energy": 1.3050519881721311e-11,
+          "future_residual_energy": 7.611328428711306e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.667449522319664,
+            "mean_squared_per_frame_relative_l2": 0.7292199822552592
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0000007754597935,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.5860547510136511,
+                "mean_squared_per_frame_relative_l2": 0.5521104729667832
+              },
+              "correction_energy": 2.9261641963286773e-12,
+              "correction_energy_ratio_to_parent": 0.2242182091479047,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.08139477130601291,
+                "mean_per_frame_relative_l2_reduction": 0.12194895431662355,
+                "mean_squared_per_frame_relative_l2_absolute": -0.17710950928847602,
+                "mean_squared_per_frame_relative_l2_reduction": 0.2428752826283357
+              },
+              "raw_residual_energy_capture": 0.29739202737223924,
+              "unexplained_raw_residual_energy": 5.347780036300891e-12,
+              "weighted_design_condition_number": 1.3139572144069054
+            },
+            "32": {
+              "basis_design_condition_number": 1.0000099481701872,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.4995525951836095,
+                "mean_squared_per_frame_relative_l2": 0.3509350055121799
+              },
+              "correction_energy": 5.590329686304076e-12,
+              "correction_energy_ratio_to_parent": 0.42836068884381745,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.16789692713605453,
+                "mean_per_frame_relative_l2_reduction": 0.2515499996951725,
+                "mean_squared_per_frame_relative_l2_absolute": -0.3782849767430793,
+                "mean_squared_per_frame_relative_l2_reduction": 0.5187528948029607
+              },
+              "raw_residual_energy_capture": 0.4704797034140994,
+              "unexplained_raw_residual_energy": 4.030352886983907e-12,
+              "weighted_design_condition_number": 1.5304220828280732
+            },
+            "8": {
+              "basis_design_condition_number": 1.000000490281089,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.6212139800387313,
+                "mean_squared_per_frame_relative_l2": 0.6251850220462867
+              },
+              "correction_energy": 1.8874936183684e-12,
+              "correction_energy_ratio_to_parent": 0.14462976459750407,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.04623554228093274,
+                "mean_per_frame_relative_l2_reduction": 0.06927196849320537,
+                "mean_squared_per_frame_relative_l2_absolute": -0.10403496020897252,
+                "mean_squared_per_frame_relative_l2_reduction": 0.14266608532479255
+              },
+              "raw_residual_energy_capture": 0.197617894580287,
+              "unexplained_raw_residual_energy": 6.107193729670293e-12,
+              "weighted_design_condition_number": 1.2084842233621578
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "raw+ordinary": {
+          "coefficient_fit": "ordinary",
+          "future_frame_count": 391,
+          "future_parent_energy": 1.3050519881721311e-11,
+          "future_residual_energy": 7.611328428711306e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.667449522319664,
+            "mean_squared_per_frame_relative_l2": 0.7292199822552592
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0000006399114785,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.5683834229047493,
+                "mean_squared_per_frame_relative_l2": 0.5750186171935531
+              },
+              "correction_energy": 2.70823330984415e-12,
+              "correction_energy_ratio_to_parent": 0.20751918961001153,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.09906609941491473,
+                "mean_per_frame_relative_l2_reduction": 0.1484248562657127,
+                "mean_squared_per_frame_relative_l2_absolute": -0.15420136506170612,
+                "mean_squared_per_frame_relative_l2_reduction": 0.211460696105457
+              },
+              "raw_residual_energy_capture": 0.3558161147833542,
+              "unexplained_raw_residual_energy": 4.903095118867157e-12,
+              "weighted_design_condition_number": 1.3046939841767677
+            },
+            "32": {
+              "basis_design_condition_number": 1.0000078932019068,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.4572636291023924,
+                "mean_squared_per_frame_relative_l2": 0.45480540267304126
+              },
+              "correction_energy": 4.672657956837692e-12,
+              "correction_energy_ratio_to_parent": 0.35804381734878343,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.21018589321727166,
+                "mean_per_frame_relative_l2_reduction": 0.31490904733407926,
+                "mean_squared_per_frame_relative_l2_absolute": -0.27441457958221793,
+                "mean_squared_per_frame_relative_l2_reduction": 0.3763124794434949
+              },
+              "raw_residual_energy_capture": 0.6139083342155596,
+              "unexplained_raw_residual_energy": 2.9386704718736163e-12,
+              "weighted_design_condition_number": 1.5244675275505901
+            },
+            "8": {
+              "basis_design_condition_number": 1.0000004449578674,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.613867068859342,
+                "mean_squared_per_frame_relative_l2": 0.635368916017054
+              },
+              "correction_energy": 1.754625197441615e-12,
+              "correction_energy_ratio_to_parent": 0.1344486819945894,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.05358245346032209,
+                "mean_per_frame_relative_l2_reduction": 0.08027940940627365,
+                "mean_squared_per_frame_relative_l2_absolute": -0.09385106623820516,
+                "mean_squared_per_frame_relative_l2_reduction": 0.1287006232988184
+              },
+              "raw_residual_energy_capture": 0.23052811527917383,
+              "unexplained_raw_residual_energy": 5.856703231269693e-12,
+              "weighted_design_condition_number": 1.2179148760863674
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "raw+weighted": {
+          "coefficient_fit": "weighted",
+          "future_frame_count": 391,
+          "future_parent_energy": 1.3050519881721311e-11,
+          "future_residual_energy": 7.611328428711306e-12,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 0.667449522319664,
+            "mean_squared_per_frame_relative_l2": 0.7292199822552592
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0000006399114785,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.5811629107086919,
+                "mean_squared_per_frame_relative_l2": 0.5504959246269417
+              },
+              "correction_energy": 2.9680927781000493e-12,
+              "correction_energy_ratio_to_parent": 0.22743099930119948,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.08628661161097217,
+                "mean_per_frame_relative_l2_reduction": 0.1292781082696567,
+                "mean_squared_per_frame_relative_l2_absolute": -0.17872405762831745,
+                "mean_squared_per_frame_relative_l2_reduction": 0.24508935846159538
+              },
+              "raw_residual_energy_capture": 0.31222031695079944,
+              "unexplained_raw_residual_energy": 5.234917054282432e-12,
+              "weighted_design_condition_number": 1.3046939841767677
+            },
+            "32": {
+              "basis_design_condition_number": 1.0000078932019068,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.49649247282769116,
+                "mean_squared_per_frame_relative_l2": 0.3514942079409191
+              },
+              "correction_energy": 5.5945476874735986e-12,
+              "correction_energy_ratio_to_parent": 0.42868389444847926,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.17095704949197288,
+                "mean_per_frame_relative_l2_reduction": 0.25613479937452976,
+                "mean_squared_per_frame_relative_l2_absolute": -0.37772577431434007,
+                "mean_squared_per_frame_relative_l2_reduction": 0.5179860446859221
+              },
+              "raw_residual_energy_capture": 0.48270909556050556,
+              "unexplained_raw_residual_energy": 3.937270966874108e-12,
+              "weighted_design_condition_number": 1.5244675275505901
+            },
+            "8": {
+              "basis_design_condition_number": 1.0000004449578674,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.6203994578116083,
+                "mean_squared_per_frame_relative_l2": 0.6210655644853824
+              },
+              "correction_energy": 1.9526304781634305e-12,
+              "correction_energy_ratio_to_parent": 0.1496208960149016,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.04705006450805571,
+                "mean_per_frame_relative_l2_reduction": 0.07049231879668924,
+                "mean_squared_per_frame_relative_l2_absolute": -0.10815441776987678,
+                "mean_squared_per_frame_relative_l2_reduction": 0.14831521406666276
+              },
+              "raw_residual_energy_capture": 0.20078051295138544,
+              "unexplained_raw_residual_energy": 6.0831220025531874e-12,
+              "weighted_design_condition_number": 1.2179148760863674
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        }
+      },
+      "basis_records": [
+        {
+          "full401_residual_energy_and_covariance_trace": 1.117049022703666e-11,
+          "group_id": "train:marmousi:x0.0:z0.0",
+          "manifest_sample_sha256": "9b1b6372dfa355eaa4e77bdf7457dcc572827db973d92d0ea08ef626cbf32d95",
+          "nontruth_input_sha256": "de49aa9ab121fe9df8f24c9cd2ceef065ff1db43a58b962ce8860a06748b1f81",
+          "role": "basis",
+          "sample_id": "train_marmousi_00000",
+          "train_truth_sha256": "a50b77ece1fbe18a537c07714e7ea5601dc7710a558dadbd4c9afb2d7eb64e99"
+        },
+        {
+          "full401_residual_energy_and_covariance_trace": 8.005587049831453e-12,
+          "group_id": "train:marmousi:x150.0:z0.0",
+          "manifest_sample_sha256": "54b7b0dd18dac742108ebf263261d44a102bd0e848a9b56d0c41f41cfddec0eb",
+          "nontruth_input_sha256": "9da6b127afe09d37757cc5f594a1ff3bb17ae907833f9227c2b9b2f1bebb8f52",
+          "role": "basis",
+          "sample_id": "train_marmousi_00005",
+          "train_truth_sha256": "9ce94c16d8885c1928d70aadd85676091d7e80fa1d3e79574c28d55038be07b8"
+        }
+      ],
+      "covariances": {
+        "equaltrace": {
+          "dtype": "float32",
+          "eigendecomposition_dtype": "float64",
+          "eigenvalue_energy_capture_diagnostic": {
+            "16": 0.7036871286788571,
+            "32": 0.8918343272571141,
+            "8": 0.50017063390076
+          },
+          "trace": 2.00000007052671
+        },
+        "raw": {
+          "dtype": "float32",
+          "eigendecomposition_dtype": "float64",
+          "eigenvalue_energy_capture_diagnostic": {
+            "16": 0.6928275535337388,
+            "32": 0.8907695869972768,
+            "8": 0.48410983043787986
+          },
+          "trace": 1.917607726975498e-11
+        }
+      },
+      "exposed_calibration_record": {
+        "future_start_index": 10,
+        "group_id": "train:marmousi:x300.0:z0.0",
+        "historical_role": "disjoint_confirmation",
+        "independent_confirmation": false,
+        "manifest_sample_sha256": "52918357b7e58fdce9aa2bb784b5ec713a691fddd2e3277ec2cea035bc551ca1",
+        "nontruth_input_sha256": "264a0b1bf334cd7845ced8c060353924eadf12c69b82f574692cfc1bb09c74de",
+        "observed_indices": [
+          8,
+          9
+        ],
+        "role": "exposed_calibration",
+        "sample_id": "train_marmousi_00010",
+        "train_truth_sha256": "1da296cd9a940fb626b2dbf4f5597251dca1ae01d8b2380a0af701de95c78a1b"
+      },
+      "factorial_paired_changes": {
+        "16": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": 0.0033408380205012245,
+              "corrected_mean_squared_per_frame_relative_l2": 0.004948621863573144,
+              "correction_energy_ratio_to_parent": -0.005689226117712803,
+              "raw_residual_energy_capture": -0.00975484887509881,
+              "unsquared_reduction": -0.0050053792965353006
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.004891840304959261,
+              "corrected_mean_squared_per_frame_relative_l2": 0.0016145483398414262,
+              "correction_energy_ratio_to_parent": -0.0032127901532947867,
+              "raw_residual_energy_capture": -0.014828289578560194,
+              "unsquared_reduction": -0.007329153953033143
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": 0.014330490088400594,
+              "corrected_mean_squared_per_frame_relative_l2": -0.027856766090343044,
+              "correction_energy_ratio_to_parent": 0.02238824565560596,
+              "raw_residual_energy_capture": -0.048669238536016124,
+              "unsquared_reduction": -0.02147052265255385
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": 0.012779487803942557,
+              "corrected_mean_squared_per_frame_relative_l2": -0.024522692566611326,
+              "correction_energy_ratio_to_parent": 0.019911809691187943,
+              "raw_residual_energy_capture": -0.04359579783255474,
+              "unsquared_reduction": -0.019146747996056007
+            }
+          }
+        },
+        "32": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": 0.003984292469459638,
+              "corrected_mean_squared_per_frame_relative_l2": 0.0033988922051191306,
+              "correction_energy_ratio_to_parent": -0.00417256348066386,
+              "raw_residual_energy_capture": -0.0071543519862757865,
+              "unsquared_reduction": -0.005969428902447338
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.003060122355918349,
+              "corrected_mean_squared_per_frame_relative_l2": -0.0005592024287392472,
+              "correction_energy_ratio_to_parent": -0.0003232056046618137,
+              "raw_residual_energy_capture": -0.01222939214640617,
+              "unsquared_reduction": -0.004584799679357265
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": 0.03830467361175749,
+              "corrected_mean_squared_per_frame_relative_l2": -0.10726928936598051,
+              "correction_energy_ratio_to_parent": 0.07448943497569788,
+              "raw_residual_energy_capture": -0.1362742788151844,
+              "unsquared_reduction": -0.057389618736459425
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": 0.03922884372529878,
+              "corrected_mean_squared_per_frame_relative_l2": -0.10331119473212214,
+              "correction_energy_ratio_to_parent": 0.07064007709969583,
+              "raw_residual_energy_capture": -0.131199238655054,
+              "unsquared_reduction": -0.0587742479595495
+            }
+          }
+        },
+        "8": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": 0.0016800882712130205,
+              "corrected_mean_squared_per_frame_relative_l2": 0.002500656956132774,
+              "correction_energy_ratio_to_parent": -0.003493435973911163,
+              "raw_residual_energy_capture": -0.005989907814393014,
+              "unsquared_reduction": -0.002517176528007717
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.0008145222271229713,
+              "corrected_mean_squared_per_frame_relative_l2": 0.0041194575609042605,
+              "correction_energy_ratio_to_parent": -0.004991131417397543,
+              "raw_residual_energy_capture": -0.0031626183710984357,
+              "unsquared_reduction": -0.001220350303483872
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": 0.005666822908176328,
+              "corrected_mean_squared_per_frame_relative_l2": -0.012684550926900129,
+              "correction_energy_ratio_to_parent": 0.013674518576825834,
+              "raw_residual_energy_capture": -0.026920312884493813,
+              "unsquared_reduction": -0.008490264385060564
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": 0.006532388952266377,
+              "corrected_mean_squared_per_frame_relative_l2": -0.014303351531671615,
+              "correction_energy_ratio_to_parent": 0.015172214020312214,
+              "raw_residual_energy_capture": -0.02974760232778839,
+              "unsquared_reduction": -0.009787090609584409
+            }
+          }
+        }
+      },
+      "same_in_memory_parent_truth_residual_for_all_four_arms": true
+    },
+    "uniform": {
+      "arms": {
+        "equaltrace+ordinary": {
+          "coefficient_fit": "ordinary",
+          "future_frame_count": 377,
+          "future_parent_energy": 6.093903322630918e-12,
+          "future_residual_energy": 7.34389618495784e-14,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 1.2951786505874883,
+            "mean_squared_per_frame_relative_l2": 8.972061886370232
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 2.660618655207061,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 2.0227638766853833,
+                "mean_squared_per_frame_relative_l2": 22.026520450398312
+              },
+              "correction_energy": 1.2403931550533758e-14,
+              "correction_energy_ratio_to_parent": 0.0020354657587804683,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": 0.727585226097895,
+                "mean_per_frame_relative_l2_reduction": -0.5617643757236618,
+                "mean_squared_per_frame_relative_l2_absolute": 13.05445856402808,
+                "mean_squared_per_frame_relative_l2_reduction": -1.4550120952531052
+              },
+              "raw_residual_energy_capture": 0.1689012376828002,
+              "unexplained_raw_residual_energy": 6.103503029904466e-14,
+              "weighted_design_condition_number": 440.76868204
+            },
+            "32": {
+              "basis_design_condition_number": 2.7294664709697636,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 2.8119173118516527,
+                "mean_squared_per_frame_relative_l2": 43.51086373868587
+              },
+              "correction_energy": 3.059935190266859e-14,
+              "correction_energy_ratio_to_parent": 0.005021305767853558,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": 1.5167386612641645,
+                "mean_per_frame_relative_l2_reduction": -1.1710652121822556,
+                "mean_squared_per_frame_relative_l2_absolute": 34.538801852315636,
+                "mean_squared_per_frame_relative_l2_reduction": -3.849594696263154
+              },
+              "raw_residual_energy_capture": 0.4166637317850951,
+              "unexplained_raw_residual_energy": 4.2839609946909836e-14,
+              "weighted_design_condition_number": 1105.6631485507435
+            },
+            "8": {
+              "basis_design_condition_number": 2.628372197413595,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 1.5203264903878753,
+                "mean_squared_per_frame_relative_l2": 13.044223514267228
+              },
+              "correction_energy": 3.423146600161332e-15,
+              "correction_energy_ratio_to_parent": 0.0005617330008253985,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": 0.225147839800387,
+                "mean_per_frame_relative_l2_reduction": -0.1738353544495663,
+                "mean_squared_per_frame_relative_l2_absolute": 4.072161627896996,
+                "mean_squared_per_frame_relative_l2_reduction": -0.4538713262871221
+              },
+              "raw_residual_energy_capture": 0.046612132224483016,
+              "unexplained_raw_residual_energy": 7.001581524941708e-14,
+              "weighted_design_condition_number": 118.86411541567571
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "equaltrace+weighted": {
+          "coefficient_fit": "weighted",
+          "future_frame_count": 377,
+          "future_parent_energy": 6.093903322630918e-12,
+          "future_residual_energy": 7.34389618495784e-14,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 1.2951786505874883,
+            "mean_squared_per_frame_relative_l2": 8.972061886370232
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 2.660618655207061,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.9150977247714476,
+                "mean_squared_per_frame_relative_l2": 3.499696448956822
+              },
+              "correction_energy": 1.3703341671858205e-13,
+              "correction_energy_ratio_to_parent": 0.022486969264786542,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.3800809258160407,
+                "mean_per_frame_relative_l2_reduction": 0.2934583006318375,
+                "mean_squared_per_frame_relative_l2_absolute": -5.47236543741341,
+                "mean_squared_per_frame_relative_l2_reduction": 0.6099339824802891
+              },
+              "raw_residual_energy_capture": -1.9011173973138056,
+              "unexplained_raw_residual_energy": 2.1305504986247673e-13,
+              "weighted_design_condition_number": 440.76868204
+            },
+            "32": {
+              "basis_design_condition_number": 2.7294664709697636,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.8479601317796868,
+                "mean_squared_per_frame_relative_l2": 2.7083386310930506
+              },
+              "correction_energy": 2.235298706741351e-13,
+              "correction_energy_ratio_to_parent": 0.036680902016284475,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.4472185188078015,
+                "mean_per_frame_relative_l2_reduction": 0.3452948507180417,
+                "mean_squared_per_frame_relative_l2_absolute": -6.263723255277181,
+                "mean_squared_per_frame_relative_l2_reduction": 0.6981364300209095
+              },
+              "raw_residual_energy_capture": -3.0443861893539284,
+              "unexplained_raw_residual_energy": 2.9701552306492493e-13,
+              "weighted_design_condition_number": 1105.6631485507435
+            },
+            "8": {
+              "basis_design_condition_number": 2.628372197413595,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 1.08559361420906,
+                "mean_squared_per_frame_relative_l2": 5.988992949964382
+              },
+              "correction_energy": 8.592863619065051e-15,
+              "correction_energy_ratio_to_parent": 0.001410075474475243,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.20958503637842818,
+                "mean_per_frame_relative_l2_reduction": 0.1618194032795099,
+                "mean_squared_per_frame_relative_l2_absolute": -2.98306893640585,
+                "mean_squared_per_frame_relative_l2_reduction": 0.33248421312580695
+              },
+              "raw_residual_energy_capture": -0.12352607559520434,
+              "unexplained_raw_residual_energy": 8.251058860264275e-14,
+              "weighted_design_condition_number": 118.86411541567571
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "raw+ordinary": {
+          "coefficient_fit": "ordinary",
+          "future_frame_count": 377,
+          "future_parent_energy": 6.093903322630918e-12,
+          "future_residual_energy": 7.34389618495784e-14,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 1.2951786505874883,
+            "mean_squared_per_frame_relative_l2": 8.972061886370232
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0014664289344475,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 3.417983617392483,
+                "mean_squared_per_frame_relative_l2": 59.52399937459271
+              },
+              "correction_energy": 1.7015329535248253e-14,
+              "correction_energy_ratio_to_parent": 0.0027921889525320256,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": 2.1228049668049946,
+                "mean_per_frame_relative_l2_reduction": -1.6390055270306518,
+                "mean_squared_per_frame_relative_l2_absolute": 50.55193748822248,
+                "mean_squared_per_frame_relative_l2_reduction": -5.634372358155226
+              },
+              "raw_residual_energy_capture": 0.23169349221057822,
+              "unexplained_raw_residual_energy": 5.642363231433016e-14,
+              "weighted_design_condition_number": 305.6235221763912
+            },
+            "32": {
+              "basis_design_condition_number": 1.016362907294866,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 3.791461081192707,
+                "mean_squared_per_frame_relative_l2": 93.76848794375654
+              },
+              "correction_energy": 3.565424958358849e-14,
+              "correction_energy_ratio_to_parent": 0.005850806567800209,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": 2.496282430605219,
+                "mean_per_frame_relative_l2_reduction": -1.9273653325530917,
+                "mean_squared_per_frame_relative_l2_absolute": 84.79642605738631,
+                "mean_squared_per_frame_relative_l2_reduction": -9.45116374934991
+              },
+              "raw_residual_energy_capture": 0.4854950108992203,
+              "unexplained_raw_residual_energy": 3.778471226598991e-14,
+              "weighted_design_condition_number": 632.440121876995
+            },
+            "8": {
+              "basis_design_condition_number": 1.0001167114340936,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 1.717219813161736,
+                "mean_squared_per_frame_relative_l2": 16.441546609637705
+              },
+              "correction_energy": 6.002870566313181e-15,
+              "correction_energy_ratio_to_parent": 0.0009850616671289042,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": 0.42204116257424773,
+                "mean_per_frame_relative_l2_reduction": -0.32585555852299714,
+                "mean_squared_per_frame_relative_l2_absolute": 7.469484723267472,
+                "mean_squared_per_frame_relative_l2_reduction": -0.832527106685992
+              },
+              "raw_residual_energy_capture": 0.08173958911086698,
+              "unexplained_raw_residual_energy": 6.743609128326523e-14,
+              "weighted_design_condition_number": 113.35937637654021
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        },
+        "raw+weighted": {
+          "coefficient_fit": "weighted",
+          "future_frame_count": 377,
+          "future_parent_energy": 6.093903322630918e-12,
+          "future_residual_energy": 7.34389618495784e-14,
+          "parent_metrics": {
+            "mean_per_frame_relative_l2": 1.2951786505874883,
+            "mean_squared_per_frame_relative_l2": 8.972061886370232
+          },
+          "ranks": {
+            "16": {
+              "basis_design_condition_number": 1.0014664289344475,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.8885363238932551,
+                "mean_squared_per_frame_relative_l2": 3.5784521673026175
+              },
+              "correction_energy": 2.4341503489704606e-14,
+              "correction_energy_ratio_to_parent": 0.00399440263505783,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.40664232669423317,
+                "mean_per_frame_relative_l2_reduction": 0.3139662057506752,
+                "mean_squared_per_frame_relative_l2_absolute": -5.393609719067615,
+                "mean_squared_per_frame_relative_l2_reduction": 0.6011560984951779
+              },
+              "raw_residual_energy_capture": -0.3387405000329178,
+              "unexplained_raw_residual_energy": 9.831571250840296e-14,
+              "weighted_design_condition_number": 305.6235221763912
+            },
+            "32": {
+              "basis_design_condition_number": 1.016362907294866,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.7790937350549234,
+                "mean_squared_per_frame_relative_l2": 2.5016618483659707
+              },
+              "correction_energy": 8.994385021954011e-14,
+              "correction_energy_ratio_to_parent": 0.014759645084213232,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.5160849155325649,
+                "mean_per_frame_relative_l2_reduction": 0.3984662002407704,
+                "mean_squared_per_frame_relative_l2_absolute": -6.470400038004262,
+                "mean_squared_per_frame_relative_l2_reduction": 0.7211720248869069
+              },
+              "raw_residual_energy_capture": -1.179795516885593,
+              "unexplained_raw_residual_energy": 1.600819198044431e-13,
+              "weighted_design_condition_number": 632.440121876995
+            },
+            "8": {
+              "basis_design_condition_number": 1.0001167114340936,
+              "corrected_metrics": {
+                "mean_per_frame_relative_l2": 0.9914358683310057,
+                "mean_squared_per_frame_relative_l2": 4.864505388266355
+              },
+              "correction_energy": 9.941964614141877e-15,
+              "correction_energy_ratio_to_parent": 0.0016314608368039614,
+              "finite": true,
+              "paired_changes_vs_parent": {
+                "mean_per_frame_relative_l2_absolute": -0.30374278225648255,
+                "mean_per_frame_relative_l2_reduction": 0.23451805827613506,
+                "mean_squared_per_frame_relative_l2_absolute": -4.107556498103877,
+                "mean_squared_per_frame_relative_l2_reduction": 0.45781633587969417
+              },
+              "raw_residual_energy_capture": -0.14999113901243377,
+              "unexplained_raw_residual_energy": 8.445415538528734e-14,
+              "weighted_design_condition_number": 113.35937637654021
+            }
+          },
+          "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+        }
+      },
+      "basis_records": [
+        {
+          "full401_residual_energy_and_covariance_trace": 9.457759407024448e-13,
+          "group_id": "train:uniform:00000",
+          "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+          "nontruth_input_sha256": "1e1ca53aae3e9165b9e5d76d4854f009f0f33a2b88043c737dc5152de7001461",
+          "role": "basis",
+          "sample_id": "train_uniform_00000",
+          "train_truth_sha256": "b7d3ce0f988c7625ba3cc649cc3af3641353d9fec484c551dada627f8ed578c4"
+        },
+        {
+          "full401_residual_energy_and_covariance_trace": 2.432739986233973e-14,
+          "group_id": "train:uniform:00001",
+          "manifest_sample_sha256": "7cfbc998c508e425c4ed5b39de32ea507bd12fa555d559f59d03e464e4ab6195",
+          "nontruth_input_sha256": "37a41b906b58fd4c372e1d26584735f787f6b7a126e66e69a081b6cf88ee8a07",
+          "role": "basis",
+          "sample_id": "train_uniform_00001",
+          "train_truth_sha256": "9175c74e8577c2b21c3766b8f2f5fbb0c6e644249ccd05b67b2a53d6e5deb7c8"
+        }
+      ],
+      "covariances": {
+        "equaltrace": {
+          "dtype": "float32",
+          "eigendecomposition_dtype": "float64",
+          "eigenvalue_energy_capture_diagnostic": {
+            "16": 0.41817904874483397,
+            "32": 0.5825960362568393,
+            "8": 0.3037720882457291
+          },
+          "trace": 2.0000000629042916
+        },
+        "raw": {
+          "dtype": "float32",
+          "eigendecomposition_dtype": "float64",
+          "eigenvalue_energy_capture_diagnostic": {
+            "16": 0.5629163069805226,
+            "32": 0.7370114095789743,
+            "8": 0.42722294855043125
+          },
+          "trace": 9.701033395550684e-13
+        }
+      },
+      "exposed_calibration_record": {
+        "future_start_index": 24,
+        "group_id": "train:uniform:00002",
+        "historical_role": "disjoint_confirmation",
+        "independent_confirmation": false,
+        "manifest_sample_sha256": "73f6beb623d7c17c445965b8c1adc743b1a1446c5d4e26a6b5491b06c123c4fb",
+        "nontruth_input_sha256": "0a3d4ce3a8f259fa714169e2389b86b39aa3072f5bdb8eadb5f5e0db33d8871e",
+        "observed_indices": [
+          22,
+          23
+        ],
+        "role": "exposed_calibration",
+        "sample_id": "train_uniform_00002",
+        "train_truth_sha256": "c94000033176e3dfa88d71bd32b5d406e3f07773d8269027982749d40a44a6c4"
+      },
+      "factorial_paired_changes": {
+        "16": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": -1.3952197407070996,
+              "corrected_mean_squared_per_frame_relative_l2": -37.4974789241944,
+              "correction_energy_ratio_to_parent": -0.0007567231937515573,
+              "raw_residual_energy_capture": -0.06279225452777804,
+              "unsquared_reduction": 1.07724115130699
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.026561400878192476,
+              "corrected_mean_squared_per_frame_relative_l2": -0.07875571834579542,
+              "correction_energy_ratio_to_parent": 0.018492566629728712,
+              "raw_residual_energy_capture": -1.5623768972808878,
+              "unsquared_reduction": -0.02050790511883771
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": -1.1076661519139357,
+              "corrected_mean_squared_per_frame_relative_l2": -18.52682400144149,
+              "correction_energy_ratio_to_parent": 0.020451503506006073,
+              "raw_residual_energy_capture": -2.0700186349966057,
+              "unsquared_reduction": 0.8552226763554993
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": -2.529447293499228,
+              "corrected_mean_squared_per_frame_relative_l2": -55.9455472072901,
+              "correction_energy_ratio_to_parent": 0.0012022136825258047,
+              "raw_residual_energy_capture": -0.570433992243496,
+              "unsquared_reduction": 1.952971732781327
+            }
+          }
+        },
+        "32": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": -0.9795437693410545,
+              "corrected_mean_squared_per_frame_relative_l2": -50.25762420507067,
+              "correction_energy_ratio_to_parent": -0.000829500799946651,
+              "raw_residual_energy_capture": -0.06883127911412523,
+              "unsquared_reduction": 0.7563001203708362
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.06886639672476336,
+              "corrected_mean_squared_per_frame_relative_l2": 0.2066767827270799,
+              "correction_energy_ratio_to_parent": 0.021921256932071243,
+              "raw_residual_energy_capture": -1.8645906724683354,
+              "unsquared_reduction": -0.05317134952272867
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": -1.963957180071966,
+              "corrected_mean_squared_per_frame_relative_l2": -40.80252510759282,
+              "correction_energy_ratio_to_parent": 0.03165959624843092,
+              "raw_residual_energy_capture": -3.4610499211390233,
+              "unsquared_reduction": 1.5163600629002973
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": -3.0123673461377836,
+              "corrected_mean_squared_per_frame_relative_l2": -91.26682609539057,
+              "correction_energy_ratio_to_parent": 0.008908838516413022,
+              "raw_residual_energy_capture": -1.6652905277848133,
+              "unsquared_reduction": 2.3258315327938623
+            }
+          }
+        },
+        "8": {
+          "equaltrace_minus_raw": {
+            "ordinary": {
+              "corrected_mean_per_frame_relative_l2": -0.19689332277386073,
+              "corrected_mean_squared_per_frame_relative_l2": -3.397323095370476,
+              "correction_energy_ratio_to_parent": -0.0004233286663035057,
+              "raw_residual_energy_capture": -0.03512745688638397,
+              "unsquared_reduction": 0.15202020407343084
+            },
+            "weighted": {
+              "corrected_mean_per_frame_relative_l2": 0.09415774587805437,
+              "corrected_mean_squared_per_frame_relative_l2": 1.124487561698027,
+              "correction_energy_ratio_to_parent": -0.0002213853623287184,
+              "raw_residual_energy_capture": 0.02646506341722943,
+              "unsquared_reduction": -0.07269865499662517
+            }
+          },
+          "weighted_minus_ordinary": {
+            "equaltrace": {
+              "corrected_mean_per_frame_relative_l2": -0.4347328761788152,
+              "corrected_mean_squared_per_frame_relative_l2": -7.055230564302846,
+              "correction_energy_ratio_to_parent": 0.0008483424736498445,
+              "raw_residual_energy_capture": -0.17013820781968736,
+              "unsquared_reduction": 0.33565475772907616
+            },
+            "raw": {
+              "corrected_mean_per_frame_relative_l2": -0.7257839448307303,
+              "corrected_mean_squared_per_frame_relative_l2": -11.57704122137135,
+              "correction_energy_ratio_to_parent": 0.0006463991696750572,
+              "raw_residual_energy_capture": -0.23173072812330076,
+              "unsquared_reduction": 0.5603736167991322
+            }
+          }
+        }
+      },
+      "same_in_memory_parent_truth_residual_for_all_four_arms": true
+    }
+  },
+  "finite_checks": {
+    "all_family_results_finite": true,
+    "selection_finite": true
+  },
+  "gpu": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cuda_visible_devices": "0",
+    "driver_version": "580.105.08",
+    "memory_total_mib": 24564,
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "nvidia_driver_cuda_version": "13.0",
+    "physical_index": 0,
+    "torch_name": "NVIDIA GeForce RTX 4090 D",
+    "torch_total_memory_bytes": 25250627584,
+    "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+    "visible_index": 0
+  },
+  "historical_exposure_scope": {
+    "all_nine_records_are_historically_exposed": true,
+    "bound_source_artifacts": {
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_20260825.json": {
+        "mtime_ns": 1787644625212805458,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_20260825.json",
+        "sha256": "81b44a9b586a89e9797637fdbeca952e3a7d9d634defbe8930ba139ffe3c6f5b",
+        "size_bytes": 16814
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_preregistration_20260825.json": {
+        "mtime_ns": 1787644476498586633,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_family_temporal_pod_capacity_train9_v1_preregistration_20260825.json",
+        "sha256": "643d91eb9f2c1b8041fffc298d8f4baa53eed447b2771bc14747996f66c7afe4",
+        "size_bytes": 27856
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_20260825.json": {
+        "mtime_ns": 1787635346981043282,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_20260825.json",
+        "sha256": "6234660effaae726d0f381524619637ed87a8e22d6a264a3f5ce38b6e5889fed",
+        "size_bytes": 14785
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_preregistration_20260825.json": {
+        "mtime_ns": 1787635194371034678,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_preregistration_20260825.json",
+        "sha256": "7bbab5b3d772e92d66f9520f05412c3dd66f8307ddd8eef58fdc9fe803ccc1e8",
+        "size_bytes": 24383
+      }
+    },
+    "group_ids": [
+      "train:uniform:00000",
+      "train:uniform:00001",
+      "train:uniform:00002",
+      "train:layered:00000",
+      "train:layered:00001",
+      "train:layered:00002",
+      "train:marmousi:x0.0:z0.0",
+      "train:marmousi:x150.0:z0.0",
+      "train:marmousi:x300.0:z0.0"
+    ],
+    "independent_confirmation_claim_permitted": false,
+    "third_per_family_current_label": "exposed_calibration",
+    "third_per_family_historical_label": "disjoint_confirmation in r4e7_family_temporal_pod_capacity_train9_v1",
+    "winner_authorization": "A winner authorizes only a future separately preregistered fresh train confirmation. That preregistration must freeze a complete historical gate/calibration/confirmation exposure registry and exclude every group in its union, including all nine group_ids listed here."
+  },
+  "output_size_bytes_maximum": 10485760,
+  "peak_cuda_allocated_bytes": 4969614848,
+  "peak_cuda_reserved_bytes": 6415187968,
+  "preregistration_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_pod_metric_balance_factorial_calibration9_v1_preregistration_20260825.json",
+  "preregistration_sha256": "caa4284d0d652e52b9c8f6af57e89016e93157b7e44012dbfc6ce4dfd4809c7d",
+  "promotion_boundary": {
+    "calibration_can_authorize_validation": false,
+    "no_winner_action": "stop_without_validation",
+    "winner_can_authorize_only": "future_preregistered_fresh_train_confirmation_excluding_every_historically_exposed_gate_group"
+  },
+  "protocol": {
+    "basis_records_per_family": 2,
+    "equaltrace_covariance": "C_equaltrace=sum_i C_i/trace(C_i), with each trace finite and strictly positive",
+    "exposed_calibration_records_per_family": 1,
+    "factorial_arms": [
+      "raw+ordinary",
+      "raw+weighted",
+      "equaltrace+ordinary",
+      "equaltrace+weighted"
+    ],
+    "families": {
+      "layered": 3,
+      "marmousi": 3,
+      "uniform": 3
+    },
+    "future_window": "All stored frames strictly after the second registered onset observation.",
+    "independent_confirmation_records": 0,
+    "metric_weighted_ls": "For each rank and spatial point, argmin_a sum_t w_t (r_t-B_t a)^2 with w_t=1/max(||truth_t||_2^2,1e-30).",
+    "metrics": {
+      "basis_design_condition_number": "sigma_max(B_future)/sigma_min(B_future)",
+      "correction_energy_ratio_to_parent": "||correction||_2^2/max(||parent||_2^2,1e-30) over future frames",
+      "mean_per_frame_relative_l2": "mean_t sqrt(||error_t||_2^2/max(||truth_t||_2^2,1e-30))",
+      "mean_squared_per_frame_relative_l2": "mean_t ||error_t||_2^2/max(||truth_t||_2^2,1e-30)",
+      "paired_changes": "Each arm versus the same parent plus weighted-minus-ordinary and equaltrace-minus-raw within rank and family.",
+      "raw_residual_energy_capture": "1-||residual-correction||_2^2/||residual||_2^2 using unweighted future-field energy; diagnostic only",
+      "weighted_design_condition_number": "sigma_max(diag(sqrt(w))B_future)/sigma_min(diag(sqrt(w))B_future)"
+    },
+    "ordinary_ls": "For each rank and spatial point, argmin_a sum_t (r_t-B_t a)^2 on exposed train future frames.",
+    "ranks": [
+      8,
+      16,
+      32
+    ],
+    "raw_covariance": "C_raw=sum_i C_i, where C_i=sum over spatial chunks of R_i R_i^T and R_i=truth_i-parent_i for a basis record",
+    "record_count": 9,
+    "same_generation_contract": "Within a family, each record's parent/truth/residual is generated once in memory; each basis residual updates both covariance arms and the exposed calibration tensors are reused by all four arms and all ranks.",
+    "split": "train",
+    "streaming_and_serialization": "Covariances are accumulated by spatial chunks. Parent, truth, residual, coefficient, correction, and corrected fields are never serialized.",
+    "time_block": 16,
+    "time_count": 401,
+    "weighted_objective_identity": "Summing the weighted LS objective over spatial points and dividing by frame count exactly equals mean squared per-frame relative L2 under the same denominator floor.",
+    "weighted_objective_limitation": "Metric-weighted LS does not exactly minimize mean unsquared per-frame relative L2."
+  },
+  "run_binding": {
+    "checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "run_digest": "5de1af3455fc834271fe19e30995a45fb65fac09e4bd6cba92a1ed12b0bb7a2d",
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+  },
+  "sample_census": {
+    "all_train": true,
+    "count": 9,
+    "execution": [
+      {
+        "family": "uniform",
+        "role": "basis",
+        "sample_id": "train_uniform_00000",
+        "single_parent_truth_residual_generation": true
+      },
+      {
+        "family": "uniform",
+        "role": "basis",
+        "sample_id": "train_uniform_00001",
+        "single_parent_truth_residual_generation": true
+      },
+      {
+        "family": "uniform",
+        "independent_confirmation": false,
+        "role": "exposed_calibration",
+        "sample_id": "train_uniform_00002",
+        "single_parent_truth_residual_generation_shared_by_all_arms": true
+      },
+      {
+        "family": "layered",
+        "role": "basis",
+        "sample_id": "train_layered_00000",
+        "single_parent_truth_residual_generation": true
+      },
+      {
+        "family": "layered",
+        "role": "basis",
+        "sample_id": "train_layered_00004",
+        "single_parent_truth_residual_generation": true
+      },
+      {
+        "family": "layered",
+        "independent_confirmation": false,
+        "role": "exposed_calibration",
+        "sample_id": "train_layered_00008",
+        "single_parent_truth_residual_generation_shared_by_all_arms": true
+      },
+      {
+        "family": "marmousi",
+        "role": "basis",
+        "sample_id": "train_marmousi_00000",
+        "single_parent_truth_residual_generation": true
+      },
+      {
+        "family": "marmousi",
+        "role": "basis",
+        "sample_id": "train_marmousi_00005",
+        "single_parent_truth_residual_generation": true
+      },
+      {
+        "family": "marmousi",
+        "independent_confirmation": false,
+        "role": "exposed_calibration",
+        "sample_id": "train_marmousi_00010",
+        "single_parent_truth_residual_generation_shared_by_all_arms": true
+      }
+    ],
+    "roles": {
+      "basis": 6,
+      "exposed_calibration": 3
+    },
+    "unique_group_count": 9
+  },
+  "schema": "r4_pod_metric_balance_factorial_result_v1",
+  "sealed_data_attestation": {
+    "fields_serialized": false,
+    "independent_confirmation_opened": false,
+    "test_id_opened": false,
+    "train_future_truth_opened_for_oracle_calibration": true,
+    "validation_opened": false
+  },
+  "selection": {
+    "arm_summaries": {
+      "equaltrace+ordinary": {
+        "eligible": false,
+        "family_finite": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": true
+        },
+        "family_nonworse": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": false
+        },
+        "family_unsquared_reductions": {
+          "layered": 0.4048907197604049,
+          "marmousi": 0.3089396184316319,
+          "uniform": -1.1710652121822556
+        },
+        "mean_family_reduction": -0.15241162466340624,
+        "minimum_family_reduction": -1.1710652121822556,
+        "raw_residual_energy_capture_used_for_eligibility": false
+      },
+      "equaltrace+weighted": {
+        "eligible": true,
+        "family_finite": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": true
+        },
+        "family_nonworse": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": true
+        },
+        "family_unsquared_reductions": {
+          "layered": 0.4455479669958246,
+          "marmousi": 0.2515499996951725,
+          "uniform": 0.3452948507180417
+        },
+        "mean_family_reduction": 0.34746427246967965,
+        "minimum_family_reduction": 0.2515499996951725,
+        "raw_residual_energy_capture_used_for_eligibility": false
+      },
+      "raw+ordinary": {
+        "eligible": false,
+        "family_finite": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": true
+        },
+        "family_nonworse": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": false
+        },
+        "family_unsquared_reductions": {
+          "layered": 0.40526074803691015,
+          "marmousi": 0.31490904733407926,
+          "uniform": -1.9273653325530917
+        },
+        "mean_family_reduction": -0.4023985123940341,
+        "minimum_family_reduction": -1.9273653325530917,
+        "raw_residual_energy_capture_used_for_eligibility": false
+      },
+      "raw+weighted": {
+        "eligible": true,
+        "family_finite": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": true
+        },
+        "family_nonworse": {
+          "layered": true,
+          "marmousi": true,
+          "uniform": true
+        },
+        "family_unsquared_reductions": {
+          "layered": 0.4458836735601445,
+          "marmousi": 0.25613479937452976,
+          "uniform": 0.3984662002407704
+        },
+        "mean_family_reduction": 0.3668282243918149,
+        "minimum_family_reduction": 0.25613479937452976,
+        "raw_residual_energy_capture_used_for_eligibility": false
+      }
+    },
+    "decision": "winner",
+    "eligible_ranking": [
+      "raw+weighted",
+      "equaltrace+weighted"
+    ],
+    "validation_authorized": false,
+    "winner": "raw+weighted",
+    "winner_authorizes_only": "future_preregistered_fresh_train_confirmation_excluding_every_historically_exposed_gate_group"
+  },
+  "started_utc": "2026-08-25T18:45:36.847288Z",
+  "status": "success",
+  "truth_scope": {
+    "basis_truth_use": "all 401 frames only for the two covariance arms",
+    "calibration_truth_use": "future frames for oracle coefficient fit, weights, and scoring",
+    "online_deployment_compatible": false,
+    "test_id_opened": false,
+    "train_future_truth_opened": true,
+    "validation_authorized": false,
+    "validation_opened": false
+  }
+}

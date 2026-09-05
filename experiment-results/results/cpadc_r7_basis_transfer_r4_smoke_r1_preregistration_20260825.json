@@ -1,0 +1,48 @@
+{
+  "schema": "acoustic_instance_adaptation_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "cpadc_r7_basis_transfer_r4_smoke_r1",
+  "date_utc": "2026-08-25",
+  "hypothesis": "The frozen R7 learned causal error-basis directions remain transferable to the r4 epoch-7 parent and will improve mean future relative L2 by at least 0.5 percent on the same three-record train smoke after old-parent thresholds are removed.",
+  "single_change_vs_confirmed_r7": "parent checkpoint transfer; basis weights and defect contract unchanged; calibration thresholds deliberately removed",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "basis": {
+    "source_r7_checkpoint_sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b",
+    "transfer_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r7_basis_transfer_r4_parent_r1.pt",
+    "transfer_checkpoint_sha256": "3bbaeff315e4eac1a09b195af1fb807fa3e3c9b127349728cd6a54260beadcf4",
+    "rank": 16,
+    "phase_rank": 4,
+    "calibration": "none"
+  },
+  "data": {
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "split": "train",
+    "sample_ids": ["train_uniform_00104", "train_layered_00016", "train_marmousi_00312"],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "online_access": {
+    "true_snapshot_count": 2,
+    "future_truth": false,
+    "adaptation_device": "cpu",
+    "parent_inference_device": "cuda"
+  },
+  "primary_metric": "mean per-record future full-field relative-L2 improvement after adaptation sealing",
+  "acceptance": {
+    "minimum_mean_relative_improvement": 0.005,
+    "minimum_nonworse_records": 2,
+    "maximum_single_record_relative_degradation": 0.02,
+    "maximum_adaptation_runtime_s": 3.0,
+    "future_truth_used_online": false
+  },
+  "failure_signal": "Failure of direction transfer rejects checkpoint rebinding and requires retraining a new error basis on the r4 parent.",
+  "bindings": {
+    "config_sha256": "1128a54355c713dcc7d323a10617bede3876233eb7fc15f5e12f46d79c1a8ad4",
+    "runner_sha256": "c8eb6a82fccb624fc71d6748a22d54a6c00ef0a791a979e57c7456cef5acf47f",
+    "transfer_derivation_script_sha256": "807eb0f13f49c8db1faedf4370fe6bd870fdaeb583c85eccfb842bbaeb7f5d96",
+    "tests": "47 transfer and causal-defect tests passed"
+  },
+  "rollback": "Zero correction returns the exact r4 parent. The original frozen R7 checkpoint remains untouched.",
+  "output_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r7_basis_transfer_r4_smoke_r1_20260825",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0 python -u scripts/run_causal_defect_adaptation.py --config configs/saved_time_v5/pretrained_temporal_subspace_r4_parent_trainonly_r1.yaml --basis-checkpoint <transfer-r1> --output-dir <smoke-r1> --device cuda --adaptation-device cpu --calibration-per-family 1 --calibration-seed 20372 --basis-training-per-family 32 --no-fields --parent-checkpoint <r4-epoch7> --parent-checkpoint-identity <r4-identity>"
+}

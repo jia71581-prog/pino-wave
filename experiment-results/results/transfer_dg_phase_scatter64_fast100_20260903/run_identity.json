@@ -1,0 +1,39 @@
+{
+  "command": [
+    "/root/miniconda3/bin/python",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nproc_per_node=4",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_phase_scatter64_full_ddp.py",
+    "--cache",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_phase_scatter64_full_20260903/cache/shard_0.h5",
+    "--cache",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_phase_scatter64_full_20260903/cache/shard_1.h5",
+    "--cache",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_phase_scatter64_full_20260903/cache/shard_2.h5",
+    "--cache",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_phase_scatter64_full_20260903/cache/shard_3.h5",
+    "--manifest",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_manifest_20260902.json",
+    "--preregistration",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_phase_scatter64_fast100_preregistration_20260903.json",
+    "--output-dir",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_phase_scatter64_fast100_20260903/training"
+  ],
+  "epochs": 100,
+  "global_batch_size": 224,
+  "gpu_ids": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "pid": 60649,
+  "rank_batch_size": 56,
+  "schema": "transfer_dg_phase_scatter64_fast100_supervisor_identity_v1",
+  "started_unix_s": 1788410748.4069242,
+  "test_id_opened": false,
+  "torchrun_pid": 60655,
+  "validation_opened": false
+}

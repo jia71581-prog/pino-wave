@@ -1,0 +1,15 @@
+{
+  "schema":"r6_anchored_r54_residual_master_protocol_v1",
+  "candidate":"r6_anchored_r54_residual_r1_20260905",
+  "status":"draft_pending_static_audit",
+  "launch_authorized":false,
+  "immutable_DAG":["runtime_identity_gate","R6_cache_build","R6_cache_audit","DDP4_smoke","same-lineage_3ep_pilot","resume_epoch40","new_synthetic_confirmation"],
+  "stage_policy":"Every edge requires a separately frozen prerequisite path/hash and independent audit. Runtime identity passage alone cannot create a cache or launch training.",
+  "cache_predeclaration":{"fit_frames_per_record":64,"development_frames_per_record":401,"minimum_free_disk_gib":40,"required_before_training":"new synthetic confirmation protocol is frozen before any training"},
+  "fallback":{"method":"R6","status":"accepted"},
+  "history":{"accelerated_coarse_parent_gate":"rejected","R54":"historical recipe source only","R26":"fresh head structure only; no weights loaded"},
+  "bundle_claim":"R6-anchored R54/R26 residual recipe; no claim that either component is causal.",
+  "promotion_authorized":false,
+  "validation_truth_reopened":false,
+  "test_id_truth_reopened":false
+}

@@ -1,0 +1,187 @@
+{
+  "artifacts": {
+    "figure_pdf": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/paper/tgrs_helmholtz_operator/figs/method_vs_pi_train_wavefield_snapshot.pdf",
+    "figure_pdf_sha256": "2359e2f917a0b25e416dab8896cf099bcbd900356d80d8414bc24b976fc89d1a",
+    "figure_png": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/paper/tgrs_helmholtz_operator/figs/method_vs_pi_train_wavefield_snapshot.png",
+    "figure_png_sha256": "4c9873e68438e3d578c8ffa14609ec19cb3148698217613cf0c7bdd2e33f5089",
+    "source_data": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/paper/tgrs_helmholtz_operator/experiment_evidence_bundle_20260813/15_pi_deeponet_train_development_comparison/method_vs_pi_train_wavefield_snapshot_source.npz",
+    "source_data_sha256": "59fb6b04a59ade103b85754541278c3e0ed232845c1f34344369f11ba8e348ca"
+  },
+  "bindings": {
+    "adapter_checkpoint_sha256": "77b8866f8aaba20d66bf5c2e0d9c0a1b93d39ca95dda1edf62795183cea42162",
+    "feature_config_sha256": "c1f7682fe866f4695cced1059f2bad442904c4b702e4c0c18d5a12f138d758fb",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "pi_config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "r33_summary_sha256": "ea42d7370ac42533c58ae7cf86e554c7a0ead50f0e69cf0300565dbca01b0f97",
+    "r34_result_sha256": "22f9a22cd105995415ec66dcbb15a86bf3dc9c12108f1f1790a67c4667fc2a8b",
+    "r5b_identity_sha256": "a8141ab179e7cc18331c0878743d5ecaec106f0ff727e7a20ec198d126c03449",
+    "script_sha256": "52b93afc999d73a71972508eee118bf4c7181febe73fcf965077289935e90391"
+  },
+  "elapsed_s": 78.34753579832613,
+  "figure_claim": "On the first preregistered record from each family, the proposed r5b plus instance-fine-tuning policy has lower complete-future relative L2 than PI-DeepONet, and the t=0.60 s snapshots provide a qualitative same-case illustration.",
+  "method_identity": {
+    "our_instance_trainable_parameter_count": 17,
+    "our_pde_loss_weight": 0.0,
+    "our_shared_adapter_parameter_count": 40848,
+    "ours": "frozen_r5b_plus_parent_residual_conditioned_instance_finetuning",
+    "physical_wavefield_propagator": false,
+    "pi_deeponet": "full_training_set_pi_deeponet_epoch_96",
+    "pi_physics_loss_weight": 0.02
+  },
+  "r34_comparison": {
+    "our_better_than_pi_on_this_train_panel": true,
+    "our_relative_improvement_from_r5b_parent": 1.2506244622402346e-06,
+    "our_relative_improvement_over_pi": 0.3079111263999145,
+    "pi_error_over_our_error": 1.4449011364656572
+  },
+  "r34_metrics": {
+    "our_instance_adapted": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.24266200389476478,
+          "squared_error": 6.379888993381121e-13,
+          "truth_squared_norm": 1.0834517189954747e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.549300378976065,
+          "squared_error": 1.1199839970661421e-11,
+          "truth_squared_norm": 3.711863695501083e-11
+        },
+        "uniform": {
+          "relative_l2": 0.10635423935782459,
+          "squared_error": 2.89339889908948e-14,
+          "truth_squared_norm": 2.557989162281602e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.48469945617279603,
+        "squared_error": 1.1866762858990426e-11,
+        "truth_squared_norm": 5.0511143307247174e-11
+      },
+      "mean_record_relative_l2": 0.30142085020267095
+    },
+    "pi_deeponet": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.49433636764763195,
+          "squared_error": 2.6476141113073694e-12,
+          "truth_squared_norm": 1.0834517189954747e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.7561653507749597,
+          "squared_error": 2.1223918349798792e-11,
+          "truth_squared_norm": 3.711863695501083e-11
+        },
+        "uniform": {
+          "relative_l2": 0.5942052992955602,
+          "squared_error": 9.031746540836125e-13,
+          "truth_squared_norm": 2.557989162281602e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.700342795068359,
+        "squared_error": 2.4774707115189775e-11,
+        "truth_squared_norm": 5.0511143307247174e-11
+      },
+      "mean_record_relative_l2": 0.6156354159371821
+    },
+    "r5b_parent": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.24266764863035697,
+          "squared_error": 6.380185811216273e-13,
+          "truth_squared_norm": 1.0834517189954747e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.549300378976065,
+          "squared_error": 1.1199839970661421e-11,
+          "truth_squared_norm": 3.711863695501083e-11
+        },
+        "uniform": {
+          "relative_l2": 0.10635423935782459,
+          "squared_error": 2.89339889908948e-14,
+          "truth_squared_norm": 2.557989162281602e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.48470006235055085,
+        "squared_error": 1.1866792540773943e-11,
+        "truth_squared_norm": 5.0511143307247174e-11
+      },
+      "mean_record_relative_l2": 0.3014222828358786
+    }
+  },
+  "role": "development_evidence_not_validation_or_test_evidence",
+  "rows": [
+    {
+      "adapted_sha256_match": true,
+      "family": "uniform",
+      "future_ours_relative_l2": 0.08764544871597887,
+      "future_pi_relative_l2": 0.6129334191177869,
+      "modulation_gate": 0.0,
+      "observed_indices": [
+        8,
+        9
+      ],
+      "refinement_accepted": false,
+      "regenerated_adapted_sha256": "aa9a4e4cf5ff0fe31e5ff96fa9c95e77131fd910199009458c8a3ff8b97295ec",
+      "registered_adapted_sha256": "aa9a4e4cf5ff0fe31e5ff96fa9c95e77131fd910199009458c8a3ff8b97295ec",
+      "sample_id": "train_uniform_00146",
+      "snapshot_ours_relative_l2": 0.14524052300824336,
+      "snapshot_pi_relative_l2": 1.1124537001989159,
+      "source_index": 146
+    },
+    {
+      "adapted_sha256_match": false,
+      "family": "layered",
+      "future_ours_relative_l2": 0.24272938245164277,
+      "future_pi_relative_l2": 0.4907325096460184,
+      "modulation_gate": 0.26485544443130493,
+      "observed_indices": [
+        22,
+        23
+      ],
+      "refinement_accepted": true,
+      "regenerated_adapted_sha256": "f21ca6bed56ddfd6829b1b15fb37b184f6e2109bd7765c99efd1809ccb2c6228",
+      "registered_adapted_sha256": "a3a9f53a75dfce3d6659759ac3cee31e2a401340d4eb5f8035eade9a87f63413",
+      "sample_id": "train_layered_00109",
+      "snapshot_ours_relative_l2": 0.2747911258363798,
+      "snapshot_pi_relative_l2": 0.6416188439325964,
+      "source_index": 529
+    },
+    {
+      "adapted_sha256_match": true,
+      "family": "marmousi",
+      "future_ours_relative_l2": 0.49913797826183776,
+      "future_pi_relative_l2": 0.7706180072797969,
+      "modulation_gate": 0.0,
+      "observed_indices": [
+        9,
+        10
+      ],
+      "refinement_accepted": false,
+      "regenerated_adapted_sha256": "bccf3dc9d4da6016b87b5345ced3516043e17498a450b6be10200cf8e7a974c2",
+      "registered_adapted_sha256": "bccf3dc9d4da6016b87b5345ced3516043e17498a450b6be10200cf8e7a974c2",
+      "sample_id": "train_marmousi_00107",
+      "snapshot_ours_relative_l2": 0.3815727453985513,
+      "snapshot_pi_relative_l2": 0.7592417948485349,
+      "source_index": 2207
+    }
+  ],
+  "schema": "r34_method_vs_pi_wavefield_figure_v1",
+  "selection": {
+    "rule": "first preregistered r33 record in each family",
+    "sample_ids": [
+      "train_uniform_00146",
+      "train_layered_00109",
+      "train_marmousi_00107"
+    ],
+    "snapshot_index": 240,
+    "snapshot_time_s": 0.6,
+    "split": "train",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "status": "complete_train_only_figure"
+}

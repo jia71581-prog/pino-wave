@@ -1,0 +1,35 @@
+[2026-08-27 09:52:33,092] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+2026-08-27T01:52:39Z [v17] rank 0 holds shard_0.pt (72 bundles)
+2026-08-27T01:52:51Z [v17] rank 1 holds shard_1.pt (72 bundles)
+2026-08-27T01:53:03Z [v17] rank 2 holds shard_2.pt (72 bundles)
+2026-08-27T01:53:15Z [v17] rank 3 holds shard_0.pt (72 bundles)
+2026-08-27T01:53:15Z [v17] partitions [{'rank': 0, 'shard': 'shard_0.pt', 'fit': 64, 'confirm': 8}, {'rank': 1, 'shard': 'shard_1.pt', 'fit': 64, 'confirm': 8}, {'rank': 2, 'shard': 'shard_2.pt', 'fit': 64, 'confirm': 8}, {'rank': 3, 'shard': 'shard_0.pt', 'fit': 64, 'confirm': 8}]; global fit 192 confirm 24; prereg fac4531a16a7 hinge {'enabled': False, 'lam': 0.0, 'margin': 0.0}
+2026-08-27T01:54:15Z [v17] epoch 1 monitor 0.383807 joint +0.0157 best 0.383807@1 bad 0
+2026-08-27T01:55:04Z [v17] epoch 2 monitor 0.383782 joint +0.0140 best 0.383782@2 bad 0
+2026-08-27T01:55:45Z [v17] epoch 3 monitor 0.380113 joint +0.0188 best 0.380113@3 bad 0
+2026-08-27T01:56:26Z [v17] epoch 4 monitor 0.380968 joint +0.0176 best 0.380113@3 bad 1
+2026-08-27T01:57:07Z [v17] epoch 5 monitor 0.379308 joint +0.0192 best 0.379308@5 bad 0
+2026-08-27T01:57:47Z [v17] epoch 6 monitor 0.378386 joint +0.0203 best 0.378386@6 bad 0
+2026-08-27T01:58:28Z [v17] epoch 7 monitor 0.378418 joint +0.0211 best 0.378386@6 bad 1
+2026-08-27T01:59:09Z [v17] epoch 8 monitor 0.379811 joint +0.0186 best 0.378386@6 bad 2
+2026-08-27T01:59:49Z [v17] epoch 9 monitor 0.379003 joint +0.0183 best 0.378386@6 bad 3
+2026-08-27T02:00:30Z [v17] epoch 10 monitor 0.379863 joint +0.0191 best 0.378386@6 bad 4
+2026-08-27T02:01:12Z [v17] epoch 11 monitor 0.378968 joint +0.0197 best 0.378386@6 bad 5
+2026-08-27T02:01:53Z [v17] epoch 12 monitor 0.379298 joint +0.0198 best 0.378386@6 bad 6
+2026-08-27T02:02:35Z [v17] epoch 13 monitor 0.378996 joint +0.0200 best 0.378386@6 bad 7
+2026-08-27T02:03:15Z [v17] epoch 14 monitor 0.378948 joint +0.0197 best 0.378386@6 bad 8
+2026-08-27T02:03:56Z [v17] epoch 15 monitor 0.379414 joint +0.0201 best 0.378386@6 bad 9
+2026-08-27T02:04:37Z [v17] epoch 16 monitor 0.378035 joint +0.0203 best 0.378035@16 bad 0
+2026-08-27T02:05:18Z [v17] epoch 17 monitor 0.378534 joint +0.0206 best 0.378035@16 bad 1
+2026-08-27T02:05:58Z [v17] epoch 18 monitor 0.379918 joint +0.0192 best 0.378035@16 bad 2
+2026-08-27T02:06:39Z [v17] epoch 19 monitor 0.380409 joint +0.0177 best 0.378035@16 bad 3
+2026-08-27T02:07:20Z [v17] epoch 20 monitor 0.384063 joint +0.0139 best 0.378035@16 bad 4
+2026-08-27T02:08:00Z [v17] epoch 21 monitor 0.380485 joint +0.0196 best 0.378035@16 bad 5
+2026-08-27T02:08:41Z [v17] epoch 22 monitor 0.379879 joint +0.0188 best 0.378035@16 bad 6
+2026-08-27T02:09:22Z [v17] epoch 23 monitor 0.380365 joint +0.0184 best 0.378035@16 bad 7
+2026-08-27T02:10:03Z [v17] epoch 24 monitor 0.381332 joint +0.0181 best 0.378035@16 bad 8
+2026-08-27T02:10:46Z [v17] epoch 25 monitor 0.381392 joint +0.0183 best 0.378035@16 bad 9
+2026-08-27T02:11:28Z [v17] epoch 26 monitor 0.384040 joint +0.0166 best 0.378035@16 bad 10
+2026-08-27T02:12:09Z [v17] epoch 27 monitor 0.382184 joint +0.0183 best 0.378035@16 bad 11
+2026-08-27T02:12:50Z [v17] epoch 28 monitor 0.380570 joint +0.0192 best 0.378035@16 bad 12
+2026-08-27T02:12:50Z [v17] fail_gate wall 1215s peak 2.48GiB epochs 28

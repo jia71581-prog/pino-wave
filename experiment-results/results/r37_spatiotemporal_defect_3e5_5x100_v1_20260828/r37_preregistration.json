@@ -1,0 +1,26 @@
+{
+  "context_lag_s": 0.015,
+  "deployment_features": [
+    "coarse_t_minus_lag_minus_current",
+    "coarse_t_plus_lag_minus_current",
+    "temporal_curvature",
+    "temporal_slope",
+    "spatial_highpass",
+    "source_frequency",
+    "local_kh",
+    "accumulated_travel_cycles"
+  ],
+  "evidence_boundary": "A pass only authorizes the preregistered fresh holdout.",
+  "frozen_parent": "R28_local_plus_spectral_residual_operator",
+  "r29c_components_sha256": "c1a22406b9d9d546412237b058631723f63337d85249e7ef20ac74fba89faa99",
+  "refiner_cap": 0.05,
+  "refiner_width": 24,
+  "role": "R28_already_opened_train_holdout_development_only",
+  "schema": "r37_spatiotemporal_defect_refiner_preregistration_v1",
+  "script_sha256": "8b111433c610cb4fa08f18c84e75625013c421bc46002b7bc2c3cb50910da3a9",
+  "status": "frozen_before_development_training",
+  "success_gate": "mean_and_max_record_relative_L2_lte_0p05",
+  "test_id_opened": false,
+  "validation_opened": false,
+  "zero_start": true
+}

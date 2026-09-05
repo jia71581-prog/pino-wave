@@ -1,0 +1,69 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_source_relative_r26_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "nature_evidence_gate_train_only_source_geometry_smoke",
+  "hypothesis": "A zero-initialized source-relative coordinate projection (dx,dz,r) can extend the exact r20 Helmholtz mapper without changing update-0 predictions, while receiving nonzero gradients on the same source-support panels within the existing memory budget.",
+  "expected_mechanism": "The current mapper sees a source map and global source embedding but lacks an explicit per-pixel coordinate relative to the source. Adding normalized displacement and radius makes spatial Green-field dependence legible to the convolutional record mapper while preserving the parent exactly at initialization.",
+  "nature_evidence_role": "This is only the static and smoke tier of the repository's Nature-level evidence gate. It makes no broad method or venue claim and cannot advance without independent source confirmation.",
+  "single_conceptual_variable": {
+    "name": "source_relative_spatial_features",
+    "control": "no explicit relative-coordinate channels",
+    "candidate": "zero-init 1x1 projection of dx, dz and radius added before the Helmholtz U-Net",
+    "held_constant": "r20 update-2600 checkpoint, onset-phase off, panels, 96 bins, frequency gate, coefficient loss, optimizer, learning rates, seed and metric"
+  },
+  "primary_metric": "exact update-0 parent identity plus two finite updates with nonzero new-branch gradients and bound terminal/checkpoint artifacts",
+  "acceptance": {
+    "strict_non_new_parent_state": true,
+    "new_parameters": [
+      "local_field.helmholtz_source_relative_projection.weight",
+      "local_field.helmholtz_source_relative_projection.bias"
+    ],
+    "new_parameters_zero_at_load": true,
+    "updates_completed": 2,
+    "finite_metrics": true,
+    "peak_cuda_bytes_max": 4294967296
+  },
+  "failure_signal": "Any nonzero new parameter at load, update-0 prediction drift, missing gradient, state mismatch, non-finite value, OOM, missing binding, or peak CUDA above 4 GiB blocks a formal source-relative pilot.",
+  "panels": {
+    "fit": ["train_layered_00000", "train_layered_00001", "train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_layered_00002", "train_marmousi_00003"],
+    "confirmation": ["train_layered_00003", "train_marmousi_00004"],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "optimization": {
+    "updates": 2,
+    "evaluate_every": 1,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "wall_time_max_minutes": 4,
+    "checkpoint_storage_gib_max": 0.4
+  },
+  "parent": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50"
+  },
+  "bindings": {
+    "training_script_sha256": "2d566dacf5f9b118a703374c287453db3009c71e8e9bc91e170997c3a168734a",
+    "diagnostic_script_sha256": "0d21eb15dc19e2d5f625187ebec79e8ea6940b9e6c341efde4524b1e33da0a06",
+    "local_field_sha256": "d300fc611fb824359134a7d7e0d331ebf6ddf477eb3daabaaa9000909faca7ef",
+    "operator_sha256": "97d0ebb4552920ce0bd8e5aa4747e1dabccac6d0680e452dd36ab711c8ba12cf",
+    "helmholtz_test_sha256": "fd255545dab820179fb19c6e4621b60fbd611912f03df748c2d31508ddffe96d",
+    "nature_evidence_gate_sha256": "14af9c8cb94760e40973fa9859ab05e3f07486ee38f9202a914f6e9f21952b82",
+    "tests": "47 passed"
+  },
+  "rollback": "Preserve r20-r26 artifacts. On smoke failure disable the optional feature and do not launch formal training.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb96_source_relative_r26_smoke_20260824 --preregistration results/wkb96_source_relative_r26_smoke_preregistration_20260824.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt --parent-identity results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --panel-families layered marmousi --panel-selection anchor_group_source_holdout --helmholtz-frequencies 96 --helmholtz-frequency-softmax --helmholtz-source-relative-coordinates --updates 2 --evaluate-every 1 --evaluation-frames 32 --evaluation-time-block 32 --evaluation-macro-records 1 --dense-learning-rate 1e-5 --backbone-learning-rate 5e-6 --local-field-learning-rate 1e-5 --family-gradient-weights layered:1,marmousi:1 --target-relative-l2 0.10 --seed 372"
+}

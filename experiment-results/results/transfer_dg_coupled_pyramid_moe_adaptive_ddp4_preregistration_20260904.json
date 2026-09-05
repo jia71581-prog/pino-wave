@@ -1,0 +1,123 @@
+{
+  "schema": "transfer_dg_coupled_pyramid_moe_adaptive_ddp4_preregistration_v1",
+  "candidate": "transfer_dg_coupled_pyramid_moe_adaptive_ddp4_20260904",
+  "claim_scope": "train-only closed-loop continuation of the live four-GPU pyramid-MoE pretraining run; no validation or test_id claim during training",
+  "hypothesis": "Starting at epoch 22, bounded exponentiated reweighting of family-by-frequency-block losses from a fixed balanced train-only probe will reduce a minimax-oriented train-probe relative-error objective versus fixed weighting without causing non-finite optimization or collapsing any family/frequency weight below the registered coverage floor.",
+  "expected_mechanism": "The full-information online controller raises gradient emphasis for persistently difficult medium-family and spectral-block cells while EMA, geometric normalization, per-epoch action clipping, and absolute multiplier bounds preserve coverage and global loss scale.",
+  "literature_basis": [
+    "Graves et al., Automated Curriculum Learning for Neural Networks, ICML 2017",
+    "Chen et al., GradNorm: Gradient Normalization for Adaptive Loss Balancing, ICML 2018",
+    "Li et al., Physics-Informed Neural Operator, arXiv:2111.03794"
+  ],
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "architecture_changed": false,
+    "optimizer": "hybrid Muon plus AdamW"
+  },
+  "data": {
+    "split": "train",
+    "record_count": 2800,
+    "all_records_used_each_epoch": true,
+    "family_counts": {
+      "uniform": 420,
+      "layered": 1120,
+      "anomaly": 560,
+      "marmousi": 700
+    },
+    "frequency_count": 64,
+    "frequency_block": 8,
+    "frequency_schedule": "unchanged sample-hash offset plus deterministic epoch rotation",
+    "control_probe_is_train_only": true,
+    "control_probe_is_not_validation": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "training": {
+    "seed": 372,
+    "epochs": 100,
+    "world_size": 4,
+    "rank_batch_records": 1,
+    "global_batch_records": 4,
+    "steps_per_epoch": 700,
+    "total_updates": 70000,
+    "adamw_lr": 0.0003,
+    "muon_lr": 0.01,
+    "weight_decay": 0.000001,
+    "gradient_clip_norm": 1.0,
+    "warmup_updates": 500,
+    "cosine_eta_ratio": 0.01,
+    "balanced_weight": 0.02,
+    "continuity_weight": 0.01,
+    "cpml_weight": 0.02,
+    "router_weight": 0.01,
+    "frequency_floor_fraction": 0.01,
+    "log_interval_updates": 25,
+    "checkpoint_interval_updates": 350,
+    "checkpoint_retention": "latest_only",
+    "validation_during_training": false
+  },
+  "controller": {
+    "schema": "bounded_full_information_family_frequency_controller_v1",
+    "probe_namespace": "pyramid-moe-adaptive-v1",
+    "probe_records_per_family": 8,
+    "probe_record_count": 32,
+    "probe_selection_sha256": "caff174f79cabb731ceab8c3af33ca33c2258265d9362e9e3b4e6e8a267bccea",
+    "feedback_metric": "mean normalized spectral energy error per family-frequency cell",
+    "objective": "0.5 * mean cell relative error + 0.5 * worst cell relative error",
+    "worst_weight": 0.5,
+    "ema_beta": 0.8,
+    "gain": 0.08,
+    "max_step_ratio": 1.1,
+    "min_multiplier": 0.5,
+    "max_multiplier": 2.0,
+    "updates_per_epoch": 1,
+    "action": "family-by-frequency-block loss multiplier only",
+    "sampling_schedule_changed": false,
+    "architecture_changed": false,
+    "optimizer_changed": false
+  },
+  "handoff": {
+    "source_run": "transfer_dg_coupled_pyramid_moe_full2800_ddp4_20260903",
+    "source_checkpoint": "results/transfer_dg_coupled_pyramid_moe_full2800_ddp4_20260903/latest.pt",
+    "expected_start_epoch": 22,
+    "expected_next_step": 0,
+    "expected_update": 14700,
+    "source_checkpoint_sha256": "bound_atomically_at_handoff",
+    "wait_timeout_s": 7200,
+    "handoff_policy": "SIGSTOP the fixed trainer after atomic epoch-boundary checkpoint publication, hard-link and hash the checkpoint, then terminate the fixed process group"
+  },
+  "smoke": {
+    "max_updates": 14701,
+    "expected_new_updates": 1,
+    "required_world_size": 4,
+    "required_finite_loss": true,
+    "required_controller_event": true,
+    "required_latest_checkpoint": true,
+    "required_validation_closed": true,
+    "required_test_id_closed": true
+  },
+  "primary_metric": "train-only controller objective trajectory, reported with all family-by-frequency cells",
+  "failure_signal": "Stop on missed epoch boundary, binding drift, non-finite probe/loss/gradient, controller weight outside [0.5, 2.0], DDP rank failure, absent smoke artifacts, or any validation/test_id access.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "remaining_full_epochs": 79,
+    "wall_seconds_max": 604800,
+    "new_disk_bytes_max": 3221225472
+  },
+  "promotion_rule": "Training-probe improvement cannot promote the checkpoint. Freeze the controller and checkpoint first, then run one complete registered validation evaluation and one independent test_id confirmation only if validation passes.",
+  "rollback": "Keep the epoch-21 boundary snapshot immutable. If the controller is unstable or loses on disjoint train evidence, stop the adaptive run and resume fixed-weight training from that snapshot in a separate versioned output directory. Preserve all A3, B2-H, Helmholtz, ASAM, CPADC, and prior accepted checkpoints.",
+  "bindings": {
+    "handoff_sha256": "20197ad7eb37f4eb997aa3c3ed9b4ad3bb163e0da03511df9bbcd705c114d21d",
+    "trainer_sha256": "c309fb8b3fce8a067c1691e1fc0fb6ba445cfefd02e30ea70f5be5d3db9ba075",
+    "controller_sha256": "480af0d1667b5ad9b0840a2b5da3a467ebff52266f6987c1920403bffa0c761e",
+    "source_trainer_sha256": "e25457c4ceca35072614268fb035a1d093b0187ce2a26b63ba5cb1be6b12da77",
+    "pilot_trainer_sha256": "6af6c5d542e153e8d9cb40a8c4c95b455c0cc70248155839df48c6c1f3dac2d9",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "base_model_sha256": "f5e3683ede1b0e8ad172485637a3f1d2e057b26cdd6577ea749e93f27b7469c8",
+    "manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "init_checkpoint_sha256": "40be69585db8def15262015ba640222883bd6b0c4ed8e91a1858cdb438f5c341"
+  },
+  "validation_opened": false,
+  "test_id_opened": false
+}

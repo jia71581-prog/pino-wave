@@ -1,0 +1,201 @@
+{
+ "acceptance_convention": {
+  "convention": "iii_global_energy_rel_l2",
+  "note": "the 0.05 validation gate binds at a future validation-once stage requiring its own sealed-split authorization; no v16 stage in this preregistration opens validation or test_id",
+  "validation_test_rel_l2_max_unchanged": 0.05
+ },
+ "authorization": {
+  "acknowledges_inherited_vetoes": true,
+  "acknowledges_v15_post_hoc_rule_revision": true,
+  "date": "2026-08-26",
+  "delegation_source": "lead standing directive 2026-08-26 '请自行推进' plus this explicit conditional long-training authorization",
+  "interpretation": "freeze this preregistration, run smoke; if and only if each stage's frozen gates pass, proceed pilot then long without further per-stage confirmation",
+  "lead_directive_verbatim": "继续，符合条件启动长训"
+ },
+ "bindings_hard": {
+  "parent_checkpoint": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "results/r16_dscp_v1/basis_rank16.pt": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+  "results/r16_dscp_v1/panels.json": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v2.py": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517",
+  "scripts/probe_r4e12_convergence_horizon.py_terminal": "4db6844c96b7da5f6c5312ca0eaa3f450ebdd2f31bbf393e784a6ed85aec4fbd"
+ },
+ "bindings_runtime_pinned": [
+  "scripts/train_r16_dscp_v16.py",
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_v16.py",
+  "tests/saved_time_phase_operator_v4/test_r16_dscp_v16.py",
+  "scripts/probe_r4e12_convergence_horizon.py"
+ ],
+ "candidate": "r16_dscp_v16_wide128",
+ "claim_boundary": {
+  "known_risks_disclosed": [
+   "uniform family f=0.44 in r4e12 (its oracle bound 0.124 is the smallest; rank-16 ceiling is a separate line)",
+   "marmousi parent rel_l2 0.60 is a basis ceiling the head cannot fix",
+   "probe convergence horizon was measured on 3 records; the multi-record horizon may differ; patience and honest budget_limit reporting cover this"
+  ],
+  "long": "train-split generalization at scale; the 0.05 acceptance claim requires a future sealed validation-once stage not covered here",
+  "pilot": "first held-out-train generalization evidence; not validation evidence",
+  "smoke": "wiring and 3-record capacity re-confirmation only"
+ },
+ "design_basis": {
+  "evidence_chain": [
+   {
+    "finding": "1202-parameter head is the binding constraint; direct-fit arm reaches 80-99% of the per-record oracle (iii) bound",
+    "probe": "r4e10",
+    "spec_sha256": "0c2739a561da8595cbdeb5c020abbf84adcaafe80ed9ba4ad4ed17618824f6ff"
+   },
+   {
+    "finding": "29 deployment channels carry sufficient information (best fit_rel_err 0.346); regression supervision does not rescue the small head; a_clip regression is systematically harmful on uniform (9.8% pixel saturation)",
+    "probe": "r4e11",
+    "spec_sha256": "2e01ef64bba79544eeaae6880bba4b1016e5697ecafdcf9f85b3412bede0fe9d"
+   },
+   {
+    "finding": "D1: width-128 M2 head (25266 params, field loss, lr 3e-3 constant) reaches f = 0.436/0.682/0.812; W+ width margin holds; cosine schedule and hybrid supervision add nothing decisive",
+    "probe": "r4e12",
+    "spec_sha256": "cfb464927de0e660c4277e0f81504303c131e450a35140e2594c1627d48a0817",
+    "terminal_sha256": "4db6844c96b7da5f6c5312ca0eaa3f450ebdd2f31bbf393e784a6ed85aec4fbd"
+   }
+  ],
+  "prior_setting_disclosure": "all v16 smoke thresholds below are priors set in this NEW preregistration, informed by the r4e10-r4e12 train-only probes and disclosed as such; no frozen v15 gate is moved (veto a compliance); the v15 candidate keeps its recorded failed_gate; v16 is a new candidate with fresh accounting. correction of record: the 2026-08-26 draft suggested smoke loss gate 0.30, which contradicts the r4e12 W-arm measured per-record loss reductions {uniform 0.143, layered 0.533, marmousi 0.232}; the frozen value is 0.10, set BEFORE the v16 smoke run from probe data only"
+ },
+ "freeze_kind": "document_only_zero_training_zero_gpu_zero_checkpoint_write",
+ "inherited_vetoes": [
+  "a: no frozen threshold is moved toward a measured value of its own gated run",
+  "b: the correction mask derives from parent frame energy only, never deployment-time truth",
+  "c: no transplanted or synthetic-panel oracle constant is an acceptance baseline; oracle bounds are recomputed on the scored record",
+  "d: the smoke loss gate is a wiring check, never learning or convergence evidence",
+  "e: the correction is an output-field data fit plus a feature-driven ansatz, not a physics or PDE residual, and no PDE residual is evaluated anywhere",
+  "f: smoke evidence itself never promotes; promotion flows from the lead conditional authorization recorded above"
+ ],
+ "promotion_rule": "smoke gates all pass -> pilot; pilot gates all pass -> long; any gate failure stops the chain with an honest fail_gate terminal and no further stage; veto (f) is respected because promotion authority is this lead conditional directive, not the smoke evidence itself",
+ "records_and_roles": {
+  "first_generalization_evidence": "pilot_confirm; smoke is wiring plus capacity re-confirmation on 3 records and is NOT generalization evidence",
+  "long_calibration": "role long_calibration, 24 held-out train records",
+  "long_fit": "role long_fit, 192 records",
+  "pilot_confirm": "role pilot_confirm, 24 held-out train records",
+  "pilot_fit": "role pilot_fit, 24 records",
+  "smoke": "role smoke, 3 records (same three ruled records as v15)",
+  "source": "results/r16_dscp_v1/panels.json (sha 6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464)",
+  "truth_access": "train split only, per-stage allowlist drawn from panels roles; any non-train or off-list sample id is a refusal; validation and test_id stay sealed and are never opened by any v16 stage"
+ },
+ "schema": "r16_dscp_v16_prereg_v1",
+ "stages": {
+  "long": {
+   "budget_note": "wall and gpu-second values inherited unchanged from the frozen v12 budget chain",
+   "early_stop_monitor": "mean masked_confined_loss over long_calibration (min)",
+   "epoch_definition": "one epoch = 8 seeded shuffled passes over long_fit = 1536 updates; disclosed derivation: r4e12 horizon showed >= 3072 updates needed on 3 records; per-record exposure scaled for 192-record diversity within the inherited wall budget",
+   "eval_records": "long_calibration 24 (held out from fit)",
+   "fit_records": "long_fit 192",
+   "gates_at_best": {
+    "checkpoint_mib_max": 2,
+    "finite": "all reported floats finite",
+    "joint_improvement": {
+     "rule": "mean gain_iii over long_calibration >= 0.01",
+     "threshold": 0.01
+    },
+    "nonworse_records": {
+     "rule": ">= 23/24 long_calibration records nonworse",
+     "threshold": 23
+    },
+    "per_family_improvement": {
+     "rule": "per-family mean gain_iii >= 0.005 for all 3 families",
+     "threshold": 0.005
+    },
+    "train_vram_gib_max": 8.0
+   },
+   "gpu_seconds_max": 10800,
+   "max_epochs": 20,
+   "patience": 4,
+   "wall_s_max": 7200,
+   "world_size": 1
+  },
+  "pilot": {
+   "eval_every": 384,
+   "eval_records": "pilot_confirm 24 (held out from fit)",
+   "fit_records": "pilot_fit 24",
+   "gates": {
+    "checkpoint_mib_max": 2,
+    "finite": "all reported floats finite",
+    "joint_improvement": {
+     "rule": "mean gain_iii over pilot_confirm >= 0.01",
+     "source": "inherited v15 acceptance value, unchanged",
+     "threshold": 0.01
+    },
+    "nonworse_records": {
+     "rule": ">= 23/24 pilot_confirm records with aggregate_rel_l2 <= parent_rel_l2",
+     "source": "inherited v15 acceptance value, unchanged",
+     "threshold": 23
+    },
+    "per_family_improvement": {
+     "rule": "per-family mean gain_iii over pilot_confirm >= 0.005 for all 3 families",
+     "source": "inherited v15 acceptance value, unchanged",
+     "threshold": 0.005
+    },
+    "train_vram_gib_max": 8.0
+   },
+   "sampling": "seeded shuffled epochs over pilot_fit",
+   "updates": 3072,
+   "wall_s_max": 1800
+  },
+  "smoke": {
+   "eval_every": 384,
+   "gates": {
+    "checkpoint_mib_max": 2,
+    "finite": "all reported floats finite",
+    "loss_per_record": {
+     "rule": "per-record loss reduction 1 - final/initial >= 0.10 on 3/3 records",
+     "source": "r4e12 W measured {0.143,0.533,0.232}, floor with margin",
+     "threshold": 0.1
+    },
+    "nonworse": {
+     "rule": "aggregate_rel_l2 <= parent_rel_l2 on 3/3 records",
+     "source": "r4e12 W improved all three; tightened from v15's 2/3"
+    },
+    "oracle_gain": {
+     "fraction": 0.35,
+     "rule": "achieved gain (iii) >= 0.35 x per-record recomputed oracle bound on >= 2/3 records",
+     "source": "r4e12 W measured fractions {0.44,0.68,0.81}"
+    },
+    "train_vram_gib_max": 8.0,
+    "vram_measured_after_pipeline_build_reset": true
+   },
+   "sampling": "round-robin over the 3 smoke records (matches r4e12 W arm exactly)",
+   "updates": 3072,
+   "wall_s_max": 1200
+  }
+ },
+ "status": "frozen",
+ "structure": {
+  "head": "M2 topology width 128, verbatim r4e12 W arm: depthwise-separable Conv2d 29->29(dw3x3)->128(pw1x1)->SiLU->128(dw3x3)->128(pw1x1)->SiLU->128(dw3x3)->16(pw1x1), zero-init last layer, tanh output",
+  "not_reintroduced_falsified_directions": [
+   "feature enrichment (refuted r4e11 C2)",
+   "cosine schedule (r4e12 S)",
+   "a_clip regression as primary supervision (r4e11/r4e12)",
+   "spatial spectral modes / rank increase",
+   "field-to-field CNN adapter",
+   "high-frequency spatial head"
+  ],
+  "output_contract": "tanh times frozen per-family coefficient scale; rank-16 temporal basis coefficient maps; confined correction path; parent-energy keep mask tau=0.001; 29 frozen deployment-causal channels; basis_rank16 and TAU unchanged",
+  "parameter_count_expected": 25266,
+  "unchanged_from_v15": [
+   "basis",
+   "rank",
+   "scales",
+   "mask",
+   "confined correction",
+   "feature channels",
+   "loss (masked_confined_loss)",
+   "acceptance convention iii"
+  ]
+ },
+ "training": {
+  "divergence_sentinel": "if the stage monitor loss is non-finite, stage fails immediately; calibration-based patience handles slow divergence",
+  "learning_rate": 0.003,
+  "objective": "masked_confined_loss (field), single objective, no auxiliary terms",
+  "optimizer": "AdamW betas (0.9,0.99) eps 1e-8 weight_decay 1e-4 grad_clip 1.0",
+  "schedule": "constant",
+  "seed": 372
+ },
+ "utc": "2026-08-26"
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "transfer_dg_wfp_validation401_preregistration_v1",
+  "candidate": "transfer_dg_wfp_full2800_final_ddp4_20260903",
+  "claim_scope": "one frozen complete validation evaluation of the offline pretrained WFP parent; test_id remains sealed",
+  "hypothesis": "The frozen 2,800-record high-capacity phase-WFP checkpoint can reconstruct the complete registered 401-frame validation wavefield from public medium/source/CPML/Eikonal inputs without future-wavefield input, with required-family mean relative L2 no greater than 0.05.",
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_final_ddp4_20260903/latest.pt",
+  "data": {
+    "split": "validation",
+    "record_count": 600,
+    "frame_count": 401,
+    "family_counts": {
+      "uniform": 90,
+      "layered": 240,
+      "anomaly": 120,
+      "marmousi": 150
+    },
+    "required_family_record_count": 480,
+    "required_families": ["uniform", "layered", "marmousi"],
+    "stored_times_only": true,
+    "interpolation": false
+  },
+  "prediction": {
+    "worker_count": 4,
+    "gpu_ids": [0, 1, 2, 3],
+    "background_sigma_saved_cells": 2.0,
+    "frequency_count": 64,
+    "full_rfft_bin_count": 201,
+    "unmodeled_bins": [64, 200],
+    "unmodeled_bin_value": 0.0,
+    "inverse_transform": "orthonormal irfft n=401",
+    "frequency_batch": 8,
+    "physical_scale": 1e-8,
+    "serialized_dtype": "float32",
+    "serialized_shape_per_record": [401, 201, 201],
+    "checkpoint_selection_after_validation": false
+  },
+  "access_contract": {
+    "allowed_model_inputs": [
+      "velocity_mps",
+      "source_map",
+      "source_wavelet",
+      "source_parameters",
+      "time_s",
+      "fixed_cpml_profiles",
+      "velocity_source_derived_eikonal"
+    ],
+    "model_input_wavefield_frames": 0,
+    "predictions_must_be_serialized_before_future_truth_open": true,
+    "validation_public_inputs_opened": true,
+    "validation_future_truth_opened": false,
+    "test_id_opened": false,
+    "no_post_validation_tuning": true
+  },
+  "metrics": {
+    "primary": "mean per-record physical relative L2 over all 401 stored frames for uniform, layered, and marmousi records",
+    "secondary": [
+      "all-600 mean, median, P95, maximum, and pooled relative L2",
+      "per-family relative L2 including anomaly",
+      "early, middle, and late pooled relative L2",
+      "0-15, 16-31, 32-63, and 64-200 frequency-bin pooled relative L2",
+      "prediction-to-target norm ratio and cosine",
+      "prediction runtime including 401-frame materialization"
+    ]
+  },
+  "acceptance": {
+    "relative_l2_max": 0.05,
+    "required_aggregate_at_or_below_threshold": true,
+    "each_required_family_at_or_below_threshold": true,
+    "minimum_relative_improvement_fraction": 0.0,
+    "complete_600_record_coverage": true,
+    "complete_401_frame_coverage": true,
+    "finite_gate": true,
+    "free_surface_gate": true
+  },
+  "failure_signal": "Any missing prediction, failed worker, non-finite field, future-truth read before all predictions are serialized, record/frame mismatch, checkpoint drift, or required relative L2 above 0.05 stops before test_id.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "wall_seconds_max": 7200,
+    "new_disk_bytes_max": 64424509440
+  },
+  "bindings": {
+    "checkpoint_sha256": "bd02506ab83631a0fea663f43c61a7689f6e75898715ea730acf7558f216e04b",
+    "training_terminal_sha256": "5abc6b4595573667d36cd30f3e3496e6cc788eeb72767df67a5ae26caf5750d9",
+    "validation_manifest_sha256": "e33070c576c667b3050c3be8e875ae3dd644c4712cffd651101ade1165389461",
+    "predictor_sha256": "35f18f8eed881eb7a11f67da815a220813759fb771579c6327f489c6eb457c3d",
+    "scorer_sha256": "b659c69a637a853fc917739a3334d8c688a7ecbe638e2e290d5cf2eb24ffa239",
+    "launcher_sha256": "1de46f4a0c0aa2f0b06a4fb05317ce0fe68518501ec38851673bee87bec64cdf",
+    "wfp_module_sha256": "1e05e6e002cf8cd560ae5a6d5e280d1fca186322ca949e496029733a38f6fcc0",
+    "phase_module_sha256": "cba0662a84d857531f78213f894a0fadd8eda9c8b53fab492543a07f8d56a477",
+    "eikonal_module_sha256": "cd7ca82ee973213716960d70c93917bc49e45af3b3cfb1abbc667c0a61406fb5",
+    "training_cache_summary_sha256": "3237ae2ef4dbbdae46b76ff3213bdbd741945ac124cb0d7614ace03bdf155f97"
+  },
+  "rollback": "Read-only checkpoint evaluation. Preserve all training and protected checkpoints. If validation fails, retain the report and return to train-only development without opening test_id.",
+  "self_approval": "User requested completion of the next frozen validation step and previously authorized agent approval after gates.",
+  "validation_public_inputs_opened": true,
+  "validation_future_truth_opened": false,
+  "test_id_opened": false
+}

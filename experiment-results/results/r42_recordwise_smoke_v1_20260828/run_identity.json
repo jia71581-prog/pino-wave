@@ -1,0 +1,55 @@
+{
+  "absolute_goal": {
+    "record_rel_l2_max_lte": 0.05,
+    "record_rel_l2_mean_lte": 0.05
+  },
+  "created_utc": "2026-08-27T22:44:04.060859+00:00",
+  "curriculum_manifest": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r42_hard_curriculum_manifest_v1_20260828.json",
+  "curriculum_manifest_sha256": "6deb26e747a83dc91c224a0b23728410253ca1ff8d2c712e0444f3df02827a30",
+  "data_boundary": {
+    "final_validation_opened": false,
+    "fit_truth_used": true,
+    "opened_development_holdout_used": true,
+    "paper_modified": false,
+    "r29b_opened": false,
+    "test_id_opened": false
+  },
+  "fit_group_count": 328,
+  "fit_record_count": 1032,
+  "holdout_group_count": 25,
+  "holdout_record_count": 56,
+  "model": {
+    "blocks": 4,
+    "correction_cap": 1.5,
+    "modes": 16,
+    "name": "frequency_conditioned_spatial_dct_fno",
+    "parameter_count": 9452930,
+    "width": 48,
+    "zero_initialized_output": true
+  },
+  "optimization": {
+    "amp_bfloat16": true,
+    "correction_scale_candidates": [
+      0.0,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "epochs": 1,
+    "frequency_chunk": 15,
+    "global_records_per_epoch": 2,
+    "hard_record_sampling": true,
+    "hinge_weight": 2.0,
+    "learning_rate": 0.0003,
+    "objective": "recordwise_retained_physical_relative_l2_squared",
+    "records_per_rank_epoch": 2,
+    "seed": 420829,
+    "selection_score": "candidate_max_plus_0p1_candidate_mean",
+    "shape_weight": 0.002,
+    "warmup_epochs": 0,
+    "weight_decay": 0.0
+  },
+  "schema": "r42_recordwise_hard_curriculum_identity_v1",
+  "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e"
+}

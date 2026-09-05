@@ -1,0 +1,24 @@
+{
+  "schema": "transfer_dg_wfp_e1b_loss_capacity_preregistration_v1",
+  "candidate": "transfer_dg_wfp_e1b_loss_capacity_20260902",
+  "claim_scope": "one-record train-only loss/capacity diagnosis; not model promotion",
+  "hypothesis": "Replacing pointwise Smooth-L1 with batch energy-normalized squared error aligned to full-field relative L2 will prevent the zero-field optimum and let both WFP and FNO memorize one fixed background record materially below relative L2 1.0.",
+  "single_conceptual_change": "loss normalization only; reuse the exact E1 cache, feature encoder and architectures",
+  "record_selection": "smallest lexical fit/uniform sample shared by all four lanes",
+  "arms": ["fno_s372", "fno_s733", "wfp_s372", "wfp_s733"],
+  "updates": 800,
+  "frequency_batch": 4,
+  "physical_objective": "sum squared coefficient error divided by sum squared target coefficient with 1e-8 denominator floor",
+  "cpml_weight": 0.05,
+  "acceptance": {
+    "each_arm_best_relative_l2_lt": 0.95,
+    "each_arm_prediction_target_norm_ratio_gt": 0.05,
+    "all_outputs_finite": true,
+    "hard_boundaries_exact": true
+  },
+  "failure_signal": "If either architecture remains at relative L2 >=0.95 under one-record memorization, reject its source-to-field parameterization before another 256-record run.",
+  "compute_budget": {"gpu_count": 4, "wall_seconds_max": 1800, "new_disk_bytes_max": 1073741824},
+  "parent_e1_summary_sha256": "f4124895fa572d601b770fe723d9c115cbaf5194feffd99e6c6686cc2387b5a9",
+  "validation_opened": false,
+  "test_id_opened": false
+}

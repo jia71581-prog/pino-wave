@@ -1,0 +1,11 @@
+{
+  "schema": "pbg_residual_source_smoke_terminal_v1",
+  "status": "failed",
+  "reason": "The generic panel gradient guard incorrectly required nonzero medium_encoder gradients on update one, while the intentionally zero-initialized final Helmholtz head blocks every upstream gradient until its first optimizer step.",
+  "updates_completed": 0,
+  "baseline_checkpoint_written": true,
+  "training_or_target_nonfinite": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Preserve the failed artifact and rerun under a new identity with the established zero-head first-update local-field-only gradient contract."
+}

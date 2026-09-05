@@ -1,0 +1,232 @@
+{
+ "arms": {
+  "A_data": {
+   "arm": "A_data",
+   "gates": {
+    "checkpoint": {
+     "limit_bytes": 2097152,
+     "passed": true,
+     "value_bytes": 315562
+    },
+    "finite": {
+     "passed": true,
+     "value": true
+    },
+    "joint_improvement": {
+     "passed": true,
+     "threshold": 0.01,
+     "value": 0.032018990450659666
+    },
+    "nonworse_within_tolerance": {
+     "passed": true,
+     "threshold": 24,
+     "tolerance": 0.01,
+     "value": 24
+    },
+    "per_family_improvement": {
+     "passed": true,
+     "threshold": 0.005,
+     "value": {
+      "layered": 0.06893403826647232,
+      "marmousi": 0.01306307767570629,
+      "uniform": 0.014059855409800419
+     }
+    },
+    "vram": {
+     "limit_bytes": 21474836480,
+     "passed": true,
+     "value_bytes": 17186160640
+    },
+    "worst_harm": {
+     "floor": -0.02,
+     "passed": true,
+     "value": -0.002955561477721751
+    }
+   },
+   "hinge": {
+    "enabled": false,
+    "lam": 0.0,
+    "margin": 0.0
+   },
+   "resources": {
+    "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v18/A_data/best.pt",
+    "checkpoint_bytes": 315562,
+    "peak_cuda_reserved_bytes": 17186160640,
+    "wall_s": 1303.6370137054473
+   },
+   "run_status": "early_stop_patience",
+   "status": "passed"
+  },
+  "B_data_hinge": {
+   "arm": "B_data_hinge",
+   "gates": {
+    "checkpoint": {
+     "limit_bytes": 2097152,
+     "passed": true,
+     "value_bytes": 315562
+    },
+    "finite": {
+     "passed": true,
+     "value": true
+    },
+    "joint_improvement": {
+     "passed": true,
+     "threshold": 0.01,
+     "value": 0.036245192590111296
+    },
+    "nonworse_within_tolerance": {
+     "passed": true,
+     "threshold": 24,
+     "tolerance": 0.01,
+     "value": 24
+    },
+    "per_family_improvement": {
+     "passed": true,
+     "threshold": 0.005,
+     "value": {
+      "layered": 0.07229570051162612,
+      "marmousi": 0.015774936415801726,
+      "uniform": 0.02066494084290606
+     }
+    },
+    "vram": {
+     "limit_bytes": 21474836480,
+     "passed": true,
+     "value_bytes": 17186160640
+    },
+    "worst_harm": {
+     "floor": -0.02,
+     "passed": true,
+     "value": -0.0008055912283221272
+    }
+   },
+   "hinge": {
+    "enabled": true,
+    "lam": 1.0,
+    "margin": 0.02
+   },
+   "resources": {
+    "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v18/B_data_hinge/best.pt",
+    "checkpoint_bytes": 315562,
+    "peak_cuda_reserved_bytes": 17186160640,
+    "wall_s": 1388.8397672241554
+   },
+   "run_status": "early_stop_patience",
+   "status": "passed"
+  }
+ },
+ "authorization": "lead directive 2026-08-27 03:4x: '\u5f00\u59cb,\u6269\u5c55\u5230\u6240\u6709\u6570\u636e' following the v17 budget-falsification report; earlier standing directives: long training carries final accuracy, no memory engineering.",
+ "bindings": {
+  "parent_checkpoint": {
+   "expected": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+   "observed": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789"
+  },
+  "preregistration": {
+   "expected": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4",
+   "observed": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4"
+  },
+  "results/r16_dscp_v1/basis_rank16.pt": {
+   "expected": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+   "observed": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786"
+  },
+  "results/r16_dscp_v1/panels.json": {
+   "expected": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+   "observed": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464"
+  },
+  "results/r16_dscp_v16_preregistration_20260826.json": {
+   "runtime_pinned": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4"
+  },
+  "results/r4e12_convergence_horizon_20260826/terminal.json": {
+   "expected": "4db6844c96b7da5f6c5312ca0eaa3f450ebdd2f31bbf393e784a6ed85aec4fbd",
+   "observed": "4db6844c96b7da5f6c5312ca0eaa3f450ebdd2f31bbf393e784a6ed85aec4fbd"
+  },
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py": {
+   "expected": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+   "observed": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201"
+  },
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v2.py": {
+   "expected": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+   "observed": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9"
+  },
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py": {
+   "expected": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517",
+   "observed": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517"
+  },
+  "scripts/probe_r4e12_convergence_horizon.py": {
+   "runtime_pinned": "cc32438279b43f83eeec905cda23b4207fb73837681cc6a662ad376870c547f2"
+  },
+  "scripts/train_r16_dscp_v16.py": {
+   "runtime_pinned": "2c3de5727d2886111c6456108ff823c51de044aac861efc69f12a0123dedb5bd"
+  }
+ },
+ "candidate": "r16_dscp_v18_wide128_alldata",
+ "completed_utc": "2026-08-27T11:56:10Z",
+ "disclaimers": {
+  "correction_nature": "output-field data fit plus feature-driven ansatz; no PDE residual anywhere",
+  "stage": "train-split generalization at scale; the 0.05 acceptance claim requires a future sealed validation-once stage"
+ },
+ "panels_v2_sha256": "d0213d5bd47518c63be9e4e8f5d0396d5dafc37b480711accc8add3a8f70d117",
+ "parent": {
+  "match": true,
+  "sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "writes": 0
+ },
+ "partitions": [
+  {
+   "build_s": 8693.660761784762,
+   "confirm": 6,
+   "fit": 542,
+   "rank": 0,
+   "rss_gib": 22.043968200683594,
+   "skipped": []
+  },
+  {
+   "build_s": 8666.437573192641,
+   "confirm": 6,
+   "fit": 541,
+   "rank": 1,
+   "rss_gib": 21.985198974609375,
+   "skipped": []
+  },
+  {
+   "build_s": 8693.271490999497,
+   "confirm": 6,
+   "fit": 541,
+   "rank": 2,
+   "rss_gib": 21.98760986328125,
+   "skipped": []
+  },
+  {
+   "build_s": 8662.79547301121,
+   "confirm": 6,
+   "fit": 541,
+   "rank": 3,
+   "rss_gib": 21.98629379272461,
+   "skipped": []
+  }
+ ],
+ "preregistration_sha256": "0a9af4e6bad30b6a8e91788f234381673d9bb9f8c8d4f66d3153d9f060059a05",
+ "resources": {
+  "build_s_per_rank": [
+   8693.660761784762,
+   8666.437573192641,
+   8693.271490999497,
+   8662.79547301121
+  ],
+  "rss_gib_per_rank": [
+   22.043968200683594,
+   21.985198974609375,
+   21.98760986328125,
+   21.98629379272461
+  ],
+  "total_wall_s": 2692.8026170795783
+ },
+ "schema": "r16_dscp_v18_chain_terminal_v1",
+ "sealed_splits_opened": false,
+ "status": {
+  "A_data": "passed",
+  "B_data_hinge": "passed"
+ },
+ "thresholds_moved_toward_measured_values": false
+}

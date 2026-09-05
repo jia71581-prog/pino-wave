@@ -1,0 +1,126 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb48_rank32_pbg_pilot_r50_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "project_train_three_record_mapper_capacity",
+  "parent_run": "direct48_pbg_pilot_r49_20260823",
+  "rollback_clause": "r49 preregistration rollback: 'If r49 is rejected, stop rank-0 raw direct-frequency tuning and move to a train-only WKB envelope mapper.' r49 terminated rejected (best 1.0265, final 1.0897 vs accepted gate 0.10), so this run executes that rollback.",
+  "hypothesis": "Switching ONLY the Helmholtz head from r49's failed raw oscillatory rank-0 form (wkb_phase=false, rank=0) to a WKB/geometric-optics low-rank envelope form (wkb_phase=true, rank=32) lets the unchanged backbone overfit the same three project-train Marmousi records to all-saved aggregate relative L2 <= 0.10 and every-record relative L2 <= 0.12 within 800 updates. WKB factors the fast oscillation out analytically via the eikonal travel time so the head learns 32 shared SMOOTH amplitude basis fields with a small per-record per-frequency complex mixing, instead of 96 fully oscillatory complex fields.",
+  "expected_mechanism": "r48b measured that a 48-bin complex frequency bank represents P_bg to rel-L2 0.032 (fit) / 0.0316 (calibration), so the representation is sufficient. r49 showed a raw oscillatory head cannot LEARN that representation (mapping floor ~1.03). The saved_time_v4 design notes and the naive-head G2 probe (agg ~1.1) attribute that failure to the U-Net being unable to render wavelength-scale oscillation. WKB demodulation removes the oscillation from the learning target; the residual smooth amplitude is what the U-Net can produce.",
+  "single_conceptual_variable": {
+    "name": "helmholtz_head_phase_factorization",
+    "parent": "raw oscillatory rank-0 independent head (r49: wkb_phase=false, rank=0)",
+    "candidate": "WKB envelope low-rank head (wkb_phase=true, rank=32)",
+    "held_constant": "backbone width 128, dense_depth 8, dense_spectral_rank 112, dense_modes 32, local_field_channels [1,1,2,2], 48 frequencies, 64x64 grid, fit panel, optimizer AdamW dense 1e-4 / backbone 5e-5, seed 372, 800 updates, microbatch 1, prefix gradient clipping, all eval gates (accepted 0.10 / record 0.12 / strong 0.06 / rejected 0.30)"
+  },
+  "capacity_precheck_wkb_rank_scan": {
+    "method": "per-record PCA of the WKB-demodulated 48-bin complex amplitude maps on the three fit records (labels only, fit rows, loader-identical 64x64 bilinear+antialias resampling, forward-norm rFFT, exp(+i*omega*tau) demodulation). Per-record PCA equals the model's per-record conditioned mixing capacity ceiling.",
+    "coefficient_space_truncation_relative_l2": {
+      "rank8": {"train_marmousi_00000": 0.2304, "train_marmousi_00002": 0.5032, "train_marmousi_00003": 0.3791},
+      "rank16": {"train_marmousi_00000": 0.0973, "train_marmousi_00002": 0.2960, "train_marmousi_00003": 0.1314},
+      "rank24": {"train_marmousi_00000": 0.058, "train_marmousi_00002": 0.149, "train_marmousi_00003": 0.065},
+      "rank32": {"train_marmousi_00000": 0.038, "train_marmousi_00002": 0.071, "train_marmousi_00003": 0.039},
+      "rank40": {"train_marmousi_00000": 0.026, "train_marmousi_00002": 0.042, "train_marmousi_00003": 0.024}
+    },
+    "conclusion": "rank 8 and 16 are representationally INCAPABLE of the 0.10 acceptance gate on the worst record (train_marmousi_00002 truncates at 0.50 / 0.30 before any learning). rank 32 is the smallest scanned rank that brings every record's envelope-truncation floor below the 0.10 gate (worst 0.071). rank 32 is therefore the minimum defensible choice; it is a capacity floor, not a claim the learned mapping will reach it.",
+    "note": "This is a representational ceiling on the smooth envelope only. The learned mapping may still fail above it; that is exactly what the run measures."
+  },
+  "primary_metric": "all-saved aggregate relative L2 after 800 project-train overfit updates",
+  "acceptance": {
+    "accepted_capacity_aggregate_relative_l2_max": 0.1,
+    "accepted_capacity_each_record_relative_l2_max": 0.12,
+    "strong_capacity_aggregate_relative_l2_max": 0.06
+  },
+  "failure_signal": {
+    "rejected_aggregate_relative_l2_min": 0.3,
+    "optimization_stall": "no material decrease over the final 200 updates",
+    "interpretation_if_rejected": "WKB envelope factorization does not unlock the learned mapping either -> the bottleneck is the medium/source->field mapper itself, not the output representation; escalate to a structurally different mapper (e.g. neural-operator propagator or background-conditioned Born path) rather than more head tuning."
+  },
+  "supervision_consistency_proof": {
+    "check": "synthesized a rank-32 WKB signal p(t)=sum_j a_j cos(w_j (t-tau)) + b_j sin(w_j (t-tau)); direct_frequency_target_coefficients with arrival_time_s=tau and saved_time_s recovered a and b with cos-branch rel err 1.01e-05 and sin-branch rel err 0 (bin-0 sin is 0 by definition and unused by the synthesis).",
+    "conclusion": "the WKB-rotated supervision target and the inverse synthesis live in the same smooth-envelope representation, so coefficient supervision on the captured (a,b) is supervision on the exact fields the synthesis consumes."
+  },
+  "data": {
+    "project_data_scope": "train_only",
+    "sample_ids": [
+      "train_marmousi_00000",
+      "train_marmousi_00002",
+      "train_marmousi_00003"
+    ],
+    "fit_records": 3,
+    "calibration_opened": false,
+    "confirmation_opened": false,
+    "validation_opened": false,
+    "test_id_opened": false,
+    "numerical_wavefield_model_input": false,
+    "pbg_wavefield_use": "project-train labels only"
+  },
+  "model": {
+    "family": "SavedTimePhaseOperatorV4 WKB Helmholtz low-rank head",
+    "width": 128,
+    "dense_depth": 8,
+    "dense_spectral_rank": 112,
+    "dense_modes": 32,
+    "local_field_channels": [1, 1, 2, 2],
+    "helmholtz_frequencies": 48,
+    "helmholtz_rank": 32,
+    "helmholtz_late_rank": 0,
+    "wkb_phase": true,
+    "head_shape_effective": [3, 96, 64, 64],
+    "synthesis_shape": [3, 401, 64, 64],
+    "synthesis_head_parameters": 403744,
+    "causal_gate": false,
+    "free_surface_factor": false,
+    "hard_causality": false
+  },
+  "optimization": {
+    "optimizer": "AdamW",
+    "dense_learning_rate": 0.0001,
+    "backbone_learning_rate": 5e-05,
+    "updates": 800,
+    "evaluate_every": 50,
+    "microbatch_records": 1,
+    "seed": 372,
+    "gradient_clipping": {
+      "mode": "prefix_limits",
+      "local_field": 20.0,
+      "medium_encoder": 2.0,
+      "source_encoder": 5.0
+    }
+  },
+  "normalization": {
+    "pressure_scale_pa": 1.894229157173348e-08,
+    "amplitude": 1.0,
+    "per_record_target_normalization": false,
+    "per_frequency_target_normalization": false
+  },
+  "compute_budget": {
+    "device": "single CUDA GPU",
+    "smoke_updates": 2,
+    "formal_updates": 800,
+    "formal_wall_time_max_minutes": 30,
+    "expected_peak_cuda_gb_max": 4.0
+  },
+  "parent_checkpoint": {
+    "path": null,
+    "sha256": null,
+    "reason": "fresh random initialization; rejected r49 weights and contaminated paper weights are not reused"
+  },
+  "bindings": {
+    "training_script_sha256": "0c1915b371c5a370cab7f8d925ff2aedb3965ec1fe7a38f174f086670b0e948f",
+    "run_config_sha256": "1e54afa23550b5fc25b372002aef8b8c594721b2e38583ca612a4ecc774f210a",
+    "base_config_sha256": "ac2533c334732483169f361566c4b0f430fce327fd9693edad29aac0e1d4bce6",
+    "coefficient_helper_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8",
+    "local_field_sha256": "8afd8bfb8c0ab48877d593189bef2a3d6f873b9198cb75664477f5b87cd20304",
+    "operator_sha256": "8b586a3577512f9c6a7da922e1b217f65a9780b6672e7f2ac2959f27764f2a09",
+    "probe_sha256": "f0a4fc07d2edd92b10886b19e235276a5fb77190b72760ef46316cc806c5b29c",
+    "vds_sha256": "9904e4a46b58290c79570034881cf5cb744ef6721b04ad3f0d937c6009eb2bdb",
+    "split_sha256": "e72cc8916b0be6f5d4ff6435f949ec12904fb0412cb0c3db0a33916ac7f3a3fa",
+    "normalization_sha256": "bbc0963a4b89be6aa16ff981c72e19a29d3a0ad833f3c07aa3758eefa373ae99",
+    "r49_terminal_status": "rejected (best_fixed 1.0265, final all-saved 1.0897)",
+    "r48b_terminal_status": "accepted_capacity_only (48-bin fit 0.0320 / calibration 0.0316)"
+  },
+  "smoke_command": "python scripts/train_wkb48_rank32_pbg_pilot.py --base-config configs/saved_time_v4/direct48_pbg_pilot.yaml --run-config configs/saved_time_v4/wkb48_rank32_pbg_pilot_run.yaml --output-dir results/wkb48_rank32_pbg_pilot_r50_smoke_20260823 --device cuda --smoke",
+  "formal_command": "python scripts/train_wkb48_rank32_pbg_pilot.py --base-config configs/saved_time_v4/direct48_pbg_pilot.yaml --run-config configs/saved_time_v4/wkb48_rank32_pbg_pilot_run.yaml --output-dir results/wkb48_rank32_pbg_pilot_r50_20260823 --device cuda"
+}

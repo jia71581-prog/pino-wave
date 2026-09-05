@@ -1,0 +1,22 @@
+{
+  "schema": "directfreq64_coefficient_overfit_decision_v1",
+  "status": "rejected",
+  "decision": "raw_direct_frequency_mapping_failed_three_record_memorization_gate",
+  "all_saved_aggregate_relative_l2": 0.7562074289920417,
+  "all_saved_family_relative_l2": {
+    "uniform": 0.7955756261118542,
+    "layered": 0.6263333420935072,
+    "marmousi": 0.8467133187707641
+  },
+  "required": {"aggregate": 0.10, "each_family": 0.12},
+  "peak_cuda_bytes": 1505192960,
+  "updates_completed": 800,
+  "background_cache": null,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {
+    "terminal_sha256": "ff27d73a8ee829ced81f8c01b61057740860e9093f3d003cbe00514f6d1caab2",
+    "final_checkpoint_sha256": "e82a81a73c72b4a46b91d0f685d550fa81f5dc642f7e3079f2a9a6b30819a844"
+  },
+  "diagnosis": "Complete coefficient labels removed temporal underdetermination but the network still could not learn oscillatory raw complex fields from velocity and source."
+}

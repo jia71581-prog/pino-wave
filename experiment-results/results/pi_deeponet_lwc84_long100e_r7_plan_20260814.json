@@ -1,0 +1,51 @@
+{
+  "schema": "train_only_long_training_plan_v1",
+  "created_utc": "2026-08-14",
+  "status": "registered_before_launch",
+  "user_request": "Launch a long PI-DeepONet training run on the complete training dataset.",
+  "hypothesis": "Extending the audited discrete PI-DeepONet objective from the completed short parent to 100 full-support epochs will reduce the fixed train-selection aggregate relative L2 from 0.913795542875158 to at most 0.50 without non-finite optimization.",
+  "expected_mechanism": "Every epoch covers all 2240 train records with appearance-varying exact saved frames; repeated full-support exposure should reduce the undertraining floor while retaining the source-consistent LWC84 physics regularizer.",
+  "primary_metric": "aggregate relative L2 on the fixed 48-record train-only selection panel",
+  "failure_signal": "Any non-finite gradient, worker or supervisor failure, missing atomic rolling checkpoint, invalid binding, or no improvement below the parent train-selection score by epoch 10.",
+  "compute_budget": {
+    "gpus": 4,
+    "epochs": 100,
+    "optimizer_updates_per_epoch": 140,
+    "maximum_optimizer_updates": 14000,
+    "train_records": 2240,
+    "train_family_records": {
+      "uniform": 420,
+      "layered": 1120,
+      "marmousi": 700
+    },
+    "record_oversample": 2.0,
+    "appearances_per_epoch": 4480,
+    "effective_global_records_per_update": 32,
+    "frames_per_record": 24,
+    "estimated_wall_hours": "8-9"
+  },
+  "single_conceptual_change": "Increase the PI-DeepONet full-support training budget from 3 epochs to 100 epochs; architecture, loss, optimizer hyperparameters, data manifest, and train-only selection protocol remain fixed.",
+  "initialization": {
+    "policy": "model_state_only_reset_optimizer",
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_train_gate_r6/full_mb4_r1/best.pt",
+    "checkpoint_sha256": "c35ebb12b753b8e59d0eddab8e891d53a2933e98a0d9a072e1054a376b65a625",
+    "parent_global_step": 420,
+    "parent_train_selection_relative_l2": 0.913795542875158
+  },
+  "bindings": {
+    "config": "configs/baselines/pi_deeponet_lwc84_long100e_r7_authorized_20260814.yaml",
+    "config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "training_runner_sha256": "18c67e360ccd45434057565b345063c0e2ae04132451b35f79ef9a9e7be2b49f",
+    "training_primitives_sha256": "b83b71ebafb3cdca57a7d3175cca1a9df96f2edf7d17290f415a796e777d985e",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "schedule_digest": "955bae34cfb51e65e147080c7c1cf900c94c13e00ccb27f99103589b3a3b16fb"
+  },
+  "leakage_boundary": {
+    "training_split": "train",
+    "selection_split": "train",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "claim_scope": "comparison_only unless a separately preregistered same-protocol gate later passes",
+  "rollback": "Preserve the r6 parent and every existing A3, B2-H, Helmholtz, ASAM, and CPADC checkpoint. Stop the isolated r7 run on failure and retain its latest atomic checkpoint and logs."
+}

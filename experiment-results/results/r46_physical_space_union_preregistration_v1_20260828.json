@@ -1,0 +1,116 @@
+{
+  "schema": "r46_physical_space_union_preregistration_v1",
+  "created_utc": "2026-08-28T00:17:11Z",
+  "status": "frozen_before_production_launch",
+  "objective": "reduce opened group-disjoint development record-relative L2 mean and maximum to at most 0.05 using fit-only supervision",
+  "controlled_change": {
+    "changed": "fit coverage only",
+    "unchanged": [
+      "physical-space residual FNO architecture",
+      "loss function",
+      "optimizer family",
+      "correction-scale candidates",
+      "development selection score",
+      "absolute accuracy gate"
+    ],
+    "r45_base_fit_records": 1032,
+    "r45_base_fit_groups": 328,
+    "r46_supplement_records": 140,
+    "r46_supplement_groups": 28,
+    "r46_union_fit_records": 1172,
+    "r46_union_fit_groups": 356,
+    "r46_union_family_records": {
+      "uniform": 128,
+      "layered": 384,
+      "marmousi": 660
+    },
+    "supplement_policy": "exact unused Marmousi group set from frozen R38 fit after subtracting R40 selected groups"
+  },
+  "method": {
+    "name": "physical_xz_frequency_residual_fno",
+    "grid_size": 201,
+    "retained_dct": 96,
+    "input_policy": "deployment-available parent spectrum, medium, source, coordinates, and frequency only",
+    "target_policy": "fit-truth residual only",
+    "width": 48,
+    "modes": 24,
+    "blocks": 4,
+    "parameter_count": 21248738,
+    "correction_cap": 3.0,
+    "zero_initialized_output": true
+  },
+  "optimization": {
+    "world_size": 4,
+    "epochs": 30,
+    "records_per_rank_epoch": 293,
+    "global_record_draws_per_epoch": 1172,
+    "frequency_batch": 8,
+    "hard_record_sampling_manifest": "results/r46_union_hard_curriculum_v1_20260828.json",
+    "hard_tier_gte_0p05_records": 22,
+    "objective": "sampled_full_wavefield_relative_energy_with_tail_hinge",
+    "tail_weight": 1.0,
+    "hinge_weight": 2.0,
+    "shape_weight": 0.002,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0001,
+    "weight_decay": 0.00001,
+    "warmup_epochs": 1,
+    "schedule": "cosine_to_0.05_of_initial",
+    "amp": "bfloat16",
+    "seed": 4601,
+    "evaluation_every_epochs": 1,
+    "correction_scale_candidates": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "checkpoint_score": "candidate_max_plus_0.1_candidate_mean",
+    "stop_on_pass": true
+  },
+  "frozen_evidence": {
+    "union_selection_sha256": "35bb4afdb9f67387c1961de06c7d78b93684c0b683f58f9ceeefb832ac813f5b",
+    "r46_training_script_sha256": "0d814ec3e03c7031596fc2f86dfe89a8b151b4b5cd23ed60544c5ac851000b37",
+    "r46_launcher_sha256": "6e5525512f3c62dde6e9d7a0fd4faefe6d3ea4c83fbf4b9a0d3be45b64ae1a75",
+    "union_adapter_sha256": "237546f33284064c4edcdce59057865749510ccc430e1a6ff9c610cf323ebec2",
+    "union_curriculum_builder_sha256": "41094f673d9cb2d38a2d2ed1d194d45fa653b580456e6d30c65f45de4f425bab",
+    "supplement_manifest_builder_sha256": "2022d5ab34933b09eb94902aba191cfa740d271f9bb7fe25729519be316a4735",
+    "supplement_cache_launcher_sha256": "1bf7d26a063fc5c68267ce37f67084fb0132b258053b042fb47226a8d4be50bd",
+    "supplement_manifest_sha256": "df221497acd3bdd586f309ea17d32691993ac3dfeda18de1b1e6ae274739c156",
+    "union_curriculum_sha256": "d5a75ea8a272298482da6a4dd0ba69c85273153d1776b6b2331298fccbec6411",
+    "single_gpu_smoke": "results/r46_physical_space_union_smoke_single_v1_20260828",
+    "single_gpu_smoke_summary_sha256": "62c073a9cebae3aa0b81c8a831a9003f68ea1ef4c95b5e251b51ff3d33083820",
+    "four_gpu_ddp_smoke": "results/r46_physical_space_union_smoke_ddp4_v1_20260828",
+    "four_gpu_ddp_smoke_summary_sha256": "8c42c433de2ab932c217400b6e51c2ee6c6c554df37ad7ee575cf45d9ca273f5",
+    "r45_final_run_summary_sha256": "0d334434c23b81f58f128c50e98bcba86ade6ba561b948d50815443d9b090618",
+    "r45_best_epoch": 0,
+    "r45_final_development_mean": 0.020046478302280728,
+    "r45_final_development_max": 0.06584256844896734,
+    "fit_only_complex_gain_diagnostic_result_sha256": "77f71a0cfdba0eb3c64615e5110b305ffdd4ed12d129a4ffd6ff3ef32dd1fa13",
+    "fit_only_complex_gain_development_mean": 0.020018098794675216,
+    "fit_only_complex_gain_development_max": 0.06554423902252172
+  },
+  "output": {
+    "directory": "results/r46_physical_space_union_w48_v1_20260828",
+    "console_log": "results/r46_physical_space_union_w48_v1_console.log",
+    "screen_name": "r46_union_w48_v1_20260828"
+  },
+  "absolute_gate": {
+    "opened_development_mean_lte": 0.05,
+    "opened_development_max_lte": 0.05,
+    "pass_requires_both": true,
+    "on_fail": "keep R29B, final, test, and manuscript frozen; proceed to path-conditioned phase residual research",
+    "on_pass": "freeze checkpoint and scale before opening R29B only"
+  },
+  "data_boundary": {
+    "fit_truth_used": true,
+    "opened_group_disjoint_development_used_for_selection": true,
+    "fit_development_group_overlap": 0,
+    "r29b_opened": false,
+    "final_validation_opened": false,
+    "test_id_opened": false,
+    "paper_modified": false
+  }
+}

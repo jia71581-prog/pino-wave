@@ -1,0 +1,42 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "green2d_eikonal_projection_r47_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_green2d_projection_floor",
+  "hypothesis": "Replacing the raw retarded Ricker with its causal two-dimensional Green half-integral will reduce per-record oracle-scaled median calibration relative L2 below 0.5.",
+  "expected_mechanism": "The pressure solution is the source term convolved with the 2D wave-equation Green tail proportional to H(t-T)/sqrt(t-T); the half-integral corrects the waveform phase/order absent from r43/r46.",
+  "single_conceptual_variable": {
+    "name": "analytic_template",
+    "parent": "Ricker at retarded time",
+    "candidate": "causal 2D Green convolution of the Ricker source"
+  },
+  "primary_metric": "median train-only calibration relative L2 after per-record oracle scaling",
+  "acceptance": {
+    "oracle_median_relative_l2_max": 0.5
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 560,
+    "calibration_records": 70,
+    "confirmation_access": "none",
+    "selected_resolution": [64, 64, 201]
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "numerical_wavefield_input": false
+  },
+  "bindings": {
+    "config_sha256": "f8c833584243bce2b4c4b40a949e113a474af02afa93d0dec1143111d29beb76",
+    "script_sha256": "7048bedf14a115af832c8b1ab0fb0ef649b917ed1d594e1b464b58bbec5b0cc5",
+    "data_loader_sha256": "c29ca63a8b6d62ee340df6fd37b1de6dfe0d51714ec7f17a4cd8f7e386b8af17",
+    "eikonal_vds_sha256": "9904e4a46b58290c79570034881cf5cb744ef6721b04ad3f0d937c6009eb2bdb",
+    "split_sha256": "e72cc8916b0be6f5d4ff6435f949ec12904fb0412cb0c3db0a33916ac7f3a3fa",
+    "r46_result_sha256": "0e4473085f5dc5bb4e58407b82c64864905f436e9b1a0dfd7a8638dceceaab98",
+    "tests": "33 passed"
+  },
+  "rollback": "Preserve r46; if rejected, stop analytic single-arrival templates and train the learned multi-arrival propagator under the same train-only split.",
+  "command": "PYTHONPATH=src python scripts/diagnose_ricker_pbg_projection.py --config configs/factorized_fno_pbg_marm_r47_green_full560_ddp4.yaml --split-manifest artifacts/pbg_factorized_fno_marm700_eikonal_v3/split_full560_70_70_seed372.json --output results/green2d_eikonal_projection_r47_20260823/result.json"
+}

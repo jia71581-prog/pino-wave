@@ -1,0 +1,16 @@
+你是实现员，只在 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2 工作。保留用户改动和所有 checkpoint；不得启动真实训练、不得读取 validation/test_id/confirmation 波场，不得修改已有结果。
+
+基于 cc_mapper_bottleneck_audit_prompt 的审计和 r48b 结果，实现一个最小 project-train 3-record overfit pilot，暂称 r49 direct48_pbg。优先新建窄脚本/配置，若必须扩展已有脚本则保持向后兼容并加测试。
+
+科学契约：
+1. 数据只用 artifacts/pbg_factorized_fno_marm700_eikonal_v3/dataset_v1.h5 与 split_full560_70_70_seed372.json 的 fit 面板前三条：train_marmousi_00000、00002、00003；按 sample_id 映射行并强制 HDF5 split=train、ID 前缀 train_。cal/confirmation/validation/test_id 均不开。
+2. 输入只能 velocity、source_map/source_parameters、坐标、eikonal travel time、解析源参数；P_bg wavefield 只作 train 标签，绝不能进入 model input。
+3. 复用 SavedTimePhaseOperatorV4/ProbeVariant 和 r4 direct-frequency coefficient update：width128、dense_depth8、dense_spectral_rank112、dense_modes32、local-field通道[1,1,2,2]、helmholtz_frequencies=48、rank=0、wkb=false。模型头输出 [B,96,64,64]；固定 inverse synthesis 到 [B,401,64,64]。
+4. 目标严格对齐 r48b：loader 的 bilinear+antialias 64x64、全部401存储时间点；encode_pressure 后 forward-norm rFFT，bin0..47，cos=2Re/sin=-2Im、DC 特例。全局 pressure_scale_pa=1.894229157173348e-08、amplitude=1。禁止目标派生的每记录/每频归一化。
+5. 训练与 r4 尽量一致：AdamW dense1e-4/backbone5e-5，seed372，800 updates，eval every50，microbatch1，3记录等权 coefficient-relative-L2，prefix gradient clipping local_field20/medium_encoder2/source_encoder5。评估关闭 causal gate、free-surface factor、hard causality，使输出就是48-bin inverse synthesis。
+6. CLI/config 应允许 --output-dir、--updates、--device、--evaluate-every；默认真实 pilot 为单GPU。先做静态输入契约/1次前向 smoke 的代码路径，但本任务只运行合成/临时小数据测试，不运行真实 VDS pilot。
+7. 产物：run_identity.json（原子写，绑定 config/code/data/split digests和所用sample ids）、updates.jsonl、checkpoints/update_NNNN.pt、latest.pt、terminal.json；保存可复现模型/优化器/配置。terminal 报 all_saved aggregate + each record、coefficient loss、phase correlation/centroid/xcorr 若现有 helper 可复用、GPU峰值/墙时、access flags。
+8. 决策门写入配置而非脚本硬编码：accepted_capacity 若 all_saved aggregate<=0.10 且每记录<=0.12；strong_capacity 若aggregate<=0.06；rejected 若最终aggregate>=0.30；中间为 inconclusive。这里只是 train-overfit capacity，不得宣称最终目标。
+9. 测试至少覆盖：sample-id/fit-only契约、P_bg绝非input、48-bin系数与独立 NumPy 参考一致、64x64/401形状、eval flags 全关闭、终端判定边界、旧脚本行为不回归。运行新增及直接相关轻量测试。
+
+最后紧凑输出：修改文件、关键复用点、测试结果、真实运行命令、尚存风险。不要启动真实训练。

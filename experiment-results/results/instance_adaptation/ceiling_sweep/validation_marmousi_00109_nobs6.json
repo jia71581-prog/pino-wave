@@ -1,0 +1,51 @@
+=== sparse-frame diagnostic: validation_marmousi_00109  n_obs=6 lr=0.005 pde_w=0.1 ===
+  step  100: held-out 0.4956  observed-frames 0.0278  (obs_l 0.030 pde_l 0.047)
+  step  400: held-out 0.4629  observed-frames 0.0013  (obs_l 0.001 pde_l 0.017)
+  step  800: held-out 0.4353  observed-frames 0.0010  (obs_l 0.001 pde_l 0.011)
+  step 1500: held-out 0.4068  observed-frames 0.0011  (obs_l 0.001 pde_l 0.008)
+{
+  "sample_id": "validation_marmousi_00109",
+  "medium": "marmousi",
+  "n_obs": 6,
+  "obs_idx": [
+    31,
+    105,
+    179,
+    252,
+    326,
+    400
+  ],
+  "parent_baseline_heldout": 0.5203317403793335,
+  "parent_baseline_energetic_global": 0.5207820534706116,
+  "best_heldout_relL2": 0.406841903924942,
+  "history": [
+    {
+      "step": 100,
+      "heldout_relL2": 0.49561673402786255,
+      "observed_relL2": 0.027795812115073204,
+      "obs_loss": 0.02982075698673725,
+      "pde_loss": 0.04659074917435646
+    },
+    {
+      "step": 400,
+      "heldout_relL2": 0.4628852605819702,
+      "observed_relL2": 0.001293577952310443,
+      "obs_loss": 0.0014856492634862661,
+      "pde_loss": 0.016732996329665184
+    },
+    {
+      "step": 800,
+      "heldout_relL2": 0.43533992767333984,
+      "observed_relL2": 0.001040164497680962,
+      "obs_loss": 0.0013426138320937753,
+      "pde_loss": 0.011156070977449417
+    },
+    {
+      "step": 1500,
+      "heldout_relL2": 0.406841903924942,
+      "observed_relL2": 0.0011440354865044355,
+      "obs_loss": 0.0011116642272099853,
+      "pde_loss": 0.0077333454973995686
+    }
+  ]
+}

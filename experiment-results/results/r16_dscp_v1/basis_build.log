@@ -1,0 +1,37 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp.py", line 983, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp.py", line 975, in main
+    build_basis(args.physical_gpu_index, torch.device(args.device))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp.py", line 540, in build_basis
+    parent = legacy_pod.generate_parent_full401(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4_family_temporal_pod_capacity.py", line 219, in generate_parent_full401
+    medium = model.encode_medium(velocity, normalizer)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/operator.py", line 112, in encode_medium
+    encoding = self.medium_encoder(normalizer.encode_velocity(velocity))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/medium.py", line 111, in forward
+    hidden = block(hidden)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/spectral.py", line 134, in forward
+    spectral = self.out_projection(self.spectral(self.in_projection(value).float()))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/spectral.py", line 75, in forward
+    output_fft[:, :, :modes_y, :modes_x] = torch.einsum(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/functional.py", line 377, in einsum
+    return _VF.einsum(equation, operands)  # type: ignore[attr-defined]
+RuntimeError: Deterministic behavior was enabled with either `torch.use_deterministic_algorithms(True)` or `at::Context::setDeterministicAlgorithms(true)`, but this operation is not deterministic because it uses CuBLAS and you have CUDA >= 10.2. To enable deterministic behavior in this case, you must set an environment variable before running your PyTorch application: CUBLAS_WORKSPACE_CONFIG=:4096:8 or CUBLAS_WORKSPACE_CONFIG=:16:8. For more information, go to https://docs.nvidia.com/cuda/cublas/index.html#cublasApi_reproducibility
+{"status": "basis_built", "basis": {"path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/basis_rank16.pt", "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786", "size_bytes": 83476, "mtime_ns": 1787687174771925587}, "basis_tensor_sha256": "4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5", "peak_cuda_reserved_bytes": 6763315200}

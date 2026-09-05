@@ -1,0 +1,17 @@
+{
+  "status": "intentionally_stopped_negative",
+  "schema": "helmholtz_g3_heldout_aborted_v1",
+  "last_checkpoint": "results/helmholtz_g3_specinj_perbranch_N192_ddp4/checkpoints/update_0768.pt",
+  "last_completed_evaluation_update": 768,
+  "planned_updates": 960,
+  "stop_signal": "SIGTERM",
+  "reason": "Six fixed-panel evaluations over updates 528-768 remained on the same layered and Marmousi late-time plateau as A+1 and the joint spectral-bypass plus late-rank-32 control; the remaining budget had no expected information gain.",
+  "fixed_panel_plateau": {
+    "evaluation_updates": [528, 576, 624, 672, 720, 768],
+    "layered_relative_l2_range": [0.07781996016501207, 0.07789029428172606],
+    "layered_late_relative_l2_range": [0.1606135736959015, 0.1610026350573754],
+    "marmousi_relative_l2_range": [0.04423424303282589, 0.044246019234274805],
+    "marmousi_late_relative_l2_range": [0.0675399682040189, 0.06755817286479456]
+  },
+  "reproducibility_note": "run_identity.json predates recording helmholtz_spectral_bypass_per_branch explicitly; the launch command used --helmholtz-spectral-bypass-per-branch and the checkpoint contains local_field.helmholtz_spectral_bypass.branch_gates."
+}

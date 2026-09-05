@@ -1,0 +1,62 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_pbg_marm_r30_smoke_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_factorized_fno_pbg_operational_smoke_retry",
+  "hypothesis": "After fixing optional LWC84 alias resolution, a 64x64x101 Factorized FNO can complete four finite optimizer updates and a disjoint train-only calibration pass, save reproducible checkpoints, and fit on one RTX 4090 D.",
+  "single_conceptual_variable": {
+    "name": "optional_alias_resolution_fix",
+    "parent": "None HDF5 membership raises TypeError",
+    "candidate": "membership test only for configured string keys"
+  },
+  "accuracy_selection_allowed": false,
+  "operational_acceptance": {
+    "process_exit_code": 0,
+    "optimizer_updates": 4,
+    "prediction_finite_ratio": 1.0,
+    "checkpoint_best_present": true,
+    "checkpoint_last_present": true,
+    "peak_allocated_mb_max": 20000,
+    "project_validation_opened": false,
+    "project_test_id_opened": false,
+    "confirmation_opened": false
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 120,
+    "calibration_records": 60,
+    "confirmation_records": 60,
+    "smoke_train_batches": 4,
+    "smoke_calibration_batches": 2,
+    "selected_resolution": [64, 64, 101]
+  },
+  "model": {
+    "architecture": "factorized_fno",
+    "spatial_modes": [24, 24],
+    "spatial_width": 32,
+    "spatial_layers": 3,
+    "temporal_width": 32,
+    "temporal_layers": 3,
+    "batch_size": 2,
+    "learning_rate": 0.0003,
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "bindings": {
+    "config_sha256": "f7cf01128ce96d6f34557414bf23ae065dfcc13ae8d8c809facfb626d27c6303",
+    "model_sha256": "37fb182293a8fa0f6b65ba81eee55fabe325f15cc8f27b456cd39468dc9a6e1b",
+    "data_loader_sha256": "e46716ad0ce7de476345e5c3697dbd4169c337f1cdfcba779c2685ff5e201f6e",
+    "trainer_sha256": "409a59a9bdd3e89247d4bcf29d89a8ec0d3ab5ef28e4cb83eda20bd01413a4c2",
+    "cli_sha256": "a0778a0dff425f2e924ff0485bcd8b2d60f5c8480002b0b411d77797f089d1c6",
+    "vds_sha256": "c8dbded99eaa05f03616211e65b5dd5399c685bb1241717e27147fad60e3ae17",
+    "split_sha256": "d5ea622d782728d76dbf3a26311253b5377cfc75ae139bc9688d58a03c56958f",
+    "tests": "29 passed"
+  },
+  "rollback": "Preserve r29 and all prior artifacts; reject Factorized FNO before a pilot if r30 fails finiteness, memory, checkpoint, or data-boundary gates.",
+  "command": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r30_smoke.yaml --device cuda --output-json results/factorized_pbg_marm_r30_smoke_20260823/result.json"
+}

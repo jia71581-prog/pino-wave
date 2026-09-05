@@ -1,0 +1,23 @@
+{
+  "schema": "acoustic_train_only_data_preparation_v1",
+  "status": "frozen_before_launch",
+  "candidate": "eikonal_train_marm_r44_cache_20260823",
+  "purpose": "Build source-dependent eikonal travel times for all 700 project train/Marmousi records to test whether r43 failed because the straight-ray travel approximation was phase-inaccurate.",
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "wavefield_read": false
+  },
+  "expected": {
+    "records": 700,
+    "family": "marmousi",
+    "split": "train",
+    "finite": true
+  },
+  "bindings": {
+    "builder_sha256": "54c1d9d08c613d99705d18a6005b85974ec1c3184eb7b72985a8bd1fbaf3e020",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "command": "python scripts/build_eikonal_travel_cache.py --source-h5 /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --output artifacts/pbg_factorized_fno_marm700_eikonal_v3/eikonal_train_marm700.h5 --splits train --families marmousi --workers 16"
+}

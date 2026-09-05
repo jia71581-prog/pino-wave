@@ -1,0 +1,18 @@
+{
+  "schema": "transfer_dg_flux_pretrain_throughput_stop_v1",
+  "status": "superseded_for_throughput",
+  "stopped_utc": "2026-09-02T07:30:17Z",
+  "stop_authority": "user_requested_training_acceleration",
+  "reason": "The four lanes were stopped before epoch 1 to benchmark safe utilization changes. Outer-time-only activation checkpointing measured 20.4% higher record throughput than nested checkpointing without changing the model, data budget, loss, or prediction contract.",
+  "completed_epochs_per_lane": 0,
+  "worker_exit_codes": [
+    143,
+    143,
+    143,
+    143
+  ],
+  "artifacts_preserved": true,
+  "replacement": "results/transfer_dg_flux_pretrain_fast_preregistration_20260902.json",
+  "validation_opened": false,
+  "test_id_opened": false
+}

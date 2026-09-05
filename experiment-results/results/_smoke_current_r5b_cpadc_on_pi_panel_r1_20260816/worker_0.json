@@ -1,0 +1,142 @@
+{
+  "aggregate_relative_l2": 5.538308415161377,
+  "bindings": {
+    "actual_parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "actual_parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "comparison_script_sha256": "3546cb63a86b6fb5e2ad85420e131f182a477e62741ebcb22cee0bddc3dbd503",
+    "config_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v5/causal_defect_basis_r5b_marmousi1_4m_v2.yaml",
+    "config_sha256": "f1086a7ac7ec4c931319dcd159cad423da9e7fab83475b09de81f3875e0700d8",
+    "prediction_reconstruction": "live_bound_r5b_parent_plus_live_cpu_cpadc_instance_coefficients",
+    "sealed_401_frame_output_dir": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/_smoke_current_r5b_cpadc_on_pi_panel_r1_20260816/sealed"
+  },
+  "cpadc_checkpoint": {
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r5b_trustgrad_layered_marm15_selective_r3_20260816/selective.pt",
+    "sha256": "e92cc37722388640d060cd78875f1ebdc8e9ca1dad395641a5123625ecafb55a"
+  },
+  "cpadc_full_output_frames_per_record": 401,
+  "error_terms": {
+    "aggregate": [
+      17648.45009776315,
+      575.3767349830671
+    ],
+    "family": {
+      "layered": [
+        0.0,
+        0.0
+      ],
+      "marmousi": [
+        0.0,
+        0.0
+      ],
+      "uniform": [
+        17648.45009776315,
+        575.3767349830671
+      ]
+    },
+    "normalization": "pi_deeponet_pressure_normalization_per_record",
+    "parent_aggregate": [
+      17648.45009776315,
+      575.3767349830671
+    ],
+    "parent_family": {
+      "layered": [
+        0.0,
+        0.0
+      ],
+      "marmousi": [
+        0.0,
+        0.0
+      ],
+      "uniform": [
+        17648.45009776315,
+        575.3767349830671
+      ]
+    }
+  },
+  "frames_per_record": 32,
+  "global_record_count": 480,
+  "measurements": [
+    {
+      "adaptation_accepted": false,
+      "adaptation_elapsed_s": 2.1745692482218146,
+      "adapted_error_numerator": 6.332447428063277e-12,
+      "adapted_error_numerator_in_pi_normalization": 17648.45009776315,
+      "adapted_relative_l2": 5.538308415161377,
+      "family": "uniform",
+      "frames_per_record": 32,
+      "full401_adapted_relative_l2": 5.515871524810791,
+      "full401_parent_relative_l2": 5.515871524810791,
+      "parent_error_numerator": 6.332447428063277e-12,
+      "parent_error_numerator_in_pi_normalization": 17648.45009776315,
+      "parent_relative_l2": 5.538308415161377,
+      "physical_to_pi_normalization_scale_squared": 2786987227016075.5,
+      "pi_error_numerator": 207.92216459988927,
+      "pi_relative_l2": 0.6011380873111432,
+      "pi_truth_denominator": 575.3767349830671,
+      "sample_id": "validation_uniform_00000",
+      "source_index": 2800,
+      "time_indices": [
+        7,
+        15,
+        39,
+        64,
+        85,
+        86,
+        104,
+        106,
+        109,
+        123,
+        124,
+        126,
+        144,
+        147,
+        156,
+        162,
+        186,
+        187,
+        188,
+        191,
+        222,
+        246,
+        272,
+        290,
+        291,
+        302,
+        320,
+        339,
+        344,
+        358,
+        365,
+        376
+      ],
+      "total_inference_elapsed_s_for_401_frames": 15.614689725451171,
+      "truth_denominator": 2.0645115607476312e-13,
+      "truth_denominator_in_pi_normalization": 575.3767349830671
+    }
+  ],
+  "num_shards": 1,
+  "parent_aggregate_relative_l2": 5.538308415161377,
+  "pi_panel": {
+    "checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "worker_paths": [
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_0.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_1.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_2.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_3.json"
+    ],
+    "worker_sha256": {
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_0.json": "e16e94abe0b02167924bc556dc53c761bcb9a6ec778e0bb696a7335b68026101",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_1.json": "013a897a94ca027c7efbc87482ab49ef8908196b982b7974ee1be87b771a26ab",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_2.json": "e515c7020f4903abccbe09870898f365bf13b8792a5ca87290767f6e503e14c0",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_3.json": "d99cb603009d4e6cbaa7571aadee542311c226354253f62bc73df98019c299cb"
+    }
+  },
+  "record_count": 1,
+  "role": "comparison_only",
+  "schema": "frozen_cpadc_on_pi_panel_worker_v1",
+  "selection_scope": "limited_validation_smoke_on_frozen_pi_panel",
+  "shard_index": 0,
+  "split": "validation",
+  "status": "complete"
+}

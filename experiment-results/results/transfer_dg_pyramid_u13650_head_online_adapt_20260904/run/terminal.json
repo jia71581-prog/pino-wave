@@ -1,0 +1,182 @@
+{
+  "adaptation": {
+    "access_audit": {
+      "allowed_indices": [
+        17,
+        18
+      ],
+      "future_truth_used": false,
+      "requested_indices": [
+        17,
+        18
+      ]
+    },
+    "adapted_coefficients": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_pyramid_u13650_head_online_adapt_20260904/run/adapted_coefficients.pt",
+    "adapted_coefficients_sha256": "af55f07d47ab3441e73c464b31ac8b2ad97fda5b664984d7d3ef6440d0c00cd7",
+    "basis": {
+      "effective_rank": 64,
+      "gram_eigenvalue_max": 3415.4842332545572,
+      "gram_eigenvalue_min_kept": 0.020910848550718227,
+      "input_rank": 64,
+      "mode_norm": 50.84126281738281,
+      "relative_tolerance": 1e-06
+    },
+    "candidate_online_objective": 1.1002330780029297,
+    "checkpoint": {
+      "epoch": 20,
+      "next_step": 350,
+      "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+      "test_id_opened": false,
+      "update": 13650,
+      "validation_opened": false
+    },
+    "condition_number": 628.3176056836555,
+    "correction_ratio": 0.0,
+    "elapsed_s": 391.9018235206604,
+    "family": "marmousi",
+    "future_truth_used": false,
+    "observed_indices": [
+      17,
+      18
+    ],
+    "online_objective_improvement": 0.0,
+    "parent_online_objective": 1.1002330780029297,
+    "sample_id": "train_marmousi_00260",
+    "schema": "transfer_dg_pyramid_instance_adaptation_terminal_v1",
+    "selection": {
+      "selected_channel_count": 64,
+      "selected_channel_indices": [
+        0,
+        32,
+        135,
+        11,
+        3,
+        53,
+        77,
+        150,
+        51,
+        109,
+        145,
+        151,
+        24,
+        138,
+        114,
+        170,
+        180,
+        106,
+        121,
+        85,
+        17,
+        136,
+        16,
+        96,
+        187,
+        55,
+        76,
+        147,
+        59,
+        42,
+        75,
+        73,
+        139,
+        60,
+        119,
+        134,
+        10,
+        172,
+        153,
+        52,
+        158,
+        140,
+        127,
+        132,
+        40,
+        25,
+        67,
+        58,
+        91,
+        99,
+        86,
+        178,
+        98,
+        4,
+        163,
+        179,
+        95,
+        39,
+        47,
+        188,
+        159,
+        2,
+        72,
+        125
+      ],
+      "selected_norm_max": 36.77009201049805,
+      "selected_norm_min": 3.1188724040985107,
+      "source_channel_count": 192
+    },
+    "status": "rolled_back_to_parent",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "elapsed_s": 392.81682229042053,
+  "evaluation": {
+    "adaptation_status": "rolled_back_to_parent",
+    "checkpoint": {
+      "epoch": 20,
+      "next_step": 350,
+      "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+      "test_id_opened": false,
+      "update": 13650,
+      "validation_opened": false
+    },
+    "elapsed_s": 392.81642484664917,
+    "family": "marmousi",
+    "future_truth_opened_only_after_adaptation_serialized": true,
+    "max_rss_kib": 15915656,
+    "metrics": {
+      "adapted_full_relative_l2": 0.7207989289181564,
+      "adapted_future_relative_l2": 0.7204820156658365,
+      "adapted_onset_relative_l2": 365.4731836967913,
+      "adapted_target_0p05_pass": false,
+      "full_relative_improvement": 0.0,
+      "future_frame_count": 382,
+      "future_relative_improvement": 0.0,
+      "future_start_index": 19,
+      "future_time_bands": {
+        "early": {
+          "adapted_relative_l2": 0.3348995509504711,
+          "parent_relative_l2": 0.3348995509504711,
+          "start": 19,
+          "stop": 146
+        },
+        "late": {
+          "adapted_relative_l2": 0.8684467043041625,
+          "parent_relative_l2": 0.8684467043041625,
+          "start": 274,
+          "stop": 400
+        },
+        "middle": {
+          "adapted_relative_l2": 0.7923608001075989,
+          "parent_relative_l2": 0.7923608001075989,
+          "start": 147,
+          "stop": 273
+        }
+      },
+      "parent_full_relative_l2": 0.7207989289181564,
+      "parent_future_relative_l2": 0.7204820156658365,
+      "parent_onset_relative_l2": 365.4731836967913,
+      "time_count": 401
+    },
+    "sample_id": "train_marmousi_00260",
+    "schema": "transfer_dg_pyramid_instance_adaptation_evaluation_v1",
+    "scope": "post-seal train-only single-record diagnostic",
+    "status": "complete",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "schema": "transfer_dg_pyramid_instance_adaptation_run_terminal_v1",
+  "status": "complete",
+  "test_id_opened": false,
+  "validation_opened": false
+}

@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_capacity_ladder_overfit.py", line 1070, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_capacity_ladder_overfit.py", line 924, in main
+    for update, batch in enumerate(train_data, start=1):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/data.py", line 136, in __getitem__
+    return self.materialize_spec(self.schedule[int(index)])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/data.py", line 187, in materialize_spec
+    indices = appearance_time_indices(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/sampling.py", line 142, in appearance_time_indices
+    raise ValueError(
+ValueError: appearance time policy requires four or at least sixteen stored frames

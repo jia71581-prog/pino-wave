@@ -1,0 +1,16 @@
+artifact,status,evidence_scope,directory
+complete wavefields,available,historical development triplet,01_complete_wavefields
+wavefield snapshots,available,historical development examples,02_wavefield_snapshots
+receiver waveforms and gathers,available,historical development examples,03_receiver_waveforms
+analytic numerical dispersion,available,FD2/FD4/LWC-84 analytic context,04_numerical_dispersion
+learned dispersion suppression,not established,claim gate failed because receiver evidence is incomplete,04_numerical_dispersion
+all-record relative-error boxplot,available,all 48 records of train-only r5b selection gate,05_relative_error
+complete CPADC relative-error distributions,available,480 validation plus 480 independent test_id records,05_relative_error
+240-case fixed-19-Hz position boxplot,complete,240 fixed-19-Hz position-only records; not a promotion gate,09_pending_position_evaluation
+network hyperparameters,available,"r5b, r5d/r5e and Patch-DeepONet",06_network_hyperparameters
+latest-candidate same-sample comparison,complete; not promoted,three fixed-15-Hz development samples; strict replacement gate failed,11_latest_candidate_nonpromotion_test
+Phase4b fixed-19-Hz multi-source composite,complete; descriptive case study,one locked rank-15 Marmousi slice x eight source positions; mean relative L2 0.17688,12_phase4b_fixed19_rank15_multisource
+Phase4b rank-30 eight-source physical superposition,complete; qualitative complex-medium evidence,input-complexity-maximizing Marmousi slice; summed all-time relative L2 0.28828,13_phase4b_rank30_eight_source_superposition
+Proposed method versus LWC-84 runtime,complete; descriptive archived R7 lineage,includes instance fine-tuning plus inference and output; not same-case or matched-accuracy certification,14_runtime_comparison
+Proposed method versus PI-DeepONet accuracy and snapshots,complete; train-only development evidence,six train records with identical future windows; both parents trained on these records; no held-out superiority claim,15_pi_deeponet_train_development_comparison
+Historical-best Phase4b versus PI-DeepONet accuracy and snapshots,complete; train-development checkpoint-transfer evidence,six train records with identical complete-future windows; Phase4b includes external sigma-2 LWC-84 background; no held-out superiority claim,16_phase4b_update0265_pi_comparison

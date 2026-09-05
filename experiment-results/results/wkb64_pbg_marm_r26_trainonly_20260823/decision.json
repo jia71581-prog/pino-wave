@@ -1,0 +1,22 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected",
+  "decision": "reject_sequential_12_record_pbg_distillation_and_test_panel_ordering_before_scaling_support",
+  "best_checkpoint": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_0250.pt",
+  "best_fixed_gate_score": 1.1903238058191516,
+  "all_saved": {
+    "fit_marmousi_relative_l2": 0.7941,
+    "calibration_marmousi_relative_l2": 1.1895,
+    "confirmation_marmousi_relative_l2": 1.1949,
+    "confirmation_phase_correlation": 0.0253
+  },
+  "diagnosis": "Fit error continued falling through update 2000 while calibration was best at update 250 and then regressed. The sequential panels occupy different ordered Marmousi medium groups, so panel ordering remains a cheaper unresolved explanation than architecture scaling.",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {
+    "preregistration_sha256": "27ab1dfc70391ff7ab8a7fa07f109db87ba1d2a5349255b5fd4789089665ac71",
+    "run_identity_sha256": "531ec9cbc3c25db12e407e7b79197212cc20b6b24e46671c29e2eeb02fb04602",
+    "terminal_sha256": "1bb786ae16d3b9929797d4d2d6407bcf5ae49b4f4a4b22250c4912bdb3658624",
+    "best_checkpoint_sha256": "8bc73c49da9a4ef829800b45b22ecc060c3a07058cceea89fa15d14ca1a980db"
+  }
+}

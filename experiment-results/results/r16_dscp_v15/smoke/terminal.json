@@ -1,0 +1,1010 @@
+{
+  "acceptance_convention_modified": false,
+  "access_authorization_digest": "640ae715f9e69589636f39d13f0b6adcd35bf18b0eaf62b85cdbd0b71f15749b",
+  "access_ledger_digest": "c9e81a8b4870bf2b363995748393c99b52aedfbb6e5ce085f16483ff077251a4",
+  "bindings": {
+    "parent_checkpoint": {
+      "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "observed_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "size_bytes": 339775310,
+      "status": "match"
+    },
+    "preregistration": {
+      "expected_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+      "observed_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15_preregistration_20260826.json",
+      "size_bytes": 20619,
+      "status": "match"
+    },
+    "r4e9_probe_reference": {
+      "expected_sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+      "observed_sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e9_mask_confined.py",
+      "size_bytes": 52831,
+      "status": "match"
+    },
+    "r4e9_terminal_reference": {
+      "expected_sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+      "observed_sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e9_mask_confined_oracle_20260826/terminal.json",
+      "size_bytes": 102645,
+      "status": "match"
+    }
+  },
+  "cache": {
+    "capacity": 3,
+    "current_bytes": 595030860,
+    "hits": 420,
+    "misses": 3,
+    "peak_bytes": 595030860,
+    "peak_items": 3,
+    "role": "smoke",
+    "serialization": false
+  },
+  "candidate": "r16_dscp_v15",
+  "checkpoint": {
+    "best": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15/smoke/best.pt",
+    "hardlinked": true,
+    "last": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15/smoke/last.pt",
+    "size_bytes": 38704
+  },
+  "decision": "fail_gate",
+  "disclaimers": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "deployment_time_truth_supervision": false,
+    "is_learning_or_convergence_evidence": false,
+    "loss_gate_role": "wiring sanity check on each record separately",
+    "may_promote_to_pilot_or_long": false,
+    "oracle_role": "train-only upper bound, never an achieved result",
+    "pde_residual_used": false,
+    "training_proxy_convention_not_for_acceptance": "masked_energy_floored_per_frame"
+  },
+  "early_stop": false,
+  "effective": {
+    "basis": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+    "code": "4a3ca6fb5792347055cb1d7af869713e430ef9a2b59a7921b667fdd0915602ce",
+    "config": "bb614017465b316b5e7b9bb70ceac7fb5a53c7e26b7732572e6a20c1bc8539c7",
+    "harness": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517",
+    "panels": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+    "parent": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "preregistration": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+    "script": "547d5c80c842b7a31526ecee523c005324cdba2b5815cd3909782cec2c418b1f"
+  },
+  "gates": {
+    "finite": {
+      "passed": true,
+      "value": true
+    },
+    "loss": {
+      "computed_per_record": true,
+      "cross_record_first_last_used": false,
+      "failing_records": [
+        "train_layered_00564",
+        "train_marmousi_00385",
+        "train_uniform_00321"
+      ],
+      "is_learning_or_convergence_evidence": false,
+      "may_promote_to_pilot_or_long": false,
+      "passed": false,
+      "per_record": {
+        "train_layered_00564": {
+          "final_loss": 0.03265329450368881,
+          "initial_loss": 0.04389768838882446,
+          "loss_reduction": 0.2561500228790695,
+          "observations": 64,
+          "record": "train_layered_00564",
+          "sufficient_observations": true
+        },
+        "train_marmousi_00385": {
+          "final_loss": 0.5165797472000122,
+          "initial_loss": 0.5633196234703064,
+          "loss_reduction": 0.08297221386032176,
+          "observations": 64,
+          "record": "train_marmousi_00385",
+          "sufficient_observations": true
+        },
+        "train_uniform_00321": {
+          "final_loss": 0.017901048064231873,
+          "initial_loss": 0.01787547580897808,
+          "loss_reduction": -0.0014305775984406507,
+          "observations": 64,
+          "record": "train_uniform_00321",
+          "sufficient_observations": true
+        }
+      },
+      "records_with_fewer_than_two_observations": [],
+      "threshold": 0.8,
+      "v14_defect_replaced": "first and last loss of the whole round-robin stream came from different records"
+    },
+    "nonworse": {
+      "passed": false,
+      "threshold": 3,
+      "value": 2
+    },
+    "oracle_gain": {
+      "failing_records": [
+        "train_layered_00564",
+        "train_marmousi_00385",
+        "train_uniform_00321"
+      ],
+      "fraction": 0.5,
+      "passed": false,
+      "per_record": {
+        "train_layered_00564": {
+          "achieved_gain": 0.0061709007555031505,
+          "convention": "global_energy_rel_l2",
+          "family": "layered",
+          "oracle_bound_positive": true,
+          "oracle_upper_bound_gain": 0.21023461326370246,
+          "passed": false,
+          "required_gain": 0.10511730663185123,
+          "sample_id": "train_layered_00564"
+        },
+        "train_marmousi_00385": {
+          "achieved_gain": 0.032732226267704875,
+          "convention": "global_energy_rel_l2",
+          "family": "marmousi",
+          "oracle_bound_positive": true,
+          "oracle_upper_bound_gain": 0.13292032888337077,
+          "passed": false,
+          "required_gain": 0.06646016444168538,
+          "sample_id": "train_marmousi_00385"
+        },
+        "train_uniform_00321": {
+          "achieved_gain": -0.006799722015011752,
+          "convention": "global_energy_rel_l2",
+          "family": "uniform",
+          "oracle_bound_positive": true,
+          "oracle_upper_bound_gain": 0.12439898205685312,
+          "passed": false,
+          "required_gain": 0.06219949102842656,
+          "sample_id": "train_uniform_00321"
+        }
+      },
+      "recomputed_per_record": true,
+      "transplanted_constants_used": false,
+      "voided_v14_constants": {
+        "defects": [
+          "constants were transplanted across records",
+          "the marmousi constant came from a synthetic sample",
+          "no constant was recomputed on the record it scored"
+        ],
+        "numeric_values_present_in_v15_code": false,
+        "status": "void",
+        "v14_scored_records": [
+          "train_uniform_00321",
+          "train_layered_00564",
+          "train_marmousi_00385"
+        ],
+        "v14_source_records": [
+          "train_uniform_00102",
+          "train_layered_01032",
+          "synthetic_marmousi"
+        ],
+        "v15_replacement": "confined_oracle_upper_bound recomputed on the scored record"
+      }
+    },
+    "space": {
+      "passed": true,
+      "value": true
+    },
+    "vram": {
+      "measured": true,
+      "nontrivial": true,
+      "passed": true,
+      "reason": "measured peak torch.cuda.max_memory_reserved within the inherited limit",
+      "threshold": 8589934592,
+      "value": 6763315200
+    }
+  },
+  "inherited_vetoes": [
+    "thresholds must not be moved toward measured values",
+    "no deployment-time truth in the mask, including truth frame energy",
+    "no cross-record or synthetic-sample oracle constant as an acceptance baseline",
+    "the smoke loss gate is never learning or convergence evidence",
+    "the correction is an output-field data fit plus a feature-driven ansatz, not a physics or PDE residual and not deployment-time truth supervision; zero PDE residual anywhere in the pipeline",
+    "smoke evidence never promotes to pilot or long"
+  ],
+  "latency": {
+    "adapter": {
+      "mean_s": 0.025175433397293095,
+      "p95_s": 0.06743766021728516
+    },
+    "e2e": {
+      "mean_s": 15.774253761847817,
+      "p95_s": 16.100749824523927
+    },
+    "feature": {
+      "mean_s": 0.1262147216796875,
+      "p95_s": 0.13702896118164062
+    },
+    "finite": true,
+    "parent": {
+      "mean_s": 15.622863606770833,
+      "p95_s": 15.896283203125
+    },
+    "spool_io_excluded": {
+      "mean_s": 0.26241250137544025,
+      "p95_s": 0.26660910034179686
+    }
+  },
+  "lineage": {
+    "authorization_sha256": "f57beab5f15e2d7b0045ff76f7b9ef68c6087850237963aad9dcb1f11746a396",
+    "basis_sha256_effective": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+    "candidate": "r16_dscp_v15",
+    "config_sha256_effective": "bb614017465b316b5e7b9bb70ceac7fb5a53c7e26b7732572e6a20c1bc8539c7",
+    "engine_sha256": "4a3ca6fb5792347055cb1d7af869713e430ef9a2b59a7921b667fdd0915602ce",
+    "identity_digest": "8b4d71f533fe83515724cfcad7827eb24bacd9327b8f86e21d362a025f9250b5",
+    "input_checkpoint_sha256": "none",
+    "mode": "smoke",
+    "panels_sha256_effective": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+    "parent_sha256_effective": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "run_digest": "0d08112210a1d2c1384c165287a69463a8c7c888ce7971da54064a38c8803c12",
+    "schema": "r16_dscp_v15_checkpoint_identity_v1",
+    "script_sha256": "547d5c80c842b7a31526ecee523c005324cdba2b5815cd3909782cec2c418b1f"
+  },
+  "mask": {
+    "deployment_computable": true,
+    "driven_by": "parent_frame_energy",
+    "events": [
+      {
+        "confined": true,
+        "dropped_frames": 14,
+        "k1": 9,
+        "kept_frames": 387,
+        "parent_energy_floor": 4.569013390307544e-17,
+        "route_index": 2,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 14,
+        "k1": 9,
+        "kept_frames": 387,
+        "parent_energy_floor": 4.569013390307544e-17,
+        "route_index": 2,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 193,
+        "k1": 12,
+        "kept_frames": 208,
+        "parent_energy_floor": 1.2962650754962706e-17,
+        "route_index": 0,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 169,
+        "k1": 20,
+        "kept_frames": 232,
+        "parent_energy_floor": 3.7342865807201775e-17,
+        "route_index": 1,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 14,
+        "k1": 9,
+        "kept_frames": 387,
+        "parent_energy_floor": 4.569013390307544e-17,
+        "route_index": 2,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 193,
+        "k1": 12,
+        "kept_frames": 208,
+        "parent_energy_floor": 1.2962650754962706e-17,
+        "route_index": 0,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 169,
+        "k1": 20,
+        "kept_frames": 232,
+        "parent_energy_floor": 3.7342865807201775e-17,
+        "route_index": 1,
+        "tau": 0.001
+      },
+      {
+        "confined": true,
+        "dropped_frames": 14,
+        "k1": 9,
+        "kept_frames": 387,
+        "parent_energy_floor": 4.569013390307544e-17,
+        "route_index": 2,
+        "tau": 0.001
+      }
+    ],
+    "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+    "layered_on_top_of_c1_causal_ramp": true,
+    "materializations_confined": 408,
+    "replaces_c1_causal_ramp": false,
+    "symbol": "m_t",
+    "tau": 0.001,
+    "unconfined_materializations": 0,
+    "uses_truth_frame_energy": false,
+    "uses_validation_or_test_data": false
+  },
+  "metrics": {
+    "coefficient_energy": {
+      "alternative_considered": "residual_energy_normalization",
+      "in_preregistration_scope": "results/r16_dscp_v15_preregistration_20260826.json v14_known_defects_to_fix.normalized_coefficient_energy_dimensional_error",
+      "normalizer": "mean_squared_parent_amplitude_on_retained_future_frames",
+      "normalizer_is_deployment_computable": true,
+      "normalizer_uses_truth": false,
+      "term": "normalized_coefficient_energy",
+      "v14_defect": "an amplitude-squared quantity was summed directly with three dimensionless ratios under weight 1e-4, so the term's effective strength moved with the absolute pressure scale of the record",
+      "v14_definition": "coefficients.square().mean()",
+      "v14_units": "amplitude_squared",
+      "v15_definition": "coefficients.square().mean() / parent_future[keep_mask].square().mean()",
+      "v15_units": "dimensionless",
+      "weight_unchanged_from_v14": 0.0001,
+      "why_parent_energy_was_chosen": [
+        "the parent field is deployment-computable and truth-free, so the regularizer's own denominator never depends on a label",
+        "residual energy shrinks as the fit improves, so a residual normalizer would inflate the penalty exactly as training succeeds and would be a self-amplifying, unstable term",
+        "the pilot gate correction_energy_ratio already normalizes correction energy by parent energy, so this choice makes the loss term and that gate dimensionally consistent",
+        "the term is invariant under a common rescaling of parent, truth and fitted coefficients, which is the property the fix requires"
+      ]
+    },
+    "disclaimers": {
+      "acceptance_convention": "global_energy_rel_l2",
+      "deployment_time_truth_supervision": false,
+      "is_learning_or_convergence_evidence": false,
+      "loss_gate_role": "wiring sanity check on each record separately",
+      "may_promote_to_pilot_or_long": false,
+      "oracle_role": "train-only upper bound, never an achieved result",
+      "pde_residual_used": false,
+      "training_proxy_convention_not_for_acceptance": "masked_energy_floored_per_frame"
+    },
+    "loss_specification": {
+      "acceptance_convention": "global_energy_rel_l2",
+      "coefficient_energy": {
+        "alternative_considered": "residual_energy_normalization",
+        "in_preregistration_scope": "results/r16_dscp_v15_preregistration_20260826.json v14_known_defects_to_fix.normalized_coefficient_energy_dimensional_error",
+        "normalizer": "mean_squared_parent_amplitude_on_retained_future_frames",
+        "normalizer_is_deployment_computable": true,
+        "normalizer_uses_truth": false,
+        "term": "normalized_coefficient_energy",
+        "v14_defect": "an amplitude-squared quantity was summed directly with three dimensionless ratios under weight 1e-4, so the term's effective strength moved with the absolute pressure scale of the record",
+        "v14_definition": "coefficients.square().mean()",
+        "v14_units": "amplitude_squared",
+        "v15_definition": "coefficients.square().mean() / parent_future[keep_mask].square().mean()",
+        "v15_units": "dimensionless",
+        "weight_unchanged_from_v14": 0.0001,
+        "why_parent_energy_was_chosen": [
+          "the parent field is deployment-computable and truth-free, so the regularizer's own denominator never depends on a label",
+          "residual energy shrinks as the fit improves, so a residual normalizer would inflate the penalty exactly as training succeeds and would be a self-amplifying, unstable term",
+          "the pilot gate correction_energy_ratio already normalizes correction energy by parent energy, so this choice makes the loss term and that gate dimensionally consistent",
+          "the term is invariant under a common rescaling of parent, truth and fitted coefficients, which is the property the fix requires"
+        ]
+      },
+      "denominator": "truth_frame_energy_floored_at_tau_times_peak_truth_energy",
+      "denominator_role": "convention (ii) style flooring; convention (ii) is a TRAINING PROXY and must not carry an acceptance claim",
+      "deployment_time_truth_supervision": false,
+      "frame_restriction": "parent_energy_keep_mask_retained_frames_only",
+      "is_learning_or_convergence_evidence": false,
+      "mask": {
+        "deployment_computable": true,
+        "driven_by": "parent_frame_energy",
+        "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+        "layered_on_top_of_c1_causal_ramp": true,
+        "replaces_c1_causal_ramp": false,
+        "symbol": "m_t",
+        "tau": 0.001,
+        "uses_truth_frame_energy": false,
+        "uses_validation_or_test_data": false
+      },
+      "name": "masked_loss_plus_mask_confined_correction",
+      "pde_residual_used": false,
+      "weights": {
+        "frame_relative_l2_squared": 1.0,
+        "late_third_relative_l2_squared": 0.25,
+        "normalized_coefficient_energy": 0.0001,
+        "temporal_difference": 0.1
+      },
+      "weights_unchanged_from_v14": true
+    },
+    "mask": {
+      "deployment_computable": true,
+      "driven_by": "parent_frame_energy",
+      "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+      "layered_on_top_of_c1_causal_ramp": true,
+      "replaces_c1_causal_ramp": false,
+      "symbol": "m_t",
+      "tau": 0.001,
+      "uses_truth_frame_energy": false,
+      "uses_validation_or_test_data": false
+    },
+    "oracle_by_record": {
+      "train_layered_00564": {
+        "acceptance_convention": "global_energy_rel_l2",
+        "acceptance_convention_gain": 0.21023461326370246,
+        "confinement_invariants": {
+          "correction_identically_zero_outside_mask": true,
+          "max_abs_applied_correction_outside_mask": 0.0
+        },
+        "corrected_metrics": {
+          "global_energy_rel_l2": 0.08301683380578201,
+          "masked_energy_floored_per_frame": 0.08885731709453377,
+          "unmasked_per_frame_unsquared_mean": 0.44722375918276347
+        },
+        "correction_energy": 1.3879579219916548e-14,
+        "correction_energy_ratio": 0.003630060956134367,
+        "decision": {
+          "decided_by": "lead",
+          "decided_on": "2026-08-26",
+          "deviation_from_r4e9_probe_retained": true,
+          "implementation": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py::confined_oracle_upper_bound",
+          "is_achieved_result": false,
+          "mask_source": "parent_frame_energy_only",
+          "recomputed_on_the_scored_record": true,
+          "ruling": "keep_the_parent_energy_mask_convention_of_confined_oracle_upper_bound",
+          "sealed_splits_read": [],
+          "synthetic_records_used": false,
+          "transplanted_constants_used": false,
+          "truth_split_read": "train"
+        },
+        "deviation_from_r4e9_probe": "r4e9 restricted the fit to the truth mask; v15 restricts it to the parent mask so the bound matches what the deployment-causal gate can express. No r4e9 reproduction is claimed.",
+        "dimensionless_coefficient_energy": 0.11255573363746542,
+        "family": "layered",
+        "fit_frame_count": 232,
+        "fit_objective": "weighted LS restricted to PARENT-mask retained frames with truth-energy weights floored at tau times the peak truth energy",
+        "future_frame_count": 380,
+        "gain": {
+          "global_energy_rel_l2": 0.21023461326370246,
+          "masked_energy_floored_per_frame": 0.34825045380109126,
+          "unmasked_per_frame_unsquared_mean": 0.06185538019803782
+        },
+        "is_achieved_result": false,
+        "kind": "train_only_confined_oracle_upper_bound",
+        "mask": {
+          "deployment_computable": true,
+          "driven_by": "parent_frame_energy",
+          "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+          "layered_on_top_of_c1_causal_ramp": true,
+          "replaces_c1_causal_ramp": false,
+          "symbol": "m_t",
+          "tau": 0.001,
+          "uses_truth_frame_energy": false,
+          "uses_validation_or_test_data": false
+        },
+        "mean_squared_coefficient": 4.5911291903501116e-20,
+        "parent_energy_floor": 3.7342865807201775e-17,
+        "parent_metrics": {
+          "global_energy_rel_l2": 0.10511581692488292,
+          "masked_energy_floored_per_frame": 0.13633659986840288,
+          "unmasked_per_frame_unsquared_mean": 0.476710892694956
+        },
+        "recomputed_on_the_scored_record": true,
+        "sample_id": "train_layered_00564",
+        "spatial_point_count": 40401,
+        "synthetic_records_used": false,
+        "tau": 0.001,
+        "transplanted_constants_used": false,
+        "voided_v14_constants": {
+          "defects": [
+            "constants were transplanted across records",
+            "the marmousi constant came from a synthetic sample",
+            "no constant was recomputed on the record it scored"
+          ],
+          "numeric_values_present_in_v15_code": false,
+          "status": "void",
+          "v14_scored_records": [
+            "train_uniform_00321",
+            "train_layered_00564",
+            "train_marmousi_00385"
+          ],
+          "v14_source_records": [
+            "train_uniform_00102",
+            "train_layered_01032",
+            "synthetic_marmousi"
+          ],
+          "v15_replacement": "confined_oracle_upper_bound recomputed on the scored record"
+        },
+        "voided_v14_constants_referenced": false
+      },
+      "train_marmousi_00385": {
+        "acceptance_convention": "global_energy_rel_l2",
+        "acceptance_convention_gain": 0.13292032888337077,
+        "confinement_invariants": {
+          "correction_identically_zero_outside_mask": true,
+          "max_abs_applied_correction_outside_mask": 0.0
+        },
+        "corrected_metrics": {
+          "global_energy_rel_l2": 0.5214684299574929,
+          "masked_energy_floored_per_frame": 0.48270483352281573,
+          "unmasked_per_frame_unsquared_mean": 0.4945031384576704
+        },
+        "correction_energy": 1.8544464592320934e-12,
+        "correction_energy_ratio": 0.1429463837301132,
+        "decision": {
+          "decided_by": "lead",
+          "decided_on": "2026-08-26",
+          "deviation_from_r4e9_probe_retained": true,
+          "implementation": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py::confined_oracle_upper_bound",
+          "is_achieved_result": false,
+          "mask_source": "parent_frame_energy_only",
+          "recomputed_on_the_scored_record": true,
+          "ruling": "keep_the_parent_energy_mask_convention_of_confined_oracle_upper_bound",
+          "sealed_splits_read": [],
+          "synthetic_records_used": false,
+          "transplanted_constants_used": false,
+          "truth_split_read": "train"
+        },
+        "deviation_from_r4e9_probe": "r4e9 restricted the fit to the truth mask; v15 restricts it to the parent mask so the bound matches what the deployment-causal gate can express. No r4e9 reproduction is claimed.",
+        "dimensionless_coefficient_energy": 3.4575221350875283,
+        "family": "marmousi",
+        "fit_frame_count": 387,
+        "fit_objective": "weighted LS restricted to PARENT-mask retained frames with truth-energy weights floored at tau times the peak truth energy",
+        "future_frame_count": 391,
+        "gain": {
+          "global_energy_rel_l2": 0.13292032888337077,
+          "masked_energy_floored_per_frame": 0.12255318338336538,
+          "unmasked_per_frame_unsquared_mean": 0.11889853906510281
+        },
+        "is_achieved_result": false,
+        "kind": "train_only_confined_oracle_upper_bound",
+        "mask": {
+          "deployment_computable": true,
+          "driven_by": "parent_frame_energy",
+          "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+          "layered_on_top_of_c1_causal_ramp": true,
+          "replaces_c1_causal_ramp": false,
+          "symbol": "m_t",
+          "tau": 0.001,
+          "uses_truth_frame_energy": false,
+          "uses_validation_or_test_data": false
+        },
+        "mean_squared_coefficient": 2.8688130005576576e-18,
+        "parent_energy_floor": 4.569013390307545e-17,
+        "parent_metrics": {
+          "global_energy_rel_l2": 0.6014077452489959,
+          "masked_energy_floored_per_frame": 0.55012432022272,
+          "unmasked_per_frame_unsquared_mean": 0.5612329117386496
+        },
+        "recomputed_on_the_scored_record": true,
+        "sample_id": "train_marmousi_00385",
+        "spatial_point_count": 40401,
+        "synthetic_records_used": false,
+        "tau": 0.001,
+        "transplanted_constants_used": false,
+        "voided_v14_constants": {
+          "defects": [
+            "constants were transplanted across records",
+            "the marmousi constant came from a synthetic sample",
+            "no constant was recomputed on the record it scored"
+          ],
+          "numeric_values_present_in_v15_code": false,
+          "status": "void",
+          "v14_scored_records": [
+            "train_uniform_00321",
+            "train_layered_00564",
+            "train_marmousi_00385"
+          ],
+          "v14_source_records": [
+            "train_uniform_00102",
+            "train_layered_01032",
+            "synthetic_marmousi"
+          ],
+          "v15_replacement": "confined_oracle_upper_bound recomputed on the scored record"
+        },
+        "voided_v14_constants_referenced": false
+      },
+      "train_uniform_00321": {
+        "acceptance_convention": "global_energy_rel_l2",
+        "acceptance_convention_gain": 0.12439898205685312,
+        "confinement_invariants": {
+          "correction_identically_zero_outside_mask": true,
+          "max_abs_applied_correction_outside_mask": 0.0
+        },
+        "corrected_metrics": {
+          "global_energy_rel_l2": 0.06653990423642134,
+          "masked_energy_floored_per_frame": 0.07660730285346348,
+          "unmasked_per_frame_unsquared_mean": 16.91434367279224
+        },
+        "correction_energy": 1.9787396867603537e-15,
+        "correction_energy_ratio": 0.0016815989572526416,
+        "decision": {
+          "decided_by": "lead",
+          "decided_on": "2026-08-26",
+          "deviation_from_r4e9_probe_retained": true,
+          "implementation": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py::confined_oracle_upper_bound",
+          "is_achieved_result": false,
+          "mask_source": "parent_frame_energy_only",
+          "recomputed_on_the_scored_record": true,
+          "ruling": "keep_the_parent_energy_mask_convention_of_confined_oracle_upper_bound",
+          "sealed_splits_read": [],
+          "synthetic_records_used": false,
+          "transplanted_constants_used": false,
+          "truth_split_read": "train"
+        },
+        "deviation_from_r4e9_probe": "r4e9 restricted the fit to the truth mask; v15 restricts it to the parent mask so the bound matches what the deployment-causal gate can express. No r4e9 reproduction is claimed.",
+        "dimensionless_coefficient_energy": 81.06897003521502,
+        "family": "uniform",
+        "fit_frame_count": 208,
+        "fit_objective": "weighted LS restricted to PARENT-mask retained frames with truth-energy weights floored at tau times the peak truth energy",
+        "future_frame_count": 388,
+        "gain": {
+          "global_energy_rel_l2": 0.12439898205685312,
+          "masked_energy_floored_per_frame": 0.15713462701528488,
+          "unmasked_per_frame_unsquared_mean": 0.00045679132784482373
+        },
+        "is_achieved_result": false,
+        "kind": "train_only_confined_oracle_upper_bound",
+        "mask": {
+          "deployment_computable": true,
+          "driven_by": "parent_frame_energy",
+          "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+          "layered_on_top_of_c1_causal_ramp": true,
+          "replaces_c1_causal_ramp": false,
+          "symbol": "m_t",
+          "tau": 0.001,
+          "uses_truth_frame_energy": false,
+          "uses_validation_or_test_data": false
+        },
+        "mean_squared_coefficient": 1.1350771343106453e-17,
+        "parent_energy_floor": 1.2962650754962707e-17,
+        "parent_metrics": {
+          "global_energy_rel_l2": 0.07599340666908841,
+          "masked_energy_floored_per_frame": 0.09088913284239607,
+          "unmasked_per_frame_unsquared_mean": 16.922073529229543
+        },
+        "recomputed_on_the_scored_record": true,
+        "sample_id": "train_uniform_00321",
+        "spatial_point_count": 40401,
+        "synthetic_records_used": false,
+        "tau": 0.001,
+        "transplanted_constants_used": false,
+        "voided_v14_constants": {
+          "defects": [
+            "constants were transplanted across records",
+            "the marmousi constant came from a synthetic sample",
+            "no constant was recomputed on the record it scored"
+          ],
+          "numeric_values_present_in_v15_code": false,
+          "status": "void",
+          "v14_scored_records": [
+            "train_uniform_00321",
+            "train_layered_00564",
+            "train_marmousi_00385"
+          ],
+          "v14_source_records": [
+            "train_uniform_00102",
+            "train_layered_01032",
+            "synthetic_marmousi"
+          ],
+          "v15_replacement": "confined_oracle_upper_bound recomputed on the scored record"
+        },
+        "voided_v14_constants_referenced": false
+      }
+    },
+    "per_record_loss": {
+      "train_layered_00564": {
+        "final_loss": 0.03265329450368881,
+        "initial_loss": 0.04389768838882446,
+        "loss_reduction": 0.2561500228790695,
+        "observations": 64,
+        "record": "train_layered_00564",
+        "sufficient_observations": true
+      },
+      "train_marmousi_00385": {
+        "final_loss": 0.5165797472000122,
+        "initial_loss": 0.5633196234703064,
+        "loss_reduction": 0.08297221386032176,
+        "observations": 64,
+        "record": "train_marmousi_00385",
+        "sufficient_observations": true
+      },
+      "train_uniform_00321": {
+        "final_loss": 0.017901048064231873,
+        "initial_loss": 0.01787547580897808,
+        "loss_reduction": -0.0014305775984406507,
+        "observations": 64,
+        "record": "train_uniform_00321",
+        "sufficient_observations": true
+      }
+    },
+    "records": [
+      {
+        "abstain": false,
+        "aggregate_rel_l2": 0.07651014070953518,
+        "candidate_file_sha256": "87ef081a63d1632b1c97b8b97792b907f4bf2f0caf623fcf290bf2665664749c",
+        "condition": 1.001455277504486,
+        "correction_energy_ratio": 0.0002858668183560685,
+        "family": "uniform",
+        "finite": true,
+        "ledger_digest": "adbe479deb50694a01dc341c22d730eacf661720d447484f15a1f567e9bb04ab",
+        "mean_frame_rel_l2": 16.922409057617188,
+        "nonworse": false,
+        "parent_mean_frame_rel_l2": 16.922073364257812,
+        "parent_rel_l2": 0.07599340666921081,
+        "parent_spectrum_bands": {
+          "high": 0.13870279490947723,
+          "low": 0.07801245152950287,
+          "mid": 0.1879989355802536
+        },
+        "parent_time_bands": {
+          "early": 0.12803451716899872,
+          "late": 49.21660614013672,
+          "mid": 1.1712356805801392
+        },
+        "sample_id": "train_uniform_00321",
+        "spectrum_bands": {
+          "high": 0.14146074652671814,
+          "low": 0.07847049087285995,
+          "mid": 0.1893824338912964
+        },
+        "time_bands": {
+          "early": 0.1294284462928772,
+          "late": 49.21660614013672,
+          "mid": 1.1708533763885498
+        },
+        "training_only": true
+      },
+      {
+        "abstain": false,
+        "aggregate_rel_l2": 0.1044671576508482,
+        "candidate_file_sha256": "472988fed1ae74d00bd56518a69d74d32ba96ec1b3a03c429bf4a7faad0a09f4",
+        "condition": 1.0321868716619884,
+        "correction_energy_ratio": 0.0005019909846597784,
+        "family": "layered",
+        "finite": true,
+        "ledger_digest": "0c8f93ab5de6ad6c6e47f4cae9e4ad39b137cead1fe700646d8a5673802c2683",
+        "mean_frame_rel_l2": 0.4702799618244171,
+        "nonworse": true,
+        "parent_mean_frame_rel_l2": 0.4767109155654907,
+        "parent_rel_l2": 0.10511581692492555,
+        "parent_spectrum_bands": {
+          "high": 0.20048904418945312,
+          "low": 0.10527366399765015,
+          "mid": 0.22823680937290192
+        },
+        "parent_time_bands": {
+          "early": 0.2294294685125351,
+          "late": 0.9984172582626343,
+          "mid": 0.20033888518810272
+        },
+        "sample_id": "train_layered_00564",
+        "spectrum_bands": {
+          "high": 0.20409348607063293,
+          "low": 0.10430647432804108,
+          "mid": 0.22784653306007385
+        },
+        "time_bands": {
+          "early": 0.22932852804660797,
+          "late": 0.9984172582626343,
+          "mid": 0.18119704723358154
+        },
+        "training_only": true
+      },
+      {
+        "abstain": false,
+        "aggregate_rel_l2": 0.5817223308523506,
+        "candidate_file_sha256": "2c18e6264e80161426aa4ebe94ec40a386f26eadd319b558220907b75cf73bc0",
+        "condition": 1.0000006488473598,
+        "correction_energy_ratio": 0.03413430993813368,
+        "family": "marmousi",
+        "finite": true,
+        "ledger_digest": "6c697487040c4d695873d75622e810cb2b01bef859430453c1d8bcfb97a73cff",
+        "mean_frame_rel_l2": 0.5450637936592102,
+        "nonworse": true,
+        "parent_mean_frame_rel_l2": 0.5612329244613647,
+        "parent_rel_l2": 0.6014077452489908,
+        "parent_spectrum_bands": {
+          "high": 0.9420046806335449,
+          "low": 0.5911673307418823,
+          "mid": 0.7106941938400269
+        },
+        "parent_time_bands": {
+          "early": 0.2943724989891052,
+          "late": 0.760039210319519,
+          "mid": 0.627757728099823
+        },
+        "sample_id": "train_marmousi_00385",
+        "spectrum_bands": {
+          "high": 0.9457499980926514,
+          "low": 0.5687581896781921,
+          "mid": 0.7108666896820068
+        },
+        "time_bands": {
+          "early": 0.29447269439697266,
+          "late": 0.7157719135284424,
+          "mid": 0.6236335635185242
+        },
+        "training_only": true
+      }
+    ],
+    "update_count": 192,
+    "voided_v14_oracle_constants": {
+      "defects": [
+        "constants were transplanted across records",
+        "the marmousi constant came from a synthetic sample",
+        "no constant was recomputed on the record it scored"
+      ],
+      "numeric_values_present_in_v15_code": false,
+      "status": "void",
+      "v14_scored_records": [
+        "train_uniform_00321",
+        "train_layered_00564",
+        "train_marmousi_00385"
+      ],
+      "v14_source_records": [
+        "train_uniform_00102",
+        "train_layered_01032",
+        "synthetic_marmousi"
+      ],
+      "v15_replacement": "confined_oracle_upper_bound recomputed on the scored record"
+    },
+    "vram": {
+      "backend_peak_bytes": 6763315200,
+      "device": "cuda:0",
+      "device_type": "cuda",
+      "measured": true,
+      "peak_allocated_bytes": 4800090112,
+      "peak_reserved_bytes": 6763315200,
+      "sampled_paths": [
+        "preload",
+        "cached_prepare",
+        "update_cached",
+        "measure_cached",
+        "backward_cached",
+        "score_cached",
+        "forward_loss",
+        "resources"
+      ],
+      "samples": 1053,
+      "source": "torch.cuda.max_memory_reserved",
+      "v14_defect": "peak_vram_bytes was 0 because only V4ProductionBackend.prepare sampled CUDA memory and no cached path did"
+    }
+  },
+  "mode": "smoke",
+  "oracle_decision": {
+    "decided_by": "lead",
+    "decided_on": "2026-08-26",
+    "deviation_from_r4e9_probe_retained": true,
+    "implementation": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py::confined_oracle_upper_bound",
+    "is_achieved_result": false,
+    "mask_source": "parent_frame_energy_only",
+    "recomputed_on_the_scored_record": true,
+    "ruling": "keep_the_parent_energy_mask_convention_of_confined_oracle_upper_bound",
+    "sealed_splits_read": [],
+    "synthetic_records_used": false,
+    "transplanted_constants_used": false,
+    "truth_split_read": "train"
+  },
+  "parent": {
+    "declared_sha256_in_harness": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "mtime": 1787605445.2446516,
+    "opened_for_write_by_v15": false,
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "reachable": true,
+    "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "sha256_matches_frozen": true,
+    "size_bytes": 339775310,
+    "status": "read_only_unchanged",
+    "writes": 0
+  },
+  "parent_write_audit": {
+    "declared_sha256_in_harness": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "mtime": 1787605445.2446516,
+    "opened_for_write_by_v15": false,
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "reachable": true,
+    "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "sha256_matches_frozen": true,
+    "size_bytes": 339775310,
+    "status": "read_only_unchanged",
+    "writes": 0
+  },
+  "peak_vram_bytes": 6763315200,
+  "per_record_loss": {
+    "train_layered_00564": {
+      "final_loss": 0.03265329450368881,
+      "initial_loss": 0.04389768838882446,
+      "loss_reduction": 0.2561500228790695,
+      "observations": 64,
+      "record": "train_layered_00564",
+      "sufficient_observations": true
+    },
+    "train_marmousi_00385": {
+      "final_loss": 0.5165797472000122,
+      "initial_loss": 0.5633196234703064,
+      "loss_reduction": 0.08297221386032176,
+      "observations": 64,
+      "record": "train_marmousi_00385",
+      "sufficient_observations": true
+    },
+    "train_uniform_00321": {
+      "final_loss": 0.017901048064231873,
+      "initial_loss": 0.01787547580897808,
+      "loss_reduction": -0.0014305775984406507,
+      "observations": 64,
+      "record": "train_uniform_00321",
+      "sufficient_observations": true
+    }
+  },
+  "rollback": "zero_grad_cleanup_owned_spool_preserve_run_best_last_log_never_touch_protected_never_fake_success",
+  "schema": "r16_dscp_v15_smoke_terminal_v1",
+  "sealed_future_wavefields_opened": false,
+  "sealed_splits": [
+    "validation",
+    "test_id"
+  ],
+  "smoke_record_decision": {
+    "decided_by": "lead",
+    "decided_on": "2026-08-26",
+    "indices": [
+      0,
+      1,
+      2
+    ],
+    "panel_role": "smoke",
+    "produces_promotable_conclusion": false,
+    "rationale": "smoke is not learning or convergence evidence under inherited veto (d), so aligning it with the r4e9 probe records only makes diagnosis easier; it produces no promotable conclusion, therefore 'these records were seen by the probe' is not a contamination risk",
+    "resolved_sample_ids": [
+      "train_uniform_00321",
+      "train_layered_00564",
+      "train_marmousi_00385"
+    ],
+    "ruling": "smoke_records_reuse_the_r4e9_probe_records",
+    "same_as_r4e9_probe_records": true,
+    "sample_ids": [
+      "train_uniform_00321",
+      "train_layered_00564",
+      "train_marmousi_00385"
+    ],
+    "split": "train"
+  },
+  "stage_authorization": {
+    "acknowledges_inherited_vetoes": true,
+    "acknowledges_post_hoc_rule_revision": true,
+    "lead_authorized": true,
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15/authorizations/smoke.json",
+    "sha256": "f57beab5f15e2d7b0045ff76f7b9ef68c6087850237963aad9dcb1f11746a396"
+  },
+  "status": "fail_gate",
+  "thresholds": {
+    "absolute_rel_l2_max": 0.05,
+    "acceptance_convention": "global_energy_rel_l2",
+    "acceptance_convention_modified": false,
+    "e2e_parent_ratio_max": 1.05,
+    "joint_improvement": 0.01,
+    "late_high_nonworse": true,
+    "nonworse_records": 23,
+    "per_family_improvement": 0.005,
+    "smoke_loss_reduction_min": 0.8,
+    "smoke_oracle_gain_fraction": 0.5,
+    "traditional_speedup_min": 10.0
+  },
+  "total_s": 136.67692138627172,
+  "updates": 192,
+  "vram": {
+    "backend_peak_bytes": 6763315200,
+    "device": "cuda:0",
+    "device_type": "cuda",
+    "measured": true,
+    "peak_allocated_bytes": 4800090112,
+    "peak_reserved_bytes": 6763315200,
+    "sampled_paths": [
+      "preload",
+      "cached_prepare",
+      "update_cached",
+      "measure_cached",
+      "backward_cached",
+      "score_cached",
+      "forward_loss",
+      "resources"
+    ],
+    "samples": 1053,
+    "source": "torch.cuda.max_memory_reserved",
+    "v14_defect": "peak_vram_bytes was 0 because only V4ProductionBackend.prepare sampled CUDA memory and no cached path did"
+  }
+}

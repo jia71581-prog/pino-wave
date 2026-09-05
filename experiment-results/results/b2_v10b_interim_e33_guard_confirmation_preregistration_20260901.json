@@ -1,0 +1,66 @@
+{
+  "accuracy_and_selection": {
+    "confirmation_pass": "guarded adapted aggregate relative L2 must be strictly below the same-record frozen parent aggregate; no minimum percentage",
+    "report_only": [
+      "per-family relative L2",
+      "nonworse",
+      "accepted count",
+      "temporal and frequency errors",
+      "runtime"
+    ]
+  },
+  "arm_selection": "results/b2_v10b_interim_e33_guard_calibration_decision_20260901.json",
+  "arm_selection_sha256": "1e6cb32466005249cf2ce523fda3fda8cf03426ac252f5f9fcd035687bd4eb15",
+  "binder_sha256": "7b877c5f2dff06a6cd58db44989f27e5df5556ca81568b41c2aa741da85cc24d",
+  "bindings": {
+    "bundle_sha256": "808b16283da5cb5434ac823b4fbdced2342a3f508e3b405bd71d724bc1e67c9b",
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "core_sha256": "5a0c167c8481034675e529ec98b474dcc14375198a98b5e759b295b3f3843c36",
+    "evaluation_cache_sha256": "dc1aa7c7c09d8c45191a936c05a6eff0d6eefa02af52896b41d7f6d929542cfc",
+    "evaluation_manifest_sha256": "340822a928a23e075f38ccbcfbbbde7e239d7eb8247db2df2a423d10cf48ffaf",
+    "evaluator_sha256": "5293e48cba5baf8e0efd1273c0c8be204ab18726db1f398973570c32c9c18d00",
+    "runner_sha256": "cf7ba37acc96588fa5bf680f0241bb76c5fef5e8541e3a6c42aeb6af34ea7347"
+  },
+  "bundle": "results/b2_v10_interim_e33_offline_pod_20260901/pod_bundle.pt",
+  "bundle_sha256": "808b16283da5cb5434ac823b4fbdced2342a3f508e3b405bd71d724bc1e67c9b",
+  "cache": "results/b2_v10_online_confirmation_cache_24rec_20260901.h5",
+  "cache_sha256": "dc1aa7c7c09d8c45191a936c05a6eff0d6eefa02af52896b41d7f6d929542cfc",
+  "candidate": "b2_v10b_cycle050_minimum_observed_40_v1",
+  "design": "results/b2_v10b_interim_e33_guard_design_20260901.json",
+  "design_sha256": "d57f6a9aa5fa3e98654029b06b04169b022430eb12eb072ef84a8cf4883b410a",
+  "future_truth_access": "only after serialized candidate SHA256 exists",
+  "hypothesis": "For the interim V9 parent, applying the rank-4 correction only when the cycle050 causal prefix contains at least 40 saved frames will strictly improve aggregate relative L2 on fresh group-disjoint train confirmation records.",
+  "manifest": "results/b2_v10_online_confirmation_manifest_24rec_20260901.json",
+  "manifest_sha256": "340822a928a23e075f38ccbcfbbbde7e239d7eb8247db2df2a423d10cf48ffaf",
+  "online_policy": {
+    "anchor_frames": 8,
+    "arms": {
+      "cycle050": {
+        "after_peak_cycles": 0.5
+      }
+    },
+    "common_tail_start": 49,
+    "maximum_observed_frames": 49,
+    "minimum_information_ratio": 0.0,
+    "minimum_observed_frames": 40,
+    "minimum_observed_gain": 0.0,
+    "rank": 4,
+    "ridge_fraction": 0.001,
+    "trust_ratio": 0.05
+  },
+  "parent": {
+    "checkpoint": "results/b2_v9_interim_snapshot_physics_cond_s733_e33_20260901.pt",
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "seed": 733,
+    "selection": "results/b2_v9_interim_parent_selection_e33_20260901.json",
+    "selection_sha256": "9b208cb913a2502028088dbb346dd3713964fb34afb31f329511fb7130023ce1",
+    "variant": "physics_cond"
+  },
+  "rollback": "minimum-observation abstention and every rejected solve return the immutable interim V9 checkpoint exactly",
+  "schema": "b2_v10_online_confirmation_preregistration_v1",
+  "selected_arm": "cycle050",
+  "stage": "confirmation",
+  "status": "frozen_before_launch",
+  "test_id_opened": false,
+  "validation_opened": false
+}

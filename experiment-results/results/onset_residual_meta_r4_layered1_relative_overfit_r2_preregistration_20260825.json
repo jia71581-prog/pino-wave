@@ -1,0 +1,30 @@
+{
+  "schema": "acoustic_meta_adapter_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "onset_residual_meta_r4_layered1_relative_overfit_r2",
+  "date_utc": "2026-08-25",
+  "hypothesis": "With frame-relative-L2 supervision, the zero-init onset residual adapter will reduce its one-record layered field loss by at least 20 percent in twenty epochs.",
+  "single_change_vs_r1": "replace legacy MSE plus energy objective with frame relative L2; energy remains diagnostic only",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "sample_id": "train_layered_00859",
+  "training": {
+    "parent_frozen": true,
+    "episodes": 1,
+    "epochs": 20,
+    "time_points": 48,
+    "learning_rate": 0.0002,
+    "frame_energy_floor_fraction": 0.05
+  },
+  "acceptance": {
+    "minimum_field_loss_reduction": 0.20,
+    "finite_history": true,
+    "parent_binding_in_checkpoint": true
+  },
+  "bindings": {
+    "trainer_sha256": "df33db588e53da5331d5b089ee68cc07b844a360d039e937e8bb2bc21e522453",
+    "adapter_sha256": "d8e7cc8850c2bf5f968cb9b42302a888e9ffba57edf4a85a4d11fd31f32aaebc",
+    "tests": "51 adapter, relative-loss and vectorized training tests passed"
+  },
+  "data_policy": "offline train episode only; validation and test_id unopened",
+  "output": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/onset_residual_meta_r4_layered1_relative_overfit_r2_20260825.pt"
+}

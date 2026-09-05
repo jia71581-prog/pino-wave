@@ -1,0 +1,85 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 493, in <module>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 493, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 169, in main
+    if observed != bindings[key]:
+KeyError: 'source_trainer_sha256'
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 169, in main
+    if observed != bindings[key]:
+KeyError: 'source_trainer_sha256'
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 493, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 169, in main
+    if observed != bindings[key]:
+KeyError: 'source_trainer_sha256'
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 493, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py", line 169, in main
+    if observed != bindings[key]:
+KeyError: 'source_trainer_sha256'
+[2026-09-04 13:00:42,106] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 321300) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 810, in <module>
+    main()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-09-04_13:00:42
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 321301)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-09-04_13:00:42
+  host      : localhost
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 321302)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-09-04_13:00:42
+  host      : localhost
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 321303)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-09-04_13:00:42
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 321300)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/launch_transfer_dg_coupled_pyramid_moe_adaptive_epoch20.py", line 253, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/launch_transfer_dg_coupled_pyramid_moe_adaptive_epoch20.py", line 184, in main
+    raise RuntimeError(f"epoch-20 smoke failed with return code {smoke.returncode}")
+RuntimeError: epoch-20 smoke failed with return code 1

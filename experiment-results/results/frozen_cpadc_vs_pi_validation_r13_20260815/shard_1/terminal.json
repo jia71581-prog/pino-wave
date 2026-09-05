@@ -1,0 +1,125 @@
+{
+  "basis": {
+    "basis_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "basis_rank": 16,
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/calibration/calibrated.pt",
+    "checkpoint_sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b",
+    "dataset_numerical_contract": {},
+    "defect_contract": {
+      "closure_gap": "20_internal_steps_plus_binomial5_restriction",
+      "exact_fine_generator_residual": false,
+      "name": "source_consistent_effective_saved_grid_lwc84_v1",
+      "spatial_halo_cells": 8,
+      "time_order": 4
+    },
+    "epoch": 98,
+    "evaluation_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "external_evaluation_dataset": false,
+    "implementation_digests": {},
+    "minimum_unconstrained_correction_ratio": 0.0,
+    "minimum_unconstrained_correction_ratio_by_family": {
+      "layered": 1.6745492219924927,
+      "marmousi": 2.167699098587036,
+      "uniform": 1.9953080415725708
+    },
+    "observed_probe_design": false,
+    "offline_physics_training": {},
+    "online_solve_contract": {
+      "acceptance_comparator": "greater_than_or_equal",
+      "calibration_digest": "9086907ca33a98d8be1c6edfe3472a25c7d2e4aaa8e20a946e301db9cd4a67d4",
+      "minimum_unconstrained_correction_ratio_by_family": {
+        "layered": 1.6745492219924927,
+        "marmousi": 2.167699098587036,
+        "uniform": 1.9953080415725708
+      },
+      "name": "ridge_direction_family_calibrated_strength_abstention_v1",
+      "projection_uses_parent_rms": true,
+      "strength_feature": "unconstrained_correction_rms_over_parent_rms",
+      "trust_fraction_learned_offline": true
+    },
+    "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1/pilot/best.pt",
+    "parent_checkpoint_sha256": "395b83560db3342b1e2331de2d8dde2994640d56a53dfbec8c99ece4bbb177bf",
+    "phase_rank": 4,
+    "schema_version": 5
+  },
+  "claim": "evaluation complete; accuracy promotion not authorized",
+  "evaluation_split": "validation",
+  "promotion_gate": {
+    "acceptance_fraction": 0.275,
+    "aggregate_adapted_future_relative_l2": 6.323442206582031,
+    "aggregate_parent_future_relative_l2": 6.345751312664822,
+    "checks": {
+      "absolute_family_accuracy": true,
+      "absolute_mean_accuracy": true,
+      "blind_mean_improvement": true,
+      "cpu_coefficient_finetune": true,
+      "end_to_end_speedup_mean": true,
+      "end_to_end_speedup_p95": true,
+      "family_safe": true,
+      "full_validation_protocol": false,
+      "future_truth_sealed": true,
+      "nonworse_fraction": true,
+      "online_runtime": true,
+      "online_runtime_p95": true,
+      "runtime_measurement_synchronized": true
+    },
+    "families": {
+      "layered": {
+        "aggregate_adapted_future_relative_l2": 5.327299216701331,
+        "aggregate_parent_future_relative_l2": 5.338107181692672,
+        "mean_adapted_future_relative_l2": 4.72803750038147,
+        "mean_parent_future_relative_l2": 4.9745599865913395,
+        "nonworse": true,
+        "record_count": 60,
+        "relative_improvement": 0.04955664156716525
+      },
+      "marmousi": {
+        "aggregate_adapted_future_relative_l2": 6.390045807105701,
+        "aggregate_parent_future_relative_l2": 6.413721598489824,
+        "mean_adapted_future_relative_l2": 6.304125979139998,
+        "mean_parent_future_relative_l2": 6.315165468164392,
+        "nonworse": true,
+        "record_count": 37,
+        "relative_improvement": 0.0017480918085274618
+      },
+      "uniform": {
+        "aggregate_adapted_future_relative_l2": 5.881579941154674,
+        "aggregate_parent_future_relative_l2": 5.883568469446424,
+        "mean_adapted_future_relative_l2": 5.523535583330237,
+        "mean_parent_future_relative_l2": 5.667780793231467,
+        "nonworse": true,
+        "record_count": 23,
+        "relative_improvement": 0.025450033295834035
+      }
+    },
+    "maximum_adaptation_elapsed_s": 0.7408876679837704,
+    "maximum_total_inference_elapsed_s": 13.888950350694358,
+    "mean_adaptation_elapsed_s": 0.2885419014375657,
+    "mean_adapted_future_relative_l2": 5.366468580563863,
+    "mean_end_to_end_speedup_vs_traditional": null,
+    "mean_relative_improvement": 0.029502076163569445,
+    "mean_total_inference_elapsed_s": 13.384431683054816,
+    "nonworse_fraction": 0.975,
+    "p50_total_inference_elapsed_s": 13.343710139393806,
+    "p95_adaptation_elapsed_s": 0.5949079385027289,
+    "p95_end_to_end_speedup_vs_traditional": null,
+    "p95_total_inference_elapsed_s": 13.73308265954256,
+    "passed": false,
+    "record_count": 120,
+    "thresholds": {
+      "maximum_family_mean_adapted_future_relative_l2": null,
+      "maximum_mean_adapted_future_relative_l2": null,
+      "maximum_p95_adaptation_runtime_s": null,
+      "maximum_runtime_s": 5.0,
+      "minimum_blind_mean_improvement": 0.01,
+      "minimum_end_to_end_speedup_vs_traditional": null,
+      "minimum_nonworse_fraction": 0.9,
+      "require_every_family_nonworse": true,
+      "traditional_solver_reference_runtime_s": null
+    }
+  },
+  "same_protocol_evaluation_passed": false,
+  "same_protocol_validation_passed": false,
+  "schema": "cpadc_same_protocol_terminal_v1",
+  "status": "complete"
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "transfer_dg_pyramid_head_online_adaptation_decision_v1",
+  "status": "rejected_online_objective_nonidentifying",
+  "sample_id": "train_marmousi_00260",
+  "checkpoint_update": 13650,
+  "basis_oracle_future_relative_improvement": 0.020800202524428713,
+  "online_parent_objective": 1.1002330780029297,
+  "online_candidate_objective": 1.1002330780029297,
+  "online_objective_improvement": 0.0,
+  "online_correction_ratio": 0.0,
+  "parent_future_relative_l2": 0.7204820156658365,
+  "adapted_future_relative_l2": 0.7204820156658365,
+  "future_relative_improvement": 0.0,
+  "decision": "Reject the onset-plus-DG-flux ridge objective for selecting physical-head coefficients. The exact parent rollback remains the deployment result.",
+  "interpretation": "The physical-head span has measurable future-error capacity, but two onset frames plus the current flux proxy do not identify a useful coefficient direction.",
+  "next_route": "Train a causal coefficient prior offline on group-disjoint train episodes, then retain a convex online ridge solve centered on that prior with trust and abstention.",
+  "future_truth_used_during_adaptation": false,
+  "future_truth_opened_only_after_adaptation_serialized": true,
+  "validation_opened": false,
+  "test_id_opened": false
+}

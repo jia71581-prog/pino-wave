@@ -1,0 +1,142 @@
+{
+  "claim_gate": {
+    "cpadc_archived_timing_metadata_complete": false,
+    "future_truth_sealed": true,
+    "matched_absolute_accuracy": false,
+    "same_case_runtime_pairing": false,
+    "speed_superiority_claim_allowed": false,
+    "tenfold_speedup_mean": false,
+    "tenfold_speedup_p95": false,
+    "traditional_runtime_contract_complete": true
+  },
+  "interpretation": "The archived comparison supports a descriptive approximately twofold latency reduction for the complete proposed deployment path, including instance fine-tuning and inference. It does not support a same-accuracy or tenfold-speedup claim because the methods are not paired on identical cases, CPADC absolute accuracy is not matched to LWC-84, and the archived CPADC records predate explicit synchronized-timing metadata.",
+  "method": {
+    "archived_lineage": "CPADC R7 with its bound frozen parent operator",
+    "disk_io_included": false,
+    "end_to_end_definition": "input preparation + frozen parent inference + basis generation + instance fine-tuning + inverse normalization + CPU output materialization",
+    "name": "Ours: parent operator + CPADC instance fine-tuning",
+    "offline_pretraining_included": false,
+    "online_update": "instance fine-tuning of 16 CPU ridge coefficients; no neural-weight update"
+  },
+  "schema": "proposed_operator_instance_finetune_vs_lwc84_runtime_summary_v1",
+  "sources": {
+    "test_id": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7_test_id_confirmation/evaluation/summary.json",
+      "sha256": "86061025e92bc36b76f7703c4208b9572c1ebaa5644d84212e3c80064eaac517"
+    },
+    "traditional": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json",
+      "sha256": "116a1cb7cdd13869e86e14b08ef0a80c31284d5d248cb9c0952a880f2aba5bd8"
+    },
+    "validation": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/evaluation/summary.json",
+      "sha256": "88591a63d025040e442229377831ad1e8bb8f349967601468e21ec47ede064ed"
+    }
+  },
+  "splits": [
+    {
+      "adaptation_fraction_of_mean_total": 0.043241451026378074,
+      "archived_timing_metadata_complete": false,
+      "end_to_end_fine_tuning_plus_inference": {
+        "maximum_s": 11.310158850625157,
+        "mean_s": 10.418336649338016,
+        "p50_s": 10.383651457726955,
+        "p95_s": 10.651717566885054
+      },
+      "future_truth_sealed": true,
+      "inference_and_output_materialization": {
+        "maximum_s": 10.8631970025599,
+        "mean_s": 9.967832655339347,
+        "p50_s": 9.934617972001433,
+        "p95_s": 10.19804512988776
+      },
+      "instance_fine_tuning": {
+        "maximum_s": 0.5621154066175222,
+        "mean_s": 0.4505039939986697,
+        "p50_s": 0.44888514932245016,
+        "p95_s": 0.4522067504003644
+      },
+      "record_count": 480,
+      "speedup": {
+        "conservative_mean_using_fastest_traditional": 1.9524588048823557,
+        "conservative_p95_using_fastest_traditional": 1.909680105156703,
+        "mean_speedup_if_adaptation_were_zero": 2.0565755915952106,
+        "mean_time_reduction_fraction": 0.4917785728364268,
+        "ratio_of_mean_runtimes": 1.967646278869202,
+        "required_mean_total_reduction_fraction_for_tenfold": 0.8047541195117645,
+        "tenfold_latency_budget_using_fastest_traditional_s": 2.034137312322855
+      },
+      "split": "validation"
+    },
+    {
+      "adaptation_fraction_of_mean_total": 0.04349900573999749,
+      "archived_timing_metadata_complete": false,
+      "end_to_end_fine_tuning_plus_inference": {
+        "maximum_s": 11.660117038525641,
+        "mean_s": 10.410449954628712,
+        "p50_s": 10.354729989543557,
+        "p95_s": 10.68228603899479
+      },
+      "future_truth_sealed": true,
+      "inference_and_output_materialization": {
+        "maximum_s": 11.211231475695968,
+        "mean_s": 9.957605732296361,
+        "p50_s": 9.905724030919373,
+        "p95_s": 10.22478994447738
+      },
+      "instance_fine_tuning": {
+        "maximum_s": 0.6720174923539162,
+        "mean_s": 0.4528442223323509,
+        "p50_s": 0.4485523756593466,
+        "p95_s": 0.45727524161338806
+      },
+      "record_count": 480,
+      "speedup": {
+        "conservative_mean_using_fastest_traditional": 1.9539379385022964,
+        "conservative_p95_using_fastest_traditional": 1.9042153569913849,
+        "mean_speedup_if_adaptation_were_zero": 2.0586877901369856,
+        "mean_time_reduction_fraction": 0.4921632971331811,
+        "ratio_of_mean_runtimes": 1.9691369181369542,
+        "required_mean_total_reduction_fraction_for_tenfold": 0.8046062061497703,
+        "tenfold_latency_budget_using_fastest_traditional_s": 2.034137312322855
+      },
+      "split": "test_id"
+    }
+  ],
+  "status": "complete_descriptive_comparison",
+  "traditional_reference": {
+    "device": {
+      "capability": [
+        8,
+        9
+      ],
+      "name": "NVIDIA GeForce RTX 4090 D",
+      "python": "3.10.8",
+      "torch": "2.1.2+cu121"
+    },
+    "mean_runtime_s": 20.499601340076577,
+    "measurement_count": 6,
+    "minimum_runtime_s": 20.34137312322855,
+    "name": "LWC-84 with three-sided CFS-CPML",
+    "p50_runtime_s": 20.423903826624155,
+    "p95_runtime_s": 20.778471576981246,
+    "protocol": {
+      "cuda_synchronized_timing": true,
+      "excludes_disk_io": true,
+      "includes_output_materialization": true,
+      "propagation_time_s": 1.0,
+      "same_gpu_as_deployment": true,
+      "saved_frames": 401,
+      "saved_grid": [
+        201,
+        201
+      ],
+      "single_instance": true,
+      "solver": "LWC-84 with three-sided CFS-CPML",
+      "solver_grid": [
+        401,
+        401
+      ]
+    }
+  }
+}

@@ -1,0 +1,871 @@
+{
+ "bindings": {
+  "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+  "spec_sha256": "12c6fb33bfcc1d8156b74993e4dbd8a961a612aaa8ae1af04c0acaf2784b5358",
+  "v19_terminal_sha256": "2e3eb5d434ab385499363f9b133b9cec71b306d90260b925b2393af4a1bfb445"
+ },
+ "checkpoint_writes": 0,
+ "claim_scope": "posthoc_train_only_exploratory_not_promotion_evidence",
+ "completed_utc": "2026-08-27T14:25:23Z",
+ "frequency_and_time": {
+  "by_family": {
+   "layered": {
+    "aggregate_gain_mean": 0.054488211685905716,
+    "aggregate_nonworse": 8,
+    "correction_energy_ratio_mean": 0.01663784315196222,
+    "count": 8,
+    "high_band_gain_mean": 0.02173428111453906,
+    "high_band_nonworse": 5,
+    "late_gain_mean": 0.007530738448548723,
+    "late_nonworse": 5
+   },
+   "marmousi": {
+    "aggregate_gain_mean": 0.008667402311966492,
+    "aggregate_nonworse": 7,
+    "correction_energy_ratio_mean": 0.014593994402442995,
+    "count": 8,
+    "high_band_gain_mean": -0.02483076546679625,
+    "high_band_nonworse": 1,
+    "late_gain_mean": 0.011282626533323629,
+    "late_nonworse": 6
+   },
+   "uniform": {
+    "aggregate_gain_mean": 0.016401713775494514,
+    "aggregate_nonworse": 7,
+    "correction_energy_ratio_mean": 0.0003010689759514765,
+    "count": 8,
+    "high_band_gain_mean": 0.002097374648586087,
+    "high_band_nonworse": 4,
+    "late_gain_mean": 0.015320385198766152,
+    "late_nonworse": 8
+   }
+  },
+  "joint": {
+   "aggregate_gain_mean": 0.02651910925778891,
+   "aggregate_nonworse": 22,
+   "correction_energy_ratio_mean": 0.010510968843452232,
+   "count": 24,
+   "high_band_gain_mean": -0.00033303656789036563,
+   "high_band_nonworse": 10,
+   "late_gain_mean": 0.011377916726879501,
+   "late_nonworse": 19
+  },
+  "readout": {
+   "high_band_safe_22_of_24": false,
+   "late_safe_22_of_24": false
+  }
+ },
+ "gradients": {
+  "alignment_with_family_balanced_gradient": {
+   "layered": 0.5512470961795929,
+   "marmousi": 0.41154989934424796,
+   "uniform": 0.8361042530949632
+  },
+  "alignment_with_fit2_proportional_gradient": {
+   "layered": 0.8103050808771638,
+   "marmousi": 0.39321498623523443,
+   "uniform": 0.5860898179333353
+  },
+  "pairwise_cosine": {
+   "layered__marmousi": 0.006553519833858167,
+   "layered__uniform": 0.13984472861554342,
+   "marmousi__uniform": 0.1046645526253683
+  },
+  "per_family_gradient_norm": {
+   "layered": 0.07678464814388487,
+   "marmousi": 0.057068855429257576,
+   "uniform": 0.12732658257100166
+  },
+  "per_family_record_counts": {
+   "layered": 8,
+   "marmousi": 8,
+   "uniform": 8
+  },
+  "proportional_vs_balanced_cosine": 0.9246067973012356,
+  "readout": {
+   "conflict_pairs_below_minus_0p1": [],
+   "weak_pairs_minus_0p1_to_0p1": [
+    "layered__marmousi"
+   ]
+  }
+ },
+ "parent_untouched": true,
+ "records": [
+  {
+   "aggregate_gain": 0.012932544136674306,
+   "aggregate_rel_l2": 0.21867485960492064,
+   "base_loss": 0.20945507287979126,
+   "correction_energy_ratio": 0.009615151283411033,
+   "family": "layered",
+   "high_band_gain": -0.02104559040881838,
+   "hinge": 0.007067501544952393,
+   "late_gain": -0.0021549270525973354,
+   "parent_rel_l2": 0.221539934587003,
+   "parent_spectrum_bands": {
+    "high": 0.3720661401748657,
+    "low": 0.22193647921085358,
+    "mid": 0.3990684747695923
+   },
+   "parent_time_bands": {
+    "early": 0.1728232502937317,
+    "late": 0.9402916431427002,
+    "mid": 0.3971520662307739
+   },
+   "sample_id": "train_layered_00016",
+   "spectrum_bands": {
+    "high": 0.37989649176597595,
+    "low": 0.22016622126102448,
+    "mid": 0.41029661893844604
+   },
+   "time_bands": {
+    "early": 0.17333266139030457,
+    "late": 0.9423179030418396,
+    "mid": 0.390802800655365
+   }
+  },
+  {
+   "aggregate_gain": 0.16970802402837573,
+   "aggregate_rel_l2": 0.2980141112919166,
+   "base_loss": 0.502840518951416,
+   "correction_energy_ratio": 0.017659149327082922,
+   "family": "layered",
+   "high_band_gain": 0.10659836919675644,
+   "hinge": 0.0,
+   "late_gain": 0.0,
+   "parent_rel_l2": 0.3589268834534677,
+   "parent_spectrum_bands": {
+    "high": 0.515103280544281,
+    "low": 0.36911770701408386,
+    "mid": 0.5298985838890076
+   },
+   "parent_time_bands": {
+    "early": 0.180288627743721,
+    "late": 1.0001273155212402,
+    "mid": 0.8696529865264893
+   },
+   "sample_id": "train_layered_00132",
+   "spectrum_bands": {
+    "high": 0.46019411087036133,
+    "low": 0.30785703659057617,
+    "mid": 0.4753933250904083
+   },
+   "time_bands": {
+    "early": 0.18236173689365387,
+    "late": 1.0001273155212402,
+    "mid": 0.6995225548744202
+   }
+  },
+  {
+   "aggregate_gain": 0.03915551068551317,
+   "aggregate_rel_l2": 0.5697791965459379,
+   "base_loss": 1.1539976596832275,
+   "correction_energy_ratio": 0.023624585798645875,
+   "family": "layered",
+   "high_band_gain": -0.008108197049536126,
+   "hinge": 0.0,
+   "late_gain": 0.02551654725638944,
+   "parent_rel_l2": 0.5929983497667204,
+   "parent_spectrum_bands": {
+    "high": 0.6031405329704285,
+    "low": 0.5810189843177795,
+    "mid": 0.6163312792778015
+   },
+   "parent_time_bands": {
+    "early": 0.3298046886920929,
+    "late": 1.223387360572815,
+    "mid": 0.8425686955451965
+   },
+   "sample_id": "train_layered_00204",
+   "spectrum_bands": {
+    "high": 0.6080309152603149,
+    "low": 0.5594402551651001,
+    "mid": 0.6287057995796204
+   },
+   "time_bands": {
+    "early": 0.33165475726127625,
+    "late": 1.1921707391738892,
+    "mid": 0.7969921827316284
+   }
+  },
+  {
+   "aggregate_gain": 0.07119000389008147,
+   "aggregate_rel_l2": 0.2290060945635747,
+   "base_loss": 0.3832506835460663,
+   "correction_energy_ratio": 0.009943869979631837,
+   "family": "layered",
+   "high_band_gain": 0.016849112852217116,
+   "hinge": 0.0,
+   "late_gain": 0.009405618825391515,
+   "parent_rel_l2": 0.24655860242967642,
+   "parent_spectrum_bands": {
+    "high": 0.36412572860717773,
+    "low": 0.24913014471530914,
+    "mid": 0.3932202160358429
+   },
+   "parent_time_bands": {
+    "early": 0.13172230124473572,
+    "late": 1.0140551328659058,
+    "mid": 0.5467018485069275
+   },
+   "sample_id": "train_layered_00212",
+   "spectrum_bands": {
+    "high": 0.3579905331134796,
+    "low": 0.23185034096240997,
+    "mid": 0.3985311985015869
+   },
+   "time_bands": {
+    "early": 0.13254401087760925,
+    "late": 1.0045173168182373,
+    "mid": 0.49147525429725647
+   }
+  },
+  {
+   "aggregate_gain": 0.0813130837981173,
+   "aggregate_rel_l2": 0.5246584740670601,
+   "base_loss": 1.0677106380462646,
+   "correction_energy_ratio": 0.05363087406376725,
+   "family": "layered",
+   "high_band_gain": 0.06541861543215835,
+   "hinge": 0.0,
+   "late_gain": 0.029076081158810614,
+   "parent_rel_l2": 0.5710960554833522,
+   "parent_spectrum_bands": {
+    "high": 0.7651432156562805,
+    "low": 0.5762722492218018,
+    "mid": 0.7636274099349976
+   },
+   "parent_time_bands": {
+    "early": 0.29904675483703613,
+    "late": 1.106294870376587,
+    "mid": 1.129935383796692
+   },
+   "sample_id": "train_layered_00676",
+   "spectrum_bands": {
+    "high": 0.7150886058807373,
+    "low": 0.5307071208953857,
+    "mid": 0.7168207168579102
+   },
+   "time_bands": {
+    "early": 0.30165529251098633,
+    "late": 1.0741281509399414,
+    "mid": 1.0025432109832764
+   }
+  },
+  {
+   "aggregate_gain": 0.00345146166648861,
+   "aggregate_rel_l2": 0.3334773816024254,
+   "base_loss": 0.30967578291893005,
+   "correction_energy_ratio": 0.007665235955821659,
+   "family": "layered",
+   "high_band_gain": 0.009139639078957859,
+   "hinge": 0.016548454761505127,
+   "late_gain": -0.0023808537568249326,
+   "parent_rel_l2": 0.33463235233889,
+   "parent_spectrum_bands": {
+    "high": 0.5195656418800354,
+    "low": 0.333491712808609,
+    "mid": 0.5260366201400757
+   },
+   "parent_time_bands": {
+    "early": 0.22097888588905334,
+    "late": 0.8432284593582153,
+    "mid": 0.4690512716770172
+   },
+   "sample_id": "train_layered_00848",
+   "spectrum_bands": {
+    "high": 0.5148169994354248,
+    "low": 0.3340552747249603,
+    "mid": 0.5276791453361511
+   },
+   "time_bands": {
+    "early": 0.22152255475521088,
+    "late": 0.84523606300354,
+    "mid": 0.46759727597236633
+   }
+  },
+  {
+   "aggregate_gain": 0.033691761900406944,
+   "aggregate_rel_l2": 0.28593609611245113,
+   "base_loss": 0.2185572236776352,
+   "correction_energy_ratio": 0.003797549091851983,
+   "family": "layered",
+   "high_band_gain": -0.0037550284922856576,
+   "hinge": 0.0,
+   "late_gain": -0.013942207731234469,
+   "parent_rel_l2": 0.29590567982199173,
+   "parent_spectrum_bands": {
+    "high": 0.39177653193473816,
+    "low": 0.2940036356449127,
+    "mid": 0.40536776185035706
+   },
+   "parent_time_bands": {
+    "early": 0.21824254095554352,
+    "late": 1.1375160217285156,
+    "mid": 0.43930932879447937
+   },
+   "sample_id": "train_layered_00936",
+   "spectrum_bands": {
+    "high": 0.39324766397476196,
+    "low": 0.2844894230365753,
+    "mid": 0.40897613763809204
+   },
+   "time_bands": {
+    "early": 0.21872492134571075,
+    "late": 1.153375506401062,
+    "mid": 0.42345571517944336
+   }
+  },
+  {
+   "aggregate_gain": 0.024463303381588166,
+   "aggregate_rel_l2": 0.39834453100982975,
+   "base_loss": 0.5406085848808289,
+   "correction_energy_ratio": 0.007166329715485191,
+   "family": "layered",
+   "high_band_gain": 0.00877732830686284,
+   "hinge": 0.0,
+   "late_gain": 0.014725648888454942,
+   "parent_rel_l2": 0.40833372275040625,
+   "parent_spectrum_bands": {
+    "high": 0.46231767535209656,
+    "low": 0.40318459272384644,
+    "mid": 0.47780415415763855
+   },
+   "parent_time_bands": {
+    "early": 0.37514597177505493,
+    "late": 0.8284012675285339,
+    "mid": 0.4700027108192444
+   },
+   "sample_id": "train_layered_01060",
+   "spectrum_bands": {
+    "high": 0.4582597613334656,
+    "low": 0.39342281222343445,
+    "mid": 0.47665414214134216
+   },
+   "time_bands": {
+    "early": 0.3766273260116577,
+    "late": 0.8162025213241577,
+    "mid": 0.44852474331855774
+   }
+  },
+  {
+   "aggregate_gain": 0.005745300052414446,
+   "aggregate_rel_l2": 0.5712625616411324,
+   "base_loss": 0.5266409516334534,
+   "correction_energy_ratio": 0.008270595398595433,
+   "family": "marmousi",
+   "high_band_gain": -0.0076484300673497,
+   "hinge": 0.01425468921661377,
+   "late_gain": 0.0038201021339533347,
+   "parent_rel_l2": 0.574563601933436,
+   "parent_spectrum_bands": {
+    "high": 0.9116940498352051,
+    "low": 0.5695710778236389,
+    "mid": 0.7826127409934998
+   },
+   "parent_time_bands": {
+    "early": 0.3073212206363678,
+    "late": 0.7569899559020996,
+    "mid": 0.5614854693412781
+   },
+   "sample_id": "train_marmousi_00070",
+   "spectrum_bands": {
+    "high": 0.9186670780181885,
+    "low": 0.5666855573654175,
+    "mid": 0.782564103603363
+   },
+   "time_bands": {
+    "early": 0.3073294460773468,
+    "late": 0.7540981769561768,
+    "mid": 0.5591670870780945
+   }
+  },
+  {
+   "aggregate_gain": 0.00645463112754423,
+   "aggregate_rel_l2": 0.7749828509220191,
+   "base_loss": 0.94744473695755,
+   "correction_energy_ratio": 0.022364942698840266,
+   "family": "marmousi",
+   "high_band_gain": -0.01560073532128266,
+   "hinge": 0.013545453548431396,
+   "late_gain": 0.007519853435784484,
+   "parent_rel_l2": 0.7800175766523108,
+   "parent_spectrum_bands": {
+    "high": 0.935748815536499,
+    "low": 0.7767233848571777,
+    "mid": 0.811393678188324
+   },
+   "parent_time_bands": {
+    "early": 0.33969399333000183,
+    "late": 1.025743007659912,
+    "mid": 0.8243339657783508
+   },
+   "sample_id": "train_marmousi_00155",
+   "spectrum_bands": {
+    "high": 0.9503471851348877,
+    "low": 0.7711354494094849,
+    "mid": 0.8114979267120361
+   },
+   "time_bands": {
+    "early": 0.3397409915924072,
+    "late": 1.0180295705795288,
+    "mid": 0.8213950395584106
+   }
+  },
+  {
+   "aggregate_gain": -0.006878554839248178,
+   "aggregate_rel_l2": 0.5326397440784176,
+   "base_loss": 0.4385957717895508,
+   "correction_energy_ratio": 0.017548539255617935,
+   "family": "marmousi",
+   "high_band_gain": -0.10427861233870073,
+   "hinge": 0.0268784761428833,
+   "late_gain": -0.00692897489804486,
+   "parent_rel_l2": 0.5290009818149871,
+   "parent_spectrum_bands": {
+    "high": 0.7748038172721863,
+    "low": 0.520307719707489,
+    "mid": 0.7339093089103699
+   },
+   "parent_time_bands": {
+    "early": 0.3636453449726105,
+    "late": 0.6853311657905579,
+    "mid": 0.4557603597640991
+   },
+   "sample_id": "train_marmousi_00285",
+   "spectrum_bands": {
+    "high": 0.8555992841720581,
+    "low": 0.5246466994285583,
+    "mid": 0.7359787821769714
+   },
+   "time_bands": {
+    "early": 0.3637009859085083,
+    "late": 0.6900798082351685,
+    "mid": 0.46215352416038513
+   }
+  },
+  {
+   "aggregate_gain": 0.014771333375175227,
+   "aggregate_rel_l2": 0.47695727925667497,
+   "base_loss": 0.3637672960758209,
+   "correction_energy_ratio": 0.010642282629797743,
+   "family": "marmousi",
+   "high_band_gain": -0.020846984302572417,
+   "hinge": 0.005228579044342041,
+   "late_gain": 0.0251887914607098,
+   "parent_rel_l2": 0.4841082029115383,
+   "parent_spectrum_bands": {
+    "high": 0.686241626739502,
+    "low": 0.48269063234329224,
+    "mid": 0.6218830943107605
+   },
+   "parent_time_bands": {
+    "early": 0.3607477843761444,
+    "late": 0.6201073527336121,
+    "mid": 0.4551306962966919
+   },
+   "sample_id": "train_marmousi_00490",
+   "spectrum_bands": {
+    "high": 0.7005476951599121,
+    "low": 0.47544845938682556,
+    "mid": 0.624647855758667
+   },
+   "time_bands": {
+    "early": 0.36081600189208984,
+    "late": 0.6044875979423523,
+    "mid": 0.4564824104309082
+   }
+  },
+  {
+   "aggregate_gain": 0.0006764148366030343,
+   "aggregate_rel_l2": 0.6703715017066031,
+   "base_loss": 0.8209235668182373,
+   "correction_energy_ratio": 0.015994374529829943,
+   "family": "marmousi",
+   "high_band_gain": -0.00262455173472558,
+   "hinge": 0.019323647022247314,
+   "late_gain": -0.002606649313946043,
+   "parent_rel_l2": 0.6708252578637902,
+   "parent_spectrum_bands": {
+    "high": 0.9814984798431396,
+    "low": 0.6698916554450989,
+    "mid": 0.8526431322097778
+   },
+   "parent_time_bands": {
+    "early": 0.32925206422805786,
+    "late": 0.9718441963195801,
+    "mid": 0.7072020173072815
+   },
+   "sample_id": "train_marmousi_00535",
+   "spectrum_bands": {
+    "high": 0.9840744733810425,
+    "low": 0.6699331402778625,
+    "mid": 0.8520523309707642
+   },
+   "time_bands": {
+    "early": 0.3292970061302185,
+    "late": 0.974377453327179,
+    "mid": 0.7064599990844727
+   }
+  },
+  {
+   "aggregate_gain": 0.009298089788335165,
+   "aggregate_rel_l2": 0.8396496362980242,
+   "base_loss": 1.075286626815796,
+   "correction_energy_ratio": 0.017063295957346937,
+   "family": "marmousi",
+   "high_band_gain": 0.00301991089409363,
+   "hinge": 0.010701894760131836,
+   "late_gain": 0.011369356246881904,
+   "parent_rel_l2": 0.8475300467712149,
+   "parent_spectrum_bands": {
+    "high": 0.8988132476806641,
+    "low": 0.8459995985031128,
+    "mid": 0.7943511605262756
+   },
+   "parent_time_bands": {
+    "early": 0.5090683102607727,
+    "late": 1.0704803466796875,
+    "mid": 0.8775014281272888
+   },
+   "sample_id": "train_marmousi_00640",
+   "spectrum_bands": {
+    "high": 0.8960989117622375,
+    "low": 0.8383005261421204,
+    "mid": 0.7941092848777771
+   },
+   "time_bands": {
+    "early": 0.5091067552566528,
+    "late": 1.0583096742630005,
+    "mid": 0.8715283870697021
+   }
+  },
+  {
+   "aggregate_gain": 0.021860702343410924,
+   "aggregate_rel_l2": 0.48402910008977534,
+   "base_loss": 0.4242488443851471,
+   "correction_energy_ratio": 0.010232020680227058,
+   "family": "marmousi",
+   "high_band_gain": -0.005323806784844468,
+   "hinge": 0.0,
+   "late_gain": 0.028869562731150634,
+   "parent_rel_l2": 0.4948467986608909,
+   "parent_spectrum_bands": {
+    "high": 0.8408321738243103,
+    "low": 0.49301838874816895,
+    "mid": 0.6718469262123108
+   },
+   "parent_time_bands": {
+    "early": 0.2562628984451294,
+    "late": 0.733806848526001,
+    "mid": 0.4017694294452667
+   },
+   "sample_id": "train_marmousi_00660",
+   "spectrum_bands": {
+    "high": 0.8453086018562317,
+    "low": 0.481791615486145,
+    "mid": 0.6726951003074646
+   },
+   "time_bands": {
+    "early": 0.25632235407829285,
+    "late": 0.7126221656799316,
+    "mid": 0.4010818898677826
+   }
+  },
+  {
+   "aggregate_gain": 0.01741130181149708,
+   "aggregate_rel_l2": 0.5944816479741042,
+   "base_loss": 0.6065282225608826,
+   "correction_energy_ratio": 0.014635904069288653,
+   "family": "marmousi",
+   "high_band_gain": -0.04534291407898802,
+   "hinge": 0.0025886893272399902,
+   "late_gain": 0.023028970470099767,
+   "parent_rel_l2": 0.6050157599716834,
+   "parent_spectrum_bands": {
+    "high": 0.7292187213897705,
+    "low": 0.603675127029419,
+    "mid": 0.7049782276153564
+   },
+   "parent_time_bands": {
+    "early": 0.26886826753616333,
+    "late": 0.9017993211746216,
+    "mid": 0.4482570290565491
+   },
+   "sample_id": "train_marmousi_00685",
+   "spectrum_bands": {
+    "high": 0.7622836232185364,
+    "low": 0.5929939150810242,
+    "mid": 0.7057703137397766
+   },
+   "time_bands": {
+    "early": 0.26893797516822815,
+    "late": 0.8810318112373352,
+    "mid": 0.4492802619934082
+   }
+  },
+  {
+   "aggregate_gain": 0.015587080845162377,
+   "aggregate_rel_l2": 0.08114599132549032,
+   "base_loss": 0.01958816684782505,
+   "correction_energy_ratio": 8.383029230226277e-05,
+   "family": "uniform",
+   "high_band_gain": 0.0004911852252871823,
+   "hinge": 0.0044127702713012695,
+   "late_gain": 5.452581961755962e-06,
+   "parent_rel_l2": 0.08243084761134359,
+   "parent_spectrum_bands": {
+    "high": 0.13745763897895813,
+    "low": 0.0827394425868988,
+    "mid": 0.19104225933551788
+   },
+   "parent_time_bands": {
+    "early": 0.11091642826795578,
+    "late": 30.78297233581543,
+    "mid": 0.11372994631528854
+   },
+   "sample_id": "train_uniform_00025",
+   "spectrum_bands": {
+    "high": 0.1373901218175888,
+    "low": 0.08136358857154846,
+    "mid": 0.19115082919597626
+   },
+   "time_bands": {
+    "early": 0.1108100563287735,
+    "late": 30.782804489135742,
+    "mid": 0.11136087030172348
+   }
+  },
+  {
+   "aggregate_gain": 0.0020790611758511103,
+   "aggregate_rel_l2": 0.07644225829413688,
+   "base_loss": 0.021574318408966064,
+   "correction_energy_ratio": 0.00010831598882846042,
+   "family": "uniform",
+   "high_band_gain": -0.003579442439232798,
+   "hinge": 0.017920970916748047,
+   "late_gain": 0.0,
+   "parent_rel_l2": 0.07660151753525571,
+   "parent_spectrum_bands": {
+    "high": 0.15827664732933044,
+    "low": 0.07743676006793976,
+    "mid": 0.2197944074869156
+   },
+   "parent_time_bands": {
+    "early": 0.09258551895618439,
+    "late": 7.814219951629639,
+    "mid": 0.48372119665145874
+   },
+   "sample_id": "train_uniform_00055",
+   "spectrum_bands": {
+    "high": 0.15884318947792053,
+    "low": 0.07748394459486008,
+    "mid": 0.21972700953483582
+   },
+   "time_bands": {
+    "early": 0.09234748035669327,
+    "late": 7.814219951629639,
+    "mid": 0.4841654598712921
+   }
+  },
+  {
+   "aggregate_gain": 0.0197773671759616,
+   "aggregate_rel_l2": 0.13550578886864864,
+   "base_loss": 0.08423392474651337,
+   "correction_energy_ratio": 0.0004941062948076665,
+   "family": "uniform",
+   "high_band_gain": -0.0006237493877667993,
+   "hinge": 0.00022274255752563477,
+   "late_gain": 0.02433475457926786,
+   "parent_rel_l2": 0.1382398083160497,
+   "parent_spectrum_bands": {
+    "high": 0.30989667773246765,
+    "low": 0.1400700956583023,
+    "mid": 0.3766355514526367
+   },
+   "parent_time_bands": {
+    "early": 0.2075098156929016,
+    "late": 0.30115896463394165,
+    "mid": 0.12073542177677155
+   },
+   "sample_id": "train_uniform_00089",
+   "spectrum_bands": {
+    "high": 0.31008997559547424,
+    "low": 0.13734495639801025,
+    "mid": 0.376677542924881
+   },
+   "time_bands": {
+    "early": 0.20751935243606567,
+    "late": 0.29383033514022827,
+    "mid": 0.12092413753271103
+   }
+  },
+  {
+   "aggregate_gain": 0.018669867975063273,
+   "aggregate_rel_l2": 0.13247512879737317,
+   "base_loss": 0.08341290056705475,
+   "correction_energy_ratio": 0.0004317846513134162,
+   "family": "uniform",
+   "high_band_gain": 0.007812941950394947,
+   "hinge": 0.0013300776481628418,
+   "late_gain": 0.017031009917242674,
+   "parent_rel_l2": 0.13499547652125576,
+   "parent_spectrum_bands": {
+    "high": 0.29660263657569885,
+    "low": 0.13699108362197876,
+    "mid": 0.35892587900161743
+   },
+   "parent_time_bands": {
+    "early": 0.1900835782289505,
+    "late": 0.30290523171424866,
+    "mid": 0.12376084178686142
+   },
+   "sample_id": "train_uniform_00118",
+   "spectrum_bands": {
+    "high": 0.29428529739379883,
+    "low": 0.1345551460981369,
+    "mid": 0.3579120934009552
+   },
+   "time_bands": {
+    "early": 0.19009828567504883,
+    "late": 0.2977464497089386,
+    "mid": 0.12394857406616211
+   }
+  },
+  {
+   "aggregate_gain": 0.07148091353174224,
+   "aggregate_rel_l2": 0.08703608392809609,
+   "base_loss": 0.03483058139681816,
+   "correction_energy_ratio": 0.0008639604941378853,
+   "family": "uniform",
+   "high_band_gain": 0.014245675443572406,
+   "hinge": 0.0,
+   "late_gain": 0.08102411944524793,
+   "parent_rel_l2": 0.0937364510827118,
+   "parent_spectrum_bands": {
+    "high": 0.21406550705432892,
+    "low": 0.09508507698774338,
+    "mid": 0.283756822347641
+   },
+   "parent_time_bands": {
+    "early": 0.19925683736801147,
+    "late": 0.15707309544086456,
+    "mid": 0.07825249433517456
+   },
+   "sample_id": "train_uniform_00134",
+   "spectrum_bands": {
+    "high": 0.2110159993171692,
+    "low": 0.08814319968223572,
+    "mid": 0.28194063901901245
+   },
+   "time_bands": {
+    "early": 0.1993851363658905,
+    "late": 0.14434638619422913,
+    "mid": 0.07831694185733795
+   }
+  },
+  {
+   "aggregate_gain": 0.001190874743377082,
+   "aggregate_rel_l2": 0.08109303756817517,
+   "base_loss": 0.01829478144645691,
+   "correction_energy_ratio": 0.0001313944791738766,
+   "family": "uniform",
+   "high_band_gain": 0.00015394635836714333,
+   "hinge": 0.018809139728546143,
+   "late_gain": 0.0,
+   "parent_rel_l2": 0.08118972436033764,
+   "parent_spectrum_bands": {
+    "high": 0.19242747128009796,
+    "low": 0.08156013488769531,
+    "mid": 0.2759222984313965
+   },
+   "parent_time_bands": {
+    "early": 0.12474928796291351,
+    "late": 24.63846778869629,
+    "mid": 0.6614177227020264
+   },
+   "sample_id": "train_uniform_00227",
+   "spectrum_bands": {
+    "high": 0.1923978477716446,
+    "low": 0.0815533846616745,
+    "mid": 0.2757207453250885
+   },
+   "time_bands": {
+    "early": 0.1248660758137703,
+    "late": 24.63846778869629,
+    "mid": 0.6620758175849915
+   }
+  },
+  {
+   "aggregate_gain": -0.011586437233894522,
+   "aggregate_rel_l2": 0.08232416868115075,
+   "base_loss": 0.017883989959955215,
+   "correction_energy_ratio": 8.61378747319549e-05,
+   "family": "uniform",
+   "high_band_gain": -0.0005671323027380735,
+   "hinge": 0.031586527824401855,
+   "late_gain": 0.0,
+   "parent_rel_l2": 0.0813812499367428,
+   "parent_spectrum_bands": {
+    "high": 0.14742664992809296,
+    "low": 0.08190230280160904,
+    "mid": 0.21095974743366241
+   },
+   "parent_time_bands": {
+    "early": 0.12839582562446594,
+    "late": 11.834907531738281,
+    "mid": 0.9082192778587341
+   },
+   "sample_id": "train_uniform_00280",
+   "spectrum_bands": {
+    "high": 0.14751026034355164,
+    "low": 0.08283617347478867,
+    "mid": 0.21095672249794006
+   },
+   "time_bands": {
+    "early": 0.12902134656906128,
+    "late": 11.834907531738281,
+    "mid": 0.9102523922920227
+   }
+  },
+  {
+   "aggregate_gain": 0.014014981990692963,
+   "aggregate_rel_l2": 0.08430782694894008,
+   "base_loss": 0.02723650075495243,
+   "correction_energy_ratio": 0.0002090217323162896,
+   "family": "uniform",
+   "high_band_gain": -0.001154427659195312,
+   "hinge": 0.005984902381896973,
+   "late_gain": 0.0001677450664089964,
+   "parent_rel_l2": 0.08550619472814776,
+   "parent_spectrum_bands": {
+    "high": 0.19324319064617157,
+    "low": 0.08546137064695358,
+    "mid": 0.27648428082466125
+   },
+   "parent_time_bands": {
+    "early": 0.13805373013019562,
+    "late": 2.205880880355835,
+    "mid": 0.08855000883340836
+   },
+   "sample_id": "train_uniform_00367",
+   "spectrum_bands": {
+    "high": 0.19346627593040466,
+    "low": 0.08438023924827576,
+    "mid": 0.2763443887233734
+   },
+   "time_bands": {
+    "early": 0.1380612701177597,
+    "late": 2.2055108547210693,
+    "mid": 0.08822479099035263
+   }
+  }
+ ],
+ "resources": {
+  "build_s": 380.6349262641743,
+  "peak_cuda_reserved_bytes": 8300527616,
+  "wall_s": 382.6272604186088
+ },
+ "schema": "r16_dscp_v20_gradient_spectrum_diagnostic_v1",
+ "status": "success",
+ "truth_scope": "train/final_train_confirm already consumed by v19; validation/test_id untouched"
+}

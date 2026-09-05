@@ -1,0 +1,76 @@
+{
+  "schema": "saved_time_pretraining_preregistration_v1",
+  "status": "registered",
+  "promotion_eligible": false,
+  "diagnostic_only_reason": [
+    "parent lineage used validation-controlled epoch selection",
+    "inherited adaptive-sampling errors were measured on validation"
+  ],
+  "hypothesis": "Replacing the per-frame late-ramped primary loss with mean per-record relative L2 will align parameter updates with the epoch gate and restore strict descent on a fixed train-only panel.",
+  "expected_mechanism": "The primary frame gradient uses the same record-first normalization and aggregation as aggregate_relative_l2, removing the late low-energy emphasis that regressed early, layered, and Marmousi gate components.",
+  "primary_metric": {
+    "name": "aggregate_relative_l2",
+    "split": "train",
+    "time_policy": "validation_fixed",
+    "frames_per_record": 32,
+    "panel_records": 48,
+    "acceptance": "strict decrease from the immutable update-0 train-panel baseline"
+  },
+  "secondary_metrics": [
+    "family_relative_l2",
+    "time_bin_relative_l2",
+    "spectrum_relative_l2",
+    "phase_correlation",
+    "centroid_shift_cells",
+    "xcorr_peak_shift_cells"
+  ],
+  "failure_signals": [
+    "train-only aggregate_relative_l2 does not strictly decrease before the distinct learning-rate ladder is exhausted",
+    "any non-finite loss or gradient",
+    "material train-panel family regression despite aggregate improvement"
+  ],
+  "compute_budget": {
+    "gpus": 4,
+    "epochs": 3,
+    "optimizer_updates_per_epoch": 140,
+    "maximum_optimizer_updates": 420,
+    "record_appearances_per_epoch": 4480,
+    "schedule_digest": "8f12aa33af5ad4d59ef55e7eb9016ecfa367da56d66d415c49c50d44714a08ec"
+  },
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r4_muon/run/checkpoints/epoch_0006.pt",
+    "checkpoint_sha256": "23dab1ce21f1d66c41d73c28401560e3f48864a000509b92076451e767980844",
+    "checkpoint_validation_score_for_provenance_only": 0.35871227318412835,
+    "identity": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r4_muon/run/run_identity.json",
+    "identity_sha256": "6ee6082c23f146ea43e2e3d5d4facb368596c79cccb6e17b7aa299663cc65954"
+  },
+  "bindings": {
+    "config": "configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag.yaml",
+    "config_sha256": "b76650fc4e506f1eb68174a6d0cdc24db4c54083e2e74eace0e1907a2b2df034",
+    "runner_sha256": "ea87ce8f391bbf312b048fccd7c471d942fba717400e2a0af2b6c205468c0643",
+    "losses_sha256": "8547d820edc9d10ebd835fc8df6fe6d5b57c1fa099016a453b4f1a491bae12d6",
+    "metrics_sha256": "d5c2f20ac5ced502d3c70a145f91157c99e7ffddb0f13b4363054efbc62007dc",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  },
+  "data_access": {
+    "optimization_split": "train",
+    "epoch_control_split": "train",
+    "calibration_split": null,
+    "validation": "sealed for this diagnostic",
+    "test_id": "sealed",
+    "exclusion_sets": [],
+    "inherited_validation_derived_sampling_weights": true,
+    "new_validation_or_test_truth_access": false
+  },
+  "conceptual_change": {
+    "per_frame_frame": [true, false],
+    "late_frame_gain": [2.0, 0.0],
+    "interpretation": "one primary-objective intervention; the late ramp is invalid when per-frame normalization is disabled"
+  },
+  "rollback": "Preserve epoch_0006.pt unchanged and mark this branch rejected; do not update the r4 artifact or use this diagnostic for validation/test promotion.",
+  "literature_basis": [
+    "FNO function-space operator baseline (Li et al., arXiv:2010.08895)",
+    "FFNO residual optimization context (Tran et al., arXiv:2111.13802)",
+    "project evidence that sampled late-weighted loss and record-level evaluation were misaligned"
+  ]
+}

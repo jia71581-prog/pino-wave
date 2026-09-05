@@ -1,0 +1,53 @@
+{
+  "schema": "transfer_dg_wfp_e1d_generalization_preregistration_v2",
+  "candidate": "transfer_dg_wfp_e1d_v2_generalization_20260902",
+  "supersedes": "results/transfer_dg_wfp_e1d_generalization_preregistration_20260902.json",
+  "supersession_reason": "Pre-training audit rejected the original radius-4 graph travel because uniform-medium maximum error was 9.7-12.4 ms, which is several radians at retained high frequencies. No E1d training was launched under v1.",
+  "hypothesis": "A constant-graph-debiased eikonal phase carrier will strictly reduce two-seed mean confirmation error on four-family unseen train groups versus identical raw WFP.",
+  "single_conceptual_change": "phase carrier enabled versus disabled; the v2 carrier subtracts constant-grid directional error and is exact in uniform media",
+  "data_access": {
+    "source_split": "train",
+    "training_full_truth_allowed": true,
+    "training_full_truth_use": "offline targets and fixed loss denominators only",
+    "model_input_future_wavefield_frames": 0,
+    "test_wavefield_access": "registered_early_prefix_only",
+    "test_future_truth_access": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "data": {"records": 256, "fit": 192, "calibration": 32, "confirmation": 32, "frequency_bins": 64, "families": ["uniform", "layered", "anomaly", "marmousi"]},
+  "arms": [{"carrier": "raw", "seeds": [372, 733]}, {"carrier": "phase", "seeds": [372, 733]}],
+  "shared_training": {
+    "architecture": "WFP width32 rank16 depth4 radii1,2,3,4",
+    "epochs": 5,
+    "updates_per_epoch": 3072,
+    "total_updates": 15360,
+    "coverage": "every fit record and all 64 frequencies exactly once per epoch",
+    "batch": "one record-frequency pair per family",
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "physical_loss": "64 times coefficient SSE divided by complete record coefficient energy",
+    "cpml_loss_weight": 0.05
+  },
+  "primary_metric": "two-seed mean confirmation physical 64-bin relative L2",
+  "acceptance": {
+    "phase_mean_strictly_below_raw_mean": true,
+    "minimum_improvement_fraction": 0.0,
+    "all_four_families_present": true,
+    "all_outputs_finite": true,
+    "top_and_outer_pressure_exactly_zero": true
+  },
+  "failure_signal": "Reject and do not expand to 2800 if phase confirmation mean is not strictly lower than raw or any data/boundary/finite gate fails.",
+  "compute_budget": {"travel_cpu_workers": 4, "training_gpu_count": 4, "training_wall_seconds_max": 10800, "new_disk_bytes_max": 2147483648},
+  "bindings": {
+    "eikonal_module_sha256": "cd7ca82ee973213716960d70c93917bc49e45af3b3cfb1abbc667c0a61406fb5",
+    "travel_builder_sha256": "fad516a04bff4445e1afd70a279a82700843fe8ab0106d7166ab4e5792f4b1f3",
+    "trainer_sha256": "4d4500d5e493ce7c038ba8a9ba9f91c3e63e13b938d098e3716d73c585c566c4",
+    "phase_module_sha256": "cba0662a84d857531f78213f894a0fadd8eda9c8b53fab492543a07f8d56a477",
+    "manifest_sha256": "798099eea32ab3d4073221a39edc0822e6cf9dc7a4f46fa9c78f5fc9c28a7b66"
+  },
+  "conditional_next_step": "Only accepted E1d-v2 may trigger all-2800 derived-label generation and final all-train retraining.",
+  "rollback": "Additive run; preserve v1 travel as rejection evidence and all existing checkpoints.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

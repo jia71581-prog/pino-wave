@@ -1,0 +1,134 @@
+{
+  "schema": "transfer_dg_parent_anchored_block32_cache_preregistration_v1",
+  "candidate": "transfer_dg_parent_anchored_block32_r1_20260904",
+  "claim_scope": "Train-only architecture pilot. Validation and test_id future fields remain sealed.",
+  "hypothesis": "A bounded parent-anchored block-32 residual corrector with two-frame residual history will improve exact full-401 group-disjoint train-confirmation future relative L2 by at least 5% over the immutable epoch-23/update-15400 pyramid parent, with no family regression.",
+  "expected_mechanism": "Thirty-two-frame joint prediction targets local phase and amplitude closure, one detached pushforward block exposes self-generated state, and every block is re-anchored to the frozen frequency-parent trajectory so recurrence cannot freely drift.",
+  "literature_basis": [
+    "https://arxiv.org/abs/2202.03376",
+    "https://openreview.net/forum?id=Qv6468llWS",
+    "https://arxiv.org/abs/2602.18801",
+    "https://arxiv.org/abs/2607.29135",
+    "https://arxiv.org/abs/2606.10868"
+  ],
+  "parent": {
+    "checkpoint": "results/transfer_dg_parent_anchored_block32_r1_20260904/parent_epoch23_u15400.pt",
+    "checkpoint_sha256": "5091701cc2daeb4f9af757e49cbd7fa715cd4f754198401ead45d3ddcad55c9f",
+    "schema": "transfer_dg_coupled_pyramid_moe_adaptive_ddp4_checkpoint_v1",
+    "epoch": 23,
+    "update": 15400,
+    "parameter_count": 25784099,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "data": {
+    "split": "train",
+    "record_count": 136,
+    "role_counts": {
+      "fit": 68,
+      "calibration": 34,
+      "confirmation": 34
+    },
+    "family_counts": {
+      "uniform": 32,
+      "layered": 32,
+      "anomaly": 32,
+      "marmousi": 40
+    },
+    "role_group_overlap_count": 0,
+    "selection_uses_wavefield_truth": false,
+    "cache_contents": [
+      "frozen parent leading 64 orthonormal-rFFT coefficients",
+      "public medium/source/travel conditioning",
+      "sample/group/role/source-index metadata"
+    ],
+    "cache_excludes_wavefield_truth": true,
+    "offline_train_truth_access": "Trainer reads exact float32 train wavefield slices by bound source index.",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "model": {
+    "class": "ParentAnchoredBlockCorrector",
+    "block_size": 32,
+    "history_frames": 2,
+    "condition_channels": 9,
+    "width": 32,
+    "spectral_rank": 16,
+    "modes": 16,
+    "depth": 4,
+    "parameter_count": 91396,
+    "maximum_correction_ratio": 0.5,
+    "boundary_blend_frames": 4,
+    "zero_initialized_output": true,
+    "hard_free_surface": true,
+    "full_trajectory_corrector_calls": 13,
+    "deployment_future_truth_inputs": 0
+  },
+  "training": {
+    "seed": 372,
+    "epochs": 12,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.000001,
+    "eta_ratio": 0.01,
+    "gradient_clip_norm": 1.0,
+    "rollout_blocks": 2,
+    "detached_pushforward_blocks": 1,
+    "derivative_weight": 0.1,
+    "spectral_weight": 0.1,
+    "nonworse_weight": 0.3,
+    "correction_weight": 0.01,
+    "spectral_floor_fraction": 0.005,
+    "optimizer": "AdamW",
+    "cpu_inference_threads": 16,
+    "evaluation_device": "cpu",
+    "selection_metric": "34-record train-calibration exact full-401 future relative L2",
+    "validation_during_training": false,
+    "test_id_during_training": false
+  },
+  "acceptance": {
+    "primary_metric": "34-record group-disjoint train-confirmation exact full-401 future relative L2",
+    "minimum_confirmation_improvement_fraction": 0.05,
+    "maximum_family_regression_ratio": 1.0,
+    "runtime_gate": "Reject before validation if measured parent plus corrector runtime cannot plausibly preserve 10x end-to-end speedup."
+  },
+  "smoke": {
+    "cache_max_records": 1,
+    "max_updates": 1,
+    "required_finite_loss": true,
+    "required_finite_gradient": true,
+    "required_parent_noop_at_initialization": true,
+    "required_validation_closed": true,
+    "required_test_id_closed": true
+  },
+  "compute_budget": {
+    "cache_gpu_count": 1,
+    "training_gpu_count": 1,
+    "cache_wall_seconds_max": 21600,
+    "pilot_wall_seconds_max": 21600,
+    "new_disk_bytes_max": 3221225472
+  },
+  "failure_signal": "Stop on hash drift, sample/split mismatch, future-truth cache materialization, non-finite loss or gradient, correction-cap violation, OOM, missing checkpoint, less than 5% train-confirmation gain, family regression, or any validation/test_id access.",
+  "rollback": "Preserve the immutable epoch-23/update-15400 parent and omit the additive corrector. Do not modify or remove any existing checkpoint family.",
+  "bindings": {
+    "cache_builder_sha256": "16625e2125df4e17d866600c36eed3dc2cd37dea0bb21a2ea96fe6ce38c69f71",
+    "preregistration_finalizer_sha256": "95916790929e72cabf6a146e78b71084d4730d4747bf9a2eee04d07bc9978656",
+    "trainer_sha256": "cb428b04c3225c220c82c665da065b01aae88e4d6fad8084345267e03d4308b0",
+    "corrector_sha256": "d64135eb892878f72c7275a84eea2dc99a078326f0a25e5e7c8f7223803adaa3",
+    "parent_model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "parent_base_model_sha256": "f5e3683ede1b0e8ad172485637a3f1d2e057b26cdd6577ea749e93f27b7469c8",
+    "full_manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "selection_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "parent_checkpoint_sha256": "5091701cc2daeb4f9af757e49cbd7fa715cd4f754198401ead45d3ddcad55c9f"
+  },
+  "allowed_files": [
+    "saved_time_phase_operator_v4/parent_anchored_block.py",
+    "tests/saved_time_phase_operator_v4/test_parent_anchored_block.py",
+    "scripts/build_transfer_dg_parent_block32_cache.py",
+    "scripts/finalize_transfer_dg_parent_block32_preregistration.py",
+    "scripts/train_transfer_dg_parent_anchored_block32.py",
+    "results/transfer_dg_parent_anchored_block32_r1_20260904/*"
+  ],
+  "validation_opened": false,
+  "test_id_opened": false
+}

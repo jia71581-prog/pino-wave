@@ -1,0 +1,45 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected",
+  "candidate": "wkb96_record_freqsoftmax_r20_continue4000_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The selected update-2600 checkpoint passed the frozen 32-frame train gate but failed the pre-registered complete 401-frame family gate: Marmousi relative L2 was 0.04903445557174407, above 0.04.",
+  "selected_checkpoint": {
+    "path": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "run_identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50",
+    "terminal_sha256": "fce3d70cd6fe135a328d0fee4284e6867757cfdba763ebfef174270d6ae5e77a"
+  },
+  "fixed_panel_metrics": {
+    "aggregate_relative_l2": 0.021550374752808316,
+    "uniform_relative_l2": 0.01277956264914237,
+    "layered_relative_l2": 0.011974443726048497,
+    "marmousi_relative_l2": 0.03989711788323409
+  },
+  "all_saved_metrics": {
+    "aggregate_relative_l2": 0.028942556014755788,
+    "uniform_relative_l2": 0.024566164403164642,
+    "layered_relative_l2": 0.01322704806935864,
+    "marmousi_relative_l2": 0.04903445557174407,
+    "early_relative_l2": 0.020643619446808925,
+    "middle_relative_l2": 0.022682205554207895,
+    "late_relative_l2": 0.05928352760642218,
+    "low_spectrum_relative_l2": 0.03456382688369702,
+    "middle_spectrum_relative_l2": 0.32007973407743395,
+    "high_spectrum_relative_l2": 0.40383076104316046
+  },
+  "improvement_vs_parent": {
+    "aggregate_relative_fraction": 0.070186,
+    "marmousi_relative_fraction": 0.077207,
+    "late_relative_fraction": 0.068275,
+    "high_spectrum_relative_fraction": 0.026900
+  },
+  "diagnosis": "Record-conditioned scalar frequency reweighting improves the inherited mapper but does not supply the nonlocal late-arrival/high-frequency field capacity needed by Marmousi. The 32-frame gate materially overestimates complete-time performance for this candidate.",
+  "data_access": {
+    "scope": "train_only",
+    "validation_opened": false,
+    "test_id_opened": false,
+    "future_truth_sealed": true
+  },
+  "rollback": "Preserve r18 and r20 checkpoints. Stop multiplicative frequency-gate variants and move to a train-only structurally nonlocal frequency mapper or coarse-propagator residual hypothesis."
+}

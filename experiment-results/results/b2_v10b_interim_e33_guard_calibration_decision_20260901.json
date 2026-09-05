@@ -1,0 +1,54 @@
+{
+  "schema": "b2_v10b_observed_count_guard_calibration_v1",
+  "status": "passed",
+  "created_utc": "2026-09-01T08:05:20Z",
+  "claim_scope": "offline train calibration only; requires fresh train confirmation",
+  "source_arm": "cycle050",
+  "threshold_variable": "minimum_observed_frames",
+  "calibration_grid": [26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46],
+  "selection_rule": "strict aggregate improvement, then largest aggregate gain; per-family and nonworse are report-only",
+  "selected": {
+    "arm": "cycle050",
+    "minimum_observed_frames": 40,
+    "accepted": 4,
+    "parent_aggregate": 0.12433686976373108,
+    "guarded_aggregate": 0.12377633954019346,
+    "relative_gain": 0.004508157754033538,
+    "nonworse": 23,
+    "parent_common_tail_aggregate": 0.13306288349489304,
+    "guarded_common_tail_aggregate": 0.1323883216850626,
+    "common_tail_relative_gain": 0.005069496407360905,
+    "per_family": {
+      "uniform": {
+        "parent": 0.06261176631359887,
+        "guarded": 0.06226439812000155,
+        "accepted": 1,
+        "nonworse": 8
+      },
+      "layered": {
+        "parent": 0.13658864932871936,
+        "guarded": 0.1355515923819621,
+        "accepted": 1,
+        "nonworse": 8
+      },
+      "marmousi": {
+        "parent": 0.17381019364887504,
+        "guarded": 0.1735130281186167,
+        "accepted": 2,
+        "nonworse": 7
+      }
+    }
+  },
+  "bindings": {
+    "unguarded_summary": "results/b2_v10_interim_e33_cycle050_smoke_attempt2_20260901/summary.json",
+    "unguarded_summary_sha256": "e7a3c7fddc33d3029cae958bb575c3b6f1c1681bf4f6d0c425d3441d88710a2c",
+    "unguarded_preregistration_sha256": "781b1c9638ac8c048142b58211b99a2f9d79b30e5e7c547bf1f7111c1e96cdaf",
+    "parent_selection_sha256": "9b208cb913a2502028088dbb346dd3713964fb34afb31f329511fb7130023ce1",
+    "parent_checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "pod_bundle_sha256": "808b16283da5cb5434ac823b4fbdced2342a3f508e3b405bd71d724bc1e67c9b"
+  },
+  "future_truth_used_online": false,
+  "future_train_truth_used_for_offline_threshold_selection": true,
+  "validation_opened": false,
+  "test_id_opened": false
+}

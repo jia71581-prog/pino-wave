@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/validate_acoustic_dataset.py", line 293, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/validate_acoustic_dataset.py", line 278, in main
+    payload = _validate_file(dataset, args.strict, args.expected_samples, args.readback_check) | {"dataset": str(dataset)}
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/validate_acoustic_dataset.py", line 231, in _validate_file
+    summary = validate_lwc84_shard(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/data_generation/hdf5_lwc84.py", line 323, in validate_lwc84_shard
+    raise ValueError("wavefield chunk must be (1,1,Z,X)")
+ValueError: wavefield chunk must be (1,1,Z,X)

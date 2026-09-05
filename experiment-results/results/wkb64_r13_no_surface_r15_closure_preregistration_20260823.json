@@ -1,0 +1,50 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb64_r13_no_surface_r15_closure",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_three_record_zero_training_output_projection_audit",
+  "hypothesis": "The complete-field Fourier head is already trained against a boundary-consistent physical waveform. Disabling only the legacy 20 m free-surface taper after synthesis will remove deterministic attenuation while retaining the empirically beneficial global hard-causality mask.",
+  "single_conceptual_variable": {
+    "name": "legacy_post_synthesis_free_surface_taper",
+    "parent": true,
+    "candidate": false
+  },
+  "fixed_controls": {
+    "local_first_arrival_sigmoid": false,
+    "global_hard_causality": true,
+    "frequency_bins": 64,
+    "wkb_phase": true,
+    "checkpoint_weights": "strict_parent_load",
+    "optimizer_updates_for_selection": 0
+  },
+  "deployment_contract": {
+    "fine_grid_solver": false,
+    "true_wavefield_input": false,
+    "future_truth_input": false,
+    "complete_401_frame_wavefield_use": "train_label_and_train_only_audit_reference"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "records": 3
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/checkpoints/update_2000.pt",
+    "checkpoint_sha256": "935f5d3a8dcd4acb94cf2976d3b2a9dc887fa6c5228e168735874008680bcab5",
+    "identity": "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/run_identity.json",
+    "identity_sha256": "0ba2ff05b5840587650b0da35c5889a757c05d1e69b70811f2bac34a0730e945"
+  },
+  "acceptance": {
+    "all_saved_aggregate_relative_l2_max": 0.05,
+    "all_saved_each_family_relative_l2_max": 0.05,
+    "checkpoint_reproducible": true
+  },
+  "decision": "Passing authorizes a disjoint multi-record train-only panel. Failure keeps validation/test sealed and requires further train-only Marmousi optimization.",
+  "code": {
+    "diagnostic_sha256": "1124de02ead060f72327be1aa8d2c368bad620b0802a8f699001fb25a06e6cac",
+    "operator_sha256": "8b586a3577512f9c6a7da922e1b217f65a9780b6672e7f2ac2959f27764f2a09",
+    "local_field_sha256": "8afd8bfb8c0ab48877d593189bef2a3d6f873b9198cb75664477f5b87cd20304",
+    "tests": "60 passed"
+  }
+}

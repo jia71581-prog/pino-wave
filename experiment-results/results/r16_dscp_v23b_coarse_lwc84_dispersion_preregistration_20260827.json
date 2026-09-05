@@ -1,0 +1,119 @@
+{
+  "schema": "coarse_lwc84_dispersion_stream_preregistration_v23b_v1",
+  "status": "frozen_before_execution",
+  "frozen_at": "2026-08-27T23:28:08.7161948+08:00",
+  "supersedes": {
+    "experiment": "v23",
+    "reason": "The frozen 0.5 ms coarse step exceeded the LWC-84 spectral stability limit on all four first validation batches; every worker aborted before producing a worker result, so v23 is an invalid numerical configuration rather than an outcome-bearing audit.",
+    "thresholds_changed": false
+  },
+  "authorization": {
+    "user_direction": "First complete the research optimization, including quantified storage and numerical-dispersion sensitivity, and only then revise the paper.",
+    "validation_state": "validation was explicitly unsealed for the contemporaneous v20 research closure; this audit reuses validation only under a separately frozen script and does not open test_id",
+    "remote_execution_authorized": true
+  },
+  "purpose": "Quantify whether spatial coarsening alone in LWC-84 produces disproportionately large radial high-spatial-frequency error relative to aggregate field error against the frozen high-fidelity LWC-84 teacher.",
+  "claim_scope": "A passed audit supports sensitivity of the registered radial spectral metric to spatial discretization and a 10 m-versus-5 m LWC-84 contrast at the same internal time step. It does not establish that the teacher, CREST, or any neural operator is dispersion-free.",
+  "split": "validation",
+  "test_id_policy": "sealed_not_read",
+  "record_panel": {
+    "selection": "complete deterministic validation census for the routed uniform, layered, and marmousi families in source-index order",
+    "record_count": 480,
+    "family_counts": {
+      "uniform": 90,
+      "layered": 240,
+      "marmousi": 150
+    },
+    "excluded_family": {
+      "anomaly": 120,
+      "reason": "not in the frozen routed-family contract used by v19-v22"
+    },
+    "workers": 4,
+    "records_per_worker": 120,
+    "assignment": "records[worker::4]"
+  },
+  "teacher_contract": {
+    "method": "LWC-84 with top free surface and three-sided CFS-CPML",
+    "solver_grid": [401, 401],
+    "solver_spacing_m": [5.0, 5.0],
+    "internal_dt_s": 0.000125,
+    "cpml_cells": 40,
+    "cpml_physical_thickness_m": 200.0,
+    "stored_grid": [201, 201],
+    "stored_spacing_m": [10.0, 10.0],
+    "restriction": "binomial5_lowpass_then_decimate2",
+    "stored_time_count": 401,
+    "stored_dt_s": 0.0025,
+    "propagation_time_s": 1.0,
+    "dtype": "float32",
+    "source_frequency_range_hz": [8.0, 30.0],
+    "interpretation": "high-fidelity low-dispersion numerical reference, not exact or dispersion-free truth"
+  },
+  "coarse_solver_contract": {
+    "method": "LWC-84 with top free surface and three-sided CFS-CPML",
+    "solver_grid": [201, 201],
+    "solver_spacing_m": [10.0, 10.0],
+    "internal_dt_s": 0.000125,
+    "cpml_cells": 20,
+    "cpml_physical_thickness_m": 200.0,
+    "output_restriction_factor": 1,
+    "stored_time_count": 401,
+    "stored_dt_s": 0.0025,
+    "propagation_time_s": 1.0,
+    "dtype": "float32",
+    "coarsening_relative_to_teacher": {
+      "spatial_spacing_factor": 2.0,
+      "internal_time_step_factor": 1.0
+    },
+    "design_reason": "Matching the teacher internal step isolates spatial-resolution sensitivity and honors the previously shortened 0.125 ms numerical step."
+  },
+  "stability_preflight": {
+    "record_count": 480,
+    "maximum_velocity_mps": 5993.83984375,
+    "analytic_dt_stability_limit_s": 0.00046266875168838966,
+    "registered_dt_s": 0.000125,
+    "registered_worst_case_lwc_qmax": 0.07299274376640004,
+    "failed_v23_dt_s": 0.0005,
+    "failed_v23_worst_case_lwc_qmax": 1.1678839002624006
+  },
+  "metric_contract": {
+    "aggregate_relative_l2": "mean of complete space-time relative L2 over 480 records",
+    "family_relative_l2": "mean of complete space-time relative L2 within each family",
+    "spatial_spectrum_relative_l2": "2-D FFT per frame with normalized radial bands low<=1/3, middle in (1/3,2/3], high>2/3; ratio of summed squared spectral error to summed squared teacher spectrum",
+    "transport": [
+      "framewise phase correlation",
+      "energy-centroid shift in cells",
+      "2-D cross-correlation peak shift in cells"
+    ],
+    "receiver_panel": "nine receivers at saved z-index 10 and evenly spaced x-indices 5 through 195",
+    "receiver_lag": "full-trace cross-correlation with parabolic sub-sample peak refinement; traces below 1% of the record maximum receiver energy are excluded",
+    "metric_time_block": 20
+  },
+  "frozen_hypothesis_gates": {
+    "coarse_aggregate_relative_l2_lte": 0.1,
+    "radial_high_relative_l2_gte": 0.1,
+    "high_to_low_ratio_gte": 3.0,
+    "high_to_aggregate_ratio_gte": 3.0
+  },
+  "execution_contract": {
+    "one_shot": true,
+    "retry_after_completed_worker_forbidden": true,
+    "threshold_motion_forbidden": true,
+    "solver_batch_size": 8,
+    "all_batch_predictions_hashed_before_first_batch_truth_read": true,
+    "dense_predictions_written_to_disk": false,
+    "reason_for_streaming": "480 dense predictions would require 31105537920 raw bytes and the remote volume had only about 47 GB free before execution",
+    "worker_outputs": "results/r16_dscp_v23b_coarse_lwc84_dispersion_validation/worker_[0-3].json",
+    "terminal_output": "results/r16_dscp_v23b_coarse_lwc84_dispersion_validation/terminal.json"
+  },
+  "sha256_bindings": {
+    "script": "5e22f49e2d22d735a93f7e5b3fa4c76c85990e019d6f0706309a51f09d2f960a",
+    "implementation_script": "9114db02107bce3cd99c4e969f7f51077abe4e851412356752f3b9b6b65f3fb0",
+    "stability_preflight": "fe7cfbb75575e08f1872c806fe540e1968e8dfc67ce2b7c55a20567c4e81f11e",
+    "solver_lwc84": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad",
+    "streaming_metrics": "d5c2f20ac5ced502d3c70a145f91157c99e7ffddb0f13b4363054efbc62007dc",
+    "coarse_lwc84": "5fde26d316376080c8f49d1c4a727a353f0d9d9d4a01776a417f30e541a58229",
+    "frozen_teacher_config": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+    "source_h5": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "claim_scope": {
+    "frequency_generalization_claim_permitted": false,
+    "one_input_selected_velocity_slice": true,
+    "population_accuracy_claim_permitted": false,
+    "position_only": true,
+    "separate_g3_4p51_percent_result_not_depicted": true
+  },
+  "outputs": {
+    "figures": {
+      "pdf": {
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_superposition_20260814T1612Z/marmousi_rank30_eight_source_superposition.pdf",
+        "sha256": "583627c0819acced856551245faab701c12f61810fb8f756e45a74595122c0b1"
+      },
+      "png": {
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_superposition_20260814T1612Z/marmousi_rank30_eight_source_superposition.png",
+        "sha256": "32f5f72df20bd2f162e97fb5eecf915994366354be7fa7f22a276ee771ee7a50"
+      }
+    },
+    "snapshot_arrays": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_superposition_20260814T1612Z/rank30_eight_source_superposition_snapshots.npz",
+      "sha256": "5fc2a57f1f6898a894df84e1839cf87bc9cea55d5a8835e5948fa6bd9a5fa5f3"
+    }
+  },
+  "prediction_manifest": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/prediction_manifest.json",
+  "prediction_manifest_sha256": "5d28c7d488901e65b319fe342a9c86184450c5a7bc1a0399142e22026c1bd162",
+  "schema": "phase4b_rank30_eight_source_linear_superposition_v1",
+  "selection": {
+    "group_id": "validation:marmousi:x6150.0:z0.0",
+    "prediction_or_target_error_used_for_selection": false,
+    "rank": 30,
+    "rule": "maximum registered input-only velocity first-difference energy",
+    "sample_id": "validation_marmousi_00055"
+  },
+  "source_bindings": [
+    {
+      "case_id": "interp_left_shallow",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_interp_left_shallow.npz",
+      "prediction_sha256": "038f8a44f835c55cae93e24c1ce8e4bb830014c9ec7ee6c2c7c8a94041f511d5",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_left_shallow.npz",
+      "reference_sha256": "b56796ac71c44e9c7486f4547eef474b12a99511eef6418eab87984bf6b766f5",
+      "source_parameters": [
+        400.0,
+        100.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "interp_left_deep",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_interp_left_deep.npz",
+      "prediction_sha256": "5b7918d5174b7aa6cb60c018a7076daa5aaf83195cf9d60e33131b5df1fce929",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_left_deep.npz",
+      "reference_sha256": "b0acdfcb90c35a28fb16383db1341d9545dc343603861c9ad2cb0b391a279921",
+      "source_parameters": [
+        700.0,
+        250.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "interp_center",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_interp_center.npz",
+      "prediction_sha256": "f87cdf096b754b27942a795b3a54d9bfdbd03fd3a1fa403d4dc7d362bdb41cb1",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_center.npz",
+      "reference_sha256": "2bf737ec7e5b0c00cb1f80b6de35b81dfcc670ecf49f1130be16e68701babc48",
+      "source_parameters": [
+        1000.0,
+        175.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "interp_right_shallow",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_interp_right_shallow.npz",
+      "prediction_sha256": "54bcf0d4d42424dc7cb3573142111b3647f16f28d499948e5e4067377ed62847",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_right_shallow.npz",
+      "reference_sha256": "67effc25887732b5d00f881191e45da1974595deaacaf853a64010e074a412da",
+      "source_parameters": [
+        1300.0,
+        100.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "interp_right_deep",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_interp_right_deep.npz",
+      "prediction_sha256": "186e49a2ad07f739bf48a1651e1ef849c7b9eacb96b49a4d0169f99a3618ea37",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_right_deep.npz",
+      "reference_sha256": "c0ee5ff3e70fc3aa3da1813893f25f15ced6e64a12a71f6625fd14f706e2a10a",
+      "source_parameters": [
+        1600.0,
+        250.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "extrap_left",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_extrap_left.npz",
+      "prediction_sha256": "5aaa4e89446bfaa8a52bbb43ace0a0083af527a598bb19c405b6c50c8a0d780d",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_extrap_left.npz",
+      "reference_sha256": "ad4e7b97179caacd3d818d26041158d263db69dd492be830f704288d7a372e6e",
+      "source_parameters": [
+        100.0,
+        175.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "extrap_right",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_extrap_right.npz",
+      "prediction_sha256": "c7ec6979f94f075d73eb57a3ef698a0dffd8f57b412b87fec561ccfa75912070",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_extrap_right.npz",
+      "reference_sha256": "1f4191c7279f36a10fc5545a73ad077039dbfd85feb14b86432f80267633a58a",
+      "source_parameters": [
+        1900.0,
+        175.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    },
+    {
+      "case_id": "extrap_deep",
+      "prediction_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/sealed_predictions/marm_r30_extrap_deep.npz",
+      "prediction_sha256": "d5e9c453ae90b81e6b2aaf149e812011edcc655433d3493d821a3ad95174c97d",
+      "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_extrap_deep.npz",
+      "reference_sha256": "e21036fdfdf84ca8993977b25d2034e5f46253fe507477685cac69894adabc04",
+      "source_parameters": [
+        1000.0,
+        400.0,
+        19.0,
+        0.07894736528396606,
+        1.0
+      ]
+    }
+  ],
+  "source_evaluation_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/report.json",
+  "source_evaluation_report_sha256": "c3866452c5a233e383150e21a927fa82f583f62166223113f00337a50c0b6619",
+  "status": "complete",
+  "superposition": {
+    "all_401_frame_relative_l2": 0.288280425807691,
+    "fixed_amplitude_each": 1.0,
+    "fixed_frequency_hz": 19.0,
+    "fixed_onset_s": 0.07894736528396606,
+    "linearity_basis": "the registered acoustic wave equation is linear in source amplitude",
+    "operation": "unscaled physical sum of eight independently predicted or simulated single-source fields",
+    "prediction_cancellation_ratio_norm_sum_over_sum_norms": 0.3579225551734123,
+    "snapshot_indices": [
+      80,
+      144,
+      208,
+      272,
+      336,
+      400
+    ],
+    "snapshot_relative_l2": [
+      0.1338804028961882,
+      0.2073149226681077,
+      0.2827501124290672,
+      0.3288659295691621,
+      0.3860746010740734,
+      0.46444781104132227
+    ],
+    "snapshot_times_s": [
+      0.2,
+      0.36,
+      0.52,
+      0.68,
+      0.84,
+      1.0
+    ],
+    "source_count": 8,
+    "target_cancellation_ratio_norm_sum_over_sum_norms": 0.3582810308325574
+  }
+}

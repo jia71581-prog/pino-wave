@@ -1,0 +1,24 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected",
+  "candidate": "wkb96_r20_source_support_r23_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The best update-700 checkpoint failed both the preregistered fit-capacity and held-out-source gates. All-saved fit aggregate was 0.2052 with Marmousi 0.2794; calibration was 1.5039 and confirmation was 2.2006.",
+  "selected_checkpoint": {
+    "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0700.pt",
+    "sha256": "cd9d60ddf5ed081bb81ddf09bc8639124d48486e73171686f05687116c7c8822"
+  },
+  "all_saved": {
+    "fit": {"aggregate": 0.20520929746147462, "layered": 0.09389919030814406, "marmousi": 0.27941603556369493},
+    "calibration": {"aggregate": 1.5039313699886732, "layered": 1.834703027756262, "marmousi": 1.1731597122210846},
+    "confirmation": {"aggregate": 2.200595381447492, "layered": 3.2995325735949206, "marmousi": 1.1016581893000639}
+  },
+  "diagnosis": "Adding a few sources within each anchor medium improves fit records but does not produce source interpolation. The very large errors for layered sources with small spatial displacement but large onset/frequency changes point to missing analytic source-time conditioning, not insufficient update count.",
+  "bindings": {
+    "terminal_sha256": "a5af39cae3de3654b3b76406fd720c1a6cd52fbb583be79f9c7a8747f35cb6f5",
+    "run_identity_sha256": "6cd92350ad2ba6d1dec2c47cb1727258796267b0e2f8697b3894cbed14204f64"
+  },
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Do not add more media, more source records, or more updates to this mapper. Test one analytic source-onset phase variable, t-(travel+t0), under train-only source-holdout evidence before any broader architecture work."
+}

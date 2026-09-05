@@ -1,0 +1,34 @@
+{
+  "schema": "r16_dscp_v22b_guarded_confined_candidate_spec_v1",
+  "created_utc": "2026-08-27T14:53:29Z",
+  "candidate": "r16_dscp_v22b_wide128_radial_guard_confined",
+  "supersedes": {
+    "candidate": "r16_dscp_v22_wide128_radial_guard",
+    "reason": "The initial v22 package omitted the frozen v18 parent-energy keep-mask confinement during final correction materialization."
+  },
+  "objective": "Package the frozen v18 B_data_hinge Wide128 head with exact v18 causal, free-surface, and parent-energy confinement plus a structural low/middle 2-D radial coefficient projection.",
+  "bindings": {
+    "script_sha256": "c1780417cf6856287d216e3513a44e39082e647d94fbad516e6e2c58a3f346af",
+    "module_sha256": "98bac1a4810958273d84b4a5b1af2732a5322f0dc73405ad996fa9aa39749054",
+    "band_adapter_sha256": "59689f19ae643803a1689c4c1390c4a7af162ed6789bf0f348c1b80ea1949c41",
+    "r16_dscp_sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+    "training_v3_sha256": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517",
+    "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+    "basis_sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786"
+  },
+  "frozen_contract": {
+    "truth_reads": 0,
+    "checkpoint_writes": 0,
+    "validation_reads": 0,
+    "test_id_reads": 0,
+    "parent_energy_tau": 0.001,
+    "coefficient_radial_high_energy_fraction_maximum": 1e-10,
+    "materialized_correction_radial_high_energy_fraction_maximum": 1e-10,
+    "outside_mask_correction_exactly_zero": true,
+    "outside_mask_output_bitwise_parent": true,
+    "causal_through_k1": true,
+    "free_surface_correction_zero": true,
+    "parameter_count": 25266
+  },
+  "evidence_scope": "Packaging and structural self-test only. The v20b aggregate and radial-band measurements remain train-only post-hoc evidence; this self-test is not held-out accuracy evidence."
+}

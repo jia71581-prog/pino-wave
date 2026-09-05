@@ -1,0 +1,66 @@
+{
+  "absolute_goal": {
+    "record_rel_l2_max_lte": 0.05,
+    "record_rel_l2_mean_lte": 0.05
+  },
+  "created_utc": "2026-08-27T21:36:59.935959+00:00",
+  "data_access": {
+    "final_validation_opened": false,
+    "fit": "train_only",
+    "holdout": "train_group_disjoint_opened_development",
+    "r29b_opened": false,
+    "test_id_opened": false,
+    "truth_deployment_input": false
+  },
+  "dct_retained": 96,
+  "fit_cache_evidence": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_pilot_v2_20260828/fit_record0.h5": {
+      "bytes": 5439280,
+      "sha256": "871c8c1781a710f0c175e870c2cf3c201d7e58fbb57fd8a6ba53ecfad4fe1cc7",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_pilot_v2_20260828/fit_record0.h5.summary.json"
+    }
+  },
+  "fit_group_count": 1,
+  "fit_record_count": 1,
+  "frequency_count": 75,
+  "frequency_max_hz": 79.80049896240234,
+  "frequency_min_hz": 5.985037326812744,
+  "holdout_cache_evidence": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_pilot_v2_20260828/holdout_marmousi_00267.h5": {
+      "bytes": 48466032,
+      "sha256": "37dd4964a0511fa7f86dd06d320802b22d01cc0cd6a7391d1bedbaace48520b0",
+      "summary": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_pilot_v2_20260828/holdout_marmousi_00267.h5.summary.json"
+    }
+  },
+  "holdout_group_count": 1,
+  "holdout_record_count": 1,
+  "input_channels": 23,
+  "model": {
+    "blocks": 4,
+    "correction_cap": 1.5,
+    "medium_dct_scales_preserved": true,
+    "modes": 16,
+    "name": "frequency_conditioned_spatial_dct_fno",
+    "output_channels": "complex_residual_real_imaginary",
+    "width": 48,
+    "zero_initialized_output": true
+  },
+  "optimization": {
+    "amp_bfloat16": true,
+    "epochs": 1,
+    "global_batch_size": 4,
+    "hinge_weight": 2.0,
+    "learning_rate": 0.0003,
+    "local_batch_size": 4,
+    "max_steps_per_epoch": 1,
+    "optimizer": "adam",
+    "seed": 400828,
+    "shape_weight": 0.05,
+    "tail_weight": 1.0,
+    "warmup_epochs": 0,
+    "weight_decay": 1e-05
+  },
+  "parameter_count": 9452498,
+  "schema": "r40_frequency_residual_run_identity_v1",
+  "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e"
+}

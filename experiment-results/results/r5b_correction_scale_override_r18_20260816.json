@@ -1,0 +1,87 @@
+{
+  "bindings": {
+    "config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v5/causal_defect_basis_r5b_marmousi1_4m_v2.yaml",
+    "config_sha256": "f1086a7ac7ec4c931319dcd159cad423da9e7fab83475b09de81f3875e0700d8",
+    "cpadc_summary": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r5b_trustgrad_blind_pf32_seed32315_r1_20260816/shard_2/summary.json",
+    "cpadc_summary_sha256": "8f7300a7581fa1410cb754e8f247b78ac6dcc11507f21233e701900496fecd25",
+    "exact32_audit": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r5b_vs_pi_train_exact32_r15_20260816.json",
+    "exact32_audit_sha256": "cef5f145fada7d084dbb585b37f04754ec1b9268e95a2fd4e3876cbcf719b3d9",
+    "r5b_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "script_sha256": "850b8dc8874f105c6e4c8a3764efc4866bc6e9100a636b83750a8927c3dcc94e"
+  },
+  "correction_scale": {
+    "checkpoint": 0.02854149043560028,
+    "cpadc_configured": 1.0,
+    "cpadc_loaded": 1.0,
+    "forced_over_checkpoint_ratio": 35.03671268521714
+  },
+  "decision": {
+    "checkpoint_scale_restores_training_audit": true,
+    "correction_scale_override_is_root_cause": false,
+    "forced_cpadc_future_reproduced": false,
+    "thresholds": {
+      "maximum_archive_reproduction_absolute_delta": 1e-05,
+      "maximum_restored_over_forced_exact32_ratio": 0.1
+    }
+  },
+  "exact32_time_indices": [
+    0,
+    26,
+    42,
+    52,
+    53,
+    64,
+    71,
+    84,
+    90,
+    92,
+    100,
+    102,
+    163,
+    178,
+    187,
+    191,
+    203,
+    234,
+    238,
+    240,
+    247,
+    249,
+    310,
+    320,
+    342,
+    352,
+    359,
+    375,
+    386,
+    392,
+    398,
+    399
+  ],
+  "metrics": {
+    "archived_cpadc_forced_scale_future_relative_l2": 7.760632514953613,
+    "archived_training_audit_exact32_relative_l2": 0.08536471316175703,
+    "forced_scale1_exact32_relative_l2": 8.27095462526001,
+    "live_forced_scale1_future_relative_l2": 7.728773766742406,
+    "restored_checkpoint_scale_exact32_relative_l2": 0.08536539350486497,
+    "restored_checkpoint_scale_future_relative_l2": 0.09480466160735534,
+    "restored_over_forced_exact32_ratio": 0.010321105286220982,
+    "restored_over_forced_future_ratio": 0.012266455775340216
+  },
+  "observed_indices": [
+    20,
+    21
+  ],
+  "reproduction_deltas": {
+    "forced_future_absolute": 0.03185874821120738,
+    "restored_exact32_absolute": 6.803431079338562e-07
+  },
+  "role": "train_only_single_variable_parent_loading_diagnostic",
+  "sample_id": "train_uniform_00303",
+  "schema": "r5b_correction_scale_override_train_diagnostic_v1",
+  "split": "train",
+  "status": "complete",
+  "test_id_opened": false,
+  "validation_truth_opened": false
+}

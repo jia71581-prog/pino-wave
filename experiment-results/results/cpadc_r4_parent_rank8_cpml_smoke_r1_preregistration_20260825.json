@@ -1,0 +1,42 @@
+{
+  "schema": "acoustic_cpadc_training_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "cpadc_r4_parent_rank8_cpml_smoke_r1",
+  "date_utc": "2026-08-25",
+  "hypothesis": "An r4-parent-specific rank-8 causal error basis can complete one balanced three-family CPML-aware meta-training epoch with finite loss, accepted inner solves, bounded memory, and a reproducible checkpoint.",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "training": {
+    "ddp_world_size": 3,
+    "balanced_records": 3,
+    "epochs": 1,
+    "rank": 8,
+    "phase_rank": 2,
+    "width": 16,
+    "patch_size": 201,
+    "physics_points": 64,
+    "learning_rate": 0.000005,
+    "cpml_saved_cells": 20,
+    "cpml_internal_substeps": 20
+  },
+  "primary_metric": "finite one-epoch outer loss with inner acceptance and CPML checkpoint contract",
+  "acceptance": {
+    "terminal_complete": true,
+    "finite_outer_loss": true,
+    "inner_acceptance_fraction_min": 0.66,
+    "checkpoint_required": true,
+    "online_future_truth_used": false,
+    "peak_cuda_gib_max": 23.5
+  },
+  "failure_signal": "Non-finite loss, rejected inner solves, OOM, CPML contract mismatch or missing checkpoint rejects this architecture before a longer train-only pilot.",
+  "bindings": {
+    "config_sha256": "4f05d3f62613cca6cafdee9b6934f0d86ddcd43118c618520cec195ab39c416a",
+    "trainer_sha256": "a296173907ec1db0f07676c4c213b475ce0875ce2abc07bf3b7179df9e78d3b1",
+    "parent_identity_sha256": "be848406b21871068a228bf14dbed80732a9eebf71b866e62e996193d2c1fecc",
+    "tests": "47 causal-defect and checkpoint-transfer tests passed"
+  },
+  "data_policy": "train only; three families; validation and test_id unopened",
+  "rollback": "Preserve r4 parent and all historical CPADC checkpoints. Reject smoke without launching a longer basis run.",
+  "artifact_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_r4_parent_rank8_cpml_smoke_r1_20260825",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0,1,2 torchrun --standalone --nproc_per_node=3 scripts/train_causal_defect_basis.py --config configs/saved_time_v5/causal_defect_basis_marmousi1_4m_v2_target10_rank32.yaml --output-dir <smoke> --parent-checkpoint <r4-epoch7> --parent-checkpoint-identity <r4-identity> --device cuda --smoke --epochs 1 --rank 8 --phase-rank 2 --width 16 --patch-size 201 --physics-point-count 64 --rank-chunk-size 2 --learning-rate 5e-6 --warmup-epochs 1"
+}

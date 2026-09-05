@@ -1,0 +1,12 @@
+{
+  "schema": "wkb64_zero_init_overfit_terminal_v1",
+  "status": "failed",
+  "decision": "infrastructure_rejection_before_optimizer_step",
+  "failure": "the generic gradient audit rejected expected zero upstream gradients behind the exact-zero coefficient head on the first backward",
+  "optimizer_updates_completed": 0,
+  "initial_aggregate_relative_l2": 1.0000017835389572,
+  "zero_initialization_contract_passed": true,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "next_evidence": "require only the local-field head gradient on update one and all live upstream prefixes from update two"
+}

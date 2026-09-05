@@ -1,0 +1,22 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb96_r13_expanded_no_surface_r18",
+  "protocol_scope": "train_only_three_record_frequency_capacity_expansion",
+  "hypothesis": "Expanding the direct WKB head from 64 to 96 bins lowers the Marmousi representation floor from 0.0341 to 0.0256. Exact transfer of the trained 64 bins with zero new bins preserves update-0 output and lets only the missing band be learned.",
+  "single_conceptual_variable": {"name": "frequency_bins", "parent": 64, "candidate": 96},
+  "transfer": {"old_cos_sin": "exact", "new_frequency_channels": "zero", "all_non_head_tensors": "strict_exact"},
+  "output_contract": {"local_causal_gate": false, "free_surface_taper": false, "global_hard_causality": true},
+  "deployment_contract": {"fine_grid_solver": false, "true_wavefield_input": false, "future_truth_input": false},
+  "data_access": {"train": true, "validation": false, "test_id": false, "records": 3},
+  "parent": {
+    "checkpoint": "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/checkpoints/update_2000.pt",
+    "checkpoint_sha256": "935f5d3a8dcd4acb94cf2976d3b2a9dc887fa6c5228e168735874008680bcab5",
+    "identity": "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/run_identity.json",
+    "identity_sha256": "0ba2ff05b5840587650b0da35c5889a757c05d1e69b70811f2bac34a0730e945"
+  },
+  "training": {"updates": 3000, "evaluation_every": 100, "family_weights": "equal", "learning_rates": {"dense": 1e-05, "backbone": 5e-06, "local_field": 1e-05}, "seed": 372},
+  "preflight": {"updates": 8, "required_finite": true, "peak_cuda_bytes_max": 4294967296},
+  "acceptance": {"all_saved_aggregate_relative_l2_max": 0.05, "all_saved_each_family_relative_l2_max": 0.05},
+  "decision": "Run the full branch only after the preflight passes; keep validation/test sealed on failure.",
+  "code": {"diagnostic_sha256": "01dcfde5b414390434daa4e3353879e5a1b03617eaea715bedf955aa68699331", "test_sha256": "6176097a8d4fdbf8dc24642682a220f23c37902d21818f2c78de8c95c902c0ad", "tests": "34 passed"}
+}

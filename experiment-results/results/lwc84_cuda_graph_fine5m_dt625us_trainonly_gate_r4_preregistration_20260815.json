@@ -1,0 +1,51 @@
+{
+  "schema": "lwc84_cuda_graph_fine_grid_trainonly_gate_preregistration_v1",
+  "status": "frozen_before_launch",
+  "hypothesis": "The frozen 5 m LWC84 candidate with dt 0.000625 s and CUDA Graph replay will keep aggregate, every-family, and maximum-instance raw relative L2 no greater than 0.05 on nine disjoint train records spanning low, middle, and high frequencies, while both mean and nearest-rank P95 end-to-end compute remain below 2.034137312322855 s.",
+  "mechanism": "The exact teacher spatial grid and restriction preserve heterogeneous-media phase, fourth-order time stepping limits the error from five-fold temporal coarsening, and CUDA Graph replay removes dispatch overhead.",
+  "selection_scope": "train_only",
+  "validation_access": false,
+  "test_id_access": false,
+  "pilot_exclusion": {
+    "source_index": 2293,
+    "sample_id": "train_marmousi_00193"
+  },
+  "frozen_source_indices": [
+    397,
+    245,
+    21,
+    1525,
+    930,
+    920,
+    2480,
+    2780,
+    2736
+  ],
+  "selection_rule": "For each of uniform, layered, and Marmousi, select deterministic train-only lowest, central, and highest source-frequency records; replace the already-used Marmousi maximum-frequency pilot with the next-highest record.",
+  "family_count": {
+    "uniform": 3,
+    "layered": 3,
+    "marmousi": 3
+  },
+  "single_conceptual_change_from_pilot": "none; this is disjoint train-only confirmation of the frozen candidate",
+  "promotion_gate": {
+    "maximum_aggregate_relative_l2": 0.05,
+    "maximum_each_family_relative_l2": 0.05,
+    "maximum_instance_relative_l2": 0.05,
+    "maximum_mean_runtime_s": 2.034137312322855,
+    "maximum_p95_runtime_s": 2.034137312322855
+  },
+  "failure_signal": "Any accuracy or runtime gate failure rejects the candidate without validation or test_id access.",
+  "compute_budget": "Nine full one-second train simulations after one graph warmup on one RTX 4090 D, expected under one minute.",
+  "parent_checkpoint": null,
+  "rollback": "Preserve all neural and physics checkpoints and retain CUDA graphs as opt-in.",
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "gate_script_sha256": "5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8"
+  },
+  "output": "results/lwc84_cuda_graph_fine5m_dt625us_trainonly_gate_r4_20260815.json"
+}

@@ -1,0 +1,15 @@
+{
+  "schema": "wkb64_frequency_balanced_overfit_decision_v1",
+  "status": "rejected",
+  "decision": "fresh_frequency_balanced_training_failed_memorization_gate",
+  "all_saved_aggregate_relative_l2": 0.9389563150519953,
+  "all_saved_family_relative_l2": {"uniform": 1.012247017812493, "layered": 0.804917919884648, "marmousi": 0.9997040074588452},
+  "required": {"aggregate": 0.10, "each_family": 0.12},
+  "updates_completed": 800,
+  "peak_cuda_bytes": 1527053824,
+  "background_cache": null,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {"terminal_sha256": "df17171cff21aa70a6505060afd48456c001d35d6d5b9a0173d1ecd3fc558b57", "best_checkpoint_sha256": "72c0fe3b9c9ba571aed18571d2ad0ccaf0fb1f2baf0a723c840f3a15ccdf3483"},
+  "diagnosis": "Per-frequency balancing changed gradient scale and direction before the network learned the dominant WKB field, producing persistent clipping and a near-zero field. Test it as a second-stage objective from the r5 WKB parent."
+}

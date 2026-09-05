@@ -1,0 +1,33 @@
+{"agg": 0.06103383233199681, "family": {"layered": 0.08551495141226473, "marmousi": 0.044978481170924775, "uniform": 0.052608064412800935}, "update": 0}
+{"agg": 0.07163685121771932, "family": {"layered": 0.09817166278943307, "marmousi": 0.044371580784601426, "uniform": 0.07236731007912343}, "update": 48}
+{"agg": 0.06324973538053269, "family": {"layered": 0.09138318716859851, "marmousi": 0.04442189104739034, "uniform": 0.05394412792560922}, "update": 96}
+{"agg": 0.05501106094582042, "family": {"layered": 0.08180579893091054, "marmousi": 0.044234506273329234, "uniform": 0.038992877633221505}, "update": 144}
+{"agg": 0.044410524919080895, "family": {"layered": 0.0781064630531519, "marmousi": 0.04423814315358533, "uniform": 0.010886968550505452}, "update": 192}
+{"agg": 0.04278485412109626, "family": {"layered": 0.07793441459412208, "marmousi": 0.04424368435680782, "uniform": 0.006176463412358906}, "update": 240}
+[2026-08-03 02:25:54,136] torch.distributed.elastic.agent.server.api: [WARNING] Received Signals.SIGTERM death signal, shutting down workers
+[2026-08-03 02:25:54,137] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 411538 closing signal SIGTERM
+[2026-08-03 02:25:54,137] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 411539 closing signal SIGTERM
+[2026-08-03 02:25:54,138] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 411540 closing signal SIGTERM
+[2026-08-03 02:25:54,139] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 411541 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 736, in run
+    result = self._invoke_run(role)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 877, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 411444 got signal: 15

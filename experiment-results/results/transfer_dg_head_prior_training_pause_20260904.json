@@ -1,0 +1,40 @@
+{
+  "schema": "transfer_dg_head_prior_training_pause_v1",
+  "status": "resumed_after_instance_adapter_core_change",
+  "process_group": 321600,
+  "supervisor_pid": 321600,
+  "torchrun_pid": 322058,
+  "rank_pids": [322074, 322075, 322076, 322077],
+  "last_logged_cursor": {
+    "epoch": 20,
+    "step": 525,
+    "update": 13825
+  },
+  "last_atomic_resume_checkpoint": {
+    "path": "results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/parent_snapshot.pt",
+    "epoch": 20,
+    "next_step": 350,
+    "update": 13650,
+    "sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862"
+  },
+  "pause_signal": "SIGSTOP sent to each confirmed PID in process group 321600",
+  "planned_change_scope": [
+    "saved_time_phase_operator_v4/instance_adaptation/head_coefficient_prior.py",
+    "tests/saved_time_phase_operator_v4/test_head_coefficient_prior.py",
+    "static preregistration and evidence records"
+  ],
+  "parent_model_state_schema_changed": false,
+  "active_trainer_code_changed": false,
+  "static_evidence": "results/transfer_dg_head_coefficient_prior_core_static_evidence_20260904.json",
+  "related_regression_result": "49 passed",
+  "resume_signal": "SIGCONT sent to each confirmed paused PID",
+  "first_post_resume_cursor": {
+    "epoch": 20,
+    "step": 550,
+    "update": 13850,
+    "controller_weight_min": 1.0,
+    "controller_weight_max": 1.0
+  },
+  "validation_opened": false,
+  "test_id_opened": false
+}

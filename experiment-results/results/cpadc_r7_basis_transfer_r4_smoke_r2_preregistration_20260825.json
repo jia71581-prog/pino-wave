@@ -1,0 +1,41 @@
+{
+  "schema": "acoustic_instance_adaptation_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "cpadc_r7_basis_transfer_r4_smoke_r2",
+  "date_utc": "2026-08-25",
+  "hypothesis": "With the audited three-sided saved-grid CPML contract enabled, unchanged frozen R7 basis directions transferred to r4 epoch-7 will yield at least 0.5 percent mean train-only improvement on the same balanced three records.",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "basis_checkpoint_sha256": "3bbaeff315e4eac1a09b195af1fb807fa3e3c9b127349728cd6a54260beadcf4",
+  "basis_weights_modified": false,
+  "old_parent_thresholds_transferred": false,
+  "cpml": {
+    "sides": ["left", "right", "bottom"],
+    "top": "free_surface_no_cpml",
+    "saved_cells": 20,
+    "cell_size_m": 10.0,
+    "internal_dt_s": 0.000125,
+    "substeps_per_saved_frame": 20
+  },
+  "data": {
+    "split": "train",
+    "sample_ids": ["train_uniform_00104", "train_layered_00016", "train_marmousi_00312"],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "acceptance": {
+    "minimum_mean_relative_improvement": 0.005,
+    "minimum_nonworse_records": 2,
+    "maximum_single_record_relative_degradation": 0.02,
+    "maximum_adaptation_runtime_s": 3.0,
+    "future_truth_used_online": false
+  },
+  "failure_signal": "Accuracy failure rejects direct R7 basis transfer and triggers retraining of an r4-specific learned error basis.",
+  "bindings": {
+    "config_sha256": "086fd78ed33d3439dfb2591f913a8134a4c896a4b253aa6a9a6bb0017fbbc850",
+    "runner_sha256": "c8eb6a82fccb624fc71d6748a22d54a6c00ef0a791a979e57c7456cef5acf47f",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  },
+  "rollback": "Zero correction returns r4 parent; frozen R7 remains untouched.",
+  "output_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r7_basis_transfer_r4_smoke_r2_20260825",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0 python -u scripts/run_causal_defect_adaptation.py --config configs/saved_time_v5/cpadc_r7_basis_transfer_r4_parent_trainonly_r2.yaml --basis-checkpoint <transfer-r1> --output-dir <smoke-r2> --device cuda --adaptation-device cpu --calibration-per-family 1 --calibration-seed 20372 --basis-training-per-family 32 --no-fields"
+}

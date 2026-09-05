@@ -1,0 +1,77 @@
+{
+  "models": {
+    "uniform": {
+      "sample_index": 6,
+      "checkpoint": "/data/jiayh/FNO-Acoustic-Wave-Simulation/artifacts/elastic_vti_pino_uniform/checkpoints/best.pt",
+      "metrics": {
+        "ux_relative_l2": 0.08154983632266521,
+        "uz_relative_l2": 0.07729006558656693,
+        "ux_receiver_relative_l2": 0.1039254441857338,
+        "uz_receiver_relative_l2": 0.09459943324327469
+      },
+      "sample_metrics": {
+        "ux": 0.012960794127999092,
+        "uz": 0.009975717681214661,
+        "ux_receiver_relative_l2": 0.009812988340854645,
+        "uz_receiver_relative_l2": 0.009595127776265144
+      },
+      "figures": {
+        "ux": "reports/no_asvgd_group_meeting_20260710/figures/elastic_uniform_ux.png",
+        "uz": "reports/no_asvgd_group_meeting_20260710/figures/elastic_uniform_uz.png",
+        "receivers": "reports/no_asvgd_group_meeting_20260710/figures/elastic_uniform_receivers_runtime.png"
+      }
+    },
+    "layered": {
+      "sample_index": 3,
+      "checkpoint": "/data/jiayh/FNO-Acoustic-Wave-Simulation/artifacts/elastic_vti_pino_layered/checkpoints/best.pt",
+      "metrics": {
+        "ux_relative_l2": 0.12666225247085094,
+        "uz_relative_l2": 0.08023561537265778,
+        "ux_receiver_relative_l2": 0.1468486748635769,
+        "uz_receiver_relative_l2": 0.11639312095940113
+      },
+      "sample_metrics": {
+        "ux": 0.078064681543974,
+        "uz": 0.058302733317808594,
+        "ux_receiver_relative_l2": 0.07250209897756577,
+        "uz_receiver_relative_l2": 0.06251253187656403
+      },
+      "figures": {
+        "ux": "reports/no_asvgd_group_meeting_20260710/figures/elastic_layered_ux.png",
+        "uz": "reports/no_asvgd_group_meeting_20260710/figures/elastic_layered_uz.png",
+        "receivers": "reports/no_asvgd_group_meeting_20260710/figures/elastic_layered_receivers_runtime.png"
+      }
+    },
+    "marmousi": {
+      "sample_index": 300,
+      "checkpoint": "/data/jiayh/FNO-Acoustic-Wave-Simulation/artifacts/elastic_vti_pino_marmousi_component_balanced_short/checkpoints/best.pt",
+      "metrics": {
+        "ux_relative_l2": 0.1383853480219841,
+        "uz_relative_l2": 0.08475320413708687,
+        "ux_receiver_relative_l2": 0.16308396309614182,
+        "uz_receiver_relative_l2": 0.06250086426734924
+      },
+      "sample_metrics": {
+        "ux": 0.4318426926352011,
+        "uz": 0.22032116872745303,
+        "ux_receiver_relative_l2": 0.3869830369949341,
+        "uz_receiver_relative_l2": 0.1630217581987381
+      },
+      "figures": {
+        "ux": "reports/no_asvgd_group_meeting_20260710/figures/elastic_marmousi_ux.png",
+        "uz": "reports/no_asvgd_group_meeting_20260710/figures/elastic_marmousi_uz.png",
+        "receivers": "reports/no_asvgd_group_meeting_20260710/figures/elastic_marmousi_receivers_runtime.png"
+      }
+    }
+  },
+  "runtime": "reports/no_asvgd_group_meeting_20260710/elastic_vti_runtime.json",
+  "marmousi_pretrain_metrics": {
+    "ux_relative_l2": 0.21206239983439445,
+    "uz_relative_l2": 0.12108522467315197,
+    "ux_receiver_relative_l2": 0.3232695236802101,
+    "uz_receiver_relative_l2": 0.08264226466417313
+  },
+  "overview": "reports/no_asvgd_group_meeting_20260710/figures/elastic_cross_model_boxplot.png",
+  "distribution_metrics": "reports/no_asvgd_group_meeting_20260710/elastic_vti_30instance_metrics.json",
+  "marmousi_pretrain_distribution_metrics": "reports/no_asvgd_group_meeting_20260710/elastic_vti_marmousi_pretrain_30instance_metrics.json"
+}

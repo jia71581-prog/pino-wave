@@ -1,0 +1,55 @@
+{
+  "backbone_learning_rate": 2.5e-05,
+  "background_cache": "/dev/shm/g3cache/background_pbg_sigma2_g3pool_N192.h5",
+  "dense_depth": 8,
+  "dense_learning_rate": 5e-05,
+  "dense_modes": 32,
+  "dense_spectral_rank": 112,
+  "epochs": 40,
+  "evaluate_every": 48,
+  "families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "front_end_transfer": {
+    "checkpoint": "results/helmholtz_g3_specinj_gate01_N192_ddp4/checkpoints/update_0240.pt",
+    "fresh_tensors": 6,
+    "mode": "continue_pretrain_full_helmholtz",
+    "transferred_tensor_count": 333
+  },
+  "heldout_indices": [
+    0,
+    90,
+    330
+  ],
+  "heldout_sample_ids": [
+    "validation_uniform_00000",
+    "validation_layered_00000",
+    "validation_marmousi_00000"
+  ],
+  "helmholtz_frequencies": 64,
+  "helmholtz_late_frequencies": 24,
+  "helmholtz_late_rank": 32,
+  "helmholtz_rank": 8,
+  "helmholtz_spectral_bypass": true,
+  "helmholtz_wkb_phase": true,
+  "local_field_learning_rate": 0.001,
+  "macro_records": 6,
+  "macros_per_update": 4,
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "microbatch_records": 1,
+  "parameter_count": 37114199,
+  "records_per_family": 192,
+  "run_digest": "c81f20899ddf7eb02013bbca474a637593a7d9d2d91d2a138491648c5871110e",
+  "schedule_updates": 960,
+  "schema": "helmholtz_g3_heldout_v1",
+  "seed": 372,
+  "smoke_updates": 0,
+  "train_record_count": 576,
+  "training_frames_per_record": 16,
+  "validation_frames_per_record": 32,
+  "warmstart_frontend": null,
+  "warmstart_helmholtz": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_specinj_gate01_N192_ddp4/checkpoints/update_0240.pt",
+  "width": 128
+}

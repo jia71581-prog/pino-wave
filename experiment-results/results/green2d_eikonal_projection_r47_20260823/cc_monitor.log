@@ -1,0 +1,10 @@
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"generate_session_title"}
+[claude-code:unrecognized_model] {"model":"deepseek-v4-pro[1m]","query_source":"auto_mode"}
+**r47 监控结论（train-only 判定）**
+
+- **完成状态**：result.json 完整产生（`schema: ricker_pbg_projection_trainonly_v1`，`project_data_scope: train_only`），screen `711710.r47-green-projection` 正常，主进程 PID 711712 运行至结果原子写入完成；launch.log 全程为空（输出走 screen 缓冲）。
+- **global scale**：`2.965e-11`（global_train_scale）。
+- **train（n=560）**：global 相对 L2 = `0.999997`；oracle 相对 L2 median = `0.999999`（oracle scale median ≈ 0）。
+- **cal（n=70）**：global 相对 L2 = `1.000005`；oracle 相对 L2 median = `0.999999`（oracle scale median ≈ 0）。
+- **prereg 判定**：cal oracle median ≤ 0.5 **未达到**（实际 ≈ 1.0）——即 analytic Ricker P_bg 模板对目标场的最佳线性投影几乎不解释能量（近似正交），该代理在当前数据上无投影基线优势。
+- 注：结果自带 `validation_opened=False`、`test_id_opened=False`；本次监控未读取任何 validation/test_id 真值，以上仅作 train-only 判定。

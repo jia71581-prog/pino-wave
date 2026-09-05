@@ -1,0 +1,19 @@
+{
+  "schema": "transfer_dg_flux_pretrain_fast_audit_v1",
+  "status": "cleared_for_launch",
+  "preregistration": "results/transfer_dg_flux_pretrain_fast_preregistration_20260902.json",
+  "preregistration_sha256": "ea4e88724bedfb977cf521acdd259bf8fcc7d1a0cdd725d9f9a45b8beacdac5f",
+  "checks": {
+    "algorithm_unchanged": "DG-flux/control models, loss, samples per epoch, epochs, learning rate and paired seeds are unchanged",
+    "runtime_change_only": "redundant inner spectral checkpointing disabled while outer time-step checkpointing remains enabled",
+    "measured_speed": "micro4 outer-only is 20.4% faster than micro4 nested on a heterogeneous train-fit batch",
+    "memory": "micro4 outer-only peak 16728.7 MiB leaves more than 6 GiB device headroom",
+    "batch_selection": "micro5 was slower and micro6 OOM; micro4 selected by measured throughput",
+    "bindings": "all current code, tests, parents and manifests match the frozen SHA256 bindings",
+    "split_boundary": "throughput selection and training use train only; validation/test_id remain sealed",
+    "rollback": "all superseded and accepted checkpoints remain preserved"
+  },
+  "blocking_findings": [],
+  "validation_opened": false,
+  "test_id_opened": false
+}

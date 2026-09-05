@@ -1,0 +1,480 @@
+{
+ "candidate": "r16_dscp_v15",
+ "schema": "r16_dscp_v15_prereg_v1",
+ "status": "frozen",
+ "utc": "2026-08-26",
+ "freeze_kind": "document_only_zero_training_zero_gpu_zero_checkpoint_write",
+ "template_source": {
+  "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v14_preregistration_20260826.json",
+  "read_only": true,
+  "note": "v15 is structurally isomorphic to the frozen v14 preregistration; v14 and every file it binds were read but not modified"
+ },
+ "post_hoc_rule_revision": {
+  "is_post_hoc_rule_revision": true,
+  "revised_object": "the frozen decision rule of results/r4e9_mask_confined_oracle_spec_20260826.md lines 59-69",
+  "plain_statement": "The r4e9 result fell outside all three pre-stated branches of the r4e9 frozen spec. The lead chose 'option A': accept the layered loss of -0.0504 under convention (ii), freeze v15 = masked loss + mask-confined correction, admit all three families, and install no abstention route. This is an after-the-fact revision of an already-frozen decision rule.",
+  "must_not_be_recorded_as": [
+   "branch_a_passed",
+   "all_three_families_met_the_bar",
+   "v15_passed_a_preregistered_scientific_gate"
+  ],
+  "original_frozen_threshold": {
+   "name": "confined_convention_ii_tolerance",
+   "frozen_value_as_delta_floor": -0.02,
+   "frozen_value_as_magnitude_in_reclassification_file": 0.02,
+   "meaning": "confined convention (ii) gain must be >= unconfined convention (ii) gain - 0.02",
+   "frozen_before_the_result_was_seen": true
+  },
+  "measured_violation": {
+   "family": "layered",
+   "rank": 16,
+   "metric": "convention_ii_confined_minus_unconfined",
+   "measured_value": -0.050426932251087464,
+   "required_floor": -0.02,
+   "exceeded": true,
+   "margin_beyond_floor": -0.030426932251087464,
+   "same_violation_at_other_ranks": {
+    "rank8": -0.049189721964177674,
+    "rank32": -0.06190384932735393
+   },
+   "note": "layered fails the frozen convention (ii) tolerance at every measured rank, not only at the decision rank"
+  },
+  "lead_stated_revision_rationale_verbatim_in_substance": [
+   "the 0.05 acceptance gate is bound to convention (iii) global_energy_rel_l2, not to convention (ii)",
+   "under convention (iii) layered improves from unconfined +0.07676510674011527 to confined +0.18953689011188593",
+   "convention (ii) masked_energy_floored_per_frame is only a training proxy, it is not the acceptance convention"
+  ],
+  "honesty_qualifications": {
+   "revision_is_a_lead_judgement_not_a_data_derived_conclusion": true,
+   "evidence_did_not_pass_the_original_gate": true,
+   "the_original_gate_was_frozen_before_the_result_was_seen": true,
+   "this_revision_must_not_be_cited_downstream_as_v15_passed_a_preregistered_scientific_gate": true,
+   "cost_admitted": "the r4e9 spec's own protection against threshold drift was spent here; any later appeal to 'v15 was preregistered' must carry this revision with it"
+  },
+  "what_this_revision_does_not_change": [
+   "the convention (iii) acceptance threshold, which is inherited from v14 unchanged",
+   "any veto listed under inherited_vetoes",
+   "the sealed status of validation and test_id future wavefields"
+  ]
+ },
+ "objective": {
+  "name": "masked_loss_plus_mask_confined_correction",
+  "definition": "the training loss is evaluated on mask-retained frames only, and the learned correction is multiplied by the mask before it is applied, so the correction is exactly zero on dropped frames",
+  "mask": {
+   "symbol": "m_t",
+   "driven_by": "parent_frame_energy",
+   "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+   "floor": "tau * max_s E_s^parent",
+   "tau": 0.001,
+   "deployment_computable": true,
+   "uses_truth_frame_energy": false,
+   "truth_mask_role": "labelled diagnostic only, never the headline variant, never deployed"
+  },
+  "correction_application": {
+   "confined": true,
+   "rule": "correction_applied = m_t * correction_raw",
+   "outside_mask_correction_is_exactly_zero": true,
+   "outside_mask_output_equals_parent": true
+  },
+  "rank": 16,
+  "families_admitted": [
+   "uniform",
+   "layered",
+   "marmousi"
+  ],
+  "abstention_route": {
+   "installed": false,
+   "reason": "lead option A admits all three families; note that this is the consequence of the post_hoc_rule_revision above, not of a branch that the evidence passed"
+  }
+ },
+ "r4e9_quantitative_basis": {
+  "source_binding_verified_before_freeze": true,
+  "decision_rank": 16,
+  "conventions": {
+   "i": "unmasked_per_frame_unsquared_mean",
+   "ii": "masked_energy_floored_per_frame",
+   "iii": "global_energy_rel_l2"
+  },
+  "rank16_confined_gain": {
+   "uniform": {
+    "i": 0.00043220725490759605,
+    "ii": 0.1486697205131357,
+    "iii": 0.11606813617076556
+   },
+   "layered": {
+    "i": 0.0596301073377705,
+    "ii": 0.33570651391175366,
+    "iii": 0.18953689011188593
+   },
+   "marmousi": {
+    "i": 0.11888444868436779,
+    "ii": 0.1225388975139665,
+    "iii": 0.1329025832674466
+   }
+  },
+  "rank16_unconfined_control": {
+   "uniform": {
+    "i": -290.240145637898,
+    "ii": 0.1599014510396219,
+    "iii": -30.277435295999386
+   },
+   "layered": {
+    "i": -1.5589602738037622,
+    "ii": 0.3861334461628411,
+    "iii": 0.07676510674011527
+   },
+   "marmousi": {
+    "i": 0.11883853642476383,
+    "ii": 0.1225388975139665,
+    "iii": 0.13290258178992337
+   }
+  },
+  "convention_ii_confined_minus_unconfined_rank16": {
+   "uniform": -0.011231730526486183,
+   "layered": -0.050426932251087464,
+   "marmousi": 0.0
+  },
+  "outside_mask_share_of_unconfined_error_energy_increase": {
+   "note": "share of the unconfined arm's total error-energy increase over parent that is located in mask-dropped frames; reported only where the unconfined arm actually increased total error energy over parent, null otherwise",
+   "uniform": {
+    "rank8": 1.000192500218999,
+    "rank16": 1.0002237484823655,
+    "rank32": 1.0002355593901562
+   },
+   "layered": {
+    "rank8": null,
+    "rank16": null,
+    "rank32": 1.14468719912081
+   },
+   "marmousi": {
+    "rank8": null,
+    "rank16": null,
+    "rank32": null
+   },
+   "interpretation": "uniform rank16 share 1.0002 means the entire convention (iii) blow-up is located in the dropped frames; the in-mask error actually fell (delta_inside_mask = -1.4748319070326705e-15) while the out-of-mask error rose by 6.592947057507894e-12. A share slightly above 1.0 is the arithmetic consequence of the in-mask term improving at the same time."
+  },
+  "confinement_effect_on_out_of_mask_error": {
+   "delta_outside_mask_confined_is_zero_or_machine_zero_for_every_family_and_rank": true,
+   "example_uniform_rank16_confined_delta_outside_mask": -6.162975822039155e-33,
+   "meaning": "confinement restores the parent exactly outside the mask, by construction"
+  },
+  "mask_agreement_with_truth_mask": {
+   "uniform": 0.9948453608247423,
+   "layered": 0.9894736842105263,
+   "marmousi": 1.0,
+   "minimum_required": 0.9,
+   "all_pass": true,
+   "role": "supports that the parent-energy mask is a usable deployment-causal proxy; it is not a performance claim"
+  },
+  "hypothesis_H": {
+   "statement": "the convention (iii) blow-up of the unconfined masked arm is located in the mask-dropped frames",
+   "confirmed": true,
+   "families_with_an_actual_blowup_to_explain_at_rank16": [
+    "uniform"
+   ],
+   "families_without_a_blowup_at_rank16_nothing_to_explain": [
+    "layered",
+    "marmousi"
+   ],
+   "honesty_note": "H was directly confirmed at rank 16 on uniform only, because uniform is the only family whose unconfined arm increased total error energy at that rank. layered supplies a rank-32 confirmation (share 1.14468719912081). H is not confirmed on marmousi at any rank because marmousi never blows up."
+  },
+  "defective_branch_label_in_source_terminal": {
+   "terminal_label": "b_H_confirmed_but_confinement_insufficient_route_family_to_abstention",
+   "defect": "the classifier in the measured run fell through to branch (b) although branch (b)'s precondition (some family with confined convention (iii) gain < 0) was false, yielding an empty family list in its verdict string",
+   "corrected_classification": "unclassified_outside_the_three_pre_stated_branches_escalate_to_lead",
+   "panel_numbers_unmodified": true,
+   "corrected_by": "results/r4e9_mask_confined_oracle_20260826/decision_reclassification.json"
+  }
+ },
+ "acceptance": {
+  "convention": "iii_global_energy_rel_l2",
+  "declared_explicitly": true,
+  "validation_test_rel_l2_max": 0.05,
+  "inherited_from": "results/r16_dscp_v14_preregistration_20260826.json config.gates",
+  "modified": false,
+  "other_inherited_gates_unchanged": {
+   "joint_improvement": 0.01,
+   "per_family_improvement": 0.005,
+   "nonworse_records": 23,
+   "correction_energy_ratio_max": 0.35,
+   "e2e_parent_ratio_max": 1.05,
+   "traditional_speedup_mean_p95_min": 10.0,
+   "train_vram_gib_max": 8.0,
+   "inference_vram_gib_max": 6.5,
+   "adapter_mean_s_max": 0.35,
+   "adapter_p95_s_max": 0.5,
+   "artifacts_mib_max": 64,
+   "checkpoint_mib_max": 2
+  },
+  "convention_ii_status": "training proxy only; it is not an acceptance convention and no v15 acceptance claim may be made under it"
+ },
+ "failure_signals": [
+  "failed_gate",
+  "NaN/Inf",
+  "OOM",
+  "binding_drift",
+  "unsafe_disk_or_memory",
+  "budget_limit"
+ ],
+ "failure_signals_inherited_from": "results/r16_dscp_v14_preregistration_20260826.json acceptance_failure_budget_inheritance.failure_signals",
+ "budget": {
+  "inherited_from": "v14, itself inherited from the frozen v12 config",
+  "wall_gpu_budget_values_unchanged": true,
+  "long_resume_cache_rebuild_included_in_wall_and_gpu_seconds": true,
+  "long": {
+   "max_epochs": 20,
+   "one_gpu_wall_s": 7200,
+   "four_gpu_wall_s": 2700,
+   "gpu_seconds": 10800,
+   "patience": 4,
+   "final_reserve_s": 180
+  },
+  "pilot": {
+   "max_updates": 1000,
+   "wall_s": 1800
+  },
+  "smoke": {
+   "max_updates": 192,
+   "total_s": 600,
+   "training_deadline_s": 420,
+   "final_reserve_s": 180
+  }
+ },
+ "rollback": {
+  "for_this_freeze": "none required; this freeze is document-only, zero training, zero weights, zero checkpoint writes",
+  "for_future_v15_runs": "preserve parent and every protected checkpoint; no deletion",
+  "inherited_from": "results/r16_dscp_v14_preregistration_20260826.json rollback",
+  "protected_checkpoint_families_never_to_be_deleted": [
+   "A3",
+   "B2-H",
+   "Helmholtz",
+   "ASAM",
+   "CPADC"
+  ]
+ },
+ "sealed": {
+  "validation_future_wavefields": "sealed",
+  "test_id_future_wavefields": "sealed",
+  "opened_during_this_freeze": false,
+  "truth_read": false,
+  "GPU_used": false,
+  "auth_created": false,
+  "sealed_until": "a separate frozen stage authorization",
+  "no_tuning_after_validation": true,
+  "once_only": true,
+  "inherited_from": "results/r16_dscp_v14_preregistration_20260826.json sealed and sealed_split_boundary"
+ },
+ "inherited_vetoes": {
+  "note": "restated verbatim in substance from the r16_dscp line; every one of these remains in force under v15",
+  "a_no_threshold_movement_toward_measured_values": {
+   "veto": "thresholds must not be adjusted in the direction of measured values",
+   "in_force": true,
+   "tension_flag": "the post_hoc_rule_revision above is a revision of a decision rule, not of an acceptance threshold. The convention (iii) acceptance threshold 0.05 is unchanged. This distinction is recorded so the reader can judge it, not to excuse it."
+  },
+  "b_no_deployment_time_truth_in_the_mask": {
+   "veto": "the mask must not use deployment-time truth, including truth frame energy",
+   "in_force": true,
+   "v15_compliance": "m_t is computed from parent frame energy only"
+  },
+  "c_no_cross_record_or_synthetic_oracle_constants_as_acceptance_baseline": {
+   "veto": "oracle constants carried across records, or derived from panels containing synthetic samples, must not serve as an acceptance baseline",
+   "in_force": true
+  },
+  "d_smoke_loss_gate_is_not_learning_or_convergence_evidence": {
+   "veto": "the smoke loss-reduction gate must never be presented as evidence of learning or convergence",
+   "in_force": true
+  },
+  "e_no_physics_or_pde_residual_framing": {
+   "veto": "this correction must not be described as a physics residual, a PDE residual, or deployment-time truth supervision",
+   "in_force": true,
+   "what_it_actually_is": "an output-field data fit plus a feature-driven ansatz",
+   "pde_residual_used_anywhere_in_the_pipeline": false
+  },
+  "f_no_promotion_on_smoke_evidence": {
+   "veto": "smoke evidence must never promote a candidate to pilot or long",
+   "in_force": true
+  }
+ },
+ "v14_bad_gates_that_must_be_replaced": {
+  "smoke_loss_gate": {
+   "v14_defect": "the loss-reduction gate was computed across records by taking the first and last loss of the whole smoke stream, so a record ordering effect could satisfy it",
+   "v14_observed_values": {
+    "initial_loss": 1767.360107421875,
+    "final_loss": 0.5876098871231079,
+    "loss_reduction": 0.9996675211324192,
+    "threshold": 0.8
+   },
+   "required_v15_change": "compute loss reduction per-record; taking first and last across records is forbidden",
+   "status": "must_be_replaced_before_any_v15_smoke_is_scored"
+  },
+  "oracle_gain_constants": {
+   "v14_defect": "the oracle_gain baseline was a hardcoded constant not recomputed on the record being scored",
+   "voided_constants": [
+    0.2224565778,
+    0.373345452,
+    0.2978927157
+   ],
+   "required_v15_change": "the oracle gain must be recomputed on the scored record itself",
+   "status": "constants_voided; must_be_replaced_before_any_v15_scoring"
+  }
+ },
+ "v14_known_defects_to_fix": {
+  "normalized_coefficient_energy_dimensional_error": {
+   "defect": "normalized_coefficient_energy carries units of amplitude squared but is summed directly with three dimensionless ratios in the loss",
+   "v14_loss_terms": {
+    "frame_relative_l2_squared": 1.0,
+    "late_third_relative_l2_squared": 0.25,
+    "temporal_difference": 0.1,
+    "normalized_coefficient_energy": 0.0001
+   },
+   "status": "must_fix"
+  },
+  "peak_vram_gate_trivially_passes": {
+   "defect": "peak_vram_bytes was recorded as 0, which makes the VRAM gate pass trivially",
+   "evidence": "results/r16_dscp_v14/smoke/terminal.json peak_vram_bytes = 0",
+   "status": "must_fix"
+  }
+ },
+ "rank_status": {
+  "rank_used_by_v15": 16,
+  "saturated": false,
+  "rank32_minus_rank16_gain_increment_confined": {
+   "uniform": {
+    "i": 0.0003740178827499445,
+    "ii": 0.12865386562563863,
+    "iii": 0.12894642677192125
+   },
+   "layered": {
+    "i": 0.03121294308232622,
+    "ii": 0.17572311670914134,
+    "iii": 0.2730498441822988
+   },
+   "marmousi": {
+    "i": 0.12362350191435167,
+    "ii": 0.1274236268834404,
+    "iii": 0.13100884187816225
+   }
+  },
+  "rank32_minus_rank16_gain_increment_unconfined_convention_ii": {
+   "uniform": 0.13460075494594037,
+   "layered": 0.1872000337854078,
+   "marmousi": 0.1274236268834404,
+   "note": "these three values are the +0.135 / +0.187 / +0.127 figures cited in the lead ruling; they are the UNCONFINED convention (ii) increments. The confined convention (ii) increments are +0.1287 / +0.1757 / +0.1274. Both arms exceed 0.05 by a wide margin, so the conclusion is unchanged, but the arm label is recorded rather than blurred."
+  },
+  "saturation_reference_threshold": 0.05,
+  "conclusion": "rank is still an active bottleneck at rank 16 under every family and both arms",
+  "v15_choice": "v15 nevertheless uses rank 16",
+  "honesty_note": "this is a known headroom left on the table, not an optimum. Any v15 result must be read as a rank-16 result with unexhausted rank headroom."
+ },
+ "claim_boundary": {
+  "evidence_class": "train-only oracle upper bound",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "v15_trained": false,
+  "permitted_claims": [
+   "confinement removes the convention (iii) blow-up of the masked arm on the measured train records",
+   "the blow-up is located in mask-dropped frames where it was directly measurable"
+  ],
+  "forbidden_claims": [
+   "v15 meets any performance target",
+   "v15 passed a preregistered scientific gate",
+   "any speedup claim; the parent speedup is only 1.608x and the candidate must not claim 10x or faster than parent",
+   "any claim derived from training loss, sampled frames, an oracle diagnostic, or a projected trend"
+  ],
+  "oracle_is_an_upper_bound_not_an_achieved_result": true
+ },
+ "effective_bindings_verified_at_freeze": {
+  "verification_time": "immediately before writing this file",
+  "all_match": true,
+  "evidence_read_only_not_modified": true,
+  "files": [
+   {
+    "path": "results/r4e9_mask_confined_oracle_spec_20260826.md",
+    "sha256": "6846636d61f3a346d3f213bafe8056bc535da0bcaf9a3b28c4c01f84204a2923",
+    "match": true
+   },
+   {
+    "path": "results/r4e9_mask_confined_oracle_20260826/terminal.json",
+    "sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+    "match": true
+   },
+   {
+    "path": "results/r4e9_mask_confined_oracle_20260826/error_energy_splits.json",
+    "sha256": "cc8a4153a9a2255d075377f06e829f183fddde6322a1e0ec26f7a61b77fd479b",
+    "match": true
+   },
+   {
+    "path": "results/r4e9_mask_confined_oracle_20260826/decision_reclassification.json",
+    "sha256": "571b7f48fdfc308bd5dcfb31b42ca5be192f49d93ad2ae90ac7e0516ba26ccc6",
+    "match": true
+   },
+   {
+    "path": "scripts/probe_r4e9_mask_confined.py",
+    "sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+    "match": true
+   },
+   {
+    "path": "results/r4e8_masked_oracle_probe_spec_20260826.md",
+    "sha256": "ae977f2d9211f002782944cceeaa0a972d719d24f80871c23b8cbf2edf37eee6",
+    "match": true
+   },
+   {
+    "path": "scripts/probe_r4e8_masked_oracle.py",
+    "sha256": "3373b5838e49da81e5a8e2a3bada3e236aa7855d4bcdcd149cd4e1233900b485",
+    "match": true
+   }
+  ]
+ },
+ "parent": {
+  "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+  "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "size_bytes": 339775310,
+  "writes_during_this_freeze": 0,
+  "direct_rehash_performed": true,
+  "direct_rehash_blocker": "resolved: the worker session could not reach the path; the lead session recomputed it directly and it matches",
+  "why_this_is_not_a_drift_finding": "this freeze performed zero training, zero GPU work and zero checkpoint writes, so there is no mechanism by which it could have altered the parent; the unverified state is a measurement gap, not evidence of drift",
+  "last_independent_attestation": {
+   "source": "results/r4e9_mask_confined_oracle_20260826/terminal.json checkpoint_attestation",
+   "rollback_sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+   "rollback_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+   "unchanged": true,
+   "writes": 0
+  },
+  "required_before_any_v15_launch": "recompute the parent sha256 in an execution context that can reach the path, and stop on any drift",
+  "direct_rehash_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "direct_rehash_matches_expected": true,
+  "direct_rehash_size_bytes": 339775310,
+  "direct_rehash_context": "recomputed by the lead session, which can reach the path outside the project working directory",
+  "direct_rehash_utc": "2026-08-26T07:21:49Z"
+ },
+ "training_and_resource_attestation": {
+  "gradient_steps": 0,
+  "backward_used": false,
+  "optimizer_used": false,
+  "checkpoints_written": 0,
+  "cuda_used": false,
+  "gpu_used": false,
+  "authorizations_created": false,
+  "existing_files_modified": 0,
+  "files_deleted": 0,
+  "files_created": 2,
+  "workspace_free_at_freeze": "12G on /dev/md0 at /root/autodl-tmp"
+ },
+ "protected_paths_not_touched": [
+  "results/r16_dscp_v14/",
+  "the 16 files bound by the frozen v14 preregistration",
+  "results/r4e8_masked_oracle_probe_20260826/",
+  "results/r4e9_mask_confined_oracle_20260826/"
+ ],
+ "next_step_authorization_required": {
+  "v15_may_not_proceed_to_smoke_pilot_or_long_on_this_document_alone": true,
+  "required_before_any_run": [
+   "replace the per-record smoke loss gate",
+   "recompute oracle gain on the scored record and void the three hardcoded constants",
+   "fix the normalized_coefficient_energy dimensional inconsistency",
+   "fix peak_vram_bytes so the VRAM gate is non-trivial",
+   "obtain a fresh lead authorization that explicitly acknowledges the post_hoc_rule_revision recorded here",
+   "re-verify all bindings immediately before launch (the parent sha256 was directly recomputed at freeze time and matched)"
+  ]
+ }
+}

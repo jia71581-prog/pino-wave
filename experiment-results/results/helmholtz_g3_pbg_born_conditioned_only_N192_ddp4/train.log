@@ -1,0 +1,170 @@
+{"agg": 0.04106464259149871, "family": {"layered": 0.0778448964568277, "marmousi": 0.04423424303282589, "uniform": 0.0011147882848425465}, "update": 0}
+^C[2026-08-04 17:59:49,526] torch.distributed.elastic.agent.server.api: [WARNING] Received Signals.SIGINT death signal, shutting down workers
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 755, in <module>
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 755, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 657, in main
+    components = _train_update(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2268, in _train_update
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 657, in main
+    components = _train_update(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2268, in _train_update
+    checkpoint(forward, *inputs, use_reentrant=False)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 328, in _fn
+    checkpoint(forward, *inputs, use_reentrant=False)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_compile.py", line 24, in inner
+        return torch._dynamo.disable(fn, recursive)(*args, **kwargs)return fn(*args, **kwargs)
+
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 328, in _fn
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 458, in checkpoint
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 458, in checkpoint
+        ret = function(*args, **kwargs)ret = function(*args, **kwargs)
+
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2138, in forward
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2138, in forward
+        prediction, coarse = model.dense_normalized_with_coarse(prediction, coarse = model.dense_normalized_with_coarse(
+
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 514, in dense_normalized_with_coarse
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 514, in dense_normalized_with_coarse
+    corrected, coarse, _ = self.dense_normalized_with_coarse_and_routing(    
+corrected, coarse, _ = self.dense_normalized_with_coarse_and_routing(  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 595, in dense_normalized_with_coarse_and_routing
+
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 595, in dense_normalized_with_coarse_and_routing
+    self._dense_block_with_coarse_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 469, in _dense_block_with_coarse_and_routing
+    self._dense_block_with_coarse_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 469, in _dense_block_with_coarse_and_routing
+    self._dense_block_with_anchor_increment_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 419, in _dense_block_with_anchor_increment_and_routing
+    self._dense_block_with_anchor_increment_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 379, in _dense_block_with_anchor_increment_and_routing
+    self.dense_decoder.forward_with_anchor_increment_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/decoder.py", line 352, in forward_with_anchor_increment_and_routing
+    saved_time_indices = self.saved_time_grid.indices(time_s)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/time_grid.py", line 52, in indices
+    if not bool(torch.isfinite(values).all()):
+KeyboardInterrupt
+    shared = self.stack(flat)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/spectral.py", line 349, in forward
+    hidden = checkpoint(block, hidden, use_reentrant=False)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_compile.py", line 24, in inner
+    return torch._dynamo.disable(fn, recursive)(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_dynamo/eval_frame.py", line 328, in _fn
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_dynamo/external_utils.py", line 17, in inner
+    return fn(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 458, in checkpoint
+    ret = function(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/spectral.py", line 289, in forward
+    spectral_latent = self.spectral(projected)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/spectral.py", line 92, in forward
+    return self._transform_x(real_value) + self._transform_z(real_value)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/spectral.py", line 83, in _transform_z
+    return torch.fft.irfft(z_output, n=height, dim=-2, norm=self.fft_norm)
+KeyboardInterrupt
+[2026-08-04 17:59:49,533] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 629476 closing signal SIGINT
+[2026-08-04 17:59:49,534] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 629477 closing signal SIGINT
+[2026-08-04 17:59:49,534] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 629479 closing signal SIGINT
+Exception ignored in atexit callback: <function _MultiProcessingDataLoaderIter._clean_up_worker at 0x7fa33489d240>
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1472, in _clean_up_worker
+[2026-08-04 17:59:49,534] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 629480 closing signal SIGINT
+Exception ignored in atexit callback: <function _MultiProcessingDataLoaderIter._clean_up_worker at 0x7fe0fe895240>
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/data/dataloader.py", line 1472, in _clean_up_worker
+        w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+
+  File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 149, in join
+  File "/root/miniconda3/lib/python3.10/multiprocessing/process.py", line 149, in join
+        res = self._popen.wait(timeout)res = self._popen.wait(timeout)
+
+  File "/root/miniconda3/lib/python3.10/multiprocessing/popen_fork.py", line 40, in wait
+  File "/root/miniconda3/lib/python3.10/multiprocessing/popen_fork.py", line 40, in wait
+        if not wait([self.sentinel], timeout):if not wait([self.sentinel], timeout):
+
+  File "/root/miniconda3/lib/python3.10/multiprocessing/connection.py", line 936, in wait
+  File "/root/miniconda3/lib/python3.10/multiprocessing/connection.py", line 936, in wait
+    ready = selector.select(timeout)
+  File "/root/miniconda3/lib/python3.10/selectors.py", line 416, in select
+    ready = selector.select(timeout)
+  File "/root/miniconda3/lib/python3.10/selectors.py", line 416, in select
+    fd_event_list = self._selector.poll(timeout)
+    KeyboardInterruptfd_event_list = self._selector.poll(timeout): 
+KeyboardInterrupt
+: 
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 755, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 657, in main
+    components = _train_update(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2057, in _train_update
+    background_physical = background_provider.full_physical(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/background_field.py", line 91, in full_physical
+    return self._cache.read(samples, requested).to(device=device, dtype=dtype)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/multifidelity.py", line 196, in read
+    values = np.asarray(dataset[row, columns], dtype=np.float32)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/root/miniconda3/lib/python3.10/site-packages/h5py/_hl/dataset.py", line 872, in __getitem__
+    return self._fast_reader.read(args)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 755, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_helmholtz_g3_heldout.py", line 657, in main
+    components = _train_update(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2057, in _train_update
+    background_physical = background_provider.full_physical(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/background_field.py", line 91, in full_physical
+    return self._cache.read(samples, requested).to(device=device, dtype=dtype)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/multifidelity.py", line 196, in read
+    values = np.asarray(dataset[row, columns], dtype=np.float32)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/root/miniconda3/lib/python3.10/site-packages/h5py/_hl/dataset.py", line 872, in __getitem__
+    return self._fast_reader.read(args)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 736, in run
+    result = self._invoke_run(role)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 877, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 629405 got signal: 2

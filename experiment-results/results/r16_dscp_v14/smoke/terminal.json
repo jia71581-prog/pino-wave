@@ -1,0 +1,245 @@
+{
+  "access_ledger_digest": "ae094b910a7736946b69491b46779192854d7e7f97fe702e385b0bd1594670bc",
+  "cache": {
+    "capacity": 3,
+    "current_bytes": 595030860,
+    "hits": 420,
+    "misses": 3,
+    "peak_bytes": 595030860,
+    "peak_items": 3,
+    "role": "smoke",
+    "serialization": false
+  },
+  "candidate": "r16_dscp_v14",
+  "checkpoint": {
+    "best": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v14/smoke/best.pt",
+    "hardlinked": true,
+    "last": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v14/smoke/last.pt",
+    "size_bytes": 38704
+  },
+  "decision": "fail_gate",
+  "early_stop": false,
+  "effective": {
+    "authorization_sha256": "3cc2506cb2c41609ae1cbe6870ea8d1c53c12767ff28c803806833eceafbca37",
+    "basis_sha256_effective": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+    "candidate": "r16_dscp_v14",
+    "config_sha256_effective": "8855e0470ac5ec27f52b95d8c43e4234338ac7417deb52e8552a36c816fe46c8",
+    "engine_sha256": "dbf781d1e09fbd035f3993b541db391bde15be06b169eceb8b17e12ff7e74f79",
+    "identity_digest": "84d3a76f0e5b1e6db9c3a1fd81439290762097ad3f0f6c7df85d646c305abb4b",
+    "input_checkpoint_sha256": "none",
+    "mode": "smoke",
+    "panels_sha256_effective": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+    "parent_sha256_effective": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "run_digest": "e2434ac48bc1e8f72dcc3db8d690103f9c69482924604f43af33bf1eaf1e9023",
+    "schema": "r16_dscp_v14_checkpoint_identity_v1",
+    "script_sha256": "7dd54a7b59f7916e86d5ebbd4d4dfb469be512918e5571b4f287f9e273253df1"
+  },
+  "gates": {
+    "aggregate_nonworse": {
+      "passed": false
+    },
+    "checkpoint": {
+      "passed": true,
+      "threshold": 2097152,
+      "value": 38704
+    },
+    "finite": {
+      "passed": true
+    },
+    "loss": {
+      "passed": true,
+      "threshold": 0.8,
+      "value": 0.9996675211324192
+    },
+    "oracle_gain": {
+      "passed": false,
+      "threshold_fraction": 0.5,
+      "value": {
+        "layered": 0.07658777661385852,
+        "marmousi": 0.008083538464512147,
+        "uniform": -0.3052149223853815
+      }
+    },
+    "space": {
+      "passed": true
+    },
+    "vram": {
+      "passed": true,
+      "threshold": 8589934592,
+      "value": 0
+    },
+    "wall": {
+      "passed": true,
+      "threshold": 600.0,
+      "value": 136.88348951004446
+    }
+  },
+  "latency": {
+    "adapter": {
+      "mean_s": 0.023373332937558496,
+      "p95_s": 0.06734966278076172
+    },
+    "e2e": {
+      "mean_s": 15.781363951325417,
+      "p95_s": 16.120971061706545
+    },
+    "feature": {
+      "mean_s": 0.13712733713785807,
+      "p95_s": 0.16280303955078124
+    },
+    "finite": true,
+    "parent": {
+      "mean_s": 15.620863281250001,
+      "p95_s": 15.890818359375
+    },
+    "spool_io_excluded": {
+      "mean_s": 0.26235216275067386,
+      "p95_s": 0.26712521362304686
+    }
+  },
+  "lineage": {
+    "authorization_sha256": "3cc2506cb2c41609ae1cbe6870ea8d1c53c12767ff28c803806833eceafbca37",
+    "basis_sha256_effective": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+    "candidate": "r16_dscp_v14",
+    "config_sha256_effective": "8855e0470ac5ec27f52b95d8c43e4234338ac7417deb52e8552a36c816fe46c8",
+    "engine_sha256": "dbf781d1e09fbd035f3993b541db391bde15be06b169eceb8b17e12ff7e74f79",
+    "identity_digest": "84d3a76f0e5b1e6db9c3a1fd81439290762097ad3f0f6c7df85d646c305abb4b",
+    "input_checkpoint_sha256": "none",
+    "mode": "smoke",
+    "panels_sha256_effective": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+    "parent_sha256_effective": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "run_digest": "e2434ac48bc1e8f72dcc3db8d690103f9c69482924604f43af33bf1eaf1e9023",
+    "schema": "r16_dscp_v14_checkpoint_identity_v1",
+    "script_sha256": "7dd54a7b59f7916e86d5ebbd4d4dfb469be512918e5571b4f287f9e273253df1"
+  },
+  "metrics": {
+    "family_gain": {
+      "layered": 0.07658777661385852,
+      "marmousi": 0.008083538464512147,
+      "uniform": -0.3052149223853815
+    },
+    "final_loss": 0.5876098871231079,
+    "initial_loss": 1767.360107421875,
+    "loss_reduction": 0.9996675211324192,
+    "records": [
+      {
+        "abstain": false,
+        "aggregate_rel_l2": 0.08162394850193978,
+        "candidate_file_sha256": "ce729ac6fe7ef173620f59b7c4255501677b36358aac18c4f6bf9c010cff4aa7",
+        "condition": 1.001455277504486,
+        "correction_energy_ratio": 0.0007498879711616216,
+        "family": "uniform",
+        "finite": true,
+        "ledger_digest": "c342cb24efa21c403062d6c067cf39c923b12f16098b3f28e1acfb10d23bec3e",
+        "mean_frame_rel_l2": 22.086942672729492,
+        "nonworse": false,
+        "parent_mean_frame_rel_l2": 16.922073364257812,
+        "parent_rel_l2": 0.07599340666921081,
+        "parent_spectrum_bands": {
+          "high": 0.13870279490947723,
+          "low": 0.07801245152950287,
+          "mid": 0.1879989355802536
+        },
+        "parent_time_bands": {
+          "early": 0.12803451716899872,
+          "late": 49.21660614013672,
+          "mid": 1.1712356805801392
+        },
+        "sample_id": "train_uniform_00321",
+        "spectrum_bands": {
+          "high": 0.14817412197589874,
+          "low": 0.08425602316856384,
+          "mid": 0.19069904088974
+        },
+        "time_bands": {
+          "early": 0.1302546113729477,
+          "late": 63.519168853759766,
+          "mid": 2.2902231216430664
+        },
+        "training_only": true
+      },
+      {
+        "abstain": false,
+        "aggregate_rel_l2": 0.10639124268980174,
+        "candidate_file_sha256": "403a6523301aacbf41416e5d92a6c04eb46dc14c869b2f430d70298031b0b62e",
+        "condition": 1.0321868716619884,
+        "correction_energy_ratio": 0.00045011346208292816,
+        "family": "layered",
+        "finite": true,
+        "ledger_digest": "f211d4595c5aefaa86fc9093b638484a0be148b556c50bf8c6b9894c6ecb509c",
+        "mean_frame_rel_l2": 0.44020068645477295,
+        "nonworse": true,
+        "parent_mean_frame_rel_l2": 0.4767109155654907,
+        "parent_rel_l2": 0.10511581692492555,
+        "parent_spectrum_bands": {
+          "high": 0.20048904418945312,
+          "low": 0.10527366399765015,
+          "mid": 0.22823680937290192
+        },
+        "parent_time_bands": {
+          "early": 0.2294294685125351,
+          "late": 0.9984172582626343,
+          "mid": 0.20033888518810272
+        },
+        "sample_id": "train_layered_00564",
+        "spectrum_bands": {
+          "high": 0.2046452760696411,
+          "low": 0.10666211694478989,
+          "mid": 0.2290874868631363
+        },
+        "time_bands": {
+          "early": 0.22948597371578217,
+          "late": 0.8976590633392334,
+          "mid": 0.19179783761501312
+        },
+        "training_only": true
+      },
+      {
+        "abstain": false,
+        "aggregate_rel_l2": 0.5955877262247671,
+        "candidate_file_sha256": "fd57f94f5b8972fcba1e7850eaf71b986ae0bc1fcab1667400389eee7fc628e1",
+        "condition": 1.0000006488473598,
+        "correction_energy_ratio": 0.00924973493001376,
+        "family": "marmousi",
+        "finite": true,
+        "ledger_digest": "11eb2faab17fdd3cc8caf71db6cbbb15f727205b3428cda1029f1713589f3f2d",
+        "mean_frame_rel_l2": 0.5566961765289307,
+        "nonworse": true,
+        "parent_mean_frame_rel_l2": 0.5612329244613647,
+        "parent_rel_l2": 0.6014077452489908,
+        "parent_spectrum_bands": {
+          "high": 0.9420046806335449,
+          "low": 0.5911673307418823,
+          "mid": 0.7106941938400269
+        },
+        "parent_time_bands": {
+          "early": 0.2943724989891052,
+          "late": 0.760039210319519,
+          "mid": 0.627757728099823
+        },
+        "sample_id": "train_marmousi_00385",
+        "spectrum_bands": {
+          "high": 0.941136360168457,
+          "low": 0.5848910808563232,
+          "mid": 0.7107587456703186
+        },
+        "time_bands": {
+          "early": 0.29437172412872314,
+          "late": 0.7460784912109375,
+          "mid": 0.628181517124176
+        },
+        "training_only": true
+      }
+    ]
+  },
+  "mode": "smoke",
+  "parent": {
+    "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789"
+  },
+  "peak_vram_bytes": 0,
+  "rollback": "zero_grad_cleanup_owned_spool_preserve_run_best_last_log_never_touch_protected_never_fake_success",
+  "schema": "r16_dscp_v14_smoke_terminal_v1",
+  "status": "fail_gate",
+  "total_s": 136.88352057151496,
+  "updates": 192
+}

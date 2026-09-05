@@ -1,0 +1,78 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb64_pbg_marm_r27_stratified_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_marmousi_background_distillation_stratified_panel_ablation",
+  "hypothesis": "The r26 calibration failure is amplified by sequential medium-group extrapolation. Deterministically stratifying the same 12/12/12 record budget across all 700 train/Marmousi backgrounds will lower all-saved calibration and confirmation relative L2 by at least 30% versus r26 while preserving fit performance.",
+  "literature_basis": "Operator generalization requires representative function-space coverage; this ablation tests support geometry without changing architecture, target, loss, optimizer, or record count.",
+  "expected_mechanism": "Seeded family-local permutation distributes source positions and smoothed-medium groups across fit, calibration, and confirmation, converting ordered extrapolation into within-distribution interpolation while maintaining record-level disjointness.",
+  "single_conceptual_variable": {
+    "name": "panel_selection",
+    "parent": "sequential after anchor skip",
+    "candidate": "seeded stratified_random after anchor skip"
+  },
+  "primary_metric": "maximum all-saved Marmousi relative L2 across fit/calibration/confirmation",
+  "acceptance": {
+    "target_gate_max": 0.05,
+    "advancement_gate_calibration_max": 0.83265,
+    "advancement_gate_confirmation_max": 0.83643,
+    "fit_nonregression_max": 0.7941
+  },
+  "panels": {
+    "split": "train",
+    "families": ["marmousi"],
+    "selection": "stratified_random",
+    "seed": 372,
+    "skip_records_per_family": 1,
+    "fit_records_per_family": 12,
+    "calibration_records_per_family": 12,
+    "confirmation_records_per_family": 12,
+    "mutually_disjoint": true,
+    "anchor_excluded": "train_marmousi_00000"
+  },
+  "fixed": {
+    "parent": "r19/update_0900.pt",
+    "target": "sigma-2 cached P_bg",
+    "frequency_bins": 64,
+    "updates_max": 2000,
+    "evaluate_every": 250,
+    "evaluation_frames": 32,
+    "dense_learning_rate": 0.00002,
+    "backbone_learning_rate": 0.00001,
+    "local_field_learning_rate": 0.00002
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt",
+    "checkpoint_sha256": "f8327d4fb0853f4e0a11446ecd7864ebbfb577ef902dbe5c041c2be633cb2629",
+    "identity": "results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json",
+    "identity_sha256": "3b82a656432c76677800919eb3819369acb0f05f4065c51e1f0d46743d119e6a"
+  },
+  "background_target_shards": {
+    "shard-0.h5": "71693f6175c7f36d2bcc540053f64e786878582d7fdcf3b32b7864bf037b3bcc",
+    "shard-1.h5": "fb9511335bb2c3c26162bc3bf0e1e7716b76f4b1740ca4cd57db9baedec3e58b",
+    "shard-2.h5": "9a332219e0482be9aea49ad78272fae231c2aeec4a4887b3ecfaabd1df78b067",
+    "shard-3.h5": "ebf7b2d6957fefa8af4771b7d53bb9ad63e329084b73731c44dab502de2359ef"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "failure_signal": "Any non-finite update, binding failure, peak CUDA above 4 GiB, or failure of the preregistered 30% calibration/confirmation improvement rejects panel ordering as the main cause.",
+  "compute_budget": {
+    "gpus": 1,
+    "updates_max": 2000,
+    "wall_ceiling_minutes": 45,
+    "gpu_memory_max_bytes": 4294967296
+  },
+  "bindings": {
+    "training_script_sha256": "56cbe4a2c673190c3f191f5275e0b2be3e37b202c45da56b929d948bf5466f36",
+    "evaluator_sha256": "c7f4617d47b02014311485277dce59674f0aa23528fb062e599af87011c6ed2e",
+    "panel_test_sha256": "408370986d42f76015b0e27c28a6022924d8394c4abc266670aab26bec9f571a",
+    "r26_terminal_sha256": "1bb786ae16d3b9929797d4d2d6407bcf5ae49b4f4a4b22250c4912bdb3658624",
+    "tests": "15 passed"
+  },
+  "rollback": "Preserve r19/r24-r26 and all protected checkpoints; if rejected, scale train support under the stratified protocol without opening validation/test_id.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb64_pbg_marm_r27_stratified_20260823 --preregistration results/wkb64_pbg_marm_r27_stratified_preregistration_20260823.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt --parent-identity results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --panel-families marmousi --panel-selection stratified_random --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-0.h5 --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-1.h5 --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-2.h5 --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-3.h5 --fit-records-per-family 12 --calibration-records-per-family 12 --confirm-records-per-family 12 --skip-records-per-family 1 --updates 2000 --evaluate-every 250 --evaluation-frames 32 --dense-learning-rate 2e-5 --backbone-learning-rate 1e-5 --local-field-learning-rate 2e-5 --family-gradient-weights uniform:1,layered:1,marmousi:1 --target-relative-l2 0.05 --seed 372"
+}

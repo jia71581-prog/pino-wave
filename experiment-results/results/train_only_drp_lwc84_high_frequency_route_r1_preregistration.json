@@ -1,0 +1,69 @@
+{
+  "schema": "train_only_drp_lwc84_high_frequency_route_preregistration_v1",
+  "registered_at_utc": "2026-08-12T10:00:24Z",
+  "status": "registered_before_confirmation",
+  "hypothesis": "A deployment-visible frequency route that selects DRP-0.45 only for f0 at or above 24 Hz and otherwise keeps Taylor-8 robustly lowers high-frequency train-only Marmousi error on medium groups excluded from both earlier DRP experiments.",
+  "expected_mechanism": "The rejected full-band confirmation showed a sign change: small low-frequency regressions but strong improvements from 24 Hz upward. Routing on the known source frequency preserves the formal low-band baseline and applies the lower-band optimized spatial symbol only where dispersion dominates.",
+  "one_conceptual_change": "Restrict the already fixed DRP-0.45 candidate to a fixed f0 >= 24 Hz route; coefficients, time step, CPML, solver, and metric remain unchanged.",
+  "parent_evidence": {
+    "full_band_confirmation": "results/train_only_drp_lwc84_confirmation_r1.json",
+    "full_band_confirmation_sha256": "2b4a52df27a015893f0f8456565fb2fd0dcfe00268e73f504e57678b0e570e69",
+    "full_band_status": "rejected",
+    "full_band_relative_improvement": 0.12689144233451435,
+    "full_band_paired_win_fraction": 0.5416666666666666,
+    "f0_ge_28_relative_improvement": 0.2398168206327608,
+    "route_threshold_hz": 24.0,
+    "threshold_selection_rule": "The first frequency in the disjoint full-band confirmation at which paired DRP improvement became persistent; frozen before this third-group confirmation."
+  },
+  "data_contract": {
+    "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/dataset_v5_dt1e5_t401_mixed.h5",
+    "dataset_byte_count": 215599,
+    "dataset_sha256": "2dd814839ee51c59a28f55cdf12b40a92c99da5616535a6573b218d3b48092a8",
+    "required_split": "train",
+    "required_family": "marmousi",
+    "required_f0_hz_minimum": 24.0,
+    "record_count": 24,
+    "medium_group_count": 24,
+    "selection": "Stable f0 quantiles over f0 >= 24 Hz after excluding every medium group used by the pilot and full-band confirmation, with one record per group.",
+    "selected_source_indices": [2434, 2659, 2107, 2796, 2349, 2201, 2271, 2712, 2585, 2135, 2306, 2417, 2249, 2295, 2367, 2697, 2441, 2576, 2227, 2545, 2637, 2662, 2410, 2686],
+    "selected_f0_hz": [24.05354504581001, 24.39009328973939, 24.606242416131728, 24.865505861511775, 25.091043475959307, 25.386669624895895, 25.656407349703255, 25.865468822683095, 26.0651446434451, 26.208412092750056, 26.536226940785397, 26.76441216249946, 27.078881803389883, 27.301126845803253, 27.556425350931715, 27.759035190968458, 28.082326268346733, 28.31549235736297, 28.614922263474746, 28.929092904588423, 29.18196466374483, 29.411791257456432, 29.645210418204623, 29.903126189710267],
+    "expected_sample_sha256": ["13d69370e773f215f7d4d0e71027c2fb0ea153af0ae99108ce5df5e582d8c0f7", "4e89a096780e35cf71b1cb5c6a08760dc8a6bc4cc55342b977af422bda350503", "0f2bba7a98052fb045f7041a9406e86dc7b5a4a97a56eaa635e2a2fcf4d28448", "97fecd708e110f9c96ac4000c9529fee683d6d58d7d154547863d39eaa56e765", "6c9cb5d4b6b92fde5b915004d9681bdd6e0c4b0bd7cd910f20bd36836e1e0c70", "7a9e1e60f86ad6363bbca6835cdad50e9a42c6a85bd60da352e08c80d5f4e7a0", "8620aa1140bdf9057c081b15a2f4f62cdc4d5f2119b06c3553a6b1b18ec8a93c", "916772bce21246b0145bd3c4677bc7d1e08d59c9555f1911c2e92f6d26b73a74", "18b2022ab64b4728fa24bb9a85d05d7c903f3e9493bd1e648d434619f5c84a44", "13b0d0adb80034ea5f3e2e3789417bcc491671d1a93093ffb79fbb37e6e33aa9", "6e42c7c10c94b7ee3c32b9097d8daf6e2e8e892a52697091e614d98da2b51211", "18bc21f321c286eea5688d2cf15046c11624f833ed85f365110586a55dcb6cad", "079366e50374e0a1a5d2b28eb331103c1e50ce7cb50cacfd35518000ad4c02b0", "18956c0a5f92de3e103ba57fce32cb7f3ce1696605d3b94398832f41fbe764e4", "39066225fef787b14e2ffabf12abf943b95582a570e7f025da52d4e325ae749e", "35e94d86882e3053b64a830d6c2284d30927338bd9139ea371a69716f6909730", "d6c9da66d4da497f4cdbb0734b9ac9645118f6517054384749d37f385d16d340", "4a5b44ee25d32a664884528d3de3d2cbd4f259357f2f67dd078201ef954e4c55", "e8962ce907de731dda95d7959c1de90a17b52570fd87af026627deb2a97103ea", "d1192d88be6ef3e82c531d76838393a0c3dc5a5744b1b1ed1743badfcdaa1931", "9d4cd8d40b2e4ae09f76cb350cb572f1e4a06601a399324d900e23209cf3f829", "632e0de18e5a1084943e755707a2caf10ec2e10e9d0ea39024ce64f45b4828bc", "359d4972e9149eeff60ed23621a58a480c7f813592efef85cbaff9595467e4bd", "eaa92657c804faaf6f71e215111c92624f3f82ff8348b8bb2bad4bf8f04b17b8"],
+    "excluded_source_indices": [2480, 2291, 2774, 2198, 2534, 2157, 2293, 2734, 2550, 2526, 2122, 2214, 2386, 2446, 2114, 2151, 2269, 2334, 2231, 2168, 2488, 2626, 2736, 2429, 2262, 2391, 2540, 2184, 2783, 2339, 2624],
+    "exclusion_semantics": "No selected medium group may overlap any excluded source index medium group; all physical sample hashes are recomputed before solving."
+  },
+  "confirmation_contract": {
+    "variants": ["standard_taylor8", "drp_candidate_0.45"],
+    "deployable_route": "Use DRP-0.45 when source_f0_hz >= 24.0, otherwise Taylor-8.",
+    "internal_dt_s": 0.00025,
+    "npml": 20,
+    "c_ref_mps": 6750.0,
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "threads": 32,
+    "compute_budget": "48 CPU solves, expected wall time about 20 minutes",
+    "primary_metric": "paired mean relative L2 improvement within the registered routed high-frequency stratum",
+    "promotion_gates": {
+      "mean_relative_improvement_minimum": 0.10,
+      "paired_win_fraction_minimum": 0.80,
+      "maximum_absolute_single_record_regression": 0.005,
+      "maximum_error_nonworse": true
+    },
+    "failure_signal": "Any promotion gate fails, any nonfinite solve occurs, any digest differs, or any selected medium group overlaps either prior DRP experiment.",
+    "rollback": "Keep Taylor-8 for all frequencies and do not carry the DRP route into a frozen holdout."
+  },
+  "code_sha256": {
+    "scripts/confirm_train_only_drp_lwc84.py": "be067323cbe04aed645ecdb73c175c12857ccb809047f6b18eff0f823964abf5",
+    "tests/test_train_only_drp_confirmation.py": "9088cf2f410e3e9d271063e2d2381172eaee97bc3d3aaae37f9e9e49a8ec477d",
+    "src/fno_acoustic/numerics/drp_coefficients.py": "0a5cfe4c0b298dbba760862bf8db86761aa56991cd50ddb2d8c80dfc5ffa0f1b",
+    "src/fno_acoustic/data_generation/stencils.py": "0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c",
+    "src/fno_acoustic/data_generation/lwc84.py": "ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118",
+    "src/fno_acoustic/data_generation/cpml.py": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f",
+    "src/fno_acoustic/data_generation/solver_lwc84.py": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad"
+  },
+  "frozen_holdout_truth_status_at_registration": "not_generated",
+  "prohibited_uses": [
+    "No validation or test_id wavefield may be read during route confirmation.",
+    "No target5 frozen truth may be generated until all deployable algorithm choices and evaluation hashes are frozen.",
+    "A passing route result is train-only evidence and cannot establish the 5 percent or 10x target."
+  ]
+}

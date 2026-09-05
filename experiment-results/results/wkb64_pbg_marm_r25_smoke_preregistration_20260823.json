@@ -1,0 +1,71 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb64_pbg_marm_r25_smoke_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_marmousi_background_distillation_operational_smoke",
+  "hypothesis": "The WKB coefficient trainer can replace source truth with the complete cached train-only sigma-2 smoothed-background field, preserve disjoint fit/calibration/confirmation access, execute one update, and remain below 4 GiB peak CUDA allocation.",
+  "expected_mechanism": "The cache provider supplies exact P_bg frames by sample_id and saved-time index while the existing full-trace coefficient objective and query-invariant evaluator remain unchanged.",
+  "single_conceptual_variable": {
+    "name": "supervision_target",
+    "parent": "complete source wavefield",
+    "candidate": "complete train-only sigma-2 smoothed-background P_bg"
+  },
+  "accuracy_selection_allowed": false,
+  "operational_acceptance": {
+    "process_exit_code": 0,
+    "updates_completed": 1,
+    "panel_family": "marmousi",
+    "panels_disjoint": true,
+    "confirmation_opened_only_after_checkpoint_freeze": true,
+    "validation_opened": false,
+    "test_id_opened": false,
+    "peak_cuda_bytes_max": 4294967296,
+    "terminal_and_binding_hashes_present": true
+  },
+  "panels": {
+    "split": "train",
+    "families": ["marmousi"],
+    "skip_records_per_family": 1,
+    "fit_records_per_family": 1,
+    "calibration_records_per_family": 1,
+    "confirmation_records_per_family": 1
+  },
+  "training": {
+    "updates": 1,
+    "evaluate_every": 1,
+    "evaluation_frames": 32,
+    "frequency_bins": 64,
+    "dense_learning_rate": 0.00002,
+    "backbone_learning_rate": 0.00001,
+    "local_field_learning_rate": 0.00002,
+    "seed": 372
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt",
+    "checkpoint_sha256": "f8327d4fb0853f4e0a11446ecd7864ebbfb577ef902dbe5c041c2be633cb2629",
+    "identity": "results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json",
+    "identity_sha256": "3b82a656432c76677800919eb3819369acb0f05f4065c51e1f0d46743d119e6a"
+  },
+  "background_target_shards": {
+    "shard-0.h5": "71693f6175c7f36d2bcc540053f64e786878582d7fdcf3b32b7864bf037b3bcc",
+    "shard-1.h5": "fb9511335bb2c3c26162bc3bf0e1e7716b76f4b1740ca4cd57db9baedec3e58b",
+    "shard-2.h5": "9a332219e0482be9aea49ad78272fae231c2aeec4a4887b3ecfaabd1df78b067",
+    "shard-3.h5": "ebf7b2d6957fefa8af4771b7d53bb9ad63e329084b73731c44dab502de2359ef"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "bindings": {
+    "training_script_sha256": "c427565f7e5b1a378a459b3c01608427f5c024ef3f58dcc5d630a3abb73a7c20",
+    "evaluator_sha256": "c7f4617d47b02014311485277dce59674f0aa23528fb062e599af87011c6ed2e",
+    "diagnostic_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8",
+    "panel_test_sha256": "e47f719283adb61a93e6ffd25126fa02451ff4ab10751f025c3973c28376b07e",
+    "coefficient_test_sha256": "445aca172c9b6255b6d87a0afcbc8439dc3e1712f126d880d3cc014314e50e3f",
+    "tests": "18 passed"
+  },
+  "rollback": "Preserve the r19 parent and all protected checkpoints; reject P_bg distillation before a full run if target replacement, access ordering, bindings, or memory fail.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb64_pbg_marm_r25_smoke_20260823 --preregistration results/wkb64_pbg_marm_r25_smoke_preregistration_20260823.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt --parent-identity results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --panel-families marmousi --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-0.h5 --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-1.h5 --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-2.h5 --target-background-cache-shard /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/background_pbg_sigma2_marm700_full401/shard-3.h5 --fit-records-per-family 1 --calibration-records-per-family 1 --confirm-records-per-family 1 --skip-records-per-family 1 --updates 1 --evaluate-every 1 --evaluation-frames 32 --dense-learning-rate 2e-5 --backbone-learning-rate 1e-5 --local-field-learning-rate 2e-5 --family-gradient-weights uniform:1,layered:1,marmousi:1 --target-relative-l2 0.05 --seed 372"
+}

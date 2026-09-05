@@ -1,0 +1,40 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 3014, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 3001, in main
+    return _run(config, args)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2688, in _run
+    last_loss_components = _train_update(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2123, in _train_update
+    (loss * family_scale * field_piece_weight).backward()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/_tensor.py", line 492, in backward
+    torch.autograd.backward(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/autograd/__init__.py", line 251, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1071, in unpack_hook
+    frame.recompute_fn(*args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/utils/checkpoint.py", line 1194, in recompute_fn
+    fn(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 1857, in forward
+    prediction, coarse = model.dense_normalized_with_coarse(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 351, in dense_normalized_with_coarse
+    corrected, coarse, _ = self.dense_normalized_with_coarse_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 387, in dense_normalized_with_coarse_and_routing
+    self._dense_block_with_coarse_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 313, in _dense_block_with_coarse_and_routing
+    self._dense_block_with_anchor_increment_and_routing(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py", line 253, in _dense_block_with_anchor_increment_and_routing
+    coarse = coarse + self.local_field(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/local_field.py", line 260, in forward
+    rendered = self.unet(flat)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/local_field.py", line 111, in forward
+    h = block(torch.cat((h, skip), dim=1))
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacty of 23.52 GiB of which 6.69 MiB is free. Including non-PyTorch memory, this process has 23.50 GiB memory in use. Of the allocated memory 22.97 GiB is allocated by PyTorch, and 88.80 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF

@@ -1,0 +1,61 @@
+{
+  "aggregate_relative_l2": 0.18727691686376932,
+  "device": "cpu",
+  "family_relative_l2": {
+    "layered": 0.24961172843714358,
+    "marmousi": 0.1453795731785815,
+    "uniform": 0.2898451930691538
+  },
+  "internal_dt_s": 0.000625,
+  "measurements": [
+    {
+      "best_scalar": 0.9099069916956622,
+      "family": "uniform",
+      "relative_l2": 0.2898451930691538,
+      "runtime_s": 3.112659730017185,
+      "sample_id": "train_uniform_00397",
+      "scalar_aligned_relative_l2_diagnostic": 0.2737540431764912,
+      "solver_runtime_s": 3.0002984069287777,
+      "source_f0_hz": 8.003645260046683,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9301532571677048,
+      "family": "layered",
+      "relative_l2": 0.24961172843714358,
+      "runtime_s": 3.0749027812853456,
+      "sample_id": "train_layered_01105",
+      "scalar_aligned_relative_l2_diagnostic": 0.2387228600287655,
+      "solver_runtime_s": 2.9638498798012733,
+      "source_f0_hz": 8.009038744452269,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9903410114467581,
+      "family": "marmousi",
+      "relative_l2": 0.1453795731785815,
+      "runtime_s": 3.0175098516047,
+      "sample_id": "train_marmousi_00380",
+      "scalar_aligned_relative_l2_diagnostic": 0.14505894360246233,
+      "solver_runtime_s": 2.90754422172904,
+      "source_f0_hz": 8.028230837828447,
+      "split": "train"
+    }
+  ],
+  "promotion_gate": {
+    "maximum_relative_l2": 0.05,
+    "passes_accuracy": false,
+    "scalar_alignment_is_diagnostic_only": true
+  },
+  "records_per_family": 1,
+  "runtime_s": {
+    "maximum": 3.112659730017185,
+    "mean": 3.06835745430241,
+    "minimum": 3.0175098516047
+  },
+  "schema": "kspace_saved_grid_train_only_probe_v1",
+  "selection_scope": "train_only",
+  "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+  "status": "complete"
+}

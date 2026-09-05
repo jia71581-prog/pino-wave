@@ -1,0 +1,11 @@
+[claude-code:unrecognized_model] {"model":"deepseek-v4-flash","query_source":"generate_session_title"}
+[claude-code:unrecognized_model] {"model":"deepseek-v4-pro[1m]","query_source":"auto_mode"}
+监控完成。r48b 已在首个 30 秒检查间隔内正常跑完（耗时约 45.2 秒），result.json 状态 completed，无异常，未做任何改动。
+
+**r48b 结果摘要（trainonly_spectral_capacity_v1, completed）**
+- **selected (nf, k)** = (48, 32)，规则：fit 聚合 rel-L2 ≤ 0.05 且 nf ≤ 64 中实系数最少
+- **fit 聚合 relative-L2** = 0.03201（3.20%）；**cal 聚合 relative-L2** = 0.03160（3.16%）
+- **实系数** = 389,120 / 记录（总存储 1,642,496）
+- **压缩比** = 4.22×（1,642,496 / 389,120）
+- **verdict** = **accepted**（cal 0.0316 ≤ 阈值 0.05）
+- **access_audit**：confirmation_opened=False、validation_opened=False、test_id_opened=False；fit/calibration_opened=True（仅 train 记录，fit 用 70/560，cal 70/70；confirmation 仅从 manifest 文本读取 70 个 id，未打开波场）

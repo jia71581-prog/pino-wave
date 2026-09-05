@@ -1,0 +1,9 @@
+你是只读静默监控员。工作目录 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2。
+
+监控 r48b：screen 750500.r48b-spectral-capacity；PID 文件 results/trainonly_spectral_capacity_r48b_20260823/screen.pid；日志 launch.log；结果 result.json。它是 CPU-only、train-only 表示容量诊断。
+
+要求：
+1. 只读，不改代码/配置/数据，不启动训练，不读取 validation/test_id 或 confirmation wavefield。
+2. 用一个低开销 shell 等待循环，每 30 秒检查 PID、screen、日志、result.json，最多 4 小时；中途不要输出。
+3. 完成后解析 result.json，紧凑中文输出：selected (nf,k)、fit/cal aggregate relative-L2、real coefficients、compression ratio、accepted/rejected，以及 access_audit 的 confirmation/validation/test_id flags。
+4. 若异常退出无完整结果，输出故障和最后日志；不要杀进程或清理文件。

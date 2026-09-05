@@ -1,0 +1,20 @@
+{
+  "schema": "transfer_dg_local_dtn_hcais_preregistration_audit_v1",
+  "status": "cleared_for_queued_launch",
+  "preregistration": "results/transfer_dg_local_dtn_hcais_preregistration_20260902.json",
+  "preregistration_sha256": "4a8b2bdac6590307c1a8213ee94482b6d8b28917b25bf3eee9e192be4a1334ae",
+  "checks": {
+    "probability": "positive normalized defensive mixture; real-data minimum probability is about half uniform",
+    "importance_correction": "unclipped Horvitz-Thompson estimator exactly recovers uniform target risk in unit tests",
+    "coverage": "28 nonempty family x relative-frequency x element-type strata",
+    "leverage": "regularized trace/context Gram leverage favors independent directions",
+    "ess": "200 simulated batches give ESS P5 0.698 and maximum weight 1.99",
+    "holdout": "complete source-group-disjoint holdout is never sampled adaptively",
+    "tests": "18 HCAIS, local-DtN and element/data contract tests pass",
+    "bindings": "sampler, trainer, runner, queue, model, tests and dataset match frozen SHA256 values",
+    "gpu_coordination": "HCAIS queue waits for the four-seed uniform local-DtN supervisor terminal"
+  },
+  "blocking_findings": [],
+  "validation_opened": false,
+  "test_id_opened": false
+}

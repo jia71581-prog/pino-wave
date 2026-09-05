@@ -1,0 +1,124 @@
+{
+  "schema": "r6_cache_smoke_preparation_identity_v2",
+  "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+  "status": "prepared_pending_independent_audit_and_lead_release",
+  "smoke_launched": false,
+  "gpu_process_pid": null,
+  "expected_cuda_visible_devices": "0",
+  "expected_gpu_uuid": "GPU-27f8e8cf-3677-061e-756e-08b7a34d458b",
+  "cwd": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2",
+  "exact_argv": [
+    "env",
+    "-u",
+    "CUBLAS_WORKSPACE_CONFIG",
+    "CUDA_VISIBLE_DEVICES=0",
+    "python",
+    "scripts/build_r6_device_residual_cache.py",
+    "--smoke",
+    "--preregistration",
+    "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+    "--device",
+    "cuda:0"
+  ],
+  "shell_equivalent": "env -u CUBLAS_WORKSPACE_CONFIG CUDA_VISIBLE_DEVICES=0 python scripts/build_r6_device_residual_cache.py --smoke --preregistration results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json --device cuda:0",
+  "preregistration_sha256": "4f192d62f4304b1c3ca3637aad90889a6b4ab3d2e01c23cc3800f1205577eed2",
+  "snapshots": [
+    {
+      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+      "snapshot": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_inputs_frozen/preregistration.json",
+      "sha256": "4f192d62f4304b1c3ca3637aad90889a6b4ab3d2e01c23cc3800f1205577eed2"
+    },
+    {
+      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/dependency_manifest.json",
+      "snapshot": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_inputs_frozen/dependency_manifest.json",
+      "sha256": "36e2857297484be777a37a3b4d9c05cf4c5bd74a8af20a123d05e0ff27141431"
+    },
+    {
+      "path": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/master_reference.json",
+      "snapshot": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_inputs_frozen/master_reference.json",
+      "sha256": "e407d25bde83a96a795738847815dbe31281ebdf80fe5cadd56404267ebad84a"
+    },
+    {
+      "path": "scripts/build_r6_device_residual_cache.py",
+      "snapshot": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_inputs_frozen/build_r6_device_residual_cache.py",
+      "sha256": "77d0c9d1dc838dd63d3af64e9492ecbff5ab22daa0e37dafe5193b0a7f34039b"
+    },
+    {
+      "path": "tests/test_r6_device_residual_cache.py",
+      "snapshot": "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_inputs_frozen/test_r6_device_residual_cache.py",
+      "sha256": "c2ac25383dcc17923840b227e6bc2874d9e6921a6b0eefb3656ba08ee5ee5191"
+    }
+  ],
+  "authorized_panel_prepared": [
+    {
+      "family": "uniform",
+      "group_id": "train:uniform:00000",
+      "sample_id": "train_uniform_00000",
+      "sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+      "source_index": 0,
+      "split": "train",
+      "cache_role": "fit"
+    },
+    {
+      "family": "layered",
+      "group_id": "train:layered:00000",
+      "sample_id": "train_layered_00000",
+      "sample_sha256": "9b482204732d18f506d4af9e17b59bfa78c144ffe3de780e9b3a99e31dd8b75e",
+      "source_index": 420,
+      "split": "train",
+      "cache_role": "fit"
+    },
+    {
+      "family": "marmousi",
+      "group_id": "train:marmousi:x0.0:z0.0",
+      "sample_id": "train_marmousi_00000",
+      "sample_sha256": "9b1b6372dfa355eaa4e77bdf7457dcc572827db973d92d0ea08ef626cbf32d95",
+      "source_index": 2100,
+      "split": "train",
+      "cache_role": "fit"
+    },
+    {
+      "family": "uniform",
+      "group_id": "train:uniform:00357",
+      "sample_id": "train_uniform_00357",
+      "sample_sha256": "4362a3543fc016004d375de0f4d607dfc2a8b6eb7832c9f1e327e656ce4846ff",
+      "source_index": 357,
+      "split": "train",
+      "cache_role": "development"
+    },
+    {
+      "family": "layered",
+      "group_id": "train:layered:00137",
+      "sample_id": "train_layered_00548",
+      "sample_sha256": "6079192fcfb21a5b913618db145eeee6609eff620ddc3ca04af3a84e1436a48d",
+      "source_index": 968,
+      "split": "train",
+      "cache_role": "development"
+    },
+    {
+      "family": "marmousi",
+      "group_id": "train:marmousi:x7100.0:z100.0",
+      "sample_id": "train_marmousi_00275",
+      "sample_sha256": "c447281cf37d52206c2afea95a94774266a0cf13385b3642c88e8d7a92f5d6e1",
+      "source_index": 2375,
+      "split": "train",
+      "cache_role": "development"
+    }
+  ],
+  "record_count": 6,
+  "expected_truth_reads_if_released": 6,
+  "expected_truth_frames_if_released": 1395,
+  "extra_truth_reads_for_quantization": 0,
+  "wall_seconds_max": 180,
+  "peak_gpu_bytes_strictly_below": 8589934592,
+  "full_build_authorized": false,
+  "training_authorized": false,
+  "confirmation_opened": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "checkpoint_output": null,
+  "rollback_definition": {
+    "path": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
+    "sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947"
+  }
+}

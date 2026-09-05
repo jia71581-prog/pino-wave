@@ -1,0 +1,84 @@
+{
+  "schema": "transfer_dg_exterior_cpml_e0_preregistration_v1",
+  "created_utc": "2026-09-02T11:44:14Z",
+  "candidate": "transfer_dg_exterior_cpml_e0_20260902",
+  "claim_scope": "static numerical contract plus one-record train-only exterior-CPML teacher replay; not a model or checkpoint promotion",
+  "hypothesis": "The registered 20-layer saved-grid CFS-CPML is wholly outside the 201x201 physical domain on the left, right, and bottom, while the top is a pressure-release free surface. A 221x241 exterior-domain contract can reproduce the fine-grid CPML profiles under factor-two nodal sampling, capture finite causal ADE states, and replay the selected train record's stored physical pressure without opening validation or test_id.",
+  "single_conceptual_change": "replace the legacy in-physical-domain CPML margin assumption with an explicit three-sided exterior CPML domain contract",
+  "geometry": {
+    "saved_physical_shape_zx": [201, 201],
+    "saved_cpml_layers": 20,
+    "saved_extended_shape_zx": [221, 241],
+    "saved_physical_slice_zx": [[0, 201], [20, 221]],
+    "fine_physical_shape_zx": [401, 401],
+    "fine_cpml_layers": 40,
+    "fine_extended_shape_zx": [441, 481],
+    "top": "free_surface_dirichlet",
+    "left": "cfs_cpml",
+    "right": "cfs_cpml",
+    "bottom": "cfs_cpml"
+  },
+  "cpml_parameters": {
+    "physical_thickness_m": 200.0,
+    "internal_dt_s": 0.000125,
+    "saved_dt_s": 0.0025,
+    "internal_substeps_per_saved_frame": 20,
+    "target_reflection": 1e-08,
+    "polynomial_order": 3,
+    "kappa_max": 3.0,
+    "minimum_frequency_hz": 8.0,
+    "memory_variables": ["psi_x", "psi_z", "phi_x", "phi_z"]
+  },
+  "pilot_record": {
+    "source_index": 6,
+    "sample_id": "train_uniform_00006",
+    "split": "train",
+    "family": "uniform",
+    "selection_reason": "high-frequency, high-speed source near the left physical boundary gives early nonzero CPML activity while allowing exact reconstruction of the fine uniform velocity",
+    "frame_indices": [0, 40, 80, 120, 160, 200, 240, 320, 400]
+  },
+  "acceptance": {
+    "all_unit_tests_pass": true,
+    "saved_profile_matches_factor2_sampled_fine_max_abs_lte": 1e-06,
+    "replayed_physical_relative_l2_lte": 0.0001,
+    "all_arrays_finite": true,
+    "top_pressure_exactly_zero": true,
+    "extended_outer_pressure_exactly_zero": true,
+    "late_cpml_memory_norm_gt": 0.0,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "failure_signal": "Any geometry/profile mismatch, non-finite exterior state, nonzero top or outer pressure after hard projection, zero late ADE memory, train replay error above 1e-4, or any validation/test_id access rejects E0 and blocks E1.",
+  "compute_budget": {
+    "gpu_count_max": 1,
+    "wall_seconds_max": 300,
+    "new_disk_bytes_max": 2147483648
+  },
+  "allowed_writes": [
+    "saved_time_phase_operator_v4/exterior_cpml.py",
+    "src/fno_acoustic/data_generation/solver_lwc84.py",
+    "saved_time_phase_operator_v4/dg_interface.py",
+    "tests/saved_time_phase_operator_v4/test_exterior_cpml.py",
+    "tests/saved_time_phase_operator_v4/test_dg_interface.py",
+    "tests/test_lwc84_solver.py",
+    "scripts/build_transfer_dg_exterior_cpml_pilot.py",
+    "results/transfer_dg_exterior_cpml_e0_20260902.h5",
+    "results/transfer_dg_exterior_cpml_e0_20260902.json",
+    "results/transfer_dg_exterior_cpml_e0_terminal_20260902.json",
+    "results/transfer_dg_exterior_cpml_e0_preregistration_audit_20260902.json"
+  ],
+  "bindings_before_change": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "frozen_config_sha256": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+    "solver_lwc84_sha256": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad",
+    "cpml_sha256": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f",
+    "grid_sha256": "6b372859fc1a5c50775f0468870a36abc2815a9a77fe5283d36a661cd8e51cf9",
+    "restriction_sha256": "be53a93bced3a8aa7d3ca303e7f367444fb16ca564f2218a4fcec5ac04224792",
+    "legacy_dg_interface_sha256": "952800aa76eaf6ce8a671820253e7fdda0946c47a802478de7884d5c395f932f",
+    "architecture_report_sha256": "d77e40027d190ad48e35245f26d609f8efadaaf6d4f9de5661c74952abe28a37"
+  },
+  "rollback": "Preserve all existing checkpoints and artifacts. New APIs are optional and default-off for historical solver calls; legacy nonzero cpml_margin remains available only for exact replay of old DG artifacts. Delete or overwrite nothing on failure.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

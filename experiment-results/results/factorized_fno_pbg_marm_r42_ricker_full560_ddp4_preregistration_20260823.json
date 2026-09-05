@@ -1,0 +1,68 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_fno_pbg_marm_r42_ricker_full560_ddp4_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_ricker_retarded_factorized_fno_ddp4",
+  "hypothesis": "Adding the analytic Ricker wavelet evaluated at eikonal retarded time will reduce 64x64x201 train-only P_bg calibration relative L2 below 0.5 on the fixed 560/70/70 split.",
+  "expected_mechanism": "The analytic channel supplies source waveform, onset, frequency, and first-arrival phase without a numerical wavefield; the operator only learns medium-dependent amplitude, multipathing, and smooth residual structure.",
+  "single_conceptual_variable": {
+    "name": "analytic_source_propagation_feature",
+    "parent": "retarded time plus scalar f0",
+    "candidate": "additional Ricker(t-t0-T(x,z), f0) channel"
+  },
+  "primary_metric": "best 64x64x201 train-only calibration relative L2",
+  "acceptance": {
+    "target_gate_max": 0.05,
+    "advancement_gate_calibration_max": 0.5,
+    "prediction_finite_ratio": 1.0,
+    "peak_allocated_mb_per_gpu_max": 14000
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 560,
+    "calibration_records": 70,
+    "confirmation_records": 70,
+    "confirmation_access": "sealed_until_checkpoint_freeze",
+    "selected_resolution": [64, 64, 201],
+    "split_seed": 372
+  },
+  "training": {
+    "epochs": 20,
+    "batch_size_per_rank": 2,
+    "gpus": 4,
+    "distributed": "manual_complex_safe_gradient_averaging",
+    "learning_rate": 0.001,
+    "scheduler": "none",
+    "early_stopping": false,
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "numerical_wavefield_input": false,
+    "future_truth_input": false
+  },
+  "failure_signal": "Calibration relative L2 above 0.5, non-finite prediction, OOM, missing checkpoint, or binding failure rejects the analytic Ricker feature without opening confirmation or project validation/test_id.",
+  "compute_budget": {
+    "gpus": 4,
+    "epochs": 20,
+    "wall_ceiling_minutes": 120,
+    "peak_allocated_mb_per_gpu_max": 14000
+  },
+  "bindings": {
+    "config_sha256": "0da7787de4a689b871b2d33ca4864afcb11d4e61ad824476abdd7a631227277e",
+    "trainer_sha256": "01cd1f23c1c6baf2ba86aa223af27669356aefd32a5d37a70cc14f804e572106",
+    "model_sha256": "0ab24496d4e33435c0ee3ed1395d6f21f9ec9c4eec88ad4a75ed1b49c0411e03",
+    "data_loader_sha256": "427a30d620204ce11a3e118edb41d4dd3e38e08a540b491830a4a5272f43618c",
+    "vds_sha256": "6732ea18109e52f5edfb92ea597640537655bd6e47201713d6caa933ea142d75",
+    "split_sha256": "4d69a9df1210dee76f08f110d1a17a35a621f91108a3c9042d907eeddd70d8e6",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "loader_test_sha256": "48e41ec0e24b231b759c5e52f7f0cb610046e5ce7b67ccb5b306ba2b0c939656",
+    "r41_result_sha256": "e780f205bb9b3485d2716eee0f362f7c2bd0b1f0c79e0ead7367992e28fc96c7",
+    "tests": "33 passed"
+  },
+  "rollback": "Preserve r41 and all prior artifacts; if rejected, learn an explicit analytic-amplitude residual or change propagator representation without opening confirmation or project validation/test_id.",
+  "command": "CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONPATH=src torchrun --standalone --nproc_per_node=4 scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r42_ricker_full560_ddp4.yaml --output-json results/factorized_fno_pbg_marm_r42_ricker_full560_ddp4_20260823/result.json"
+}

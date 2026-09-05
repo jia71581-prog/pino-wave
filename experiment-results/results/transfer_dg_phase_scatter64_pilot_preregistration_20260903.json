@@ -1,0 +1,97 @@
+{
+  "schema": "transfer_dg_phase_scatter64_pilot_preregistration_v1",
+  "candidate": "transfer_dg_phase_scatter64_pilot_20260903",
+  "claim_scope": "train-only correction-branch pilot conditional on a fixed previously trained parent; not validation or test_id evidence",
+  "hypothesis": "For the first 64 temporal-frequency bins, adding true-velocity contrast/interface features and separate Eikonal-aligned phase and unphased scattering residual heads will strictly reduce four-seed mean full-401 train-confirmation relative L2 versus the frozen parent.",
+  "mechanism": {
+    "parent": "frozen high-capacity phase-WFP seed 372",
+    "new_medium_channels": [
+      "true_velocity_minus_sigma2_background",
+      "true_log_velocity_gradient_x",
+      "true_log_velocity_gradient_z",
+      "true_interface_strength"
+    ],
+    "phase_head": "complex residual multiplied by the existing source-to-grid Eikonal carrier",
+    "scatter_head": "complex residual added without the direct-arrival carrier so reflected/scattered phase is not constrained to the direct path",
+    "initialization": "both output heads exactly zero, reproducing the parent before training",
+    "target": "first 64 orthonormal rFFT bins of the original train wavefield, not the sigma2 background wavefield"
+  },
+  "data": {
+    "split": "train",
+    "record_count": 136,
+    "role_counts": {
+      "fit": 68,
+      "calibration": 34,
+      "confirmation": 34
+    },
+    "family_role_counts": {
+      "uniform": {"fit": 16, "calibration": 8, "confirmation": 8},
+      "layered": {"fit": 16, "calibration": 8, "confirmation": 8},
+      "anomaly": {"fit": 16, "calibration": 8, "confirmation": 8},
+      "marmousi": {"fit": 20, "calibration": 10, "confirmation": 10}
+    },
+    "role_group_overlap_count": 0,
+    "selection_uses_wavefield_truth": false,
+    "training_full_truth_allowed": true,
+    "frequency_count": 64,
+    "frame_count_for_metric": 401,
+    "model_input_future_wavefield_frames": 0
+  },
+  "training": {
+    "seeds": [372, 733, 1009, 2027],
+    "epochs": 5,
+    "batch_size": 4,
+    "per_family_batch": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.000001,
+    "eta_min": 0.000003,
+    "gradient_clip_norm": 1.0,
+    "correction_energy_penalty": 0.000001,
+    "checkpoint_retention": "best_only"
+  },
+  "primary_metric": "four-seed mean 34-record fresh train-confirmation full-401 relative L2, including the unchanged truth energy in bins 64-200",
+  "secondary_metrics": [
+    "modeled-64 relative L2",
+    "per-family candidate and parent relative L2",
+    "nonworse record count",
+    "phase and scatter correction energy ratios",
+    "prediction-target cosine and norm ratio",
+    "free-surface maximum"
+  ],
+  "acceptance": {
+    "candidate_confirmation_mean_strictly_below_parent": true,
+    "minimum_improvement_fraction": 0.0,
+    "finite_gate": true,
+    "free_surface_gate": true,
+    "all_four_seeds_complete": true
+  },
+  "failure_signal": "Reject before full-pool training if four-seed confirmation mean does not strictly improve, any lane fails, any output is non-finite, or the free-surface value is nonzero.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "wall_seconds_max": 7200,
+    "new_disk_bytes_max": 8589934592
+  },
+  "bindings": {
+    "pilot_manifest_sha256": "1f69395e8c345b4d90066e1111fb1d78a97f2150105e5c7bb211d08e2d00b323",
+    "parent_checkpoint_sha256": "e62786ae2615e7bbbe6bf208ccaa806dc8f12d14aed8b0425e729d9fabd1bb22",
+    "parent_manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "parent_cache_terminal_sha256": "0c9b1f0c3093101d98b65e35400d6d7c90f704d7ca7594d748d675e3af37350a",
+    "parent_travel_terminal_sha256": "349ae5947741dae89cdbce40282937e0e21a03d39c8c405b035a3261b683d4cc",
+    "cache_builder_sha256": "d794d79e3346c2acdc3d2b3a3d894534c172b928d402b0fe38268903676d1507",
+    "trainer_sha256": "7a7a4dd73854ecaf597938b7e4a1f59dfe5091f3a9ca0bb46f13b46388bff5bb",
+    "phase_scatter_module_sha256": "7df8b7482e010abb4047257ebaee930f0a96564a8dd9e1e3594198b5c80da219",
+    "wfp_module_sha256": "1e05e6e002cf8cd560ae5a6d5e280d1fca186322ca949e496029733a38f6fcc0",
+    "launcher_sha256": "4111610bf3e959811186b6c3958fcf5cebea6daae49f89453d294a778f9b8169"
+  },
+  "unit_test": {
+    "parameter_count": 116196,
+    "phase_head_initial_max_abs": 0.0,
+    "scatter_head_initial_max_abs": 0.0,
+    "parent_identity_max_abs": 0.0,
+    "free_surface_max_abs": 0.0
+  },
+  "rollback": "Additive pilot. Preserve the parent and all A3, B2-H, Helmholtz, ASAM, CPADC, WFP checkpoints. Stop this route before full-pool training if the cheap gate fails.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

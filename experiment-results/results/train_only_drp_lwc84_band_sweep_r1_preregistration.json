@@ -1,0 +1,48 @@
+{
+  "schema": "train_only_drp_lwc84_sweep_preregistration_v1",
+  "registered_at_utc": "2026-08-12T09:11:34Z",
+  "status": "registered_before_sweep",
+  "purpose": "Select a deterministic DRP spatial-symbol bandwidth using train-only Marmousi wavefields before any target5 frozen validation or test_id truth is generated or opened.",
+  "data_contract": {
+    "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/dataset_v5_dt1e5_t401_mixed.h5",
+    "dataset_byte_count": 215599,
+    "dataset_sha256": "2dd814839ee51c59a28f55cdf12b40a92c99da5616535a6573b218d3b48092a8",
+    "required_split": "train",
+    "required_family": "marmousi",
+    "selection": "stable source_f0_hz quantiles including both endpoints",
+    "sample_count": 7,
+    "selected_source_indices": [2480, 2291, 2774, 2198, 2534, 2157, 2293],
+    "selected_f0_hz": [8.028230837828447, 11.671007009900887, 15.34072192684736, 19.00584433037245, 22.675607850991497, 26.31137193002896, 29.99536220938785]
+  },
+  "sweep_contract": {
+    "variants": ["standard_taylor8", "drp_0.45", "drp_0.55", "drp_0.65", "drp_0.75", "drp_0.85"],
+    "internal_dt_s": 0.00025,
+    "npml": 20,
+    "c_ref_mps": 6750.0,
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "threads": 32,
+    "ranking": ["mean_relative_l2", "maximum_relative_l2", "variant_name"],
+    "promotion_rule": "A DRP variant may advance to a larger train-only confirmation only if its mean relative L2 is lower than standard_taylor8 and it is the preregistered ranking winner. This sweep alone cannot promote a frozen validation or test result."
+  },
+  "code_sha256": {
+    "scripts/sweep_train_only_drp_lwc84.py": "e1a2e292f0af33dad358bb491add6cee313b7493cc3299a30533a5fcd5c84fcd",
+    "src/fno_acoustic/numerics/drp_coefficients.py": "0a5cfe4c0b298dbba760862bf8db86761aa56991cd50ddb2d8c80dfc5ffa0f1b",
+    "src/fno_acoustic/data_generation/stencils.py": "0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c",
+    "src/fno_acoustic/data_generation/lwc84.py": "ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118",
+    "src/fno_acoustic/data_generation/cpml.py": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f",
+    "src/fno_acoustic/data_generation/solver_lwc84.py": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad",
+    "tests/test_drp_coefficients.py": "ce58a6552377cc2ae5fddef0d97387e2861839da3137cdc7738f99dd6b76ad56",
+    "tests/test_train_only_drp_sweep.py": "48c2c7b9b453681bc32a68bc36acddb864547ca2af129ba64d5688892ee38ca8"
+  },
+  "test_evidence": {
+    "command": "PYTHONPATH=src:. python -m pytest -q tests/test_drp_coefficients.py tests/test_train_only_drp_sweep.py tests/test_lwc84_core.py tests/test_lwc84_cpml.py tests/test_lwc84_solver.py",
+    "result": "31 passed"
+  },
+  "frozen_holdout_truth_status_at_registration": "not_generated",
+  "prohibited_uses": [
+    "No validation or test_id wavefield may be read during bandwidth selection.",
+    "No target5 frozen truth may be generated until the deployable algorithm and evaluation contract are frozen.",
+    "No claim of the 5 percent or 10x target may be made from this train-only sweep."
+  ]
+}

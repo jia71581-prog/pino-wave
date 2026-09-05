@@ -1,0 +1,43 @@
+{
+  "calibration_digest": "9086907ca33a98d8be1c6edfe3472a25c7d2e4aaa8e20a946e301db9cd4a67d4",
+  "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/calibration/calibrated.pt",
+  "checkpoint_sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b",
+  "config_sha256": "7fd333c664793a18fff10e6a04782398755b8f58eb5ce58a05b08d32871d649e",
+  "date_utc": "2026-08-10",
+  "evaluation_split": "test_id",
+  "evaluator_sha256": "b6fb6d62d2891190c5ae41862463908cf5fc14f93cbfb1127e5905a2210b2686",
+  "family_count": {
+    "layered": 240,
+    "marmousi": 150,
+    "uniform": 90
+  },
+  "gate": {
+    "maximum_runtime_s": 5.0,
+    "minimum_blind_mean_improvement": 0.01,
+    "minimum_nonworse_fraction": 0.9,
+    "require_every_family_nonworse": true
+  },
+  "group_count": 180,
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "merger_sha256": "34341448d1b3199c7f226fdec4898eaf2ef7d6bc6df59ee2962a864330fe8963",
+  "policy": "one complete four-shard run; no parameter changes after opening any test_id future truth",
+  "previous_cpadc_test_id_artifact_hits": 0,
+  "sample_count": 480,
+  "sample_ids_sha256": "bf30802e2ff59a8d70fb101c5dcc465a5e9ef89aa9627e2c3941480d883187da",
+  "schema": "cpadc_frozen_test_id_confirmation_preregistration_v1",
+  "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+  "status": "registered_before_first_test_id_inference",
+  "strength_floor_by_family": {
+    "layered": 1.6745492219924927,
+    "marmousi": 2.167699098587036,
+    "uniform": 1.9953080415725708
+  },
+  "travel_cache": {
+    "content_sha256": "fa1a4d8bf5b017bbdef588197e9108a5975423401261416deaae6e9dc58b0064",
+    "file_sha256": "0149ef9d29b55d45caf29c477518070413781d88980db553b69dbbf276dbb388",
+    "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2_test_id.h5",
+    "record_count": 480
+  },
+  "validation_group_overlap_count": 0
+}

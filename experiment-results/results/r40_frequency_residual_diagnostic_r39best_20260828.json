@@ -1,0 +1,513 @@
+{
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r39_hfs_tail_finetune_base1e6_hfs1e4_4x500_v3_20260828/best.pt",
+  "missing_sample_ids": [],
+  "records": {
+    "train_marmousi_00267": {
+      "candidate_rel_l2": 0.06582062992168612,
+      "coarse_rel_l2": 0.1513170447864846,
+      "family": "marmousi",
+      "per_frequency_complex_scalar_oracle_rel_l2": 0.055269505257272436,
+      "source_f0_hz": 27.556425094604492,
+      "source_t0_s": 0.05443376675248146,
+      "spatial_wavenumber_error_bands": [
+        {
+          "error_fraction": 0.11706893053538682,
+          "high_normalized_nyquist": 0.15,
+          "low_normalized_nyquist": 0.0
+        },
+        {
+          "error_fraction": 0.4399850733333174,
+          "high_normalized_nyquist": 0.3,
+          "low_normalized_nyquist": 0.15
+        },
+        {
+          "error_fraction": 0.2621020188918428,
+          "high_normalized_nyquist": 0.44999999999999996,
+          "low_normalized_nyquist": 0.3
+        },
+        {
+          "error_fraction": 0.11686438647926756,
+          "high_normalized_nyquist": 0.6,
+          "low_normalized_nyquist": 0.44999999999999996
+        },
+        {
+          "error_fraction": 0.04387986621386522,
+          "high_normalized_nyquist": 0.75,
+          "low_normalized_nyquist": 0.6
+        },
+        {
+          "error_fraction": 0.013146568437167595,
+          "high_normalized_nyquist": 0.8999999999999999,
+          "low_normalized_nyquist": 0.75
+        },
+        {
+          "error_fraction": 0.006368842859909338,
+          "high_normalized_nyquist": 1.05,
+          "low_normalized_nyquist": 0.8999999999999999
+        },
+        {
+          "error_fraction": 0.0005161608786023899,
+          "high_normalized_nyquist": 1.2,
+          "low_normalized_nyquist": 1.05
+        },
+        {
+          "error_fraction": 6.360367947708638e-05,
+          "high_normalized_nyquist": 1.3499999999999999,
+          "low_normalized_nyquist": 1.2
+        },
+        {
+          "error_fraction": 4.548691163745568e-06,
+          "high_normalized_nyquist": 1.5,
+          "low_normalized_nyquist": 1.3499999999999999
+        }
+      ],
+      "stored_dt_s": 0.0025000000000000022,
+      "temporal_frequency_bands": [
+        {
+          "error_fraction": 0.022113394863167768,
+          "high_hz": 10,
+          "low_hz": 0,
+          "relative_l2": 0.040528842298656276,
+          "target_fraction": 0.05832450918248979
+        },
+        {
+          "error_fraction": 0.06024860082855933,
+          "high_hz": 20,
+          "low_hz": 10,
+          "relative_l2": 0.033520200214368114,
+          "target_fraction": 0.23230460889682158
+        },
+        {
+          "error_fraction": 0.2829966779932312,
+          "high_hz": 30,
+          "low_hz": 20,
+          "relative_l2": 0.050657348433610465,
+          "target_fraction": 0.4777717849658104
+        },
+        {
+          "error_fraction": 0.2669164954313605,
+          "high_hz": 40,
+          "low_hz": 30,
+          "relative_l2": 0.07965723432720684,
+          "target_fraction": 0.18224223589678357
+        },
+        {
+          "error_fraction": 0.3293761247945529,
+          "high_hz": 60,
+          "low_hz": 40,
+          "relative_l2": 0.1706868596838749,
+          "target_fraction": 0.048979687249665685
+        },
+        {
+          "error_fraction": 0.030018392028177913,
+          "high_hz": 101,
+          "low_hz": 60,
+          "relative_l2": 0.6329854826811792,
+          "target_fraction": 0.0003245816728031653
+        }
+      ],
+      "top_error_frequency_bins": [
+        {
+          "error_fraction": 0.04207400398323798,
+          "frequency_hz": 25.935162094763072,
+          "index": 26,
+          "oracle_gain_amplitude": 1.0424215360185367,
+          "oracle_gain_phase_rad": -0.00933038038604329,
+          "relative_l2_in_bin": 0.057948259809060626,
+          "target_fraction": 0.05428215928956489
+        },
+        {
+          "error_fraction": 0.04175120265973141,
+          "frequency_hz": 38.90274314214461,
+          "index": 39,
+          "oracle_gain_amplitude": 1.0673558764558828,
+          "oracle_gain_phase_rad": -0.007720036064945533,
+          "relative_l2_in_bin": 0.10044711752729316,
+          "target_fraction": 0.017927432727192782
+        },
+        {
+          "error_fraction": 0.03714957231467479,
+          "frequency_hz": 26.932668329177034,
+          "index": 27,
+          "oracle_gain_amplitude": 1.0394005758949623,
+          "oracle_gain_phase_rad": -0.014549707893604437,
+          "relative_l2_in_bin": 0.05917560574733892,
+          "target_fraction": 0.04596131675560635
+        },
+        {
+          "error_fraction": 0.03588066775443198,
+          "frequency_hz": 40.89775561097253,
+          "index": 41,
+          "oracle_gain_amplitude": 1.0695887591145243,
+          "oracle_gain_phase_rad": -0.005885210972232502,
+          "relative_l2_in_bin": 0.11538617270056589,
+          "target_fraction": 0.01167554195857723
+        },
+        {
+          "error_fraction": 0.03516546538526777,
+          "frequency_hz": 39.90024937655857,
+          "index": 40,
+          "oracle_gain_amplitude": 1.0614186375210317,
+          "oracle_gain_phase_rad": -0.00957284417269132,
+          "relative_l2_in_bin": 0.10228479442429263,
+          "target_fraction": 0.014561908057213682
+        },
+        {
+          "error_fraction": 0.03494332448833677,
+          "frequency_hz": 41.8952618453865,
+          "index": 42,
+          "oracle_gain_amplitude": 1.0736861395189838,
+          "oracle_gain_phase_rad": -0.016053315738255323,
+          "relative_l2_in_bin": 0.13146375947585073,
+          "target_fraction": 0.008759437019985772
+        },
+        {
+          "error_fraction": 0.03348164039621904,
+          "frequency_hz": 35.910224438902716,
+          "index": 36,
+          "oracle_gain_amplitude": 1.048560836472135,
+          "oracle_gain_phase_rad": -0.01645668318964515,
+          "relative_l2_in_bin": 0.08156537718191188,
+          "target_fraction": 0.02180314276690148
+        },
+        {
+          "error_fraction": 0.033459734256522475,
+          "frequency_hz": 24.937655860349107,
+          "index": 25,
+          "oracle_gain_amplitude": 1.035954064688243,
+          "oracle_gain_phase_rad": -0.005555769781065803,
+          "relative_l2_in_bin": 0.050075599902307685,
+          "target_fraction": 0.05780883727181721
+        },
+        {
+          "error_fraction": 0.03339675474136363,
+          "frequency_hz": 37.90523690773064,
+          "index": 38,
+          "oracle_gain_amplitude": 1.0486490265940074,
+          "oracle_gain_phase_rad": -1.1820901061797459e-05,
+          "relative_l2_in_bin": 0.0875193837829164,
+          "target_fraction": 0.01888947264462545
+        },
+        {
+          "error_fraction": 0.030101852749105613,
+          "frequency_hz": 23.940149625935142,
+          "index": 24,
+          "oracle_gain_amplitude": 1.0325354155875002,
+          "oracle_gain_phase_rad": -0.008745063461922706,
+          "relative_l2_in_bin": 0.04563765349770197,
+          "target_fraction": 0.06261388946219877
+        },
+        {
+          "error_fraction": 0.02969771695923675,
+          "frequency_hz": 22.942643391521177,
+          "index": 23,
+          "oracle_gain_amplitude": 1.0345371515137047,
+          "oracle_gain_phase_rad": -0.007052727024283017,
+          "relative_l2_in_bin": 0.045323843354408186,
+          "target_fraction": 0.06263162396480888
+        },
+        {
+          "error_fraction": 0.028904581323380266,
+          "frequency_hz": 36.90773067331668,
+          "index": 37,
+          "oracle_gain_amplitude": 1.0403422041358337,
+          "oracle_gain_phase_rad": -0.01539529516976099,
+          "relative_l2_in_bin": 0.07977014728318133,
+          "target_fraction": 0.019679314387688704
+        },
+        {
+          "error_fraction": 0.02768637205605522,
+          "frequency_hz": 34.91271820448875,
+          "index": 35,
+          "oracle_gain_amplitude": 1.0394813531409342,
+          "oracle_gain_phase_rad": -0.002785605563751355,
+          "relative_l2_in_bin": 0.0770668885169768,
+          "target_fraction": 0.020195493443432893
+        },
+        {
+          "error_fraction": 0.026477267435287846,
+          "frequency_hz": 27.930174563591,
+          "index": 28,
+          "oracle_gain_amplitude": 1.0341109357081073,
+          "oracle_gain_phase_rad": -0.01297698804856339,
+          "relative_l2_in_bin": 0.05755530345334782,
+          "target_fraction": 0.034627930294488705
+        },
+        {
+          "error_fraction": 0.024785295166142803,
+          "frequency_hz": 42.89276807980046,
+          "index": 43,
+          "oracle_gain_amplitude": 1.0605123549310562,
+          "oracle_gain_phase_rad": -0.01644731792464872,
+          "relative_l2_in_bin": 0.13134420471697963,
+          "target_fraction": 0.006224383365345282
+        },
+        {
+          "error_fraction": 0.023184696588609756,
+          "frequency_hz": 28.927680798004964,
+          "index": 29,
+          "oracle_gain_amplitude": 1.0305741562507713,
+          "oracle_gain_phase_rad": -0.013053159739826271,
+          "relative_l2_in_bin": 0.0602353806938786,
+          "target_fraction": 0.02768357456194633
+        }
+      ]
+    },
+    "train_marmousi_00268": {
+      "candidate_rel_l2": 0.05244777163057584,
+      "coarse_rel_l2": 0.10489586728657052,
+      "family": "marmousi",
+      "per_frequency_complex_scalar_oracle_rel_l2": 0.04417342778431804,
+      "source_f0_hz": 23.448741912841797,
+      "source_t0_s": 0.06396931409835815,
+      "spatial_wavenumber_error_bands": [
+        {
+          "error_fraction": 0.1850184819810358,
+          "high_normalized_nyquist": 0.15,
+          "low_normalized_nyquist": 0.0
+        },
+        {
+          "error_fraction": 0.5030308876139226,
+          "high_normalized_nyquist": 0.3,
+          "low_normalized_nyquist": 0.15
+        },
+        {
+          "error_fraction": 0.220583799103899,
+          "high_normalized_nyquist": 0.44999999999999996,
+          "low_normalized_nyquist": 0.3
+        },
+        {
+          "error_fraction": 0.055399314934564195,
+          "high_normalized_nyquist": 0.6,
+          "low_normalized_nyquist": 0.44999999999999996
+        },
+        {
+          "error_fraction": 0.01883425156333259,
+          "high_normalized_nyquist": 0.75,
+          "low_normalized_nyquist": 0.6
+        },
+        {
+          "error_fraction": 0.009488517341594145,
+          "high_normalized_nyquist": 0.8999999999999999,
+          "low_normalized_nyquist": 0.75
+        },
+        {
+          "error_fraction": 0.00622473732530186,
+          "high_normalized_nyquist": 1.05,
+          "low_normalized_nyquist": 0.8999999999999999
+        },
+        {
+          "error_fraction": 0.0011258701779299498,
+          "high_normalized_nyquist": 1.2,
+          "low_normalized_nyquist": 1.05
+        },
+        {
+          "error_fraction": 0.0002709254385665202,
+          "high_normalized_nyquist": 1.3499999999999999,
+          "low_normalized_nyquist": 1.2
+        },
+        {
+          "error_fraction": 2.3214519853410788e-05,
+          "high_normalized_nyquist": 1.5,
+          "low_normalized_nyquist": 1.3499999999999999
+        }
+      ],
+      "stored_dt_s": 0.0025000000000000022,
+      "temporal_frequency_bands": [
+        {
+          "error_fraction": 0.03485523669498155,
+          "high_hz": 10,
+          "low_hz": 0,
+          "relative_l2": 0.03860173669771413,
+          "target_fraction": 0.0643440554386062
+        },
+        {
+          "error_fraction": 0.19000578603958726,
+          "high_hz": 20,
+          "low_hz": 10,
+          "relative_l2": 0.03521959010178975,
+          "target_fraction": 0.42135903782450007
+        },
+        {
+          "error_fraction": 0.38866240561966237,
+          "high_hz": 30,
+          "low_hz": 20,
+          "relative_l2": 0.05208843292285536,
+          "target_fraction": 0.3940433769745296
+        },
+        {
+          "error_fraction": 0.26754976132437935,
+          "high_hz": 40,
+          "low_hz": 30,
+          "relative_l2": 0.08266617469968117,
+          "target_fraction": 0.10769684149347356
+        },
+        {
+          "error_fraction": 0.10041615927639252,
+          "high_hz": 60,
+          "low_hz": 40,
+          "relative_l2": 0.15231988679202224,
+          "target_fraction": 0.011905413162938219
+        },
+        {
+          "error_fraction": 0.01193930911372113,
+          "high_hz": 101,
+          "low_hz": 60,
+          "relative_l2": 0.3015562458008557,
+          "target_fraction": 0.0003611574868196484
+        }
+      ],
+      "top_error_frequency_bins": [
+        {
+          "error_fraction": 0.0546556720047575,
+          "frequency_hz": 25.935162094763072,
+          "index": 26,
+          "oracle_gain_amplitude": 1.0379643420359912,
+          "oracle_gain_phase_rad": -0.009381395428022285,
+          "relative_l2_in_bin": 0.05672153739672138,
+          "target_fraction": 0.04672973659728628
+        },
+        {
+          "error_fraction": 0.049265995210658664,
+          "frequency_hz": 29.925187032418926,
+          "index": 30,
+          "oracle_gain_amplitude": 1.037806499370934,
+          "oracle_gain_phase_rad": -0.015034535357035285,
+          "relative_l2_in_bin": 0.07831973389126641,
+          "target_fraction": 0.02209321585302128
+        },
+        {
+          "error_fraction": 0.04699340960362877,
+          "frequency_hz": 30.92269326683289,
+          "index": 31,
+          "oracle_gain_amplitude": 1.0398699662381812,
+          "oracle_gain_phase_rad": -0.014468568284638737,
+          "relative_l2_in_bin": 0.07174071248032582,
+          "target_fraction": 0.025116531640041365
+        },
+        {
+          "error_fraction": 0.04540470085649815,
+          "frequency_hz": 24.937655860349107,
+          "index": 25,
+          "oracle_gain_amplitude": 1.0347759282102826,
+          "oracle_gain_phase_rad": -0.010111619396296293,
+          "relative_l2_in_bin": 0.057885358359539736,
+          "target_fraction": 0.037274982472148666
+        },
+        {
+          "error_fraction": 0.040757009885749054,
+          "frequency_hz": 20.94763092269325,
+          "index": 21,
+          "oracle_gain_amplitude": 1.0324381115471868,
+          "oracle_gain_phase_rad": -0.0017379934775213753,
+          "relative_l2_in_bin": 0.043142206339001024,
+          "target_fraction": 0.06023538537901815
+        },
+        {
+          "error_fraction": 0.03894149050700811,
+          "frequency_hz": 21.94513715710721,
+          "index": 22,
+          "oracle_gain_amplitude": 1.0289788032527092,
+          "oracle_gain_phase_rad": -0.0033737528436979937,
+          "relative_l2_in_bin": 0.041261641907447175,
+          "target_fraction": 0.06291781625370181
+        },
+        {
+          "error_fraction": 0.037657805394475635,
+          "frequency_hz": 26.932668329177034,
+          "index": 27,
+          "oracle_gain_amplitude": 1.0287348949907003,
+          "oracle_gain_phase_rad": -0.01149711287017576,
+          "relative_l2_in_bin": 0.050788529181628454,
+          "target_fraction": 0.0401585308740491
+        },
+        {
+          "error_fraction": 0.03488145418010728,
+          "frequency_hz": 34.91271820448875,
+          "index": 35,
+          "oracle_gain_amplitude": 1.0419141482488787,
+          "oracle_gain_phase_rad": -0.012003511489850103,
+          "relative_l2_in_bin": 0.09615096844762577,
+          "target_fraction": 0.010378661269615948
+        },
+        {
+          "error_fraction": 0.03432941740156775,
+          "frequency_hz": 23.940149625935142,
+          "index": 24,
+          "oracle_gain_amplitude": 1.0249774852357054,
+          "oracle_gain_phase_rad": -0.005335305558346735,
+          "relative_l2_in_bin": 0.05325274242042117,
+          "target_fraction": 0.033299411536365335
+        },
+        {
+          "error_fraction": 0.03342695691672086,
+          "frequency_hz": 28.927680798004964,
+          "index": 29,
+          "oracle_gain_amplitude": 1.0204421103826424,
+          "oracle_gain_phase_rad": -0.017158656225324302,
+          "relative_l2_in_bin": 0.06757410018876864,
+          "target_fraction": 0.02013679647441227
+        },
+        {
+          "error_fraction": 0.028839685205209152,
+          "frequency_hz": 16.957605985037393,
+          "index": 17,
+          "oracle_gain_amplitude": 1.0275151545945491,
+          "oracle_gain_phase_rad": -0.004913263465365887,
+          "relative_l2_in_bin": 0.034841654409915455,
+          "target_fraction": 0.06535022089531797
+        },
+        {
+          "error_fraction": 0.02864089820151015,
+          "frequency_hz": 33.915211970074786,
+          "index": 34,
+          "oracle_gain_amplitude": 1.0186262486377087,
+          "oracle_gain_phase_rad": -0.01680098625939294,
+          "relative_l2_in_bin": 0.09150482808000138,
+          "target_fraction": 0.009409199928971884
+        },
+        {
+          "error_fraction": 0.028177731725781422,
+          "frequency_hz": 35.910224438902716,
+          "index": 36,
+          "oracle_gain_amplitude": 1.0441658912004905,
+          "oracle_gain_phase_rad": -0.013641372740103184,
+          "relative_l2_in_bin": 0.08544282288683151,
+          "target_fraction": 0.010617174007724975
+        },
+        {
+          "error_fraction": 0.02808456634049494,
+          "frequency_hz": 19.950124688279285,
+          "index": 20,
+          "oracle_gain_amplitude": 1.0277873681753547,
+          "oracle_gain_phase_rad": -0.001712885787667461,
+          "relative_l2_in_bin": 0.0429410803489196,
+          "target_fraction": 0.04189631930512496
+        },
+        {
+          "error_fraction": 0.027563546935672333,
+          "frequency_hz": 27.930174563591,
+          "index": 28,
+          "oracle_gain_amplitude": 1.0177655645430912,
+          "oracle_gain_phase_rad": -0.010732242024688286,
+          "relative_l2_in_bin": 0.05204684923056043,
+          "target_fraction": 0.027989832348286694
+        },
+        {
+          "error_fraction": 0.027389503306992167,
+          "frequency_hz": 31.920199501246856,
+          "index": 32,
+          "oracle_gain_amplitude": 1.0245339106503317,
+          "oracle_gain_phase_rad": -0.015645340121605504,
+          "relative_l2_in_bin": 0.060048078616153175,
+          "target_fraction": 0.02089488605097186
+        }
+      ]
+    }
+  },
+  "schema": "r40_frequency_residual_diagnostic_v1",
+  "selection_sha256": "5005f614d1ec7cbd77ddad440ac6132d0b79b5953aea70c566a8713d1433b937",
+  "test_id_opened": false,
+  "truth_use": "opened development diagnostic only; not a deployment input",
+  "validation_opened": false
+}

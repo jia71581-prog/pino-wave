@@ -1,0 +1,16 @@
+{
+  "schema": "b2_v10_smoke_attempt_disposition_v1",
+  "attempt": "b2_v10_interim_e33_cycle050_smoke_attempt1",
+  "status": "failed_before_data_access",
+  "error": "KeyError('rank')",
+  "cause": "rank was frozen in offline_policy but the evaluator correctly expected it in the serialized online_policy",
+  "fix": "copy the already frozen rank value 4 into online_policy; no algorithm or hyperparameter changed",
+  "failed_terminal": "results/b2_v10_interim_e33_cycle050_smoke_20260901/terminal.json",
+  "failed_terminal_sha256": "6b144f38885c344286104093288aa43827b9e0a27c57187e5cd062e2a997f197",
+  "failed_preregistration": "results/b2_v10_interim_e33_online_smoke_preregistration_20260901.json",
+  "failed_preregistration_sha256": "ff1c2796e22f1e0cc4b9427fb646bd189bac3dc0e360a623ca438f9ef2320d7f",
+  "candidate_serialized": false,
+  "future_truth_opened": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

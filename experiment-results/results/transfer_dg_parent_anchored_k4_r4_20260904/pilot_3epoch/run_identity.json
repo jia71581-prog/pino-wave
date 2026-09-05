@@ -1,0 +1,146 @@
+{
+  "argv": [
+    "scripts/train_transfer_dg_parent_anchored_k4.py",
+    "--pilot",
+    "--preregistration",
+    "results/transfer_dg_parent_anchored_k4_r4_20260904/preregistration.json",
+    "--cache",
+    "results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5",
+    "--source-h5",
+    "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "--output-dir",
+    "results/transfer_dg_parent_anchored_k4_r4_20260904/pilot_3epoch"
+  ],
+  "bindings": {
+    "baseline_line3_sha256": "18d301fa4c0cc718d5cdc31e637531c0d62bea028ee21d6327c5a0e4635dd1dc",
+    "baseline_metrics_sha256": "9141a850733df86ad9d04478d29204d1e6b84ea325bbf8f7872317d45b01e7d9",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "corrector_sha256": "701adc66c4eb3c2d3cab731487b1532b1eec2b9129fd4d64b925faba7a831c73",
+    "exact_gradient_audit_sha256": "0defb07d2fcbfa830c87e6c55dd4889fdfe50e2cd7da9e34d0b7020c3a20fba8",
+    "exact_gradient_report_sha256": "d7a5ac5dd8d86d5ebdf6124cece98e5656e93d0a9aa1e732c78755666c6600ba",
+    "exact_gradient_selection_sha256": "bd6ffbf48caeaea871543e108ea4f01fd2c23fa21a57f51d7e0110216b25a735",
+    "full_2800_manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "launcher_sha256": "bb007939312a63421cc6c237f76ba72c2df60978db83139c50c98ae9d0e98b36",
+    "mechanism_audit_sha256": "3855520a992e01f57bb9d87ae99341500e1e73cc769b1e0d65375926167d8951",
+    "parent_checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "r3_best_sha256": "40f1fde41f68b8b7893dba8c4aa8e6761db79989d132e3b2971a6677a5b539c5",
+    "r3_trainer_sha256": "19df07b15f3d90cd860852db2d0e9beadeede44c6702c61eb2407d6b36f8fd85",
+    "relative_loss_sha256": "60752f2c239d6e330da4eb5608bdaf3d6511b589e569f1ec578e4c0eef24d10b",
+    "selection_136_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "test_sha256": "65ca0b7c89e3e476757bd9667839be5b534925958213cfb375d6685fd4446cda",
+    "trainer_sha256": "8af3e51fe7ffbd123a9b605183029a01714717601b5142611124ebc5f4e640ac"
+  },
+  "candidate": "transfer_dg_parent_anchored_k4_r4_20260904",
+  "checkpoint_loaded": false,
+  "confirmation_opened": false,
+  "environment": {
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "CUDA_VISIBLE_DEVICES": "0",
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "deterministic_algorithms": false
+  },
+  "initial_state_digest": "b2bfbb598fc608089acd0b7e080ba1c5ee5f4b3a87ed5dd333abd49cb9bef196",
+  "input_hashes_before": {
+    "baseline_line3_sha256": "18d301fa4c0cc718d5cdc31e637531c0d62bea028ee21d6327c5a0e4635dd1dc",
+    "baseline_metrics_sha256": "9141a850733df86ad9d04478d29204d1e6b84ea325bbf8f7872317d45b01e7d9",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "corrector_sha256": "701adc66c4eb3c2d3cab731487b1532b1eec2b9129fd4d64b925faba7a831c73",
+    "exact_gradient_audit_sha256": "0defb07d2fcbfa830c87e6c55dd4889fdfe50e2cd7da9e34d0b7020c3a20fba8",
+    "exact_gradient_report_sha256": "d7a5ac5dd8d86d5ebdf6124cece98e5656e93d0a9aa1e732c78755666c6600ba",
+    "exact_gradient_selection_sha256": "bd6ffbf48caeaea871543e108ea4f01fd2c23fa21a57f51d7e0110216b25a735",
+    "full_2800_manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "launcher_sha256": "bb007939312a63421cc6c237f76ba72c2df60978db83139c50c98ae9d0e98b36",
+    "mechanism_audit_sha256": "3855520a992e01f57bb9d87ae99341500e1e73cc769b1e0d65375926167d8951",
+    "parent_checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "prerequisite_mechanism_sha256": "306493558184e71444bdbc3659f787d2f433e6c0cb84d94694ac9c950ed1b85b",
+    "prerequisite_smoke_sha256": "9de126e075621910ad678d82b91950c4a4e86e8a19ba1cba5d1af236d92f126c",
+    "r3_best_sha256": "40f1fde41f68b8b7893dba8c4aa8e6761db79989d132e3b2971a6677a5b539c5",
+    "r3_trainer_sha256": "19df07b15f3d90cd860852db2d0e9beadeede44c6702c61eb2407d6b36f8fd85",
+    "relative_loss_sha256": "60752f2c239d6e330da4eb5608bdaf3d6511b589e569f1ec578e4c0eef24d10b",
+    "selection_136_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "test_sha256": "65ca0b7c89e3e476757bd9667839be5b534925958213cfb375d6685fd4446cda",
+    "trainer_sha256": "8af3e51fe7ffbd123a9b605183029a01714717601b5142611124ebc5f4e640ac"
+  },
+  "mode": "pilot",
+  "offsets": [
+    0,
+    3,
+    6,
+    9
+  ],
+  "output_dir": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_parent_anchored_k4_r4_20260904/pilot_3epoch",
+  "parameter_manifest_digest": "f8ee8839801b3710d48d0e24ef18553ead8df785efb39e2dbd8953aab9b6c846",
+  "preregistration": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_parent_anchored_k4_r4_20260904/preregistration.json",
+  "preregistration_sha256_observed_before": "b7d94b057ca4d91e6cb55d66a1a0c57c9b1298a74ab625bb9bffd975e3dcf386",
+  "role_audit": {
+    "confirmation_exclusion_digest_verified": true,
+    "overlap_counts": {
+      "calibration_confirmation_groups": 0,
+      "calibration_confirmation_sample_hashes": 0,
+      "calibration_confirmation_sample_ids": 0,
+      "fit_calibration_groups": 0,
+      "fit_calibration_sample_hashes": 0,
+      "fit_calibration_sample_ids": 0,
+      "fit_confirmation_groups": 0,
+      "fit_confirmation_sample_hashes": 0,
+      "fit_confirmation_sample_ids": 0
+    },
+    "roles": {
+      "calibration": {
+        "digests": {
+          "groups": "0cbb27953161ab8034d89d10e48484add4f348ae799e76a7e62d7a09cdbe92dc",
+          "sample_hashes": "284e872f3f53a8c3de967bdf5a4e0c3d516ad1c0467df8bf81862d9d8da76929",
+          "sample_ids": "25d738d33c666a1f71ec6bcf3cd8ed4a17d885c0f235cefc1ce589af6f0cbb64"
+        },
+        "family_counts": {
+          "anomaly": 8,
+          "layered": 8,
+          "marmousi": 10,
+          "uniform": 8
+        },
+        "group_count": 16,
+        "record_count": 34,
+        "truth_opened": false
+      },
+      "confirmation": {
+        "digests": {
+          "groups": "62ee37373613957ca24a403c159be12513b7219429e464f738e681780235d9c3",
+          "sample_hashes": "d1221b899aa2b6fb09629cf7881c853c0f8b60df33885032b3ebc6efcd2c29b3",
+          "sample_ids": "3c7be9c6d100d1cc585acc20ae436cea19c8efa13e7e98cd05825eeb91c6acff"
+        },
+        "family_counts": {
+          "anomaly": 8,
+          "layered": 8,
+          "marmousi": 10,
+          "uniform": 8
+        },
+        "group_count": 16,
+        "record_count": 34,
+        "truth_opened": false
+      },
+      "fit": {
+        "digests": {
+          "groups": "5d0038d28a752e9e0804189c44f7ab70441a300757ba2350cea4c558b6899235",
+          "sample_hashes": "0e5eecac4fff7d09f2c999cfb39b76739b7683841bdb82f6aced2131ab586dd1",
+          "sample_ids": "64e647a045d636eb57616a7b0fe51d396c30a2417264ce5c019836c146eb8706"
+        },
+        "family_counts": {
+          "anomaly": 16,
+          "layered": 16,
+          "marmousi": 20,
+          "uniform": 16
+        },
+        "group_count": 32,
+        "record_count": 68,
+        "truth_opened": false
+      }
+    }
+  },
+  "scheduler_t_max": 816,
+  "schema": "transfer_dg_parent_anchored_k4_identity_v1",
+  "test_id_opened": false,
+  "validation_opened": false
+}

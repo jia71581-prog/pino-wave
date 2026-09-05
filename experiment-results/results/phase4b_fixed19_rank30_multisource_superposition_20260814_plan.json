@@ -1,0 +1,35 @@
+{
+  "schema": "acoustic_operator_visualization_experiment_plan_v1",
+  "status": "complete_accepted_for_complex_medium_visualization_not_accuracy_promotion",
+  "selection_rule": "maximum input-only velocity first-difference energy among the 30 registered Marmousi validation slices",
+  "selected_rank": 30,
+  "selected_sample_id": "validation_marmousi_00055",
+  "selected_group_id": "validation:marmousi:x6150.0:z0.0",
+  "velocity_gradient_energy": 16007.40471809217,
+  "hypothesis": "The input-complexity-maximizing slice will expose more reflected and scattered structure in an eight-source linear-superposition wavefield than the prior rank-15 display.",
+  "expected_mechanism": "Simultaneous fixed-frequency source illumination excites dipping interfaces and lateral velocity contrasts from several directions; linearity makes the summed single-source fields exactly the corresponding simultaneous-source field.",
+  "primary_metric": "all-401-frame relative L2 of the summed Phase4b predictions against the summed sealed LWC-84 references",
+  "failure_signals": [
+    "destructive interference removes most heterogeneous scattering from the displayed snapshots",
+    "the summed Phase4b error is too large for an interpretable comparison",
+    "any source frequency, amplitude, velocity slice, or checkpoint differs across the eight fields"
+  ],
+  "compute_budget": "eight sigma=2 LWC-84 background solves and eight update-265 Phase4b inference calls on one idle GPU; no training",
+  "parent_checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "rollback": "retain the existing rank-15 manuscript figure; do not replace it unless the rank-30 composite is visually clearer and all claims remain case-scoped",
+  "truth_access_rule": "seal all eight predictions before opening the existing sealed references",
+  "claim_scope": "input-selected one-slice position-only visualization; not a population accuracy or frequency-generalization result",
+  "outcome": {
+    "all_401_frame_superposition_relative_l2": 0.288280425807691,
+    "snapshot_relative_l2": [
+      0.1338804028961882,
+      0.2073149226681077,
+      0.2827501124290672,
+      0.3288659295691621,
+      0.3860746010740734,
+      0.46444781104132227
+    ],
+    "target_cancellation_ratio": 0.3582810308325574,
+    "decision": "The complex structures remain visible after physical superposition, so the figure is accepted as qualitative complex-medium evidence. It does not replace the 4.51% G3 accuracy result."
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "schema": "acoustic_train_only_data_preparation_v1",
+  "status": "frozen_before_launch",
+  "candidate": "eikonal_train_marm_r45_cache_20260823",
+  "purpose": "Retry the 700-record train/Marmousi eikonal cache after making output-parent creation explicit.",
+  "single_change_from_r44": "builder creates output.parent before opening the temporary HDF5",
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "wavefield_read": false
+  },
+  "expected": {
+    "records": 700,
+    "family": "marmousi",
+    "split": "train",
+    "finite": true
+  },
+  "bindings": {
+    "builder_sha256": "09813746464d33a16b17a69bce737f3c5bf89c7626692e403a39abb95784b383",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "command": "python scripts/build_eikonal_travel_cache.py --source-h5 /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --output artifacts/pbg_factorized_fno_marm700_eikonal_v3/eikonal_train_marm700.h5 --splits train --families marmousi --workers 16"
+}

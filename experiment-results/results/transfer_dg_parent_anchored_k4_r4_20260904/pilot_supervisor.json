@@ -1,0 +1,51 @@
+{
+  "argv": [
+    "scripts/launch_transfer_dg_parent_anchored_k4.py",
+    "--preregistration",
+    "results/transfer_dg_parent_anchored_k4_r4_20260904/preregistration.json"
+  ],
+  "candidate": "transfer_dg_parent_anchored_k4_r4_20260904",
+  "child_argv": [
+    "env",
+    "-u",
+    "CUBLAS_WORKSPACE_CONFIG",
+    "CUDA_VISIBLE_DEVICES=0",
+    "python",
+    "scripts/train_transfer_dg_parent_anchored_k4.py",
+    "--pilot",
+    "--preregistration",
+    "results/transfer_dg_parent_anchored_k4_r4_20260904/preregistration.json",
+    "--cache",
+    "results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5",
+    "--source-h5",
+    "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "--output-dir",
+    "results/transfer_dg_parent_anchored_k4_r4_20260904/pilot_3epoch"
+  ],
+  "child_argv_sha256": "a3e395ee2960aa2d9b1a7ba701e903a68d5b75235cafcdac2948186bf867df1c",
+  "kill_authorized": false,
+  "log": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_parent_anchored_k4_r4_20260904/pilot_3epoch.log",
+  "output_dir": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_parent_anchored_k4_r4_20260904/pilot_3epoch",
+  "pid": 585553,
+  "preregistration": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_parent_anchored_k4_r4_20260904/preregistration.json",
+  "preregistration_sha256": "b7d94b057ca4d91e6cb55d66a1a0c57c9b1298a74ab625bb9bffd975e3dcf386",
+  "restart_authorized": false,
+  "schema": "transfer_dg_parent_anchored_k4_supervisor_v1",
+  "status": "launched",
+  "test_id_opened": false,
+  "trainer_sha256": "8af3e51fe7ffbd123a9b605183029a01714717601b5142611124ebc5f4e640ac",
+  "validation_opened": false,
+  "verification": {
+    "child_alive": true,
+    "compute_pid_verified": true,
+    "compute_processes": [
+      {
+        "gpu_uuid": "GPU-27f8e8cf-3677-061e-756e-08b7a34d458b",
+        "pid": "585553",
+        "used_memory_mib": "350"
+      }
+    ],
+    "log_identity_event_verified": true,
+    "run_identity_verified": true
+  }
+}

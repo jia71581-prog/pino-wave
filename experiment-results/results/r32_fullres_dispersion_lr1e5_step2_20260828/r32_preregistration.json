@@ -1,0 +1,33 @@
+{
+  "evidence_boundary": "A pass only authorizes a fresh group-disjoint train holdout experiment.",
+  "frozen_parent": "R28_local_UNet_plus_global_spectral_branch",
+  "r29e_components_sha256": "dd651a7701c7c137c78e01545350fe851e10f36b9b9217cf5224388ed4a1bd7f",
+  "refiner": {
+    "correction_cap": 0.1,
+    "dilations": [
+      1,
+      2,
+      4,
+      8,
+      4,
+      2,
+      1
+    ],
+    "input_channels": 17,
+    "inputs": "16_dispersion_conditioned_features_plus_frozen_R28_correction",
+    "pooling_or_resampling": false,
+    "resolution": [
+      201,
+      201
+    ],
+    "width": 24,
+    "zero_start": true
+  },
+  "role": "R28_already_opened_train_holdout_development_only",
+  "schema": "r32_full_resolution_dispersion_refiner_preregistration_v1",
+  "script_sha256": "fb4c20bdc6f2719f39b56d078c19d96d63463dec7144c7cd5d3a5ea0bc0d1b62",
+  "status": "frozen_before_development_training",
+  "success_gate": "mean_and_max_record_relative_L2_lte_0p05",
+  "test_id_opened": false,
+  "validation_opened": false
+}

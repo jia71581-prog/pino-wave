@@ -1,0 +1,61 @@
+{
+  "aggregate_relative_l2": 0.020173669398631716,
+  "device": "cpu",
+  "family_relative_l2": {
+    "layered": 0.018674451329163073,
+    "marmousi": 0.022425137763682785,
+    "uniform": 0.007339780957353409
+  },
+  "internal_dt_s": 0.000625,
+  "measurements": [
+    {
+      "best_scalar": 0.9972136147716462,
+      "family": "uniform",
+      "relative_l2": 0.007339780957353409,
+      "runtime_s": 14.133918353356421,
+      "sample_id": "train_uniform_00397",
+      "scalar_aligned_relative_l2_diagnostic": 0.006787146184558539,
+      "solver_runtime_s": 14.02320427633822,
+      "source_f0_hz": 8.003645260046683,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9968831371127251,
+      "family": "layered",
+      "relative_l2": 0.018674451329163073,
+      "runtime_s": 13.171967088244855,
+      "sample_id": "train_layered_01105",
+      "scalar_aligned_relative_l2_diagnostic": 0.0184109415253583,
+      "solver_runtime_s": 13.053427310660481,
+      "source_f0_hz": 8.009038744452269,
+      "split": "train"
+    },
+    {
+      "best_scalar": 1.0184418499950947,
+      "family": "marmousi",
+      "relative_l2": 0.022425137763682785,
+      "runtime_s": 13.252820998430252,
+      "sample_id": "train_marmousi_00380",
+      "scalar_aligned_relative_l2_diagnostic": 0.013230567499833026,
+      "solver_runtime_s": 13.14793115761131,
+      "source_f0_hz": 8.028230837828447,
+      "split": "train"
+    }
+  ],
+  "promotion_gate": {
+    "maximum_relative_l2": 0.05,
+    "passes_accuracy": true,
+    "scalar_alignment_is_diagnostic_only": true
+  },
+  "records_per_family": 1,
+  "runtime_s": {
+    "maximum": 14.133918353356421,
+    "mean": 13.519568813343843,
+    "minimum": 13.171967088244855
+  },
+  "schema": "kspace_saved_grid_train_only_probe_v1",
+  "selection_scope": "train_only",
+  "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+  "status": "complete"
+}

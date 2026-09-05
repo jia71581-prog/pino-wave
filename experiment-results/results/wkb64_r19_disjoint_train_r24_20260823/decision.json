@@ -1,0 +1,63 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected",
+  "decision": "reject_the_36_record_direct_wkb_generalization_hypothesis_and_keep_validation_and_test_id_sealed",
+  "hypothesis_outcome": "The r19 64-bin WKB surrogate did not reach the 0.05 relative-L2 regime on the mutually disjoint train-only fit, calibration, or confirmation panels.",
+  "best_checkpoint": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_0250.pt",
+  "best_fixed_gate_score": 1.178321103145574,
+  "fixed_frame_trajectory": {
+    "0": 2.9879302192197823,
+    "250": 1.178321103145574,
+    "500": 1.4048172771089984,
+    "750": 1.4934492384299982,
+    "1000": 1.4360691858193697,
+    "1250": 1.337553535520114,
+    "1500": 1.3458986245595144,
+    "1750": 1.4684140860195598,
+    "2000": 1.558969342191973
+  },
+  "all_saved_best_checkpoint": {
+    "fit": {
+      "aggregate_relative_l2": 0.8817,
+      "family_relative_l2": {
+        "layered": 0.9264,
+        "marmousi": 0.7565,
+        "uniform": 0.9623
+      }
+    },
+    "calibration": {
+      "aggregate_relative_l2": 1.1533,
+      "family_relative_l2": {
+        "layered": 1.1579,
+        "marmousi": 1.1826,
+        "uniform": 1.1195
+      }
+    },
+    "confirmation": {
+      "aggregate_relative_l2": 1.1559,
+      "family_relative_l2": {
+        "layered": 1.1092,
+        "marmousi": 1.1073,
+        "uniform": 1.2512
+      }
+    }
+  },
+  "diagnosis": {
+    "fit_at_update_2000_fixed_frame_aggregate_relative_l2": 0.3593,
+    "calibration_at_update_2000_fixed_frame_aggregate_relative_l2": 1.4107,
+    "interpretation": "The 36-record fit itself did not close, while calibration improved only at the earliest checkpoint and then regressed as fit error fell. This rejects simple short-horizon optimization as the explanation and shows a large new-medium generalization gap.",
+    "source_metadata_ranges_overlap": true,
+    "source_metadata_exact_values_disjoint": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "next_action": "Do not extend this checkpoint, relax gradient clipping, or open validation/test_id. Return to train-only evidence and separate source-generalization from medium-generalization before changing architecture or scaling record support.",
+  "bindings": {
+    "preregistration_sha256": "ada8d8a06a701101fa1cf2af6787dbb8fda93a09b3aaec46abf32c4a147b0c08",
+    "run_identity_sha256": "e79768c63cebd508f498c10c290beb527479e08adf3b94892e3fe4cecbeaab3e",
+    "terminal_sha256": "8e2f94e174de0571fe0ecb73090885e912d9b42095bcd4d796c7de9d32759953",
+    "best_checkpoint_sha256": "c836821ac514894fb29faf4b50dcc5096fb0793f680964d86ad2bec3397d6771",
+    "training_script_sha256": "7c00b3af9b8ceb2759287a74db4d8a0dd30463673e3b66ca59c827464c4e8a47",
+    "metadata_audit_script_sha256": "49035b44581cdf499c3326401825aeb6c12f8e9401a878dc26e6b3191367e926"
+  }
+}

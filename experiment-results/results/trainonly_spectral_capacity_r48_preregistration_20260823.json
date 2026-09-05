@@ -1,0 +1,67 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "trainonly_spectral_capacity_r48_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_multifrequency_representation_capacity",
+  "hypothesis": "A learned complex multifrequency propagator is representationally viable because retaining at most the lowest 64 temporal rFFT bins of the true train-only P_bg complex fields, with a bounded spatial Fourier support, will yield aggregate relative L2 no greater than 0.05 on a disjoint project-train calibration panel.",
+  "expected_mechanism": "Each complex Helmholtz field contains arbitrary multipath phase and amplitude at one frequency. Reconstructing all stored times by a fixed inverse rFFT therefore avoids the failed single-arrival ansatz while preserving causality and source band limitation.",
+  "single_conceptual_variable": {
+    "name": "propagation_representation",
+    "parent": "single analytic arrival template",
+    "candidate": "bank of learned complex frequency-domain propagation fields"
+  },
+  "primary_metric": "aggregate relative L2 of the fit-frozen minimum-coefficient spectral truncation on disjoint project-train calibration records",
+  "acceptance": {
+    "fit_aggregate_relative_l2_max": 0.05,
+    "calibration_aggregate_relative_l2_max": 0.05,
+    "temporal_rfft_bins_max": 64,
+    "candidate_selection": "minimum real coefficients among fit cells satisfying fit relative L2 <= 0.05 and nf <= 64"
+  },
+  "failure_signal": "No fit candidate with nf <= 64 reaches 0.05, or the fit-frozen candidate exceeds 0.05 aggregate relative L2 on calibration.",
+  "compute_budget": {
+    "device": "CPU",
+    "fit_records": 70,
+    "calibration_records": 70,
+    "confirmation_records_opened": 0,
+    "spatial_shape": [64, 64],
+    "stored_time_points": 401,
+    "wall_time_max_minutes": 45
+  },
+  "data_access": {
+    "project_data_scope": "train_only",
+    "fit": true,
+    "calibration": true,
+    "confirmation": false,
+    "validation": false,
+    "test_id": false,
+    "numerical_wavefield_model_input": false,
+    "oracle_truth_use": "capacity diagnosis only on fit and calibration project-train labels"
+  },
+  "candidate_grid": {
+    "temporal_bins": [16, 32, 48, 64, 96, 128, 201],
+    "spatial_half_widths": [8, 12, 16, 24, 32]
+  },
+  "parent_checkpoint": {
+    "path": null,
+    "sha256": null,
+    "reason": "analytic representation-capacity diagnostic with no trainable parent"
+  },
+  "bindings": {
+    "script_sha256": "aa1a4f4822c3f7999fdb5eacc921f2ca81d2713e95119450134bb14e46dedaf0",
+    "test_sha256": "075f0a83b8f0e505dbcaafaf5f4e012d3c3dee055a572b70e179187f61f09ffd",
+    "data_loader_sha256": "c29ca63a8b6d62ee340df6fd37b1de6dfe0d51714ec7f17a4cd8f7e386b8af17",
+    "vds_sha256": "9904e4a46b58290c79570034881cf5cb744ef6721b04ad3f0d937c6009eb2bdb",
+    "split_sha256": "e72cc8916b0be6f5d4ff6435f949ec12904fb0412cb0c3db0a33916ac7f3a3fa",
+    "pbg_shards_sha256": {
+      "shard-0.h5": "71693f6175c7f36d2bcc540053f64e786878582d7fdcf3b32b7864bf037b3bcc",
+      "shard-1.h5": "fb9511335bb2c3c26162bc3bf0e1e7716b76f4b1740ca4cd57db9baedec3e58b",
+      "shard-2.h5": "9a332219e0482be9aea49ad78272fae231c2aeec4a4887b3ecfaabd1df78b067",
+      "shard-3.h5": "ebf7b2d6957fefa8af4771b7d53bb9ad63e329084b73731c44dab502de2359ef"
+    },
+    "r47_terminal_sha256": "192c11f5e64ea21cbec774977dc0fbe378dc501e0c2452d7be22125edbf773c2",
+    "tests": "36 passed"
+  },
+  "rollback": "Preserve r47 and all prior checkpoints. If rejected, do not train the <=64-bin Helmholtz bank; inspect wider frequency support or a different learned causal basis using project-train evidence only.",
+  "command": "PYTHONPATH=src python scripts/diagnose_trainonly_spectral_capacity.py --data-path artifacts/pbg_factorized_fno_marm700_eikonal_v3/dataset_v1.h5 --split-manifest artifacts/pbg_factorized_fno_marm700_eikonal_v3/split_full560_70_70_seed372.json --output results/trainonly_spectral_capacity_r48_20260823/result.json --fit-limit 70 --cal-limit 70 --spatial-size 64 --temporal-bins 16,32,48,64,96,128,201 --spatial-half-widths 8,12,16,24,32"
+}

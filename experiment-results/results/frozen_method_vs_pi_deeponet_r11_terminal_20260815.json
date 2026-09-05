@@ -1,0 +1,101 @@
+{
+  "schema": "frozen_method_vs_pi_deeponet_terminal_v1",
+  "status": "complete",
+  "headline": "The frozen proposed method meets the complete 401-frame accuracy/runtime target and reduces same-record, same-frame relative L2 by more than 250-fold versus the full-data PI-DeepONet comparator on both validation and test_id.",
+  "proposed_method_complete_protocol": {
+    "validation": {
+      "records": 480,
+      "frames_per_record": 401,
+      "global_relative_l2": 0.002689297423639035,
+      "maximum_instance_relative_l2": 0.012815195477012936,
+      "mean_runtime_s": 0.880352280473259,
+      "p95_runtime_s": 0.9018363887444139,
+      "mean_speedup_over_traditional": 23.105946987827934,
+      "p95_speedup_over_traditional": 22.555502724334428,
+      "passed": true
+    },
+    "test_id": {
+      "records": 480,
+      "frames_per_record": 401,
+      "global_relative_l2": 0.002629802713257318,
+      "maximum_instance_relative_l2": 0.012265597498494218,
+      "mean_runtime_s": 0.8783298938535153,
+      "p95_runtime_s": 0.8937289696186781,
+      "mean_speedup_over_traditional": 23.159149273611096,
+      "p95_speedup_over_traditional": 22.7601138764781,
+      "passed": true
+    }
+  },
+  "pi_deeponet_comparator": {
+    "training_records": 2240,
+    "completed_training_epochs": 100,
+    "completed_optimizer_updates": 14000,
+    "selected_checkpoint_epoch": 96,
+    "selected_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "comparison_role": "frozen comparison only; no accuracy optimization after full training"
+  },
+  "exact_matched_panel_comparison": {
+    "records_per_split": 480,
+    "scored_frames_per_record": 32,
+    "frame_policy": "identical deterministic exact time indices for both methods",
+    "validation": {
+      "proposed_global_relative_l2": 0.0026340888672267047,
+      "pi_deeponet_global_relative_l2": 0.6591514351863418,
+      "pi_error_over_proposed": 250.23887515242723,
+      "proposed_family_relative_l2": {
+        "uniform": 0.0021101939604585077,
+        "layered": 0.001014618852166577,
+        "marmousi": 0.002751494948529044
+      },
+      "pi_deeponet_family_relative_l2": {
+        "uniform": 0.5150579573754315,
+        "layered": 0.48673416968569033,
+        "marmousi": 0.6812631819762228
+      },
+      "family_error_ratios_pi_over_proposed": {
+        "uniform": 244.0808603506374,
+        "layered": 479.7211964338504,
+        "marmousi": 247.59746782033082
+      },
+      "proposed_maximum_instance_relative_l2": 0.01264454677067059,
+      "pi_deeponet_maximum_instance_relative_l2": 0.8465894821028249
+    },
+    "test_id": {
+      "proposed_global_relative_l2": 0.0025632761598774405,
+      "pi_deeponet_global_relative_l2": 0.6602127235520696,
+      "pi_error_over_proposed": 257.56597509323257,
+      "proposed_family_relative_l2": {
+        "uniform": 0.0017852100204981329,
+        "layered": 0.0008378613519102197,
+        "marmousi": 0.0027106630427005613
+      },
+      "pi_deeponet_family_relative_l2": {
+        "uniform": 0.5389731680008594,
+        "layered": 0.5452773780868517,
+        "marmousi": 0.6788286956700923
+      },
+      "family_error_ratios_pi_over_proposed": {
+        "uniform": 301.9102300638375,
+        "layered": 650.7966704081614,
+        "marmousi": 250.42902233757295
+      },
+      "proposed_maximum_instance_relative_l2": 0.012190534838171906,
+      "pi_deeponet_maximum_instance_relative_l2": 0.8347686077656411
+    }
+  },
+  "runtime_comparison_caveat": {
+    "proposed_method": "Mean 0.887 s on validation and 0.892 s on test_id while computing and materializing all 401 frames.",
+    "pi_deeponet": "Mean 0.199 s on validation and 0.200 s on test_id while computing and materializing only the 32 scored frames.",
+    "interpretation": "Do not report a direct PI-versus-proposed runtime ratio from this panel. Report the proposed method's 22.6x or greater complete-output speedup over the synchronized traditional solver and the strictly matched accuracy ratios separately."
+  },
+  "bindings": {
+    "proposed_target_terminal_sha256": "279ff6d92a3058b62c7a0a4985fdf2176af459fad2ba75a3ec64b071585a29a8",
+    "pi_validation_report_sha256": "b63348d7dd122977a9f87ebc6ad6da03c4511e1e1768b18b6a14152d91787ca0",
+    "pi_test_id_report_sha256": "2114e4e9b227891686636ed81006c8e1756647b12dc1906be26ea78fb413b058",
+    "matched_validation_report_sha256": "87dba1ce257bb83d5050555d369ff9e3458e4650b952268b0d697616a6b82d6f",
+    "matched_test_id_report_sha256": "254cb402dad9548b8ccfec7832814e7d61c2109b7d375a90ffa66ce348fed9b3",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "proposed_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1"
+  }
+}

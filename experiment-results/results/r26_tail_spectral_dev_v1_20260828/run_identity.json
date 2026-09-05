@@ -1,0 +1,51 @@
+{
+  "absolute_goal": {
+    "record_rel_l2_max_lte": 0.05,
+    "record_rel_l2_mean_lte": 0.05
+  },
+  "created_utc": "2026-08-27T16:25:43.733261+00:00",
+  "data_access": {
+    "fit": "train",
+    "holdout": "train_group_disjoint",
+    "test_id_opened": false,
+    "truth_deployment_input": false,
+    "validation_opened": false
+  },
+  "fit_cache_sha256": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/fit_shard_0.h5": "3cd7bf06b74f3a085484f52d3f35cbc5eb97bc8e6ef71b985cf71ce727773b13",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/fit_shard_1.h5": "d6827f2b2515640d763f79b480b1918c0f0ddda2e9e976db51010b453cd544be",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/fit_shard_2.h5": "b16eb34d741c6c083e415d02abc1d4ebd3143b8614769221560bdf6f72018572",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/fit_shard_3.h5": "b4902a0cfdefd67d9bcbed57423f955490525c25aee86a71c515b89085be5635"
+  },
+  "fit_frames_per_record": 64,
+  "fit_record_count": 192,
+  "holdout_cache_sha256": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/holdout_shard_0.h5": "fd33d11bfe74c87ef187bfa95f63ff73049a146e2c48a4b93696ae35ba329ef0",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/holdout_shard_1.h5": "ce39f8724e22464f6540c5ca293a52e736a9766c727420d6f6927f99eca8420a",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/holdout_shard_2.h5": "fb0edfada159cc4476d68e8eda9a8c993cf65402aae8af84ef989f455a2e7f16",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_pilot_cache_20260828/holdout_shard_3.h5": "625782ef8f05e5efade54a957c95f9e122c0288d4b539ada2b8047e44fc09b7b"
+  },
+  "holdout_frames_per_record": 401,
+  "holdout_record_count": 24,
+  "input_channels": 13,
+  "model": {
+    "base_width": 32,
+    "correction_cap": 0.25,
+    "name": "coarse_residual_unet",
+    "pre_onset_correction_zero": true,
+    "top_row_correction_zero": true
+  },
+  "optimization": {
+    "amp_bfloat16": true,
+    "epochs": 12,
+    "global_batch_size": 16,
+    "gradient_weight": 0.05,
+    "hinge_weight": 3.0,
+    "learning_rate": 0.0002,
+    "seed": 250827,
+    "weight_decay": 1e-06
+  },
+  "parameter_count": 2791762,
+  "schema": "r25_coarse_residual_run_identity_v1",
+  "selection_sha256": "2184a4f1c9f3be6186fbacb1599e8bd32fc1fdfeb07b3b99cfe2034a2118ccb8"
+}

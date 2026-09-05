@@ -1,0 +1,10 @@
+{
+  "elapsed_s": 427.5494191646576,
+  "error": "velocity must be [Z,X] and match pressure",
+  "error_type": "ValueError",
+  "schema": "transfer_dg_pyramid_instance_adaptation_run_terminal_v1",
+  "status": "failed",
+  "test_id_opened": false,
+  "traceback": "Traceback (most recent call last):\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/run_transfer_dg_pyramid_instance_adaptation_cpu.py\", line 505, in main\n    system = build_transfer_dg_linear_system(\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/transfer_dg_adapt.py\", line 384, in build_transfer_dg_linear_system\n    parent_defect = frequency_dg_defect(\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/transfer_dg_adapt.py\", line 255, in frequency_dg_defect\n    volume = helmholtz_volume_residual(\n  File \"/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/transfer_dg_adapt.py\", line 158, in helmholtz_volume_residual\n    raise ValueError(\"velocity must be [Z,X] and match pressure\")\nValueError: velocity must be [Z,X] and match pressure\n",
+  "validation_opened": false
+}

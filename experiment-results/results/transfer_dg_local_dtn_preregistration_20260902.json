@@ -1,0 +1,96 @@
+{
+  "schema": "transfer_dg_local_dtn_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-09-02T07:53:32Z",
+  "method": "Transfer DG",
+  "stage": "local_passive_DtN_v1",
+  "claim_scope": "train_only local trace-to-flux capacity and passivity; not full-wavefield promotion",
+  "hypothesis": "A shared context-conditioned passive complex DtN neural element can predict unseen-source local normal-flux actions from medium, frequency, source and pressure traces with strictly lower robust relative error than a zero-flux baseline while preserving nonnegative dissipation.",
+  "literature_basis": [
+    {
+      "work": "A Neural-network-based multiscale Hybridizable Discontinuous Galerkin method",
+      "url": "https://arxiv.org/abs/2608.25850",
+      "use": "learn local DtN actions and source vectors, then retain skeleton assembly"
+    },
+    {
+      "work": "Convex Neural Energy Elements",
+      "url": "https://arxiv.org/abs/2608.02036",
+      "use": "parameterize stable local operators instead of field-only regression"
+    },
+    {
+      "work": "Neural-operator element method",
+      "url": "https://arxiv.org/abs/2506.18427",
+      "use": "share reusable neural elements across subdomains"
+    }
+  ],
+  "dataset": {
+    "path": "results/transfer_dg_local_frequency_elements_24rec_20260902.h5",
+    "sha256": "69450da776f911c33a4146e25f7d0c399702c939e7be26efc1b3e95cf6f866df",
+    "samples": 6912,
+    "source_groups_per_family": 8,
+    "fit_source_groups_per_family": 6,
+    "holdout_source_groups_per_family": 2,
+    "split_unit": "source sample_id, never local element rows",
+    "near_zero_trace_threshold": 0.000001,
+    "near_zero_selection_uses_input_trace_only": true
+  },
+  "model": {
+    "element_feature_channels": 4,
+    "frequency_features": 4,
+    "trace_modes_per_edge": 8,
+    "trace_dofs": 32,
+    "context_dim": 64,
+    "dtn_rank": 8,
+    "complex_operator": "K=S+iD",
+    "symmetric_part": "S=A*B^T+B*A^T+diag(s), symmetric and possibly indefinite",
+    "dissipative_part": "D=C*C^T+diag(softplus(d)+1e-6), positive definite",
+    "source_vector": "separate learned real/imaginary offset"
+  },
+  "lanes": [
+    {
+      "gpu": 0,
+      "seed": 372
+    },
+    {
+      "gpu": 1,
+      "seed": 733
+    },
+    {
+      "gpu": 2,
+      "seed": 1049
+    },
+    {
+      "gpu": 3,
+      "seed": 1403
+    }
+  ],
+  "hyperparameters": {
+    "epochs": 120,
+    "batch_size": 256,
+    "learning_rate": 0.001,
+    "schedule": "cosine_to_1e-5",
+    "weight_decay": 0.000001,
+    "gradient_clip": 1.0,
+    "flux_denominator_floor": 10.0,
+    "loss": "mean per-sample robust relative L2 of complex normal-flux coefficients"
+  },
+  "primary_gate": "four-seed mean best group-disjoint local-flux aggregate must be strictly below the four-seed mean zero-flux baseline; no minimum percentage",
+  "structure_gate": "every selected checkpoint must have minimum sampled dissipation quadratic >= -1e-6",
+  "failure_signal": "no strict flux improvement, passivity violation, source-group leakage, nonfinite/OOM, binding drift, or sealed-split violation",
+  "upstream_wait": "results/transfer_dg_flux_pretrain_fast_supervisor_20260902/terminal.json must report status=complete before occupying the four GPUs",
+  "bindings": {
+    "trainer_sha256": "47b3896b8bb0f53d2c5ccbf42b5403a51ffc4a11c946c9e339af87200c0c9aa7",
+    "summarizer_sha256": "fe4dfbf074c02c3b0de516a6c0e872cdbf8decac55919cb30e2aacb4fe88548f",
+    "runner_sha256": "efa9d086a4a8c5e924a857c8266fec381aead901773e49ff993e2c4c26aa5afc",
+    "queue_sha256": "1fb9ae9143f52a03037675db12d2fa084f860cd889fc7961da3f0d56f982ddcc",
+    "element_module_sha256": "1ce6a457f11499fbd9c9863a102efa7ee41f043c08f39d235a9f9e24b13ef198",
+    "trainer_test_sha256": "79e243339869c2c0e10dc12a5f814bd8b40c0f1b80ae63e453de940ffd8b50ab",
+    "element_test_sha256": "895da594d193b5ed11703ce52f5b9e993295055d94aa5386af9d4a2373e70e78",
+    "dataset_test_sha256": "c7885d8ec791bb320794b779ee232e805b60a88295a4c8363263b79616342932",
+    "dataset_sha256": "69450da776f911c33a4146e25f7d0c399702c939e7be26efc1b3e95cf6f866df",
+    "dataset_identity_sha256": "6f44fcd76ef94e1189b1d572958567915b5b009e1c5de5b74fc859acb5738a5e"
+  },
+  "rollback": "local training is additive; rejection leaves the current P1b and DG-flux artifacts unchanged",
+  "validation_opened": false,
+  "test_id_opened": false
+}

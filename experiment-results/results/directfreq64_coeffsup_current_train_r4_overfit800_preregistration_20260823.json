@@ -1,0 +1,29 @@
+{
+  "schema": "directfreq64_coefficient_overfit_preregistration_v1",
+  "status": "frozen_before_launch",
+  "experiment_id": "directfreq64_coeffsup_current_train_r4_overfit800_20260823",
+  "hypothesis": "Removing temporal underdetermination with exact full-trace coefficient labels lets the pure-neural direct 64-bin U-Net memorize the deterministic three-family train triplet below the historical structural floor.",
+  "expected_mechanism": "Every update supervises all first-64 complex rFFT fields computed from 401 stored train frames. The U-Net learns one static frequency-field map per record and fixed synthesis enforces cross-time coherence without a numerical solver at deployment.",
+  "primary_gate": {
+    "all_saved_aggregate_relative_l2_maximum": 0.10,
+    "all_saved_each_family_relative_l2_maximum": 0.12,
+    "full_saved_frames": 401,
+    "record_count": 3
+  },
+  "secondary_metrics": ["early/middle/late relative-L2", "low/middle/high spectrum relative-L2", "coefficient relative-L2 trajectory", "phase correlation", "runtime and peak CUDA memory"],
+  "failure_signals": ["primary gate failure at update 800", "non-finite value", "CUDA OOM", "numerical background access", "missing family coverage"],
+  "deployment_contract": {"neural_only": true, "background_cache": null, "numerical_wavefield_input": false, "future_truth_input": false, "inference": "U-Net coefficient prediction plus fixed temporal Fourier synthesis"},
+  "evidence_scope": {"split": "train", "records_per_family": 1, "validation_opened": false, "test_id_opened": false},
+  "compute_budget": {"gpus": 1, "optimizer_updates": 800, "evaluate_every_updates": 50, "full_trace_label_frames": 401, "sentinel_forward_frames": 4, "wall_ceiling_minutes": 30},
+  "parent_checkpoint": null,
+  "rollback": "Preserve R7C and all protected checkpoints; reject direct independent coefficient fields if the three-record memorization gate fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/directfreq64_coeffsup_current_train_r4_overfit800_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-no-wkb --helmholtz-coefficient-supervision --updates 800 --evaluate-every 50 --training-frames 401 --validation-frames 32 --microbatch-records 1 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "script_sha256": "491441d8017b165f637909eb72f045120579be1916f691b19e9a7f1fc356a68d",
+    "memory_gate_sha256": "60097b2a8f7ffb25db8f7dcbcd3eb310dff80fa8957351035411c28593d7d659",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

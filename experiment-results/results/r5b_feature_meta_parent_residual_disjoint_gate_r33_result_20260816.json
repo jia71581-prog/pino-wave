@@ -1,0 +1,54 @@
+{
+  "experiment_id": "r5b_feature_meta_parent_residual_disjoint_gate_r33_20260816",
+  "status": "completed_rejected",
+  "preregistration": "results/r5b_feature_meta_parent_residual_disjoint_gate_r33_preregistration_20260816.json",
+  "adapter_checkpoint_sha256": "77b8866f8aaba20d66bf5c2e0d9c0a1b93d39ca95dda1edf62795183cea42162",
+  "selection_manifest_sha256": "146c7fc34b6826b9fd9520e14e8fd182fa512231e21dec0d95b082fa02469662",
+  "summary_sha256": "ea42d7370ac42533c58ae7cf86e554c7a0ead50f0e69cf0300565dbca01b0f97",
+  "selection_split": "train",
+  "records": 6,
+  "group_disjoint_from_training_and_all_prior_feature_gates": true,
+  "global_future_energy_relative_l2": {
+    "parent": 0.48470006235055085,
+    "zero_shot": 0.48554197554984124,
+    "residual_trust_gate_instance_adapted": 0.48469945617279603,
+    "adapted_improvement_fraction_vs_parent": 0.0000012506244622402346,
+    "adapted_improvement_fraction_vs_zero_shot": 0.0017352142955119833
+  },
+  "family_future_energy_relative_l2": {
+    "uniform": {
+      "parent": 0.10635423935782459,
+      "adapted": 0.10635423935782459
+    },
+    "layered": {
+      "parent": 0.24266764863035697,
+      "adapted": 0.24266200389476478
+    },
+    "marmousi": {
+      "parent": 0.549300378976065,
+      "adapted": 0.549300378976065
+    }
+  },
+  "paired_record_wins_vs_parent": {
+    "adapted": 2,
+    "records": 6
+  },
+  "accepted_instance_updates": 2,
+  "gate_checks": {
+    "adapted_global_improvement_vs_parent_at_least_0_005": false,
+    "adapted_global_improvement_vs_zero_shot_at_least_0_001": true,
+    "no_family_degrades_more_than_0_005": true,
+    "at_least_4_of_6_paired_wins_vs_parent": false,
+    "required_record_count_6": true
+  },
+  "access_audit": {
+    "physical_wavefield_propagator": false,
+    "synthetic_bridge": false,
+    "pde_loss_weight": 0.0,
+    "future_truth_opened_only_after_prediction_seal": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "decision": "reject_candidate_without_frozen_validation_access",
+  "diagnosis": "The zero-origin gate provides a safe exact-parent fallback, but reducing two-frame onset error does not produce a material or reliable complete-future correction."
+}

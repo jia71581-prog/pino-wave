@@ -1,0 +1,88 @@
+{
+  "schema": "transfer_dg_pyramid_instance_adaptation_cpu_preregistration_v1",
+  "candidate": "transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904",
+  "claim_scope": "One-record train-only CPU integration smoke of the latest Transfer-DG adaptation core on an in-progress PyramidMoE checkpoint. This is seen-data diagnostic evidence only, not a validation, test_id, runtime, generalization, or target claim.",
+  "hypothesis": "A deterministic ridge solve over the checkpoint's learned branch-trunk pressure modes, using exactly two adjacent onset frames and internal DG flux defects, will lower the online objective and lower future-field relative L2 for train_marmousi_00260 relative to the same unadapted update-13650 prediction.",
+  "expected_mechanism": "Input-conditioned branch-trunk rank contributions span learned phase and amplitude corrections. Whitening makes their ridge scaling comparable, while the onset mismatch and internal normal-flux defect select a trust-bounded linear combination without reading future truth.",
+  "primary_metric": "Post-seal adapted future-field relative L2 versus the unadapted update-13650 prediction on all stored frames strictly after the second onset observation.",
+  "acceptance": {
+    "online_objective_strictly_improves": true,
+    "future_relative_l2_strictly_improves": true,
+    "correction_ratio_max": 0.05,
+    "future_truth_used_during_adaptation": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "failure_signal": "Reject on binding drift, non-finite tensors, invalid two-frame access, singular effective basis, failed online objective gate, future-field regression, process failure, or any validation/test_id access.",
+  "compute_budget": {
+    "device": "cpu",
+    "threads": 16,
+    "wall_seconds_max": 10800,
+    "new_disk_bytes_max": 536870912
+  },
+  "data": {
+    "split": "train",
+    "role": "confirmation",
+    "family": "marmousi",
+    "sample_id": "train_marmousi_00260",
+    "sample_sha256": "7e37dfeb4a46a94d5573bd0edc7f44fdd7d581257ded6088e07667841d7d234a",
+    "group_id": "train:marmousi:x6650.0:z100.0",
+    "records_seen_during_full_pretraining": true,
+    "online_true_frames": "exactly two adjacent onset frames selected by the frozen one-cycle lead rule",
+    "future_truth_policy": "Future train truth may be opened only after adapted coefficients and the no-future-access audit are serialized."
+  },
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "use_mhc": true,
+    "checkpoint_epoch": 20,
+    "checkpoint_next_step": 350,
+    "checkpoint_update": 13650,
+    "checkpoint_training_complete": false
+  },
+  "adaptation": {
+    "kind": "closed-form per-instance linear coefficient adaptation",
+    "basis": "64 input-conditioned physical branch-trunk rank contributions captured from the frozen model, hard-free-surface projected, phase rotated, Gram-whitened, and scaled to parent_norm/sqrt(effective_rank)",
+    "basis_relative_tolerance": 1e-06,
+    "transfer_dg_config": {
+      "dx_m": 10.0,
+      "dz_m": 10.0,
+      "element_intervals": 20,
+      "boundary_margin": 1,
+      "volume_stride": 4,
+      "observed_weight": 1.0,
+      "volume_weight": 0.0,
+      "flux_weight": 0.1,
+      "interface_floor": 0.05,
+      "ridge_weight": 0.0001,
+      "trust_ratio": 0.05
+    },
+    "volume_weight_reason": "The real-cache source forcing normalization is not yet bound to the pressure Helmholtz residual, so the first integration smoke excludes the volume term rather than use a mismatched source scale.",
+    "precision": "full FP32 model, basis, ridge system, and adapted coefficients",
+    "quantization": false
+  },
+  "bindings": {
+    "runner_sha256": "984cce482ad8925ec82805884f64b187207f8b61624997c84b8064f1c5d7518a",
+    "adapt_core_sha256": "2b57ad54abfa093fa468447850139a374ec2b06fcf9856f317573347339eb8c9",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "candidate_checkpoint_sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "residual_summary_0_sha256": "ce160c941b9a34ca33f3b4c124b328e7801d91345c3e0c78137e0680794d6551",
+    "residual_summary_1_sha256": "90d71523d3a91531c29b70a51802e98fd30d922804b92385c65a83bdb4dd81b5",
+    "residual_summary_2_sha256": "54a1bd10d2d0d0347438ffd3af08bdb81c52a3b27f51e55d02d5c32c03b462b9",
+    "residual_summary_3_sha256": "3cac02dc6aa4200f0c150a79ea24127b6d91a9171955adad137208626af0c174",
+    "travel_summary_0_sha256": "26872176f67606f4a3383f05bc9989cd2daaddc7911b897cfec1bfabbb1472e1",
+    "travel_summary_1_sha256": "11e90ce6f6774cc221d939b202f85ad737fce075d879843df109d19e73440cc4",
+    "travel_summary_2_sha256": "35c8dcc2a8a7afb416e5d320681707013b2d7e87e5ed21c1b7ca329686e461ad",
+    "travel_summary_3_sha256": "4b770a1e1037adc28a39e5fd2f8524518d6397ee28965bad692798d3c4a073b8"
+  },
+  "allowed_files": [
+    "scripts/run_transfer_dg_pyramid_instance_adaptation_cpu.py",
+    "results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/preregistration.json",
+    "results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/parent_snapshot.pt",
+    "results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/run/*"
+  ],
+  "rollback": "Preserve the immutable update-13650 snapshot and every existing checkpoint. The active four-GPU pretraining process is untouched; adaptation writes only into the versioned run directory.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

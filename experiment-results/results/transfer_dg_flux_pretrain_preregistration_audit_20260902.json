@@ -1,0 +1,22 @@
+{
+  "schema": "transfer_dg_flux_pretrain_preregistration_audit_v1",
+  "status": "cleared_for_launch",
+  "preregistration": "results/transfer_dg_flux_pretrain_preregistration_20260902.json",
+  "preregistration_sha256": "abb39521119b0a9c59ab1a3bff1752a39e6d5e62d2d41ec908ca1f408ee43a61",
+  "checks": {
+    "A1_terminated": "all four A1 workers exited with SIGTERM by explicit user request; GPU memory is released",
+    "lineage": "both passed P1b parents and all protected checkpoint families remain read-only",
+    "split_boundary": "all fit and holdout inputs are sealed train split; validation/test_id remain unopened",
+    "bit_exact_transfer": "zero-gated DG-flux candidate is bit-exact to the hard-boundary P1b parent before training",
+    "uniform_contract": "uniform velocity yields exactly zero reflection maps and exactly zero DG flux",
+    "interface_contract": "layered/Marmousi batches produce nonzero face maps and a finite nonzero DG gate gradient",
+    "conservation": "face contributions are scattered equal and opposite before channel projection",
+    "cpml": "left/right/bottom 20-cell CPML faces are excluded",
+    "memory": "micro-records=4 peak allocated memory is 16059.5 MiB on a 24564 MiB device",
+    "bindings": "trainer, runner, summarizer, dependencies, tests, parents, manifests and caches are frozen by SHA256"
+  },
+  "primary_gate": "strict two-seed mean improvement over paired control and parent; no minimum percentage",
+  "blocking_findings": [],
+  "validation_opened": false,
+  "test_id_opened": false
+}

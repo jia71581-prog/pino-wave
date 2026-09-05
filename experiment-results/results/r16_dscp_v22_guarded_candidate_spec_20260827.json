@@ -1,0 +1,37 @@
+{
+  "schema": "r16_dscp_v22_guarded_candidate_spec_v1",
+  "frozen_local_date": "2026-08-27",
+  "candidate": "r16_dscp_v22_wide128_radial_guard",
+  "purpose": "Package the v18 B Wide128 checkpoint behind a deployment-computable coefficient-space radial high-band guard, without retraining or changing weights.",
+  "bindings": {
+    "module_sha256": "c3c6c51e382729b85852de575634600f77d12f79c8b0121ac9541b87585245a2",
+    "script_sha256": "fbf39eb48b124e7785212693dd15552a3283a85fc6baca0307faa45b0a8ddb59",
+    "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+    "basis_sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+    "v19_terminal_sha256": "2e3eb5d434ab385499363f9b133b9cec71b306d90260b925b2393af4a1bfb445",
+    "v20b_terminal_sha256": "aeeaca5a32d849441324149bc91f0c38fc38c0c84077a088bd2bf71b822793f6"
+  },
+  "method_change": "Apply the existing project_low_mid_increment operator to the 16 scaled DSCP coefficient maps before temporal-basis materialization. The projection uses the exact normalized 2-D radial high-band mask of the paper confirmatory metric.",
+  "weight_change": "none; exact v18 B_data_hinge model_state is loaded",
+  "deployment_inputs": "unchanged v18/DSCP inputs only: velocity, source map, travel time, coordinates, two observed frames, parent wavefield, k0/k1; no future truth or family label",
+  "evidence_boundary": {
+    "confirmed_train_only": "v19 B off-panel consistent; v20b guarded post-hoc 24/24 radial-high nonworse, joint gain 0.0265359, maximum guard high-energy fraction 1.91e-12, coefficient projection mean latency about 0.60 ms",
+    "not_yet_confirmed": "validation/test_id generalization and paper-level held-out dispersion claim",
+    "sealed_validation": "must not be opened without explicit lead authorization and a separate frozen validation-once preregistration"
+  },
+  "selftest_gates": [
+    "exact v18 head state load",
+    "25,266 trainable parameters",
+    "label-free deployment signatures",
+    "coefficient radial-high energy fraction <= 1e-10",
+    "correction exactly causal through k1",
+    "top boundary remains zero",
+    "finite nonzero future correction"
+  ],
+  "prohibitions": [
+    "no optimizer step",
+    "no checkpoint rewrite",
+    "no validation/test_id access",
+    "no generalization or dispersion-suppression paper claim from train-only evidence"
+  ]
+}

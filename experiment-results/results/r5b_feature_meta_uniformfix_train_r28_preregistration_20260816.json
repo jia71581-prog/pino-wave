@@ -1,0 +1,40 @@
+{
+  "experiment_id": "r5b_feature_meta_uniformfix_train_r28_20260816",
+  "registered_at_utc": "2026-08-16",
+  "status": "preregistered_before_execution",
+  "predecessor": "r5b_feature_meta_streaming_train_pilot_r25_20260816",
+  "single_algorithmic_change": "Replace epsilon-only velocity standardization in the shared onset conditioner with device-stable physical dynamic-range gating that maps constant media to exact zero contrast.",
+  "root_cause_evidence": "results/r5b_uniform_conditioner_device_normalization_diagnosis_r27_20260816.json",
+  "scope": "train_split_only_retraining_after_numerical_fix",
+  "forbidden_data": [
+    "validation",
+    "test_id"
+  ],
+  "physical_wavefield_propagator": false,
+  "synthetic_bridge": false,
+  "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "adapter_implementation_sha256": "96d493a60b9d978d30e038c6d584cfc79522d5baba14963b2255a5322289363d",
+  "trainer_sha256": "b6e7984ebc89b56a5ab44825133d60c50bf47f52291bfcf6b17493efc948ba35",
+  "config_sha256": "6423588bfb277ec3040b0c43effd3b5d8c46751145a4ca9d653d21d8358577b0",
+  "registered_protocol": {
+    "seed": 372,
+    "episodes_per_family": 4,
+    "epochs": 3,
+    "batch_size": 1,
+    "future_time_points_per_episode_per_epoch": 24,
+    "gradient_time_chunk": 4,
+    "time_block": 1,
+    "learning_rate": 0.0001,
+    "latent_dim": 16,
+    "lora_rank": 4,
+    "max_scale": 0.05,
+    "max_bias": 0.02,
+    "parent_parameters_frozen": true
+  },
+  "success_conditions": [
+    "training completes without nonfinite loss or out-of-memory failure",
+    "best.pt binds the registered r5b parent and exact training groups",
+    "no step exhibits the r25 constant-medium latent explosion signature"
+  ],
+  "promotion_rule": "Do not reuse the six r26 gate groups and do not access validation. Evaluate on a newly preregistered train-split group-disjoint gate."
+}

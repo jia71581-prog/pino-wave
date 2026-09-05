@@ -1,0 +1,33 @@
+{
+  "schema": "r16_dscp_v20b_radial_guard_spec_v1",
+  "frozen_local_date": "2026-08-27",
+  "purpose": "Correct the v20 high-band audit to the paper confirmatory 2-D radial spectrum definition and test the existing structural low/mid projection on the 16 DSCP coefficient maps.",
+  "claim_scope": "post-hoc train-only method diagnostic; not independent promotion evidence",
+  "truth_scope": "24 train/final_train_confirm records already consumed by v19; validation and test_id remain sealed",
+  "bindings": {
+    "script_sha256": "37035d2d04892d8e7b795c36697cc2622061066cd4fc58996aa2e3d0d438acc1",
+    "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+    "v19_terminal_sha256": "2e3eb5d434ab385499363f9b133b9cec71b306d90260b925b2393af4a1bfb445",
+    "v20_terminal_sha256": "e9d0625d40a2904cb7f85bbe7b33596787714d7c2aa727dcf85c449896aa7925",
+    "confirmatory_metrics_sha256": "401d1347038e6b0a45906b90d75fefde9f0d6cd1f92190e4ed53f91d635f67e6",
+    "band_adapter_sha256": "59689f19ae643803a1689c4c1390c4a7af162ed6789bf0f348c1b80ea1949c41"
+  },
+  "candidate": "frozen v18 B_data_hinge best checkpoint, unchanged weights",
+  "arms": {
+    "raw": "v18 B correction unchanged",
+    "coefficient_radial_guard": "apply project_low_mid_increment to the 16 coefficient maps before rank-16 temporal materialization"
+  },
+  "metric": "spatial_spectrum_relative_l2 from confirmatory_metrics.py: normalized 2-D radial rfft2 masks low <=1/3, middle (1/3,2/3], high >2/3",
+  "readout": {
+    "maximum_aggregate_gain_drop": 0.005,
+    "worst_aggregate_harm_floor": -0.02,
+    "viable": "Guarded radial-high nonworse 24/24 within 1e-6, guarded mean radial-high gain >= -1e-6, aggregate mean gain no more than 0.005 below raw, aggregate nonworse within 1% at least 23/24, and worst aggregate harm >= -0.02."
+  },
+  "prohibitions": [
+    "no optimizer step",
+    "no checkpoint write",
+    "no validation/test_id access",
+    "no promotion claim",
+    "no threshold movement after results"
+  ]
+}

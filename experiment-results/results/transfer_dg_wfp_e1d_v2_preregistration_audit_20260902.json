@@ -1,0 +1,35 @@
+{
+  "schema": "transfer_dg_wfp_e1d_v2_preregistration_audit_v1",
+  "cleared_for_four_gpu_training": true,
+  "preregistration_sha256": "359e1a2b8063a397f507c0df6970737b54c49b785da5de014268736eddf3c37c",
+  "trainer_sha256": "4d4500d5e493ce7c038ba8a9ba9f91c3e63e13b938d098e3716d73c585c566c4",
+  "launcher_sha256": "1eefb40ab08d2fa0598fff45f1ab90c5d655c2fc90e0dd9a560c492237931d0d",
+  "travel_summary_sha256": [
+    "7135280acac53554f13a2c68bf54e51ca0602e576a79d2a7b072e5da5ceecfcf",
+    "8a572b14e3dd52577a2cdd6822b0a0c5e87ac52746455da9734a9474acb01af7",
+    "a0f44c0e88e4831720843a4c51efe7baf7229b85e2c4825a8d774a6ded4e0540",
+    "02413fc03fb221c6fbbe8c66eed2b35d44c442cebbfcbd46d61087ba64a36407"
+  ],
+  "checks": {
+    "travel_record_count": 256,
+    "travel_unique_sample_count": 256,
+    "uniform_max_abs_travel_error_s": 0.0,
+    "all_physical_energy_denominators_positive": true,
+    "all_cpml_energy_denominators_positive": true,
+    "four_family_forward_backward_smoke": true,
+    "smoke_physical_shape": [4, 2, 201, 201],
+    "smoke_cpml_shape": [4, 10, 221, 241],
+    "smoke_all_finite": true,
+    "smoke_peak_cuda_bytes": 1419928576,
+    "training_full_truth_allowed": true,
+    "model_input_future_wavefield_frames": 0,
+    "test_future_truth_access": false,
+    "validation_access": false,
+    "test_id_access": false,
+    "gpu_process_count_before_launch": 0,
+    "output_absent": true
+  },
+  "veto_reason": null,
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,563 @@
+{
+ "authorization": "lead conditional directive 2026-08-26 recorded in the preregistration",
+ "bindings": {
+  "parent_checkpoint": {
+   "expected": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+   "observed": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789"
+  },
+  "preregistration": {
+   "expected": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4",
+   "observed": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4"
+  },
+  "results/r16_dscp_v1/basis_rank16.pt": {
+   "expected": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+   "observed": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786"
+  },
+  "results/r16_dscp_v1/panels.json": {
+   "expected": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+   "observed": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464"
+  },
+  "results/r16_dscp_v16_preregistration_20260826.json": {
+   "runtime_pinned": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4"
+  },
+  "results/r4e12_convergence_horizon_20260826/terminal.json": {
+   "expected": "4db6844c96b7da5f6c5312ca0eaa3f450ebdd2f31bbf393e784a6ed85aec4fbd",
+   "observed": "4db6844c96b7da5f6c5312ca0eaa3f450ebdd2f31bbf393e784a6ed85aec4fbd"
+  },
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py": {
+   "expected": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+   "observed": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201"
+  },
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v2.py": {
+   "expected": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+   "observed": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9"
+  },
+  "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py": {
+   "expected": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517",
+   "observed": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517"
+  },
+  "scripts/probe_r4e12_convergence_horizon.py": {
+   "runtime_pinned": "cc32438279b43f83eeec905cda23b4207fb73837681cc6a662ad376870c547f2"
+  },
+  "scripts/train_r16_dscp_v16.py": {
+   "runtime_pinned": "2c3de5727d2886111c6456108ff823c51de044aac861efc69f12a0123dedb5bd"
+  }
+ },
+ "candidate": "r16_dscp_v16_wide128",
+ "completed_utc": "2026-08-26T13:45:24Z",
+ "disclaimers": {
+  "correction_nature": "output-field data fit plus feature-driven ansatz; no PDE residual anywhere",
+  "stage": "wiring and 3-record capacity re-confirmation; not learning or generalization evidence"
+ },
+ "gates": {
+  "checkpoint": {
+   "limit_bytes": 2097152,
+   "passed": true,
+   "value_bytes": 315562
+  },
+  "finite": {
+   "passed": true,
+   "value": true
+  },
+  "loss_per_record": {
+   "passed": true,
+   "threshold": 0.1,
+   "value": {
+    "train_layered_00564": 0.52032401836727,
+    "train_marmousi_00385": 0.23105027645826104,
+    "train_uniform_00321": 0.1426537719826655
+   }
+  },
+  "nonworse": {
+   "passed": true,
+   "threshold": 3,
+   "value": 3
+  },
+  "oracle_gain": {
+   "fraction": 0.35,
+   "passed": true,
+   "records_min": 2,
+   "value": {
+    "train_layered_00564": 0.6823256964776059,
+    "train_marmousi_00385": 0.8120344902605249,
+    "train_uniform_00321": 0.4364417604907815
+   }
+  },
+  "vram": {
+   "limit_bytes": 8589934592,
+   "passed": true,
+   "value_bytes": 1650458624
+  }
+ },
+ "metrics": {
+  "cache_build_s": 47.99211214017123,
+  "eval_records": 3,
+  "final_records": [
+   {
+    "aggregate_rel_l2": 0.0718675034245713,
+    "family": "uniform",
+    "gain_iii": 0.054292910732154115,
+    "loss": 0.015325471758842468,
+    "nonworse": true,
+    "parent_rel_l2": 0.0759934066690884,
+    "sample_id": "train_uniform_00321"
+   },
+   {
+    "aggregate_rel_l2": 0.09003711287669552,
+    "family": "layered",
+    "gain_iii": 0.1434484789188559,
+    "loss": 0.020482046529650688,
+    "nonworse": true,
+    "parent_rel_l2": 0.10511581692488291,
+    "sample_id": "train_layered_00564"
+   },
+   {
+    "aggregate_rel_l2": 0.5364942641044849,
+    "family": "marmousi",
+    "gain_iii": 0.1079358915100693,
+    "loss": 0.4324948489665985,
+    "nonworse": true,
+    "parent_rel_l2": 0.6014077452489959,
+    "sample_id": "train_marmousi_00385"
+   }
+  ],
+  "fit_records": 3,
+  "initial_loss": {
+   "train_layered_00564": 0.04269975423812866,
+   "train_marmousi_00385": 0.5624487996101379,
+   "train_uniform_00321": 0.01787547580897808
+  },
+  "oracle_by_record": {
+   "train_layered_00564": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "acceptance_convention_gain": 0.21023461326370246,
+    "confinement_invariants": {
+     "correction_identically_zero_outside_mask": true,
+     "max_abs_applied_correction_outside_mask": 0.0
+    },
+    "corrected_metrics": {
+     "global_energy_rel_l2": 0.08301683380578201,
+     "masked_energy_floored_per_frame": 0.08885731709453377,
+     "unmasked_per_frame_unsquared_mean": 0.44722375918276347
+    },
+    "correction_energy": 1.3879579219916548e-14,
+    "correction_energy_ratio": 0.003630060956134367,
+    "deviation_from_r4e9_probe": "r4e9 restricted the fit to the truth mask; v15 restricts it to the parent mask so the bound matches what the deployment-causal gate can express. No r4e9 reproduction is claimed.",
+    "dimensionless_coefficient_energy": 0.11255573363746542,
+    "fit_frame_count": 232,
+    "fit_objective": "weighted LS restricted to PARENT-mask retained frames with truth-energy weights floored at tau times the peak truth energy",
+    "future_frame_count": 380,
+    "gain": {
+     "global_energy_rel_l2": 0.21023461326370246,
+     "masked_energy_floored_per_frame": 0.34825045380109126,
+     "unmasked_per_frame_unsquared_mean": 0.06185538019803782
+    },
+    "is_achieved_result": false,
+    "kind": "train_only_confined_oracle_upper_bound",
+    "mask": {
+     "deployment_computable": true,
+     "driven_by": "parent_frame_energy",
+     "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+     "layered_on_top_of_c1_causal_ramp": true,
+     "replaces_c1_causal_ramp": false,
+     "symbol": "m_t",
+     "tau": 0.001,
+     "uses_truth_frame_energy": false,
+     "uses_validation_or_test_data": false
+    },
+    "mean_squared_coefficient": 4.5911291903501116e-20,
+    "parent_energy_floor": 3.7342865807201775e-17,
+    "parent_metrics": {
+     "global_energy_rel_l2": 0.10511581692488292,
+     "masked_energy_floored_per_frame": 0.13633659986840288,
+     "unmasked_per_frame_unsquared_mean": 0.476710892694956
+    },
+    "recomputed_on_the_scored_record": true,
+    "spatial_point_count": 40401,
+    "synthetic_records_used": false,
+    "tau": 0.001,
+    "transplanted_constants_used": false,
+    "voided_v14_constants_referenced": false
+   },
+   "train_marmousi_00385": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "acceptance_convention_gain": 0.13292032888337077,
+    "confinement_invariants": {
+     "correction_identically_zero_outside_mask": true,
+     "max_abs_applied_correction_outside_mask": 0.0
+    },
+    "corrected_metrics": {
+     "global_energy_rel_l2": 0.5214684299574929,
+     "masked_energy_floored_per_frame": 0.48270483352281573,
+     "unmasked_per_frame_unsquared_mean": 0.4945031384576704
+    },
+    "correction_energy": 1.8544464592320934e-12,
+    "correction_energy_ratio": 0.1429463837301132,
+    "deviation_from_r4e9_probe": "r4e9 restricted the fit to the truth mask; v15 restricts it to the parent mask so the bound matches what the deployment-causal gate can express. No r4e9 reproduction is claimed.",
+    "dimensionless_coefficient_energy": 3.4575221350875283,
+    "fit_frame_count": 387,
+    "fit_objective": "weighted LS restricted to PARENT-mask retained frames with truth-energy weights floored at tau times the peak truth energy",
+    "future_frame_count": 391,
+    "gain": {
+     "global_energy_rel_l2": 0.13292032888337077,
+     "masked_energy_floored_per_frame": 0.12255318338336538,
+     "unmasked_per_frame_unsquared_mean": 0.11889853906510281
+    },
+    "is_achieved_result": false,
+    "kind": "train_only_confined_oracle_upper_bound",
+    "mask": {
+     "deployment_computable": true,
+     "driven_by": "parent_frame_energy",
+     "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+     "layered_on_top_of_c1_causal_ramp": true,
+     "replaces_c1_causal_ramp": false,
+     "symbol": "m_t",
+     "tau": 0.001,
+     "uses_truth_frame_energy": false,
+     "uses_validation_or_test_data": false
+    },
+    "mean_squared_coefficient": 2.8688130005576576e-18,
+    "parent_energy_floor": 4.569013390307545e-17,
+    "parent_metrics": {
+     "global_energy_rel_l2": 0.6014077452489959,
+     "masked_energy_floored_per_frame": 0.55012432022272,
+     "unmasked_per_frame_unsquared_mean": 0.5612329117386496
+    },
+    "recomputed_on_the_scored_record": true,
+    "spatial_point_count": 40401,
+    "synthetic_records_used": false,
+    "tau": 0.001,
+    "transplanted_constants_used": false,
+    "voided_v14_constants_referenced": false
+   },
+   "train_uniform_00321": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "acceptance_convention_gain": 0.12439898205685312,
+    "confinement_invariants": {
+     "correction_identically_zero_outside_mask": true,
+     "max_abs_applied_correction_outside_mask": 0.0
+    },
+    "corrected_metrics": {
+     "global_energy_rel_l2": 0.06653990423642134,
+     "masked_energy_floored_per_frame": 0.07660730285346348,
+     "unmasked_per_frame_unsquared_mean": 16.91434367279224
+    },
+    "correction_energy": 1.9787396867603537e-15,
+    "correction_energy_ratio": 0.0016815989572526416,
+    "deviation_from_r4e9_probe": "r4e9 restricted the fit to the truth mask; v15 restricts it to the parent mask so the bound matches what the deployment-causal gate can express. No r4e9 reproduction is claimed.",
+    "dimensionless_coefficient_energy": 81.06897003521502,
+    "fit_frame_count": 208,
+    "fit_objective": "weighted LS restricted to PARENT-mask retained frames with truth-energy weights floored at tau times the peak truth energy",
+    "future_frame_count": 388,
+    "gain": {
+     "global_energy_rel_l2": 0.12439898205685312,
+     "masked_energy_floored_per_frame": 0.15713462701528488,
+     "unmasked_per_frame_unsquared_mean": 0.00045679132784482373
+    },
+    "is_achieved_result": false,
+    "kind": "train_only_confined_oracle_upper_bound",
+    "mask": {
+     "deployment_computable": true,
+     "driven_by": "parent_frame_energy",
+     "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+     "layered_on_top_of_c1_causal_ramp": true,
+     "replaces_c1_causal_ramp": false,
+     "symbol": "m_t",
+     "tau": 0.001,
+     "uses_truth_frame_energy": false,
+     "uses_validation_or_test_data": false
+    },
+    "mean_squared_coefficient": 1.1350771343106453e-17,
+    "parent_energy_floor": 1.2962650754962707e-17,
+    "parent_metrics": {
+     "global_energy_rel_l2": 0.07599340666908841,
+     "masked_energy_floored_per_frame": 0.09088913284239607,
+     "unmasked_per_frame_unsquared_mean": 16.922073529229543
+    },
+    "recomputed_on_the_scored_record": true,
+    "spatial_point_count": 40401,
+    "synthetic_records_used": false,
+    "tau": 0.001,
+    "transplanted_constants_used": false,
+    "voided_v14_constants_referenced": false
+   }
+  },
+  "trajectory": [
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07337633260106358,
+      "family": "uniform",
+      "gain_iii": 0.03443817276702451,
+      "loss": 0.01635040156543255,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09696286966443443,
+      "family": "layered",
+      "gain_iii": 0.07756156493817362,
+      "loss": 0.024857614189386368,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5567383340166911,
+      "family": "marmousi",
+      "gain_iii": 0.07427475217135858,
+      "loss": 0.4672268331050873,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 384
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07271733993344903,
+      "family": "uniform",
+      "gain_iii": 0.04310988122831396,
+      "loss": 0.01573219895362854,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09373307083309236,
+      "family": "layered",
+      "gain_iii": 0.10828766235936502,
+      "loss": 0.022857235744595528,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5475856115665285,
+      "family": "marmousi",
+      "gain_iii": 0.08949358252807972,
+      "loss": 0.4506820738315582,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 768
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07248644551556221,
+      "family": "uniform",
+      "gain_iii": 0.04614822926411452,
+      "loss": 0.015579607337713242,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09228370469678589,
+      "family": "layered",
+      "gain_iii": 0.12207594064808544,
+      "loss": 0.02208075486123562,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5435917991002298,
+      "family": "marmousi",
+      "gain_iii": 0.09613435577692636,
+      "loss": 0.4440861940383911,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 1152
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07248772584783306,
+      "family": "uniform",
+      "gain_iii": 0.04613138132523455,
+      "loss": 0.01584438793361187,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09149341751285324,
+      "family": "layered",
+      "gain_iii": 0.12959419248736284,
+      "loss": 0.021599188446998596,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5413506320262343,
+      "family": "marmousi",
+      "gain_iii": 0.0998608908801076,
+      "loss": 0.4404689371585846,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 1536
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07203430659018113,
+      "family": "uniform",
+      "gain_iii": 0.05209794181417707,
+      "loss": 0.01526305265724659,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09103883283163705,
+      "family": "layered",
+      "gain_iii": 0.13391880028203032,
+      "loss": 0.021138885989785194,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.539485864730905,
+      "family": "marmousi",
+      "gain_iii": 0.10296156144855415,
+      "loss": 0.4373475909233093,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 1920
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07193999712584737,
+      "family": "uniform",
+      "gain_iii": 0.053338963482602,
+      "loss": 0.015176362358033657,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09073787893834688,
+      "family": "layered",
+      "gain_iii": 0.13678186981898913,
+      "loss": 0.020777815952897072,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5381804103808203,
+      "family": "marmousi",
+      "gain_iii": 0.10513222579466126,
+      "loss": 0.43521541357040405,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 2304
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.07196801345785307,
+      "family": "uniform",
+      "gain_iii": 0.052970295551610265,
+      "loss": 0.015252615325152874,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09042155367552913,
+      "family": "layered",
+      "gain_iii": 0.1397911720541018,
+      "loss": 0.020895561203360558,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5373194402851272,
+      "family": "marmousi",
+      "gain_iii": 0.10656381709439855,
+      "loss": 0.43380820751190186,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 2688
+   },
+   {
+    "records": [
+     {
+      "aggregate_rel_l2": 0.0718675034245713,
+      "family": "uniform",
+      "gain_iii": 0.054292910732154115,
+      "loss": 0.015325471758842468,
+      "nonworse": true,
+      "parent_rel_l2": 0.0759934066690884,
+      "sample_id": "train_uniform_00321"
+     },
+     {
+      "aggregate_rel_l2": 0.09003711287669552,
+      "family": "layered",
+      "gain_iii": 0.1434484789188559,
+      "loss": 0.020482046529650688,
+      "nonworse": true,
+      "parent_rel_l2": 0.10511581692488291,
+      "sample_id": "train_layered_00564"
+     },
+     {
+      "aggregate_rel_l2": 0.5364942641044849,
+      "family": "marmousi",
+      "gain_iii": 0.1079358915100693,
+      "loss": 0.4324948489665985,
+      "nonworse": true,
+      "parent_rel_l2": 0.6014077452489959,
+      "sample_id": "train_marmousi_00385"
+     }
+    ],
+    "update": 3072
+   }
+  ]
+ },
+ "parent": {
+  "match": true,
+  "sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "writes": 0
+ },
+ "preregistration_sha256": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4",
+ "resources": {
+  "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v16/smoke/last.pt",
+  "checkpoint_bytes": 315562,
+  "peak_cuda_reserved_bytes": 1650458624,
+  "wall_s": 128.73810692504048
+ },
+ "run_status": "completed",
+ "schema": "r16_dscp_v16_stage_terminal_v1",
+ "sealed_splits_opened": false,
+ "stage": "smoke",
+ "status": "passed",
+ "thresholds_moved_toward_measured_values": false
+}

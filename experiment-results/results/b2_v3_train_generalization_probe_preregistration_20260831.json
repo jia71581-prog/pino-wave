@@ -1,0 +1,86 @@
+{
+  "schema": "b2_v3_train_generalization_probe_preregistration_v1",
+  "status": "frozen_with_prelaunch_amendment",
+  "created_utc": "2026-08-31T09:43:31Z",
+  "candidate": "b2_v3_train_generalization_probe_v1",
+  "question": "Do the two frozen width-64 B2-v3 checkpoints improve a group-disjoint train-only panel that was never used in B2 optimization?",
+  "hypothesis": "The frame-conditioned width-64 correction learned a medium/source-conditioned propagation rule rather than a record lookup, so at least half of its development-set gain will transfer to unseen train records for both seeds.",
+  "mechanism": "No parameters are updated. Each frozen checkpoint receives only static medium/source features, the first eight true frames, and the solve-free warp render. Transfer is measured on future train-truth frames 8 through 63.",
+  "evidence_tier": "train-only frozen-checkpoint rejection probe",
+  "one_variable": "record identity and medium group are changed from the 90-record development fit panel to a new 30-record train-only panel; checkpoint, IC count, anchor, model, metric, and rollout horizon are fixed",
+  "gate": {
+    "primary_metric": "per-record relative L2 over future frames 8 through 63, averaged over all 30 records",
+    "development_arm_A_mean_gain_vs_anchor": 0.02456649805096099,
+    "minimum_retained_gain_fraction": 0.5,
+    "minimum_absolute_gain_vs_anchor": 0.012283249025480496,
+    "minimum_nonworse_records": 27,
+    "family_gate": "candidate family mean must be strictly below the same-panel warp-anchor family mean for uniform, layered, and marmousi",
+    "seed_gate": "aggregate, family, and nonworse gates must pass independently for both seed 372 and seed 733 checkpoints",
+    "failure_signal": "reject cross-record generalization if either seed misses any subgate; do not start tail-aware or spectral-loss long training from these checkpoints",
+    "absolute_target_observation_only": 0.05
+  },
+  "data": {
+    "manifest": "results/b2_train_generalization_manifest_30rec_20260831.json",
+    "split": "train",
+    "records": 30,
+    "families": {
+      "uniform": 10,
+      "layered": 10,
+      "marmousi": 10
+    },
+    "unique_medium_groups": 30,
+    "selection_seed": 831104,
+    "excluded_development_manifest": "results/b2_dev_snapshot_manifest_90rec_20260830.json",
+    "validation_opened": false,
+    "test_id_opened": false,
+    "future_truth_access": "train truth is used only to freeze onset-aligned windows and to score serialized predictions; model.forward_anchored receives target[:, :8] only"
+  },
+  "bindings": {
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_selection_sha256": "278893446aa748131c836e8d8cb9f94fa15cf90169d6404d80542acca397131a",
+    "manifest_sha256": "78e5c1f13cf698e00b5d26ef18855c02d894e55741e2c7fe68d5e752e3d2213b",
+    "builder_sha256": "90a8d47ebde32573d034698be31a185fb287c76080d0186a86995a8eab72d295",
+    "evaluator_sha256": "fca7d03e709fe225e2f178d9a60749c5fd658992ccd535e30d97cff3779b3af1",
+    "trainer_cache_and_model_sha256": "de3626913eccb74a5611a679d32410d5becdd9c3e773c5493566d11b4f695ece",
+    "test_sha256": "a4bb591a1b3537989a6754841213463e144a300412512423d0ccfaad0b54534a",
+    "warp_config_sha256": "69c987d42c10a607176f9004206d42d8038ce04ea5bae21fea8eb19099547571",
+    "warp_parent_identity_sha256": "425c1aee8069678cda94dceb34b63b8ee66f82ce1a2719ccb1092b77e9a3f647",
+    "warp_checkpoint_sha256": "b598995130c11d361f08e3921cc7be65990dd2089e20a7cf6e4e0ee7119fd072",
+    "v3_lineage_closure_sha256": "0fdbe92cd174ba5838c9b97c50231b040e9c1c44e062a53ba8136c041fe08722",
+    "checkpoint_sha256": {
+      "results/b2_snapshot_ic_v3_armA_w64_s372_20260831/best.pt": "cb27939ae36cc99a55c5d1a6a54cb5f650f5198343cdb36f60d4cdd4495ead74",
+      "results/b2_snapshot_ic_v3_armA_w64_s733_20260831/best.pt": "202b371effb839c44d501be1ab69f4f161c7a3f5099487ec0ad7d77bd7b9e188"
+    }
+  },
+  "amendments": [
+    {
+      "kind": "pre_evaluation_cli_infrastructure",
+      "reason": "The first screen launch exited at module import before reading the manifest or creating cache/output artifacts because direct script execution did not place the repository root on sys.path.",
+      "old_evaluator_sha256": "17b1faed25d46ad784b288b3ea1a0bbd9a312dee76ad9f827ecb5fe8d7571121",
+      "new_evaluator_sha256": "fca7d03e709fe225e2f178d9a60749c5fd658992ccd535e30d97cff3779b3af1",
+      "scientific_change": false,
+      "gate_change": false,
+      "data_change": false,
+      "failed_attempt_log": "results/b2_v3_train_generalization_probe_20260831_attempt1_import_failed.log"
+    }
+  ],
+  "budget": {
+    "gpus": 1,
+    "gpu": 0,
+    "cache_estimated_bytes": 330000000,
+    "wall_clock_limit_minutes": 30,
+    "abort_on": [
+      "binding drift",
+      "validation or test_id record",
+      "non-finite metric",
+      "CUDA OOM",
+      "cache split mismatch"
+    ],
+    "disk_free_gb_at_freeze": 203
+  },
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/evaluate_b2_v3_train_generalization.py --manifest results/b2_train_generalization_manifest_30rec_20260831.json --cache results/b2_train_generalization_cache_20260831.h5 --preregistration results/b2_v3_train_generalization_probe_preregistration_20260831.json --output-dir results/b2_v3_train_generalization_probe_20260831 --checkpoint results/b2_snapshot_ic_v3_armA_w64_s372_20260831/best.pt --checkpoint results/b2_snapshot_ic_v3_armA_w64_s733_20260831/best.pt --build-cache",
+  "log": "results/b2_v3_train_generalization_probe_20260831.log",
+  "rollback": "additive diagnostic only; preserve all V3 and protected checkpoint families; on failure retain terminal/log and do not reuse a partial cache",
+  "claim_scope": "A pass supports only train-record cross-group transfer of frozen B2-v3 checkpoints and authorizes a later train-only fit/confirmation experiment. It does not promote B2, does not count as complete validation, and does not establish test_id or runtime target compliance."
+}

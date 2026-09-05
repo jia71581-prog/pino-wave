@@ -1,0 +1,246 @@
+{
+  "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/best.pt",
+  "checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "evidence_scope": "same-sample_development_comparison",
+  "families": {
+    "layered": {
+      "historical_phase4b": {
+        "full_wavefield_relative_l2": 0.10166427975196345,
+        "receiver_mean_relative_l2": 0.1323852904998062
+      },
+      "latest": {
+        "full_wavefield_relative_l2": 0.32008791583687407,
+        "receiver_mean_relative_l2": 0.35777626808067553,
+        "snapshot_relative_l2": 0.3416592962676276
+      },
+      "outputs": {
+        "complete_wavefield_npz": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/layered/layered_complete_wavefield.npz",
+        "receiver_gather_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/layered/layered_receiver_gather.png",
+        "receiver_waveforms_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/layered/layered_receiver_waveforms.png",
+        "wavefield_snapshots_pdf": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/layered/layered_wavefield_snapshots.pdf",
+        "wavefield_snapshots_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/layered/layered_wavefield_snapshots.png"
+      },
+      "receiver_trace_relative_l2": [
+        0.5547220083344417,
+        0.3792294777008734,
+        0.21192146046194554,
+        0.13812445964746187,
+        0.132548552814806,
+        0.21147854967565455,
+        0.35403667145652395,
+        0.5355551021485478,
+        0.7023701304858251
+      ],
+      "receiver_x_m": [
+        300.0,
+        500.0,
+        700.0,
+        900.0,
+        1100.0,
+        1300.0,
+        1500.0,
+        1700.0,
+        1900.0
+      ],
+      "receiver_z_m": 100.0,
+      "sample_id": "ood_layered_c3000_c5000_f15",
+      "snapshot_frame_relative_l2": [
+        0.10342197106822869,
+        0.24742372816127228,
+        0.3824582608405853,
+        0.5835201337188408,
+        0.9992698351094973,
+        1.0009106896414595
+      ],
+      "snapshot_indices": [
+        60,
+        128,
+        196,
+        264,
+        332,
+        400
+      ],
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    "marmousi": {
+      "historical_phase4b": {
+        "full_wavefield_relative_l2": 0.25206907591040956,
+        "receiver_mean_relative_l2": 0.1618729578191648
+      },
+      "latest": {
+        "full_wavefield_relative_l2": 0.6077231403838805,
+        "receiver_mean_relative_l2": 0.3386572322500369,
+        "snapshot_relative_l2": 0.5911815090003151
+      },
+      "outputs": {
+        "complete_wavefield_npz": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/marmousi/marmousi_complete_wavefield.npz",
+        "receiver_gather_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/marmousi/marmousi_receiver_gather.png",
+        "receiver_waveforms_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/marmousi/marmousi_receiver_waveforms.png",
+        "wavefield_snapshots_pdf": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/marmousi/marmousi_wavefield_snapshots.pdf",
+        "wavefield_snapshots_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/marmousi/marmousi_wavefield_snapshots.png"
+      },
+      "receiver_trace_relative_l2": [
+        0.4006719018338292,
+        0.46496350531299246,
+        0.3288189446952301,
+        0.16114465097443903,
+        0.14803352516755863,
+        0.193499094815091,
+        0.2724727436595993,
+        0.4204400290516175,
+        0.6578706947399748
+      ],
+      "receiver_x_m": [
+        300.0,
+        500.0,
+        700.0,
+        900.0,
+        1100.0,
+        1300.0,
+        1500.0,
+        1700.0,
+        1900.0
+      ],
+      "receiver_z_m": 100.0,
+      "sample_id": "marmousi1_true_nowater_x4400_z400_f15",
+      "snapshot_frame_relative_l2": [
+        0.08556039278243223,
+        0.29638478576641186,
+        0.5750337710511068,
+        0.8814787987114294,
+        0.9479260366531413,
+        1.0013281640051186
+      ],
+      "snapshot_indices": [
+        60,
+        128,
+        196,
+        264,
+        332,
+        400
+      ],
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ]
+    },
+    "uniform": {
+      "historical_phase4b": {
+        "full_wavefield_relative_l2": 7.814072141584409e-06,
+        "receiver_mean_relative_l2": 1.3702911573297417e-06
+      },
+      "latest": {
+        "full_wavefield_relative_l2": 0.05598742044016924,
+        "receiver_mean_relative_l2": 0.07002772700767065,
+        "snapshot_relative_l2": 0.060925146651295996
+      },
+      "outputs": {
+        "complete_wavefield_npz": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/uniform/uniform_complete_wavefield.npz",
+        "receiver_gather_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/uniform/uniform_receiver_gather.png",
+        "receiver_waveforms_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/uniform/uniform_receiver_waveforms.png",
+        "wavefield_snapshots_pdf": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/uniform/uniform_wavefield_snapshots.pdf",
+        "wavefield_snapshots_png": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/uniform/uniform_wavefield_snapshots.png"
+      },
+      "receiver_trace_relative_l2": [
+        0.08762325973698246,
+        0.051621211122103695,
+        0.04553306221481845,
+        0.06790295873703694,
+        0.04207370971832004,
+        0.04765417324146367,
+        0.06574523214624044,
+        0.08467441811894613,
+        0.13742151803312405
+      ],
+      "receiver_x_m": [
+        300.0,
+        500.0,
+        700.0,
+        900.0,
+        1100.0,
+        1300.0,
+        1500.0,
+        1700.0,
+        1900.0
+      ],
+      "receiver_z_m": 100.0,
+      "sample_id": "ood_uniform_c4000_f15",
+      "snapshot_frame_relative_l2": [
+        0.05517813980532649,
+        0.05277522552200271,
+        0.07551811376782744,
+        0.12654894855696028,
+        4.029582290741525,
+        21.174228204791095
+      ],
+      "snapshot_indices": [
+        60,
+        128,
+        196,
+        264,
+        332,
+        400
+      ],
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ]
+    }
+  },
+  "fixed_source_frequency_hz": 15.0,
+  "frequency_generalization_claim_permitted": false,
+  "hard_causality_applied": true,
+  "prediction_manifest": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/latest_vs_phase4b_fixed15_post_position_r1/prediction_manifest.json",
+  "prediction_manifest_sha256": "467cf94f3649190318f10a129ae02c727674229065ef2949629f22a9a4ad101d",
+  "prediction_sealed_before_target_access": true,
+  "replacement_decision": {
+    "families": {
+      "layered": {
+        "full_wavefield_improved": false,
+        "full_wavefield_relative_improvement": -2.148479649074504,
+        "historical_full_wavefield_relative_l2": 0.10166427975196345,
+        "historical_receiver_mean_relative_l2": 0.1323852904998062,
+        "latest_full_wavefield_relative_l2": 0.32008791583687407,
+        "latest_receiver_mean_relative_l2": 0.35777626808067553,
+        "receiver_improved_or_equal": false,
+        "receiver_relative_improvement": -1.7025379234349245
+      },
+      "marmousi": {
+        "full_wavefield_improved": false,
+        "full_wavefield_relative_improvement": -1.4109388991447631,
+        "historical_full_wavefield_relative_l2": 0.25206907591040956,
+        "historical_receiver_mean_relative_l2": 0.1618729578191648,
+        "latest_full_wavefield_relative_l2": 0.6077231403838805,
+        "latest_receiver_mean_relative_l2": 0.3386572322500369,
+        "receiver_improved_or_equal": false,
+        "receiver_relative_improvement": -1.0921174037504484
+      },
+      "uniform": {
+        "full_wavefield_improved": false,
+        "full_wavefield_relative_improvement": -7163.947984319099,
+        "historical_full_wavefield_relative_l2": 7.814072141584409e-06,
+        "historical_receiver_mean_relative_l2": 1.3702911573297417e-06,
+        "latest_full_wavefield_relative_l2": 0.05598742044016924,
+        "latest_receiver_mean_relative_l2": 0.07002772700767065,
+        "receiver_improved_or_equal": false,
+        "receiver_relative_improvement": -51103.26833968063
+      }
+    },
+    "replacement_gate_passed": false,
+    "rule": "strict same-sample gate: every family must lower complete-wavefield relative L2 and must not regress mean near-surface receiver relative L2"
+  },
+  "schema": "latest_vs_phase4b_fixed15_same_sample_comparison_v1",
+  "status": "complete"
+}

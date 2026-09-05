@@ -1,0 +1,60 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_pbg_marm_r33_overfit1_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_factorized_fno_single_record_capacity_gate",
+  "hypothesis": "The 64x64x101 Factorized FNO has sufficient representational and optimization capacity to memorize one train/Marmousi P_bg record below relative L2 0.10 within 200 updates.",
+  "expected_mechanism": "Removing medium/source variation isolates whether the spatial spectral encoder, temporal mixer, normalization, and relative-L2 objective can represent a single smooth propagated field.",
+  "single_conceptual_variable": {
+    "name": "fit_record_support",
+    "parent": 120,
+    "candidate": 1
+  },
+  "primary_metric": "same-record low-resolution relative L2",
+  "acceptance": {
+    "relative_l2_max": 0.10,
+    "prediction_finite_ratio": 1.0,
+    "peak_allocated_mb_max": 20000
+  },
+  "failure_signal": "Relative L2 above 0.50 after 200 updates rejects current Factorized FNO capacity/optimization; non-finite values, OOM, or missing checkpoint also reject.",
+  "data": {
+    "project_scope": "train_only",
+    "fit_sample": "train_marmousi_00000",
+    "calibration_sample": "train_marmousi_00000",
+    "intentional_overlap": "capacity diagnostic only",
+    "confirmation_sample": "train_marmousi_00001",
+    "confirmation_access": "none",
+    "selected_resolution": [64, 64, 101]
+  },
+  "training": {
+    "optimizer_updates": 200,
+    "batch_size": 1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "scheduler": "none",
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "compute_budget": {
+    "gpus": 1,
+    "updates": 200,
+    "wall_ceiling_minutes": 45,
+    "peak_allocated_mb_max": 20000
+  },
+  "bindings": {
+    "config_sha256": "d23798d0132ae97cb41873179be7a8fd65cb904bc2ba83faf65bdcac6bbff925",
+    "split_sha256": "9e4e88e449ae1525bfff7a3f51079482108ea4ff9478e8b6ba13eb588135f9e4",
+    "model_sha256": "37fb182293a8fa0f6b65ba81eee55fabe325f15cc8f27b456cd39468dc9a6e1b",
+    "data_loader_sha256": "e46716ad0ce7de476345e5c3697dbd4169c337f1cdfcba779c2685ff5e201f6e",
+    "trainer_sha256": "409a59a9bdd3e89247d4bcf29d89a8ec0d3ab5ef28e4cb83eda20bd01413a4c2",
+    "vds_sha256": "c8dbded99eaa05f03616211e65b5dd5399c685bb1241717e27147fad60e3ae17",
+    "tests": "29 passed"
+  },
+  "rollback": "Preserve r31/r32 and all prior artifacts; if rejected, replace or repair the Factorized FNO architecture before any broader pilot.",
+  "command": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r33_overfit1.yaml --device cuda --output-json results/factorized_pbg_marm_r33_overfit1_20260823/result.json"
+}

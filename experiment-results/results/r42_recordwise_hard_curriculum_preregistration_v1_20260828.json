@@ -1,0 +1,121 @@
+{
+  "schema": "r42_recordwise_hard_curriculum_preregistration_v1",
+  "created_utc": "2026-08-27T22:47:11.7747673Z",
+  "status": "frozen_before_production_start",
+  "hypothesis": "R40 failed because independent frequency minibatches and uniform record sampling let cross-record residual cancellation dominate. Aggregating all 75 retained frequencies into a recordwise physical objective and oversampling high-error fit records should reduce the worst group-disjoint development records while a fixed correction-scale grid protects already accurate records.",
+  "frozen_artifacts": {
+    "training_script": {
+      "path": "scripts/train_r42_recordwise_hard_curriculum.py",
+      "sha256": "432d477161fec56b822f744dfbf14031ddae98913921161af3949637e3c4eafa"
+    },
+    "launcher": {
+      "path": "scripts/run_r42_recordwise_hard_curriculum.sh",
+      "sha256": "98eb89c272487f7dfc998621ace19aeee25803e8730fa93538c55f602a83cfde"
+    },
+    "r40_model_module": {
+      "path": "scripts/train_r40_frequency_residual_operator.py",
+      "sha256": "937ce44917c980464033386c226ba83f5bb39b0ce8c2cf04c2895c0f4972a7cc"
+    },
+    "curriculum_manifest": {
+      "path": "results/r42_hard_curriculum_manifest_v1_20260828.json",
+      "sha256": "6deb26e747a83dc91c224a0b23728410253ca1ff8d2c712e0444f3df02827a30"
+    },
+    "r40_selection_manifest": {
+      "path": "results/r40_frequency_manifest_20260828.json",
+      "sha256": "9a4ef6b5439fae678c0ddbf3bdf0d732c0255b7eee1e4b696870f128c1683c4c"
+    },
+    "base_checkpoint": {
+      "path": "results/r39_hfs_tail_finetune_base1e6_hfs1e4_4x500_v3_20260828/best.pt",
+      "sha256": "98c360f1739ef86c37652166a1ee447dd85dcd260494b93601fa5b2bf6f934e2"
+    },
+    "cache_bundle_sha256": "eab3c5a1560413cf15a7f564c9108a80f85debfa9e893665c40ed606c46fd8d2",
+    "cache_audit_sha256": "b5dbb607aa45e6a0f38876ac0052250df112e71e72cf9f93046e3d30823c030e"
+  },
+  "dataset": {
+    "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e",
+    "fit_records": 1032,
+    "fit_groups": 328,
+    "opened_group_disjoint_development_records": 56,
+    "opened_group_disjoint_development_groups": 25,
+    "frequency_count": 75,
+    "frequency_min_hz": 5.985,
+    "frequency_max_hz": 79.8,
+    "dct_retained": 96,
+    "fit_development_group_overlap": 0
+  },
+  "hard_record_sampling": {
+    "replacement": true,
+    "weight_if_base_record_rel_l2_gte_0p05": 32.0,
+    "weight_if_base_record_rel_l2_gte_0p04": 12.0,
+    "weight_if_base_record_rel_l2_gte_0p03": 4.0,
+    "otherwise_weight": 1.0,
+    "probability_mass_gte_0p05": 0.22429906542056074,
+    "probability_mass_0p04_to_0p05": 0.17943925233644858,
+    "probability_mass_0p03_to_0p04": 0.18130841121495328,
+    "probability_mass_lt_0p03": 0.41495327102803736
+  },
+  "model": {
+    "name": "frequency_conditioned_spatial_dct_fno",
+    "input_channels": 32,
+    "width": 48,
+    "fourier_blocks": 4,
+    "modes_per_spatial_dimension": 16,
+    "output_channels": 2,
+    "parameter_count": 9452930,
+    "correction_cap": 1.5,
+    "output_initialization": "exact_zero_identity"
+  },
+  "optimization": {
+    "objective": "sum_over_all_75_frequencies_of_retained_physical_relative_l2_squared_per_record",
+    "hinge_weight": 2.0,
+    "shape_weight": 0.002,
+    "epochs": 20,
+    "records_per_rank_per_epoch": 256,
+    "world_size": 4,
+    "global_record_draws_per_epoch": 1024,
+    "frequency_chunk": 15,
+    "optimizer": "Adam",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.00001,
+    "warmup_epochs": 1,
+    "schedule": "cosine_to_0p05_times_initial_lr",
+    "gradient_clip_norm": 1.0,
+    "amp": "bfloat16",
+    "seed": 420829
+  },
+  "evaluation": {
+    "every_epochs": 1,
+    "fixed_correction_scale_candidates": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "scale_selection_score": "candidate_max_plus_0p1_candidate_mean",
+    "checkpoint_selection_score": "candidate_max_plus_0p1_candidate_mean",
+    "fit_probe": "32 highest-base-error fit records",
+    "stop_on_pass": true
+  },
+  "absolute_goal": {
+    "record_relative_l2_mean_lte": 0.05,
+    "record_relative_l2_max_lte": 0.05,
+    "both_required": true
+  },
+  "gate": {
+    "if_opened_development_fails": "reject R42 and do not open R29B",
+    "if_opened_development_passes": "freeze checkpoint, correction scale, hashes, and inference contract before opening R29B",
+    "r29b_required_before_final_validation": true,
+    "final_validation_requires_r29b_pass": true
+  },
+  "contract_tests": {
+    "single_gpu": "passed with two fit-record updates and complete checkpoint/evaluation lifecycle",
+    "four_gpu_ddp": "passed with one record per rank, chunked no-sync accumulation, synchronized evaluation, and clean shutdown",
+    "initial_identity_mean": 0.020046478302280728,
+    "initial_identity_max": 0.06584256844896734,
+    "initial_fit_probe_max": 0.06615041884689205
+  },
+  "planned_output": "results/r42_recordwise_hard_curriculum_w48_v1_20260828",
+  "data_boundary": {
+    "fit_truth_used": true,
+    "opened_development_holdout_used": true,
+    "r29b_opened": false,
+    "final_validation_opened": false,
+    "test_id_opened": false,
+    "paper_modified": false
+  }
+}

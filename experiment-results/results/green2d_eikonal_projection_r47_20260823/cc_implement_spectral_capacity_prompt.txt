@@ -1,0 +1,13 @@
+你是实现员。只在 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2 工作。用户改动必须保留，不可删除/覆盖 checkpoint，不可读取 validation/test_id 波场真值，不启动长任务或训练。
+
+请实现一个新的只读 train-only 表示容量诊断：scripts/diagnose_trainonly_spectral_capacity.py，并添加最小 pytest 单测。先检查 src/fno_acoustic/data.py 的实际空间采样规则、当前 VDS schema 和 split manifest 元数据，再编码。
+
+功能要求：
+1. CLI 参数至少包括 --data-path、--split-manifest、--output、--fit-limit（默认70）、--cal-limit（默认70）、--spatial-size（默认64）、--temporal-bins（逗号列表，默认16,32,48,64,96,128,201）、--spatial-half-widths（默认8,12,16,24,32）。
+2. manifest 必须 project_data_scope=train_only；把 manifest 的 train/val/test 分别解释为 project-train 内的 fit/calibration/confirmation。只打开 fit 与 calibration，confirmation 完全不访问。强制所用 HDF5 行的 split 元数据为 train，sample_id 以 train_ 开头，fit/cal/confirmation ID 两两不交。输出要明确 confirmation_opened=false、validation_opened=false、test_id_opened=false。
+3. 通过 sample_id 映射定位 HDF5 行，不假定 manifest 顺序等于 VDS 行序。空间采样必须复用当前 loader 的确定性规则。使用全部 401 个存储时间点，不插值。
+4. 每条记录对真实 P_bg 做时间 rFFT + 每个复频率场的二维空间 FFT，使用 norm=ortho；用 Parseval 精确计算保留最低 nf 个时间频率及中心空间 |ky|,|kx|<=k 后的相对 L2，不必显式 iFFT。正确处理 rFFT 单边谱能量权重（奇/偶 T 的 DC/Nyquist）。
+5. 输出 fit/cal 每个 (nf,k) 的 aggregate relative-L2（按总残差能量/总真值能量）、record mean/median/p90/max、real_coefficients_per_record、compression_ratio 相对 T*H*W。候选由 fit 中满足 <=0.05 且 nf<=64 的最少 real coefficients 选出；cal 只评估被冻结候选并给 accepted/rejected。若无 fit 候选则 rejected 且仍可输出曲线。
+6. 输出 schema=trainonly_spectral_capacity_v1、准确路径与 SHA256、样本 ID 或其 SHA256、时间/空间采样索引摘要、dt/频率、数据访问审计、数值波场仅作为 train 标签且不是模型输入的声明。原子写 JSON，stdout 只打印同一 JSON。
+7. 把可测试的能量/掩码/汇总函数放在脚本中。单测至少覆盖：全频全空间误差近零、已知单频低空间模式的保留/丢弃、奇偶长度 rFFT 权重、非法非 train-only manifest/元数据拒绝（可用小临时 HDF5）。
+8. 不修改已有训练代码；不要运行真实数据诊断。仅运行新增单测及与其直接相关的现有轻量测试。最后输出修改文件、测试结果和任何风险。

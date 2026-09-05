@@ -1,0 +1,244 @@
+{
+  "schema": "r54_selective_prediction_evaluation_v1",
+  "created_utc": "2026-08-29T11:56:34.432381+00:00",
+  "gate": 0.05,
+  "rule_source": {
+    "probe_json": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r55_tailchain_abstention_probe_v1_20260829.json",
+    "probe_sha256": "f2e74d0970918428c1210759ffe2bbe75da56a4c4e2f126f890164c399e85f3c",
+    "frozen_threshold": -4.46224201257847,
+    "frozen_conformal_margin": 2.689952391946078,
+    "refit_performed": false
+  },
+  "run_source": {
+    "best_json": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r54_scratch_fullpool_40ep_v2_20260829/best.json",
+    "best_json_sha256": "63c8e546e4dad28f14376eb896b33d1ca04675f88d46c9a537753054a9e070f9",
+    "epoch": 15,
+    "checkpoint_sha256": null
+  },
+  "counts": {
+    "holdout_records": 56
+  },
+  "aggregate_no_abstention": {
+    "parent_mean": 0.04556354632593941,
+    "parent_max": 0.17949659073779578,
+    "candidate_mean": 0.017747012046066196,
+    "candidate_max": 0.06477625080073818
+  },
+  "fit_only_threshold": {
+    "parent": {
+      "abstention_rate": 0.8035714285714286,
+      "kept_count": 11,
+      "kept_mean": 0.006954408434562192,
+      "kept_max": 0.009575003913547054,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    },
+    "candidate": {
+      "abstention_rate": 0.8035714285714286,
+      "kept_count": 11,
+      "kept_mean": 0.004403762967779886,
+      "kept_max": 0.005706768951327324,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    },
+    "per_family_candidate": {
+      "layered": {
+        "abstention_rate": 0.9,
+        "kept_count": 2,
+        "kept_mean": 0.005423066892359335,
+        "kept_max": 0.005706768951327324,
+        "kept_max_lte_gate": true,
+        "missed_over_gate": 0
+      },
+      "marmousi": {
+        "abstention_rate": 1.0,
+        "kept_count": 0,
+        "kept_mean": NaN,
+        "kept_max": NaN,
+        "kept_max_lte_gate": false,
+        "missed_over_gate": 0
+      },
+      "uniform": {
+        "abstention_rate": 0.4375,
+        "kept_count": 9,
+        "kept_mean": 0.004177250984540009,
+        "kept_max": 0.004862682632809838,
+        "kept_max_lte_gate": true,
+        "missed_over_gate": 0
+      }
+    }
+  },
+  "fit_only_conformal": {
+    "parent": {
+      "abstention_rate": 0.7142857142857143,
+      "kept_count": 16,
+      "kept_mean": 0.008703823105814624,
+      "kept_max": 0.017753804065186805,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    },
+    "candidate": {
+      "abstention_rate": 0.7142857142857143,
+      "kept_count": 16,
+      "kept_mean": 0.004626470808083014,
+      "kept_max": 0.006176804704792831,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    },
+    "per_family_candidate": {
+      "layered": {
+        "abstention_rate": 0.75,
+        "kept_count": 5,
+        "kept_mean": 0.0055101200650281975,
+        "kept_max": 0.006176804704792831,
+        "kept_max_lte_gate": true,
+        "missed_over_gate": 0
+      },
+      "marmousi": {
+        "abstention_rate": 1.0,
+        "kept_count": 0,
+        "kept_mean": NaN,
+        "kept_max": NaN,
+        "kept_max_lte_gate": false,
+        "missed_over_gate": 0
+      },
+      "uniform": {
+        "abstention_rate": 0.3125,
+        "kept_count": 11,
+        "kept_mean": 0.004224812054926113,
+        "kept_max": 0.004862682632809838,
+        "kept_max_lte_gate": true,
+        "missed_over_gate": 0
+      }
+    }
+  },
+  "kept_records_conformal": [
+    {
+      "sample_id": "train_uniform_00186",
+      "family": "uniform",
+      "predicted_rel_l2": 0.0036318138511190635,
+      "parent_rel_l2": 0.003958003392631022,
+      "candidate_rel_l2": 0.0031149691416679343
+    },
+    {
+      "sample_id": "train_uniform_00243",
+      "family": "uniform",
+      "predicted_rel_l2": 0.011644722125310123,
+      "parent_rel_l2": 0.009484390512616965,
+      "candidate_rel_l2": 0.004269406536998251
+    },
+    {
+      "sample_id": "train_uniform_00037",
+      "family": "uniform",
+      "predicted_rel_l2": 0.006043863082182631,
+      "parent_rel_l2": 0.005345761375107274,
+      "candidate_rel_l2": 0.003744053212903647
+    },
+    {
+      "sample_id": "train_layered_00040",
+      "family": "layered",
+      "predicted_rel_l2": 0.018300004142393744,
+      "parent_rel_l2": 0.017753804065186805,
+      "candidate_rel_l2": 0.006176804704792831
+    },
+    {
+      "sample_id": "train_uniform_00102",
+      "family": "uniform",
+      "predicted_rel_l2": 0.006931879359185431,
+      "parent_rel_l2": 0.006017817048333636,
+      "candidate_rel_l2": 0.004404566250645922
+    },
+    {
+      "sample_id": "train_uniform_00384",
+      "family": "uniform",
+      "predicted_rel_l2": 0.012240472592882847,
+      "parent_rel_l2": 0.009740331112386001,
+      "candidate_rel_l2": 0.004608267206328911
+    },
+    {
+      "sample_id": "train_uniform_00149",
+      "family": "uniform",
+      "predicted_rel_l2": 0.009613170962942766,
+      "parent_rel_l2": 0.008934824198754155,
+      "candidate_rel_l2": 0.004768561967499941
+    },
+    {
+      "sample_id": "train_layered_00817",
+      "family": "layered",
+      "predicted_rel_l2": 0.006854135006917758,
+      "parent_rel_l2": 0.0056135797382719285,
+      "candidate_rel_l2": 0.005139364833391346
+    },
+    {
+      "sample_id": "train_uniform_00303",
+      "family": "uniform",
+      "predicted_rel_l2": 0.010138051656969254,
+      "parent_rel_l2": 0.009575003913547054,
+      "candidate_rel_l2": 0.004862682632809838
+    },
+    {
+      "sample_id": "train_uniform_00048",
+      "family": "uniform",
+      "predicted_rel_l2": 0.005959030472554509,
+      "parent_rel_l2": 0.0063793969150182555,
+      "candidate_rel_l2": 0.004003821907708928
+    },
+    {
+      "sample_id": "train_layered_00818",
+      "family": "layered",
+      "predicted_rel_l2": 0.008751334976441413,
+      "parent_rel_l2": 0.00642057673462088,
+      "candidate_rel_l2": 0.005706768951327324
+    },
+    {
+      "sample_id": "train_layered_00042",
+      "family": "layered",
+      "predicted_rel_l2": 0.014072625934418192,
+      "parent_rel_l2": 0.013271817033201318,
+      "candidate_rel_l2": 0.00600937678186289
+    },
+    {
+      "sample_id": "train_uniform_00020",
+      "family": "uniform",
+      "predicted_rel_l2": 0.01081229520221437,
+      "parent_rel_l2": 0.0082636490127448,
+      "candidate_rel_l2": 0.003944955781336038
+    },
+    {
+      "sample_id": "train_uniform_00027",
+      "family": "uniform",
+      "predicted_rel_l2": 0.009243074463241354,
+      "parent_rel_l2": 0.006832459474247516,
+      "candidate_rel_l2": 0.004028848348034944
+    },
+    {
+      "sample_id": "train_uniform_00116",
+      "family": "uniform",
+      "predicted_rel_l2": 0.00875181405787402,
+      "parent_rel_l2": 0.009157420976907603,
+      "candidate_rel_l2": 0.004722799618252886
+    },
+    {
+      "sample_id": "train_layered_00819",
+      "family": "layered",
+      "predicted_rel_l2": 0.016513758851473933,
+      "parent_rel_l2": 0.0125123341894588,
+      "candidate_rel_l2": 0.004518285053766596
+    }
+  ],
+  "data_boundary": {
+    "validation_opened": false,
+    "test_id_opened": false,
+    "development_holdout_only": true
+  },
+  "evidence": {
+    "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/evaluate_r54_selective_prediction.py",
+    "script_sha256": "db94bd3585698ec48b091e9ea3981024a0804d7c411acd954915d87d147df734",
+    "holdout_cache": [
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_0.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_1.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_2.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_3.h5"
+    ]
+  }
+}

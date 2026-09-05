@@ -1,0 +1,63 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_pbg_residual_source_r28b_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_pbg_residual_smoke_marmousi_source_holdout",
+  "parent_attempt": "wkb96_pbg_residual_source_r28_smoke_20260824",
+  "parent_attempt_status": "failed_only_on_expected_zero_head_first_update_gradient_guard",
+  "hypothesis": "With the corrected first-update gradient contract, fixed source-aware P_bg plus a zero-initialized WKB truth-P_bg residual will complete two finite updates and preserve exact full-field evaluation on Marmousi source-holdout panels below the 4 GiB resource gate.",
+  "expected_mechanism": "P_bg supplies source position, onset, phase and causality; the neural branch learns only heterogeneous scattering. The final zero head opens on update one, after which all encoders must recover nonzero gradients.",
+  "single_conceptual_variable": {
+    "name": "zero_head_first_update_gradient_contract",
+    "parent": "incorrectly require upstream gradients before the zero head opens",
+    "candidate": "require local_field on update one and all live encoders from update two",
+    "held_constant": "model, caches, panels, residual target, optimizer, learning rates, seed and metric"
+  },
+  "panels": {
+    "fit": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_marmousi_00003"],
+    "confirmation": ["train_marmousi_00004"],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "two finite residual updates, update-two upstream gradients, exact P_bg reconstruction and bound artifacts",
+  "acceptance": {
+    "updates_completed": 2,
+    "finite_metrics": true,
+    "peak_cuda_bytes_max": 4294967296,
+    "terminal_and_checkpoint_bound": true
+  },
+  "failure_signal": "Any cache miss, update-two missing encoder gradient, non-finite value, OOM, missing binding, or peak CUDA above 4 GiB blocks long training.",
+  "optimization": {
+    "updates": 2,
+    "evaluate_every": 1,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "target_relative_l2": 0.001,
+    "seed": 372
+  },
+  "parent": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50"
+  },
+  "cache_sha256": {
+    "shard-0.h5": "71693f6175c7f36d2bcc540053f64e786878582d7fdcf3b32b7864bf037b3bcc",
+    "shard-1.h5": "fb9511335bb2c3c26162bc3bf0e1e7716b76f4b1740ca4cd57db9baedec3e58b",
+    "shard-2.h5": "9a332219e0482be9aea49ad78272fae231c2a29019de278ae613e418ec351705",
+    "shard-3.h5": "ebf7b2d6957fefa8af4771b7d53bb9ad63e329084b73731c44dab502de2359ef"
+  },
+  "bindings": {
+    "training_script_sha256": "f6fb5f35a093822e66b4339f4f07530c8d967c9f114bd50c99bbd57ef072618d",
+    "test_sha256": "052dced8e1c6aeaa45cbf9a01ccbb3bc767af9e3e4e7930501c53623247b0b78",
+    "tests": "28 focused tests passed"
+  },
+  "rollback": "Preserve all caches and artifacts. On failure do not launch the long run.",
+  "command": "same as r28 with artifact/preregistration replaced by r28b"
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "transfer_dg_fixed_skeleton_flux_oracle_preregistration_v1",
+  "status": "frozen_before_run",
+  "created_utc": "2026-09-02T10:36:24Z",
+  "method": "Transfer DG",
+  "stage": "fixed_skeleton_true_flux_oracle_v1",
+  "claim_scope": "truth-leaking train-only capacity diagnostic; never deployable or promotable",
+  "hypothesis": "If exact future normal-flux residuals are projected through a fixed non-CPML DG skeleton trial space, the reconstructed pressure correction strictly reduces complete three-window train-only wavefield relative L2 against the latest Transfer DG global parent.",
+  "parent": {
+    "checkpoint": "results/transfer_dg_flux_pretrain_fast_dg_flux_s372_20260902/best.pt",
+    "checkpoint_sha256": "2bd6d7596653b73a5ab0c571af6805c2c9da474b073dc64f0e20af6b5dfe515f",
+    "epoch": 3,
+    "weighted_multiphase_score": 0.20557475224910848
+  },
+  "projector": {
+    "grid": [
+      201,
+      201
+    ],
+    "saved_spacing_m": [
+      10.0,
+      10.0
+    ],
+    "element_intervals": 20,
+    "coarse_element_extent_m": 200.0,
+    "cpml_margin_nodes": 20,
+    "free_degrees_of_freedom": 56,
+    "flux_constraints": 2540,
+    "basis": "tensor-product bilinear hats with zero top/left/right/bottom correction boundary",
+    "internal_vertical_faces_x_index": [
+      40,
+      60,
+      80,
+      100,
+      120,
+      140,
+      160
+    ],
+    "internal_horizontal_faces_z_index": [
+      20,
+      40,
+      60,
+      80,
+      100,
+      120,
+      140,
+      160
+    ],
+    "flux_operator": "generator-compatible eighth-order first derivative on the saved grid",
+    "linear_solver": "unregularized Moore-Penrose pseudoinverse",
+    "pseudoinverse_rcond": 1e-08,
+    "matrix_rank": 56,
+    "condition_number": 8.050960186599342,
+    "oracle_scale_or_tuning": false
+  },
+  "data": {
+    "scope": "three aligned group-disjoint train holdout windows, 24 source records each",
+    "record_window_count": 72,
+    "future_truth_used_to_construct_flux_residual": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "unweighted mean per-record relative L2 across all 72 future windows",
+  "primary_gate": "oracle aggregate must be strictly below parent aggregate; no minimum percentage",
+  "secondary_reports": [
+    "0.60/0.25/0.15 weighted multiphase score",
+    "per slot",
+    "per family",
+    "temporal frequency bands",
+    "nonworse records",
+    "correction ratio",
+    "skeleton flux residual reduction"
+  ],
+  "failure_signal": "no strict aggregate improvement, nonfinite projection, rank/binding drift, or any validation/test access",
+  "bindings": {
+    "evaluator_sha256": "c3279ffa7b1183cf6b2688a3af32e5535107eab473039534bcd937d5c38598e0",
+    "projector_sha256": "5d0a156adc5c35fac00d339b395ee28343f53acdfbd82392ac7a8bfc117f426f",
+    "test_sha256": "092cb8c5ef2cba473503046d47b8bf1fee6a9eba2926f41c23c3b0e4f328be9f",
+    "checkpoint_sha256": "2bd6d7596653b73a5ab0c571af6805c2c9da474b073dc64f0e20af6b5dfe515f",
+    "manifest_sha256": {
+      "results/b2_v9_parent_holdout_manifest_24rec_20260901.json": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa"
+    },
+    "cache_sha256": {
+      "results/b2_v9_parent_holdout_cache_24rec_20260901.h5": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+      "results/pa_cora_p1_holdout_slot1.h5": "3e03f8cc8368490e578b632e63adf6209ee5317866f2bb5a1373be9f25590e3f",
+      "results/pa_cora_p1_holdout_slot2.h5": "c01cd1edcd73041bfc7ff34b648a59c10cfd17a55f6b222be74a36819ce70aed"
+    }
+  },
+  "output": "results/transfer_dg_fixed_skeleton_flux_oracle_20260902.json",
+  "rollback": "read-only diagnostic; no model or dataset state is changed",
+  "validation_opened": false,
+  "test_id_opened": false
+}

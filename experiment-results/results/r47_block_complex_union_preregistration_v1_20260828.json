@@ -1,0 +1,164 @@
+{
+  "schema": "r47_block_complex_union_preregistration_v1",
+  "created_utc": "2026-08-28T00:55:55Z",
+  "status": "frozen_before_production_launch",
+  "objective": "reduce opened group-disjoint development record-relative L2 mean and maximum to at most 0.05 using fit-only supervision",
+  "decision_rationale": {
+    "r46_outcome": "complete_failure_best_checkpoint_remained_epoch_zero_identity",
+    "r46_development_mean": 0.020046478302280728,
+    "r46_development_max": 0.06584256844896734,
+    "r46_best_epoch": 0,
+    "r46_interpretation": "expanded fit coverage improved hard-fit records but did not transfer to the worst held-out source group",
+    "scalar_complex_gain_oracle_max": 0.05550380737199378,
+    "scalar_complex_gain_oracle_passed": false,
+    "nearest_aligned_4x4_oracle_max": 0.047664595775077714,
+    "nearest_aligned_8x8_oracle_mean": 0.01549338741518005,
+    "nearest_aligned_8x8_oracle_max": 0.04489298635758374,
+    "nearest_aligned_8x8_oracle_passed": true,
+    "gain_cap_0p5_oracle_mean": 0.01551775598009716,
+    "gain_cap_0p5_oracle_max": 0.044932345952882875,
+    "gain_cap_0p5_oracle_passed": true,
+    "chosen_block_grid": 8,
+    "chosen_gain_cap": 0.5,
+    "choice_reason": "8x8 retains margin below the 0.05 maximum gate while a 0.5 per-component gain cap is nearly capacity-neutral and limits excessive corrections"
+  },
+  "controlled_change": {
+    "changed": [
+      "replace unconstrained full-resolution residual FNO with low-dimensional spatial complex modulation",
+      "add energy-weighted fit-only block-gain supervision",
+      "use exact nonoverlapping partition pooling aligned with nearest-neighbor gain upsampling"
+    ],
+    "unchanged": [
+      "R46 union fit records and groups",
+      "group-disjoint opened development split",
+      "parent wavefield and static physical inputs",
+      "DCT synthesis contract",
+      "full-wavefield relative-energy objective",
+      "tail and no-degradation hinge terms",
+      "correction-scale candidates",
+      "checkpoint selection score",
+      "absolute accuracy gate"
+    ]
+  },
+  "method": {
+    "name": "nearest_aligned_low_dimensional_block_complex_gain_refiner",
+    "correction": "delta_complex_gain_times_parent_wavefield",
+    "grid_size": 201,
+    "retained_dct": 96,
+    "block_grid": 8,
+    "spatial_gain_cells": 64,
+    "encoder_width": 96,
+    "low_resolution_blocks": 4,
+    "gain_cap_per_real_imag_component": 0.5,
+    "partition_pooling": "ceil_spaced_nonoverlapping_nearest_aligned",
+    "gain_upsampling": "nearest_piecewise_constant",
+    "parameter_count": 201599,
+    "r46_parameter_count": 21248738,
+    "parameter_reduction_percent_vs_r46": 99.05124247849449,
+    "parameter_reduction_factor_vs_r46": 105.40100893357607,
+    "zero_initialized_output": true,
+    "input_policy": "deployment-available parent complex spectrum, medium, source, coordinates, frequency, and derived parent magnitude and phase-unit channels",
+    "target_policy": "fit-truth residual and fit-truth least-squares block gain only"
+  },
+  "optimization": {
+    "world_size": 4,
+    "epochs": 40,
+    "records_per_rank_epoch": 293,
+    "global_record_draws_per_epoch": 1172,
+    "frequency_batch": 8,
+    "evaluation_batch_size": 4,
+    "evaluation_every_epochs": 1,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.00001,
+    "warmup_epochs": 2,
+    "schedule": "cosine_to_0.05_of_initial",
+    "tail_weight": 1.0,
+    "hinge_weight": 2.0,
+    "shape_weight": 0.002,
+    "gain_loss_weight": 0.05,
+    "probe_count": 32,
+    "amp": "bfloat16",
+    "seed": 4701,
+    "correction_scale_candidates": [
+      0.0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.0
+    ],
+    "checkpoint_score": "candidate_max_plus_0.1_candidate_mean",
+    "stop_on_pass": true,
+    "post_launch_tuning": "none; any material change requires a new numbered preregistration"
+  },
+  "fit_and_development": {
+    "union_selection_sha256": "35bb4afdb9f67387c1961de06c7d78b93684c0b683f58f9ceeefb832ac813f5b",
+    "fit_records": 1172,
+    "fit_groups": 356,
+    "development_records": 56,
+    "fit_development_group_overlap": 0,
+    "worst_development_group": "train:marmousi:x6800.0:z100.0",
+    "nearest_fit_group_distance_m": 70.71067811865476,
+    "nearby_hard_fit_record_error": 0.05233455225274912,
+    "nearby_hard_fit_sampling_weight": 32.0
+  },
+  "smoke_gates": {
+    "single_gpu": {
+      "status": "complete",
+      "world_size": 1,
+      "finite_loss_and_gradient": true,
+      "zero_identity_contract_passed": true,
+      "role": "technical smoke only"
+    },
+    "four_gpu_ddp": {
+      "status": "complete",
+      "world_size": 4,
+      "finite_loss_and_gradient": true,
+      "zero_identity_contract_passed": true,
+      "one_step_development_mean": 0.020692354824377302,
+      "one_step_development_max": 0.06430209827855692,
+      "one_step_selected_scale": 1.0,
+      "role": "technical smoke and direction signal only; not an accuracy claim"
+    },
+    "dct_synthesis_max_abs_error": 9.5367431640625e-07,
+    "base_supplement_group_overlap": 0,
+    "fit_development_group_overlap": 0
+  },
+  "frozen_evidence": {
+    "r47_model_script_sha256": "9b4e1302812c53de115debc981c05250fe4a86ddb7ff000efd4749aab7468687",
+    "r47_training_script_sha256": "3747f4a4e283c0ae3357ad4438475df085960f79226c6c4a2466609a2e39a2bd",
+    "r47_production_launcher_sha256": "1ec9ed0349cf50f1aee9097e054e669788174e6586f472340238d9ef32f2eee0",
+    "r47_smoke_launcher_sha256": "761cc48dd7cbbb7f5ec7116e3f05763e1bf9f00833a313dfa4b4a817a9e7e0b9",
+    "nearest_aligned_oracle_script_sha256": "7906555a21ea35a3611353a56561600c6de4c9d1624de556f6af735785b17fb9",
+    "nearest_aligned_oracle_result_sha256": "f3c5327244922e809324c727fcec580dab62dc441e7c351512ece5d116fe3f7b",
+    "gain_cap_oracle_script_sha256": "1013880e67f724d2de3f28a6034f03670ed48bd4a6c198455187f9b04ae886a3",
+    "gain_cap_oracle_result_sha256": "4b7129267f14fa2fa0c5126faa07a2c112724ef7c34c62ddb91e84e8f7776bf3",
+    "union_curriculum_sha256": "d5a75ea8a272298482da6a4dd0ba69c85273153d1776b6b2331298fccbec6411",
+    "r46_final_run_summary_sha256": "ff8c26089888e05afb15775b7d69a0f41a0500cb7136d2fdd02b2543df02413d",
+    "single_gpu_smoke_run_summary_sha256": "e77c529e2782ec2b324c92ad2ca81c1c0a1079bd0099eadfc8f4c7e775cc80c5",
+    "single_gpu_smoke_run_identity_sha256": "ff5f71a1a3fed80969c14405fbb05a6e797bc3c8232e0f8d4b9e71d30c3e3715",
+    "four_gpu_smoke_run_summary_sha256": "45b735ca0b8a900c8e01918cf9dca23beee76d3ea8164c31e36a290d79d23be2",
+    "four_gpu_smoke_run_identity_sha256": "3ee9d700682d92762b1a506dd8de3d064051594e93feb831f9eb7ecc5aab6ca6"
+  },
+  "output": {
+    "directory": "results/r47_block_complex_union_g8_w96_v1_20260828",
+    "console_log": "results/r47_block_complex_union_g8_w96_v1_console.log",
+    "screen_name": "r47_block_complex_g8_v1_20260828"
+  },
+  "absolute_gate": {
+    "opened_development_mean_lte": 0.05,
+    "opened_development_max_lte": 0.05,
+    "pass_requires_both": true,
+    "on_pass": "freeze checkpoint and correction scale before opening R29B only",
+    "on_fail": "keep R29B, final, test, and manuscript frozen and continue research"
+  },
+  "data_boundary": {
+    "fit_truth_used": true,
+    "opened_group_disjoint_development_used_for_selection": true,
+    "r29b_opened": false,
+    "final_validation_opened": false,
+    "test_id_opened": false,
+    "paper_modified": false
+  }
+}

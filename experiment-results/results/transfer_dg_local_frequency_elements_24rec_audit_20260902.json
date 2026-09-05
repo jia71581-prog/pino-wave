@@ -1,0 +1,54 @@
+{
+  "schema": "transfer_dg_local_frequency_dataset_audit_v1",
+  "status": "accepted_for_train_only_local_operator_pilot",
+  "dataset": "results/transfer_dg_local_frequency_elements_24rec_20260902.h5",
+  "dataset_sha256": "69450da776f911c33a4146e25f7d0c399702c939e7be26efc1b3e95cf6f866df",
+  "dataset_bytes": 5917385,
+  "counts": {
+    "samples": 6912,
+    "records": 24,
+    "samples_per_family": {
+      "uniform": 2304,
+      "layered": 2304,
+      "marmousi": 2304
+    },
+    "unique_element_origins": 72,
+    "free_surface_element_samples": 768,
+    "unique_frequencies": 33
+  },
+  "ranges": {
+    "frequency_hz": [
+      4.987531,
+      36.90773
+    ],
+    "element_origin_zx_min": [
+      0,
+      20
+    ],
+    "element_origin_zx_max": [
+      160,
+      160
+    ],
+    "pressure_trace_coefficient": [
+      -9.808575630187988,
+      9.614623069763184
+    ],
+    "normal_flux_coefficient": [
+      -171.4065399169922,
+      177.70298767089844
+    ]
+  },
+  "checks": {
+    "identity_hash_matches": true,
+    "all_arrays_finite": true,
+    "family_balanced": true,
+    "cpml_elements_excluded": true,
+    "top_free_surface_elements_retained": true,
+    "selection_used_future_truth": false,
+    "future_train_truth_used_only_for_offline_flux_supervision": true,
+    "near_zero_trace_fraction": 0.0028935185185185184,
+    "near_zero_policy": "retain in artifact; exclude from local operator fit/evaluation using an input-trace norm threshold frozen before training"
+  },
+  "validation_opened": false,
+  "test_id_opened": false
+}

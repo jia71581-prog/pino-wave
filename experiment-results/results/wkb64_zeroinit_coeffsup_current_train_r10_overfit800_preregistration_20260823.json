@@ -1,0 +1,23 @@
+{
+  "schema": "wkb64_zero_init_overfit_preregistration_v2",
+  "status": "frozen_before_launch",
+  "experiment_id": "wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823",
+  "hypothesis": "Exact-zero WKB coefficient initialization removes the random-field transient and enables the pure-neural model to memorize the three-family train triplet below aggregate 0.10 and each-family 0.12.",
+  "single_change_from_r9": "gradient contract recognizes the expected first-backward cold start: local head gradient is required on update one and all upstream live prefixes are required from update two; model, data, optimizer, and hypothesis are unchanged",
+  "initial_gate": {"aggregate_relative_l2_expected": 1.0, "first_update_required_gradient_prefixes": ["local_field"], "later_required_gradient_prefixes": ["local_field", "medium_encoder", "source_encoder"]},
+  "primary_gate": {"all_saved_aggregate_relative_l2_maximum": 0.10, "all_saved_each_family_relative_l2_maximum": 0.12},
+  "failure_signals": ["primary gate failure", "missing upstream gradients after update one", "non-finite value", "CUDA OOM", "numerical background access"],
+  "deployment_contract": {"neural_only": true, "background_cache": null, "numerical_wavefield_input": false, "future_truth_input": false},
+  "evidence_scope": {"split": "train", "records_per_family": 1, "validation_opened": false, "test_id_opened": false},
+  "compute_budget": {"gpus": 1, "optimizer_updates": 800, "evaluate_every_updates": 50, "wall_ceiling_minutes": 20},
+  "parent_checkpoint": null,
+  "rollback": "Preserve all prior and protected checkpoints; reject zero initialization if the corrected run fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-coefficient-supervision --helmholtz-zero-init-head --updates 800 --evaluate-every 50 --training-frames 401 --validation-frames 32 --microbatch-records 1 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "script_sha256": "0b58561b421d09ad5ebfad5b72b22cb51959ca807fc90346464378b4f8b64574",
+    "zero_init_test_sha256": "28eeb5ebfa86f304a729b6a8d7bbb9246c83051c046d7888c6763ea7c1cb6cc4",
+    "r9_terminal_sha256": "2ced2b28c63a94b74816f2afcc0d457acddb5570bc0cdbbfcd505e9917110c96",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

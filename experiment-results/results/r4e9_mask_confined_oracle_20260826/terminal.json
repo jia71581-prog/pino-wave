@@ -1,0 +1,2344 @@
+{
+  "basis": {
+    "layered": {
+      "covariance_dtype": "float32",
+      "covariance_trace": 4.892363548211026e-13,
+      "eigendecomposition_dtype": "float64",
+      "energy_capture": {
+        "16": 0.7257281902563341,
+        "32": 0.8959963823759725,
+        "8": 0.49092841560765105
+      },
+      "records": [
+        {
+          "family": "layered",
+          "group_id": "train:layered:00000",
+          "manifest_sample_sha256": "9b482204732d18f506d4af9e17b59bfa78c144ffe3de780e9b3a99e31dd8b75e",
+          "nontruth_input_sha256": "842527a9a251dc738c147a9c14a49cd690eea1ba3528e938555ae14cbcefe1b4",
+          "residual_energy": 2.442957266558286e-13,
+          "sample_id": "train_layered_00000",
+          "source_index": 420,
+          "split": "train",
+          "split_id": 0,
+          "train_truth_sha256": "70ae196069fb4eea83ad9a72e68cb4ded4828c91ff0b7e3baf9fe9d0e613799d"
+        },
+        {
+          "family": "layered",
+          "group_id": "train:layered:00001",
+          "manifest_sample_sha256": "b5dfbc6c175eb850b3e97cb042966591c14dd6c6ffd40acbb6d79bab9f6eb24b",
+          "nontruth_input_sha256": "abe67bbc543df25ef7830832aff5263d491fac1ef5f5a8fa84f35b813b5ac6c5",
+          "residual_energy": 2.4494065191120347e-13,
+          "sample_id": "train_layered_00004",
+          "source_index": 424,
+          "split": "train",
+          "split_id": 0,
+          "train_truth_sha256": "4ae6e0d2b7668127470da5e370cfa9fa34fe2ba850bd09ce4308f33867a4ee39"
+        }
+      ]
+    },
+    "marmousi": {
+      "covariance_dtype": "float32",
+      "covariance_trace": 1.917607728232647e-11,
+      "eigendecomposition_dtype": "float64",
+      "energy_capture": {
+        "16": 0.692827552630306,
+        "32": 0.8907695867401803,
+        "8": 0.48410982947011755
+      },
+      "records": [
+        {
+          "family": "marmousi",
+          "group_id": "train:marmousi:x0.0:z0.0",
+          "manifest_sample_sha256": "9b1b6372dfa355eaa4e77bdf7457dcc572827db973d92d0ea08ef626cbf32d95",
+          "nontruth_input_sha256": "de49aa9ab121fe9df8f24c9cd2ceef065ff1db43a58b962ce8860a06748b1f81",
+          "residual_energy": 1.1170491862655097e-11,
+          "sample_id": "train_marmousi_00000",
+          "source_index": 2100,
+          "split": "train",
+          "split_id": 0,
+          "train_truth_sha256": "a50b77ece1fbe18a537c07714e7ea5601dc7710a558dadbd4c9afb2d7eb64e99"
+        },
+        {
+          "family": "marmousi",
+          "group_id": "train:marmousi:x150.0:z0.0",
+          "manifest_sample_sha256": "54b7b0dd18dac742108ebf263261d44a102bd0e848a9b56d0c41f41cfddec0eb",
+          "nontruth_input_sha256": "9da6b127afe09d37757cc5f594a1ff3bb17ae907833f9227c2b9b2f1bebb8f52",
+          "residual_energy": 8.005587653008985e-12,
+          "sample_id": "train_marmousi_00005",
+          "source_index": 2105,
+          "split": "train",
+          "split_id": 0,
+          "train_truth_sha256": "9ce94c16d8885c1928d70aadd85676091d7e80fa1d3e79574c28d55038be07b8"
+        }
+      ]
+    },
+    "uniform": {
+      "covariance_dtype": "float32",
+      "covariance_trace": 9.701033470474636e-13,
+      "eigendecomposition_dtype": "float64",
+      "energy_capture": {
+        "16": 0.562916304466307,
+        "32": 0.7370114051293103,
+        "8": 0.4272229470673408
+      },
+      "records": [
+        {
+          "family": "uniform",
+          "group_id": "train:uniform:00000",
+          "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+          "nontruth_input_sha256": "1e1ca53aae3e9165b9e5d76d4854f009f0f33a2b88043c737dc5152de7001461",
+          "residual_energy": 9.45776020851032e-13,
+          "sample_id": "train_uniform_00000",
+          "source_index": 0,
+          "split": "train",
+          "split_id": 0,
+          "train_truth_sha256": "b7d3ce0f988c7625ba3cc649cc3af3641353d9fec484c551dada627f8ed578c4"
+        },
+        {
+          "family": "uniform",
+          "group_id": "train:uniform:00001",
+          "manifest_sample_sha256": "7cfbc998c508e425c4ed5b39de32ea507bd12fa555d559f59d03e464e4ab6195",
+          "nontruth_input_sha256": "37a41b906b58fd4c372e1d26584735f787f6b7a126e66e69a081b6cf88ee8a07",
+          "residual_energy": 2.432740187142875e-14,
+          "sample_id": "train_uniform_00001",
+          "source_index": 1,
+          "split": "train",
+          "split_id": 0,
+          "train_truth_sha256": "9175c74e8577c2b21c3766b8f2f5fbb0c6e644249ccd05b67b2a53d6e5deb7c8"
+        }
+      ]
+    }
+  },
+  "basis_cross_check_vs_frozen_v1_rank16": {
+    "families": {
+      "layered": {
+        "max_abs_column_deviation": 0.0008782198029169755,
+        "min_principal_cosine": 0.9999986012163269
+      },
+      "marmousi": {
+        "max_abs_column_deviation": 0.002279299384068588,
+        "min_principal_cosine": 0.9999978570790395
+      },
+      "uniform": {
+        "max_abs_column_deviation": 0.025782692618256286,
+        "min_principal_cosine": 0.9997951949499789
+      }
+    },
+    "family_order": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/basis_rank16.pt",
+    "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786"
+  },
+  "bindings": {
+    "parent_spec": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e8_masked_oracle_probe_spec_20260826.md",
+      "sha256": "ae977f2d9211f002782944cceeaa0a972d719d24f80871c23b8cbf2edf37eee6",
+      "size_bytes": 3944
+    },
+    "reused_code_path": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e8_masked_oracle.py",
+      "sha256": "3373b5838e49da81e5a8e2a3bada3e236aa7855d4bcdcd149cd4e1233900b485",
+      "size_bytes": 51781
+    },
+    "spec": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e9_mask_confined_oracle_spec_20260826.md",
+      "sha256": "6846636d61f3a346d3f213bafe8056bc535da0bcaf9a3b28c4c01f84204a2923",
+      "size_bytes": 5257
+    }
+  },
+  "bindings_after": {
+    "parent_spec": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e8_masked_oracle_probe_spec_20260826.md",
+      "sha256": "ae977f2d9211f002782944cceeaa0a972d719d24f80871c23b8cbf2edf37eee6",
+      "size_bytes": 3944
+    },
+    "reused_code_path": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e8_masked_oracle.py",
+      "sha256": "3373b5838e49da81e5a8e2a3bada3e236aa7855d4bcdcd149cd4e1233900b485",
+      "size_bytes": 51781
+    },
+    "spec": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e9_mask_confined_oracle_spec_20260826.md",
+      "sha256": "6846636d61f3a346d3f213bafe8056bc535da0bcaf9a3b28c4c01f84204a2923",
+      "size_bytes": 5257
+    }
+  },
+  "budget": {
+    "one_gpu_seconds_maximum": 2400.0,
+    "one_gpu_seconds_used": 118.86583801079541,
+    "within_budget": true
+  },
+  "candidate": "r4e9_mask_confined_oracle",
+  "checkpoint_attestation": {
+    "rollback_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "rollback_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "rollback_sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "unchanged": true,
+    "writes": 0
+  },
+  "claim_scope": "offline_train_only_mask_confined_oracle_upper_bound_under_three_metric_conventions_not_online_adaptation_not_validation_not_test_id",
+  "completed_utc": "2026-08-26T05:29:44.875666Z",
+  "decision_rule": {
+    "branch": "b_H_confirmed_but_confinement_insufficient_route_family_to_abstention",
+    "branch_a_conditions_by_family": {
+      "layered": false,
+      "marmousi": true,
+      "uniform": true
+    },
+    "collapsed_to_single_threshold": false,
+    "decision_rank": 16,
+    "families": {
+      "layered": {
+        "confined_convention_iii_negative_at_every_measured_rank": false,
+        "mask_agreement_rate": 0.9894736842105263,
+        "rank16_blowup_located_outside_mask": null,
+        "rank16_convention_ii_within_tolerance": false,
+        "rank16_convention_iii_nonnegative": true,
+        "rank16_passes_branch_a_conditions": false,
+        "ranks": {
+          "16": {
+            "blowup_located_outside_mask": null,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.18953689011188593,
+              "masked_energy_floored_per_frame": 0.33570651391175366,
+              "unmasked_per_frame_unsquared_mean": 0.0596301073377705
+            },
+            "convention_ii_confined_minus_unconfined": -0.050426932251087464,
+            "convention_ii_within_tolerance": false,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": null,
+            "unconfined_gain": {
+              "global_energy_rel_l2": 0.07676510674011527,
+              "masked_energy_floored_per_frame": 0.3861334461628411,
+              "unmasked_per_frame_unsquared_mean": -1.5589602738037622
+            },
+            "unconfined_has_convention_iii_blowup": false
+          },
+          "32": {
+            "blowup_located_outside_mask": true,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.46258673429418473,
+              "masked_energy_floored_per_frame": 0.511429630620895,
+              "unmasked_per_frame_unsquared_mean": 0.09084305042009672
+            },
+            "convention_ii_confined_minus_unconfined": -0.06190384932735393,
+            "convention_ii_within_tolerance": false,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": 1.14468719912081,
+            "unconfined_gain": {
+              "global_energy_rel_l2": -1.4321474900817326,
+              "masked_energy_floored_per_frame": 0.5733334799482489,
+              "unmasked_per_frame_unsquared_mean": -12.003745665782509
+            },
+            "unconfined_has_convention_iii_blowup": true
+          },
+          "8": {
+            "blowup_located_outside_mask": null,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.039954515623393555,
+              "masked_energy_floored_per_frame": 0.2233560218787932,
+              "unmasked_per_frame_unsquared_mean": 0.03967377160477428
+            },
+            "convention_ii_confined_minus_unconfined": -0.049189721964177674,
+            "convention_ii_within_tolerance": false,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": null,
+            "unconfined_gain": {
+              "global_energy_rel_l2": 0.03679352262407418,
+              "masked_energy_floored_per_frame": 0.27254574384297087,
+              "unmasked_per_frame_unsquared_mean": -0.14058255478490966
+            },
+            "unconfined_has_convention_iii_blowup": false
+          }
+        },
+        "sample_id": "train_layered_00564"
+      },
+      "marmousi": {
+        "confined_convention_iii_negative_at_every_measured_rank": false,
+        "mask_agreement_rate": 1.0,
+        "rank16_blowup_located_outside_mask": null,
+        "rank16_convention_ii_within_tolerance": true,
+        "rank16_convention_iii_nonnegative": true,
+        "rank16_passes_branch_a_conditions": true,
+        "ranks": {
+          "16": {
+            "blowup_located_outside_mask": null,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.1329025832674466,
+              "masked_energy_floored_per_frame": 0.1225388975139665,
+              "unmasked_per_frame_unsquared_mean": 0.11888444868436779
+            },
+            "convention_ii_confined_minus_unconfined": 0.0,
+            "convention_ii_within_tolerance": true,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": null,
+            "unconfined_gain": {
+              "global_energy_rel_l2": 0.13290258178992337,
+              "masked_energy_floored_per_frame": 0.1225388975139665,
+              "unmasked_per_frame_unsquared_mean": 0.11883853642476383
+            },
+            "unconfined_has_convention_iii_blowup": false
+          },
+          "32": {
+            "blowup_located_outside_mask": null,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.26391142514560884,
+              "masked_energy_floored_per_frame": 0.2499625243974069,
+              "unmasked_per_frame_unsquared_mean": 0.24250795059871946
+            },
+            "convention_ii_confined_minus_unconfined": 0.0,
+            "convention_ii_within_tolerance": true,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": null,
+            "unconfined_gain": {
+              "global_energy_rel_l2": 0.26391141412256985,
+              "masked_energy_floored_per_frame": 0.2499625243974069,
+              "unmasked_per_frame_unsquared_mean": 0.24233820934644512
+            },
+            "unconfined_has_convention_iii_blowup": false
+          },
+          "8": {
+            "blowup_located_outside_mask": null,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.06342309151615794,
+              "masked_energy_floored_per_frame": 0.060370366091444916,
+              "unmasked_per_frame_unsquared_mean": 0.05856995480832428
+            },
+            "convention_ii_confined_minus_unconfined": 0.0,
+            "convention_ii_within_tolerance": true,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": null,
+            "unconfined_gain": {
+              "global_energy_rel_l2": 0.0634230890129577,
+              "masked_energy_floored_per_frame": 0.060370366091444916,
+              "unmasked_per_frame_unsquared_mean": 0.05850930633334747
+            },
+            "unconfined_has_convention_iii_blowup": false
+          }
+        },
+        "sample_id": "train_marmousi_00385"
+      },
+      "uniform": {
+        "confined_convention_iii_negative_at_every_measured_rank": false,
+        "mask_agreement_rate": 0.9948453608247423,
+        "rank16_blowup_located_outside_mask": true,
+        "rank16_convention_ii_within_tolerance": true,
+        "rank16_convention_iii_nonnegative": true,
+        "rank16_passes_branch_a_conditions": true,
+        "ranks": {
+          "16": {
+            "blowup_located_outside_mask": true,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.11606813617076556,
+              "masked_energy_floored_per_frame": 0.1486697205131357,
+              "unmasked_per_frame_unsquared_mean": 0.00043220725490759605
+            },
+            "convention_ii_confined_minus_unconfined": -0.011231730526486183,
+            "convention_ii_within_tolerance": true,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": 1.0002237484823655,
+            "unconfined_gain": {
+              "global_energy_rel_l2": -30.277435295999386,
+              "masked_energy_floored_per_frame": 0.1599014510396219,
+              "unmasked_per_frame_unsquared_mean": -290.240145637898
+            },
+            "unconfined_has_convention_iii_blowup": true
+          },
+          "32": {
+            "blowup_located_outside_mask": true,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.2450145629426868,
+              "masked_energy_floored_per_frame": 0.27732358613877434,
+              "unmasked_per_frame_unsquared_mean": 0.0008062251376575405
+            },
+            "convention_ii_confined_minus_unconfined": -0.017178619846787924,
+            "convention_ii_within_tolerance": true,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": 1.0002355593901562,
+            "unconfined_gain": {
+              "global_energy_rel_l2": -41.73674300877742,
+              "masked_energy_floored_per_frame": 0.29450220598556226,
+              "unmasked_per_frame_unsquared_mean": -450.944597124602
+            },
+            "unconfined_has_convention_iii_blowup": true
+          },
+          "8": {
+            "blowup_located_outside_mask": true,
+            "confined_gain": {
+              "global_energy_rel_l2": 0.037620042061533174,
+              "masked_energy_floored_per_frame": 0.0696895606525394,
+              "unmasked_per_frame_unsquared_mean": 0.0002025989798151002
+            },
+            "convention_ii_confined_minus_unconfined": -0.007594938331775547,
+            "convention_ii_within_tolerance": true,
+            "convention_iii_confined_nonnegative": true,
+            "outside_mask_share_of_unconfined_increase": 1.000192500218999,
+            "unconfined_gain": {
+              "global_energy_rel_l2": -18.6088017039679,
+              "masked_energy_floored_per_frame": 0.07728449898431494,
+              "unmasked_per_frame_unsquared_mean": -180.72776251254786
+            },
+            "unconfined_has_convention_iii_blowup": true
+          }
+        },
+        "sample_id": "train_uniform_00321"
+      }
+    },
+    "families_failing_convention_iii_at_rank16": [],
+    "families_routed_to_abstention": [],
+    "hypothesis_H": {
+      "blowup_located_outside_mask_by_family": {
+        "uniform": true
+      },
+      "confirmed": true,
+      "evaluated_at_rank": 16,
+      "families_with_blowup": [
+        "uniform"
+      ],
+      "families_without_blowup_nothing_to_explain": [
+        "layered",
+        "marmousi"
+      ],
+      "refuted": false,
+      "statement": "the convention (iii) blow-up of the unconfined masked arm is located in the mask-dropped frames"
+    },
+    "per_family_per_rank_reported": true,
+    "rule_source": "results/r4e9_mask_confined_oracle_spec_20260826.md lines 59-69",
+    "thresholds": {
+      "confined_convention_ii_tolerance": 0.02,
+      "confined_convention_iii_minimum": 0.0,
+      "outside_mask_blowup_share_minimum": 0.5,
+      "threshold_provenance": "the two convention thresholds are transcribed verbatim from the frozen spec; the outside-mask share threshold is the majority reading of the spec's qualitative location claim, fixed before the probe ran, and the raw share is reported for every point"
+    },
+    "verdict": "the outside-mask split locates the blow-up, but confinement does not lift convention (iii) to nonnegative for ; that family cannot be helped by this ansatz at any measured rank and v15 must route it to abstention with output bit-identical to the parent"
+  },
+  "disk_free_bytes_after": 12608192512,
+  "disk_free_bytes_before": 12608192512,
+  "error_energy_splits_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e9_mask_confined_oracle_20260826/error_energy_splits.json",
+  "exact_blocker": "none",
+  "frozen_v14_bindings_after": {
+    "all_unchanged": true,
+    "bindings": {
+      "basis": {
+        "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+        "size_bytes": 83476,
+        "unchanged": true
+      },
+      "config": {
+        "sha256": "8855e0470ac5ec27f52b95d8c43e4234338ac7417deb52e8552a36c816fe46c8",
+        "size_bytes": 6965,
+        "unchanged": true
+      },
+      "engine": {
+        "sha256": "dbf781d1e09fbd035f3993b541db391bde15be06b169eceb8b17e12ff7e74f79",
+        "size_bytes": 34859,
+        "unchanged": true
+      },
+      "frozen_v13_preregistration": {
+        "sha256": "249301003ac6d94155619639b055957f21880c737dd75ee58bdda775f4c3fe04",
+        "size_bytes": 48412,
+        "unchanged": true
+      },
+      "harness": {
+        "sha256": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+        "size_bytes": 17273,
+        "unchanged": true
+      },
+      "manifest": {
+        "sha256": "273c2a492e31027571bf6780ea4a6668428ef47bf252023fe39eabefc355c8b2",
+        "size_bytes": 1000401,
+        "unchanged": true
+      },
+      "model": {
+        "sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+        "size_bytes": 18753,
+        "unchanged": true
+      },
+      "normalization": {
+        "sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+        "size_bytes": 1050,
+        "unchanged": true
+      },
+      "panels": {
+        "sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+        "size_bytes": 200470,
+        "unchanged": true
+      },
+      "parent": {
+        "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+        "size_bytes": 339775310,
+        "unchanged": true
+      },
+      "script": {
+        "sha256": "7dd54a7b59f7916e86d5ebbd4d4dfb469be512918e5571b4f287f9e273253df1",
+        "size_bytes": 55045,
+        "unchanged": true
+      },
+      "test": {
+        "sha256": "910c0fd82f6771348eadcb2a8fd8caefc4aa3e82e7164675b48db8a564b5db79",
+        "size_bytes": 23373,
+        "unchanged": true
+      },
+      "v11_veto_provenance": {
+        "sha256": "f3f96686cf9a2ebe87beef5c66981a5b6cb3c08e3b4d64655a83c433c1366a2c",
+        "size_bytes": 9391,
+        "unchanged": true
+      },
+      "v14_transitive_v10": {
+        "sha256": "e08e70ba36d2a793610cc6d3102323196b1cb98f8400ab46ef398a5a3fed3f86",
+        "size_bytes": 1188,
+        "unchanged": true
+      },
+      "v14_transitive_v11": {
+        "sha256": "1eb55237a3e2230f8ab24da56ed7cddf0a7e4a1b21e1e1241b2ed6b8b94e09c5",
+        "size_bytes": 2287,
+        "unchanged": true
+      },
+      "v2_replay": {
+        "sha256": "d46f10f6105dbcb39271111dd6c78b8609d3a9bc7522cc85b415f1ac2e3573c1",
+        "size_bytes": 1251,
+        "unchanged": true
+      }
+    },
+    "count": 16
+  },
+  "frozen_v14_bindings_before": {
+    "all_unchanged": true,
+    "bindings": {
+      "basis": {
+        "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+        "size_bytes": 83476,
+        "unchanged": true
+      },
+      "config": {
+        "sha256": "8855e0470ac5ec27f52b95d8c43e4234338ac7417deb52e8552a36c816fe46c8",
+        "size_bytes": 6965,
+        "unchanged": true
+      },
+      "engine": {
+        "sha256": "dbf781d1e09fbd035f3993b541db391bde15be06b169eceb8b17e12ff7e74f79",
+        "size_bytes": 34859,
+        "unchanged": true
+      },
+      "frozen_v13_preregistration": {
+        "sha256": "249301003ac6d94155619639b055957f21880c737dd75ee58bdda775f4c3fe04",
+        "size_bytes": 48412,
+        "unchanged": true
+      },
+      "harness": {
+        "sha256": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+        "size_bytes": 17273,
+        "unchanged": true
+      },
+      "manifest": {
+        "sha256": "273c2a492e31027571bf6780ea4a6668428ef47bf252023fe39eabefc355c8b2",
+        "size_bytes": 1000401,
+        "unchanged": true
+      },
+      "model": {
+        "sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+        "size_bytes": 18753,
+        "unchanged": true
+      },
+      "normalization": {
+        "sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+        "size_bytes": 1050,
+        "unchanged": true
+      },
+      "panels": {
+        "sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+        "size_bytes": 200470,
+        "unchanged": true
+      },
+      "parent": {
+        "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+        "size_bytes": 339775310,
+        "unchanged": true
+      },
+      "script": {
+        "sha256": "7dd54a7b59f7916e86d5ebbd4d4dfb469be512918e5571b4f287f9e273253df1",
+        "size_bytes": 55045,
+        "unchanged": true
+      },
+      "test": {
+        "sha256": "910c0fd82f6771348eadcb2a8fd8caefc4aa3e82e7164675b48db8a564b5db79",
+        "size_bytes": 23373,
+        "unchanged": true
+      },
+      "v11_veto_provenance": {
+        "sha256": "f3f96686cf9a2ebe87beef5c66981a5b6cb3c08e3b4d64655a83c433c1366a2c",
+        "size_bytes": 9391,
+        "unchanged": true
+      },
+      "v14_transitive_v10": {
+        "sha256": "e08e70ba36d2a793610cc6d3102323196b1cb98f8400ab46ef398a5a3fed3f86",
+        "size_bytes": 1188,
+        "unchanged": true
+      },
+      "v14_transitive_v11": {
+        "sha256": "1eb55237a3e2230f8ab24da56ed7cddf0a7e4a1b21e1e1241b2ed6b8b94e09c5",
+        "size_bytes": 2287,
+        "unchanged": true
+      },
+      "v2_replay": {
+        "sha256": "d46f10f6105dbcb39271111dd6c78b8609d3a9bc7522cc85b415f1ac2e3573c1",
+        "size_bytes": 1251,
+        "unchanged": true
+      }
+    },
+    "count": 16
+  },
+  "gpu": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cuda_visible_devices": "0",
+    "driver_version": "580.105.08",
+    "memory_total_mib": 24564,
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "nvidia_driver_cuda_version": "13.0",
+    "physical_index": 0,
+    "torch_name": "NVIDIA GeForce RTX 4090 D",
+    "torch_total_memory_bytes": 25250627584,
+    "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+    "visible_index": 0
+  },
+  "kind": "diagnostic_probe_not_a_promotion_candidate",
+  "panel": {
+    "layered": {
+      "c1_k1": 20,
+      "confinement_gate": "parent_energy_mask",
+      "family": "layered",
+      "fit_objective": "weighted LS restricted to truth-mask retained frames with floored denominators; identical to the r4e8 masked_matched arm",
+      "future_frame_count": 380,
+      "future_parent_energy": 3.8234836907504526e-12,
+      "future_residual_energy": 4.0061809740930503e-14,
+      "future_start_index": 21,
+      "group_id": "train:layered:00141",
+      "in_run_r4e8_code_path_cross_check": {
+        "16": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        },
+        "32": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        },
+        "8": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        }
+      },
+      "manifest_sample_sha256": "538ac80527410c5f15b03b557899c5254a32522a0519d764671fb5bf2f49e1a9",
+      "mask": {
+        "agreement_passes_minimum": true,
+        "agreement_rate": 0.9894736842105263,
+        "minimum": 0.9,
+        "parent_energy_floor": 3.7347613165656804e-17,
+        "parent_masked_frame_count": 232,
+        "tau": 0.001,
+        "truth_energy_floor": 3.5188574865936697e-17,
+        "truth_masked_frame_count": 236
+      },
+      "nontruth_input_sha256": "a976207dc911d38879009b8ed20fc1619302c1234aa962d702f1e9993ba75858",
+      "observed_indices": [
+        19,
+        20
+      ],
+      "parent_error_energy_split": {
+        "parent_mask": {
+          "inside_frame_count": 232,
+          "inside_mask": 3.9297807982483726e-14,
+          "outside_frame_count": 148,
+          "outside_mask": 7.640017584467789e-16,
+          "outside_share_of_total": 0.01907057527823589,
+          "total": 4.0061809740930503e-14
+        },
+        "truth_mask_diagnostic": {
+          "inside_frame_count": 236,
+          "inside_mask": 3.935579340625083e-14,
+          "outside_frame_count": 144,
+          "outside_mask": 7.06016334679673e-16,
+          "outside_share_of_total": 0.017623176268004376,
+          "total": 4.0061809740930503e-14
+        }
+      },
+      "parent_metric_diagnostics": {
+        "dropped_frame_count": 144,
+        "energy_floor": 3.5188574865936697e-17,
+        "floored_unmasked_per_frame": 0.2189300949830239,
+        "frame_count": 380,
+        "masked_frame_count": 236,
+        "tau": 0.001
+      },
+      "parent_metrics": {
+        "global_energy_rel_l2": 0.10512631449214244,
+        "masked_energy_floored_per_frame": 0.13634724175262927,
+        "unmasked_per_frame_unsquared_mean": 0.4767261117570674
+      },
+      "ranks": {
+        "16": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -1.3747191885051517e-14,
+              "delta_outside_mask": 0.0,
+              "delta_total": -1.3747191885051517e-14,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -1.3747191885051517e-14,
+              "delta_outside_mask": 7.832573185120744e-15,
+              "delta_total": -5.914618699930773e-15,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 3.0814879110195774e-33,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 2.555061609743221e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 7.640017584467789e-16,
+                "outside_share_of_total": 0.029033359429009992,
+                "total": 2.6314617855878986e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 2.5608601521199315e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 7.06016334679673e-16,
+                "outside_share_of_total": 0.026829815220818072,
+                "total": 2.6314617855878986e-14
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 3.9297807982483726e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 7.640017584467789e-16,
+                "outside_share_of_total": 0.01907057527823589,
+                "total": 4.0061809740930503e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 3.935579340625083e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 7.06016334679673e-16,
+                "outside_share_of_total": 0.017623176268004376,
+                "total": 4.0061809740930503e-14
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 2.555061609743221e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 8.596574943567523e-15,
+                "outside_share_of_total": 0.2517505739563122,
+                "total": 3.414719104099973e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 2.5555588672593372e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 8.59160236840636e-15,
+                "outside_share_of_total": 0.2516049521640191,
+                "total": 3.414719104099973e-14
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 236,
+          "rank": 16,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.08511513447972968,
+              "masked_energy_floored_per_frame": 0.08369901141988852,
+              "unmasked_per_frame_unsquared_mean": 0.4440287897609443
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.1903536722378722,
+              "masked_energy_floored_per_frame": 0.3861334461628411,
+              "unmasked_per_frame_unsquared_mean": 0.06858722689976168
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.08520099977437767,
+                "masked_energy_floored_per_frame": 0.090574584542371,
+                "unmasked_per_frame_unsquared_mean": 0.4482988825422755
+              },
+              "correction_energy": 1.3417386431190875e-14,
+              "correction_energy_ratio": 0.003509204567460149,
+              "gain": {
+                "global_energy_rel_l2": 0.18953689011188593,
+                "masked_energy_floored_per_frame": 0.33570651391175366,
+                "unmasked_per_frame_unsquared_mean": 0.0596301073377705
+              },
+              "raw_residual_energy_capture": 0.34314954751048676,
+              "unexplained_raw_residual_energy": 2.631461785587899e-14
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.0970562817389582,
+                "masked_energy_floored_per_frame": 0.08369901141988852,
+                "unmasked_per_frame_unsquared_mean": 1.219923181471268
+              },
+              "correction_energy": 2.1812226251365968e-14,
+              "correction_energy_ratio": 0.005704804313441385,
+              "gain": {
+                "global_energy_rel_l2": 0.07676510674011527,
+                "masked_energy_floored_per_frame": 0.3861334461628411,
+                "unmasked_per_frame_unsquared_mean": -1.5589602738037622
+              },
+              "raw_residual_energy_capture": 0.14763733186740935,
+              "unexplained_raw_residual_energy": 3.414719104099973e-14
+            }
+          }
+        },
+        "32": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -2.849143755683732e-14,
+              "delta_outside_mask": 0.0,
+              "delta_total": -2.849143755683732e-14,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -2.849143755683732e-14,
+              "delta_outside_mask": 2.2540891007662621e-13,
+              "delta_total": 1.969174725197889e-13,
+              "outside_share_of_increase": 1.14468719912081,
+              "total_error_energy_increased_vs_parent": true
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 3.0814879110195774e-33,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 1.0806370425646408e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 7.640017584467789e-16,
+                "outside_share_of_total": 0.06603087146125858,
+                "total": 1.1570372184093187e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 1.0864355849413514e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 7.06016334679673e-16,
+                "outside_share_of_total": 0.06101932793919076,
+                "total": 1.1570372184093187e-14
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 3.9297807982483726e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 7.640017584467789e-16,
+                "outside_share_of_total": 0.01907057527823589,
+                "total": 4.0061809740930503e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 3.935579340625083e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 7.06016334679673e-16,
+                "outside_share_of_total": 0.017623176268004376,
+                "total": 4.0061809740930503e-14
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 1.0806370425646408e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 2.26172911835073e-13,
+                "outside_share_of_total": 0.9543995140733127,
+                "total": 2.369792822607194e-13
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 1.0807133859297053e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 2.2617214840142236e-13,
+                "outside_share_of_total": 0.954396292552666,
+                "total": 2.369792822607194e-13
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 236,
+          "rank": 32,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.05635639991627178,
+              "masked_energy_floored_per_frame": 0.05817480315724915,
+              "unmasked_per_frame_unsquared_mean": 0.4281769130504629
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.4639172866610473,
+              "masked_energy_floored_per_frame": 0.5733334799482489,
+              "unmasked_per_frame_unsquared_mean": 0.10183876550765582
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.056496275982838844,
+                "masked_energy_floored_per_frame": 0.06661522226690422,
+                "unmasked_per_frame_unsquared_mean": 0.4334188575501435
+              },
+              "correction_energy": 2.8038147917795076e-14,
+              "correction_energy_ratio": 0.007333141759077806,
+              "gain": {
+                "global_energy_rel_l2": 0.46258673429418473,
+                "masked_energy_floored_per_frame": 0.511429630620895,
+                "unmasked_per_frame_unsquared_mean": 0.09084305042009672
+              },
+              "raw_residual_energy_capture": 0.7111869818434107,
+              "unexplained_raw_residual_energy": 1.1570372184093187e-14
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.2556827019336071,
+                "masked_energy_floored_per_frame": 0.05817480315724915,
+                "unmasked_per_frame_unsquared_mean": 6.199225109526314
+              },
+              "correction_energy": 2.5447437223187903e-13,
+              "correction_energy_ratio": 0.06655563167367197,
+              "gain": {
+                "global_energy_rel_l2": -1.4321474900817326,
+                "masked_energy_floored_per_frame": 0.5733334799482489,
+                "unmasked_per_frame_unsquared_mean": -12.003745665782509
+              },
+              "raw_residual_energy_capture": -4.915341413510871,
+              "unexplained_raw_residual_energy": 2.369792822607194e-13
+            }
+          }
+        },
+        "8": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -3.137347202839695e-15,
+              "delta_outside_mask": 0.0,
+              "delta_total": -3.137347202839695e-15,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -3.137347202839695e-15,
+              "delta_outside_mask": 2.4355120475395267e-16,
+              "delta_total": -2.8937959980857424e-15,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 3.0814879110195774e-33,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 3.616046077964403e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 7.640017584467789e-16,
+                "outside_share_of_total": 0.020690937820926826,
+                "total": 3.692446253809081e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 3.621844620341114e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 7.06016334679673e-16,
+                "outside_share_of_total": 0.019120558192319125,
+                "total": 3.6924462538090815e-14
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 3.9297807982483726e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 7.640017584467789e-16,
+                "outside_share_of_total": 0.01907057527823589,
+                "total": 4.0061809740930503e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 3.935579340625083e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 7.06016334679673e-16,
+                "outside_share_of_total": 0.017623176268004376,
+                "total": 4.0061809740930503e-14
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 232,
+                "inside_mask": 3.616046077964403e-14,
+                "outside_frame_count": 148,
+                "outside_mask": 1.0075529632007316e-15,
+                "outside_share_of_total": 0.027108065827023006,
+                "total": 3.716801374284476e-14
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 236,
+                "inside_mask": 3.616568892729751e-14,
+                "outside_frame_count": 144,
+                "outside_mask": 1.0023248155472498e-15,
+                "outside_share_of_total": 0.026967403275355493,
+                "total": 3.716801374284476e-14
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 236,
+          "rank": 8,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.10085391672028181,
+              "masked_energy_floored_per_frame": 0.09918638132822155,
+              "unmasked_per_frame_unsquared_mean": 0.4536472615987511
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.040640612129325286,
+              "masked_energy_floored_per_frame": 0.27254574384297087,
+              "unmasked_per_frame_unsquared_mean": 0.04841113081315123
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.10092604351733635,
+                "masked_energy_floored_per_frame": 0.1058932642406159,
+                "unmasked_per_frame_unsquared_mean": 0.4578125888811854
+              },
+              "correction_energy": 3.846285310204931e-15,
+              "correction_energy_ratio": 0.0010059635717839307,
+              "gain": {
+                "global_energy_rel_l2": 0.039954515623393555,
+                "masked_energy_floored_per_frame": 0.2233560218787932,
+                "unmasked_per_frame_unsquared_mean": 0.03967377160477428
+              },
+              "raw_residual_energy_capture": 0.07831266792808722,
+              "unexplained_raw_residual_energy": 3.69244625380908e-14
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.10125834706149026,
+                "masked_energy_floored_per_frame": 0.09918638132822155,
+                "unmasked_per_frame_unsquared_mean": 0.5437454864805523
+              },
+              "correction_energy": 4.61120483672805e-15,
+              "correction_energy_ratio": 0.0012060218402090235,
+              "gain": {
+                "global_energy_rel_l2": 0.03679352262407418,
+                "masked_energy_floored_per_frame": 0.27254574384297087,
+                "unmasked_per_frame_unsquared_mean": -0.14058255478490966
+              },
+              "raw_residual_energy_capture": 0.07223328194105993,
+              "unexplained_raw_residual_energy": 3.716801374284477e-14
+            }
+          }
+        }
+      },
+      "sample_id": "train_layered_00564",
+      "source_index": 984,
+      "spatial_point_count": 40401,
+      "split": "train",
+      "train_truth_sha256": "df4b36d1543b86968c9d196c2bda06a13f3629a64e84e7a1a2a41529e4301828"
+    },
+    "marmousi": {
+      "c1_k1": 9,
+      "confinement_gate": "parent_energy_mask",
+      "family": "marmousi",
+      "fit_objective": "weighted LS restricted to truth-mask retained frames with floored denominators; identical to the r4e8 masked_matched arm",
+      "future_frame_count": 391,
+      "future_parent_energy": 1.2975870723574711e-11,
+      "future_residual_energy": 7.436002054185275e-12,
+      "future_start_index": 10,
+      "group_id": "train:marmousi:x350.0:z200.0",
+      "in_run_r4e8_code_path_cross_check": {
+        "16": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        },
+        "32": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        },
+        "8": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        }
+      },
+      "manifest_sample_sha256": "6dfa95b576de264959a01d23cc49975be76672eaea632d05f10a840f2c3ae333",
+      "mask": {
+        "agreement_passes_minimum": true,
+        "agreement_rate": 1.0,
+        "minimum": 0.9,
+        "parent_energy_floor": 4.5694015106628154e-17,
+        "parent_masked_frame_count": 387,
+        "tau": 0.001,
+        "truth_energy_floor": 6.949532798209422e-17,
+        "truth_masked_frame_count": 387
+      },
+      "nontruth_input_sha256": "9bb1351c13741493e38cf392133c5fa5a39cba7fcd4a9c78c670705422e005da",
+      "observed_indices": [
+        8,
+        9
+      ],
+      "parent_error_energy_split": {
+        "parent_mask": {
+          "inside_frame_count": 387,
+          "inside_mask": 7.435973348082354e-12,
+          "outside_frame_count": 4,
+          "outside_mask": 2.870610292085448e-17,
+          "outside_share_of_total": 3.860421596400387e-06,
+          "total": 7.436002054185275e-12
+        },
+        "truth_mask_diagnostic": {
+          "inside_frame_count": 387,
+          "inside_mask": 7.435973348082354e-12,
+          "outside_frame_count": 4,
+          "outside_mask": 2.870610292085448e-17,
+          "outside_share_of_total": 3.860421596400387e-06,
+          "total": 7.436002054185275e-12
+        }
+      },
+      "parent_metric_diagnostics": {
+        "dropped_frame_count": 4,
+        "energy_floor": 6.949532798209422e-17,
+        "floored_unmasked_per_frame": 0.5474897024352361,
+        "frame_count": 391,
+        "masked_frame_count": 387,
+        "tau": 0.001
+      },
+      "parent_metrics": {
+        "global_energy_rel_l2": 0.6013927478240442,
+        "masked_energy_floored_per_frame": 0.5501185848602176,
+        "unmasked_per_frame_unsquared_mean": 0.5612281488369618
+      },
+      "ranks": {
+        "16": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -1.8451849414744526e-12,
+              "delta_outside_mask": -6.162975822039155e-33,
+              "delta_total": -1.8451849414744526e-12,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -1.8451849414744526e-12,
+              "delta_outside_mask": 1.9053364605415196e-20,
+              "delta_total": -1.845184922421088e-12,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 3.0814879110195774e-33,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 5.590788406607901e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085447e-17,
+                "outside_share_of_total": 5.134509382464083e-06,
+                "total": 5.5908171127108226e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 5.590788406607901e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085447e-17,
+                "outside_share_of_total": 5.134509382464083e-06,
+                "total": 5.5908171127108226e-12
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 7.435973348082354e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085448e-17,
+                "outside_share_of_total": 3.860421596400387e-06,
+                "total": 7.436002054185275e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 7.435973348082354e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085448e-17,
+                "outside_share_of_total": 3.860421596400387e-06,
+                "total": 7.436002054185275e-12
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 5.590788406607901e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.872515628545989e-17,
+                "outside_share_of_total": 5.137917339892612e-06,
+                "total": 5.590817131764187e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 5.590788406607901e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.872515628545989e-17,
+                "outside_share_of_total": 5.137917339892612e-06,
+                "total": 5.590817131764187e-12
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 387,
+          "rank": 16,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.5214660980799206,
+              "masked_energy_floored_per_frame": 0.4827076599695031,
+              "unmasked_per_frame_unsquared_mean": 0.4945068497763313
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.1329025832674466,
+              "masked_energy_floored_per_frame": 0.1225388975139665,
+              "unmasked_per_frame_unsquared_mean": 0.11888444868436779
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.5214660980799206,
+                "masked_energy_floored_per_frame": 0.4827076599695031,
+                "unmasked_per_frame_unsquared_mean": 0.4945068497763313
+              },
+              "correction_energy": 1.854132330354811e-12,
+              "correction_energy_ratio": 0.14289078319701523,
+              "gain": {
+                "global_energy_rel_l2": 0.1329025832674466,
+                "masked_energy_floored_per_frame": 0.1225388975139665,
+                "unmasked_per_frame_unsquared_mean": 0.11888444868436779
+              },
+              "raw_residual_energy_capture": 0.2481420698957323,
+              "unexplained_raw_residual_energy": 5.590817112710823e-12
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.5214660989684924,
+                "masked_energy_floored_per_frame": 0.4827076599695031,
+                "unmasked_per_frame_unsquared_mean": 0.49453261702879775
+              },
+              "correction_energy": 1.8541323520560087e-12,
+              "correction_energy_ratio": 0.14289078486944232,
+              "gain": {
+                "global_energy_rel_l2": 0.13290258178992337,
+                "masked_energy_floored_per_frame": 0.1225388975139665,
+                "unmasked_per_frame_unsquared_mean": 0.11883853642476383
+              },
+              "raw_residual_energy_capture": 0.24814206733341948,
+              "unexplained_raw_residual_energy": 5.590817131764187e-12
+            }
+          }
+        },
+        "32": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -3.4069799049017116e-12,
+              "delta_outside_mask": -6.162975822039155e-33,
+              "delta_total": -3.4069799049017116e-12,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -3.4069799049017116e-12,
+              "delta_outside_mask": 1.2067044618869403e-19,
+              "delta_total": -3.4069797842312653e-12,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 3.0814879110195774e-33,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 4.0289934431806424e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085447e-17,
+                "outside_share_of_total": 7.1248312511657355e-06,
+                "total": 4.029022149283564e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 4.0289934431806424e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085447e-17,
+                "outside_share_of_total": 7.1248312511657355e-06,
+                "total": 4.029022149283564e-12
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 7.435973348082354e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085448e-17,
+                "outside_share_of_total": 3.860421596400387e-06,
+                "total": 7.436002054185275e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 7.435973348082354e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085448e-17,
+                "outside_share_of_total": 3.860421596400387e-06,
+                "total": 7.436002054185275e-12
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 4.0289934431806424e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.882677336704317e-17,
+                "outside_share_of_total": 7.1547813428621795e-06,
+                "total": 4.029022269954009e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 4.0289934431806424e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.882677336704317e-17,
+                "outside_share_of_total": 7.1547813428621795e-06,
+                "total": 4.029022269954009e-12
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 387,
+          "rank": 32,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.44267833067356693,
+              "masked_energy_floored_per_frame": 0.4126095546706285,
+              "unmasked_per_frame_unsquared_mean": 0.4251258606441971
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.26391142514560884,
+              "masked_energy_floored_per_frame": 0.2499625243974069,
+              "unmasked_per_frame_unsquared_mean": 0.24250795059871946
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.44267833067356693,
+                "masked_energy_floored_per_frame": 0.4126095546706285,
+                "unmasked_per_frame_unsquared_mean": 0.4251258606441971
+              },
+              "correction_energy": 3.4027415594831954e-12,
+              "correction_energy_ratio": 0.2622360866543665,
+              "gain": {
+                "global_energy_rel_l2": 0.26391142514560884,
+                "masked_energy_floored_per_frame": 0.2499625243974069,
+                "unmasked_per_frame_unsquared_mean": 0.24250795059871946
+              },
+              "raw_residual_energy_capture": 0.45817360996883116,
+              "unexplained_raw_residual_energy": 4.029022149283564e-12
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.44267833730274264,
+                "masked_energy_floored_per_frame": 0.4126095546706285,
+                "unmasked_per_frame_unsquared_mean": 0.4252211242129923
+              },
+              "correction_energy": 3.4027416656411924e-12,
+              "correction_energy_ratio": 0.2622360948355513,
+              "gain": {
+                "global_energy_rel_l2": 0.26391141412256985,
+                "masked_energy_floored_per_frame": 0.2499625243974069,
+                "unmasked_per_frame_unsquared_mean": 0.24233820934644512
+              },
+              "raw_residual_energy_capture": 0.4581735937409651,
+              "unexplained_raw_residual_energy": 4.029022269954009e-12
+            }
+          }
+        },
+        "8": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -9.133172445663172e-13,
+              "delta_outside_mask": -6.162975822039155e-33,
+              "delta_total": -9.133172445663172e-13,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -9.133172445663172e-13,
+              "delta_outside_mask": 3.486651271910779e-20,
+              "delta_total": -9.133172096998044e-13,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 3.0814879110195774e-33,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 6.522656103516037e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085447e-17,
+                "outside_share_of_total": 4.400964289815412e-06,
+                "total": 6.522684809618958e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 6.522656103516037e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085447e-17,
+                "outside_share_of_total": 4.400964289815412e-06,
+                "total": 6.522684809618958e-12
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 7.435973348082354e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085448e-17,
+                "outside_share_of_total": 3.860421596400387e-06,
+                "total": 7.436002054185275e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 7.435973348082354e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.870610292085448e-17,
+                "outside_share_of_total": 3.860421596400387e-06,
+                "total": 7.436002054185275e-12
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 387,
+                "inside_mask": 6.522656103516037e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.8740969433573585e-17,
+                "outside_share_of_total": 4.406309689770204e-06,
+                "total": 6.522684844485471e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 387,
+                "inside_mask": 6.522656103516037e-12,
+                "outside_frame_count": 4,
+                "outside_mask": 2.8740969433573585e-17,
+                "outside_share_of_total": 4.406309689770204e-06,
+                "total": 6.522684844485471e-12
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 387,
+          "rank": 8,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.5632505605416461,
+              "masked_energy_floored_per_frame": 0.5169077244984986,
+              "unmasked_per_frame_unsquared_mean": 0.5283570415224215
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.06342309151615794,
+              "masked_energy_floored_per_frame": 0.060370366091444916,
+              "unmasked_per_frame_unsquared_mean": 0.05856995480832428
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.5632505605416461,
+                "masked_energy_floored_per_frame": 0.5169077244984986,
+                "unmasked_per_frame_unsquared_mean": 0.5283570415224215
+              },
+              "correction_energy": 9.457355615969193e-13,
+              "correction_energy_ratio": 0.0728841695285,
+              "gain": {
+                "global_energy_rel_l2": 0.06342309151615794,
+                "masked_energy_floored_per_frame": 0.060370366091444916,
+                "unmasked_per_frame_unsquared_mean": 0.05856995480832428
+              },
+              "raw_residual_energy_capture": 0.12282369449484865,
+              "unexplained_raw_residual_energy": 6.522684809618956e-12
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.5632505620470526,
+                "masked_energy_floored_per_frame": 0.5169077244984986,
+                "unmasked_per_frame_unsquared_mean": 0.5283910791537625
+              },
+              "correction_energy": 9.457355689694357e-13,
+              "correction_energy_ratio": 0.07288417009667124,
+              "gain": {
+                "global_energy_rel_l2": 0.0634230890129577,
+                "masked_energy_floored_per_frame": 0.060370366091444916,
+                "unmasked_per_frame_unsquared_mean": 0.05850930633334747
+              },
+              "raw_residual_energy_capture": 0.1228236898059698,
+              "unexplained_raw_residual_energy": 6.522684844485469e-12
+            }
+          }
+        }
+      },
+      "sample_id": "train_marmousi_00385",
+      "source_index": 2485,
+      "spatial_point_count": 40401,
+      "split": "train",
+      "train_truth_sha256": "b6770905b22d5a234827929f9d321570b6614c6b01f3b11e71be721a110ddc30"
+    },
+    "uniform": {
+      "c1_k1": 12,
+      "confinement_gate": "parent_energy_mask",
+      "family": "uniform",
+      "fit_objective": "weighted LS restricted to truth-mask retained frames with floored denominators; identical to the r4e8 masked_matched arm",
+      "future_frame_count": 388,
+      "future_parent_energy": 1.1766517216259925e-12,
+      "future_residual_energy": 6.744726172275328e-15,
+      "future_start_index": 13,
+      "group_id": "train:uniform:00321",
+      "in_run_r4e8_code_path_cross_check": {
+        "16": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        },
+        "32": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        },
+        "8": {
+          "absolute_difference": {
+            "global_energy_rel_l2": 0.0,
+            "masked_energy_floored_per_frame": 0.0,
+            "unmasked_per_frame_unsquared_mean": 0.0
+          },
+          "bitwise_identical": true
+        }
+      },
+      "manifest_sample_sha256": "640fcdc1032f23e7a9cd368ac6a7ddf8abfc9928b02f29258d75e1cd741f6923",
+      "mask": {
+        "agreement_passes_minimum": true,
+        "agreement_rate": 0.9948453608247423,
+        "minimum": 0.9,
+        "parent_energy_floor": 1.2964244756934497e-17,
+        "parent_masked_frame_count": 208,
+        "tau": 0.001,
+        "truth_energy_floor": 1.2739745832455435e-17,
+        "truth_masked_frame_count": 210
+      },
+      "nontruth_input_sha256": "08115d12121555f4e4f87f5bad4ceca064fca3d406a950c200c9e578d69f8bff",
+      "observed_indices": [
+        11,
+        12
+      ],
+      "parent_error_energy_split": {
+        "parent_mask": {
+          "inside_frame_count": 208,
+          "inside_mask": 6.7093270867023005e-15,
+          "outside_frame_count": 180,
+          "outside_mask": 3.5399085573028344e-17,
+          "outside_share_of_total": 0.005248409597195921,
+          "total": 6.744726172275329e-15
+        },
+        "truth_mask_diagnostic": {
+          "inside_frame_count": 210,
+          "inside_mask": 6.710434030929631e-15,
+          "outside_frame_count": 178,
+          "outside_mask": 3.429214134569728e-17,
+          "outside_share_of_total": 0.005084289631602472,
+          "total": 6.744726172275328e-15
+        }
+      },
+      "parent_metric_diagnostics": {
+        "dropped_frame_count": 178,
+        "energy_floor": 1.2739745832455435e-17,
+        "floored_unmasked_per_frame": 0.10342678291208814,
+        "frame_count": 388,
+        "masked_frame_count": 210,
+        "tau": 0.001
+      },
+      "parent_metrics": {
+        "global_energy_rel_l2": 0.07604652103273905,
+        "masked_energy_floored_per_frame": 0.0909428791722388,
+        "unmasked_per_frame_unsquared_mean": 16.931161061220614
+      },
+      "ranks": {
+        "16": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -1.4748319070326705e-15,
+              "delta_outside_mask": -6.162975822039155e-33,
+              "delta_total": -1.4748319070326705e-15,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -1.4748319070326705e-15,
+              "delta_outside_mask": 6.592947057507894e-12,
+              "delta_total": 6.591472225600862e-12,
+              "outside_share_of_increase": 1.0002237484823655,
+              "total_error_energy_increased_vs_parent": true
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 1.925929944387236e-34,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 5.23449517966963e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 3.539908557302834e-17,
+                "outside_share_of_total": 0.006717228807891148,
+                "total": 5.2698942652426585e-15
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 5.2356021238969616e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 3.429214134569728e-17,
+                "outside_share_of_total": 0.006507178250590244,
+                "total": 5.2698942652426585e-15
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 6.7093270867023005e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 3.5399085573028344e-17,
+                "outside_share_of_total": 0.005248409597195921,
+                "total": 6.744726172275329e-15
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 6.710434030929631e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 3.429214134569728e-17,
+                "outside_share_of_total": 0.005084289631602472,
+                "total": 6.744726172275328e-15
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 5.23449517966963e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 6.5929824565934674e-12,
+                "outside_share_of_total": 0.9992066803474441,
+                "total": 6.598216951773137e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 5.234755302651043e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 6.592982196470486e-12,
+                "outside_share_of_total": 0.9992066409242206,
+                "total": 6.598216951773137e-12
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 210,
+          "rank": 16,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.06721454205854023,
+              "masked_energy_floored_per_frame": 0.0764009808308768,
+              "unmasked_per_frame_unsquared_mean": 16.923290446138946
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.11613915869203979,
+              "masked_energy_floored_per_frame": 0.1599014510396219,
+              "unmasked_per_frame_unsquared_mean": 0.0004648597372152368
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.06721994307419811,
+                "masked_energy_floored_per_frame": 0.07742242674304219,
+                "unmasked_per_frame_unsquared_mean": 16.923843290575945
+              },
+              "correction_energy": 1.9005186516398413e-15,
+              "correction_energy_ratio": 0.0016151921734441105,
+              "gain": {
+                "global_energy_rel_l2": 0.11606813617076556,
+                "masked_energy_floored_per_frame": 0.1486697205131357,
+                "unmasked_per_frame_unsquared_mean": 0.00043220725490759605
+              },
+              "raw_residual_energy_capture": 0.2186644601073755,
+              "unexplained_raw_residual_energy": 5.2698942652426585e-15
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 2.378540141087352,
+                "masked_energy_floored_per_frame": 0.0764009808308768,
+                "unmasked_per_frame_unsquared_mean": 4931.033813288599
+              },
+              "correction_energy": 6.594867855639624e-12,
+              "correction_energy_ratio": 5.604774747217726,
+              "gain": {
+                "global_energy_rel_l2": -30.277435295999386,
+                "masked_energy_floored_per_frame": 0.1599014510396219,
+                "unmasked_per_frame_unsquared_mean": -290.240145637898
+              },
+              "raw_residual_energy_capture": -977.2779586954283,
+              "unexplained_raw_residual_energy": 6.5982169517731376e-12
+            }
+          }
+        },
+        "32": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -2.900211951315302e-15,
+              "delta_outside_mask": -6.162975822039155e-33,
+              "delta_total": -2.900211951315302e-15,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -2.900211951315302e-15,
+              "delta_outside_mask": 1.2314920333049545e-11,
+              "delta_total": 1.2312020121098229e-11,
+              "outside_share_of_increase": 1.0002355593901562,
+              "total_error_energy_increased_vs_parent": true
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 1.925929944387236e-34,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 3.8091151353869985e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 3.539908557302834e-17,
+                "outside_share_of_total": 0.009207687509655955,
+                "total": 3.844514220960027e-15
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 3.81022207961433e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 3.429214134569728e-17,
+                "outside_share_of_total": 0.008919759266005281,
+                "total": 3.844514220960027e-15
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 6.7093270867023005e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 3.5399085573028344e-17,
+                "outside_share_of_total": 0.005248409597195921,
+                "total": 6.744726172275329e-15
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 6.710434030929631e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 3.429214134569728e-17,
+                "outside_share_of_total": 0.005084289631602472,
+                "total": 6.744726172275328e-15
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 3.8091151353869985e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 1.2314955732135117e-11,
+                "outside_share_of_total": 0.9996907875763023,
+                "total": 1.2318764847270505e-11
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 3.8091857289974405e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 1.2314955661541506e-11,
+                "outside_share_of_total": 0.9996907818457269,
+                "total": 1.2318764847270503e-11
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 210,
+          "rank": 32,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.05740627696149463,
+              "masked_energy_floored_per_frame": 0.06416000063733603,
+              "unmasked_per_frame_unsquared_mean": 16.916665173353785
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.2451163290325871,
+              "masked_energy_floored_per_frame": 0.29450220598556226,
+              "unmasked_per_frame_unsquared_mean": 0.0008561662023303702
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.057414015918590654,
+                "masked_energy_floored_per_frame": 0.06572227378640828,
+                "unmasked_per_frame_unsquared_mean": 16.91751073356333
+              },
+              "correction_energy": 3.0869821291472326e-15,
+              "correction_energy_ratio": 0.0026235308820875144,
+              "gain": {
+                "global_energy_rel_l2": 0.2450145629426868,
+                "masked_energy_floored_per_frame": 0.27732358613877434,
+                "unmasked_per_frame_unsquared_mean": 0.0008062251376575405
+              },
+              "raw_residual_energy_capture": 0.4299969898313777,
+              "unexplained_raw_residual_energy": 3.844514220960027e-15
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 3.2499806260877557,
+                "masked_energy_floored_per_frame": 0.06416000063733603,
+                "unmasked_per_frame_unsquared_mean": 7651.946764665099
+              },
+              "correction_energy": 1.2317696929761704e-11,
+              "correction_energy_ratio": 10.468430635311623,
+              "gain": {
+                "global_energy_rel_l2": -41.73674300877742,
+                "masked_energy_floored_per_frame": 0.29450220598556226,
+                "unmasked_per_frame_unsquared_mean": -450.944597124602
+              },
+              "raw_residual_energy_capture": -1825.4292029982857,
+              "unexplained_raw_residual_energy": 1.2318764847270506e-11
+            }
+          }
+        },
+        "8": {
+          "blowup_attribution": {
+            "confined": {
+              "delta_inside_mask": -4.97928172404561e-16,
+              "delta_outside_mask": -6.162975822039155e-33,
+              "delta_total": -4.97928172404561e-16,
+              "outside_share_of_increase": null,
+              "total_error_energy_increased_vs_parent": false
+            },
+            "unconfined": {
+              "delta_inside_mask": -4.97928172404561e-16,
+              "delta_outside_mask": 2.587134842113332e-12,
+              "delta_total": 2.5866369139409274e-12,
+              "outside_share_of_increase": 1.000192500218999,
+              "total_error_energy_increased_vs_parent": true
+            }
+          },
+          "confinement_invariants": {
+            "correction_identically_zero_outside_parent_mask": true,
+            "inside_parent_mask_max_abs_deviation_vs_unconfined": 0.0,
+            "max_abs_applied_correction_outside_parent_mask": 0.0,
+            "outside_parent_mask_error_equals_chunk_matched_parent_exactly": true,
+            "outside_parent_mask_max_abs_deviation_vs_whole_row_parent": 1.925929944387236e-34,
+            "whole_row_deviation_note": "reported, not gated: the chunked and whole-row float64 reductions differ in association order, so a last-ulp disagreement here is floating-point summation order and not a confinement leak; the exact claims are the two booleans above"
+          },
+          "error_energy_split": {
+            "confined": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 6.2113989142977396e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 3.539908557302834e-17,
+                "outside_share_of_total": 0.00566675688468887,
+                "total": 6.246797999870768e-15
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 6.212505858525071e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 3.429214134569728e-17,
+                "outside_share_of_total": 0.005489555024255099,
+                "total": 6.246797999870768e-15
+              }
+            },
+            "parent": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 6.7093270867023005e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 3.5399085573028344e-17,
+                "outside_share_of_total": 0.005248409597195921,
+                "total": 6.744726172275329e-15
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 6.710434030929631e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 3.429214134569728e-17,
+                "outside_share_of_total": 0.005084289631602472,
+                "total": 6.744726172275328e-15
+              }
+            },
+            "unconfined": {
+              "parent_mask": {
+                "inside_frame_count": 208,
+                "inside_mask": 6.2113989142977396e-15,
+                "outside_frame_count": 180,
+                "outside_mask": 2.5871702411989052e-12,
+                "outside_share_of_total": 0.997604903644638,
+                "total": 2.593381640113203e-12
+              },
+              "truth_mask_diagnostic": {
+                "inside_frame_count": 210,
+                "inside_mask": 6.211887587814498e-15,
+                "outside_frame_count": 178,
+                "outside_mask": 2.587169752525389e-12,
+                "outside_share_of_total": 0.9976047152136299,
+                "total": 2.5933816401132034e-12
+              }
+            }
+          },
+          "finite": true,
+          "fit_frame_count": 210,
+          "rank": 8,
+          "truth_mask_confined_diagnostic": {
+            "corrected_metrics": {
+              "global_energy_rel_l2": 0.07318202588435264,
+              "masked_energy_floored_per_frame": 0.08391440431922123,
+              "unmasked_per_frame_unsquared_mean": 16.927356989779543
+            },
+            "gain": {
+              "global_energy_rel_l2": 0.03766766854664141,
+              "masked_energy_floored_per_frame": 0.07728449898431494,
+              "unmasked_per_frame_unsquared_mean": 0.00022467871088790455
+            },
+            "note": "NOT the headline variant; the truth mask is not available at deployment and this arm is reported only to bound the cost of using the parent mask as the proxy gate"
+          },
+          "variants": {
+            "confined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 0.07318564771285414,
+                "masked_energy_floored_per_frame": 0.0846051098782485,
+                "unmasked_per_frame_unsquared_mean": 16.927730825262525
+              },
+              "correction_energy": 6.596243485505273e-16,
+              "correction_energy_ratio": 0.0005605943852604108,
+              "gain": {
+                "global_energy_rel_l2": 0.037620042061533174,
+                "masked_energy_floored_per_frame": 0.0696895606525394,
+                "unmasked_per_frame_unsquared_mean": 0.0002025989798151002
+              },
+              "raw_residual_energy_capture": 0.07382481655835471,
+              "unexplained_raw_residual_energy": 6.246797999870768e-15
+            },
+            "unconfined": {
+              "corrected_metrics": {
+                "global_energy_rel_l2": 1.491181151207604,
+                "masked_energy_floored_per_frame": 0.08391440431922123,
+                "unmasked_per_frame_unsquared_mean": 3076.8620163951978
+              },
+              "correction_energy": 2.58743284066196e-12,
+              "correction_energy_ratio": 2.198979352264437,
+              "gain": {
+                "global_energy_rel_l2": -18.6088017039679,
+                "masked_energy_floored_per_frame": 0.07728449898431494,
+                "unmasked_per_frame_unsquared_mean": -180.72776251254786
+              },
+              "raw_residual_energy_capture": -383.50510426553427,
+              "unexplained_raw_residual_energy": 2.593381640113203e-12
+            }
+          }
+        }
+      },
+      "sample_id": "train_uniform_00321",
+      "source_index": 321,
+      "spatial_point_count": 40401,
+      "split": "train",
+      "train_truth_sha256": "c9d8642508486ca3e388ff2a5c80d6652dddb25fa0cbf4a9b1874a9ee226406a"
+    }
+  },
+  "peak_cuda_allocated_bytes": 4776207872,
+  "peak_cuda_reserved_bytes": 5834276864,
+  "protocol": {
+    "basis": "per-family raw residual temporal POD over the two frozen v1 basis records, nested truncation to ranks 8/16/32, v1 sign rule",
+    "conventions": {
+      "i_unmasked_per_frame_unsquared_mean": "mean_t sqrt(||err_t||^2 / max(||truth_t||^2, 1e-30))",
+      "ii_masked_energy_floored_per_frame": "mean over frames with ||truth_t||^2 >= tau*max_s||truth_s||^2 of sqrt(||err_t||^2 / max(||truth_t||^2, tau*max_s||truth_s||^2))",
+      "iii_global_energy_rel_l2": "sqrt(sum_t ||err_t||^2 / sum_t ||truth_t||^2)"
+    },
+    "error_energy_split": "sum of per-frame squared error inside and outside the keep mask, reported for parent, unconfined and confined; the headline split uses the parent-energy mask",
+    "gain": "(parent_metric - corrected_metric) / max(parent_metric, 1e-30) per convention",
+    "mask_causality": "the confinement gate uses only parent frame energy, which is available at deployment; the truth mask appears only in the labelled diagnostic",
+    "metric_eps_squared": 1e-30,
+    "ranks": [
+      8,
+      16,
+      32
+    ],
+    "split": "train",
+    "tau": 0.001,
+    "time_block": 16,
+    "time_count": 401,
+    "variants": {
+      "confined": "identical fit, correction multiplied by the parent-energy keep mask before it is applied, so it is exactly zero on dropped frames",
+      "truth_mask_confined": "labelled diagnostic only, not deployment-causal, never the headline",
+      "unconfined": "the r4e8 masked_matched arm verbatim: weighted LS on truth-mask retained frames with floored denominators, correction applied to every future frame"
+    }
+  },
+  "r4e8_reproduction_gate": {
+    "all_bitwise_identical": true,
+    "max_absolute_difference_over_all_points": 0.0,
+    "point_count": 9,
+    "points": {
+      "layered_rank16": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": 0.07676510674011527,
+          "masked_energy_floored_per_frame": 0.3861334461628411,
+          "unmasked_per_frame_unsquared_mean": -1.5589602738037622
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": 0.07676510674011527,
+          "masked_energy_floored_per_frame": 0.3861334461628411,
+          "unmasked_per_frame_unsquared_mean": -1.5589602738037622
+        }
+      },
+      "layered_rank32": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": -1.4321474900817326,
+          "masked_energy_floored_per_frame": 0.5733334799482489,
+          "unmasked_per_frame_unsquared_mean": -12.003745665782509
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": -1.4321474900817326,
+          "masked_energy_floored_per_frame": 0.5733334799482489,
+          "unmasked_per_frame_unsquared_mean": -12.003745665782509
+        }
+      },
+      "layered_rank8": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": 0.03679352262407418,
+          "masked_energy_floored_per_frame": 0.27254574384297087,
+          "unmasked_per_frame_unsquared_mean": -0.14058255478490966
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": 0.03679352262407418,
+          "masked_energy_floored_per_frame": 0.27254574384297087,
+          "unmasked_per_frame_unsquared_mean": -0.14058255478490966
+        }
+      },
+      "marmousi_rank16": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": 0.13290258178992337,
+          "masked_energy_floored_per_frame": 0.1225388975139665,
+          "unmasked_per_frame_unsquared_mean": 0.11883853642476383
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": 0.13290258178992337,
+          "masked_energy_floored_per_frame": 0.1225388975139665,
+          "unmasked_per_frame_unsquared_mean": 0.11883853642476383
+        }
+      },
+      "marmousi_rank32": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": 0.26391141412256985,
+          "masked_energy_floored_per_frame": 0.2499625243974069,
+          "unmasked_per_frame_unsquared_mean": 0.24233820934644512
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": 0.26391141412256985,
+          "masked_energy_floored_per_frame": 0.2499625243974069,
+          "unmasked_per_frame_unsquared_mean": 0.24233820934644512
+        }
+      },
+      "marmousi_rank8": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": 0.0634230890129577,
+          "masked_energy_floored_per_frame": 0.060370366091444916,
+          "unmasked_per_frame_unsquared_mean": 0.05850930633334747
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": 0.0634230890129577,
+          "masked_energy_floored_per_frame": 0.060370366091444916,
+          "unmasked_per_frame_unsquared_mean": 0.05850930633334747
+        }
+      },
+      "uniform_rank16": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": -30.277435295999386,
+          "masked_energy_floored_per_frame": 0.1599014510396219,
+          "unmasked_per_frame_unsquared_mean": -290.240145637898
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": -30.277435295999386,
+          "masked_energy_floored_per_frame": 0.1599014510396219,
+          "unmasked_per_frame_unsquared_mean": -290.240145637898
+        }
+      },
+      "uniform_rank32": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": -41.73674300877742,
+          "masked_energy_floored_per_frame": 0.29450220598556226,
+          "unmasked_per_frame_unsquared_mean": -450.944597124602
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": -41.73674300877742,
+          "masked_energy_floored_per_frame": 0.29450220598556226,
+          "unmasked_per_frame_unsquared_mean": -450.944597124602
+        }
+      },
+      "uniform_rank8": {
+        "absolute_difference": {
+          "global_energy_rel_l2": 0.0,
+          "masked_energy_floored_per_frame": 0.0,
+          "unmasked_per_frame_unsquared_mean": 0.0
+        },
+        "bitwise_identical": true,
+        "max_absolute_difference": 0.0,
+        "r4e8_masked_matched_gain": {
+          "global_energy_rel_l2": -18.6088017039679,
+          "masked_energy_floored_per_frame": 0.07728449898431494,
+          "unmasked_per_frame_unsquared_mean": -180.72776251254786
+        },
+        "this_probe_unconfined_gain": {
+          "global_energy_rel_l2": -18.6088017039679,
+          "masked_energy_floored_per_frame": 0.07728449898431494,
+          "unmasked_per_frame_unsquared_mean": -180.72776251254786
+        }
+      }
+    },
+    "reference_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e8_masked_oracle_probe_20260826/terminal.json",
+    "reference_sha256": "ca3b1c24f2acd516e14452c583df465a05e7eb425675cca5af0ff50b6ccedbf3"
+  },
+  "run_binding": {
+    "checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "reused_script": {
+      "mtime_ns": 1787716668106021610,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e8_masked_oracle.py",
+      "sha256": "3373b5838e49da81e5a8e2a3bada3e236aa7855d4bcdcd149cd4e1233900b485",
+      "size_bytes": 51781
+    },
+    "run_digest": "5de1af3455fc834271fe19e30995a45fb65fac09e4bd6cba92a1ed12b0bb7a2d",
+    "script": {
+      "mtime_ns": 1787721663528938764,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e9_mask_confined.py",
+      "sha256": "d5438b3f9fdd3abd2d97f28fc9d35f676421953d01f6ba8ff78c3fc0a7ffd156",
+      "size_bytes": 51512
+    },
+    "software": {
+      "cudnn": "8902",
+      "h5py": "3.16.0",
+      "numpy": "1.26.3",
+      "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+      "python": "3.10.8",
+      "torch": "2.1.2+cu121",
+      "torch_cuda_build": "12.1"
+    },
+    "test": {
+      "mtime_ns": 1787721680089103301,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r4e9_mask_confined.py",
+      "sha256": "d8b29e98c9da5f5b4560f6780edf1d3c448ec7348d56bb4e1e2df9bb0861a278",
+      "size_bytes": 24220
+    },
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+  },
+  "schema": "r4e9_mask_confined_oracle_result_v1",
+  "sealed_data_attestation": {
+    "authorized_train_sample_ids": [
+      "train_layered_00000",
+      "train_layered_00004",
+      "train_layered_00564",
+      "train_layered_01032",
+      "train_marmousi_00000",
+      "train_marmousi_00005",
+      "train_marmousi_00385",
+      "train_uniform_00000",
+      "train_uniform_00001",
+      "train_uniform_00002",
+      "train_uniform_00321"
+    ],
+    "field_arrays_written_to_disk": false,
+    "test_id_opened": false,
+    "train_truth_opened_for_offline_oracle": true,
+    "validation_opened": false
+  },
+  "started_utc": "2026-08-26T05:29:44.875647Z",
+  "status": "success",
+  "training": {
+    "backward_used": false,
+    "checkpoints_written": 0,
+    "gradient_steps": 0,
+    "optimizer_used": false
+  },
+  "why": "the r4e8 masked_matched arm fits on retained frames but applies the correction to every frame; hypothesis H says the convention (iii) blow-up lives in the dropped frames"
+}

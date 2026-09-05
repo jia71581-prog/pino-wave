@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 3014, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 3001, in main
+    return _run(config, args)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py", line 2536, in _run
+    normalizer = load_normalizer(base, manifest.digest)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_grouped_v3_pilot.py", line 175, in load_normalizer
+    normalizer = PhysicalNormalizer.from_dict(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/normalization.py", line 99, in from_dict
+    raise ValueError("normalization manifest does not match expected train manifest")
+ValueError: normalization manifest does not match expected train manifest

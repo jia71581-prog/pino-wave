@@ -1,0 +1,46 @@
+{
+  "checkpoint": {
+    "epoch": 20,
+    "next_step": 0,
+    "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+    "test_id_opened": false,
+    "update": 13300,
+    "validation_opened": false
+  },
+  "device": "cpu",
+  "elapsed_s": 459.3797733783722,
+  "family": "marmousi",
+  "max_rss_kib": 5250244,
+  "metrics": {
+    "aggregate_mean_improvement": 0.07537246103842588,
+    "candidate_max": 0.6723506196013477,
+    "candidate_mean": 0.6723506196013477,
+    "candidate_median": 0.6723506196013477,
+    "candidate_min": 0.6723506196013477,
+    "candidate_p95_nearest_rank": 0.6723506196013477,
+    "mean_relative_improvement": 0.07537246103842588,
+    "nonworse_count": 1,
+    "parent_mean": 0.7271583327016711,
+    "parent_median": 0.7271583327016711,
+    "parent_p95_nearest_rank": 0.7271583327016711,
+    "record_count": 1,
+    "strict_target_0p05_count": 0
+  },
+  "role": "confirmation",
+  "rows": [
+    {
+      "candidate": 0.6723506196013477,
+      "family": "marmousi",
+      "improvement": 0.07537246103842588,
+      "parent": 0.7271583327016711,
+      "record_elapsed_s": 455.9871277809143,
+      "sample_id": "train_marmousi_00260"
+    }
+  ],
+  "schema": "transfer_dg_coupled_pyramid_moe_cpu_eval_terminal_v1",
+  "scope": "train-only seen-data diagnostic; not a generalization or target claim",
+  "status": "complete",
+  "test_id_opened": false,
+  "threads": 16,
+  "validation_opened": false
+}

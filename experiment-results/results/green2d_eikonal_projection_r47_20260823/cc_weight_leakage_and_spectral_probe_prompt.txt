@@ -1,0 +1,13 @@
+你是只读审计员，工作目录 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2。不得修改文件、启动训练或读取 validation/test_id 波场真值。
+
+任务 A：核对以下“最新论文”本地权重的训练数据边界，查其 config/run_manifest/prereg/terminal/log/paper evidence，判断能否作为当前新 neural-only、train-only 候选的干净父权重。不要仅凭文件名推断。逐项给出证据路径与字段：
+1. results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt
+2. /root/autodl-tmp/home 下 temporal_latent_a3_rank32_r5b 对应 run/best.pt
+3. /root/autodl-tmp/home 下 pi_deeponet 对应 best.pt
+4. CPADC R7 calibrated.pt
+
+分类只能是：clean_train_only / validation_used_for_training_or_selection / evidence_insufficient。额外标出模型输入是否含数值波场或未来真值。
+
+任务 B：定位生成 results/temporal_frequency_helmholtz_study.md 的准确脚本/命令，以及是否已支持给定 HDF5 VDS + split JSON 的 train fit/cal 选择。若不支持，列出把它改成针对 artifacts/pbg_factorized_fno_marm700_eikonal_v3/dataset_v1.h5 和 split_full560_70_70_seed372.json、只做 train-only FFT/空间谱截断 oracle 容量诊断所需的最小改动点（函数/参数/输出字段）。
+
+紧凑中文输出，最后明确未读取 validation/test_id 真值。

@@ -1,0 +1,44 @@
+{"agg": 0.050360611231414144, "family": {"layered": 0.08031299303360803, "marmousi": 0.04428901562104199, "uniform": 0.026479825039592415}, "update": 0}
+{"agg": 0.05275087181417263, "family": {"layered": 0.08029097451867033, "marmousi": 0.04430384375112264, "uniform": 0.03365779717272492}, "update": 48}
+{"agg": 0.047528819890169625, "family": {"layered": 0.07895286690065328, "marmousi": 0.04434681466563209, "uniform": 0.019286778104223506}, "update": 96}
+{"agg": 0.04520861119947539, "family": {"layered": 0.07812604873660553, "marmousi": 0.044190851699312396, "uniform": 0.013308933162508259}, "update": 144}
+{"agg": 0.04945116316112486, "family": {"layered": 0.07957750034357398, "marmousi": 0.044261401641950915, "uniform": 0.02451458749784969}, "update": 192}
+{"agg": 0.0468321081374899, "family": {"layered": 0.07827933775727845, "marmousi": 0.04425071703465081, "uniform": 0.017966269620540435}, "update": 240}
+{"agg": 0.04566668239657636, "family": {"layered": 0.07829412306510941, "marmousi": 0.044243580857164275, "uniform": 0.014462343267455402}, "update": 288}
+{"agg": 0.045578598172859745, "family": {"layered": 0.07804365892801719, "marmousi": 0.04423503733138196, "uniform": 0.014457098259180077}, "update": 336}
+{"agg": 0.04440423346272257, "family": {"layered": 0.07818187987405763, "marmousi": 0.044238276809351156, "uniform": 0.01079254370475892}, "update": 384}
+{"agg": 0.04559952787476069, "family": {"layered": 0.07812541071828774, "marmousi": 0.04424529321169084, "uniform": 0.014427879694303475}, "update": 432}
+{"agg": 0.04520862593668212, "family": {"layered": 0.0781319353979829, "marmousi": 0.04423810019777903, "uniform": 0.013255842214284446}, "update": 480}
+{"agg": 0.04259308841858239, "family": {"layered": 0.07791022731074418, "marmousi": 0.04423936031192515, "uniform": 0.005629677633077837}, "update": 528}
+{"agg": 0.04243844487339899, "family": {"layered": 0.07786650258054194, "marmousi": 0.04423910988066106, "uniform": 0.005209722158993981}, "update": 576}
+{"agg": 0.04652193438256843, "family": {"layered": 0.07852651946412904, "marmousi": 0.044250910264311015, "uniform": 0.01678837341926522}, "update": 624}
+{"agg": 0.043889648408104526, "family": {"layered": 0.07807068602080242, "marmousi": 0.0442454882388418, "uniform": 0.009352770964669358}, "update": 672}
+{"agg": 0.043649926124130566, "family": {"layered": 0.07798978833926616, "marmousi": 0.0442429462554997, "uniform": 0.008717043777625827}, "update": 720}
+{"agg": 0.0427908798540931, "family": {"layered": 0.07795740277446923, "marmousi": 0.04423519475181579, "uniform": 0.006180042035994276}, "update": 768}
+[2026-08-02 20:31:31,835] torch.distributed.elastic.agent.server.api: [WARNING] Received Signals.SIGTERM death signal, shutting down workers
+[2026-08-02 20:31:31,835] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 139064 closing signal SIGTERM
+[2026-08-02 20:31:31,835] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 139065 closing signal SIGTERM
+[2026-08-02 20:31:31,836] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 139066 closing signal SIGTERM
+[2026-08-02 20:31:31,837] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 139067 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 736, in run
+    result = self._invoke_run(role)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 877, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 138996 got signal: 15

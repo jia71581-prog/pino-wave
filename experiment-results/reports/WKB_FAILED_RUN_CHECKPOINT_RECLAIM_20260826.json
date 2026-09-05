@@ -1,0 +1,713 @@
+{
+ "created": "2026-08-26T10:56:59",
+ "scope": "user-named subset: only wkb runs whose terminal.json status == \"failed\"",
+ "parent_manifest": "reports/WKB_INTERMEDIATE_CHECKPOINT_RECLAIM_20260826.json",
+ "excluded_lineage_parents": [
+  "results/wkb64_coeffsup_current_train_r5_overfit800_20260823/checkpoints/update_0650.pt",
+  "results/wkb64_r10_gateoff_low_lr_r12_refine800_20260823/checkpoints/update_0100.pt",
+  "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/checkpoints/update_2000.pt",
+  "results/wkb64_r13_marm83_no_surface_r17_continue3000_20260823/checkpoints/update_2200.pt",
+  "results/wkb64_r13_marm83_no_surface_r17_continue3000_20260823/checkpoints/update_3000.pt",
+  "results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt",
+  "results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/checkpoints/update_0750.pt",
+  "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/checkpoints/update_0800.pt",
+  "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/checkpoints/update_1500.pt",
+  "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/checkpoints/update_3000.pt",
+  "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt"
+ ],
+ "retained_per_run": [
+  "latest.pt",
+  "metrics.jsonl",
+  "updates.jsonl",
+  "terminal.json",
+  "run_identity.json",
+  "launch.log",
+  "preregistration json"
+ ],
+ "failed_runs": [
+  {
+   "run": "results/wkb64_pbg_marm_r25_smoke_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb64_pbg_marm_r26_trainonly_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb64_pbg_marm_r27_stratified_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb64_pbg_marm_r28_support120_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb64_r19_disjoint_train_r23_smoke_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb64_r19_disjoint_train_r24_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb64_zeroinit_coeffsup_current_train_r9_overfit800_20260823",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_pbg_headonly_r30_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_pbg_headonly_r31_long_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_pbg_residual_source_r28_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_pbg_residual_source_r28b_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_pbg_residual_source_r28c_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_pbg_residual_source_r29_long_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_r20_source_support_r22_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_r20_source_support_r22b_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_r20_source_support_r23_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_source_onset_phase_r24_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_source_onset_phase_r25_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_source_relative_r26_smoke_20260824",
+   "status": "failed"
+  },
+  {
+   "run": "results/wkb96_source_relative_r27_20260824",
+   "status": "failed"
+  }
+ ],
+ "deleted": [
+  {
+   "path": "results/wkb64_pbg_marm_r25_smoke_20260823/checkpoints/update_0000.pt",
+   "size": 102935734,
+   "mtime": 1787439534
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r25_smoke_20260823/checkpoints/update_0001.pt",
+   "size": 102935734,
+   "mtime": 1787439535
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_0000.pt",
+   "size": 102935670,
+   "mtime": 1787439655
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_0250.pt",
+   "size": 102935670,
+   "mtime": 1787439789
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_0500.pt",
+   "size": 102935670,
+   "mtime": 1787439921
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_0750.pt",
+   "size": 102935670,
+   "mtime": 1787440054
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_1000.pt",
+   "size": 102935670,
+   "mtime": 1787440188
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_1250.pt",
+   "size": 102935670,
+   "mtime": 1787440321
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_1500.pt",
+   "size": 102935670,
+   "mtime": 1787440454
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_1750.pt",
+   "size": 102935670,
+   "mtime": 1787440587
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r26_trainonly_20260823/checkpoints/update_2000.pt",
+   "size": 102935670,
+   "mtime": 1787440721
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_0000.pt",
+   "size": 102935670,
+   "mtime": 1787441002
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_0250.pt",
+   "size": 102935670,
+   "mtime": 1787441142
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_0500.pt",
+   "size": 102935670,
+   "mtime": 1787441282
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_0750.pt",
+   "size": 102935670,
+   "mtime": 1787441423
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_1000.pt",
+   "size": 102935670,
+   "mtime": 1787441563
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_1250.pt",
+   "size": 102935670,
+   "mtime": 1787441704
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_1500.pt",
+   "size": 102935670,
+   "mtime": 1787441835
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_1750.pt",
+   "size": 102935670,
+   "mtime": 1787441976
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r27_stratified_20260823/checkpoints/update_2000.pt",
+   "size": 102935670,
+   "mtime": 1787442118
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_0000.pt",
+   "size": 102935670,
+   "mtime": 1787442361
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_0500.pt",
+   "size": 102935670,
+   "mtime": 1787442671
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_1000.pt",
+   "size": 102935670,
+   "mtime": 1787442982
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_1500.pt",
+   "size": 102935670,
+   "mtime": 1787443293
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_2000.pt",
+   "size": 102935670,
+   "mtime": 1787443604
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_2500.pt",
+   "size": 102935670,
+   "mtime": 1787443916
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_3000.pt",
+   "size": 102935670,
+   "mtime": 1787444226
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_3500.pt",
+   "size": 102935670,
+   "mtime": 1787444537
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_4000.pt",
+   "size": 102935670,
+   "mtime": 1787444849
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_4500.pt",
+   "size": 102935670,
+   "mtime": 1787445160
+  },
+  {
+   "path": "results/wkb64_pbg_marm_r28_support120_20260823/checkpoints/update_5000.pt",
+   "size": 102935670,
+   "mtime": 1787445476
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r23_smoke_20260823/checkpoints/update_0000.pt",
+   "size": 102935670,
+   "mtime": 1787434795
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r23_smoke_20260823/checkpoints/update_0001.pt",
+   "size": 102935670,
+   "mtime": 1787434797
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_0000.pt",
+   "size": 102935670,
+   "mtime": 1787434882
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_0250.pt",
+   "size": 102935670,
+   "mtime": 1787435117
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_0500.pt",
+   "size": 102935670,
+   "mtime": 1787435352
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_0750.pt",
+   "size": 102935670,
+   "mtime": 1787435588
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_1000.pt",
+   "size": 102935670,
+   "mtime": 1787435823
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_1250.pt",
+   "size": 102935670,
+   "mtime": 1787436058
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_1500.pt",
+   "size": 102935670,
+   "mtime": 1787436293
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_1750.pt",
+   "size": 102935670,
+   "mtime": 1787436527
+  },
+  {
+   "path": "results/wkb64_r19_disjoint_train_r24_20260823/checkpoints/update_2000.pt",
+   "size": 102935670,
+   "mtime": 1787436761
+  },
+  {
+   "path": "results/wkb64_zeroinit_coeffsup_current_train_r9_overfit800_20260823/checkpoints/update_0000.pt",
+   "size": 102935734,
+   "mtime": 1787428688
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r30_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787573975
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r30_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103018994,
+   "mtime": 1787573977
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r30_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103018994,
+   "mtime": 1787573979
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787574058
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_0200.pt",
+   "size": 103018994,
+   "mtime": 1787574204
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_0400.pt",
+   "size": 103018994,
+   "mtime": 1787574347
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_0600.pt",
+   "size": 103018994,
+   "mtime": 1787574491
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_0800.pt",
+   "size": 103018994,
+   "mtime": 1787574634
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_1000.pt",
+   "size": 103018994,
+   "mtime": 1787574778
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_1200.pt",
+   "size": 103018994,
+   "mtime": 1787574920
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_1400.pt",
+   "size": 103018994,
+   "mtime": 1787575061
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_1600.pt",
+   "size": 103018994,
+   "mtime": 1787575208
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_1800.pt",
+   "size": 103018994,
+   "mtime": 1787575352
+  },
+  {
+   "path": "results/wkb96_pbg_headonly_r31_long_20260824/checkpoints/update_2000.pt",
+   "size": 103018994,
+   "mtime": 1787575496
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787559522
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28b_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787559641
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28b_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103018994,
+   "mtime": 1787559643
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28b_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103018994,
+   "mtime": 1787559645
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28c_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103019058,
+   "mtime": 1787559959
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28c_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103019058,
+   "mtime": 1787559961
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r28c_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103019058,
+   "mtime": 1787559963
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787560053
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_0200.pt",
+   "size": 103018994,
+   "mtime": 1787560205
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_0400.pt",
+   "size": 103018994,
+   "mtime": 1787560356
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_0600.pt",
+   "size": 103018994,
+   "mtime": 1787560513
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_0800.pt",
+   "size": 103018994,
+   "mtime": 1787560659
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_1000.pt",
+   "size": 103018994,
+   "mtime": 1787560812
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_1200.pt",
+   "size": 103018994,
+   "mtime": 1787560963
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_1400.pt",
+   "size": 103018994,
+   "mtime": 1787561113
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_1600.pt",
+   "size": 103018994,
+   "mtime": 1787561269
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_1800.pt",
+   "size": 103018994,
+   "mtime": 1787561421
+  },
+  {
+   "path": "results/wkb96_pbg_residual_source_r29_long_20260824/checkpoints/update_2000.pt",
+   "size": 103018994,
+   "mtime": 1787561572
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r22_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787548842
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r22_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103018994,
+   "mtime": 1787548844
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r22_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103018994,
+   "mtime": 1787548846
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r22b_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787548934
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r22b_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103018994,
+   "mtime": 1787548936
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r22b_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103018994,
+   "mtime": 1787548938
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0000.pt",
+   "size": 103019058,
+   "mtime": 1787549125
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0100.pt",
+   "size": 103019058,
+   "mtime": 1787549189
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0200.pt",
+   "size": 103019058,
+   "mtime": 1787549254
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0300.pt",
+   "size": 103019058,
+   "mtime": 1787549318
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0400.pt",
+   "size": 103019058,
+   "mtime": 1787549384
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0500.pt",
+   "size": 103019058,
+   "mtime": 1787549449
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0600.pt",
+   "size": 103019058,
+   "mtime": 1787549513
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0700.pt",
+   "size": 103019058,
+   "mtime": 1787549578
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0800.pt",
+   "size": 103019058,
+   "mtime": 1787549642
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_0900.pt",
+   "size": 103019058,
+   "mtime": 1787549707
+  },
+  {
+   "path": "results/wkb96_r20_source_support_r23_20260824/checkpoints/update_1000.pt",
+   "size": 103019058,
+   "mtime": 1787549771
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r24_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103018994,
+   "mtime": 1787550123
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r24_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103018994,
+   "mtime": 1787550126
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r24_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103018994,
+   "mtime": 1787550128
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0000.pt",
+   "size": 103019058,
+   "mtime": 1787550222
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0100.pt",
+   "size": 103019058,
+   "mtime": 1787550288
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0200.pt",
+   "size": 103019058,
+   "mtime": 1787550353
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0300.pt",
+   "size": 103019058,
+   "mtime": 1787550418
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0400.pt",
+   "size": 103019058,
+   "mtime": 1787550483
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0500.pt",
+   "size": 103019058,
+   "mtime": 1787550547
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0600.pt",
+   "size": 103019058,
+   "mtime": 1787550611
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0700.pt",
+   "size": 103019058,
+   "mtime": 1787550676
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0800.pt",
+   "size": 103019058,
+   "mtime": 1787550740
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_0900.pt",
+   "size": 103019058,
+   "mtime": 1787550805
+  },
+  {
+   "path": "results/wkb96_source_onset_phase_r25_20260824/checkpoints/update_1000.pt",
+   "size": 103019058,
+   "mtime": 1787550870
+  },
+  {
+   "path": "results/wkb96_source_relative_r26_smoke_20260824/checkpoints/update_0000.pt",
+   "size": 103021806,
+   "mtime": 1787551843
+  },
+  {
+   "path": "results/wkb96_source_relative_r26_smoke_20260824/checkpoints/update_0001.pt",
+   "size": 103021806,
+   "mtime": 1787551845
+  },
+  {
+   "path": "results/wkb96_source_relative_r26_smoke_20260824/checkpoints/update_0002.pt",
+   "size": 103021806,
+   "mtime": 1787551847
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0000.pt",
+   "size": 103021870,
+   "mtime": 1787551941
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0100.pt",
+   "size": 103021870,
+   "mtime": 1787552006
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0200.pt",
+   "size": 103021870,
+   "mtime": 1787552069
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0300.pt",
+   "size": 103021870,
+   "mtime": 1787552133
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0400.pt",
+   "size": 103021870,
+   "mtime": 1787552195
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0500.pt",
+   "size": 103021870,
+   "mtime": 1787552259
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0600.pt",
+   "size": 103021870,
+   "mtime": 1787552322
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0700.pt",
+   "size": 103021870,
+   "mtime": 1787552386
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0800.pt",
+   "size": 103021870,
+   "mtime": 1787552448
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_0900.pt",
+   "size": 103021870,
+   "mtime": 1787552512
+  },
+  {
+   "path": "results/wkb96_source_relative_r27_20260824/checkpoints/update_1000.pt",
+   "size": 103021870,
+   "mtime": 1787552582
+  }
+ ],
+ "deleted_count": 120,
+ "deleted_bytes": 12358738212
+}

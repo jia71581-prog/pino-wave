@@ -1,0 +1,23 @@
+{
+  "schema": "cpadc_parent_transfer_derivation_preregistration_v1",
+  "status": "frozen_before_derivation",
+  "date_utc": "2026-08-25",
+  "candidate": "cpadc_r7_basis_transfer_r4_parent_r1",
+  "hypothesis": "The frozen R7 error-basis weights retain useful directions after the modest parent update, but old-parent strength thresholds must not be transferred.",
+  "source_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/calibration/calibrated.pt",
+  "source_checkpoint_sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b",
+  "target_parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+  "target_parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "allowed_mutations": [
+    "parent checkpoint path and digest",
+    "remove old-parent calibrated strength thresholds",
+    "mark candidate train-only and uncalibrated"
+  ],
+  "forbidden_mutations": ["basis_state", "basis rank", "phase rank", "defect contract"],
+  "validation_opened": false,
+  "test_id_opened": false,
+  "derivation_script_sha256": "807eb0f13f49c8db1faedf4370fe6bd870fdaeb583c85eccfb842bbaeb7f5d96",
+  "tests": "47 CPADC transfer and causal-defect tests passed",
+  "output": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r7_basis_transfer_r4_parent_r1.pt",
+  "command": "PYTHONPATH=src:. python scripts/rebind_cpadc_trainonly_transfer.py --source <frozen-r7> --output <transfer-r1> --parent-checkpoint <r4-epoch7>"
+}

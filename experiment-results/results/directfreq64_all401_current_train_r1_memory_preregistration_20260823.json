@@ -1,0 +1,48 @@
+{
+  "schema": "directfreq64_all401_memory_preregistration_v1",
+  "status": "frozen_before_launch",
+  "experiment_id": "directfreq64_all401_current_train_r1_memory_20260823",
+  "hypothesis": "The historical direct-frequency head failed because 16 sampled frames underdetermined 128 real coefficient fields per pixel; supervising all 401 stored frames removes that null space and is memory-feasible on one RTX 4090 D.",
+  "expected_mechanism": "With the complete stored time axis, the fixed Fourier synthesis matrix has full column rank for the first 64 rFFT bins. The full-frame squared field objective is Parseval-equivalent to supervising those complex coefficients, while inference remains a neural U-Net followed by a fixed inverse temporal transform.",
+  "conceptual_variable": "training frames per record increase from 16 to all 401; architecture, direct 64-bin representation, data families, optimizer family, and loss form remain the historical G2 direct-frequency setup",
+  "deployment_contract": {
+    "neural_only": true,
+    "background_cache": null,
+    "numerical_wavefield_input": false,
+    "future_truth_input": false,
+    "allowed_inputs": ["velocity", "source map", "source parameters", "time coordinates", "precomputed eikonal travel-time feature"],
+    "output": "401x201x201 neural prediction materialized by fixed Fourier synthesis"
+  },
+  "evidence_scope": {
+    "split": "train",
+    "records": "one deterministic record from each of uniform, layered, and marmousi",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "finite one-update full-401 objective and gradients",
+  "failure_signals": [
+    "CUDA out of memory",
+    "non-finite loss, gradient, parameter, or prediction",
+    "peak allocated CUDA memory greater than 23.5 GiB",
+    "missing train-family coverage",
+    "any numerical background field access"
+  ],
+  "compute_budget": {
+    "gpus": 1,
+    "optimizer_updates": 1,
+    "training_frames_per_record": 401,
+    "microbatch_records": 1,
+    "wall_ceiling_minutes": 30
+  },
+  "parent_checkpoint": null,
+  "rollback": "Preserve R7C and all A3/B2-H/Helmholtz checkpoints; reject the full-frame direct-frequency parameterization without launching a long run if this memory probe fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/directfreq64_all401_current_train_r1_memory_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-no-wkb --updates 1 --evaluate-every 1 --training-frames 401 --validation-frames 32 --microbatch-records 1 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "script_sha256": "e8598a28500236dac05e166d389978eb0f7b993c3a7e1b5fb9efb1e144e26738",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

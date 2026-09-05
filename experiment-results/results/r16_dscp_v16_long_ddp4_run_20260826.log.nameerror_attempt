@@ -1,0 +1,55 @@
+[2026-08-26 23:50:18,984] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+2026-08-26T15:50:26Z [long_ddp4] rank 0 holds shard_0.pt (72 bundles, build 1145s)
+2026-08-26T15:50:38Z [long_ddp4] rank 1 holds shard_1.pt (72 bundles, build 1148s)
+2026-08-26T15:50:49Z [long_ddp4] rank 2 holds shard_2.pt (72 bundles, build 1144s)
+2026-08-26T15:51:02Z [long_ddp4] rank 3 holds shard_0.pt (72 bundles, build 1145s)
+2026-08-26T15:51:02Z [long_ddp4] partitions [{'rank': 0, 'shard': 'shard_0.pt', 'fit': 64, 'confirm': 8}, {'rank': 1, 'shard': 'shard_1.pt', 'fit': 64, 'confirm': 8}, {'rank': 2, 'shard': 'shard_2.pt', 'fit': 64, 'confirm': 8}, {'rank': 3, 'shard': 'shard_0.pt', 'fit': 64, 'confirm': 8}]; global fit 192 confirm 24, world 4 over 3 shards
+2026-08-26T15:51:44Z [long_ddp4] epoch 1 monitor 0.383807 best 0.383807@1 bad 0
+2026-08-26T15:52:25Z [long_ddp4] epoch 2 monitor 0.383782 best 0.383782@2 bad 0
+2026-08-26T15:53:06Z [long_ddp4] epoch 3 monitor 0.380113 best 0.380113@3 bad 0
+2026-08-26T15:53:46Z [long_ddp4] epoch 4 monitor 0.380968 best 0.380113@3 bad 1
+2026-08-26T15:54:27Z [long_ddp4] epoch 5 monitor 0.379308 best 0.379308@5 bad 0
+2026-08-26T15:55:07Z [long_ddp4] epoch 6 monitor 0.378386 best 0.378386@6 bad 0
+2026-08-26T15:55:48Z [long_ddp4] epoch 7 monitor 0.378418 best 0.378386@6 bad 1
+2026-08-26T15:56:28Z [long_ddp4] epoch 8 monitor 0.379811 best 0.378386@6 bad 2
+2026-08-26T15:57:09Z [long_ddp4] epoch 9 monitor 0.379003 best 0.378386@6 bad 3
+2026-08-26T15:57:50Z [long_ddp4] epoch 10 monitor 0.379863 best 0.378386@6 bad 4
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/run_v16_long_ddp4.py", line 260, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/run_v16_long_ddp4.py", line 231, in main
+    "fit_records": len(fit), "eval_records": len(confirm),
+NameError: name 'confirm' is not defined. Did you mean: 'my_confirm'?
+[2026-08-26 23:57:54,596] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 650468 closing signal SIGTERM
+[2026-08-26 23:57:54,596] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 650469 closing signal SIGTERM
+[2026-08-26 23:57:54,597] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 650470 closing signal SIGTERM
+[2026-08-26 23:57:56,029] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 650467) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/run_v16_long_ddp4.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-26_23:57:54
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 650467)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

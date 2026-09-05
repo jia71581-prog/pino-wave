@@ -1,0 +1,64 @@
+master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+{"event": "update", "epoch": 1, "update": 500, "physical_loss": 0.26484155654907227, "elapsed_s": 253.35207509994507}
+{"event": "update", "epoch": 1, "update": 1000, "physical_loss": 0.22949345409870148, "elapsed_s": 497.432874917984}
+{"event": "checkpoint", "epoch": 1, "update": 1280}
+{"event": "update", "epoch": 2, "update": 1500, "physical_loss": 0.18905749917030334, "elapsed_s": 738.3573708534241}
+{"event": "update", "epoch": 2, "update": 2000, "physical_loss": 0.2963453233242035, "elapsed_s": 989.6316242218018}
+{"event": "update", "epoch": 2, "update": 2500, "physical_loss": 0.25248396396636963, "elapsed_s": 1231.9412107467651}
+{"event": "checkpoint", "epoch": 2, "update": 2560}
+{"event": "update", "epoch": 3, "update": 3000, "physical_loss": 0.2214038074016571, "elapsed_s": 1474.8740549087524}
+{"event": "update", "epoch": 3, "update": 3500, "physical_loss": 0.24566487967967987, "elapsed_s": 1717.9282023906708}
+{"event": "checkpoint", "epoch": 3, "update": 3840}
+{"event": "update", "epoch": 4, "update": 4000, "physical_loss": 0.2944185137748718, "elapsed_s": 1962.0083103179932}
+{"event": "update", "epoch": 4, "update": 4500, "physical_loss": 0.2821504473686218, "elapsed_s": 2204.9301195144653}
+{"event": "update", "epoch": 4, "update": 5000, "physical_loss": 0.18059372901916504, "elapsed_s": 2449.7789385318756}
+{"event": "checkpoint", "epoch": 4, "update": 5120}
+{"event": "update", "epoch": 5, "update": 5500, "physical_loss": 0.21272718906402588, "elapsed_s": 2693.640318632126}
+{"event": "update", "epoch": 5, "update": 6000, "physical_loss": 0.21138259768486023, "elapsed_s": 2938.7743048667908}
+{"event": "checkpoint", "epoch": 5, "update": 6400}
+{"event": "update", "epoch": 6, "update": 6500, "physical_loss": 0.2795640230178833, "elapsed_s": 3183.3410897254944}
+{"event": "update", "epoch": 6, "update": 7000, "physical_loss": 0.2562476098537445, "elapsed_s": 3428.848546028137}
+{"event": "update", "epoch": 6, "update": 7500, "physical_loss": 0.24228447675704956, "elapsed_s": 3673.0842366218567}
+{"event": "checkpoint", "epoch": 6, "update": 7680}
+{"event": "update", "epoch": 7, "update": 8000, "physical_loss": 0.25772008299827576, "elapsed_s": 3921.015405654907}
+{"event": "update", "epoch": 7, "update": 8500, "physical_loss": 0.24522903561592102, "elapsed_s": 4166.049280643463}
+{"event": "checkpoint", "epoch": 7, "update": 8960}
+{"event": "update", "epoch": 8, "update": 9000, "physical_loss": 0.2537788152694702, "elapsed_s": 4411.07793712616}
+{"event": "update", "epoch": 8, "update": 9500, "physical_loss": 0.26349714398384094, "elapsed_s": 4654.9113073349}
+{"event": "update", "epoch": 8, "update": 10000, "physical_loss": 0.25039052963256836, "elapsed_s": 4905.318920373917}
+{"event": "checkpoint", "epoch": 8, "update": 10240}
+{"event": "update", "epoch": 9, "update": 10500, "physical_loss": 0.2430504560470581, "elapsed_s": 5190.327685832977}
+{"event": "update", "epoch": 9, "update": 11000, "physical_loss": 0.25788578391075134, "elapsed_s": 5463.566861152649}
+{"event": "update", "epoch": 9, "update": 11500, "physical_loss": 0.2441636025905609, "elapsed_s": 5735.095418930054}
+{"event": "checkpoint", "epoch": 9, "update": 11520}
+[2026-09-03 14:23:48,987] torch.distributed.elastic.agent.server.api: [WARNING] Received Signals.SIGTERM death signal, shutting down workers
+[2026-09-03 14:23:48,988] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 60680 closing signal SIGTERM
+[2026-09-03 14:23:48,988] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 60681 closing signal SIGTERM
+[2026-09-03 14:23:48,988] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 60682 closing signal SIGTERM
+[2026-09-03 14:23:48,989] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 60683 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/root/miniconda3/lib/python3.10/runpy.py", line 86, in _run_code
+    exec(code, run_globals)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 810, in <module>
+    main()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 736, in run
+    result = self._invoke_run(role)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 877, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 60655 got signal: 15

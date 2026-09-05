@@ -1,0 +1,124 @@
+{
+  "schema": "tgrs_acoustic_operator_confirmatory_protocol_v1",
+  "registered_utc_date": "2026-08-13",
+  "status": "registered_before_new_gpu_evaluation",
+  "manuscript": "paper/tgrs_helmholtz_operator/manuscript.tex",
+  "dataset": {
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "manifest_sha256": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "saved_grid": [201, 201],
+    "saved_times": 401,
+    "full_h5_split_records": {"train": 2800, "validation": 600, "test_id": 600, "ood_canonical": 3},
+    "full_h5_split_groups": {"train": 1120, "validation": 240, "test_id": 240, "ood_canonical": 3},
+    "confirmatory_three_family_split_records": {"train": 2240, "validation": 480, "test_id": 480},
+    "confirmatory_three_family_split_groups": {"train": 840, "validation": 180, "test_id": 180},
+    "excluded_anomaly_records": {"train": 560, "validation": 120, "test_id": 120},
+    "confirmatory_family_records": {
+      "uniform": 90,
+      "layered": 240,
+      "marmousi": 150
+    },
+    "marmousi_source_position_qualitative_panel": {
+      "selection_split": "validation",
+      "selection_rule": "sort the 30 validation Marmousi medium groups by input-only velocity gradient energy, break ties by group_id, and select lower median rank 15 of 30 without reading target wavefields or model errors",
+      "group_id": "validation:marmousi:x350.0:z0.0",
+      "velocity_gradient_energy": 11127.9459262,
+      "velocity_source_sample_id": "validation_marmousi_00010",
+      "controlled_source_protocol": "paper/tgrs_helmholtz_operator/marmousi_fixed_frequency_source_ood_protocol_20260813.json",
+      "controlled_variable": "source position only",
+      "fixed_f0_hz": 19.0,
+      "truth_access": "target wavefields remain unopened until the frozen validation evaluation"
+    },
+    "source_position_distance": {
+      "reference_support": "same-family training source positions only",
+      "spatial": "nearest Euclidean x-z distance in metres and divided by domain diagonal",
+      "fixed_parameters": "f0, amplitude, onset rule, wavelet, and velocity slice",
+      "reporting_rule": "report interpolation and outside-training-position-range cases separately"
+    }
+  },
+  "evidence_boundary": {
+    "r5c_role": "train-only diagnostic; not promotion eligible because its ancestry and frozen RAD weights include historical validation-derived choices",
+    "algorithm_selection": "train-only pilot and group-disjoint train confirmation",
+    "validation": "open once after model, checkpoint, metrics, runtime boundary, and baselines are frozen",
+    "test_id": "open once without retuning only if complete validation passes",
+    "future_truth_during_adaptation": "forbidden until the adapted prediction is serialized"
+  },
+  "central_hypothesis": "A source-conditioned local propagation field, bounded travel-time-gradient warp, and time-shared continuous latent basis preserve complete-transient phase and high-wavenumber content better than matched neural baselines while amortizing a reference LWC-84 solve.",
+  "generalization_scope": {
+    "included": "source-position generalization at a fixed 19 Hz source frequency",
+    "excluded": "source-frequency generalization and frequency sweeps",
+    "controlled_variable": "source x-z position only"
+  },
+  "claim_experiment_map": [
+    {
+      "claim": "complete-transient and long-horizon stability",
+      "innovation": "rank-32 source-medium spatial anchors are shared across time and mixed by continuous per-time coefficients without autoregressive rollout; the full model is time-query-set-independent, not a single static frequency state",
+      "primary_metrics": [
+        "record_relative_l2 over all 401 stored times",
+        "early/middle/late relative_l2",
+        "per-time relative_l2 slope over the final third",
+        "receiver_lag_abs_s",
+        "receiver_phase_error",
+        "receiver_phase_coherence",
+        "receiver_xcorr_peak"
+      ],
+      "comparators": ["parent without the rank-32 time-shared latent basis", "non-autoregressive parameter-matched Patch-DeepONet"],
+      "pass_rule": "no non-finite prediction, no late-bin divergence, and the final-third error slope and receiver phase metrics improve over every non-collapsed matched neural comparator",
+      "allowed_wording": "long-horizon stable only if the complete frozen splits pass; otherwise report bounded temporal consistency or a failure diagnostic"
+    },
+    {
+      "claim": "control of learned numerical dispersion",
+      "innovation": "target-free travel-time/phase channels, bounded characteristic warp, local spatial generator, and continuous time-shared latent structure",
+      "primary_metrics": [
+        "low/middle/high spatial-spectrum relative_l2",
+        "receiver phase error and lag",
+        "space-time k-omega ridge error where supported",
+        "analytic FD phase-velocity context"
+      ],
+      "comparators": ["FD2", "FD4", "LWC-84 reference", "matched DeepONet", "matched FNO-family baseline"],
+      "pass_rule": "family-stratified group-cluster 95% confidence interval for the proposed-minus-neural-baseline high-band and receiver phase errors lies below zero; do not claim dispersion-free behavior",
+      "allowed_wording": "suppresses learned high-wavenumber or phase error under the evaluated protocol"
+    },
+    {
+      "claim": "higher predictive accuracy than DeepONet",
+      "innovation": "local medium structure, source-aware propagation features, characteristic displacement, and continuous time-shared latent anchors",
+      "primary_metrics": ["record_relative_l2", "family_relative_l2", "late_relative_l2", "high-band relative_l2"],
+      "comparators": ["textbook global DeepONet", "parameter-matched local Patch-DeepONet"],
+      "baseline_entry_gate": "each baseline must overfit one train record per family, produce non-collapsed energy, and bind parameters, updates, frames, optimizer, and selection split",
+      "pass_rule": "proposed model has lower complete-split mean error with a family-stratified group-cluster confidence interval below zero and no family reversal",
+      "allowed_wording": "more accurate than the tested matched DeepONet implementations; never state universal superiority"
+    },
+    {
+      "claim": "faster than LWC-84 at matched accuracy",
+      "innovation": "amortized non-autoregressive complete-transient prediction without a numerical background wave solve",
+      "primary_metrics": ["mean end-to-end seconds", "nearest-rank P95 seconds", "mean speedup", "P95 speedup", "peak CUDA memory"],
+      "runtime_boundary": "same GPU and software environment; synchronized; per instance includes host-to-device velocity transfer, medium encoding, source construction, travel features, full 401-frame 201x201 prediction, inverse normalization, device synchronization, and host materialization; excludes one-time model/checkpoint or solver construction and disk I/O for both methods; adaptation, if studied, is reported separately",
+      "reference": "fastest verified same-GPU LWC-84 implementation whose numerical error meets the matched accuracy threshold",
+      "pass_rule": "both mean and P95 speedup exceed 10x while complete-split aggregate and every-family relative_l2 meet the frozen accuracy threshold",
+      "allowed_wording": "faster at matched reported accuracy only when both the accuracy and runtime gates pass"
+    },
+    {
+      "claim": "safe two-observation causal adaptation",
+      "innovation": "CPADC family-calibrated causal correction with abstention",
+      "primary_metrics": ["mean record improvement", "nonworse fraction", "family mean improvement", "online adaptation time"],
+      "existing_evidence": "R7 passed complete 480-record validation and independently frozen 480-record test_id under its registered relative-improvement gate",
+      "limitation": "R7 does not establish an absolute 5% solver error and must remain separate from solver-level accuracy and speed claims"
+    }
+  ],
+  "ablation_order": [
+    "rank-32 time-shared continuous latent basis",
+    "travel-time and phase conditioning",
+    "travel-time-gradient characteristic warp",
+    "translation-equivariant local propagation residual",
+    "shared dynamic multiscale spectral adapter if accepted by the train-only gate",
+    "metric-aligned time sampling",
+    "uniform record replay",
+    "adapter-only dropout"
+  ],
+  "reporting": {
+    "uncertainty_unit": "independent medium group, stratified by family",
+    "required_breakdowns": ["family", "time window", "spatial spectrum", "receiver phase", "runtime distribution"],
+    "negative_results": "retain failed baseline and adapter gates as diagnostics, not as evidence of universal impossibility",
+    "artifact_bindings": ["code digest", "configuration digest", "manifest digest", "checkpoint digest", "metric digest", "prediction seals"]
+  }
+}

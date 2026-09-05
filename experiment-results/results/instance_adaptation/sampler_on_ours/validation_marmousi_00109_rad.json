@@ -1,0 +1,39 @@
+=== diagnostic: validation_marmousi_00109  lr=0.001 pde_w=1.0 sampler=rad ===
+  step  100: held-out relL2 = 0.5215  (obs 276.798  pde 4.010)
+  step  300: held-out relL2 = 0.5235  (obs 274.693  pde 0.440)
+  step  600: held-out relL2 = 0.5339  (obs 273.001  pde 0.561)
+  step 1000: held-out relL2 = 0.5538  (obs 271.570  pde 0.437)
+{
+  "sample_id": "validation_marmousi_00109",
+  "medium": "marmousi",
+  "sampler": "rad",
+  "trainable_params": 13442,
+  "parent_baseline_heldout_relL2": 0.5209063291549683,
+  "best_heldout_relL2": 0.5215497016906738,
+  "history": [
+    {
+      "step": 100,
+      "heldout_relL2": 0.5215497016906738,
+      "obs_loss": 276.7980651855469,
+      "pde_loss": 4.010206699371338
+    },
+    {
+      "step": 300,
+      "heldout_relL2": 0.5235439538955688,
+      "obs_loss": 274.69281005859375,
+      "pde_loss": 0.4400079548358917
+    },
+    {
+      "step": 600,
+      "heldout_relL2": 0.5339381694793701,
+      "obs_loss": 273.0010681152344,
+      "pde_loss": 0.5611147880554199
+    },
+    {
+      "step": 1000,
+      "heldout_relL2": 0.5538491010665894,
+      "obs_loss": 271.5704650878906,
+      "pde_loss": 0.4372267425060272
+    }
+  ]
+}

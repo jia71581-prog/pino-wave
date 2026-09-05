@@ -1,0 +1,30 @@
+{
+  "candidate": "r16_dscp_v2",
+  "cuda_commands_explicit": true,
+  "model_only_macs": 45451125,
+  "optimization": {
+    "batch_records": 1,
+    "betas": [
+      0.9,
+      0.99
+    ],
+    "bf16_autocast": true,
+    "deterministic": true,
+    "epsilon": 1e-08,
+    "grad_clip_norm": 1.0,
+    "learning_rate": 0.003,
+    "optimizer": "AdamW",
+    "seed": 372,
+    "tf32": false,
+    "time_microblock": 32,
+    "weight_decay": 0.0001,
+    "workers_per_gpu_maximum": 2
+  },
+  "parameters": 1202,
+  "ridge_parameters": 480,
+  "schema": "r16_dscp_v2_static_v1",
+  "sealed": {
+    "test_id_opened": false,
+    "validation_opened": false
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "schema": "pa_cora_p1b_stable_multiphase_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-09-02T04:26:05Z",
+  "method": "PA-CORA",
+  "stage": "P1b_stable_multiphase_continuation",
+  "hypothesis": "Low-learning-rate continuation of the terminal V9 spectral parents with an onset-first, onset-energy-normalized three-window objective yields strict onset-holdout improvement without the slot-3 gradient pathology.",
+  "conceptual_change_from_v9": "stable multitemporal continuation objective",
+  "diagnostic_basis": {
+    "p1_window_statistics_sha256": "4d339fb7fbb458c7e926a7f5735048e39aa8881afc89f057f240fc3ea6473544",
+    "v9_multiphase_residual_sha256": "20bb6f222295eb81a52267b0b2e4e034740ef4233488b7954f803b93f803eda0",
+    "p1_supplementary_report_sha256": "77fd841e1ded3feb4ad9643f15ed89038278c67b1abcbab8e0db0dea9a353b2a",
+    "rejected_p1_main_terminal_sha256": {
+      "seed372": "a073138af0b33777a856ada8746945ec028a20fdb44e33f1440cd8f76f1a66ae",
+      "seed733": "cb9c6ba1d46f2cb98cdde256beb4d8e9fc46fdf22c735f0ba83447ea1f275535"
+    }
+  },
+  "lanes": [
+    {
+      "gpu": 0,
+      "seed": 372,
+      "parent": "results/b2_v9_parent_spectral_s372_20260901/best.pt",
+      "parent_sha256": "e587872553d055e4e0f59e13f8c1c34de7a88ae720855bd22f730ff70b70cea9",
+      "role": "primary"
+    },
+    {
+      "gpu": 1,
+      "seed": 733,
+      "parent": "results/b2_v9_parent_spectral_s733_20260901/best.pt",
+      "parent_sha256": "b7cf3bc2015b9840f049a29c41291222d214e643f5f5340f9f4ca128d161efa1",
+      "role": "primary"
+    },
+    {
+      "gpu": 2,
+      "seed": 1049,
+      "parent": "results/b2_v9_parent_spectral_s372_20260901/best.pt",
+      "parent_sha256": "e587872553d055e4e0f59e13f8c1c34de7a88ae720855bd22f730ff70b70cea9",
+      "role": "auxiliary"
+    },
+    {
+      "gpu": 3,
+      "seed": 1403,
+      "parent": "results/b2_v9_parent_spectral_s733_20260901/best.pt",
+      "parent_sha256": "b7cf3bc2015b9840f049a29c41291222d214e643f5f5340f9f4ca128d161efa1",
+      "role": "auxiliary"
+    }
+  ],
+  "hyperparameters": {
+    "epochs": 10,
+    "steps_per_epoch": 240,
+    "total_steps": 2400,
+    "micro_records": 4,
+    "learning_rate": 0.0001,
+    "schedule": "cosine to 1e-6",
+    "weight_decay": 1e-6,
+    "gradient_clip": 1.0,
+    "denominator_floor_fraction": 0.25,
+    "spectral_weight": 0.1,
+    "curriculum": {
+      "epochs_1_2": [1.0, 0.0, 0.0],
+      "epochs_3_5": [0.7, 0.3, 0.0],
+      "epochs_6_10": [0.6, 0.25, 0.15]
+    },
+    "batch_stratification": "round-robin family x f0-bin with within-stratum random source"
+  },
+  "primary_gate": "mean best onset aggregate of primary seeds 372 and 733 must be strictly below V9 spectral mean 0.11466402857681514; no minimum percentage",
+  "secondary_reports": [
+    "slot1 and slot2 aggregate",
+    "per-family",
+    "temporal and frequency bands",
+    "auxiliary seeds",
+    "correction energy",
+    "runtime"
+  ],
+  "bindings": {
+    "trainer_sha256": "f6b5a3a7488b0213c9caae688061c35006af2427bb7ef82f3dd25592ec46f9ab",
+    "runner_sha256": "8881c94ef6f4c1c0e8b488c28ee10538047965e0b7ffd46b9e9cc7aaf53eac7a",
+    "test_sha256": "0f288257ecf60ed9e60345fb7b5b34fba161926253168d69fbff085a31a227f1",
+    "checkpoint_sha256": {
+      "results/b2_v9_parent_spectral_s372_20260901/best.pt": "e587872553d055e4e0f59e13f8c1c34de7a88ae720855bd22f730ff70b70cea9",
+      "results/b2_v9_parent_spectral_s733_20260901/best.pt": "b7cf3bc2015b9840f049a29c41291222d214e643f5f5340f9f4ca128d161efa1"
+    },
+    "fit_manifest_sha256": {
+      "results/b2_v9_parent_fit_manifest_240rec_20260901.json": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+      "results/pa_cora_p1_fit_slot1.json": "519e0e3a833f99015ab98fc422cb5bdaa22adc374148eebc0335b39f74acef51",
+      "results/pa_cora_p1_fit_slot2.json": "edbda3411d464f830f15f1a15a9b479265e84d9de21df0a9d483985749e14945"
+    },
+    "fit_cache_sha256": {
+      "results/b2_v9_parent_fit_cache_240rec_20260901.h5": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171",
+      "results/pa_cora_p1_fit_slot1.h5": "55eb46945f9bbd9eb9148f24b820e7450fd97f1e2d9c5ca8ef28ff5dab823448",
+      "results/pa_cora_p1_fit_slot2.h5": "70fb628fa0e93c353da5907620388ec0c13ae511ba78a77ab51d34d4a617f916"
+    },
+    "holdout_manifest_sha256": {
+      "results/b2_v9_parent_holdout_manifest_24rec_20260901.json": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa"
+    },
+    "holdout_cache_sha256": {
+      "results/b2_v9_parent_holdout_cache_24rec_20260901.h5": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+      "results/pa_cora_p1_holdout_slot1.h5": "3e03f8cc8368490e578b632e63adf6209ee5317866f2bb5a1373be9f25590e3f",
+      "results/pa_cora_p1_holdout_slot2.h5": "c01cd1edcd73041bfc7ff34b648a59c10cfd17a55f6b222be74a36819ce70aed"
+    }
+  },
+  "failure_signal": "no strict two-seed mean onset improvement, nonfinite loss, OOM, or binding drift",
+  "rollback": "epoch-0 checkpoint is the exact V9 parent; all P1b artifacts are additive",
+  "validation_opened": false,
+  "test_id_opened": false
+}

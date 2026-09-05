@@ -1,0 +1,40 @@
+{
+  "binder_sha256": "7b877c5f2dff06a6cd58db44989f27e5df5556ca81568b41c2aa741da85cc24d",
+  "bindings": {
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "core_sha256": "0b4ef5bf0fe14ceeff4a6550cb1e890f6100c27e95b00a184f62e6b707b8cb30",
+    "fit_cache_sha256": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171",
+    "fit_manifest_sha256": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+    "pretrain_sha256": "85a32d4340fda427ee4871c6eb62d98464e3b9f0a3c72f4bdb7370f7e6046286"
+  },
+  "cache": "results/b2_v9_parent_fit_cache_240rec_20260901.h5",
+  "cache_sha256": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171",
+  "candidate": "b2_v10_causal_prefix_closed_form_pod_v1",
+  "design": "results/b2_v10_prefix_assimilation_design_20260901.json",
+  "design_sha256": "a8b49637ad6059a62a7390625b41a3a4823fd0a2329e35b26e3d9f416948a08b",
+  "gates": {
+    "family_specific": true,
+    "fit_manifest": "results/b2_v9_parent_fit_manifest_240rec_20260901.json",
+    "minimum_mean_oracle_gain_per_family": 0.0,
+    "rank": 4,
+    "truth_scope": "offline_train_only"
+  },
+  "hypothesis": "A source-period-normalized causal prefix extending beyond the eight copied parent anchors contains enough parent-residual information for a rank-4 closed-form POD solve to strictly reduce unobserved-suffix aggregate relative L2 on fresh train groups.",
+  "manifest": "results/b2_v9_parent_fit_manifest_240rec_20260901.json",
+  "manifest_sha256": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+  "parent": {
+    "checkpoint": "results/b2_v9_interim_snapshot_physics_cond_s733_e33_20260901.pt",
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "seed": 733,
+    "selection": "results/b2_v9_interim_parent_selection_e33_20260901.json",
+    "selection_sha256": "9b208cb913a2502028088dbb346dd3713964fb34afb31f329511fb7130023ce1",
+    "variant": "physics_cond"
+  },
+  "rollback": "all changes are additive; zero online coefficients reproduce the selected V9 parent exactly; all protected checkpoints remain immutable",
+  "schema": "b2_v10_offline_pod_preregistration_v1",
+  "stage": "offline",
+  "status": "frozen_before_launch",
+  "test_id_opened": false,
+  "truth_scope": "offline_train_only",
+  "validation_opened": false
+}

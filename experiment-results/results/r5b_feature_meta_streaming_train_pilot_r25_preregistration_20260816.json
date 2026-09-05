@@ -1,0 +1,46 @@
+{
+  "experiment_id": "r5b_feature_meta_streaming_train_pilot_r25_20260816",
+  "registered_at_utc": "2026-08-16",
+  "status": "preregistered_before_execution",
+  "predecessors": {
+    "r23": "OOM before the first optimizer step with batch size 2 and a 24-time retained graph",
+    "r24": "OOM before the first optimizer step with batch size 1 and a 24-time retained graph"
+  },
+  "single_methodological_change": "Replace the retained 24-time autograd graph with a two-pass exact-gradient schedule: detached joint error-energy accumulation followed by analytic-weighted backpropagation through four-time recomputation chunks.",
+  "gradient_equivalence_test": "tests/saved_time_phase_operator_v4/test_conditioner_training.py::test_streaming_energy_weights_match_joint_relative_l2_gradient",
+  "test_outcome_before_execution": "12 passed across conditioner-training and instance-CLI suites",
+  "scope": "train_split_only_falsification_pilot",
+  "forbidden_data": [
+    "validation",
+    "test_id"
+  ],
+  "physical_wavefield_propagator": false,
+  "synthetic_bridge": false,
+  "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "loader_sha256": "f9efdd2483e33eb9bb132a08c839cce9daa768a302c92aff1a48b8e560df4e58",
+  "trainer_sha256": "b6e7984ebc89b56a5ab44825133d60c50bf47f52291bfcf6b17493efc948ba35",
+  "adapter_sha256": "7e99a52f925fb0734ac349104f80db6c7830bfb654320327f642f73044e8e798",
+  "config": "configs/saved_time_v5/feature_meta_r5b_marmousi1_4m_v2_no_propagator.yaml",
+  "config_sha256": "6423588bfb277ec3040b0c43effd3b5d8c46751145a4ca9d653d21d8358577b0",
+  "registered_protocol": {
+    "seed": 372,
+    "episodes_per_family": 4,
+    "epochs": 3,
+    "batch_size": 1,
+    "future_time_points_per_episode_per_epoch": 24,
+    "gradient_time_chunk": 4,
+    "time_block": 1,
+    "learning_rate": 0.0001,
+    "latent_dim": 16,
+    "lora_rank": 4,
+    "max_scale": 0.05,
+    "max_bias": 0.02,
+    "parent_parameters_frozen": true
+  },
+  "success_conditions": [
+    "training completes without nonfinite loss or out-of-memory failure",
+    "best.pt exists and records the exact training sample and group IDs",
+    "the parent checkpoint hash recorded in best.pt matches the registered r5b checkpoint"
+  ],
+  "promotion_rule": "Do not access validation. First run a separately preregistered train-split gate on medium groups excluded from the 12 meta-training episodes."
+}

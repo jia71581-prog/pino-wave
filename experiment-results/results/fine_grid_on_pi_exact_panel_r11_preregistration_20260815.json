@@ -1,0 +1,47 @@
+{
+  "schema": "fine_grid_on_pi_exact_panel_preregistration_v1",
+  "status": "frozen_before_launch",
+  "hypothesis": "On exactly the same complete records and 32 deterministic exact frames used by the frozen PI-DeepONet comparison, the frozen fine-grid method will retain relative L2 below 0.05 overall and in every family on validation and test_id.",
+  "purpose": "Eliminate frame-selection ambiguity from the PI-DeepONet comparison; this is a reporting analysis and does not tune either method.",
+  "frozen_method": {
+    "internal_grid": "401x401 at 5 m",
+    "internal_dt_s": 0.000625,
+    "spatial_time_scheme": "standard eighth-order radius-four LWC84 with fourth-order time correction",
+    "cpml": "npml40, c_ref6750, kappa3, minimum_frequency8",
+    "output": "materialize all 401 registered frames, then score the PI-selected 32 exact indices",
+    "cuda_graphs": true
+  },
+  "comparison_scope": {
+    "validation_records": 480,
+    "test_id_records": 480,
+    "frames_scored_per_record": 32,
+    "frames_materialized_per_record": 401,
+    "families": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "anomaly_excluded_for_both": true
+  },
+  "promotion_gate": {
+    "maximum_global_energy_relative_l2": 0.05,
+    "maximum_each_family_energy_relative_l2": 0.05,
+    "maximum_instance_relative_l2": 0.05
+  },
+  "no_tuning": "The exact record/time panels are read from immutable PI r10 worker reports after both PI split evaluations completed. No result can change the frozen solver.",
+  "compute_budget": "Four RTX 4090 D workers, approximately two to four minutes per complete split.",
+  "pi_panel_bindings": {
+    "validation_aggregate_sha256": "b63348d7dd122977a9f87ebc6ad6da03c4511e1e1768b18b6a14152d91787ca0",
+    "test_id_aggregate_sha256": "2114e4e9b227891686636ed81006c8e1756647b12dc1906be26ea78fb413b058"
+  },
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "comparison_script_sha256": "3554899e46aa06046243df3a0ee912effdd2e9c0fc261b66a61fc3ebfd31b088",
+    "aggregation_script_sha256": "684c41d87cccbe6128fc8ea5927e07100f300177acda6b4e9f2530e03989333b",
+    "launcher_sha256": "5c269b26d120cb8cf798632e6a4a3838416ff8335a7aa555daf6a6322d59af2f"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "train_only_r33_pi_all401_resume_preregistration_v1",
+  "status": "registered_before_resume",
+  "date_utc": "2026-08-16",
+  "parent_preregistration": "results/r5b_feature_meta_vs_pi_train_all401_r34_resume1_preregistration_20260816.json",
+  "failed_attempt": {
+    "stage": "after all six bound PI predictions, before aggregate serialization",
+    "error": "AttributeError: ExactStoredTimeBatchDataset has no close attribute",
+    "output_report_created": false,
+    "selection_or_hyperparameter_change": false
+  },
+  "single_change": "Call dataset.close only when the dataset exposes a callable close method.",
+  "unchanged_protocol": {
+    "split": "train",
+    "records": 6,
+    "same_future_windows": true,
+    "physical_pressure_float64_energy_metric": true,
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "r33_summary_sha256": "ea42d7370ac42533c58ae7cf86e554c7a0ead50f0e69cf0300565dbca01b0f97",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "comparison_script_sha256": "b3e1976b70db0c6b499ead059d5aed78390226d187ca61fb2ea83ea1949622b3"
+  },
+  "decision_rule": "Repeat the identical deterministic inference to obtain the full-precision bound JSON; report every measured direction without selection."
+}

@@ -1,0 +1,116 @@
+{
+  "claim_limit": "CPADC establishes a bounded relative correction benefit. It does not establish an absolute five-percent solver error.",
+  "evidence_status": "sealed_complete_validation_and_independent_test_id",
+  "record_count": 960,
+  "schema": "cpadc_r7_complete_relative_error_census_v1",
+  "splits": {
+    "test_id": {
+      "family_count": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "promotion_gate": {
+        "acceptance_fraction": 0.32708333333333334,
+        "checks": {
+          "blind_mean_improvement": true,
+          "family_safe": true,
+          "full_validation_protocol": true,
+          "future_truth_sealed": true,
+          "nonworse_fraction": true,
+          "online_runtime": true
+        },
+        "families": {
+          "layered": {
+            "mean_adapted_future_relative_l2": 4.8351530730724335,
+            "mean_parent_future_relative_l2": 5.090908043583235,
+            "nonworse": true,
+            "record_count": 240,
+            "relative_improvement": 0.050237593828308086
+          },
+          "marmousi": {
+            "mean_adapted_future_relative_l2": 6.265170222918193,
+            "mean_parent_future_relative_l2": 6.277971199353536,
+            "nonworse": true,
+            "record_count": 150,
+            "relative_improvement": 0.002039030767879562
+          },
+          "uniform": {
+            "mean_adapted_future_relative_l2": 5.663953179783292,
+            "mean_parent_future_relative_l2": 5.756447108586629,
+            "nonworse": true,
+            "record_count": 90,
+            "relative_improvement": 0.01606788476617262
+          }
+        },
+        "maximum_adaptation_elapsed_s": 0.6720174923539162,
+        "mean_relative_improvement": 0.02842013027144299,
+        "nonworse_fraction": 0.9708333333333333,
+        "passed": true,
+        "record_count": 480,
+        "thresholds": {
+          "maximum_runtime_s": 5.0,
+          "minimum_blind_mean_improvement": 0.01,
+          "minimum_nonworse_fraction": 0.9,
+          "require_every_family_nonworse": true
+        }
+      },
+      "record_count": 480,
+      "source": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7_test_id_confirmation/evaluation/summary.json"
+    },
+    "validation": {
+      "family_count": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "promotion_gate": {
+        "acceptance_fraction": 0.31666666666666665,
+        "checks": {
+          "blind_mean_improvement": true,
+          "family_safe": true,
+          "full_validation_protocol": true,
+          "future_truth_sealed": true,
+          "nonworse_fraction": true,
+          "online_runtime": true
+        },
+        "families": {
+          "layered": {
+            "mean_adapted_future_relative_l2": 4.817575558026632,
+            "mean_parent_future_relative_l2": 5.046761905153592,
+            "nonworse": true,
+            "record_count": 240,
+            "relative_improvement": 0.045412553917576856
+          },
+          "marmousi": {
+            "mean_adapted_future_relative_l2": 6.1848654476801554,
+            "mean_parent_future_relative_l2": 6.197527260780334,
+            "nonworse": true,
+            "record_count": 150,
+            "relative_improvement": 0.0020430427438869418
+          },
+          "uniform": {
+            "mean_adapted_future_relative_l2": 5.664314137564765,
+            "mean_parent_future_relative_l2": 5.788680908415053,
+            "nonworse": true,
+            "record_count": 90,
+            "relative_improvement": 0.021484475102003776
+          }
+        },
+        "maximum_adaptation_elapsed_s": 0.5621154066175222,
+        "mean_relative_improvement": 0.02700602799115145,
+        "nonworse_fraction": 0.9729166666666667,
+        "passed": true,
+        "record_count": 480,
+        "thresholds": {
+          "maximum_runtime_s": 5.0,
+          "minimum_blind_mean_improvement": 0.01,
+          "minimum_nonworse_fraction": 0.9,
+          "require_every_family_nonworse": true
+        }
+      },
+      "record_count": 480,
+      "source": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/evaluation/summary.json"
+    }
+  }
+}

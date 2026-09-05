@@ -1,0 +1,140 @@
+{
+  "all_saved_metrics": {
+    "aggregate_relative_l2": 0.09588776918203885,
+    "centroid_shift_cells": 16.76326658422114,
+    "coarse_metrics": {
+      "aggregate_relative_l2": 0.0958067171760923,
+      "centroid_shift_cells": 15.980161185242254,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 0.22539579519658132,
+        "marmousi": 0.06065475968092883,
+        "uniform": 0.0013695966507667424
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.01383631160440818,
+          "late": 1.2590512259626692,
+          "middle": 0.2937027422039036,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.004976120378402436,
+          "late": 0.0955242272728006,
+          "middle": 0.0475938655824497,
+          "pre_onset": 1.0
+        },
+        "uniform": {
+          "early": 0.00034529642919700615,
+          "late": 0.0023488649367691627,
+          "middle": 0.000771498132537875,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 1203,
+      "medium_relative_l2": {
+        "train:layered:00000": 0.22539579519658132,
+        "train:marmousi:x0.0:z0.0": 0.06065475968092883,
+        "train:uniform:00000": 0.0013695966507667424
+      },
+      "near_zero_frame_count": 4,
+      "phase_correlation": 0.8843997242190784,
+      "record_count": 3,
+      "rmse": 0.005364932850345625,
+      "source_relative_l2": {
+        "train_layered_00000": 0.22539579519658132,
+        "train_marmousi_00000": 0.06065475968092883,
+        "train_uniform_00000": 0.0013695966507667424
+      },
+      "spectrum_relative_l2": {
+        "high": 0.07733037276949657,
+        "low": 0.06756247282736487,
+        "middle": 0.18577685964924137
+      },
+      "time_bin_relative_l2": {
+        "early": 0.005423946495201009,
+        "late": 0.09320430694256185,
+        "middle": 0.0778352409578963,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 0.4626283904961884
+    },
+    "correction_to_coarse_l2_ratio": 0.0011152612044724537,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 0.22537901960014678,
+      "marmousi": 0.06066223092900849,
+      "uniform": 0.0016220570169612645
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 0.013996626146028365,
+        "late": 1.258678594477255,
+        "middle": 0.29370936558517435,
+        "pre_onset": 1.0
+      },
+      "marmousi": {
+        "early": 0.005063735377501191,
+        "late": 0.0955304985451977,
+        "middle": 0.04760068004212278,
+        "pre_onset": 1.0
+      },
+      "uniform": {
+        "early": 0.001000979742534862,
+        "late": 0.002476645701667731,
+        "middle": 0.0011557539772578873,
+        "pre_onset": 1.0
+      }
+    },
+    "frame_count": 1203,
+    "medium_relative_l2": {
+      "train:layered:00000": 0.22537901960014678,
+      "train:marmousi:x0.0:z0.0": 0.06066223092900849,
+      "train:uniform:00000": 0.0016220570169612645
+    },
+    "near_zero_frame_count": 4,
+    "phase_correlation": 0.8788814975331403,
+    "record_count": 3,
+    "reference_kind": "coarse",
+    "relative_improvement_vs_coarse": -0.0008459950234761473,
+    "rmse": 0.005365155514376311,
+    "source_relative_l2": {
+      "train_layered_00000": 0.22537901960014678,
+      "train_marmousi_00000": 0.06066223092900849,
+      "train_uniform_00000": 0.0016220570169612645
+    },
+    "spectrum_relative_l2": {
+      "high": 0.07734277458076509,
+      "low": 0.06756876243608435,
+      "middle": 0.1857882919843752
+    },
+    "time_bin_relative_l2": {
+      "early": 0.005534386050446973,
+      "late": 0.09319766387815659,
+      "middle": 0.07784087274343207,
+      "pre_onset": 1.0
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 0.4626283904961884
+  },
+  "anchor_relative_reduction": -0.0008459950234761473,
+  "architecture": {
+    "dense_depth": 8,
+    "dense_modes": 32,
+    "dense_spectral_rank": 112,
+    "width": 128
+  },
+  "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_aplus1_r8_sigma4_perframe_lg0/checkpoints/update_0800.pt",
+  "best_fixed_aggregate_relative_l2": 0.10396881270111906,
+  "can_memorize_below_target": false,
+  "final_relative_l2": 0.10396881270111906,
+  "front_end_transfer": null,
+  "initial_relative_l2": 10.187553388123325,
+  "interpretation": "capacity_or_optimization_is_insufficient",
+  "parameter_count": 25818294,
+  "peak_cuda_bytes": 9621816832,
+  "relative_reduction": 0.9897945258552141,
+  "status": "complete",
+  "updates_completed": 800
+}

@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_pino.py", line 24, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_pino.py", line 19, in main
+    result = run_training(args.config, device_override=args.device, output_metrics=args.output_json)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/train.py", line 991, in run_training
+    stats = _load_or_compute_normalization(config, splits["train"])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/train.py", line 154, in _load_or_compute_normalization
+    stats = compute_normalization(config, train_indices)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/train.py", line 55, in compute_normalization
+    dataset = PinoHDF5Dataset(config, indices, normalization_stats=None, return_normalized=False)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/data.py", line 154, in __init__
+    self.data_config = resolve_lwc84_hdf5_aliases(self.data_config, handle)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/data.py", line 65, in resolve_lwc84_hdf5_aliases
+    if configured_name in h5:
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+  File "/root/miniconda3/lib/python3.10/site-packages/h5py/_hl/group.py", line 611, in __contains__
+    return h5g._path_valid(self.id, self._e(name), self._lapl)
+  File "h5py/_objects.pyx", line 54, in h5py._objects.with_phil.wrapper
+  File "h5py/_objects.pyx", line 55, in h5py._objects.with_phil.wrapper
+TypeError: Argument 'path' must not be None

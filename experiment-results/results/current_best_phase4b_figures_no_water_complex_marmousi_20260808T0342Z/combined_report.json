@@ -1,0 +1,34 @@
+{
+  "status": "complete",
+  "schema": "current_best_phase4b_three_family_visualization_v1",
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "terminal_metric_comparable": false,
+  "protocol_note": "Uniform and Layered are canonical OOD records; Marmousi is an audited no-water crop derived from the registered source and solved with the same LWC84 and sigma-2 P_bg protocols.",
+  "families": {
+    "uniform": {
+      "sample_id": "ood_uniform_c4000_f15",
+      "full_wavefield_relative_l2": 0.000007814072141584409,
+      "source_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/render_report.json"
+    },
+    "layered": {
+      "sample_id": "ood_layered_c3000_c5000_f15",
+      "velocity_contract": "upper_3000_mps_lower_5000_mps",
+      "full_wavefield_relative_l2": 0.10166427975196345,
+      "source_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/render_report.json"
+    },
+    "marmousi": {
+      "sample_id": "derived_marmousi_nowater_x5100_z1800_f15",
+      "crop_x0_m": 5100.0,
+      "crop_z0_m": 1800.0,
+      "velocity_range_mps": [2148.930908203125, 4450.0],
+      "velocity_color_scale_mps": [1500.0, 4450.0],
+      "velocity_color_scale_basis": "registered_source_global_range",
+      "water_fraction_le_1500_5": 0.0,
+      "selection_basis": "no water; strong lateral contrast; dipping thin layers; faulted interfaces; high-velocity lens",
+      "full_wavefield_relative_l2": 0.1022847072860006,
+      "receiver_mean_relative_l2": 0.0567685870855083,
+      "source_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_no_water_complex_marmousi_20260808T0342Z/marmousi/render_report.json"
+    }
+  }
+}

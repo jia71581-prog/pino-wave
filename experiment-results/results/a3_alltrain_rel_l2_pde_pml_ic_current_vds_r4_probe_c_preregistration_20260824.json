@@ -1,0 +1,35 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4_probe_c",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "one_update_train_only_physics_loss_scale_probe_with_packed_velocity_contract",
+  "hypothesis": "With the packed velocity channel and record mapping handled explicitly, 0.01 weights for PDE, PML-interface, and zero-initial terms will remain finite and collectively below half the relative-L2 data term within the GPU limit.",
+  "loss": {
+    "data_relative_l2": 1.0,
+    "pde_residual": 0.01,
+    "pml_interface": 0.01,
+    "initial_condition": 0.01
+  },
+  "primary_metric": "raw and weighted component scale on one four-GPU optimizer update",
+  "acceptance": {
+    "updates": 1,
+    "finite_components_and_gradients": true,
+    "each_weighted_physics_component_over_data_max": 0.25,
+    "total_weighted_physics_over_data_max": 0.5,
+    "peak_cuda_gib_max": 23.5
+  },
+  "failure_signal": "Any non-finite component, physics dominance, OOM, binding mismatch, or validation/test_id read rejects these weights.",
+  "bindings": {
+    "config_sha256": "9c2343729f6cb77361186430978574b0abd3b921830a2cd275180fac2a2f5817",
+    "loss_implementation_sha256": "dc9fa8949cd169b8d67e1f1d8f4199956f81c7fff6ae358513f7d971d05302d9",
+    "training_script_sha256": "1c96f916c0d5cbeb5fda6c8a5b0b2f084930a9807abc15e7ed36a33820bdb007",
+    "parent_checkpoint_sha256": "1668e48c24972e17a604725aeb6039625994425b22bb7afd0516326b2fed1daa",
+    "parent_identity_sha256": "ddc0a0dabb068f661b972500d14f2e19df0a73af7797a5ade6cbf035be949b36",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "schedule_digest": "f5e4f1c501869efd2f0731376393e7a0ae285963f3a7b54f6551b9251eb4ddae",
+    "contract_tests": "packed velocity regression plus physics/full-support tests passed"
+  },
+  "rollback": "Preserve r3b epoch-0 and prior failed probes. Do not promote the probe checkpoint.",
+  "command": "CUDA_VISIBLE_DEVICES=0,1,2,3 torchrun --standalone --nproc_per_node=4 scripts/train_saved_time_v4_full_support.py --config configs/saved_time_v4/generated/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4_probe_c.yaml --smoke-updates 1 --smoke-epochs 1 --workers-override 0"
+}

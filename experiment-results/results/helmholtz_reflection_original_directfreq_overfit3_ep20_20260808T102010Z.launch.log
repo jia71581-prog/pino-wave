@@ -1,0 +1,28 @@
+[2026-08-08 18:20:21,335] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+{"agg": 0.017094229204318898, "family": {"layered": 0.024561840466366038, "marmousi": 0.02671285722795159, "uniform": 7.989918639060064e-06}, "selection_metric": "scattering_relative_l2", "selection_score": 1.0000000842676033, "update": 0}
+{"agg": 0.017899793323836826, "family": {"layered": 0.026957860424414636, "marmousi": 0.026733529628456775, "uniform": 7.989918639060064e-06}, "selection_metric": "scattering_relative_l2", "selection_score": 1.0092228923288284, "update": 5}
+[2026-08-08 18:27:42,444] torch.distributed.elastic.agent.server.api: [WARNING] Received Signals.SIGHUP death signal, shutting down workers
+[2026-08-08 18:27:42,447] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 188938 closing signal SIGHUP
+[2026-08-08 18:27:42,447] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 188939 closing signal SIGHUP
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 736, in run
+    result = self._invoke_run(role)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/agent/server/api.py", line 877, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 62, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 188875 got signal: 1

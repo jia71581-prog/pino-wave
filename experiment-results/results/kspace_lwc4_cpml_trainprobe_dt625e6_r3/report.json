@@ -1,0 +1,129 @@
+{
+  "aggregate_relative_l2": 0.03857190544538777,
+  "correction_reference_mps": 1.0,
+  "device": "cpu",
+  "family_relative_l2": {
+    "layered": 0.020783249245942922,
+    "marmousi": 0.04325797092727848,
+    "uniform": 0.007382206236480044
+  },
+  "internal_dt_s": 0.000625,
+  "measurements": [
+    {
+      "best_scalar": 0.9973829508033836,
+      "family": "uniform",
+      "relative_l2": 0.00719661884061053,
+      "runtime_s": 17.601685591973364,
+      "sample_id": "train_uniform_00397",
+      "scalar_aligned_relative_l2_diagnostic": 0.006701245864950502,
+      "solver_runtime_s": 17.486363772302866,
+      "source_f0_hz": 8.003645260046683,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9951157727578449,
+      "family": "uniform",
+      "relative_l2": 0.009989177631700978,
+      "runtime_s": 17.462721542455256,
+      "sample_id": "train_uniform_00245",
+      "scalar_aligned_relative_l2_diagnostic": 0.008700291143518193,
+      "solver_runtime_s": 17.362716701813042,
+      "source_f0_hz": 18.990088804366742,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9926467770971359,
+      "family": "uniform",
+      "relative_l2": 0.015283162791961506,
+      "runtime_s": 17.245500912889838,
+      "sample_id": "train_uniform_00021",
+      "scalar_aligned_relative_l2_diagnostic": 0.013368281532326484,
+      "solver_runtime_s": 17.13928670436144,
+      "source_f0_hz": 29.98278460379438,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9971747627177505,
+      "family": "layered",
+      "relative_l2": 0.01946942486090746,
+      "runtime_s": 17.3332466064021,
+      "sample_id": "train_layered_01105",
+      "scalar_aligned_relative_l2_diagnostic": 0.019262248657658024,
+      "solver_runtime_s": 17.222853201441467,
+      "source_f0_hz": 8.009038744452269,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9908566067330458,
+      "family": "layered",
+      "relative_l2": 0.017042955366472087,
+      "runtime_s": 17.384873534552753,
+      "sample_id": "train_layered_00510",
+      "scalar_aligned_relative_l2_diagnostic": 0.014329275612997861,
+      "solver_runtime_s": 17.276422968134284,
+      "source_f0_hz": 18.992878874307557,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.9859124100585694,
+      "family": "layered",
+      "relative_l2": 0.053836867577153745,
+      "runtime_s": 17.072768233716488,
+      "sample_id": "train_layered_00500",
+      "scalar_aligned_relative_l2_diagnostic": 0.05191133065779137,
+      "solver_runtime_s": 16.961873673833907,
+      "source_f0_hz": 29.989522917546186,
+      "split": "train"
+    },
+    {
+      "best_scalar": 1.0191553314970778,
+      "family": "marmousi",
+      "relative_l2": 0.02345743610302835,
+      "runtime_s": 17.415975699201226,
+      "sample_id": "train_marmousi_00380",
+      "scalar_aligned_relative_l2_diagnostic": 0.014037719611500899,
+      "solver_runtime_s": 17.322518654167652,
+      "source_f0_hz": 8.028230837828447,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.969111870125044,
+      "family": "marmousi",
+      "relative_l2": 0.05629068929116373,
+      "runtime_s": 17.4577821707353,
+      "sample_id": "train_marmousi_00680",
+      "scalar_aligned_relative_l2_diagnostic": 0.04642162474478617,
+      "solver_runtime_s": 17.348908815532923,
+      "source_f0_hz": 18.99760907314326,
+      "split": "train"
+    },
+    {
+      "best_scalar": 0.8853957944811923,
+      "family": "marmousi",
+      "relative_l2": 0.17037170426592702,
+      "runtime_s": 17.280490592122078,
+      "sample_id": "train_marmousi_00193",
+      "scalar_aligned_relative_l2_diagnostic": 0.11171990429619706,
+      "solver_runtime_s": 17.187249206006527,
+      "source_f0_hz": 29.99536220938785,
+      "split": "train"
+    }
+  ],
+  "promotion_gate": {
+    "maximum_relative_l2": 0.05,
+    "passes_accuracy": true,
+    "scalar_alignment_is_diagnostic_only": true
+  },
+  "records_per_family": 3,
+  "runtime_s": {
+    "maximum": 17.601685591973364,
+    "mean": 17.361671653783155,
+    "minimum": 17.072768233716488
+  },
+  "schema": "kspace_saved_grid_train_only_probe_v1",
+  "selection_scope": "train_only",
+  "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+  "status": "complete",
+  "temporal_order": 4
+}

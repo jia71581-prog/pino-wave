@@ -1,0 +1,37 @@
+{
+  "controller_pid": 891390,
+  "created_at_unix": 1786078472.6596,
+  "finished_at_unix": 1786081295.3154511,
+  "phase4b_run_dir": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z",
+  "probing_per_rank_batch": 1,
+  "reason": "residual_iterator_smoke_failed",
+  "selected_parent": {
+    "aggregate_relative_l2": 0.040691912995691505,
+    "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+    "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+    "family_relative_l2": {
+      "layered": 0.0778383676526427,
+      "marmousi": 0.04423617636842444,
+      "uniform": 1.1949660073910586e-06
+    },
+    "update": 265
+  },
+  "smoke_attempts": [
+    {
+      "accepted_memory": false,
+      "checkpoint": null,
+      "peak_cuda_bytes": null,
+      "per_rank_batch_size": 2,
+      "return_code": 1
+    },
+    {
+      "accepted_memory": false,
+      "checkpoint": null,
+      "peak_cuda_bytes": null,
+      "per_rank_batch_size": 1,
+      "return_code": 1
+    }
+  ],
+  "smoke_dir": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/residual_iterator_phase4b_r3rams_p0p1_20260807T041117Z/smoke_batch1",
+  "status": "blocked"
+}

@@ -1,0 +1,232 @@
+{
+  "command_audit": {
+    "authorize_smoke": {
+      "input_checkpoint": null,
+      "mode": "authorize-stage",
+      "output": "results/r16_dscp_v10/authorizations/smoke.json",
+      "stage": "smoke"
+    },
+    "final": {
+      "authorization": "results/r16_dscp_v10/authorizations/final-train-confirm.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "final-train-confirm",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "freeze_prereg": {
+      "mode": "freeze-prereg"
+    },
+    "long_1": {
+      "authorization": "results/r16_dscp_v10/authorizations/long.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "input_checkpoint": "BEST",
+      "mode": "long",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json",
+      "resume": false,
+      "scale_decision": "results/r16_dscp_v10/scale-decide/terminal.json",
+      "world_size": 1
+    },
+    "long_4_resume": {
+      "authorization": "results/r16_dscp_v10/authorizations/long.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "input_checkpoint": "BEST",
+      "mode": "long",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json",
+      "resume": true,
+      "scale_decision": "results/r16_dscp_v10/scale-decide/terminal.json",
+      "world_size": 4
+    },
+    "pilot": {
+      "authorization": "results/r16_dscp_v10/authorizations/pilot.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "pilot",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "prep": {
+      "mode": "prep"
+    },
+    "scale_1": {
+      "authorization": "results/r16_dscp_v10/authorizations/scale-1.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "scale-1",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "scale_4": {
+      "authorization": "results/r16_dscp_v10/authorizations/scale-4.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "scale-4",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "scale_decide": {
+      "authorization": "results/r16_dscp_v10/authorizations/scale-decide.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "scale-decide",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "smoke": {
+      "authorization": "results/r16_dscp_v10/authorizations/smoke.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "smoke",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "test": {
+      "authorization": "results/r16_dscp_v10/authorizations/test-once.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "test-once",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    },
+    "validation": {
+      "authorization": "results/r16_dscp_v10/authorizations/validation-once.json",
+      "config": "configs/r16_dscp_v10.yaml",
+      "device": "cuda:0",
+      "mode": "validation-once",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v10_preregistration_20260826.json"
+    }
+  },
+  "host_cache_gates": {
+    "final-train-confirm": {
+      "cache_bytes": 200550584,
+      "capacity": 1,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17380419768,
+      "role": "final-train-confirm"
+    },
+    "long": {
+      "cache_bytes": 43318926144,
+      "capacity": 216,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 60498795328,
+      "role": "long"
+    },
+    "pilot": {
+      "cache_bytes": 9626428032,
+      "capacity": 48,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 26806297216,
+      "role": "pilot"
+    },
+    "scale-probe-1": {
+      "cache_bytes": 601651752,
+      "capacity": 3,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17781520936,
+      "role": "scale-probe-1"
+    },
+    "scale-probe-4": {
+      "cache_bytes": 601651752,
+      "capacity": 3,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17781520936,
+      "role": "scale-probe-4"
+    },
+    "smoke": {
+      "cache_bytes": 601651752,
+      "capacity": 3,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17781520936,
+      "role": "smoke"
+    },
+    "test-once": {
+      "cache_bytes": 200550584,
+      "capacity": 1,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17380419768,
+      "role": "test-once"
+    },
+    "validation-once": {
+      "cache_bytes": 200550584,
+      "capacity": 1,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17380419768,
+      "role": "validation-once"
+    }
+  },
+  "metadata": {
+    "test_id": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "c05f56c6e24bc8bfdbb0dc165cde58e3c6f237d21146a862de7dc4eab3c6cd6d",
+      "wavefield_read": false
+    },
+    "validation": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "75e30283484e312aeefd3cc1b39d4ffa6d0cbd8d4fdfd0b889ec2a915eaafd36",
+      "wavefield_read": false
+    }
+  },
+  "model_macs": 45451125,
+  "modes": [
+    "prep",
+    "freeze-prereg",
+    "authorize-stage",
+    "smoke",
+    "pilot",
+    "scale-1",
+    "scale-4",
+    "scale-decide",
+    "long",
+    "final-train-confirm",
+    "validation-once",
+    "test-once"
+  ],
+  "parameters": 1202,
+  "production_backend": "V10ProductionBackend",
+  "schema": "r16_dscp_v10_static_v1",
+  "tests": {
+    "log_sha256": "9fcce73e834531098154ea2022611027a5c3349e89417dad5925d5d12fc4979e",
+    "status": "passed",
+    "tail": "..............................................................           [100%]"
+  },
+  "truth_read": false
+}

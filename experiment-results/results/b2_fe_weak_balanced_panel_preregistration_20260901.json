@@ -1,0 +1,63 @@
+{
+  "schema": "b2_fe_weak_balanced_panel_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-08-31T16:11:51Z",
+  "candidate": "b2_fe_weak_balanced_attribution_panel_v1",
+  "question": "Does the Q1-FE weak objective add future-field benefit beyond the same 64-parameter observed-prefix adaptation?",
+  "hypothesis": "Across a deterministic 4/4/4 train panel, observed+FE adaptation will outperform observed-only adaptation while preserving nonworse, family, trust, and runtime behavior.",
+  "panel": {
+    "manifest": "results/b2_v4_fit_manifest_240rec_20260831.json",
+    "record_indices": [0, 1, 2, 3, 80, 81, 82, 83, 160, 161, 162, 163],
+    "family_counts": {
+      "uniform": 4,
+      "layered": 4,
+      "marmousi": 4
+    },
+    "selection": "first four manifest positions in each family block; fixed before paired future metrics",
+    "scope": "parent-fit train records, mechanism attribution only; not generalization evidence"
+  },
+  "paired_arms": {
+    "observed_only": {
+      "observed_weight": 1.0,
+      "fe_weak_weight": 0.0,
+      "ridge_weight": 0.0001,
+      "steps": 8
+    },
+    "fe_weak": {
+      "observed_weight": 1.0,
+      "fe_weak_weight": 0.1,
+      "ridge_weight": 0.0001,
+      "steps": 8
+    }
+  },
+  "sealing": "For each record both paired candidates are serialized and SHA256 hashed before future target frames 8:64 are read.",
+  "gates": {
+    "minimum_fe_relative_gain_vs_parent": 0.001,
+    "minimum_fe_nonworse": 11,
+    "minimum_fe_increment_vs_observed": 0.001,
+    "minimum_fe_accepted": 11,
+    "maximum_mean_runtime_s": 3.0,
+    "family_gate": "FE arm mean relative L2 <= observed-only in uniform, layered, and marmousi",
+    "failure_signal": "Reject the Q1-FE term if any gate fails; observed-only adaptation may remain a separate direction."
+  },
+  "bindings": {
+    "panel_script_sha256": "8f56b8c04848206adf8f91a99b328b490c81bc6730b37dfc0ea3c4c9dde20e3a",
+    "fe_residual_sha256": "2425e218967f5d0f03f6beb81d3003ef6b8a4fee49cafae0ba2d9ffa83440b86",
+    "adapter_sha256": "a42fa05a0bf4429baf2737594561886ddbfceb0e64019f5a1dfc1485fbed2903",
+    "test_sha256": "f3875685d38319463cb75d7bd37349e7ffb7f1c0a37fd60c226f4fdf2c02294f",
+    "checkpoint_sha256": "0217e5f295566ec6806db45cffe10578feac9c7cd20d87d82b7ae429bd84bd0c",
+    "cache_sha256": "d49077526d5c02aac49d9ff62c4aec190d3b2083cecd9a4e75a877766a715336",
+    "manifest_sha256": "8b8a4e96b1b998c70c86fc84ae3fd84934cf1bc23145a4dad255637e25a0632a"
+  },
+  "data_access": {
+    "split": "train",
+    "online_true_frames": [0, 1, 2, 3, 4, 5, 6, 7],
+    "future_truth": "post-seal paired mechanism diagnostic only",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/run_b2_fe_weak_balanced_panel.py --checkpoint results/b2_v4_group_disjoint_s372_20260831/best.pt --cache results/b2_v4_fit_cache_240rec_20260831.h5 --manifest results/b2_v4_fit_manifest_240rec_20260831.json --preregistration results/b2_fe_weak_balanced_panel_preregistration_20260901.json --output-dir results/b2_fe_weak_balanced_panel_20260901",
+  "output": "results/b2_fe_weak_balanced_panel_20260901",
+  "rollback": "additive train-only paired diagnostic; parent and protected checkpoints remain read-only",
+  "claim_scope": "A pass retains the FE weak term for a fresh group-disjoint train pilot. A fail removes FE from the adaptation objective."
+}

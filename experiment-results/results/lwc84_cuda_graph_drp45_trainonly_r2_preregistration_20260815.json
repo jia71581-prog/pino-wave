@@ -1,0 +1,27 @@
+{
+  "schema": "lwc84_cuda_graph_drp_trainonly_preregistration_v1",
+  "status": "frozen_before_launch",
+  "hypothesis": "A radius-four DRP second-derivative stencil optimized analytically through 0.45 Nyquist reduces the exact high-frequency train/Marmousi error from 0.263 to no greater than 0.05 while the existing five-step CUDA graph remains below 2.034137312322855 s.",
+  "mechanism": "Dispersion-relation-preserving coefficients trade unused near-zero Taylor order for lower integrated phase error over the physically occupied wavenumber band; CUDA graph replay changes only dispatch.",
+  "selection_scope": "train_only",
+  "validation_access": false,
+  "test_id_access": false,
+  "sample_id": "train_marmousi_00193",
+  "source_index": 2293,
+  "source_f0_hz": 29.99536220938785,
+  "single_conceptual_change": "standard radius-four eighth-order coefficients to radius-four DRP coefficients with max_nyquist_fraction=0.45",
+  "promotion_gate": {
+    "maximum_raw_relative_l2": 0.05,
+    "maximum_runtime_s": 2.034137312322855
+  },
+  "failure_signal": "Either gate failure rejects DRP-0.45 before any broader train or holdout evaluation.",
+  "compute_budget": "One high-frequency train/Marmousi record and one warmed CUDA-graph solve on one RTX 4090 D.",
+  "parent_checkpoint": null,
+  "rollback": "Keep the standard coefficients and cuda_graphs disabled by default; preserve all artifacts.",
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c"
+  },
+  "output": "results/lwc84_cuda_graph_drp45_trainonly_r2_20260815.json"
+}

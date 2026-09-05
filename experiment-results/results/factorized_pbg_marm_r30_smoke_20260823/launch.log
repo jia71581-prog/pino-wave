@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_pino.py", line 24, in <module>
+    main()
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_pino.py", line 19, in main
+    result = run_training(args.config, device_override=args.device, output_metrics=args.output_json)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/train.py", line 991, in run_training
+    stats = _load_or_compute_normalization(config, splits["train"])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/train.py", line 154, in _load_or_compute_normalization
+    stats = compute_normalization(config, train_indices)
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/src/fno_acoustic/train.py", line 75, in compute_normalization
+    raise ValueError("invalid wavefield std from train split")
+ValueError: invalid wavefield std from train split

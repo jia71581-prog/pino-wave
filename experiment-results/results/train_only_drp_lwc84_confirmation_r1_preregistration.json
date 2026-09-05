@@ -1,0 +1,78 @@
+{
+  "schema": "train_only_drp_lwc84_confirmation_preregistration_v1",
+  "registered_at_utc": "2026-08-12T09:36:04Z",
+  "status": "registered_before_confirmation",
+  "hypothesis": "The radius-4 DRP coefficients optimized through 0.45 Nyquist reduce train-only Marmousi relative L2 versus the production Taylor-8 stencil beyond the single-outlier effect observed in the pilot.",
+  "expected_mechanism": "A lower-band optimized spatial symbol should reduce high-frequency numerical phase error while retaining the unchanged LWC84 time update and three-sided CFS-CPML.",
+  "literature_basis": [
+    "Dispersion-relation-preserving finite differences motivate symbol-domain coefficient optimization.",
+    "The project hybrid-solver protocol requires disjoint train confirmation before any frozen holdout truth is generated."
+  ],
+  "parent_pilot": {
+    "artifact": "results/train_only_drp_lwc84_band_sweep_r1.json",
+    "artifact_sha256": "12f0228101bfe362b2cf0a5b42603d1ae141b60c748638a8a69ca4e92bff794d",
+    "preregistration": "results/train_only_drp_lwc84_band_sweep_r1_preregistration.json",
+    "preregistration_sha256": "86bddb093132c65b86d270595a994bdc8cbd9fbf0647a3b9d34ff0f6b2030b75",
+    "candidate_fraction": 0.45,
+    "standard_mean_relative_l2": 0.14461620138100573,
+    "candidate_mean_relative_l2": 0.13917000938731175,
+    "relative_improvement": 0.03765962555844933,
+    "paired_win_count": 1,
+    "record_count": 7,
+    "pilot_source_indices": [2480, 2291, 2774, 2198, 2534, 2157, 2293]
+  },
+  "data_contract": {
+    "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_train_marmousi_hires_v5_dt1e5_t401_mixed/dataset_v5_dt1e5_t401_mixed.h5",
+    "dataset_byte_count": 215599,
+    "dataset_sha256": "2dd814839ee51c59a28f55cdf12b40a92c99da5616535a6573b218d3b48092a8",
+    "required_split": "train",
+    "required_family": "marmousi",
+    "record_count": 24,
+    "medium_group_count": 24,
+    "selection": "Sixteen stable full-band f0 quantiles plus eight stable 28-30 Hz quantiles, each from a unique medium group and with all pilot medium groups excluded.",
+    "selected_source_indices": [2734, 2550, 2526, 2122, 2214, 2386, 2446, 2114, 2151, 2269, 2334, 2231, 2168, 2488, 2626, 2736, 2429, 2262, 2391, 2540, 2184, 2783, 2339, 2624],
+    "selected_f0_hz": [8.038088210363615, 9.498089617092878, 10.911593446023987, 12.403692175002247, 13.829977183248833, 15.2750181754937, 16.82060376594117, 18.242723324475765, 19.76912580515555, 21.164096163275495, 22.56641089008731, 24.105657951837987, 25.5685344450713, 27.013344021786917, 28.5159463803881, 29.949679429197367, 28.04274461549461, 28.29447594527648, 28.652944061051556, 28.936267655929655, 29.23115051703821, 29.461580359572103, 29.686683752454442, 29.907825646884323],
+    "expected_sample_sha256": ["0ef2ae8c3446a1ac131fa01caac8cb0e796ca3e8a80a1df4fd2b931523c58fa8", "117ac1fac93f369b3de4b371c32c2589b9b878b14d0b43e6bd0c72be12da0f7f", "47fd7c97656080d09a778ef846f4d2314b5e58c6e8f97b54dd3f8761f9cea418", "0bbd9208dad8a189ebbfa8786dce5f2f0d753bb623a2890abcae3469819d7e26", "ee685b648a7c9f678aa5a9fc1683ffe0e3c4fbac579b9bd567d6f4744597f40b", "6507ba84993fce80b39ba68c45357a977d12d39f288c254f6bf9580077b4904f", "74c827611dad391da00df5f4e5aa504f0a766c8d5bebbf1e50bc1e9e7b28e3df", "4742d4ea1a5d06d3e170d7ffa0dbb5f24f11dab66d8125b3332ddcc58d7f37f0", "4a2a2faae5d70d8f5bb7e29ac5fb476388bdb40a152105004830dc30f75d2666", "72521e4cb085e8f20c3734f09dd9482575e72b6a2a766102da38b694c5c75f6f", "2a651b2548675ed33021167d80be47e58878f1d8277d19b982f87f7b736086b7", "894f1f2fade27a580bc3eb3609491f31b09dd30246a5a3c71b3473d3e7f40f77", "c57545d53b5c78eede0141ff2b121a71466c27bdd98d4450e2427c97ea13be85", "82810947618ca0dcf0bb1e290a41b903cac8ea8e3a9c50afb7d26dbfbd062095", "ee6aabcd1c7aec7a6f6fb6fe24cadabf93e78703a5056c60bc19207145e2330a", "dfbc4b65900a3f50070a398fd24bda556d8539de2065744336aa8a10c3a436b5", "526364f7b68af7618088bb7864a1b957d05dd10825c819e419b69888483ac1f2", "efa6acb62599a6ffb42937c68be43c756f4077c4937831b9c25448190cd59e2d", "4fb89df7f25f35dafa0073d75d088f9c1db4c3b3318377ec9c2871b6051a5993", "bf46d3ac40c0ce41211e51cc1d96562cb11e9e6d588ab2daae028a747da1be51", "67d6ea5e93f05eb7aa140f98b1c25fef1f78db9e7a6478313961be0b14a8a9c9", "48d00f1667ae10489044da60a1e472bc61b39e76460465d37f28738ab9c9e0b9", "bfff4e79709a49f34f20dc9bc228d133507a0fbe3aab46deae78d0741b1a17e0", "61e0f531dbf880241b0352f9665ffb284568ea0601b22e3d89633c8b2832ff01"],
+    "sample_hash_semantics": "Each stored hash is recomputed from physical velocity_mps, wavefield, and source_map arrays before any solve."
+  },
+  "confirmation_contract": {
+    "variants": ["standard_taylor8", "drp_candidate_0.45"],
+    "internal_dt_s": 0.00025,
+    "npml": 20,
+    "c_ref_mps": 6750.0,
+    "dtype": "torch.float32",
+    "device": "cpu",
+    "threads": 32,
+    "compute_budget": "48 CPU solves, expected wall time about 20 minutes",
+    "primary_metric": "paired mean relative L2 improvement versus standard_taylor8",
+    "promotion_gates": {
+      "mean_relative_improvement_minimum": 0.02,
+      "paired_win_fraction_minimum": 0.625,
+      "high_frequency_cutoff_hz": 28.0,
+      "high_frequency_relative_improvement_minimum": 0.02,
+      "maximum_absolute_single_record_regression": 0.01,
+      "maximum_error_nonworse": true
+    },
+    "failure_signal": "Any promotion gate fails, any nonfinite solve occurs, any registered data/code digest differs, or any confirmation medium group overlaps the pilot.",
+    "rollback": "Keep standard_taylor8 as the deployable spatial stencil and do not evaluate DRP on frozen validation or test_id."
+  },
+  "code_sha256": {
+    "scripts/confirm_train_only_drp_lwc84.py": "be067323cbe04aed645ecdb73c175c12857ccb809047f6b18eff0f823964abf5",
+    "tests/test_train_only_drp_confirmation.py": "9088cf2f410e3e9d271063e2d2381172eaee97bc3d3aaae37f9e9e49a8ec477d",
+    "src/fno_acoustic/numerics/drp_coefficients.py": "0a5cfe4c0b298dbba760862bf8db86761aa56991cd50ddb2d8c80dfc5ffa0f1b",
+    "src/fno_acoustic/data_generation/stencils.py": "0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c",
+    "src/fno_acoustic/data_generation/lwc84.py": "ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118",
+    "src/fno_acoustic/data_generation/cpml.py": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f",
+    "src/fno_acoustic/data_generation/solver_lwc84.py": "dd5b64ea3f604c718bbd934a29d98d8e549472c745279fc7af0bc6d21357d9ad"
+  },
+  "test_evidence": {
+    "command": "PYTHONPATH=src:. python -m pytest -q tests/test_train_only_drp_confirmation.py tests/test_train_only_drp_sweep.py tests/test_drp_coefficients.py tests/test_fused_lwc84.py tests/test_lwc84_core.py tests/test_lwc84_cpml.py tests/test_lwc84_solver.py",
+    "result": "38 passed"
+  },
+  "frozen_holdout_truth_status_at_registration": "not_generated",
+  "prohibited_uses": [
+    "No validation or test_id wavefield may be read during this confirmation.",
+    "No target5 frozen truth may be generated until the deployable algorithm and evaluation contract are frozen.",
+    "This train-only confirmation cannot establish either the 5 percent accuracy target or the 10x runtime target."
+  ]
+}

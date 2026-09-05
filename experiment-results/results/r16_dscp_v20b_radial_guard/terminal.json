@@ -1,0 +1,1582 @@
+{
+ "bindings": {
+  "band_adapter_sha256": "59689f19ae643803a1689c4c1390c4a7af162ed6789bf0f348c1b80ea1949c41",
+  "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+  "confirmatory_metrics_sha256": "401d1347038e6b0a45906b90d75fefde9f0d6cd1f92190e4ed53f91d635f67e6",
+  "script_sha256": "37035d2d04892d8e7b795c36697cc2622061066cd4fc58996aa2e3d0d438acc1",
+  "spec_sha256": "c17ed28c9c9922200c95eaeb53281db3c34c612f241f55fb23cc3a3150b81f91",
+  "v19_terminal_sha256": "2e3eb5d434ab385499363f9b133b9cec71b306d90260b925b2393af4a1bfb445",
+  "v20_terminal_sha256": "e9d0625d40a2904cb7f85bbe7b33596787714d7c2aa727dcf85c449896aa7925"
+ },
+ "checkpoint_writes": 0,
+ "claim_scope": "posthoc_train_only_paper_metric_diagnostic_not_promotion_evidence",
+ "coefficient_radial_guard_summary": {
+  "by_family": {
+   "layered": {
+    "aggregate_gain_mean": 0.054507130373058994,
+    "aggregate_nonworse": 8,
+    "aggregate_nonworse_within_1pct": 8,
+    "count": 8,
+    "late_gain_mean": 0.007534136943295976,
+    "late_nonworse": 5,
+    "radial_high_gain_mean": 1.2842383069588456e-08,
+    "radial_high_nonworse": 8,
+    "radial_high_worst_harm": 0.0,
+    "worst_aggregate_harm": 0.0034876021472975936
+   },
+   "marmousi": {
+    "aggregate_gain_mean": 0.008707237602200069,
+    "aggregate_nonworse": 7,
+    "aggregate_nonworse_within_1pct": 8,
+    "count": 8,
+    "late_gain_mean": 0.011335793354150397,
+    "late_nonworse": 6,
+    "radial_high_gain_mean": 4.591259501697945e-09,
+    "radial_high_nonworse": 8,
+    "radial_high_worst_harm": -9.905889100599752e-08,
+    "worst_aggregate_harm": -0.006758263522947873
+   },
+   "uniform": {
+    "aggregate_gain_mean": 0.01639323756111682,
+    "aggregate_nonworse": 7,
+    "aggregate_nonworse_within_1pct": 7,
+    "count": 8,
+    "late_gain_mean": 0.015294129020136459,
+    "late_nonworse": 8,
+    "radial_high_gain_mean": 2.9349633194024987e-08,
+    "radial_high_nonworse": 8,
+    "radial_high_worst_harm": -8.082315473463657e-08,
+    "worst_aggregate_harm": -0.011581666784334267
+   }
+  },
+  "joint": {
+   "aggregate_gain_mean": 0.026535868512125294,
+   "aggregate_nonworse": 22,
+   "aggregate_nonworse_within_1pct": 23,
+   "count": 24,
+   "late_gain_mean": 0.01138801977252761,
+   "late_nonworse": 19,
+   "radial_high_gain_mean": 1.5594425255103795e-08,
+   "radial_high_nonworse": 24,
+   "radial_high_worst_harm": -9.905889100599752e-08,
+   "worst_aggregate_harm": -0.011581666784334267
+  }
+ },
+ "completed_utc": "2026-08-27T14:40:06Z",
+ "guard_engineering": {
+  "coefficient_vs_full_field_projection_max_relative_difference": 3.6342646581033478e-06,
+  "guarded_correction_max_radial_high_energy_fraction": 1.9100422198742306e-12,
+  "projection_latency_mean_s": 0.0005995018873363733,
+  "projection_latency_p95_s": 0.0005988972261548042,
+  "projection_space": "16 coefficient maps before temporal materialization"
+ },
+ "metric_correction": "v20 used the legacy DSCP last-axis thirds; v20b uses the paper/confirmatory normalized 2-D radial bands from spatial_spectrum_relative_l2",
+ "parent_untouched": true,
+ "raw_summary": {
+  "by_family": {
+   "layered": {
+    "aggregate_gain_mean": 0.054488211685905716,
+    "aggregate_nonworse": 8,
+    "aggregate_nonworse_within_1pct": 8,
+    "count": 8,
+    "late_gain_mean": 0.007530738448548723,
+    "late_nonworse": 5,
+    "radial_high_gain_mean": -0.03882486389816377,
+    "radial_high_nonworse": 1,
+    "radial_high_worst_harm": -0.13276749501691676,
+    "worst_aggregate_harm": 0.00345146166648861
+   },
+   "marmousi": {
+    "aggregate_gain_mean": 0.008667402311966492,
+    "aggregate_nonworse": 7,
+    "aggregate_nonworse_within_1pct": 8,
+    "count": 8,
+    "late_gain_mean": 0.011282626533323629,
+    "late_nonworse": 6,
+    "radial_high_gain_mean": -0.08443152693977736,
+    "radial_high_nonworse": 0,
+    "radial_high_worst_harm": -0.2130237449375793,
+    "worst_aggregate_harm": -0.006878554839248178
+   },
+   "uniform": {
+    "aggregate_gain_mean": 0.016401713775494514,
+    "aggregate_nonworse": 7,
+    "aggregate_nonworse_within_1pct": 7,
+    "count": 8,
+    "late_gain_mean": 0.015320385198766152,
+    "late_nonworse": 8,
+    "radial_high_gain_mean": 0.008584062803374946,
+    "radial_high_nonworse": 4,
+    "radial_high_worst_harm": -0.009212445531634264,
+    "worst_aggregate_harm": -0.011586437233894522
+   }
+  },
+  "joint": {
+   "aggregate_gain_mean": 0.02651910925778891,
+   "aggregate_nonworse": 22,
+   "aggregate_nonworse_within_1pct": 23,
+   "count": 24,
+   "late_gain_mean": 0.011377916726879501,
+   "late_nonworse": 19,
+   "radial_high_gain_mean": -0.0382241093448554,
+   "radial_high_nonworse": 5,
+   "radial_high_worst_harm": -0.2130237449375793,
+   "worst_aggregate_harm": -0.011586437233894522
+  }
+ },
+ "readout": {
+  "aggregate_gain_delta_guard_minus_raw": 1.6759254336383422e-05,
+  "radial_guard_viable": true,
+  "radial_high_gain_delta_guard_minus_raw": 0.03822412493928066
+ },
+ "records": [
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.013006097751383597,
+    "aggregate_rel_l2": 0.2186585645419293,
+    "correction_energy_ratio": 0.009605656216671936,
+    "late_gain": -0.0021448481174197215,
+    "parent_aggregate_rel_l2": 0.221539934587003,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.38636812567710876,
+     "low": 0.22168999910354614,
+     "middle": 0.4968675971031189
+    },
+    "parent_time_bands": {
+     "early": 0.1728232502937317,
+     "late": 0.9402916431427002,
+     "middle": 0.3971520662307739
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.38636812567710876,
+     "low": 0.21975386142730713,
+     "middle": 0.5463566780090332
+    },
+    "time_bands": {
+     "early": 0.1733316332101822,
+     "late": 0.9423084259033203,
+     "middle": 0.3907507359981537
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.012932544136674306,
+    "aggregate_rel_l2": 0.21867485960492064,
+    "correction_energy_ratio": 0.009615151283411033,
+    "late_gain": -0.0021549270525973354,
+    "parent_aggregate_rel_l2": 0.221539934587003,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.38636812567710876,
+     "low": 0.22168999910354614,
+     "middle": 0.4968675971031189
+    },
+    "parent_time_bands": {
+     "early": 0.1728232502937317,
+     "late": 0.9402916431427002,
+     "middle": 0.3971520662307739
+    },
+    "radial_high_gain": -0.13276749501691676,
+    "radial_spectrum_relative_l2": {
+     "high": 0.43766525387763977,
+     "low": 0.21975871920585632,
+     "middle": 0.5452874898910522
+    },
+    "time_bands": {
+     "early": 0.17333266139030457,
+     "late": 0.9423179030418396,
+     "middle": 0.390802800655365
+    }
+   },
+   "sample_id": "train_layered_00016"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.16963687526328558,
+    "aggregate_rel_l2": 0.29803964849643194,
+    "correction_energy_ratio": 0.017644655113501235,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.3589268834534677,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.7994821071624756,
+     "low": 0.36853981018066406,
+     "middle": 0.8457914590835571
+    },
+    "parent_time_bands": {
+     "early": 0.180288627743721,
+     "late": 1.0001273155212402,
+     "middle": 0.8696529865264893
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.7994821071624756,
+     "low": 0.30730006098747253,
+     "middle": 0.7634812593460083
+    },
+    "time_bands": {
+     "early": 0.18235725164413452,
+     "late": 1.0001273155212402,
+     "middle": 0.6996504068374634
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.16970802402837573,
+    "aggregate_rel_l2": 0.2980141112919166,
+    "correction_energy_ratio": 0.017659149327082922,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.3589268834534677,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.7994821071624756,
+     "low": 0.36853981018066406,
+     "middle": 0.8457914590835571
+    },
+    "parent_time_bands": {
+     "early": 0.180288627743721,
+     "late": 1.0001273155212402,
+     "middle": 0.8696529865264893
+    },
+    "radial_high_gain": 0.13241205378270948,
+    "radial_spectrum_relative_l2": {
+     "high": 0.693621039390564,
+     "low": 0.3072913587093353,
+     "middle": 0.766424298286438
+    },
+    "time_bands": {
+     "early": 0.18236173689365387,
+     "late": 1.0001273155212402,
+     "middle": 0.6995225548744202
+    }
+   },
+   "sample_id": "train_layered_00132"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.039186860688124645,
+    "aggregate_rel_l2": 0.5697606060461241,
+    "correction_energy_ratio": 0.02359673647073165,
+    "late_gain": 0.02550387979868876,
+    "parent_aggregate_rel_l2": 0.5929983497667204,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.757910966873169,
+     "low": 0.5805741548538208,
+     "middle": 0.8123175501823425
+    },
+    "parent_time_bands": {
+     "early": 0.3298046886920929,
+     "late": 1.223387360572815,
+     "middle": 0.8425686955451965
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.757910966873169,
+     "low": 0.5588951110839844,
+     "middle": 0.8521745204925537
+    },
+    "time_bands": {
+     "early": 0.3316512405872345,
+     "late": 1.1921862363815308,
+     "middle": 0.7969458699226379
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.03915551068551317,
+    "aggregate_rel_l2": 0.5697791965459379,
+    "correction_energy_ratio": 0.023624585798645875,
+    "late_gain": 0.02551654725638944,
+    "parent_aggregate_rel_l2": 0.5929983497667204,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.757910966873169,
+     "low": 0.5805741548538208,
+     "middle": 0.8123175501823425
+    },
+    "parent_time_bands": {
+     "early": 0.3298046886920929,
+     "late": 1.223387360572815,
+     "middle": 0.8425686955451965
+    },
+    "radial_high_gain": -0.10470864375167707,
+    "radial_spectrum_relative_l2": {
+     "high": 0.8372707962989807,
+     "low": 0.5588955879211426,
+     "middle": 0.8520178198814392
+    },
+    "time_bands": {
+     "early": 0.33165475726127625,
+     "late": 1.1921707391738892,
+     "middle": 0.7969921827316284
+    }
+   },
+   "sample_id": "train_layered_00204"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.07121140376972918,
+    "aggregate_rel_l2": 0.2290008182391566,
+    "correction_energy_ratio": 0.009929958892394765,
+    "late_gain": 0.009395979150558908,
+    "parent_aggregate_rel_l2": 0.24655860242967642,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.580155611038208,
+     "low": 0.2482428103685379,
+     "middle": 0.6563687324523926
+    },
+    "parent_time_bands": {
+     "early": 0.13172230124473572,
+     "late": 1.0140551328659058,
+     "middle": 0.5467018485069275
+    },
+    "radial_high_gain": 1.0273906455670765e-07,
+    "radial_spectrum_relative_l2": {
+     "high": 0.5801555514335632,
+     "low": 0.23097099363803864,
+     "middle": 0.6427482962608337
+    },
+    "time_bands": {
+     "early": 0.1325415074825287,
+     "late": 1.0045270919799805,
+     "middle": 0.4914831221103668
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.07119000389008147,
+    "aggregate_rel_l2": 0.2290060945635747,
+    "correction_energy_ratio": 0.009943869979631837,
+    "late_gain": 0.009405618825391515,
+    "parent_aggregate_rel_l2": 0.24655860242967642,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.580155611038208,
+     "low": 0.2482428103685379,
+     "middle": 0.6563687324523926
+    },
+    "parent_time_bands": {
+     "early": 0.13172230124473572,
+     "late": 1.0140551328659058,
+     "middle": 0.5467018485069275
+    },
+    "radial_high_gain": -0.020975823854284772,
+    "radial_spectrum_relative_l2": {
+     "high": 0.5923248529434204,
+     "low": 0.23096954822540283,
+     "middle": 0.643028736114502
+    },
+    "time_bands": {
+     "early": 0.13254401087760925,
+     "late": 1.0045173168182373,
+     "middle": 0.49147525429725647
+    }
+   },
+   "sample_id": "train_layered_00212"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.08133733108640685,
+    "aggregate_rel_l2": 0.5246446265363618,
+    "correction_energy_ratio": 0.05356124268953957,
+    "late_gain": 0.029077697490397375,
+    "parent_aggregate_rel_l2": 0.5710960554833522,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.1093223094940186,
+     "low": 0.5741215348243713,
+     "middle": 1.5526378154754639
+    },
+    "parent_time_bands": {
+     "early": 0.29904675483703613,
+     "late": 1.106294870376587,
+     "middle": 1.129935383796692
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 1.1093223094940186,
+     "low": 0.5283007621765137,
+     "middle": 1.5433826446533203
+    },
+    "time_bands": {
+     "early": 0.30164602398872375,
+     "late": 1.0741263628005981,
+     "middle": 1.0025078058242798
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.0813130837981173,
+    "aggregate_rel_l2": 0.5246584740670601,
+    "correction_energy_ratio": 0.05363087406376725,
+    "late_gain": 0.029076081158810614,
+    "parent_aggregate_rel_l2": 0.5710960554833522,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.1093223094940186,
+     "low": 0.5741215348243713,
+     "middle": 1.5526378154754639
+    },
+    "parent_time_bands": {
+     "early": 0.29904675483703613,
+     "late": 1.106294870376587,
+     "middle": 1.129935383796692
+    },
+    "radial_high_gain": -0.022137900871189286,
+    "radial_spectrum_relative_l2": {
+     "high": 1.133880376815796,
+     "low": 0.5283032655715942,
+     "middle": 1.542763113975525
+    },
+    "time_bands": {
+     "early": 0.30165529251098633,
+     "late": 1.0741281509399414,
+     "middle": 1.0025432109832764
+    }
+   },
+   "sample_id": "train_layered_00676"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.0034876021472975936,
+    "aggregate_rel_l2": 0.33346528782831764,
+    "correction_energy_ratio": 0.007652488584362039,
+    "late_gain": -0.0023633235706218393,
+    "parent_aggregate_rel_l2": 0.33463235233889,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.6498895883560181,
+     "low": 0.33322471380233765,
+     "middle": 0.6518301963806152
+    },
+    "parent_time_bands": {
+     "early": 0.22097888588905334,
+     "late": 0.8432284593582153,
+     "middle": 0.4690512716770172
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.6498895883560181,
+     "low": 0.33370405435562134,
+     "middle": 0.6752553582191467
+    },
+    "time_bands": {
+     "early": 0.2215203195810318,
+     "late": 0.8452212810516357,
+     "middle": 0.46757107973098755
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.00345146166648861,
+    "aggregate_rel_l2": 0.3334773816024254,
+    "correction_energy_ratio": 0.007665235955821659,
+    "late_gain": -0.0023808537568249326,
+    "parent_aggregate_rel_l2": 0.33463235233889,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.6498895883560181,
+     "low": 0.33322471380233765,
+     "middle": 0.6518301963806152
+    },
+    "parent_time_bands": {
+     "early": 0.22097888588905334,
+     "late": 0.8432284593582153,
+     "middle": 0.4690512716770172
+    },
+    "radial_high_gain": -0.07243754160423166,
+    "radial_spectrum_relative_l2": {
+     "high": 0.6969659924507141,
+     "low": 0.333706796169281,
+     "middle": 0.6744415163993835
+    },
+    "time_bands": {
+     "early": 0.22152255475521088,
+     "late": 0.84523606300354,
+     "middle": 0.46759727597236633
+    }
+   },
+   "sample_id": "train_layered_00848"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.033726337818625426,
+    "aggregate_rel_l2": 0.2859258649018652,
+    "correction_energy_ratio": 0.0037908257036887824,
+    "late_gain": -0.013904166093771484,
+    "parent_aggregate_rel_l2": 0.29590567982199173,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.4233117401599884,
+     "low": 0.2939668595790863,
+     "middle": 0.43802720308303833
+    },
+    "parent_time_bands": {
+     "early": 0.21824254095554352,
+     "late": 1.1375160217285156,
+     "middle": 0.43930932879447937
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.4233117401599884,
+     "low": 0.2843564748764038,
+     "middle": 0.4699118435382843
+    },
+    "time_bands": {
+     "early": 0.21872259676456451,
+     "late": 1.153332233428955,
+     "middle": 0.42343536019325256
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.033691761900406944,
+    "aggregate_rel_l2": 0.28593609611245113,
+    "correction_energy_ratio": 0.003797549091851983,
+    "late_gain": -0.013942207731234469,
+    "parent_aggregate_rel_l2": 0.29590567982199173,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.4233117401599884,
+     "low": 0.2939668595790863,
+     "middle": 0.43802720308303833
+    },
+    "parent_time_bands": {
+     "early": 0.21824254095554352,
+     "late": 1.1375160217285156,
+     "middle": 0.43930932879447937
+    },
+    "radial_high_gain": -0.08467433611060558,
+    "radial_spectrum_relative_l2": {
+     "high": 0.4591553807258606,
+     "low": 0.2843605875968933,
+     "middle": 0.4688776135444641
+    },
+    "time_bands": {
+     "early": 0.21872492134571075,
+     "late": 1.153375506401062,
+     "middle": 0.42345571517944336
+    }
+   },
+   "sample_id": "train_layered_00936"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.02446453445961909,
+    "aggregate_rel_l2": 0.3983440283191544,
+    "correction_energy_ratio": 0.007163427478595007,
+    "late_gain": 0.014707876888535816,
+    "parent_aggregate_rel_l2": 0.40833372275040625,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.5376428961753845,
+     "low": 0.40302854776382446,
+     "middle": 0.5634253621101379
+    },
+    "parent_time_bands": {
+     "early": 0.37514597177505493,
+     "late": 0.8284012675285339,
+     "middle": 0.4700027108192444
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.5376428961753845,
+     "low": 0.39325612783432007,
+     "middle": 0.5659940838813782
+    },
+    "time_bands": {
+     "early": 0.3766264021396637,
+     "late": 0.8162172436714172,
+     "middle": 0.4485223889350891
+    }
+   },
+   "family": "layered",
+   "raw": {
+    "aggregate_gain": 0.024463303381588166,
+    "aggregate_rel_l2": 0.39834453100982975,
+    "correction_energy_ratio": 0.007166329715485191,
+    "late_gain": 0.014725648888454942,
+    "parent_aggregate_rel_l2": 0.40833372275040625,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.5376428961753845,
+     "low": 0.40302854776382446,
+     "middle": 0.5634253621101379
+    },
+    "parent_time_bands": {
+     "early": 0.37514597177505493,
+     "late": 0.8284012675285339,
+     "middle": 0.4700027108192444
+    },
+    "radial_high_gain": -0.005309223759114454,
+    "radial_spectrum_relative_l2": {
+     "high": 0.540497362613678,
+     "low": 0.39325621724128723,
+     "middle": 0.5659506320953369
+    },
+    "time_bands": {
+     "early": 0.3766273260116577,
+     "late": 0.8162025213241577,
+     "middle": 0.44852474331855774
+    }
+   },
+   "sample_id": "train_layered_01060"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.0057651300822778384,
+    "aggregate_rel_l2": 0.5712511680277477,
+    "correction_energy_ratio": 0.008246681061654201,
+    "late_gain": 0.0038549835183490254,
+    "parent_aggregate_rel_l2": 0.574563601933436,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.9464730024337769,
+     "low": 0.572102963924408,
+     "middle": 0.936527669429779
+    },
+    "parent_time_bands": {
+     "early": 0.3073212206363678,
+     "late": 0.7569899559020996,
+     "middle": 0.5614854693412781
+    },
+    "radial_high_gain": 6.297553614537575e-08,
+    "radial_spectrum_relative_l2": {
+     "high": 0.9464729428291321,
+     "low": 0.5692177414894104,
+     "middle": 0.9444029927253723
+    },
+    "time_bands": {
+     "early": 0.30732932686805725,
+     "late": 0.7540717720985413,
+     "middle": 0.5591608881950378
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.005745300052414446,
+    "aggregate_rel_l2": 0.5712625616411324,
+    "correction_energy_ratio": 0.008270595398595433,
+    "late_gain": 0.0038201021339533347,
+    "parent_aggregate_rel_l2": 0.574563601933436,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.9464730024337769,
+     "low": 0.572102963924408,
+     "middle": 0.936527669429779
+    },
+    "parent_time_bands": {
+     "early": 0.3073212206363678,
+     "late": 0.7569899559020996,
+     "middle": 0.5614854693412781
+    },
+    "radial_high_gain": -0.04754149174686706,
+    "radial_spectrum_relative_l2": {
+     "high": 0.9914697408676147,
+     "low": 0.5692187547683716,
+     "middle": 0.944240391254425
+    },
+    "time_bands": {
+     "early": 0.3073294460773468,
+     "late": 0.7540981769561768,
+     "middle": 0.5591670870780945
+    }
+   },
+   "sample_id": "train_marmousi_00070"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.006470255895050256,
+    "aggregate_rel_l2": 0.7749706633287333,
+    "correction_energy_ratio": 0.022299638405769394,
+    "late_gain": 0.007542283413577644,
+    "parent_aggregate_rel_l2": 0.7800175766523108,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.1375607252120972,
+     "low": 0.7787637114524841,
+     "middle": 0.8142445087432861
+    },
+    "parent_time_bands": {
+     "early": 0.33969399333000183,
+     "late": 1.025743007659912,
+     "middle": 0.8243339657783508
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 1.1375607252120972,
+     "low": 0.7734891772270203,
+     "middle": 0.8157433271408081
+    },
+    "time_bands": {
+     "early": 0.3397408425807953,
+     "late": 1.0180065631866455,
+     "middle": 0.8213875889778137
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.00645463112754423,
+    "aggregate_rel_l2": 0.7749828509220191,
+    "correction_energy_ratio": 0.022364942698840266,
+    "late_gain": 0.007519853435784484,
+    "parent_aggregate_rel_l2": 0.7800175766523108,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.1375607252120972,
+     "low": 0.7787637114524841,
+     "middle": 0.8142445087432861
+    },
+    "parent_time_bands": {
+     "early": 0.33969399333000183,
+     "late": 1.025743007659912,
+     "middle": 0.8243339657783508
+    },
+    "radial_high_gain": -0.04098526693753064,
+    "radial_spectrum_relative_l2": {
+     "high": 1.184183955192566,
+     "low": 0.7734900712966919,
+     "middle": 0.8157186508178711
+    },
+    "time_bands": {
+     "early": 0.3397409915924072,
+     "late": 1.0180295705795288,
+     "middle": 0.8213950395584106
+    }
+   },
+   "sample_id": "train_marmousi_00155"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": -0.006758263522947873,
+    "aggregate_rel_l2": 0.532576109853991,
+    "correction_energy_ratio": 0.017463509856746565,
+    "late_gain": -0.006788167176598191,
+    "parent_aggregate_rel_l2": 0.5290009818149871,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.9805485606193542,
+     "low": 0.5261256694793701,
+     "middle": 0.7883376479148865
+    },
+    "parent_time_bands": {
+     "early": 0.3636453449726105,
+     "late": 0.6853311657905579,
+     "middle": 0.4557603597640991
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.9805485606193542,
+     "low": 0.5299668312072754,
+     "middle": 0.8207634091377258
+    },
+    "time_bands": {
+     "early": 0.3637005686759949,
+     "late": 0.6899833083152771,
+     "middle": 0.4621129631996155
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": -0.006878554839248178,
+    "aggregate_rel_l2": 0.5326397440784176,
+    "correction_energy_ratio": 0.017548539255617935,
+    "late_gain": -0.00692897489804486,
+    "parent_aggregate_rel_l2": 0.5290009818149871,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.9805485606193542,
+     "low": 0.5261256694793701,
+     "middle": 0.7883376479148865
+    },
+    "parent_time_bands": {
+     "early": 0.3636453449726105,
+     "late": 0.6853311657905579,
+     "middle": 0.4557603597640991
+    },
+    "radial_high_gain": -0.2130237449375793,
+    "radial_spectrum_relative_l2": {
+     "high": 1.189428687095642,
+     "low": 0.5299687385559082,
+     "middle": 0.8206557631492615
+    },
+    "time_bands": {
+     "early": 0.3637009859085083,
+     "late": 0.6900798082351685,
+     "middle": 0.46215352416038513
+    }
+   },
+   "sample_id": "train_marmousi_00285"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.014811249557276371,
+    "aggregate_rel_l2": 0.4769379555054909,
+    "correction_energy_ratio": 0.010609420379757846,
+    "late_gain": 0.025239542757727437,
+    "parent_aggregate_rel_l2": 0.4841082029115383,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.8185940980911255,
+     "low": 0.4829517602920532,
+     "middle": 0.89207923412323
+    },
+    "parent_time_bands": {
+     "early": 0.3607477843761444,
+     "late": 0.6201073527336121,
+     "middle": 0.4551306962966919
+    },
+    "radial_high_gain": 7.281343087420533e-08,
+    "radial_spectrum_relative_l2": {
+     "high": 0.8185940384864807,
+     "low": 0.4757227897644043,
+     "middle": 0.9088565707206726
+    },
+    "time_bands": {
+     "early": 0.36081576347351074,
+     "late": 0.6044561266899109,
+     "middle": 0.4564690887928009
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.014771333375175227,
+    "aggregate_rel_l2": 0.47695727925667497,
+    "correction_energy_ratio": 0.010642282629797743,
+    "late_gain": 0.0251887914607098,
+    "parent_aggregate_rel_l2": 0.4841082029115383,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.8185940980911255,
+     "low": 0.4829517602920532,
+     "middle": 0.89207923412323
+    },
+    "parent_time_bands": {
+     "early": 0.3607477843761444,
+     "late": 0.6201073527336121,
+     "middle": 0.4551306962966919
+    },
+    "radial_high_gain": -0.1061664238338747,
+    "radial_spectrum_relative_l2": {
+     "high": 0.9055013060569763,
+     "low": 0.47572267055511475,
+     "middle": 0.9088962078094482
+    },
+    "time_bands": {
+     "early": 0.36081600189208984,
+     "late": 0.6044875979423523,
+     "middle": 0.4564824104309082
+    }
+   },
+   "sample_id": "train_marmousi_00490"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.000699469039891134,
+    "aggregate_rel_l2": 0.6703560363647375,
+    "correction_energy_ratio": 0.01594377629998261,
+    "late_gain": -0.002559178746924226,
+    "parent_aggregate_rel_l2": 0.6708252578637902,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.2034183740615845,
+     "low": 0.6696860194206238,
+     "middle": 1.1921112537384033
+    },
+    "parent_time_bands": {
+     "early": 0.32925206422805786,
+     "late": 0.9718441963195801,
+     "middle": 0.7072020173072815
+    },
+    "radial_high_gain": -9.905889100599752e-08,
+    "radial_spectrum_relative_l2": {
+     "high": 1.203418493270874,
+     "low": 0.6696467399597168,
+     "middle": 1.20103120803833
+    },
+    "time_bands": {
+     "early": 0.3292968273162842,
+     "late": 0.9743313193321228,
+     "middle": 0.7064535617828369
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.0006764148366030343,
+    "aggregate_rel_l2": 0.6703715017066031,
+    "correction_energy_ratio": 0.015994374529829943,
+    "late_gain": -0.002606649313946043,
+    "parent_aggregate_rel_l2": 0.6708252578637902,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.2034183740615845,
+     "low": 0.6696860194206238,
+     "middle": 1.1921112537384033
+    },
+    "parent_time_bands": {
+     "early": 0.32925206422805786,
+     "late": 0.9718441963195801,
+     "middle": 0.7072020173072815
+    },
+    "radial_high_gain": -0.042618502913074334,
+    "radial_spectrum_relative_l2": {
+     "high": 1.2547062635421753,
+     "low": 0.669646680355072,
+     "middle": 1.2010852098464966
+    },
+    "time_bands": {
+     "early": 0.3292970061302185,
+     "late": 0.974377453327179,
+     "middle": 0.7064599990844727
+    }
+   },
+   "sample_id": "train_marmousi_00535"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.009313563411304425,
+    "aggregate_rel_l2": 0.8396365219376254,
+    "correction_energy_ratio": 0.0169954844302617,
+    "late_gain": 0.011396082780984963,
+    "parent_aggregate_rel_l2": 0.8475300467712149,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.1233967542648315,
+     "low": 0.8445408344268799,
+     "middle": 1.0714964866638184
+    },
+    "parent_time_bands": {
+     "early": 0.5090683102607727,
+     "late": 1.0704803466796875,
+     "middle": 0.8775014281272888
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 1.1233967542648315,
+     "low": 0.836869478225708,
+     "middle": 1.0781770944595337
+    },
+    "time_bands": {
+     "early": 0.5091066360473633,
+     "late": 1.0582810640335083,
+     "middle": 0.8715212345123291
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.009298089788335165,
+    "aggregate_rel_l2": 0.8396496362980242,
+    "correction_energy_ratio": 0.017063295957346937,
+    "late_gain": 0.011369356246881904,
+    "parent_aggregate_rel_l2": 0.8475300467712149,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.1233967542648315,
+     "low": 0.8445408344268799,
+     "middle": 1.0714964866638184
+    },
+    "parent_time_bands": {
+     "early": 0.5090683102607727,
+     "late": 1.0704803466796875,
+     "middle": 0.8775014281272888
+    },
+    "radial_high_gain": -0.04961355555944644,
+    "radial_spectrum_relative_l2": {
+     "high": 1.1791324615478516,
+     "low": 0.8368708491325378,
+     "middle": 1.0778939723968506
+    },
+    "time_bands": {
+     "early": 0.5091067552566528,
+     "late": 1.0583096742630005,
+     "middle": 0.8715283870697021
+    }
+   },
+   "sample_id": "train_marmousi_00640"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.021916862061105373,
+    "aggregate_rel_l2": 0.48400130963326055,
+    "correction_energy_ratio": 0.01019047812291189,
+    "late_gain": 0.028942747909308213,
+    "parent_aggregate_rel_l2": 0.4948467986608909,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.0484164953231812,
+     "low": 0.49428170919418335,
+     "middle": 0.9587923288345337
+    },
+    "parent_time_bands": {
+     "early": 0.2562628984451294,
+     "late": 0.733806848526001,
+     "middle": 0.4017694294452667
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 1.0484164953231812,
+     "low": 0.48310387134552,
+     "middle": 0.9786021113395691
+    },
+    "time_bands": {
+     "early": 0.25632211565971375,
+     "late": 0.712568461894989,
+     "middle": 0.40106701850891113
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.021860702343410924,
+    "aggregate_rel_l2": 0.48402910008977534,
+    "correction_energy_ratio": 0.010232020680227058,
+    "late_gain": 0.028869562731150634,
+    "parent_aggregate_rel_l2": 0.4948467986608909,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 1.0484164953231812,
+     "low": 0.49428170919418335,
+     "middle": 0.9587923288345337
+    },
+    "parent_time_bands": {
+     "early": 0.2562628984451294,
+     "late": 0.733806848526001,
+     "middle": 0.4017694294452667
+    },
+    "radial_high_gain": -0.08311067221315432,
+    "radial_spectrum_relative_l2": {
+     "high": 1.13555109500885,
+     "low": 0.4831063449382782,
+     "middle": 0.9782531261444092
+    },
+    "time_bands": {
+     "early": 0.25632235407829285,
+     "late": 0.7126221656799316,
+     "middle": 0.4010818898677826
+    }
+   },
+   "sample_id": "train_marmousi_00660"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.017439634293643032,
+    "aggregate_rel_l2": 0.5944645063758868,
+    "correction_energy_ratio": 0.014586568035025147,
+    "late_gain": 0.02305805237677831,
+    "parent_aggregate_rel_l2": 0.6050157599716834,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.8482179045677185,
+     "low": 0.6054356098175049,
+     "middle": 0.829332172870636
+    },
+    "parent_time_bands": {
+     "early": 0.26886826753616333,
+     "late": 0.9017993211746216,
+     "middle": 0.4482570290565491
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.8482179045677185,
+     "low": 0.5950007438659668,
+     "middle": 0.8387474417686462
+    },
+    "time_bands": {
+     "early": 0.2689376771450043,
+     "late": 0.881005585193634,
+     "middle": 0.44926610589027405
+    }
+   },
+   "family": "marmousi",
+   "raw": {
+    "aggregate_gain": 0.01741130181149708,
+    "aggregate_rel_l2": 0.5944816479741042,
+    "correction_energy_ratio": 0.014635904069288653,
+    "late_gain": 0.023028970470099767,
+    "parent_aggregate_rel_l2": 0.6050157599716834,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.8482179045677185,
+     "low": 0.6054356098175049,
+     "middle": 0.829332172870636
+    },
+    "parent_time_bands": {
+     "early": 0.26886826753616333,
+     "late": 0.9017993211746216,
+     "middle": 0.4482570290565491
+    },
+    "radial_high_gain": -0.09239255737669207,
+    "radial_spectrum_relative_l2": {
+     "high": 0.926586925983429,
+     "low": 0.5950009226799011,
+     "middle": 0.8387423753738403
+    },
+    "time_bands": {
+     "early": 0.26893797516822815,
+     "late": 0.8810318112373352,
+     "middle": 0.4492802619934082
+    }
+   },
+   "sample_id": "train_marmousi_00685"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.01558615873029548,
+    "aggregate_rel_l2": 0.08114606733620039,
+    "correction_energy_ratio": 8.375849212431594e-05,
+    "late_gain": 5.452581961755962e-06,
+    "parent_aggregate_rel_l2": 0.08243084761134359,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.1598353534936905,
+     "low": 0.08271197974681854,
+     "middle": 0.19801869988441467
+    },
+    "parent_time_bands": {
+     "early": 0.11091642826795578,
+     "late": 30.78297233581543,
+     "middle": 0.11372994631528854
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.1598353534936905,
+     "low": 0.08133744448423386,
+     "middle": 0.19781887531280518
+    },
+    "time_bands": {
+     "early": 0.11080971360206604,
+     "late": 30.782804489135742,
+     "middle": 0.11136110872030258
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.015587080845162377,
+    "aggregate_rel_l2": 0.08114599132549032,
+    "correction_energy_ratio": 8.383029230226277e-05,
+    "late_gain": 5.452581961755962e-06,
+    "parent_aggregate_rel_l2": 0.08243084761134359,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.1598353534936905,
+     "low": 0.08271197974681854,
+     "middle": 0.19801869988441467
+    },
+    "parent_time_bands": {
+     "early": 0.11091642826795578,
+     "late": 30.78297233581543,
+     "middle": 0.11372994631528854
+    },
+    "radial_high_gain": 0.0008857610622942395,
+    "radial_spectrum_relative_l2": {
+     "high": 0.15969377756118774,
+     "low": 0.08133747428655624,
+     "middle": 0.19781212508678436
+    },
+    "time_bands": {
+     "early": 0.1108100563287735,
+     "late": 30.782804489135742,
+     "middle": 0.11136087030172348
+    }
+   },
+   "sample_id": "train_uniform_00025"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.0020829785460809496,
+    "aggregate_rel_l2": 0.07644195821763253,
+    "correction_energy_ratio": 0.00010824370688049058,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.07660151753525571,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.16407464444637299,
+     "low": 0.0774686262011528,
+     "middle": 0.21574530005455017
+    },
+    "parent_time_bands": {
+     "early": 0.09258551895618439,
+     "late": 7.814219951629639,
+     "middle": 0.48372119665145874
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.16407464444637299,
+     "low": 0.0775110274553299,
+     "middle": 0.2168705314397812
+    },
+    "time_bands": {
+     "early": 0.09234722703695297,
+     "late": 7.814219951629639,
+     "middle": 0.4841645359992981
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.0020790611758511103,
+    "aggregate_rel_l2": 0.07644225829413688,
+    "correction_energy_ratio": 0.00010831598882846042,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.07660151753525571,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.16407464444637299,
+     "low": 0.0774686262011528,
+     "middle": 0.21574530005455017
+    },
+    "parent_time_bands": {
+     "early": 0.09258551895618439,
+     "late": 7.814219951629639,
+     "middle": 0.48372119665145874
+    },
+    "radial_high_gain": -0.006444726448780627,
+    "radial_spectrum_relative_l2": {
+     "high": 0.1651320606470108,
+     "low": 0.07751119136810303,
+     "middle": 0.21683993935585022
+    },
+    "time_bands": {
+     "early": 0.09234748035669327,
+     "late": 7.814219951629639,
+     "middle": 0.4841654598712921
+    }
+   },
+   "sample_id": "train_uniform_00055"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.01975437604142046,
+    "aggregate_rel_l2": 0.13550896715868058,
+    "correction_energy_ratio": 0.000493012344567349,
+    "late_gain": 0.02427438972617909,
+    "parent_aggregate_rel_l2": 0.1382398083160497,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.39025768637657166,
+     "low": 0.13994061946868896,
+     "middle": 0.4247117340564728
+    },
+    "parent_time_bands": {
+     "early": 0.2075098156929016,
+     "late": 0.30115896463394165,
+     "middle": 0.12073542177677155
+    },
+    "radial_high_gain": 2.2909726133315515e-07,
+    "radial_spectrum_relative_l2": {
+     "high": 0.3902575969696045,
+     "low": 0.13723595440387726,
+     "middle": 0.4209446310997009
+    },
+    "time_bands": {
+     "early": 0.2075188159942627,
+     "late": 0.29384851455688477,
+     "middle": 0.1209234818816185
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.0197773671759616,
+    "aggregate_rel_l2": 0.13550578886864864,
+    "correction_energy_ratio": 0.0004941062948076665,
+    "late_gain": 0.02433475457926786,
+    "parent_aggregate_rel_l2": 0.1382398083160497,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.39025768637657166,
+     "low": 0.13994061946868896,
+     "middle": 0.4247117340564728
+    },
+    "parent_time_bands": {
+     "early": 0.2075098156929016,
+     "late": 0.30115896463394165,
+     "middle": 0.12073542177677155
+    },
+    "radial_high_gain": 0.028124896190303457,
+    "radial_spectrum_relative_l2": {
+     "high": 0.3792817294597626,
+     "low": 0.13723288476467133,
+     "middle": 0.4215553402900696
+    },
+    "time_bands": {
+     "early": 0.20751935243606567,
+     "late": 0.29383033514022827,
+     "middle": 0.12092413753271103
+    }
+   },
+   "sample_id": "train_uniform_00089"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.018662563339015656,
+    "aggregate_rel_l2": 0.13247611489019723,
+    "correction_energy_ratio": 0.0004311506715922049,
+    "late_gain": 0.017011135486258946,
+    "parent_aggregate_rel_l2": 0.13499547652125576,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.3653081953525543,
+     "low": 0.13690166175365448,
+     "middle": 0.3938526511192322
+    },
+    "parent_time_bands": {
+     "early": 0.1900835782289505,
+     "late": 0.30290523171424866,
+     "middle": 0.12376084178686142
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.3653081953525543,
+     "low": 0.13445958495140076,
+     "middle": 0.39361491799354553
+    },
+    "time_bands": {
+     "early": 0.1900978833436966,
+     "late": 0.2977524697780609,
+     "middle": 0.12394816428422928
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.018669867975063273,
+    "aggregate_rel_l2": 0.13247512879737317,
+    "correction_energy_ratio": 0.0004317846513134162,
+    "late_gain": 0.017031009917242674,
+    "parent_aggregate_rel_l2": 0.13499547652125576,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.3653081953525543,
+     "low": 0.13690166175365448,
+     "middle": 0.3938526511192322
+    },
+    "parent_time_bands": {
+     "early": 0.1900835782289505,
+     "late": 0.30290523171424866,
+     "middle": 0.12376084178686142
+    },
+    "radial_high_gain": 0.0031543414842039406,
+    "radial_spectrum_relative_l2": {
+     "high": 0.3641558885574341,
+     "low": 0.13445961475372314,
+     "middle": 0.39360880851745605
+    },
+    "time_bands": {
+     "early": 0.19009828567504883,
+     "late": 0.2977464497089386,
+     "middle": 0.12394857406616211
+    }
+   },
+   "sample_id": "train_uniform_00118"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.07143328350202749,
+    "aggregate_rel_l2": 0.08704054859804651,
+    "correction_energy_ratio": 0.0008625741069705703,
+    "late_gain": 0.08089301230234673,
+    "parent_aggregate_rel_l2": 0.0937364510827118,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.2688581347465515,
+     "low": 0.0949995145201683,
+     "middle": 0.30861061811447144
+    },
+    "parent_time_bands": {
+     "early": 0.19925683736801147,
+     "late": 0.15707309544086456,
+     "middle": 0.07825249433517456
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.2688581347465515,
+     "low": 0.08810189366340637,
+     "middle": 0.2974954843521118
+    },
+    "time_bands": {
+     "early": 0.19938482344150543,
+     "late": 0.14436697959899902,
+     "middle": 0.07831631600856781
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.07148091353174224,
+    "aggregate_rel_l2": 0.08703608392809609,
+    "correction_energy_ratio": 0.0008639604941378853,
+    "late_gain": 0.08102411944524793,
+    "parent_aggregate_rel_l2": 0.0937364510827118,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.2688581347465515,
+     "low": 0.0949995145201683,
+     "middle": 0.30861061811447144
+    },
+    "parent_time_bands": {
+     "early": 0.19925683736801147,
+     "late": 0.15707309544086456,
+     "middle": 0.07825249433517456
+    },
+    "radial_high_gain": 0.057983798934575656,
+    "radial_spectrum_relative_l2": {
+     "high": 0.2532687187194824,
+     "low": 0.0880986824631691,
+     "middle": 0.2980852723121643
+    },
+    "time_bands": {
+     "early": 0.1993851363658905,
+     "late": 0.14434638619422913,
+     "middle": 0.07831694185733795
+    }
+   },
+   "sample_id": "train_uniform_00134"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.0011941284311228358,
+    "aggregate_rel_l2": 0.08109277340216393,
+    "correction_energy_ratio": 0.00013125578789456536,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.08118972436033764,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.18436747789382935,
+     "low": 0.08163198083639145,
+     "middle": 0.2708722949028015
+    },
+    "parent_time_bands": {
+     "early": 0.12474928796291351,
+     "late": 24.63846778869629,
+     "middle": 0.6614177227020264
+    },
+    "radial_high_gain": -8.082315473463657e-08,
+    "radial_spectrum_relative_l2": {
+     "high": 0.18436749279499054,
+     "low": 0.08161693066358566,
+     "middle": 0.2721547484397888
+    },
+    "time_bands": {
+     "early": 0.12486579269170761,
+     "late": 24.63846778869629,
+     "middle": 0.6620743870735168
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.001190874743377082,
+    "aggregate_rel_l2": 0.08109303756817517,
+    "correction_energy_ratio": 0.0001313944791738766,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.08118972436033764,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.18436747789382935,
+     "low": 0.08163198083639145,
+     "middle": 0.2708722949028015
+    },
+    "parent_time_bands": {
+     "early": 0.12474928796291351,
+     "late": 24.63846778869629,
+     "middle": 0.6614177227020264
+    },
+    "radial_high_gain": -0.004559719097509257,
+    "radial_spectrum_relative_l2": {
+     "high": 0.18520814180374146,
+     "low": 0.08161718398332596,
+     "middle": 0.27211347222328186
+    },
+    "time_bands": {
+     "early": 0.1248660758137703,
+     "late": 24.63846778869629,
+     "middle": 0.6620758175849915
+    }
+   },
+   "sample_id": "train_uniform_00227"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": -0.011581666784334267,
+    "aggregate_rel_l2": 0.08232378045600278,
+    "correction_energy_ratio": 8.605516022152075e-05,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.0813812499367428,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.1722220480442047,
+     "low": 0.08181687444448471,
+     "middle": 0.22206515073776245
+    },
+    "parent_time_bands": {
+     "early": 0.12839582562446594,
+     "late": 11.834907531738281,
+     "middle": 0.9082192778587341
+    },
+    "radial_high_gain": 8.652295895368132e-08,
+    "radial_spectrum_relative_l2": {
+     "high": 0.17222203314304352,
+     "low": 0.08274735510349274,
+     "middle": 0.2231014221906662
+    },
+    "time_bands": {
+     "early": 0.12902101874351501,
+     "late": 11.834907531738281,
+     "middle": 0.9102510213851929
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": -0.011586437233894522,
+    "aggregate_rel_l2": 0.08232416868115075,
+    "correction_energy_ratio": 8.61378747319549e-05,
+    "late_gain": 0.0,
+    "parent_aggregate_rel_l2": 0.0813812499367428,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.1722220480442047,
+     "low": 0.08181687444448471,
+     "middle": 0.22206515073776245
+    },
+    "parent_time_bands": {
+     "early": 0.12839582562446594,
+     "late": 11.834907531738281,
+     "middle": 0.9082192778587341
+    },
+    "radial_high_gain": -0.009212445531634264,
+    "radial_spectrum_relative_l2": {
+     "high": 0.17380863428115845,
+     "low": 0.08274757862091064,
+     "middle": 0.22304874658584595
+    },
+    "time_bands": {
+     "early": 0.12902134656906128,
+     "late": 11.834907531738281,
+     "middle": 0.9102523922920227
+    }
+   },
+   "sample_id": "train_uniform_00280"
+  },
+  {
+   "coefficient_radial_guard": {
+    "aggregate_gain": 0.014014078683305954,
+    "aggregate_rel_l2": 0.08430790418731741,
+    "correction_energy_ratio": 0.00020872489954434152,
+    "late_gain": 0.00016904206434514846,
+    "parent_aggregate_rel_l2": 0.08550619472814776,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.21794384717941284,
+     "low": 0.08554602414369583,
+     "middle": 0.2719327509403229
+    },
+    "parent_time_bands": {
+     "early": 0.13805373013019562,
+     "late": 2.205880880355835,
+     "middle": 0.08855000883340836
+    },
+    "radial_high_gain": 0.0,
+    "radial_spectrum_relative_l2": {
+     "high": 0.21794384717941284,
+     "low": 0.08446918427944183,
+     "middle": 0.2713751792907715
+    },
+    "time_bands": {
+     "early": 0.13806088268756866,
+     "late": 2.20550799369812,
+     "middle": 0.08822449296712875
+    }
+   },
+   "family": "uniform",
+   "raw": {
+    "aggregate_gain": 0.014014981990692963,
+    "aggregate_rel_l2": 0.08430782694894008,
+    "correction_energy_ratio": 0.0002090217323162896,
+    "late_gain": 0.0001677450664089964,
+    "parent_aggregate_rel_l2": 0.08550619472814776,
+    "parent_radial_spectrum_relative_l2": {
+     "high": 0.21794384717941284,
+     "low": 0.08554602414369583,
+     "middle": 0.2719327509403229
+    },
+    "parent_time_bands": {
+     "early": 0.13805373013019562,
+     "late": 2.205880880355835,
+     "middle": 0.08855000883340836
+    },
+    "radial_high_gain": -0.0012594041664535753,
+    "radial_spectrum_relative_l2": {
+     "high": 0.21821832656860352,
+     "low": 0.08446921408176422,
+     "middle": 0.2713692784309387
+    },
+    "time_bands": {
+     "early": 0.1380612701177597,
+     "late": 2.2055108547210693,
+     "middle": 0.08822479099035263
+    }
+   },
+   "sample_id": "train_uniform_00367"
+  }
+ ],
+ "resources": {
+  "build_s": 381.0078599471599,
+  "peak_cuda_reserved_bytes": 8300527616,
+  "wall_s": 383.521494589746
+ },
+ "schema": "r16_dscp_v20b_radial_guard_diagnostic_v1",
+ "status": "success",
+ "truth_scope": "v19-consumed train records only; validation/test_id untouched"
+}

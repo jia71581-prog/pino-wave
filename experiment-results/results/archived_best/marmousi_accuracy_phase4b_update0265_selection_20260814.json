@@ -1,0 +1,29 @@
+{
+  "schema": "marmousi_accuracy_checkpoint_selection_v1",
+  "status": "selected_checkpoint_only_evaluation_pending",
+  "selection_date_utc": "2026-08-14",
+  "objective": "minimum complete-transient relative L2 for the audited Phase4b Marmousi-capable branch",
+  "selected_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "selected_checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "checkpoint_global_step": 265,
+  "checkpoint_manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "run_identity": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/run_identity.json",
+  "run_identity_sha256": "f6ca1d2f30f051946d05fa3ce72f6467536c4a60a663b7d582e1fd57b31fbc4d",
+  "terminal_record": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/terminal.json",
+  "terminal_record_sha256": "be3c8f50ad8d8771db58b3d71804b0f3d9e280a176ec0af7a26986835f49a5cf",
+  "selection_split": "heldout_validation_triplet",
+  "selection_metric": "fixed_32-frame aggregate relative L2",
+  "selection_metric_value": 0.040691912995691505,
+  "all_401_saved_times_aggregate_relative_l2": 0.04165225127825517,
+  "all_401_saved_times_marmousi_relative_l2": 0.04507399697519936,
+  "independent_true_marmousi_fixed15_display_relative_l2": 0.25206907591040956,
+  "requires_external_smoothed_background_solve": true,
+  "current_r5b_no_background_checkpoint_preserved": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/best.pt",
+  "current_r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "replacement_rule": "Do not relabel or overwrite the sealed r5b fixed-19-Hz predictions. Generate a new Phase4b prediction manifest and compare under the same 240-record protocol before replacing figures or claims.",
+  "notes": [
+    "This selection explains the previously observed lower Marmousi error; it is a different inference branch from r5b.",
+    "The Phase4b validation metric depends almost entirely on its external numerical background field, so it is not a drop-in weight swap for the no-background r5 architecture.",
+    "The 19-Hz source-position result remains unknown until a new sealed prediction run is completed."
+  ]
+}

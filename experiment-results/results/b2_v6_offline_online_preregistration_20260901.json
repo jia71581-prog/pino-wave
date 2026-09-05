@@ -1,0 +1,68 @@
+{
+  "schema": "b2_v6_offline_online_preregistration_v1",
+  "status": "offline_gate_passed_frozen_before_online",
+  "created_utc": "2026-09-01T05:18:53Z",
+  "candidate": "b2_v6_offline_pod_online_selfsupervised_v1",
+  "hypothesis": "Offline train-truth POD modes plus a B2-latent coefficient prior expose future-useful directions that can be refined online using only eight frames and an FE weak feature.",
+  "offline": {
+    "records": 24,
+    "family_counts": {"uniform": 8, "layered": 8, "marmousi": 8},
+    "rank": 4,
+    "encodings": ["E0_base7", "E1_physical15", "E2_B2_latent"],
+    "future_truth_use": "offline pretraining only"
+  },
+  "online": {
+    "records": 12,
+    "family_counts": {"uniform": 4, "layered": 4, "marmousi": 4},
+    "arms": ["zero", "E0", "E1", "E2"],
+    "true_frames": [0,1,2,3,4,5,6,7],
+    "objective": "observed prefix + 0.1 Q1-FE weak feature + 1e-3 prior trust",
+    "future_truth_policy": "all four candidates sealed before scoring"
+  },
+  "gates": {
+    "minimum_mean_oracle_gain_per_family": 0.05,
+    "minimum_relative_gain": 0.01,
+    "minimum_nonworse": 11,
+    "maximum_mean_runtime_s": 3.0,
+    "minimum_absolute_encoding_increment": 0.0001,
+    "family_gate": "E2 future mean strictly below zero-prior in every family"
+  },
+  "bindings": {
+    "pretrain_sha256": "c5789fbc22c80d0507978d62a0e1174baa46f601b2f5f87cc37046f3ed935953",
+    "evaluator_sha256": "c5389dde8e040455b9e07b2f49305069d62ea98c891bc78d032d7b033da96b71",
+    "pod_module_sha256": "62e1d0c78f4c1ffdfbeb97c9c950e87c4fc0ced97f37b098a3eb0a8fea4bb3dd",
+    "encoding_sha256": "d39af7783a0888663d875bb2771ba26b13a02986f0e6741187a3a2ecc0c80ab9",
+    "fe_residual_sha256": "2425e218967f5d0f03f6beb81d3003ef6b8a4fee49cafae0ba2d9ffa83440b86",
+    "checkpoint_sha256": "0217e5f295566ec6806db45cffe10578feac9c7cd20d87d82b7ae429bd84bd0c",
+    "fit_cache_sha256": "2dd8846accd38fe42d4d4017739805f2952e3f70a298f29cdcd625e82b76c3f7",
+    "holdout_cache_sha256": "2f1ef1ddb0f0e6e1398032ee3b7a73d2279e53f0fc453969ccc41867136ed44f",
+    "fit_manifest_sha256": "a0abd7e07df0f29a5a35abab3dc6000bad67b27fdaf55a5b863596dd6fb4d034",
+    "holdout_manifest_sha256": "0d120a8160e97d25f018e499c282831a3bfce40f750d5cd793a56238671f660d"
+    ,"bundle_sha256": "ac5cb9af43ccbef8d38759a11dd849c265f2dea98c23523fdc4813fc4ee193f8"
+  },
+  "offline_closure": {
+    "status": "passed",
+    "bundle": "results/b2_v6_offline_pretrain_20260901/pod_bundle.pt",
+    "bundle_sha256": "ac5cb9af43ccbef8d38759a11dd849c265f2dea98c23523fdc4813fc4ee193f8",
+    "report_sha256": "ce6a119bb19ee47f61e0de0c76c00f19a741cdceafe38b857fe9db3e8916bd67",
+    "terminal_sha256": "47d339fc9bc45167f1bd81babd53686835586c33df0bf4852830074cab4415d0",
+    "mean_oracle_gain": {"uniform": 0.4975841, "layered": 0.4930925, "marmousi": 0.4981899}
+  },
+  "online_amendments": [
+    {
+      "kind": "pre_second_record_variable_shadow_fix",
+      "reason": "Attempt 1 assigned the None return of torch.cuda.empty_cache to the manifest variable after sealing the first record, then exited before record 2.",
+      "scientific_change": false,
+      "old_evaluator_sha256": "441b8c99fa020fe79cdee855ed5ab6bfdf6b514866cefdf9730a9dde18e95a63",
+      "new_evaluator_sha256": "c5389dde8e040455b9e07b2f49305069d62ea98c891bc78d032d7b033da96b71",
+      "failed_terminal_sha256": "b922454206e2423e9b775edbdb8b609fdbc6f51fc73939f17be356977bb5b1c0"
+    }
+  ],
+  "outputs": {
+    "offline": "results/b2_v6_offline_pretrain_20260901",
+    "online": "results/b2_v6_online_holdout_20260901"
+  },
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "additive train-only experiment; all parent/protected checkpoints immutable"
+}

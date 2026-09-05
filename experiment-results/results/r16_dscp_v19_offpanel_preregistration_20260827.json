@@ -1,0 +1,21 @@
+{
+ "schema": "r16_dscp_v19_offpanel_preregistration_v1",
+ "candidate": "r16_dscp_v18_best_offpanel_confirm",
+ "frozen_utc": "2026-08-27T12:15:00Z",
+ "authorization": "lead 2026-08-27 19:5x '继续' on the presented sequence (1) off-panel confirm then (2) sealed validation pending explicit unseal",
+ "purpose": "ONE-SHOT off-panel confirmation of the two frozen v18 arm checkpoints on final_train_confirm (24 records, 8/8/8 by family, zero overlap with fit2 and long_calibration, never used by any prior stage). No training, no iteration, no second attempt: whatever these numbers are, they are recorded and the stage ends.",
+ "checkpoints": {
+  "A_data": "cb53d5f2643f04fbf9ab8e91dc70fc60b82882b74224124e43dd1c2b581ac216",
+  "B_data_hinge": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc"
+ },
+ "evaluation": "v18 runner's scoring path verbatim (fp16 exponent-shifted bundles built fresh for the 24 records, single GPU, score_bundle semantics); per-record gain_iii/nonworse, per-family means, joint",
+ "readout_frozen": {
+  "consistency": "an arm is OFF-PANEL CONSISTENT if joint >= 0.7 x its long_calibration joint (A: >=0.0224, B: >=0.0254) AND nonworse@1% >= 22/24 AND worst_harm >= -0.02",
+  "inconsistent": "below any -> record OFF-PANEL INCONSISTENT (overfitting-to-confirm evidence); no retry, no threshold motion",
+  "provenance": "0.7 factor and 22/24 chosen before any off-panel number exists; long_calibration reference values are the frozen v18 terminals"
+ },
+ "truth_scope": "train split only (final_train_confirm role); validation/test_id stay sealed",
+ "outputs": "results/r16_dscp_v19_offpanel/terminal.json only; no checkpoint writes",
+ "parent_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+ "v18_prereg_sha256": "0a9af4e6bad30b6a8e91788f234381673d9bb9f8c8d4f66d3153d9f060059a05"
+}

@@ -1,0 +1,57 @@
+{
+  "access": {
+    "calibration_opened": false,
+    "confirmation_opened": false,
+    "fit_opened": true,
+    "fit_record_count": 3,
+    "hdf5_datasets_read": [
+      "sample_id",
+      "split",
+      "sample_sha256",
+      "time_s",
+      "x_m",
+      "z_m",
+      "velocity_mps (fit rows only)",
+      "source_map (fit rows only)",
+      "source_x_m/source_z_m/source_f0_hz/source_t0_s/source_amplitude (fit rows only)",
+      "travel_time_s (fit rows only)",
+      "wavefield (fit rows only, train labels)"
+    ],
+    "test_id_opened": false,
+    "validation_opened": false,
+    "wavefield_use": "fit_panel_train_labels_only"
+  },
+  "best_fixed_aggregate_relative_l2": 9.833538473503234,
+  "bindings": {
+    "base_config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/direct48_pbg_pilot.yaml",
+    "base_config_sha256": "ac2533c334732483169f361566c4b0f430fce327fd9693edad29aac0e1d4bce6",
+    "normalization_json": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/artifacts/pbg_factorized_fno_marm700_eikonal_v3/normalization_v3_direct48_pbg.json",
+    "normalization_json_sha256": "bbc0963a4b89be6aa16ff981c72e19a29d3a0ad833f3c07aa3758eefa373ae99",
+    "run_config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/wkb48_rank32_pbg_pilot_run.yaml",
+    "run_config_sha256": "1e54afa23550b5fc25b372002aef8b8c594721b2e38583ca612a4ecc774f210a",
+    "run_identity_sha256": "68148e533617cc74cd0cd0ebf9e504a37e50d34a6fe0b3b6e3602e6206ea4231",
+    "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_wkb48_rank32_pbg_pilot.py",
+    "script_sha256": "0c1915b371c5a370cab7f8d925ff2aedb3965ec1fe7a38f174f086670b0e948f",
+    "source_h5": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/artifacts/pbg_factorized_fno_marm700_eikonal_v3/dataset_v1.h5",
+    "source_h5_sha256": "9904e4a46b58290c79570034881cf5cb744ef6721b04ad3f0d937c6009eb2bdb",
+    "split_manifest": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/artifacts/pbg_factorized_fno_marm700_eikonal_v3/split_full560_70_70_seed372.json",
+    "split_manifest_sha256": "e72cc8916b0be6f5d4ff6435f949ec12904fb0412cb0c3db0a33916ac7f3a3fa",
+    "travel_time_content_sha256": "222328330a019fd01294c8a7607da5cfc04b8a903bd2efe8f0ef9863453f7431",
+    "vds_provenance": {
+      "axis_order": "NTZX",
+      "background_source_manifest_sha256": "57334b5298b816414279ba24ea58e20a2bb42aee82b1f54b37e08ad4ac45af05",
+      "config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+      "included_splits": "[\"train\"]",
+      "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+      "schema_version": "acoustic_lwc84_401_to_201_v1",
+      "vds_sample_count": "700"
+    }
+  },
+  "capacity_only": "train-overfit capacity pilot only; accepted/strong capacity here never claims the final candidate",
+  "elapsed_seconds": 4.064683108590543,
+  "parameter_count": 26087630,
+  "peak_cuda_bytes": 488589312,
+  "schema": "wkb48_rank32_pbg_pilot_terminal_v1",
+  "status": "smoke_complete",
+  "updates_completed": 2
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "transfer_dg_pretraining_to_parent_block32_handoff_v1",
+  "status": "user_stopped_and_preserved",
+  "stopped_utc": "2026-09-04T08:50:42Z",
+  "source_output": "results/transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4_v2_20260904",
+  "source_process_group": 321600,
+  "last_persisted_checkpoint": {
+    "path": "results/transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4_v2_20260904/latest.pt",
+    "schema": "transfer_dg_coupled_pyramid_moe_adaptive_ddp4_checkpoint_v1",
+    "epoch": 24,
+    "next_step": 350,
+    "update": 16450,
+    "sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "immutable_parent_snapshot": "results/transfer_dg_parent_anchored_block32_r2_20260904/parent_epoch24_step350_u16450.pt",
+  "unpersisted_updates_discarded": "Any in-memory work after update 16450; no later checkpoint was claimed.",
+  "gpu_compute_processes_after_stop": [],
+  "protected_checkpoint_families_preserved": [
+    "A3",
+    "B2-H",
+    "Helmholtz",
+    "ASAM",
+    "CPADC"
+  ]
+}

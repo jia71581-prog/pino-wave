@@ -1,0 +1,43 @@
+{
+  "arm": "cycle050",
+  "bundle_sha256": "808b16283da5cb5434ac823b4fbdced2342a3f508e3b405bd71d724bc1e67c9b",
+  "cache_sha256": "93cdd67edeaba4c3bf5a761ce2edc32786b2182eddba2856db0f6953b010f9fe",
+  "candidate_before_future_score": true,
+  "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+  "conditioning_key": "cond_physics",
+  "core_sha256": "0b4ef5bf0fe14ceeff4a6550cb1e890f6100c27e95b00a184f62e6b707b8cb30",
+  "evaluator_sha256": "e704006ed6c265dfebf71c7dce0f851513494785987cd7317406383a0fc497e0",
+  "manifest_sha256": "9bf352b7fd0c197ef74d9ca56b2ccb19b173d5bb937e98547854a3b67dfb594e",
+  "online_policy": {
+    "anchor_frames": 8,
+    "arms": {
+      "cycle025": {
+        "after_peak_cycles": 0.25,
+        "gpu": 1
+      },
+      "cycle050": {
+        "after_peak_cycles": 0.5,
+        "gpu": 2
+      },
+      "fixed24": {
+        "fixed_frames": 24,
+        "gpu": 3
+      },
+      "peak": {
+        "after_peak_cycles": 0.0,
+        "gpu": 0
+      }
+    },
+    "common_tail_start": 49,
+    "maximum_observed_frames": 49,
+    "minimum_information_ratio": 0.0,
+    "minimum_observed_gain": 0.0,
+    "rank": 4,
+    "ridge_fraction": 0.001,
+    "trust_ratio": 0.05
+  },
+  "preregistration_sha256": "781b1c9638ac8c048142b58211b99a2f9d79b30e5e7c547bf1f7111c1e96cdaf",
+  "schema": "b2_v10_online_arm_identity_v1",
+  "test_id_opened": false,
+  "validation_opened": false
+}

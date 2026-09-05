@@ -1,0 +1,64 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_r20_source_support_r22b_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_same_medium_source_support_smoke",
+  "parent_attempt": "wkb96_r20_source_support_r22_smoke_20260824",
+  "parent_attempt_status": "rejected_only_for_peak_cuda_above_4_gib",
+  "hypothesis": "Mathematically equivalent evaluation chunking with time_block=32 and macro_records=1 will keep the exact r20 source-support smoke below 4 GiB without changing predictions, optimization, panels, or checkpoint lineage.",
+  "expected_mechanism": "Evaluation chunking reduces only simultaneously materialized frames and records. Query-invariance tests guarantee it does not alter the Helmholtz field or metric.",
+  "single_conceptual_variable": {
+    "name": "evaluation_materialization_chunking",
+    "parent": {"time_block": 401, "macro_records": 1},
+    "candidate": {"time_block": 32, "macro_records": 1},
+    "held_constant": "r20 checkpoint, source-support panels, 96-bin gated model, complete coefficient loss, optimizer learning rates, seed and metric"
+  },
+  "panels": {
+    "fit": ["train_layered_00000", "train_layered_00001", "train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_layered_00002", "train_marmousi_00003"],
+    "confirmation": ["train_layered_00003", "train_marmousi_00004"],
+    "mutually_disjoint": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "peak CUDA allocation with successful exact-load, two updates, finite metrics and terminal/checkpoint binding",
+  "acceptance": {
+    "peak_cuda_bytes_max": 4294967296,
+    "updates_completed": 2,
+    "finite_metrics": true,
+    "terminal_and_checkpoint_bound": true
+  },
+  "failure_signal": "Any load mismatch, overlap, missing artifact, non-finite value, OOM, or peak allocation above 4 GiB blocks formal training.",
+  "optimization": {
+    "updates": 2,
+    "evaluate_every": 1,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "family_gradient_weights": {"layered": 1.0, "marmousi": 1.0},
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "wall_time_max_minutes": 4,
+    "new_checkpoint_storage_gib_max": 0.4
+  },
+  "parent": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50"
+  },
+  "bindings": {
+    "training_script_sha256": "5af0b759ef5bec0762db329242e71cd6345dce5cc708c21c06135af693bde2d9",
+    "panel_test_sha256": "57fa7da5c59172647b106cb095644700028a0c52a8bbc82eb0e8538d4d5509c2",
+    "tests": "44 passed",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  },
+  "rollback": "Preserve all prior artifacts. On failure do not launch formal source-support training.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb96_r20_source_support_r22b_smoke_20260824 --preregistration results/wkb96_r20_source_support_r22b_smoke_preregistration_20260824.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt --parent-identity results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --panel-families layered marmousi --panel-selection anchor_group_source_holdout --helmholtz-frequencies 96 --helmholtz-frequency-softmax --updates 2 --evaluate-every 1 --evaluation-frames 32 --evaluation-time-block 32 --evaluation-macro-records 1 --dense-learning-rate 1e-5 --backbone-learning-rate 5e-6 --local-field-learning-rate 1e-5 --family-gradient-weights layered:1,marmousi:1 --target-relative-l2 0.10 --seed 372"
+}

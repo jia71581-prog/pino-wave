@@ -1,0 +1,21 @@
+{
+  "schema": "transfer_dg_a1_preregistration_audit_v1",
+  "status": "cleared_for_launch",
+  "preregistration": "results/transfer_dg_a1_boundary_halo_preregistration_20260902.json",
+  "preregistration_sha256": "142726a10b3ff32c196ca0456653c86a663404e9cd3f02aafb99db06ea7971c0",
+  "checks": {
+    "data_integrity": "all six manifest hashes and all six cache hashes match the frozen P1b bindings",
+    "split_boundary": "all fit and holdout manifests are train split with validation_opened=false and test_id_opened=false",
+    "lineage": "halo/control lanes inherit only the passed P1b seed 372 and seed 733 checkpoints",
+    "paired_design": "each halo lane has an identical-seed, identical-parent, identical-budget no-halo control",
+    "parameter_schema": "halo and control both contain 480967 parameters and load P1b state_dict with strict=true",
+    "numerical_smoke": "201x201, 64-frame, micro-records=4 forward/backward is finite; hard top row is exactly zero",
+    "memory": "peak allocated memory 15949.5 MiB is below the 24564 MiB device capacity",
+    "reproducibility": "trainer, runner, summarizer, dependencies, tests, parents, manifests, and caches are digest-bound",
+    "rollback": "all parent and protected checkpoint families remain untouched"
+  },
+  "primary_gate": "strict halo two-seed mean improvement over both paired control and hard-boundary parent; no minimum percentage",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "blocking_findings": []
+}

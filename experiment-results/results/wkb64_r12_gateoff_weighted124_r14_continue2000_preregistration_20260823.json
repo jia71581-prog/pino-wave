@@ -1,0 +1,74 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb64_r12_gateoff_weighted124_r14_continue2000",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_three_record_capacity_gate",
+  "hypothesis": "The unweighted continuation is bottlenecked by Marmousi and secondarily uniform. Changing only the coefficient-loss family weights to layered=1, uniform=2, marmousi=4 will transfer gradient budget to the failing families and can bring every train family below relative-L2 0.05 without any validation or test access.",
+  "single_conceptual_variable": {
+    "name": "coefficient_supervision_family_gradient_weights",
+    "control_r13": {
+      "uniform": 1.0,
+      "layered": 1.0,
+      "marmousi": 1.0
+    },
+    "candidate_r14": {
+      "uniform": 2.0,
+      "layered": 1.0,
+      "marmousi": 4.0
+    }
+  },
+  "deployment_contract": {
+    "fine_grid_solver": false,
+    "true_wavefield_input": false,
+    "future_truth_input": false,
+    "model_inputs": [
+      "velocity",
+      "source_parameters",
+      "source_map",
+      "eikonal_travel_time"
+    ],
+    "complete_401_frame_wavefield_use": "train_label_only"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "families": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "records": 3
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r10_gateoff_low_lr_r12_refine800_20260823/checkpoints/update_0100.pt",
+    "checkpoint_sha256": "162875f0b30d11d741b80df7567fef54a5416ae45d65f2cc3a5f2836aeb767a0",
+    "identity": "results/wkb64_r10_gateoff_low_lr_r12_refine800_20260823/run_identity.json",
+    "identity_sha256": "ed2d692cf52e5872af74f23793f5f6c1a8fadf8ba747bd8c2ab7a78e620b95e5"
+  },
+  "training": {
+    "updates": 2000,
+    "evaluation_every": 100,
+    "microbatch_records": 1,
+    "frequency_bins": 64,
+    "wkb_phase": true,
+    "post_synthesis_causal_gate": false,
+    "coefficient_frequency_energy_floor_fraction": 0.0,
+    "dense_learning_rate": 1e-05,
+    "backbone_learning_rate": 5e-06,
+    "local_field_learning_rate": 1e-05,
+    "seed": 372
+  },
+  "acceptance": {
+    "all_saved_aggregate_relative_l2_max": 0.05,
+    "all_saved_each_family_relative_l2_max": 0.05,
+    "checkpoint_reproducible": true
+  },
+  "decision": "If r14 fails the all-saved family gate, do not open validation/test; use the train-only result to choose the next architecture or optimization change. Passing only authorizes a larger disjoint train-only generalization panel.",
+  "code": {
+    "diagnostic_sha256": "da8d30977f75e221fd5be15a5cdc10f912d00b6d3a90e84a90c7a109bd9798da",
+    "test_sha256": "981ac1f068ae52b71896c4749b15313d23b109747c9aab7325c42787dd9299ad",
+    "local_field_sha256": "8afd8bfb8c0ab48877d593189bef2a3d6f873b9198cb75664477f5b87cd20304",
+    "tests": "33 passed"
+  }
+}

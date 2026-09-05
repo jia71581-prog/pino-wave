@@ -1,0 +1,195 @@
+=== R52 finished, selecting R53 init 2026-08-29T15:18:10+08:00
+=== R53 init = /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r52_armB_spatial_4x1000_v1_20260829/best.pt
+=== R53 smoke start 2026-08-29T15:18:11+08:00
+[2026-08-29 15:18:12,284] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 522, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 254, in main
+    model.load_state_dict(initial["model_state_dict"])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 89, in load_state_dict
+    result = nn.Module.load_state_dict(self, state_dict, strict=False, assign=assign)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for R53SpatioTemporalTailNet:
+	size mismatch for hfs_x0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_dc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_hfc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 522, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 254, in main
+    model.load_state_dict(initial["model_state_dict"])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 89, in load_state_dict
+    result = nn.Module.load_state_dict(self, state_dict, strict=False, assign=assign)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for R53SpatioTemporalTailNet:
+	size mismatch for hfs_x0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_dc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_hfc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 522, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 254, in main
+    model.load_state_dict(initial["model_state_dict"])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 89, in load_state_dict
+    result = nn.Module.load_state_dict(self, state_dict, strict=False, assign=assign)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for R53SpatioTemporalTailNet:
+	size mismatch for hfs_x0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_dc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_hfc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 522, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 254, in main
+    model.load_state_dict(initial["model_state_dict"])
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r53_spatiotemporal_tail.py", line 89, in load_state_dict
+    result = nn.Module.load_state_dict(self, state_dict, strict=False, assign=assign)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/nn/modules/module.py", line 2152, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for R53SpatioTemporalTailNet:
+	size mismatch for hfs_x0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_dc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_x3.lambda_hfc: copying a param with shape torch.Size([1, 128, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 128, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_dc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y2.lambda_hfc: copying a param with shape torch.Size([1, 96, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 96, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_dc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y1.lambda_hfc: copying a param with shape torch.Size([1, 64, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 64, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_dc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_y0.lambda_hfc: copying a param with shape torch.Size([1, 32, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 32, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s0.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s1.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_dc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+	size mismatch for hfs_s2.lambda_hfc: copying a param with shape torch.Size([1, 16, 8, 8, 1, 1]) from checkpoint, the shape in current model is torch.Size([1, 16, 1, 1, 1, 1]).
+[2026-08-29 15:18:27,463] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 791169) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+scripts/train_r53_spatiotemporal_tail.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-08-29_15:18:27
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 791170)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[2]:
+  time      : 2026-08-29_15:18:27
+  host      : localhost
+  rank      : 2 (local_rank: 2)
+  exitcode  : 1 (pid: 791171)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+[3]:
+  time      : 2026-08-29_15:18:27
+  host      : localhost
+  rank      : 3 (local_rank: 3)
+  exitcode  : 1 (pid: 791172)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-29_15:18:27
+  host      : localhost
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 791169)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+R53 smoke failed
+=== R52 finished, selecting R53 init 2026-08-29T15:43:30+08:00
+=== R53 init = /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r52_armB_spatial_4x1000_v1_20260829/best.pt
+=== R53 smoke start 2026-08-29T15:43:30+08:00
+[2026-08-29 15:43:31,551] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+{"candidate_max": 0.06425523038922351, "candidate_mean": 0.019966965785827205, "event": "initial_checkpoint_evaluation"}
+{"best_score": 0.08422219617505072, "candidate_max": 0.06761506426973518, "candidate_mean": 0.021666244700901643, "epoch": 1, "event": "development_holdout_evaluation"}
+identity gate: dmean 1.60e-08 dmax 1.89e-08
+=== R53 long start 2026-08-29T15:46:33+08:00
+[2026-08-29 15:46:34,945] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+{"candidate_max": 0.06425523038922351, "candidate_mean": 0.019966965785827205, "event": "initial_checkpoint_evaluation"}
+{"best_score": 0.08422219617505072, "candidate_max": 0.06671018279374273, "candidate_mean": 0.019617731230502415, "epoch": 1, "event": "development_holdout_evaluation"}
+{"best_score": 0.08422219617505072, "candidate_max": 0.06753865908932448, "candidate_mean": 0.01971429494979294, "epoch": 2, "event": "development_holdout_evaluation"}
+{"best_score": 0.08422219617505072, "candidate_max": 0.06578543739720744, "candidate_mean": 0.019584357694448478, "epoch": 3, "event": "development_holdout_evaluation"}
+{"best_score": 0.0837999080368351, "candidate_max": 0.0643955898314929, "candidate_mean": 0.0194043182053422, "epoch": 4, "event": "development_holdout_evaluation"}
+{"best_score": 0.0837999080368351, "candidate_max": 0.065936097018821, "candidate_mean": 0.020166808652641553, "epoch": 5, "event": "development_holdout_evaluation"}
+{"best_score": 0.0837999080368351, "candidate_max": 0.06675985812093792, "candidate_mean": 0.020781519477105725, "epoch": 6, "event": "development_holdout_evaluation"}
+{"best_score": 0.0837999080368351, "candidate_max": 0.06799709686272543, "candidate_mean": 0.020883499711878094, "epoch": 7, "event": "development_holdout_evaluation"}
+{"best_score": 0.0837999080368351, "candidate_max": 0.06792375488732798, "candidate_mean": 0.020927479951333528, "epoch": 8, "event": "development_holdout_evaluation"}
+=== R53 long exit 0 2026-08-29T16:49:58+08:00
+=== R53 chain done 2026-08-29T16:49:58+08:00

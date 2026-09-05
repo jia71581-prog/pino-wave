@@ -1,0 +1,22 @@
+{
+  "status": "aborted_by_gate",
+  "reason": "Fresh Helmholtz render/synthesis did not beat the same-protocol warm-start per-branch control by update 768.",
+  "last_optimizer_update": 802,
+  "last_comparable_evaluation_update": 768,
+  "last_checkpoint": "checkpoints/update_0768.pt",
+  "fresh_front_update_768": {
+    "aggregate_relative_l2": 0.055301510528939946,
+    "layered_relative_l2": 0.0810302185576765,
+    "marmousi_relative_l2": 0.04428147986904195,
+    "uniform_relative_l2": 0.040592833160101364,
+    "layered_late_relative_l2": 0.18319444511528704
+  },
+  "warmstart_per_branch_update_768_control": {
+    "aggregate_relative_l2": 0.04106464259149871,
+    "layered_relative_l2": 0.0778448964568277,
+    "marmousi_relative_l2": 0.04423424303282589,
+    "uniform_relative_l2": 0.0011147882848425465,
+    "layered_late_relative_l2": 0.16068077339424006
+  },
+  "conclusion": "Resetting the Helmholtz render/head is not the missing degree of freedom; preserve the checkpoint and move to explicit P_bg-conditioned scattering correction."
+}

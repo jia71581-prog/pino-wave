@@ -1,0 +1,35 @@
+{
+  "timestamp_UTC": "2026-09-05T04:38:10.270992+00:00",
+  "identity": {
+    "schema": "r6_cache_smoke_detached_identity_v2",
+    "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+    "supervisor_pid": 691346,
+    "child_pid": 691347,
+    "started_UTC": "2026-09-05T04:38:00.252000+00:00",
+    "argv": [
+      "env",
+      "-u",
+      "CUBLAS_WORKSPACE_CONFIG",
+      "CUDA_VISIBLE_DEVICES=0",
+      "python",
+      "scripts/build_r6_device_residual_cache.py",
+      "--smoke",
+      "--preregistration",
+      "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+      "--device",
+      "cuda:0"
+    ],
+    "cwd": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2",
+    "log": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_v2.log",
+    "release_sha256": "6d96c7c03d1a196cfab8f28173e7b2bf402e4e5d540bfa5aec4908710607db90",
+    "preregistration_sha256": "4f192d62f4304b1c3ca3637aad90889a6b4ab3d2e01c23cc3800f1205577eed2",
+    "retry": false,
+    "terminal": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/smoke_terminal.json",
+    "checkpoint_output": null
+  },
+  "processes": "   PID   PPID STAT     ELAPSED COMMAND\n691346      1 Ss         00:10 /root/miniconda3/bin/python /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/audit_v2_20260905/smoke_supervisor_v2.py\n691347 691346 Rl         00:10 python scripts/build_r6_device_residual_cache.py --smoke --preregistration results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json --device cuda:0\n",
+  "gpu": "0, GPU-27f8e8cf-3677-061e-756e-08b7a34d458b, 895 MiB, 24564 MiB, 0 %\n1, GPU-cbc77b3a-6046-97d0-0217-a660c1e7e198, 0 MiB, 24564 MiB, 0 %\n2, GPU-77098470-3d60-02bd-4000-ce934aef280c, 0 MiB, 24564 MiB, 0 %\n3, GPU-2e270dcd-90ca-63ce-28fe-b8db6c0c750e, 0 MiB, 24564 MiB, 0 %\n",
+  "compute_apps": "691347, GPU-27f8e8cf-3677-061e-756e-08b7a34d458b, python, 886 MiB\n",
+  "log": "{\"event\": \"R6_DEVICE_CACHE_WORKER_START\", \"candidate\": \"r6_anchored_r54_device_resident_r1_20260905\", \"mode\": \"smoke\", \"shard_index\": 0}\n",
+  "smoke_terminal_exists": false
+}

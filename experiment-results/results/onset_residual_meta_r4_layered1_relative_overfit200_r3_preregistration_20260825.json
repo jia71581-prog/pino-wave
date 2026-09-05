@@ -1,0 +1,16 @@
+{
+  "schema": "acoustic_meta_adapter_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "onset_residual_meta_r4_layered1_relative_overfit200_r3",
+  "date_utc": "2026-08-25",
+  "hypothesis": "Two hundred lower-rate updates allow the zero-initialized output layer to activate and reduce one-record frame-relative L2 by at least 20 percent.",
+  "single_change_vs_r2": "epochs 20 to 200 and learning rate 2e-4 to 1e-4",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "sample_id": "train_layered_00859",
+  "training": {"episodes": 1, "epochs": 200, "time_points": 48, "learning_rate": 0.0001},
+  "acceptance": {"minimum_field_loss_reduction": 0.20, "finite_history": true},
+  "failure_signal": "Failure rejects this residual meta-adapter architecture for the r4 parent.",
+  "bindings": {"trainer_sha256": "df33db588e53da5331d5b089ee68cc07b844a360d039e937e8bb2bc21e522453"},
+  "data_policy": "offline train episode only; validation and test_id unopened",
+  "output": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/onset_residual_meta_r4_layered1_relative_overfit200_r3_20260825.pt"
+}

@@ -1,0 +1,371 @@
+{
+  "candidate": "r16_dscp_v4",
+  "checkpoint": {
+    "best": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v4/actual_checkpoint/best.pt",
+    "hardlinked": true,
+    "last": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v4/actual_checkpoint/last.pt",
+    "resume_equal": true,
+    "sha256": "aafb934472755a9d8b71e5a97ce938e70f41f390eba66ac43411ac9234bec35c",
+    "size_bytes": 38695
+  },
+  "claim_boundary": "prep only; no train/validation/test. Parent is only 1.608x, so complete E2E cannot meet immutable 10x unless independently measured latency changes; gate is not weakened.",
+  "commands": {
+    "authorize_stage": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode authorize-stage --stage STAGE --output results/r16_dscp_v4/authorizations/STAGE.json --input-checkpoint BEST",
+    "final": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode final-train-confirm --authorization results/r16_dscp_v4/authorizations/final-train-confirm.json",
+    "launch_long_command": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode launch-long-command --output results/r16_dscp_v4/long_command.json",
+    "long1": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode long --world-size 1 --authorization results/r16_dscp_v4/authorizations/long.json",
+    "long4": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v4.py --mode long --world-size 4 --authorization results/r16_dscp_v4/authorizations/long.json",
+    "pilot": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode pilot --authorization results/r16_dscp_v4/authorizations/pilot.json",
+    "prep": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode prep",
+    "scale1": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode scale-probe-1 --authorization results/r16_dscp_v4/authorizations/scale-probe-1.json",
+    "scale4": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v4.py --mode scale-probe-4 --authorization results/r16_dscp_v4/authorizations/scale-probe-4.json",
+    "scale_decide": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode scale-decide --authorization results/r16_dscp_v4/authorizations/scale-decide.json",
+    "smoke": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode smoke --authorization results/r16_dscp_v4/authorizations/smoke.json",
+    "test": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode test-once --authorization results/r16_dscp_v4/authorizations/test-once.json",
+    "validation": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode validation-once --authorization results/r16_dscp_v4/authorizations/validation-once.json"
+  },
+  "config": {
+    "bindings": {
+      "basis_file_sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+      "basis_tensor_sha256": "4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5",
+      "panels_sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+      "parent_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789"
+    },
+    "budgets": {
+      "four_gpu_wall_s": 2700,
+      "long_epochs": 20,
+      "one_gpu_wall_s": 7200,
+      "pilot_updates": 1000,
+      "pilot_wall_s": 1800,
+      "smoke_updates": 500,
+      "smoke_wall_s": 600,
+      "total_gpu_hours": 3.0
+    },
+    "candidate": "r16_dscp_v4",
+    "checkpoint": {
+      "atomic": true,
+      "basis_embedded": false,
+      "hardlink_identical": true,
+      "parent_embedded": false,
+      "resume_epoch_global_step_group_rng_sampler": true,
+      "retain": [
+        "best.pt",
+        "last.pt"
+      ]
+    },
+    "commands": {
+      "authorize_stage": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode authorize-stage --stage STAGE --output results/r16_dscp_v4/authorizations/STAGE.json --input-checkpoint BEST",
+      "final": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode final-train-confirm --authorization results/r16_dscp_v4/authorizations/final-train-confirm.json",
+      "launch_long_command": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode launch-long-command --output results/r16_dscp_v4/long_command.json",
+      "long1": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode long --world-size 1 --authorization results/r16_dscp_v4/authorizations/long.json",
+      "long4": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v4.py --mode long --world-size 4 --authorization results/r16_dscp_v4/authorizations/long.json",
+      "pilot": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode pilot --authorization results/r16_dscp_v4/authorizations/pilot.json",
+      "prep": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode prep",
+      "scale1": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode scale-probe-1 --authorization results/r16_dscp_v4/authorizations/scale-probe-1.json",
+      "scale4": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0,1,2,3 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. torchrun --standalone --nproc-per-node=4 scripts/train_r16_dscp_v4.py --mode scale-probe-4 --authorization results/r16_dscp_v4/authorizations/scale-probe-4.json",
+      "scale_decide": "env PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode scale-decide --authorization results/r16_dscp_v4/authorizations/scale-decide.json",
+      "smoke": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode smoke --authorization results/r16_dscp_v4/authorizations/smoke.json",
+      "test": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode test-once --authorization results/r16_dscp_v4/authorizations/test-once.json",
+      "validation": "env CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:. python scripts/train_r16_dscp_v4.py --mode validation-once --authorization results/r16_dscp_v4/authorizations/validation-once.json"
+    },
+    "gates": {
+      "pilot_final": {
+        "correction_energy": 0.35,
+        "each_family_gain": 0.005,
+        "finite": true,
+        "high_nonworse": true,
+        "joint_gain": 0.01,
+        "late_nonworse": true,
+        "nonworse": 23,
+        "ridge_margin": 0.0025
+      },
+      "runtime": {
+        "adapter_mean_s": 0.35,
+        "adapter_p95_s": 0.5,
+        "artifacts_mib": 64.0,
+        "checkpoint_mib": 2.0,
+        "e2e_parent_ratio": 1.05,
+        "inference_peak_gib": 6.5,
+        "train_peak_gib": 8.0
+      },
+      "scale": {
+        "efficiency": 0.75,
+        "fallback": 1,
+        "gpu_seconds_ratio": 1.35,
+        "hashes_exact": true,
+        "per_gpu_peak_gib": 6.5,
+        "records": 12,
+        "speedup": 3.0,
+        "timed": 3,
+        "warmup": 1
+      },
+      "smoke": {
+        "aggregate_nonworse": true,
+        "loss_reduction": 0.8,
+        "oracle_fraction": 0.5,
+        "oracle_layered": 0.37334545199603053,
+        "oracle_marmousi": 0.29789271567937464,
+        "oracle_uniform": 0.2224565778108675
+      },
+      "validation_test": {
+        "aggregate_rel_l2": 0.05,
+        "each_family_rel_l2": 0.05,
+        "high_nonworse": true,
+        "late_nonworse": true,
+        "traditional_speedup_mean": 10.0,
+        "traditional_speedup_p95": 10.0
+      }
+    },
+    "loss": {
+      "actual_normalized_coefficient_energy": 0.0001,
+      "frame_relative_l2_squared": 1.0,
+      "future_frame_sampling": false,
+      "late_third_relative_l2_squared": 0.25,
+      "physics": 0.0,
+      "temporal_difference": 0.1
+    },
+    "model": {
+      "channels": 29,
+      "materialization_macs": 259212816,
+      "model_macs": 45451125,
+      "parameters": 1202,
+      "projection_macs": 259212816,
+      "rank": 16,
+      "ridge_parameters": 480
+    },
+    "optimization": {
+      "betas": [
+        0.9,
+        0.99
+      ],
+      "bf16": true,
+      "deterministic": true,
+      "eps": 1e-08,
+      "global_batch_records": 4,
+      "grad_clip": 1.0,
+      "lr": 0.003,
+      "optimizer": "AdamW",
+      "per_device_microbatch": 1,
+      "tf32": false,
+      "time_microblock": 32,
+      "weight_decay": 0.0001,
+      "workers_per_gpu_maximum": 2
+    },
+    "panels": {
+      "final_train_confirm": 24,
+      "group_disjoint": true,
+      "long_calibration": 24,
+      "long_fit": 192,
+      "pilot_confirm": 24,
+      "pilot_fit": 24,
+      "smoke": 3
+    },
+    "rollback": "atomic_failure_terminal_preserve_best_last_log_and_one_owned_spool_never_touch_protected_never_delete_other_files",
+    "schedule": {
+      "long": "cosine_0.003_to_0.00003",
+      "max_epochs": 20,
+      "patience": 4,
+      "smoke_pilot": "constant",
+      "warmup": 0
+    },
+    "schema": "r16_dscp_v4",
+    "scientific_design": "identical_r16_dscp_v3_only_implementation_fixes",
+    "seed": 372,
+    "space": {
+      "four_gpu_insufficient_fallback": 1,
+      "tmpfs_formula": "world_size_times_spool_max_plus_64MiB",
+      "workspace_formula": "2GiB_plus_3C_plus_64MiB"
+    },
+    "spool": {
+      "atomic": true,
+      "cleanup_owned_only": true,
+      "failure_retention_maximum": 1,
+      "root": "/dev/shm/r16_dscp_v4/<run_digest>/rank<r>",
+      "serialized_before_truth": true,
+      "tmpfs_margin_per_rank_mib": 64
+    }
+  },
+  "effective_bindings": {
+    "basis": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/basis_rank16.pt",
+      "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+      "size_bytes": 83476
+    },
+    "config": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/r16_dscp_v4.yaml",
+      "sha256": "e3f50a710416326632afcce2ced5f43fe98cebf196e801737b83dff60c673d2c",
+      "size_bytes": 5921
+    },
+    "data_guard": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/data_guard.py",
+      "sha256": "47f90a46ffa14a06e51de0e17ca125cfd46353c74d625f9ab40a5fcce35619ee",
+      "size_bytes": 5294
+    },
+    "engine": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+      "sha256": "b329a8015fa6604f9b879d46a5a7941c84d3321133a72527026ae5d43821cc24",
+      "size_bytes": 25753
+    },
+    "harness": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v2.py",
+      "sha256": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+      "size_bytes": 17273
+    },
+    "manifest": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_manifest_marmousi1_4m_v2.json",
+      "sha256": "273c2a492e31027571bf6780ea4a6668428ef47bf252023fe39eabefc355c8b2",
+      "size_bytes": 1000401
+    },
+    "model": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py",
+      "sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+      "size_bytes": 18753
+    },
+    "normalization": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json",
+      "sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+      "size_bytes": 1050
+    },
+    "panels": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/panels.json",
+      "sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+      "size_bytes": 200470
+    },
+    "parent": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "size_bytes": 339775310
+    },
+    "script": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp_v4.py",
+      "sha256": "96fa453fcfa77207a5c13ccad88d2a942c2649e3daafc4df1432c88c351c6495",
+      "size_bytes": 32831
+    },
+    "test": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r16_dscp_v4.py",
+      "sha256": "837a7adad86354a91c2804cd5e0f2d9e250d8433561c40b75e7d2abe54382979",
+      "size_bytes": 14094
+    },
+    "v2_replay": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v2/replay_basis_verify/verification.json",
+      "sha256": "d46f10f6105dbcb39271111dd6c78b8609d3a9bc7522cc85b415f1ac2e3573c1",
+      "size_bytes": 1251
+    },
+    "v3_prereg_veto_provenance": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v3_preregistration_20260826.json",
+      "sha256": "a1092c19cec0d9eec56084d90547844a0efcb52cb9ec5e13a4195543d2d2c8aa",
+      "size_bytes": 21887
+    },
+    "v4_transitive_v3": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v3.py",
+      "sha256": "8be3eb9d9672d39de3354f842005263fcda16731209d708ea9b4ccb7fae826e7",
+      "size_bytes": 41927
+    }
+  },
+  "identities": {
+    "cuda_used": false,
+    "gpu": [
+      "0, GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299, NVIDIA GeForce RTX 4090 D, 580.105.08, 24564 MiB",
+      "1, GPU-9e3ffd86-1fa1-dfea-2fa3-227cc4530c32, NVIDIA GeForce RTX 4090 D, 580.105.08, 24564 MiB",
+      "2, GPU-6c5acdd0-0e84-e7bc-7a03-1d7d2a909cf3, NVIDIA GeForce RTX 4090 D, 580.105.08, 24564 MiB",
+      "3, GPU-418c253d-6a50-2b9d-008f-540301f6e05a, NVIDIA GeForce RTX 4090 D, 580.105.08, 24564 MiB"
+    ],
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121",
+    "torch_cuda": "12.1"
+  },
+  "parent_runtime": {
+    "mean_s": 12.652311868034303,
+    "p95_s": 12.656147628091276,
+    "traditional_speedup": 1.6077198645901574
+  },
+  "preflight": {
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v4/design_preflight.json",
+    "sha256": "b8701924c0c27cf5dfb9affa0a4880b83909a8e9d4d09938ff5bfc8c1ecd0039",
+    "size_bytes": 6761
+  },
+  "rollback": "atomic_failure_terminal_preserve_best_last_log_and_one_owned_spool_never_touch_protected_never_delete_other_files",
+  "schema": "r16_dscp_v4_prereg_v1",
+  "scientific_design": "unchanged; only canonical shapes, actual coefficient loss, serialized candidate, tmpfs spool, global-batch long fixes",
+  "sealed": {
+    "GPU_used": false,
+    "authorizations_created": false,
+    "fields_in_workspace": false,
+    "truth_read": false
+  },
+  "sealed_metadata": {
+    "cross_split_zero_overlap": {
+      "group_id": true,
+      "sample_id": true,
+      "sample_sha256": true,
+      "source_index": true
+    },
+    "test_id": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "c05f56c6e24bc8bfdbb0dc165cde58e3c6f237d21146a862de7dc4eab3c6cd6d",
+      "unique_groups": 180,
+      "wavefield_read": false
+    },
+    "validation": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "75e30283484e312aeefd3cc1b39d4ffa6d0cbd8d4fdfd0b889ec2a915eaafd36",
+      "unique_groups": 180,
+      "wavefield_read": false
+    }
+  },
+  "spool": {
+    "max_bytes": 64804572,
+    "root": "/dev/shm/r16_dscp_v4/<run_digest>/rank<r>"
+  },
+  "status": "frozen",
+  "tests": {
+    "log_sha256": "9352925e5e271773731e7ca3a390daf15479f6b144d2d059ca8d677d62821619",
+    "status": "passed",
+    "tail": "............................................................             [100%]"
+  },
+  "tmpfs_gate_1gpu": {
+    "passed": true,
+    "tmpfs_free_bytes": 128848982016,
+    "tmpfs_passed": true,
+    "tmpfs_required_bytes": 131913436,
+    "workspace_free_bytes": 2312273920,
+    "workspace_passed": true,
+    "workspace_required_bytes": 2214708597,
+    "world_size": 1
+  },
+  "tmpfs_gate_4gpu": {
+    "passed": true,
+    "tmpfs_free_bytes": 128848982016,
+    "tmpfs_passed": true,
+    "tmpfs_required_bytes": 527653744,
+    "workspace_free_bytes": 2312273920,
+    "workspace_passed": true,
+    "workspace_required_bytes": 2214708597,
+    "world_size": 4
+  },
+  "v3_veto_provenance": {
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v3_preregistration_20260826.json",
+    "sha256": "a1092c19cec0d9eec56084d90547844a0efcb52cb9ec5e13a4195543d2d2c8aa",
+    "size_bytes": 21887
+  },
+  "workspace_gate": {
+    "passed": true,
+    "tmpfs_free_bytes": 128848982016,
+    "tmpfs_passed": true,
+    "tmpfs_required_bytes": 131913436,
+    "workspace_free_bytes": 2312273920,
+    "workspace_passed": true,
+    "workspace_required_bytes": 2214708597,
+    "world_size": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "accepted_smoke_only",
+  "candidate": "wkb96_pbg_residual_source_r28c_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The manifest-bound P_bg baseline was reproduced, the zero residual head opened with finite gradients, update two restored upstream gradients, all artifacts were bound, and peak CUDA allocation was 3,142,520,832 bytes below 4 GiB.",
+  "baseline": {"fit": 0.17466322901759648, "calibration": 0.13425537873750573, "confirmation": 0.17360634006008652},
+  "terminal_sha256": "697c3e3894e44fec815cee44703af32e4aefbfe04d605dce3d04de86c15dea34",
+  "run_identity_sha256": "ee02c531f6fff7778497a50d756f853eb489df39b7e49bd15195f33f9c98ed28",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "next_action": "Launch the separately preregistered 2000-update P_bg residual long run."
+}

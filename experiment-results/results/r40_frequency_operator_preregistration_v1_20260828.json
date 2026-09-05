@@ -1,0 +1,102 @@
+{
+  "cache_audit_sha256": "b5dbb607aa45e6a0f38876ac0052250df112e71e72cf9f93046e3d30823c030e",
+  "cache_bundle_sha256": "eab3c5a1560413cf15a7f564c9108a80f85debfa9e893665c40ed606c46fd8d2",
+  "created_utc": "2026-08-27T22:06:28.968036+00:00",
+  "data_access": {
+    "final_validation_opened": false,
+    "fit": "train_only",
+    "holdout": "train_group_disjoint_opened_development",
+    "r29b_opened": false,
+    "test_id_opened": false
+  },
+  "fit_group_count": 328,
+  "fit_record_count": 1032,
+  "frozen_accuracy_gate": {
+    "both_required": true,
+    "record_relative_l2_max_lte": 0.05,
+    "record_relative_l2_mean_lte": 0.05
+  },
+  "holdout_group_count": 25,
+  "holdout_record_count": 56,
+  "launcher": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/run_r40_frequency_residual_operator.sh",
+  "launcher_sha256": "19dcff4f4de930bb36e92668d3c6e10b6fac06e52623a2544daebab7280571e7",
+  "method": {
+    "correction_cap": 1.5,
+    "fourier_blocks": 4,
+    "frequency_amplitude_conditioning": true,
+    "input_channels": 32,
+    "mean_velocity_conditioning": true,
+    "model": "frequency_conditioned_spatial_dct_fno",
+    "modes_per_axis": 16,
+    "raw_medium_dct_and_scales": true,
+    "spatial_retained": [
+      96,
+      96
+    ],
+    "spatial_transform": "DCT-II_ortho",
+    "temporal_frequency_count": 75,
+    "temporal_frequency_range_hz": [
+      5.0,
+      80.0
+    ],
+    "width": 48,
+    "zero_initialized_output": true
+  },
+  "optimization": {
+    "amp": "bfloat16",
+    "cosine_minimum_factor": 0.05,
+    "epochs": 50,
+    "evaluate_epochs": [
+      0,
+      1,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12,
+      14,
+      16,
+      18,
+      20,
+      22,
+      24,
+      26,
+      28,
+      30,
+      32,
+      34,
+      36,
+      38,
+      40,
+      42,
+      44,
+      46,
+      48,
+      50
+    ],
+    "full_fit_pass_each_epoch": true,
+    "global_batch_size": 64,
+    "gradient_clip_norm": 1.0,
+    "hinge_weight": 2.0,
+    "learning_rate": 0.0003,
+    "local_batch_size": 16,
+    "optimizer": "Adam",
+    "seed": 400828,
+    "shape_weight": 0.002,
+    "stop_on_pass": true,
+    "tail_weight": 1.0,
+    "warmup_epochs": 1,
+    "weight_decay": 1e-05
+  },
+  "post_gate_sequence": [
+    "open_r29b_fresh_group_disjoint_holdout_only_after_development_pass",
+    "open_final_480_validation_only_after_r29b_pass",
+    "modify_word_and_tex_only_after_accuracy_evidence_passes"
+  ],
+  "preregistration_sha256": "bf4b3eacfb08f6c81d3bbbe820596ac28802759d78b64e7d0f795f3790cb6c39",
+  "schema": "r40_frequency_operator_preregistration_v1",
+  "selection_sha256": "cfcf58f95f9e6d4373fe31f2b532f6555904b6dc46fe2deba531d6370c5d999e",
+  "train_script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r40_frequency_residual_operator.py",
+  "train_script_sha256": "937ce44917c980464033386c226ba83f5bb39b0ce8c2cf04c2895c0f4972a7cc"
+}

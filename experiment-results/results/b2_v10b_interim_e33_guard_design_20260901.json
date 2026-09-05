@@ -1,0 +1,65 @@
+{
+  "schema": "b2_v10b_observed_count_guard_design_v1",
+  "status": "frozen_before_fresh_train_confirmation",
+  "created_utc": "2026-09-01T08:05:20Z",
+  "candidate": "b2_v10b_cycle050_minimum_observed_40_v1",
+  "hypothesis": "For the interim V9 parent, applying the rank-4 correction only when the cycle050 causal prefix contains at least 40 saved frames will strictly improve aggregate relative L2 on fresh group-disjoint train confirmation records.",
+  "mechanism": [
+    "use the source-period-normalized cycle050 causal prefix",
+    "abstain exactly to the parent when fewer than 40 frames are visible",
+    "otherwise solve the frozen rank-4 closed-form residual inverse problem",
+    "apply at most five percent future correction energy"
+  ],
+  "offline_policy": {
+    "rank": 4,
+    "family_specific": true,
+    "minimum_mean_oracle_gain_per_family": 0.0
+  },
+  "online_policy": {
+    "rank": 4,
+    "anchor_frames": 8,
+    "ridge_fraction": 0.001,
+    "trust_ratio": 0.05,
+    "minimum_observed_gain": 0.0,
+    "minimum_information_ratio": 0.0,
+    "minimum_observed_frames": 40,
+    "maximum_observed_frames": 49,
+    "common_tail_start": 49,
+    "arms": {
+      "cycle050": {
+        "after_peak_cycles": 0.5
+      }
+    }
+  },
+  "accuracy_and_selection": {
+    "confirmation_pass": "guarded adapted aggregate relative L2 must be strictly below the same-record frozen parent aggregate; no minimum percentage",
+    "report_only": [
+      "per-family relative L2",
+      "nonworse",
+      "accepted count",
+      "temporal and frequency errors",
+      "runtime"
+    ]
+  },
+  "calibration": {
+    "decision": "results/b2_v10b_interim_e33_guard_calibration_decision_20260901.json",
+    "minimum_observed_frames": 40,
+    "relative_gain": 0.004508157754033538
+  },
+  "confirmation": {
+    "manifest": "results/b2_v10_online_confirmation_manifest_24rec_20260901.json",
+    "manifest_sha256": "340822a928a23e075f38ccbcfbbbde7e239d7eb8247db2df2a423d10cf48ffaf",
+    "records": 24,
+    "future_truth_opened": false
+  },
+  "rollback": "minimum-observation abstention and every rejected solve return the immutable interim V9 checkpoint exactly",
+  "implementation_bindings": {
+    "core_sha256": "5a0c167c8481034675e529ec98b474dcc14375198a98b5e759b295b3f3843c36",
+    "evaluator_sha256": "5293e48cba5baf8e0efd1273c0c8be204ab18726db1f398973570c32c9c18d00",
+    "test_sha256": "e61be2de856e72ee4664def8c239ff04cff728113747055c0ff671fd02542489",
+    "tests_passed": 22
+  },
+  "claim_scope": "interim parent train-only confirmation; cannot promote or replace the final V9 decision",
+  "validation_opened": false,
+  "test_id_opened": false
+}

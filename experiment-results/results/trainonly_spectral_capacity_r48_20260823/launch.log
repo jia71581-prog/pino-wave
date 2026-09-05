@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_trainonly_spectral_capacity.py", line 805, in <module>
+    raise SystemExit(main())
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_trainonly_spectral_capacity.py", line 790, in main
+    payload = run_diagnostic(
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_trainonly_spectral_capacity.py", line 515, in run_diagnostic
+    [int(value) for value in h5.attrs["saved_grid_shape"]]
+  File "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/diagnose_trainonly_spectral_capacity.py", line 515, in <listcomp>
+    [int(value) for value in h5.attrs["saved_grid_shape"]]
+ValueError: invalid literal for int() with base 10: '['

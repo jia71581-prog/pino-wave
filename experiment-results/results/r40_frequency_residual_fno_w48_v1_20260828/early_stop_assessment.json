@@ -1,0 +1,34 @@
+{
+  "schema": "r40_early_stop_assessment_v1",
+  "status": "rejected_flat_at_epoch_20",
+  "experiment": "results/r40_frequency_residual_fno_w48_v1_20260828",
+  "decision_epoch": 20,
+  "decision_global_step": 24180,
+  "elapsed_seconds": 1750.34502512123,
+  "parent": {
+    "record_rel_l2_mean": 0.020046478302280728,
+    "record_rel_l2_max": 0.06584256844896734
+  },
+  "epoch_20": {
+    "record_rel_l2_mean": 0.020046499348726467,
+    "record_rel_l2_max": 0.06584256752107567,
+    "train_loss": 0.0015394932352039616
+  },
+  "epoch_1_train_loss": 0.001539954390534052,
+  "relative_train_loss_decrease_epoch_1_to_20": 0.0002994603846656812,
+  "absolute_goal": {
+    "record_rel_l2_mean_lte": 0.05,
+    "record_rel_l2_max_lte": 0.05,
+    "passed": false
+  },
+  "reason": "The training objective decreased by only 0.030 percent over 20 epochs and the opened group-disjoint development maximum remained at the parent value. A train-only single-record diagnostic showed that the same architecture and physical objective can reduce a hard fit record from 0.0581897512 to 0.0486521317, so the full-fit failure is attributed to cross-record cancellation and insufficient hard-record emphasis rather than an output-initialization trap.",
+  "next_action": "Use train-only base-error-aware hard-record sampling and retain the physical objective; do not use plain coefficient MSE.",
+  "data_boundary": {
+    "fit_truth_used": true,
+    "opened_development_holdout_used": true,
+    "r29b_opened": false,
+    "final_validation_opened": false,
+    "test_id_opened": false,
+    "paper_modified": false
+  }
+}

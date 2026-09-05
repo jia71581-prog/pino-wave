@@ -1,0 +1,84 @@
+{
+  "schema": "transfer_dg_wfp_full2800_final_ddp4_preregistration_v1",
+  "candidate": "transfer_dg_wfp_full2800_final_ddp4_20260903",
+  "claim_scope": "final offline pretraining on all train records; not validation or test_id promotion",
+  "hypothesis": "Retraining the accepted high-capacity phase-WFP architecture on all 2,800 train records with exact-global-batch four-rank DDP preserves the selected optimization semantics while exposing the final model to every train record and frequency mode.",
+  "mechanism": "Each DDP rank consumes one record-frequency pair from each of four families per optimizer update. Rank-local mean gradients are averaged by DDP, reproducing the prior global family-balanced batch of 16 while using all four GPUs.",
+  "source_selection": {
+    "status": "accepted",
+    "decision": "auto_approve_final_all2800_retrain",
+    "base_confirmation_mean": 0.6146310202992675,
+    "high_confirmation_mean": 0.506225856623392,
+    "relative_gain": 0.17637437762756003,
+    "selected_seed": 372,
+    "selected_checkpoint_sha256": "e62786ae2615e7bbbe6bf208ccaa806dc8f12d14aed8b0425e729d9fabd1bb22"
+  },
+  "data": {
+    "record_count": 2800,
+    "role_counts": {
+      "fit": 2608,
+      "calibration": 96,
+      "confirmation": 96
+    },
+    "all_roles_used_for_gradients": true,
+    "family_counts": {
+      "uniform": 420,
+      "layered": 1120,
+      "anomaly": 560,
+      "marmousi": 700
+    },
+    "frequency_bins": 64,
+    "training_full_truth_allowed": true,
+    "model_input_future_wavefield_frames": 0,
+    "test_future_truth_access": false
+  },
+  "training": {
+    "architecture": "high",
+    "width": 64,
+    "rank": 32,
+    "depth": 6,
+    "radii": [1, 2, 3, 4, 5, 6],
+    "seed": 372,
+    "epochs": 2,
+    "world_size": 4,
+    "global_per_family_batch": 4,
+    "global_batch_size": 16,
+    "rank_batch_size": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0002,
+    "weight_decay": 0.000001,
+    "eta_min": 0.000002,
+    "cpml_weight": 0.05,
+    "checkpoint_retention": "latest_only"
+  },
+  "primary_metric": "one frozen complete validation 401-frame physical relative L2 after final checkpoint serialization",
+  "completion_gate": {
+    "all_four_ranks_return_zero": true,
+    "all_2800_train_records_used_for_gradients": true,
+    "all_64_frequency_bins_covered_each_epoch": true,
+    "finite_loss": true,
+    "latest_checkpoint_present_and_hashed": true,
+    "outer_boundary_contract_preserved": true
+  },
+  "failure_signal": "Any failed DDP rank, non-finite loss, incomplete train/frequency census, missing checkpoint hash, or opened validation/test_id flag fails the final retrain.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "wall_seconds_max": 21600,
+    "new_disk_bytes_max": 1073741824
+  },
+  "bindings": {
+    "trainer_sha256": "432d680702a257fd4252cafcd4c2d14870ff9c4f1adee0aa23d86b829efb013d",
+    "launcher_sha256": "c9540d5bcc311c37f65a888eec7335a9fdef80bfef433c57caccd2afed78bdfa",
+    "wfp_module_sha256": "1e05e6e002cf8cd560ae5a6d5e280d1fca186322ca949e496029733a38f6fcc0",
+    "manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "capacity_summary_sha256": "a7324a59c8de6cdd8c5f858533282aa77a58ff507c0641ac114231d38b618336",
+    "capacity_terminal_sha256": "b41c013f6080a0aa2aad1b5ddab96e115d38ae07114eaf5ea4fec068c32e9dd3",
+    "cache_terminal_sha256": "0c9b1f0c3093101d98b65e35400d6d7c90f704d7ca7594d748d675e3af37350a",
+    "travel_terminal_sha256": "349ae5947741dae89cdbce40282937e0e21a03d39c8c405b035a3261b683d4cc"
+  },
+  "output_dir": "results/transfer_dg_wfp_full2800_final_ddp4_20260903",
+  "rollback": "Additive run. Preserve all capacity-comparison, A3, B2-H, Helmholtz, ASAM, and CPADC checkpoints. Keep only latest.pt in the new final directory.",
+  "self_approval": "User explicitly authorized automatic start after the train-only gate and requested all four GPUs be used.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

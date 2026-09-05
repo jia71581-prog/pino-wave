@@ -1,0 +1,58 @@
+{
+  "dataset": "results/lwc84_dt1e5_full_protocol_single_20260808/dataset_marmousi1_v2.h5",
+  "gates": {
+    "cfl": {
+      "maximum_cfl_2d": 0.005878504604035723,
+      "maximum_lwc_q": 0.0002246741585573413,
+      "passed": true
+    },
+    "forward_protocol": {
+      "expected_dt_s": 1e-05,
+      "expected_saved_grid": [
+        201,
+        201
+      ],
+      "expected_snapshot_stride": 250,
+      "expected_solver_grid": [
+        401,
+        401
+      ],
+      "failed_checks": [],
+      "observed_dt_s": 1e-05,
+      "observed_snapshot_stride": 250,
+      "passed": true
+    },
+    "free_surface": {
+      "max_abs_top": 0.0,
+      "passed": true
+    },
+    "nonzero_wavefield": {
+      "max_abs": 7.659138390181397e-08,
+      "passed": true
+    },
+    "source_map": {
+      "max_sum_error": 2.2351741790771484e-08,
+      "passed": true
+    },
+    "time_axis": {
+      "count": 401,
+      "passed": true,
+      "strictly_increasing": true
+    }
+  },
+  "included_splits": [
+    "train"
+  ],
+  "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/lwc84_dt1e5_full_protocol_single_20260808/dataset_marmousi1_v2.h5",
+  "sample_count": 1,
+  "schema_version": "acoustic_lwc84_401_to_201_v1",
+  "source_shard_count": 1,
+  "split": "all",
+  "strict_passed": true,
+  "wavefield_shape": [
+    1,
+    401,
+    201,
+    201
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "disk": {
+    "free_bytes": 28650803200,
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/marmousi1_v3_dt1e5_plan_20260808",
+    "total_bytes": 408021893120
+  },
+  "disk_safety_passed": false,
+  "global_vmax_safe_upper_bound_mps": 6750.0,
+  "grid": {
+    "saved": [
+      201,
+      201
+    ],
+    "saved_time_frames": 401,
+    "solver": [
+      401,
+      401
+    ]
+  },
+  "manifest": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/marmousi1_v3_dt1e5_plan_20260808/manifest.jsonl",
+  "manifest_sha256": "d6d2ba6d9af60b6953b8a66ed589d24895e82091bc80a5321a87da2179fc609d",
+  "manifest_summary": {
+    "frequency_window_leakage_count": 0,
+    "group_split_leakage_count": 0,
+    "marmousi_cross_split_overlap_count": 0,
+    "marmousi_ood_overlap_count": 0,
+    "medium_counts": {
+      "anomaly": 800,
+      "layered": 1600,
+      "marmousi": 1000,
+      "uniform": 600
+    },
+    "ood_case_ids": [
+      "ood_uniform_c4000_f15",
+      "ood_layered_c3000_c5000_f15",
+      "ood_marmousi_holdout_f10"
+    ],
+    "sample_count": 4003,
+    "split_counts": {
+      "ood_canonical": 3,
+      "test_id": 600,
+      "train": 2800,
+      "validation": 600
+    }
+  },
+  "manifest_written": true,
+  "marmousi_inventory": [
+    {
+      "byte_order": "not_applicable_serialized_tensor",
+      "dtype": "float32",
+      "dx_m": null,
+      "dz_m": null,
+      "extractable_2km_crop_count": 0,
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/prepared/marmousi1_vp_zx_751x2301_4m.npy",
+      "physical_depth_m": null,
+      "physical_width_m": null,
+      "sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+      "shape": [
+        751,
+        2301
+      ],
+      "shape_source": "npy",
+      "size_bytes": 6912332,
+      "velocity_max_mps": 5500.0,
+      "velocity_mean_mps": 2860.16796875,
+      "velocity_min_mps": 1500.0,
+      "velocity_unit": "m/s"
+    }
+  ],
+  "production_ready": false,
+  "schema_version": "acoustic-lwc84-cpml-401-to-201-marmousi1-v3-dt1e5",
+  "selected_marmousi": {
+    "byte_order": "not_applicable_numpy_npy",
+    "dtype": "float32",
+    "dx_m": 4.0,
+    "dz_m": 4.0,
+    "extractable_2km_crop_count": 452051,
+    "path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/prepared/marmousi1_vp_zx_751x2301_4m.npy",
+    "physical_depth_m": 3000.0,
+    "physical_width_m": 9200.0,
+    "sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "shape": [
+      751,
+      2301
+    ],
+    "shape_source": "npy",
+    "size_bytes": 6912332,
+    "velocity_max_mps": 5500.0,
+    "velocity_mean_mps": 2860.16796875,
+    "velocity_min_mps": 1500.0,
+    "velocity_unit": "m/s"
+  },
+  "status": "BLOCKED_DISK",
+  "storage_budget": {
+    "estimated_lzf_bytes_range": [
+      143391350916,
+      221604815052
+    ],
+    "estimated_temporary_bytes": 521032320,
+    "required_free_bytes": 277657309215,
+    "safety_factor": 1.25,
+    "sample_count_including_ood": 4003,
+    "saved_shape_per_sample_NTZX": [
+      1,
+      401,
+      201,
+      201
+    ],
+    "static_and_metadata_uncompressed_bytes": 1304321508,
+    "temporary_space_assumption": "one concurrent uncompressed partial shard",
+    "total_uncompressed_bytes": 260711547120,
+    "wavefield_uncompressed_bytes": 259407225612
+  },
+  "time_plan": {
+    "cfl_2d": 0.019091883092036785,
+    "dt_requested_s": 1e-05,
+    "dt_used_s": 1e-05,
+    "engineering_dt_limit_s": 0.00023570226039551585,
+    "global_vmax_mps": 6750.0,
+    "lwc_qmax": 0.0023698285714285716,
+    "lwc_safety_dt_limit_s": 0.0006364688465216445,
+    "output_interval_s": 0.0025,
+    "reduced": false,
+    "snapshot_stride": 250
+  },
+  "total_solver_steps_for_4003_samples": 400300000
+}

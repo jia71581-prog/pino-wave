@@ -1,0 +1,50 @@
+{
+  "schema": "transfer_dg_wfp_full2800_cache_preregistration_v1",
+  "candidate": "transfer_dg_wfp_full2800_pretraining_20260902",
+  "claim_scope": "all-train derived-label generation; not model promotion",
+  "hypothesis": "Generating sigma-2 background, 64-bin pressure and explicit exterior-CPML labels for all 2800 train records provides the complete offline supervision required by the E1d-accepted phase-WFP.",
+  "data": {
+    "split": "train",
+    "record_count": 2800,
+    "fit": 2608,
+    "calibration": 96,
+    "confirmation": 96,
+    "training_full_truth_allowed": true,
+    "model_input_future_wavefield_frames": 0,
+    "test_wavefield_access": "registered_early_prefix_only",
+    "test_future_truth_access": false
+  },
+  "labels": {
+    "background_sigma_saved_cells": 2.0,
+    "time_frames": 401,
+    "temporal_rfft_bins": 64,
+    "physical_shape": [201, 201],
+    "exterior_shape": [221, 241],
+    "cpml_layers": 20,
+    "cpml_sides": ["left", "right", "bottom"],
+    "top": "free_surface_dirichlet",
+    "cpml_memory": ["psi_x", "psi_z", "phi_x", "phi_z"]
+  },
+  "acceptance": {
+    "record_count": 2800,
+    "all_shards_complete": true,
+    "all_arrays_finite": true,
+    "no_fp16_overflow": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "compute_budget": {
+    "gpu_count": 4,
+    "wall_seconds_max": 28800,
+    "new_disk_bytes_max": 85899345920,
+    "minimum_free_disk_bytes_after": 85899345920
+  },
+  "bindings": {
+    "manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "cache_builder_sha256": "04c27aa427172079852a75b9d40d9a2c31ffd4e9e172c3453d39a861b63485e0",
+    "e1d_summary_sha256": "37b214817a878aa17703cf0191ea9aebd98ceee51db92fbab7d453e25a933cdf"
+  },
+  "rollback": "Additive four-shard cache. Never overwrite source data or protected checkpoints. On one-shard failure retain completed shards and resume only the missing shard.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "transfer_dg_wfp_e1d_preregistration_audit_v1",
+  "cleared_for_travel_and_four_gpu_training": true,
+  "preregistration_sha256": "66a0a42aa01e18578e66a5439809622edb9b24069eda95223c7dd267b1fe5215",
+  "checks": {
+    "train_full_truth_allowed": true,
+    "train_future_labels_are_targets_not_inputs": true,
+    "model_input_future_wavefield_frames": 0,
+    "test_wavefield_access": "registered_early_prefix_only",
+    "test_future_truth_access": false,
+    "travel_depends_only_on_velocity_source_grid": true,
+    "fit_calibration_confirmation_group_disjoint": true,
+    "four_family_coverage": true,
+    "phase_wfp_cpml_tests_passed": 9,
+    "gpu_process_count_before_launch": 0,
+    "output_absent": true
+  },
+  "veto_reason": null,
+  "validation_opened": false,
+  "test_id_opened": false
+}

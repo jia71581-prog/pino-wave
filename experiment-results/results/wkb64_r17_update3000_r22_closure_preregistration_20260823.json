@@ -1,0 +1,11 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb64_r17_update3000_r22_closure",
+  "scope": "three-record all-saved reproducibility closure",
+  "parent": {"checkpoint": "results/wkb64_r13_marm83_no_surface_r17_continue3000_20260823/checkpoints/update_3000.pt", "checkpoint_sha256": "cd0fd20c13003540abee051250e89f26c1ee19da21aaf260a7ad8506bee6bd7c", "identity": "results/wkb64_r13_marm83_no_surface_r17_continue3000_20260823/run_identity.json", "identity_sha256": "e4a51fbd1d00900e65d9cfb2e03a6890c411861baf8e9a1b3f30fe084be0f259"},
+  "output_contract": {"free_surface_taper": false, "local_causal_gate": false, "global_hard_causality": true},
+  "data_access": {"train": true, "validation": false, "test_id": false},
+  "deployment_contract": {"fine_grid_solver": false, "true_wavefield_input": false, "future_truth_input": false},
+  "acceptance": {"all_saved_aggregate_relative_l2_max": 0.05, "all_saved_each_family_relative_l2_max": 0.05},
+  "code_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8"
+}

@@ -1,0 +1,263 @@
+{
+  "adaptive_sampling": "vrba",
+  "allow_travel_source_path_alias": true,
+  "anomaly_excluded": true,
+  "background_cache": "/dev/shm/g3cache/background_pbg_sigma2_g3pool_N420.h5",
+  "background_cache_shards": [],
+  "baseline_heldout_relative_l2": 0.017094229204318898,
+  "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_reflection_original_directfreq32_uniform64_overfit3_ep20_20260808T104310Z/checkpoints/update_0015.pt",
+  "best_checkpoint_selection_score": 0.9986330300525159,
+  "best_fixed_heldout_relative_l2": 0.017008072415330977,
+  "checkpoint_selection_metric": "scattering_relative_l2",
+  "ddp_world_size": 4,
+  "evaluation_is_generalization": false,
+  "frame_lambda_final": [
+    0.0,
+    0.0,
+    0.198111,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811,
+    0.019811
+  ],
+  "frame_rba": true,
+  "g2_memorization_all_saved_reference": 0.206,
+  "heldout_all_saved_aggregate_relative_l2": 0.017008072415330977,
+  "heldout_all_saved_metrics": {
+    "aggregate_relative_l2": 0.017008072415330977,
+    "centroid_shift_cells": 5.207031802382024,
+    "coarse_metrics": {
+      "aggregate_relative_l2": 0.017008072563756863,
+      "centroid_shift_cells": 5.2070319233496,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 0.024319237738246242,
+        "marmousi": 0.026696989868065228,
+        "uniform": 7.990084959123883e-06
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.004775942998895329,
+          "late": 0.15128122941557617,
+          "middle": 0.028500373096423833,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.0015181791900285549,
+          "late": 0.041650306803943715,
+          "middle": 0.021769731022524188,
+          "pre_onset": 1.0
+        },
+        "uniform": {
+          "early": 6.092636404569752e-08,
+          "late": 3.303247812342238e-07,
+          "middle": 1.5114245094914246e-07,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 1203,
+      "medium_relative_l2": {
+        "train:layered:00000": 0.024319237738246242,
+        "train:marmousi:x0.0:z0.0": 0.026696989868065228,
+        "train:uniform:00000": 7.990084959123883e-06
+      },
+      "near_zero_frame_count": 4,
+      "phase_correlation": 0.9556852513612227,
+      "record_count": 3,
+      "rmse": 0.0015616989655446547,
+      "source_relative_l2": {
+        "train_layered_00000": 0.024319237738246242,
+        "train_marmousi_00000": 0.026696989868065228,
+        "train_uniform_00000": 7.990084959123883e-06
+      },
+      "spectrum_relative_l2": {
+        "high": 0.01790389251797461,
+        "low": 0.019733581163721817,
+        "middle": 0.0211170177192286
+      },
+      "time_bin_relative_l2": {
+        "early": 0.001786670540264404,
+        "late": 0.03171819161899282,
+        "middle": 0.016659547603168942,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 0.0
+    },
+    "correction_to_coarse_l2_ratio": 6.736896947664164e-08,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 0.02431923741705045,
+      "marmousi": 0.02669698991030342,
+      "uniform": 7.989918639060064e-06
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 0.004775944341955236,
+        "late": 0.15128124131814588,
+        "middle": 0.02850036971334189,
+        "pre_onset": 1.0
+      },
+      "marmousi": {
+        "early": 0.0015181792998543297,
+        "late": 0.04165030690845095,
+        "middle": 0.02176973097637027,
+        "pre_onset": 1.0
+      },
+      "uniform": {
+        "early": 5.937776803706071e-08,
+        "late": 3.192893484579132e-07,
+        "middle": 1.4650185015348116e-07,
+        "pre_onset": 1.0
+      }
+    },
+    "frame_count": 1203,
+    "medium_relative_l2": {
+      "train:layered:00000": 0.02431923741705045,
+      "train:marmousi:x0.0:z0.0": 0.02669698991030342,
+      "train:uniform:00000": 7.989918639060064e-06
+    },
+    "near_zero_frame_count": 4,
+    "phase_correlation": 0.9556852519664533,
+    "predicted_to_true_scattering_l2_ratio": 0.05022221742942691,
+    "record_count": 3,
+    "reference_kind": "coarse",
+    "relative_improvement_vs_coarse": 8.726790505428821e-09,
+    "rmse": 0.001561698966114311,
+    "scattering_relative_l2": 0.9986330300525159,
+    "source_relative_l2": {
+      "train_layered_00000": 0.02431923741705045,
+      "train_marmousi_00000": 0.02669698991030342,
+      "train_uniform_00000": 7.989918639060064e-06
+    },
+    "spectrum_relative_l2": {
+      "high": 0.017903894246892687,
+      "low": 0.019733581088259854,
+      "middle": 0.021117018746115015
+    },
+    "time_bin_relative_l2": {
+      "early": 0.0017866709145753577,
+      "late": 0.031718191825820634,
+      "middle": 0.016659547241350336,
+      "pre_onset": 1.0
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 0.0
+  },
+  "lpf_g2_reference": 0.29,
+  "normalization_binding": {
+    "filtered_source_manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+    "mode": "parent_binding_on_filtered_source",
+    "normalization_manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+    "normalization_record_count": 2240
+  },
+  "parameter_count": 32569974,
+  "peak_cuda_bytes": 13111024128,
+  "plain_helmholtz_g3_reference": 0.639,
+  "rad_recompute_epochs": 1,
+  "rba_potential": "quadratic",
+  "record_oversample": 2.0,
+  "records_per_family": 0,
+  "schema": "helmholtz_g3_heldout_v1",
+  "source_h5": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.invalidated_source_for_hybrid_v2.h5",
+  "source_invalidation_audit": {
+    "family_counts": {
+      "ood_canonical/layered": 1,
+      "ood_canonical/marmousi": 1,
+      "ood_canonical/uniform": 1,
+      "test_id/layered": 240,
+      "test_id/marmousi": 150,
+      "test_id/uniform": 90,
+      "train/layered": 1120,
+      "train/marmousi": 4,
+      "train/uniform": 420,
+      "validation/layered": 240,
+      "validation/marmousi": 150,
+      "validation/uniform": 90
+    },
+    "filtered_manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+    "invalid_sample_count": 696,
+    "reason": "696 legacy train/Marmousi source records were intentionally removed and the original VDS returned HDF5 fill values for those slots",
+    "report": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.INVALID_AFTER_MARMOUSI_CLEANUP.json",
+    "retained_source_sha256": "b256fc7880745810e067977ee188f42f8b6174754549e48938fd04f2a2bdee99",
+    "split_counts": {
+      "ood_canonical": 3,
+      "test_id": 480,
+      "train": 1544,
+      "validation": 480
+    }
+  },
+  "status": "complete",
+  "time_adaptive_sampling": false,
+  "time_residual_ema_indices": 0,
+  "time_sampling_uniform_fraction": 0.25,
+  "train_record_count": 3,
+  "trainable_parameter_count": 6751680,
+  "training_pool_family_counts": {
+    "layered": 1,
+    "marmousi": 1,
+    "uniform": 1
+  },
+  "training_splits": [
+    "train"
+  ],
+  "training_time_pool_count": 64,
+  "updates_completed": 20
+}

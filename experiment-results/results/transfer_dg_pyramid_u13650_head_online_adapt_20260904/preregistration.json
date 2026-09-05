@@ -1,0 +1,97 @@
+{
+  "schema": "transfer_dg_pyramid_head_online_adaptation_preregistration_v1",
+  "candidate": "transfer_dg_pyramid_u13650_head_online_adapt_20260904",
+  "claim_scope": "One-record train-only CPU online adaptation smoke. The adapter reads exactly two adjacent onset frames; future train truth is opened only after adapted coefficients are serialized. No validation, test_id, generalization, runtime, or target claim.",
+  "hypothesis": "Changing only the correction span from rejected branch-trunk modes to the oracle-qualified top-64 physical-head channel modes will allow the same two-onset-plus-DG-flux ridge objective to reduce future-field relative L2 by at least 0.1% on train_marmousi_00260.",
+  "expected_mechanism": "Physical-head channels directly synthesize local pressure structure and passed the 1% oracle-capacity gate, so the unchanged causal online objective may select a future-useful direction inside this stronger span.",
+  "conceptual_variable": "correction basis only; parent, sample, online objective, ridge, trust cap, precision, and evaluation are unchanged",
+  "primary_metric": "Post-seal future-field relative-L2 improvement over the unadapted update-13650 prediction.",
+  "acceptance": {
+    "minimum_future_relative_improvement": 0.001,
+    "online_objective_strictly_improves": true,
+    "correction_ratio_max": 0.05,
+    "future_truth_used_during_adaptation": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "failure_signal": "Reject on binding drift, invalid two-frame access, non-finite tensors, online-objective rejection, future improvement below 0.1%, process failure, or any validation/test_id access.",
+  "compute_budget": {
+    "device": "cpu",
+    "threads": 16,
+    "record_count": 1,
+    "wall_seconds_max": 3600,
+    "new_disk_bytes_max": 536870912
+  },
+  "data": {
+    "split": "train",
+    "role": "development_after_single-record_smoke",
+    "family": "marmousi",
+    "sample_id": "train_marmousi_00260",
+    "sample_sha256": "7e37dfeb4a46a94d5573bd0edc7f44fdd7d581257ded6088e07667841d7d234a",
+    "online_true_frames": "exactly two adjacent onset frames",
+    "future_truth_policy": "serialize adapted coefficients and access audit before opening later train frames"
+  },
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "checkpoint_update": 13650,
+    "checkpoint_training_complete": false
+  },
+  "adaptation": {
+    "kind": "closed-form per-instance linear coefficient adaptation",
+    "basis": "top-64 energy physical-head channel contributions, hard-free-surface projected, phase rotated, Gram-whitened, and parent-norm scaled",
+    "top_energy_channels": 64,
+    "basis_relative_tolerance": 1e-06,
+    "transfer_dg_config": {
+      "dx_m": 10.0,
+      "dz_m": 10.0,
+      "element_intervals": 20,
+      "boundary_margin": 1,
+      "volume_stride": 4,
+      "observed_weight": 1.0,
+      "volume_weight": 0.0,
+      "flux_weight": 0.1,
+      "interface_floor": 0.05,
+      "ridge_weight": 0.0001,
+      "trust_ratio": 0.05
+    },
+    "precision": "FP32",
+    "quantization": false
+  },
+  "upstream_evidence": {
+    "branch_basis_oracle_future_improvement": 0.00048266013078102077,
+    "head_basis_oracle_future_improvement_at_5pct": 0.020800202524428713,
+    "head_basis_oracle_unrestricted_future_improvement": 0.07388401944932133
+  },
+  "literature_basis": [
+    "https://arxiv.org/abs/2512.17969",
+    "https://arxiv.org/abs/2604.03449",
+    "https://arxiv.org/abs/2504.15933",
+    "https://arxiv.org/abs/2308.12208"
+  ],
+  "bindings": {
+    "runner_sha256": "22d907354e3d8587c90b49586370f82856c98028d93126d3313db28d4b992500",
+    "head_basis_helper_sha256": "b9a57c196c1fdeb9b223797c062a1b85deb2d3c03b131810abb24efe2ad7abf8",
+    "integration_common_sha256": "41ba67dfd7d56ff14737edca34dae93bae3851839a41a5c7df47f15b62b385dc",
+    "adapt_core_sha256": "2b57ad54abfa093fa468447850139a374ec2b06fcf9856f317573347339eb8c9",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "candidate_checkpoint_sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "residual_summary_0_sha256": "ce160c941b9a34ca33f3b4c124b328e7801d91345c3e0c78137e0680794d6551",
+    "residual_summary_1_sha256": "90d71523d3a91531c29b70a51802e98fd30d922804b92385c65a83bdb4dd81b5",
+    "residual_summary_2_sha256": "54a1bd10d2d0d0347438ffd3af08bdb81c52a3b27f51e55d02d5c32c03b462b9",
+    "residual_summary_3_sha256": "3cac02dc6aa4200f0c150a79ea24127b6d91a9171955adad137208626af0c174",
+    "travel_summary_0_sha256": "26872176f67606f4a3383f05bc9989cd2daaddc7911b897cfec1bfabbb1472e1",
+    "travel_summary_1_sha256": "11e90ce6f6774cc221d939b202f85ad737fce075d879843df109d19e73440cc4",
+    "travel_summary_2_sha256": "35c8dcc2a8a7afb416e5d320681707013b2d7e87e5ed21c1b7ca329686e461ad",
+    "travel_summary_3_sha256": "4b770a1e1037adc28a39e5fd2f8524518d6397ee28965bad692798d3c4a073b8"
+  },
+  "allowed_files": [
+    "scripts/run_transfer_dg_pyramid_head_instance_adaptation_cpu.py",
+    "results/transfer_dg_pyramid_u13650_head_online_adapt_20260904/preregistration.json",
+    "results/transfer_dg_pyramid_u13650_head_online_adapt_20260904/run/*"
+  ],
+  "rollback": "Preserve the update-13650 parent and all oracle/failed artifacts. If the post-seal future gate fails, retain the unadapted prediction and stop online-objective tuning on this reused development record.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

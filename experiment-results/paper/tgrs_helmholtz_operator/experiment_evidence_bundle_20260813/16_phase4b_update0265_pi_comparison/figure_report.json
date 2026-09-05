@@ -1,0 +1,56 @@
+{
+  "artifacts": {
+    "figure_pdf": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/paper/tgrs_helmholtz_operator/figs/phase4b_update0265_vs_pi_train_wavefield_snapshot.pdf",
+    "figure_pdf_sha256": "968c7f3d381f5a15ff3f94be3eeab53acd71e33937a41add2301f6fafd5db15b",
+    "figure_png": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/paper/tgrs_helmholtz_operator/figs/phase4b_update0265_vs_pi_train_wavefield_snapshot.png",
+    "figure_png_sha256": "f7f2c0aa658859a91fe587d4dce6fceb85e55f7797980939ab981def3ebd63c3"
+  },
+  "bindings": {
+    "pi_source_sha256": "59fb6b04a59ade103b85754541278c3e0ed232845c1f34344369f11ba8e348ca",
+    "result_sha256": "8b157cd45512c036d8992c07f8e7593d7bc7047d801a0cbbfcc46fedc623b1c0",
+    "script_sha256": "657b7e104a551c2e89c9719fad22ea7741d106256d43480e6786b429ce52ddab"
+  },
+  "method_identity": {
+    "baseline": "full_training_set_pi_deeponet_epoch96",
+    "external_numerical_background_required": true,
+    "ours": "phase4b_update0265_with_sigma2_lwc84_background"
+  },
+  "rows": [
+    {
+      "complete_future_phase4b_relative_l2": 2.5704002258388738e-06,
+      "complete_future_pi_relative_l2": 0.6129334191177869,
+      "family": "uniform",
+      "sample_id": "train_uniform_00146",
+      "snapshot_phase4b_relative_l2": 8.829384130311191e-06,
+      "snapshot_pi_relative_l2": 1.1124537001989159
+    },
+    {
+      "complete_future_phase4b_relative_l2": 0.0855850346885238,
+      "complete_future_pi_relative_l2": 0.4907325096460184,
+      "family": "layered",
+      "sample_id": "train_layered_00109",
+      "snapshot_phase4b_relative_l2": 0.10575995704545074,
+      "snapshot_pi_relative_l2": 0.6416188439325964
+    },
+    {
+      "complete_future_phase4b_relative_l2": 0.16781270745522248,
+      "complete_future_pi_relative_l2": 0.770618007279797,
+      "family": "marmousi",
+      "sample_id": "train_marmousi_00107",
+      "snapshot_phase4b_relative_l2": 0.16439928985162916,
+      "snapshot_pi_relative_l2": 0.7592417948485349
+    }
+  ],
+  "schema": "phase4b_update0265_vs_pi_wavefield_figure_v1",
+  "selection": {
+    "rule": "first preregistered r34 record in each family",
+    "sample_ids": [
+      "train_uniform_00146",
+      "train_layered_00109",
+      "train_marmousi_00107"
+    ],
+    "snapshot_index": 240,
+    "snapshot_time_s": 0.6
+  },
+  "status": "complete_train_development_figure"
+}

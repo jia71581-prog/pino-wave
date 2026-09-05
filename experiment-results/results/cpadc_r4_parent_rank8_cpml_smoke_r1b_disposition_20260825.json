@@ -1,0 +1,10 @@
+{
+  "schema": "acoustic_smoke_disposition_v1",
+  "date_utc": "2026-08-25",
+  "candidate": "cpadc_r4_parent_rank8_cpml_smoke_r1b",
+  "status": "rejected_by_inner_rank_gate",
+  "error": "CPADC inner solve was numerically rejected during offline training after correction-energy projection",
+  "cause": "Configured minimum effective design rank is 24 while candidate basis rank is only 8.",
+  "future_truth_scope": "offline train only",
+  "followup": "Use the registered rank-32 basis and retain minimum effective design rank 24."
+}

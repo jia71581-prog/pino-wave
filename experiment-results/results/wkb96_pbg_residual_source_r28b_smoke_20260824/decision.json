@@ -1,0 +1,10 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected_incompatible_cache",
+  "candidate": "wkb96_pbg_residual_source_r28b_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The functional smoke completed, but its P_bg cache was bound to source manifest 57334b... while the active dataset is manifest 281f42.... Same sample IDs did not imply matching wavefield/source content; update-0 P_bg error was about 1.35.",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Never use the mixed-v5 cache with the current dataset. Use only the newly generated manifest-bound five-record cache."
+}

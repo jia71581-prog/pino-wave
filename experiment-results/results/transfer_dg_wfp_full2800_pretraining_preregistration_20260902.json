@@ -1,0 +1,21 @@
+{
+  "schema": "transfer_dg_wfp_full2800_pretraining_preregistration_v1",
+  "candidate": "transfer_dg_wfp_full2800_pretraining_20260902",
+  "claim_scope": "all-train-pool phase-WFP capacity selection; not validation/test promotion",
+  "hypothesis": "A high-capacity full-support phase-WFP will strictly improve two-seed train-confirmation error over the E1d-capacity base network when trained on the complete group-disjoint all-train pool.",
+  "data": {"records":2800,"fit":2608,"calibration":96,"confirmation":96,"frequency_bins":64,"training_full_truth_allowed":true,"model_input_future_wavefield_frames":0,"test_wavefield_access":"registered_early_prefix_only","test_future_truth_access":false},
+  "arms": [
+    {"variant":"base","width":32,"rank":16,"depth":4,"seeds":[372,733]},
+    {"variant":"high","width":64,"rank":32,"depth":6,"seeds":[372,733]}
+  ],
+  "training": {"epochs":2,"batch_size":16,"per_family_batch":4,"all_fit_record_frequency_pairs_seen_each_epoch":true,"optimizer":"AdamW","learning_rate":0.0002,"cpml_weight":0.05},
+  "primary_metric": "two-seed mean 96-record train-confirmation physical 64-bin relative L2",
+  "acceptance": {"high_mean_strictly_below_base_mean":true,"minimum_improvement_fraction":0.0,"all_family_coverage":true,"boundary_gate":true,"finite_gate":true},
+  "self_approval": "User explicitly authorized automatic launch and agent approval after prerequisite terminal gates pass.",
+  "compute_budget": {"gpu_count":4,"wall_seconds_max":21600,"new_disk_bytes_max":4294967296},
+  "bindings": {"trainer_sha256":"b6512872ddad57e8ff3f1cdf1d72369d555cab44ac575d353b4aec670984099b","wfp_module_sha256":"1e05e6e002cf8cd560ae5a6d5e280d1fca186322ca949e496029733a38f6fcc0","manifest_sha256":"61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560"},
+  "failure_signal": "Reject high capacity and stop before validation if high two-seed confirmation mean is not strictly lower than base or any contract gate fails.",
+  "rollback": "Additive; preserve all prior checkpoints. Keep best/latest only per new lane.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

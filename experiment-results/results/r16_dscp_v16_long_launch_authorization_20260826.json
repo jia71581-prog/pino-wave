@@ -1,0 +1,15 @@
+{
+  "schema": "v16_long_direct_launch_authorization_v1",
+  "recorded_at_utc": "2026-08-26T15:07:00Z",
+  "directive": "Lead instruction 2026-08-26: launch training directly; keep only best weights; disk is sufficient.",
+  "deviation_from_prereg": "v16 prereg chain is smoke->pilot->long with pilot as gate; pilot recorded fail_gate. This launch runs the long stage standalone at lead direction.",
+  "mitigations": {
+    "cold_start": "Standalone long runs with input_checkpoint=None (train_r16_dscp_v16.py:709,719), which removes the warm-start contamination disclosed in the pilot failure report.",
+    "concurrent_pilot_equivalent": "r4e13 arm C (192-record cold start) is mid-run and serves as the pilot-equivalent evidence for this configuration.",
+    "kill_switch": "If r4e13 lands E3 (no cross-record transfer at 192 records), this long run is stopped immediately and recorded as such.",
+    "gates_unmoved": "The long stage's own frozen gates (joint>=0.01, per-family>=0.005, nonworse>=23) are untouched; a fail is recorded as fail."
+  },
+  "checkpoint_policy": "runner default: last.pt + best.pt only, CHECKPOINT_LIMIT_BYTES=2MiB (train_r16_dscp_v16.py:114,610-614)",
+  "gpu_isolation": "CUDA_VISIBLE_DEVICES=1 external; note --physical-gpu-index is parsed but unused in v16 (train_r16_dscp_v16.py:698,705) - latent bug, worked around, GPU0/r4e13 untouched",
+  "disk_free_gb_at_launch": 12
+}

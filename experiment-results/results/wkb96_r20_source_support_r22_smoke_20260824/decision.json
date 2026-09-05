@@ -1,0 +1,14 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected_smoke_resource_gate",
+  "candidate": "wkb96_r20_source_support_r22_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The exact-load and training path completed, but peak CUDA allocation was 4,886,135,808 bytes, above the preregistered 4 GiB smoke ceiling.",
+  "updates_completed": 2,
+  "metrics_finite": true,
+  "checkpoint_written": true,
+  "terminal_sha256": "286d6de242f668c393d352d50610ca79caa4e73b96644f99dd2d7e49fed8b6b2",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Do not launch the formal run from this smoke. Repeat under a new identity using evaluation_time_block=32 and evaluation_macro_records=1 only; model, loss, data and optimizer remain unchanged."
+}

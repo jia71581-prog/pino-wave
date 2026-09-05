@@ -1,0 +1,134 @@
+{
+  "aggregate_relative_l2": 4.939844665686701,
+  "bindings": {
+    "actual_parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1/pilot/checkpoints/epoch_0001.pt",
+    "actual_parent_checkpoint_sha256": "395b83560db3342b1e2331de2d8dde2994640d56a53dfbec8c99ece4bbb177bf",
+    "comparison_script_sha256": "911031cf0eb4e599104298a35da3b8a521c58c1bddea8e9124c6f488acccc52f",
+    "config_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v5/causal_defect_basis_marmousi1_4m_v2.yaml",
+    "config_sha256": "7fd333c664793a18fff10e6a04782398755b8f58eb5ce58a05b08d32871d649e",
+    "legacy_schema5_compatibility": "empty_cpml_metadata_only_online_solve_still_passes_cpml_config_none"
+  },
+  "cpadc_checkpoint": {
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/calibration/calibrated.pt",
+    "sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b"
+  },
+  "cpadc_full_output_frames_per_record": 401,
+  "error_terms": {
+    "aggregate": [
+      5.037834596155738e-12,
+      2.0645115607476312e-13
+    ],
+    "family": {
+      "layered": [
+        0.0,
+        0.0
+      ],
+      "marmousi": [
+        0.0,
+        0.0
+      ],
+      "uniform": [
+        5.037834596155738e-12,
+        2.0645115607476312e-13
+      ]
+    },
+    "parent_aggregate": [
+      5.037834596155738e-12,
+      2.0645115607476312e-13
+    ],
+    "parent_family": {
+      "layered": [
+        0.0,
+        0.0
+      ],
+      "marmousi": [
+        0.0,
+        0.0
+      ],
+      "uniform": [
+        5.037834596155738e-12,
+        2.0645115607476312e-13
+      ]
+    }
+  },
+  "frames_per_record": 32,
+  "global_record_count": 1,
+  "measurements": [
+    {
+      "adaptation_accepted": false,
+      "adaptation_elapsed_s": 0.5189104462042451,
+      "adapted_error_numerator": 5.037834596155738e-12,
+      "adapted_relative_l2": 4.939844665686701,
+      "family": "uniform",
+      "frames_per_record": 32,
+      "parent_error_numerator": 5.037834596155738e-12,
+      "parent_relative_l2": 4.939844665686701,
+      "pi_error_numerator": 207.92216459988927,
+      "pi_relative_l2": 0.6011380873111432,
+      "pi_truth_denominator": 575.3767349830671,
+      "sample_id": "validation_uniform_00000",
+      "source_index": 2800,
+      "time_indices": [
+        7,
+        15,
+        39,
+        64,
+        85,
+        86,
+        104,
+        106,
+        109,
+        123,
+        124,
+        126,
+        144,
+        147,
+        156,
+        162,
+        186,
+        187,
+        188,
+        191,
+        222,
+        246,
+        272,
+        290,
+        291,
+        302,
+        320,
+        339,
+        344,
+        358,
+        365,
+        376
+      ],
+      "total_inference_elapsed_s_for_401_frames": 13.943568456918001,
+      "truth_denominator": 2.0645115607476312e-13
+    }
+  ],
+  "num_shards": 1,
+  "parent_aggregate_relative_l2": 4.939844665686701,
+  "pi_panel": {
+    "checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "worker_paths": [
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_0.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_1.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_2.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_3.json"
+    ],
+    "worker_sha256": {
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_0.json": "e16e94abe0b02167924bc556dc53c761bcb9a6ec778e0bb696a7335b68026101",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_1.json": "013a897a94ca027c7efbc87482ab49ef8908196b982b7974ee1be87b771a26ab",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_2.json": "e515c7020f4903abccbe09870898f365bf13b8792a5ca87290767f6e503e14c0",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/worker_3.json": "d99cb603009d4e6cbaa7571aadee542311c226354253f62bc73df98019c299cb"
+    }
+  },
+  "record_count": 1,
+  "role": "comparison_only",
+  "schema": "frozen_cpadc_on_pi_panel_worker_v1",
+  "selection_scope": "limited_validation_smoke_on_frozen_pi_panel",
+  "shard_index": 0,
+  "split": "validation",
+  "status": "complete"
+}

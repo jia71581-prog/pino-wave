@@ -1,0 +1,27 @@
+{
+  "schema": "b2_v6_cache_preregistration_v1",
+  "status": "frozen_before_build",
+  "created_utc": "2026-09-01T05:15:04Z",
+  "candidate": "b2_v6_causal_offline_online_cache_v1",
+  "bindings": {
+    "cache_builder_sha256": "a488eb0c5a634ab2d56fd60c3acc91cc122e16b071cc72079f0f17b8e3005890",
+    "rewindow_script_sha256": "31e7bc7ea11447fab18cc7aa38284978503340b20dc721119e0d1602ff92b1d6",
+    "manifest_sha256": {
+      "results/b2_v6_offline_fit_manifest_24rec_20260901.json": "a0abd7e07df0f29a5a35abab3dc6000bad67b27fdaf55a5b863596dd6fb4d034",
+      "results/b2_v6_online_holdout_manifest_12rec_20260901.json": "0d120a8160e97d25f018e499c282831a3bfce40f750d5cd793a56238671f660d"
+    }
+  },
+  "data_access": {
+    "split": "train",
+    "offline_fit_records": 24,
+    "online_holdout_records": 12,
+    "future_truth_opened_for_window_selection": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "outputs": [
+    "results/b2_v6_offline_fit_cache_24rec_20260901.h5",
+    "results/b2_v6_online_holdout_cache_12rec_20260901.h5"
+  ],
+  "rollback": "additive caches only; source manifests and all checkpoints remain immutable"
+}

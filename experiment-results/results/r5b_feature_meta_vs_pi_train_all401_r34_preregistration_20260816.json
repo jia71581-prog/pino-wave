@@ -1,0 +1,44 @@
+{
+  "schema": "train_only_r33_pi_all401_preregistration_v1",
+  "status": "registered_before_pi_prediction",
+  "date_utc": "2026-08-16",
+  "purpose": "Complete a same-record, same-future-window development comparison between r5b plus r33 instance fine-tuning and the frozen full-data PI-DeepONet baseline after r33 failed promotion to validation.",
+  "hypothesis": "On the six disjoint feature-adaptation gate records, the r5b-based method will have lower physical-pressure future-field relative L2 than PI-DeepONet, while instance fine-tuning itself will remain close to its r5b parent because the r33 promotion gate failed.",
+  "primary_metric": "global physical-pressure float64 energy relative L2 over every stored frame strictly after each record's second guarded onset observation",
+  "failure_signal": "Sample, time-window, truth-energy, checkpoint, or source-manifest mismatch; otherwise report the measured comparison regardless of direction.",
+  "selection": {
+    "split": "train",
+    "records": 6,
+    "per_family": 2,
+    "source": "r33 preregistered disjoint train gate",
+    "same_records": true,
+    "same_future_time_indices": true,
+    "all_401_saved_frames_materialized_before_future_slice": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "method_identity": {
+    "ours": "frozen r5b neural operator plus parent-residual-conditioned zero-origin instance fine-tuning",
+    "baseline": "PI-DeepONet trained on all 2240 training records for 100 epochs",
+    "physical_wavefield_propagator": false,
+    "pde_loss_weight": 0.0
+  },
+  "interpretation_limit": "This is a train-only development comparison. PI-DeepONet and r5b were both trained on these records, and r33 failed its promotion gate, so this result cannot replace frozen validation or test evidence.",
+  "compute_budget": {
+    "device": "cuda:0",
+    "records": 6,
+    "pi_frames_per_record": 401,
+    "estimated_wall_minutes": "1-3",
+    "maximum_output_megabytes": 2
+  },
+  "bindings": {
+    "r33_summary": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/r5b_feature_meta_parent_residual_disjoint_gate_r33_20260816/summary.json",
+    "r33_summary_sha256": "ea42d7370ac42533c58ae7cf86e554c7a0ead50f0e69cf0300565dbca01b0f97",
+    "r33_adapter_checkpoint_sha256": "77b8866f8aaba20d66bf5c2e0d9c0a1b93d39ca95dda1edf62795183cea42162",
+    "pi_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1_resume1/best.pt",
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "comparison_script": "scripts/compare_r33_feature_meta_vs_pi_train.py",
+    "comparison_script_sha256": "4675d916e9b484e49549eea1d025715e6c611a1ea8fbe311706530069cd6bc43"
+  },
+  "decision_rule": "Archive the measured result as train-only comparison evidence. Do not use it to authorize validation, test_id, or a publication claim of held-out superiority."
+}

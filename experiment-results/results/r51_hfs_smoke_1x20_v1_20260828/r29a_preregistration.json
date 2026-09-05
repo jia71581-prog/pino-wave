@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-08-28T12:50:31.698946+00:00",
+  "evidence_boundary": "A pass only authorizes a fresh group-disjoint train holdout experiment.",
+  "fit_selection_sha256": "5005f614d1ec7cbd77ddad440ac6132d0b79b5953aea70c566a8713d1433b937",
+  "initial_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r39_hfs_tail_finetune_base1e6_hfs1e4_4x500_v3_20260828/best.pt",
+  "initial_checkpoint_sha256": "98c360f1739ef86c37652166a1ee447dd85dcd260494b93601fa5b2bf6f934e2",
+  "optimization": {
+    "epochs": 1,
+    "global_batch_size": 64,
+    "learning_rate": 1e-06,
+    "loss": "R26 frame tail CVaR proxy plus record/frame oversampling",
+    "max_steps_per_epoch": 20
+  },
+  "r28_wrapper_sha256": "9cf71d190c13f34502340362d1389f858831bfc94d1a438dee59e38d9008ffed",
+  "role": "R28_already_opened_train_holdout_development_only",
+  "sampling": {
+    "baseline_q75": 0.0608149771188036,
+    "baseline_q90": 0.09968186658878736,
+    "dataset_frame_instances": 339168,
+    "late_frame_repeats": "2_at_or_after_0.500000_s_else_1",
+    "record_repeats": "1 + Marmousi + baseline_q75 + baseline_q90"
+  },
+  "schema": "r29a_late_tail_finetune_preregistration_v1",
+  "script_sha256": "78b4e2729336d04539907ea0b60a6d911eab67304bb7003e1c1369ace98e777a",
+  "status": "frozen_before_development_finetune",
+  "success_gate": {
+    "both_required": true,
+    "development_max_lte": 0.05,
+    "development_mean_lte": 0.05
+  },
+  "test_id_opened": false,
+  "validation_opened": false
+}

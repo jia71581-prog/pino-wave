@@ -1,0 +1,52 @@
+{
+  "schema": "train_only_feature_meta_preregistration_v1",
+  "created_utc": "2026-08-16T04:21:07Z",
+  "status": "registered_before_launch",
+  "hypothesis": "A feature-modulation adapter conditioned on the frozen r5b parent's error at the same two guarded onset frames, and deployed from an exact zero-update trust gate, will reduce complete-future relative L2 on a later disjoint train-only confirmation panel without a numerical or physical wavefield propagator.",
+  "expected_mechanism": "The parent-onset residual exposes record-specific amplitude and local phase mismatch that raw near-zero onset pressure hides. Offline train-only future supervision learns how this causal residual maps to bounded early-feature modulation; online optimization adjusts only a 16-scalar latent shift and one scalar gate using the two observed frames.",
+  "primary_metric": "per-record joint space-time relative L2 over deterministic future training frames during meta-training, followed by complete 401-frame float64 relative L2 on a disjoint train-only gate",
+  "failure_signal": "Non-finite optimization, missing checkpoint, binding mismatch, or failure of the separately preregistered disjoint train gate. A failed train gate forbids frozen validation access for this candidate.",
+  "single_conceptual_change": "Replace raw-observation conditioning with parent-onset-residual conditioning and a zero-origin deployment trust gate; parent, dataset, observation contract, and no-propagator policy remain fixed.",
+  "compute_budget": {
+    "device": "cuda:0",
+    "epochs": 5,
+    "meta_episodes_per_family": 8,
+    "training_record_count": 24,
+    "batch_size": 1,
+    "future_time_points_per_epoch": 24,
+    "gradient_time_chunk": 4,
+    "maximum_optimizer_steps": 80,
+    "estimated_wall_minutes": "2-4"
+  },
+  "algorithm": {
+    "conditioner_input": "parent_onset_residual",
+    "latent_dim": 16,
+    "modulation_rank": 4,
+    "maximum_feature_scale": 0.05,
+    "maximum_feature_bias": 0.02,
+    "learning_rate": 0.0001,
+    "pde_loss_weight": 0.0,
+    "physical_wavefield_propagator": false,
+    "numerical_bridge": false,
+    "deployment_origin": "modulation_gate_zero_exact_parent"
+  },
+  "leakage_boundary": {
+    "offline_supervision_split": "train",
+    "online_observations": "two guarded onset frames only",
+    "validation_future_opened": false,
+    "test_id_opened": false,
+    "future_truth_used_online": false
+  },
+  "bindings": {
+    "config": "configs/saved_time_v5/feature_meta_r5b_parent_residual_trust_no_propagator.yaml",
+    "config_sha256": "c1f7682fe866f4695cced1059f2bad442904c4b702e4c0c18d5a12f138d758fb",
+    "training_script_sha256": "7108145ea0d7e70112cfad3aef48db37431597a5b7b26be63302013aaf866b1b",
+    "evaluation_script_sha256": "fab7c6fddcca8b4991de34ab550bbf810f2bbd2543b8cb16a37f291a69446cd1",
+    "feature_modulation_sha256": "9a6522f655b5a87a064172ad0aa311aa0e7c1818243178ea821be47ccb35e7ba",
+    "conditioner_adapters_sha256": "966e79e8f01273324412c89267844e021111e0b68347d0f603e0cfda774ed42a",
+    "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "output_directory": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/r5b_feature_meta_parent_residual_train_r32_20260816"
+  },
+  "rollback": "Preserve all prior r5b, A3, B2-H, Helmholtz, CPADC, feature-meta, and PI-DeepONet checkpoints. On failure retain the isolated r32 artifacts and do not open validation."
+}

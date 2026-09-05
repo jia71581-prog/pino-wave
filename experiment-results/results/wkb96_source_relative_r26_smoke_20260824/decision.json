@@ -1,0 +1,20 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "accepted_smoke_only",
+  "candidate": "wkb96_source_relative_r26_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The r20 parent loaded with strict non-new state, only the zero-initialized source-relative projection was new, update-0 was exact zero, both new tensors received updates, all metrics were finite and peak CUDA allocation remained below 4 GiB.",
+  "new_parameter_audit": {
+    "update_0_weight_nonzero": 0,
+    "update_0_bias_nonzero": 0,
+    "update_2_weight_nonzero": 384,
+    "update_2_bias_nonzero": 128
+  },
+  "terminal_sha256": "e3814071a433e9238725412d3fbfc3bae62ec596bdd046fd3d08c0e7a9637c9f",
+  "run_identity_sha256": "bf7ed7561f62aa9fb5e18cb64b06d86ea873b0e875df35f948323f72a4a03ac7",
+  "checkpoint_sha256": "3578d3c9af268065c4e14210d06b432dcc7e5d2260312543cc5191993ecb7370",
+  "accuracy_claim": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "next_action": "Run one separately preregistered 1000-update source-relative pilot against r23."
+}

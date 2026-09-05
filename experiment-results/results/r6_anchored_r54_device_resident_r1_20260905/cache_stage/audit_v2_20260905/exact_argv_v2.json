@@ -1,0 +1,27 @@
+{
+  "smoke": [
+    "env",
+    "-u",
+    "CUBLAS_WORKSPACE_CONFIG",
+    "CUDA_VISIBLE_DEVICES=0",
+    "python",
+    "scripts/build_r6_device_residual_cache.py",
+    "--smoke",
+    "--preregistration",
+    "results/r6_anchored_r54_device_resident_r1_20260905/cache_stage/preregistration.json",
+    "--device",
+    "cuda:0"
+  ],
+  "cpu_tests": [
+    "env",
+    "CUDA_VISIBLE_DEVICES=",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/test_r6_device_residual_cache.py"
+  ]
+}

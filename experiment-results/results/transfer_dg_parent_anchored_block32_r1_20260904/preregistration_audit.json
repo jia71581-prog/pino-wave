@@ -1,0 +1,76 @@
+{
+  "schema": "transfer_dg_parent_anchored_block32_preregistration_audit_v1",
+  "candidate": "transfer_dg_parent_anchored_block32_r1_20260904",
+  "status": "approved_for_train_only_cache_and_smoke_when_one_gpu_is_free",
+  "long_training_approved": false,
+  "validation_approved": false,
+  "test_id_approved": false,
+  "audited_utc": "2026-09-04T07:59:53Z",
+  "checks": {
+    "data": {
+      "status": "pass",
+      "split": "train",
+      "record_count": 136,
+      "fit_calibration_confirmation_group_overlap": 0,
+      "selection_uses_wavefield_truth": false,
+      "cache_contains_wavefield_truth": false,
+      "source_index_sample_group_family_hash_split_guards": true
+    },
+    "model": {
+      "status": "pass",
+      "parent_parameter_count": 25784099,
+      "corrector_parameter_count": 91396,
+      "block_size": 32,
+      "complete_corrector_calls": 13,
+      "zero_initialization_exact_parent_noop": true,
+      "maximum_correction_ratio": 0.5,
+      "hard_free_surface": true
+    },
+    "physics": {
+      "status": "pass",
+      "fixed_coarse_stencil_used_as_truth": false,
+      "state_history_frames": 2,
+      "phase_sensitive_derivative_and_spectral_training_terms": true,
+      "known_b2h_coarse_dispersion_route_reused": false
+    },
+    "deployment": {
+      "status": "pass",
+      "required_inputs": [
+        "parent prediction",
+        "public medium/source/travel features"
+      ],
+      "optional_inputs": [
+        "two audited onset observations"
+      ],
+      "forbidden_future_truth_arguments": 0,
+      "calibration_and_confirmation_device": "cpu",
+      "cpu_threads": 16,
+      "synthetic_201x201_complete_corrector_seconds": 1.3385405540466309
+    },
+    "reproducibility": {
+      "status": "pass",
+      "binding_count": 10,
+      "all_bindings_match": true,
+      "parent_checkpoint_sha256": "5091701cc2daeb4f9af757e49cbd7fa715cd4f754198401ead45d3ddcad55c9f",
+      "parent_epoch": 23,
+      "parent_update": 15400,
+      "parent_validation_opened": false,
+      "parent_test_id_opened": false
+    },
+    "tests": {
+      "status": "pass",
+      "pytest_passed": 33,
+      "py_compile": "pass",
+      "json_parse": "pass",
+      "legacy_propagator_regression_tests_included": true
+    }
+  },
+  "launch_veto": {
+    "active": true,
+    "reason": "All four GPUs are occupied by the existing epoch-20 continuation DDP4 job at 100% utilization with approximately 20-21 GiB allocated per GPU. Concurrent parent-cache rendering is unsafe.",
+    "resolution": "Recheck PID, live log, checkpoint cursor, terminal state, disk, and nvidia-smi. Run cache materialization and one-update smoke only after one GPU is genuinely free. Audit smoke artifacts before authorizing the 12-epoch train-only pilot."
+  },
+  "claim_scope": "Implementation and CPU/static contracts only. No measured accuracy improvement and no target-5 claim.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_pbg_headonly_r31_long_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_capacity_limited_pbg_residual_long",
+  "hypothesis": "Training only the 24,768-parameter zero-init Helmholtz residual head will improve independent Marmousi source confirmation by at least 20% over fixed P_bg without the calibration degradation caused by all-parameter r29 training.",
+  "expected_mechanism": "Frozen source/medium features prevent the three fit records from rewriting the representation; the small linear spatial readout can learn only a shared scattering correction and defaults to P_bg when no useful direction exists.",
+  "single_conceptual_variable": {"name": "trainable_scope", "control": "r29 all parameters trainable", "candidate": "only Helmholtz head weight/bias trainable", "held_constant": "P_bg, panels, parent, residual target, learning rate, updates, seed and metric"},
+  "primary_metric": "all-saved confirmation relative L2 versus P_bg baseline",
+  "acceptance": {"confirmation_relative_improvement_min": 0.20, "confirmation_baseline": 0.17360634006008652, "confirmation_max": 0.13888507204806923, "calibration_baseline": 0.13425537873750573, "fit_baseline": 0.17466322901759648, "regression_tolerance": 0.05},
+  "failure_signal": "Reject if confirmation improves less than 20%, fit/calibration regresses over 5%, trainable scope drifts, or any non-finite/OOM/cache/binding failure occurs.",
+  "panels": {"fit": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"], "calibration": ["train_marmousi_00003"], "confirmation": ["train_marmousi_00004"], "validation_opened": false, "test_id_opened": false},
+  "optimization": {"updates_max": 2000, "evaluate_every": 200, "trainable_parameter_count": 24768, "learning_rate": 0.00001, "evaluation_frames": 32, "evaluation_time_block": 32, "evaluation_macro_records": 1, "seed": 372},
+  "compute_budget": {"device": "one RTX 4090D", "wall_time_max_minutes": 30, "peak_cuda_bytes_max": 4294967296, "checkpoint_storage_gib_max": 1.3},
+  "bindings": {"cache_sha256": "b3c1c43a72d35099076ba52fb55f2b7756ae82233043fabd6cfd8da842ba9da1", "training_script_sha256": "145f314052efae37f604a57b058d7b4ebd95c5bad2a86f77efd10b84f6d9ad81", "smoke_terminal_sha256": "0e0c45da2f5072627789c1fcccbd995f6c942d722a07203b77109e9b2c5cde7e", "parent_checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd"},
+  "rollback": "Preserve P_bg, r29 and r31; do not tune validation/test_id.",
+  "command": "bash runs/0824-wkb96-pbg-headonly-r31/run_long.sh"
+}

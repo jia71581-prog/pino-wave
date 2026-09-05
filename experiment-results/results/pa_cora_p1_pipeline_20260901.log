@@ -1,0 +1,93 @@
+waiting_for_v9_terminal
+{
+  "lanes": {
+    "physics_cond_s372": {
+      "baseline_aggregate": 0.13081749244945332,
+      "best_aggregate": 0.11890733479049266,
+      "best_epoch": 87,
+      "best_json_sha256": "00a491f9c72b77c57ee92407388c681e778639a566d94376b9e0a068fc443344",
+      "checkpoint": "results/b2_v9_parent_physics_cond_s372_20260901/best.pt",
+      "checkpoint_sha256": "953919b194b684f0331a965e2b1333ed56ba69d6b8d6df6aa2892547fdbf7893",
+      "run_identity_sha256": "5266b3a2ec80aded092072ad0c7ccd89701ac38f799f04b9e207cdfbfcf666fc",
+      "seed": 372,
+      "terminal_sha256": "2837f5851bc1d2d98c330db4e79649116e77759eb9570ead74a58d9d3a4d3aac",
+      "variant": "physics_cond"
+    },
+    "physics_cond_s733": {
+      "baseline_aggregate": 0.13081749244945332,
+      "best_aggregate": 0.11920688348875468,
+      "best_epoch": 78,
+      "best_json_sha256": "88ebb1a3b5abd21eccff5049b323a3cb1a457e28f38e0424c4f9cba20e842f82",
+      "checkpoint": "results/b2_v9_parent_physics_cond_s733_20260901/best.pt",
+      "checkpoint_sha256": "9dec848fac90d34528b539cbc07c41fe703ccb64407b4f9c98ca22bee2a622ad",
+      "run_identity_sha256": "cec97a982eb8883d62debee93e4d907d1fdb5c99a4e91fbd9667a1c46a36cf8c",
+      "seed": 733,
+      "terminal_sha256": "0ae50416a493cd7d453bc90fa90a3668c139fd71d84f687717472d7f77da9d4e",
+      "variant": "physics_cond"
+    },
+    "spectral_s372": {
+      "baseline_aggregate": 0.13081749244945332,
+      "best_aggregate": 0.11420642714498748,
+      "best_epoch": 82,
+      "best_json_sha256": "4640aa88cbcc6d5e947d66e7773f49ac978b21018436c0ecaf38a615c3356609",
+      "checkpoint": "results/b2_v9_parent_spectral_s372_20260901/best.pt",
+      "checkpoint_sha256": "e587872553d055e4e0f59e13f8c1c34de7a88ae720855bd22f730ff70b70cea9",
+      "run_identity_sha256": "3f933f298ea5e72df75d29e2a028aadc979c97886a91c999335a6b1a3ff62562",
+      "seed": 372,
+      "terminal_sha256": "0a584f900d2b875b1534d71a5b50484cd37005f22518b9597ae977c0aa8a87a1",
+      "variant": "spectral"
+    },
+    "spectral_s733": {
+      "baseline_aggregate": 0.13081749244945332,
+      "best_aggregate": 0.1151216300086428,
+      "best_epoch": 86,
+      "best_json_sha256": "c1320723f3ff2914b18f2dfa52789633c2db03de026537ec91d955597b52ce0d",
+      "checkpoint": "results/b2_v9_parent_spectral_s733_20260901/best.pt",
+      "checkpoint_sha256": "b7cf3bc2015b9840f049a29c41291222d214e643f5f5340f9f4ca128d161efa1",
+      "run_identity_sha256": "c5eaedda131f2a1180c9b68ea63003d96f2d1412706c3a68ddd0112af928d215",
+      "seed": 733,
+      "terminal_sha256": "6e70f4cdf8a1a1f4c7cffd87dadcde24657d02cc713fba33b18325a0367365ad",
+      "variant": "spectral"
+    }
+  },
+  "preregistration": "results/b2_v9_parent_full_preregistration_20260901.json",
+  "preregistration_sha256": "e72f668fb927f1829c40361a9f80a1c2aa7d63bf40c719ef620a0b2f56811808",
+  "schema": "b2_v9_parent_selection_v1",
+  "selected": {
+    "best_aggregate": 0.11420642714498748,
+    "checkpoint": "results/b2_v9_parent_spectral_s372_20260901/best.pt",
+    "checkpoint_sha256": "e587872553d055e4e0f59e13f8c1c34de7a88ae720855bd22f730ff70b70cea9",
+    "lane": "spectral_s372",
+    "seed": 372,
+    "variant": "spectral"
+  },
+  "selection_rule": {
+    "seed_choice": "smallest best aggregate, then lexical lane key",
+    "variant_choice": "smallest worst-seed best aggregate, then smallest mean, then lexical name",
+    "variant_gate": "both seed best aggregates strictly below their same-cache warp-anchor aggregate"
+  },
+  "selector_sha256": "72d5deaa49d5292f058c50c7c86063785d590d96abc47eda940100df5146873b",
+  "status": "passed",
+  "supervisor_terminal": "results/b2_v9_parent_full_supervisor_20260901/terminal.json",
+  "supervisor_terminal_sha256": "90a22052bd773a9b702596475d9f7e4ce489a7cb0dd7e33eb6f2cfff3c76e863",
+  "test_id_opened": false,
+  "validation_opened": false,
+  "variants": {
+    "physics_cond": {
+      "mean_seed_best_aggregate": 0.11905710913962367,
+      "passed": true,
+      "worst_seed_best_aggregate": 0.11920688348875468
+    },
+    "spectral": {
+      "mean_seed_best_aggregate": 0.11466402857681514,
+      "passed": true,
+      "worst_seed_best_aggregate": 0.1151216300086428
+    }
+  }
+}
+building_three_multiwindow_caches
+{
+  "output": "results/pa_cora_p1_training_preregistration_20260901.json",
+  "sha256": "40d3146bd7f06a9495aa16f37bba1326cda9675c4d29b6539bf32a8f730e9c0f"
+}
+launching_four_pa_cora_p1_lanes

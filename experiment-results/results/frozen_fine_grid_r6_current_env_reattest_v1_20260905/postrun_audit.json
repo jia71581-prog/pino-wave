@@ -1,0 +1,240 @@
+{
+  "schema": "frozen_fine_grid_r6_current_environment_reattest_postrun_audit_v1",
+  "audit_status": "passed",
+  "derived_from_existing_reports_only": true,
+  "wavefield_reopened": false,
+  "gpu_used": false,
+  "promotion_authorized": false,
+  "bindings": {
+    "reattest_report": {
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json",
+      "sha256": "b62823631696f816e2366ddf915a69d9558d2a7a7f8f4f46af559c027ba25eb7",
+      "size_bytes": 164180
+    },
+    "preregistration": {
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/preregistration.json",
+      "sha256": "3a3123007e2808d66aaa63c2301dcf7732e05fdcad7758613349bc63c5d8959f"
+    },
+    "reference": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json",
+      "sha256": "116a1cb7cdd13869e86e14b08ef0a80c31284d5d248cb9c0952a880f2aba5bd8",
+      "conservative_reference_runtime_s": 20.34137312322855
+    },
+    "selection_manifest": {
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/selection_manifest.json",
+      "sha256": "8edca614165744138df8b8d4aa35713b7a6df1ed19306b0bedb7747eaeb068a6"
+    },
+    "dependency_manifest": {
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/dependency_manifest.json",
+      "sha256": "cdc9f45e3fe27464f0718db7aef632cc567a77af812b1ea9cfbd155bd660ab11"
+    },
+    "runner": {
+      "path": "scripts/reattest_frozen_fine_grid_r6_train.py",
+      "sha256": "f71dbac57931127b9c62cfc3024899dc9cad1ef167f30683d3419e44a27af143"
+    },
+    "smoke_report": {
+      "path": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/smoke_report.json",
+      "sha256": "e2ae84ac8e166967c5d9ed05c307dd6344a9cafdf7d8596a6d907ac91f13f70b"
+    },
+    "frozen_target_terminal": {
+      "path": "results/frozen_fine_grid_target_met_r6_20260815.json",
+      "sha256": "279ff6d92a3058b62c7a0a4985fdf2176af459fad2ba75a3ec64b071585a29a8"
+    },
+    "frozen_candidate": {
+      "path": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
+      "sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947"
+    },
+    "historical_validation_report": {
+      "path": "results/frozen_fine_grid_validation_r6_resume1_20260815/complete_validation_gate.json",
+      "sha256": "8a987314eeb9d1fb4609c9d4395fa673f565fadc6fb4d98782d835dda6096a42"
+    },
+    "historical_validation_terminal": {
+      "path": "results/frozen_fine_grid_validation_r6_resume1_20260815/terminal.json",
+      "sha256": "6276ad2c720fa2a15bc8a75b0ca1f19270e31731686b0104edd9e60221a1114e"
+    },
+    "historical_test_id_report": {
+      "path": "results/frozen_fine_grid_test_id_r6_20260815/complete_test_id_gate.json",
+      "sha256": "5203f52917311bb58273505c332f481235e2ebecbd5ac6a6ea3086343634493b"
+    },
+    "historical_test_id_terminal": {
+      "path": "results/frozen_fine_grid_test_id_r6_20260815/terminal.json",
+      "sha256": "c812914780752c77e94d773f7d1e1a3406c6f4cb62d79199d3ab39517950a2b0"
+    },
+    "source_manifest": {
+      "path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/manifest.jsonl",
+      "sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d"
+    },
+    "marmousi_velocity": {
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+      "sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb"
+    }
+  },
+  "independent_recomputation": {
+    "record_count": 60,
+    "family_counts": {
+      "uniform": 20,
+      "layered": 20,
+      "marmousi": 20
+    },
+    "group_count": 29,
+    "aggregate_relative_l2": 0.0029278476232745846,
+    "family_relative_l2": {
+      "uniform": 0.0014464129633374836,
+      "layered": 0.001224392044256582,
+      "marmousi": 0.0032051727564310897
+    },
+    "maximum_instance_relative_l2": 0.01019181208727183,
+    "temporal_band_relative_l2": {
+      "early_0_134": 0.0009199217755167093,
+      "middle_134_267": 0.002623342407316098,
+      "late_267_401": 0.004140653649519801
+    },
+    "outer_runtime_s": {
+      "mean": 0.8896815593043963,
+      "p95_nearest_rank": 0.8924247398972511,
+      "p95_one_indexed_rank": 57,
+      "maximum": 1.446477983146906
+    },
+    "speedup_over_reference": {
+      "mean": 22.863656001966135,
+      "p95": 22.793376532311893
+    },
+    "gates": {
+      "aggregate_relative_l2_le_0_05": true,
+      "uniform_relative_l2_le_0_05": true,
+      "layered_relative_l2_le_0_05": true,
+      "marmousi_relative_l2_le_0_05": true,
+      "maximum_instance_relative_l2_le_0_05": true,
+      "outer_runtime_mean_le_2_034137312322855": true,
+      "outer_runtime_p95_le_2_034137312322855": true,
+      "all_accuracy_gates_passed": true,
+      "all_runtime_gates_passed": true,
+      "all_gates_passed": true
+    },
+    "recomputed_status": "current_environment_reattest_passed"
+  },
+  "prediction_qc": {
+    "record_count": 60,
+    "unique_64hex_prediction_hash_count": 60,
+    "all_restriction_max_absolute_difference_zero": true,
+    "all_shape_401_201_201": true,
+    "all_dtype_float32": true,
+    "all_C_contiguous": true,
+    "all_finite": true,
+    "all_top_row_exact_zero": true,
+    "all_prediction_hashed_before_truth": true
+  },
+  "truth_ledger": {
+    "selected_count": 60,
+    "prediction_hashed_count": 60,
+    "truth_read_count": 60,
+    "unique_truth_indices": 60,
+    "scored_count": 60,
+    "transition_count": 240,
+    "strict_transition_sequence_per_record": [
+      "metadata_loaded->prediction_hashed",
+      "prediction_hashed->truth_authorized",
+      "truth_authorized->truth_read",
+      "truth_read->scored"
+    ],
+    "each_truth_read_exactly_once": true,
+    "all_truth_counts_at_most_one": true
+  },
+  "historical_target5_audit": {
+    "status": "target_met",
+    "checks_passed": 39,
+    "checks_total": 39,
+    "historical_validation_previously_consumed": true,
+    "historical_test_id_previously_consumed": true,
+    "validation_truth_reopened_this_run": false,
+    "test_id_truth_reopened_this_run": false
+  },
+  "integrity": {
+    "input_hash_count": 44,
+    "input_hashes_before_equal_after": true,
+    "preregistration_sha256_observed_before": "3a3123007e2808d66aaa63c2301dcf7732e05fdcad7758613349bc63c5d8959f",
+    "preregistration_sha256_observed_after": "3a3123007e2808d66aaa63c2301dcf7732e05fdcad7758613349bc63c5d8959f",
+    "preregistration_unchanged": true,
+    "report_output_bytes_recorded": 164180,
+    "report_file_size_bytes": 164180,
+    "report_output_size_exact": true
+  },
+  "resources": {
+    "run_elapsed_seconds": 111.2504198551178,
+    "run_peak_allocated_bytes": 110917632,
+    "run_report_bytes": 164180,
+    "postrun_audit_gpu_used": false,
+    "postrun_audit_wavefield_reopened": false
+  },
+  "physical_numerical_contract": {
+    "method_kind": "numeric finite-difference physics solver; not a neural method",
+    "grid": {
+      "shape": [401, 401],
+      "spacing_m": 5.0,
+      "centering": "node",
+      "physical_extent_m": [2000.0, 2000.0]
+    },
+    "spatial_operator": "standard radius-four eighth-order second derivative",
+    "temporal_operator": "fourth-order LWC84",
+    "time": {
+      "internal_dt_s": 0.000625,
+      "stored_output_dt_s": 0.0025,
+      "stored_frame_count": 401,
+      "stored_time_range_s": [0.0, 1.0]
+    },
+    "boundaries": {
+      "top": "free_surface_dirichlet",
+      "left": "cpml",
+      "right": "cpml",
+      "bottom": "cpml",
+      "npml": 40,
+      "cpml_target_reflection": 1e-08,
+      "cpml_polynomial_order": 3,
+      "cpml_outside_physical_domain": true,
+      "c_ref_mps": 6750.0,
+      "kappa_max": 3.0,
+      "minimum_frequency_hz": 8.0
+    },
+    "initial_conditions": {
+      "p0": 0.0,
+      "pt0": 0.0
+    },
+    "source": {
+      "wavelet": "standard centered Ricker",
+      "formula": "(1-2*pi^2*f0^2*(t-t0)^2)*exp(-pi^2*f0^2*(t-t0)^2)",
+      "second_time_derivative": "analytic q_tt",
+      "spatial_delta": "bilinear nodal delta divided by dx*dz"
+    },
+    "output_restriction": "binomial5 lowpass followed by nodal decimation by factor 2",
+    "dtype": "float32",
+    "cuda_graphs": true,
+    "runtime_accounting": {
+      "included": [
+        "complete synchronized solver.simulate",
+        "CPU output materialization performed inside simulate"
+      ],
+      "excluded": [
+        "warmup",
+        "disk IO",
+        "fine-velocity construction",
+        "restriction QC",
+        "prediction hashing",
+        "truth read",
+        "scoring"
+      ]
+    }
+  },
+  "claim_scope": {
+    "claim": "The frozen R6 numeric solver passed a current-environment exposed-train regression panel, while the previously consumed historical validation/test_id Target-5 artifacts remain bound and passed.",
+    "not_neural": true,
+    "not_exact_generator_replay": true,
+    "internal_dt_is_5x_teacher_internal_dt": true,
+    "not_fresh_validation": true,
+    "not_new_validation": true,
+    "not_independent_confirmation": true,
+    "not_promotion": true,
+    "fresh": false,
+    "independent_confirmation": false,
+    "exposure_assumption": "all_selected_records_treated_as_exposed"
+  }
+}

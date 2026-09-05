@@ -1,0 +1,55 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "r20_source_medium_generalization_r21b_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "same_checkpoint_train_only_data_generalization_diagnosis",
+  "parent_attempt": "r20_source_medium_generalization_r21_20260824",
+  "parent_attempt_status": "failed_before_metrics_due_to_401_frame_evaluation_block_oom",
+  "hypothesis": "The r20 checkpoint's dominant generalization bottleneck is unseen medium structure rather than unseen source parameters within a known medium: complete-time layered and Marmousi relative L2 will remain at or below 0.10 for held-out sources from each anchor medium, while the next unseen medium groups may exceed 0.10.",
+  "expected_mechanism": "The record-conditioned gate and source encoder should interpolate source position, frequency, and onset within a velocity field already encoded by the model. A new medium changes the entire spatial coefficient envelope and therefore demands reusable medium-to-field mapping rather than source interpolation alone.",
+  "single_conceptual_variable": {
+    "name": "generalization_axis",
+    "anchor": "the exact layered and Marmousi records used to train r20",
+    "same_medium_new_source": "all remaining train records sharing each anchor group_id",
+    "new_medium_new_source": "all records in the next train group_id for each family",
+    "held_constant": "checkpoint, all model parameters, normalization, all 401 stored times, metric code and train split",
+    "evaluation_time_block": 32
+  },
+  "primary_metric": "complete 401-frame family relative L2 on the same-medium new-source panel",
+  "acceptance": {
+    "relative_l2_max": 0.10,
+    "same_medium_new_source_expected_to_pass": true,
+    "new_medium_new_source_is_diagnostic_not_a_promotion_gate": true
+  },
+  "failure_signal": "If either layered or Marmousi exceeds 0.10 on same-medium held-out sources, reject source interpolation and prioritize multiple sources per medium plus source-conditioning optimization. If same-medium passes but new-medium fails, prioritize medium diversity or a nonlocal medium mapper.",
+  "panels": {
+    "families": ["layered", "marmousi"],
+    "uniform_exclusion_reason": "Every train uniform group has exactly one record, so no same-medium held-out source exists.",
+    "anchor_truth": "train labels previously opened by r20",
+    "same_medium_truth": "train-only diagnostic, first successful metric opening in this run",
+    "new_medium_truth": "train-only diagnostic, first successful metric opening in this run",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "compute_budget": {
+    "training_updates": 0,
+    "full_evaluations": 3,
+    "device": "one RTX 4090D",
+    "wall_time_max_minutes": 4,
+    "peak_cuda_gib_max": 20,
+    "new_checkpoint_storage": false
+  },
+  "bindings": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50",
+    "diagnostic_script_sha256": "578a0932e3eeaa3ef2649f28d359dbca07398f5c32a2e3c1b263550961613f86",
+    "test_sha256": "20514ecff98bc5bb59817514781c733f2aa5ed6d9b90a1496fc506f0c17fe7c4",
+    "tests": "40 passed",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  },
+  "rollback": "Do not train or open validation/test_id. Preserve r20 and use the diagnosed axis to choose one subsequent data or algorithm variable.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_r20_source_medium_generalization.py --checkpoint results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt --identity results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json --preregistration results/r20_source_medium_generalization_r21b_preregistration_20260824.json --output-dir results/r20_source_medium_generalization_r21b_20260824"
+}

@@ -1,0 +1,283 @@
+{
+  "adaptation": {
+    "accepted": true,
+    "accessed_true_indices": [
+      12,
+      13
+    ],
+    "adaptation_cpu_only": false,
+    "adaptation_device": "cpu",
+    "adaptation_elapsed_s": 0.2511429460719228,
+    "basis": {
+      "basis_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+      "basis_rank": 16,
+      "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/cpadc/cpadc_rank16_family_calibrated_a3e1_marmousi1_4m_v2_r7/calibration/calibrated.pt",
+      "checkpoint_sha256": "6da9854d4581924de5a74811fb25bc8630f6d34a2ea1e69cecdfbd04308aae2b",
+      "dataset_numerical_contract": {},
+      "defect_contract": {
+        "closure_gap": "20_internal_steps_plus_binomial5_restriction",
+        "exact_fine_generator_residual": false,
+        "name": "source_consistent_effective_saved_grid_lwc84_v1",
+        "spatial_halo_cells": 8,
+        "time_order": 4
+      },
+      "epoch": 98,
+      "evaluation_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+      "external_evaluation_dataset": false,
+      "implementation_digests": {},
+      "minimum_unconstrained_correction_ratio": 0.0,
+      "minimum_unconstrained_correction_ratio_by_family": {
+        "layered": 1.6745492219924927,
+        "marmousi": 2.167699098587036,
+        "uniform": 1.9953080415725708
+      },
+      "observed_probe_design": false,
+      "offline_physics_training": {},
+      "online_solve_contract": {
+        "acceptance_comparator": "greater_than_or_equal",
+        "calibration_digest": "9086907ca33a98d8be1c6edfe3472a25c7d2e4aaa8e20a946e301db9cd4a67d4",
+        "minimum_unconstrained_correction_ratio_by_family": {
+          "layered": 1.6745492219924927,
+          "marmousi": 2.167699098587036,
+          "uniform": 1.9953080415725708
+        },
+        "name": "ridge_direction_family_calibrated_strength_abstention_v1",
+        "projection_uses_parent_rms": true,
+        "strength_feature": "unconstrained_correction_rms_over_parent_rms",
+        "trust_fraction_learned_offline": true
+      },
+      "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_warm_marmousi1_4m_v2_r1/pilot/best.pt",
+      "parent_checkpoint_sha256": "395b83560db3342b1e2331de2d8dde2994640d56a53dfbec8c99ece4bbb177bf",
+      "phase_rank": 4,
+      "schema_version": 5
+    },
+    "coefficient_count": 16,
+    "coefficient_finetune_cpu_only": true,
+    "coefficient_finetune_device": "cpu",
+    "coefficient_objective_device": "cpu",
+    "coefficient_solve_elapsed_s": 0.0,
+    "coefficients": {
+      "tensor_sha256": "91943befc3f8943d51cb72ffac0f3242b18527f5f94d77b241fd93dabfef589c",
+      "tensor_shape": [
+        16
+      ]
+    },
+    "condition_number": 68222.0,
+    "correction_materialization_device": "cpu",
+    "correction_ratio": 0.092655710875988,
+    "cuda_synchronized_timing": true,
+    "design_row_count": 0,
+    "effective_correction_ratio_limit": 0.0926557257771492,
+    "effective_design_rank": 16,
+    "frozen_feature_device": "cuda",
+    "future_truth_used": false,
+    "instance_trainable_path_cpu_only": true,
+    "minimum_unconstrained_correction_ratio": 1.6745492219924927,
+    "objective_after": 5.8474931716918945,
+    "objective_before": 6.098282814025879,
+    "observed_probe_design": false,
+    "observed_weight": 0.0,
+    "offline_pde_operator": "lwc84_cfs_cpml_saved_grid_arrival_window_v4",
+    "online_defect_design": "materialized",
+    "online_defect_test_function_normalization": "missing",
+    "online_defect_test_function_width": 1,
+    "online_defect_time_order": 4,
+    "online_defect_weight": 0.0,
+    "online_physics_point_count": 1,
+    "online_physics_sampling": "fixed",
+    "online_physics_seed": 372,
+    "online_prior_weight": 0.0001,
+    "online_rad_c": 1.0,
+    "online_rad_k": 1.0,
+    "online_rad_time_tilt": 1.5,
+    "online_solve": "causal_observation_bridge_ridge_cpu_v5",
+    "online_spatial_stride": 4,
+    "parent_inference_device": "cuda",
+    "parent_inference_time_block": 32,
+    "pde_cpml_contract": {},
+    "projection_scale": 0.04069621488451958,
+    "rollback_reason": null,
+    "runtime_protocol": "input_ready_to_401_frame_output_materialized_no_disk_io_v1",
+    "synthetic_bridge_device": "cpu",
+    "total_inference_elapsed_s": 13.348304046317935,
+    "trust_fraction": 0.9265572428703308,
+    "unconstrained_correction_ratio": 2.2767651081085205
+  },
+  "all_saved_time_indices": 401,
+  "future_adapted_squared_error": 1.9755713239206172e-11,
+  "future_fullfield_relative_l2": 4.466357707977295,
+  "future_parent_squared_error": 1.9853494981965068e-11,
+  "future_truth_squared_norm": 9.296983158997452e-13,
+  "medium_type": "layered",
+  "metrics": {
+    "aggregate_relative_l2": 4.762625337283303,
+    "centroid_shift_cells": 16.73998196584252,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 4.762625337283303
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 3.697528929162604,
+        "late": 5.485204128567123,
+        "middle": 3.365862387322181,
+        "pre_onset": 5.359709057019825
+      }
+    },
+    "frame_count": 401,
+    "medium_relative_l2": {
+      "validation:layered:00023": 4.762625337283303
+    },
+    "near_zero_frame_count": 123,
+    "phase_correlation": 0.6790213571250369,
+    "record_count": 1,
+    "rmse": 1.1409042491556845e-09,
+    "source_relative_l2": {
+      "validation_layered_00094": 4.762625337283303
+    },
+    "spectrum_relative_l2": {
+      "high": 3.2164525869566036,
+      "low": 4.873963235624656,
+      "middle": 4.3046019029294555
+    },
+    "time_bin_relative_l2": {
+      "early": 3.697528929162604,
+      "late": 5.485204128567123,
+      "middle": 3.365862387322181,
+      "pre_onset": 5.359709057019825
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 8.239464471099005
+  },
+  "parent_future_fullfield_relative_l2": 4.7186408042907715,
+  "parent_metrics": {
+    "aggregate_relative_l2": 4.773654354421809,
+    "centroid_shift_cells": 14.618652543837687,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 4.773654354421809
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 3.7196495395597573,
+        "late": 6.276166968978977,
+        "middle": 3.6670263513931873,
+        "pre_onset": 5.33814703966244
+      }
+    },
+    "frame_count": 401,
+    "medium_relative_l2": {
+      "validation:layered:00023": 4.773654354421809
+    },
+    "near_zero_frame_count": 123,
+    "phase_correlation": 0.6661297555267854,
+    "record_count": 1,
+    "rmse": 1.1435462903884532e-09,
+    "source_relative_l2": {
+      "validation_layered_00094": 4.773654354421809
+    },
+    "spectrum_relative_l2": {
+      "high": 2.15866896571768,
+      "low": 4.8975010861181305,
+      "middle": 3.1998072601360477
+    },
+    "time_bin_relative_l2": {
+      "early": 3.7196495395597573,
+      "late": 6.276166968978977,
+      "middle": 3.6670263513931873,
+      "pre_onset": 5.33814703966244
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 7.9592728499910415
+  },
+  "pi_matched_panel": {
+    "adapted_error_numerator": 2.1134847211862316e-12,
+    "adapted_error_numerator_in_pi_normalization": 5890.254921785602,
+    "adapted_relative_l2": 5.389060740095521,
+    "frames_per_record": 32,
+    "parent_error_numerator": 2.0937919545956063e-12,
+    "parent_error_numerator_in_pi_normalization": 5835.371432839015,
+    "parent_relative_l2": 5.363895219971772,
+    "physical_to_pi_normalization_scale_squared": 2786987226706607.0,
+    "pi_error_numerator": 56.879706643347745,
+    "pi_relative_l2": 0.529571624954577,
+    "pi_truth_denominator": 202.81867152066158,
+    "time_indices": [
+      4,
+      25,
+      30,
+      41,
+      52,
+      59,
+      92,
+      116,
+      130,
+      133,
+      134,
+      141,
+      147,
+      157,
+      169,
+      177,
+      190,
+      203,
+      227,
+      228,
+      263,
+      265,
+      274,
+      283,
+      286,
+      297,
+      304,
+      335,
+      354,
+      371,
+      380,
+      391
+    ],
+    "truth_denominator": 7.277344853866918e-14,
+    "truth_denominator_in_pi_normalization": 202.81867152066158
+  },
+  "receiver_indices": [
+    [
+      10,
+      5
+    ],
+    [
+      10,
+      28
+    ],
+    [
+      10,
+      52
+    ],
+    [
+      10,
+      76
+    ],
+    [
+      10,
+      100
+    ],
+    [
+      10,
+      123
+    ],
+    [
+      10,
+      147
+    ],
+    [
+      10,
+      171
+    ],
+    [
+      10,
+      195
+    ]
+  ],
+  "receiver_relative_l2": 4.274035453796387,
+  "sample_id": "validation_layered_00094",
+  "sealed": true
+}

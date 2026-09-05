@@ -1,0 +1,55 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_pbg_marm_r36_batch8_smoke_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_spectral_factorized_fno_batch8_smoke",
+  "hypothesis": "The accepted spectral-temporal Factorized FNO can execute batch-8 training at 64x64x101 with finite outputs and peak allocated memory below 20 GB, enabling exposure-matched broad training at lower wall time.",
+  "single_conceptual_variable": {
+    "name": "batch_size",
+    "parent": 2,
+    "candidate": 8
+  },
+  "accuracy_selection_allowed": false,
+  "operational_acceptance": {
+    "process_exit_code": 0,
+    "optimizer_updates": 2,
+    "prediction_finite_ratio": 1.0,
+    "checkpoint_best_present": true,
+    "peak_allocated_mb_max": 20000,
+    "project_validation_opened": false,
+    "project_test_id_opened": false,
+    "confirmation_opened": false
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 120,
+    "calibration_records": 60,
+    "confirmation_access": "none_in_smoke",
+    "selected_resolution": [64, 64, 101]
+  },
+  "training": {
+    "batch_size": 8,
+    "train_batches": 2,
+    "calibration_batches": 1,
+    "learning_rate": 0.001,
+    "scheduler": "none",
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "bindings": {
+    "config_sha256": "c5179b788c00a3d2ad3ed9d9175b2be807e6402c84f591381b37e17994fceea7",
+    "model_sha256": "0ab24496d4e33435c0ee3ed1395d6f21f9ec9c4eec88ad4a75ed1b49c0411e03",
+    "data_loader_sha256": "e46716ad0ce7de476345e5c3697dbd4169c337f1cdfcba779c2685ff5e201f6e",
+    "trainer_sha256": "409a59a9bdd3e89247d4bcf29d89a8ec0d3ab5ef28e4cb83eda20bd01413a4c2",
+    "vds_sha256": "c8dbded99eaa05f03616211e65b5dd5399c685bb1241717e27147fad60e3ae17",
+    "split_sha256": "d5ea622d782728d76dbf3a26311253b5377cfc75ae139bc9688d58a03c56958f",
+    "tests": "29 passed"
+  },
+  "rollback": "Preserve r34/r35 and all prior artifacts; if OOM, retry under a new preregistration with batch 4 rather than reducing model capacity.",
+  "command": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r36_batch8_smoke.yaml --device cuda --output-json results/factorized_pbg_marm_r36_batch8_smoke_20260823/result.json"
+}

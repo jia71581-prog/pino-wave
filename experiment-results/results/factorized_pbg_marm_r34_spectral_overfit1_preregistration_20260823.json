@@ -1,0 +1,61 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_pbg_marm_r34_spectral_overfit1_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_spectral_temporal_factorized_fno_capacity_gate",
+  "hypothesis": "Replacing the 19-frame local temporal receptive field with a 32-mode global Fourier temporal mixer will let the otherwise identical 64x64x101 Factorized FNO memorize one train/Marmousi P_bg record below relative L2 0.10 within 200 updates.",
+  "literature_basis": "Factorized Fourier Neural Operators motivate separable global spectral mixing; project diagnostics identify long-horizon low-spatial-mode phase as the dominant error.",
+  "expected_mechanism": "Every temporal output can depend on all 101 stored input times through rFFT-mode mixing, removing the local temporal bottleneck while retaining the same spatial encoder and output head.",
+  "single_conceptual_variable": {
+    "name": "temporal_mixer",
+    "parent": "three local depthwise kernel-7 convolution layers",
+    "candidate": "three residual global 32-mode Fourier layers"
+  },
+  "primary_metric": "same-record low-resolution relative L2",
+  "acceptance": {
+    "relative_l2_max": 0.10,
+    "prediction_finite_ratio": 1.0,
+    "peak_allocated_mb_max": 20000
+  },
+  "failure_signal": "Relative L2 above 0.50 after 200 updates rejects the spectral temporal replacement; non-finite values, OOM, or missing checkpoint also reject.",
+  "data": {
+    "project_scope": "train_only",
+    "fit_sample": "train_marmousi_00000",
+    "calibration_sample": "train_marmousi_00000",
+    "intentional_overlap": "capacity diagnostic only",
+    "confirmation_access": "none",
+    "selected_resolution": [64, 64, 101]
+  },
+  "training": {
+    "optimizer_updates": 200,
+    "batch_size": 1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0,
+    "scheduler": "none",
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "compute_budget": {
+    "gpus": 1,
+    "updates": 200,
+    "wall_ceiling_minutes": 45,
+    "peak_allocated_mb_max": 20000
+  },
+  "bindings": {
+    "config_sha256": "5cf3e7b4c395d316a76e2ba91c44a50e65e79baaec49efbc8574f0b06dd078cb",
+    "split_sha256": "9e4e88e449ae1525bfff7a3f51079482108ea4ff9478e8b6ba13eb588135f9e4",
+    "model_sha256": "0ab24496d4e33435c0ee3ed1395d6f21f9ec9c4eec88ad4a75ed1b49c0411e03",
+    "data_loader_sha256": "e46716ad0ce7de476345e5c3697dbd4169c337f1cdfcba779c2685ff5e201f6e",
+    "trainer_sha256": "409a59a9bdd3e89247d4bcf29d89a8ec0d3ab5ef28e4cb83eda20bd01413a4c2",
+    "vds_sha256": "c8dbded99eaa05f03616211e65b5dd5399c685bb1241717e27147fad60e3ae17",
+    "r33_terminal_result_sha256": "02df6f9400ad3cd0c7b55c06e80e46a267f7eed25ab9a3c32ac55d3bc9f80dcb",
+    "tests": "29 passed"
+  },
+  "rollback": "Preserve r33 and all prior artifacts; if rejected, replace the factorized architecture rather than tuning on confirmation or project validation/test_id.",
+  "command": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r34_spectral_overfit1.yaml --device cuda --output-json results/factorized_pbg_marm_r34_spectral_overfit1_20260823/result.json"
+}

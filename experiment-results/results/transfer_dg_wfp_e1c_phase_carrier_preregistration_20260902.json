@@ -1,0 +1,41 @@
+{
+  "schema": "transfer_dg_wfp_e1c_phase_carrier_preregistration_v1",
+  "created_utc": "2026-09-02T14:32:23Z",
+  "candidate": "transfer_dg_wfp_e1c_phase_carrier_20260902",
+  "claim_scope": "one-record train-only phase-carrier capacity comparison; not model promotion",
+  "hypothesis": "Multiplying WFP envelope outputs by a deployment-legal exact uniform-medium travel phase exp(-i*omega*tau) will let the model memorize the fixed sigma-2 background record materially better than the same WFP trained as a raw complex-field predictor.",
+  "single_conceptual_change": "analytic travel phase carrier enabled versus disabled",
+  "shared": {
+    "record": "train_uniform_00010",
+    "architecture": "E1 WFP width32 rank16 depth4 radii1,2,3,4",
+    "updates": 800,
+    "frequency_batch": 4,
+    "frequency_schedule": "all 64 bins exactly once per 16 updates in shuffled order",
+    "loss": "full-record energy-normalized physical coefficient error plus 0.05 CPML coefficient error",
+    "travel": "exact Euclidean source distance divided by registered uniform background velocity",
+    "cpml": "same carrier continued into the 20-layer left/right/bottom exterior domain"
+  },
+  "arms": [
+    {"carrier": "raw", "seeds": [372, 733]},
+    {"carrier": "phase", "seeds": [372, 733]}
+  ],
+  "acceptance": {
+    "both_phase_seed_best_relative_l2_lt": 0.95,
+    "phase_two_seed_mean_strictly_below_raw_mean": true,
+    "both_phase_seed_prediction_target_norm_ratio_gt": 0.05,
+    "top_and_outer_pressure_exactly_zero": true,
+    "all_outputs_finite": true
+  },
+  "failure_signal": "If either phase seed remains >=0.95 or phase mean does not beat raw mean, close direct phase-carrier background prediction and do not rerun the 256-record E1.",
+  "compute_budget": {"gpu_count": 4, "wall_seconds_max": 1800, "new_disk_bytes_max": 1073741824},
+  "bindings": {
+    "phase_module_sha256": "cba0662a84d857531f78213f894a0fadd8eda9c8b53fab492543a07f8d56a477",
+    "trainer_sha256": "e71f5e799845a3c699fc734ba94c41ab29847d613b45ee732e5142316140745b",
+    "e1_manifest_sha256": "798099eea32ab3d4073221a39edc0822e6cf9dc7a4f46fa9c78f5fc9c28a7b66",
+    "e1_summary_sha256": "f4124895fa572d601b770fe723d9c115cbaf5194feffd99e6c6686cc2387b5a9",
+    "e1b_terminal_sha256": "8ee166facfe9be54f90651e4fe7471413550ffc7835b0f471028f3abc09cd487"
+  },
+  "rollback": "Additive diagnostic only. Preserve all old checkpoints and E1 caches. Keep one best checkpoint per E1c lane and do not launch 256-record training on rejection.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

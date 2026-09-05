@@ -1,0 +1,23 @@
+{
+  "schema": "acoustic_train_only_smoke_decision_v1",
+  "status": "operational_gate_passed",
+  "decision": "advance_to_frozen_full_disjoint_train_run_without_using_smoke_accuracy_for_selection",
+  "operational_observed": {
+    "process_exit_code": 0,
+    "updates_completed": 1,
+    "panels_disjoint": true,
+    "confirmation_opened_only_after_checkpoint_freeze": true,
+    "validation_opened": false,
+    "test_id_opened": false,
+    "peak_cuda_bytes": 3486089216,
+    "terminal_and_binding_hashes_present": true
+  },
+  "accuracy_status": "not_selection_evidence",
+  "note": "The terminal status is failed only because the strict 0.05 accuracy target is intentionally retained for a one-update operational smoke. The preregistered smoke gate excludes accuracy.",
+  "bindings": {
+    "preregistration_sha256": "c66dc9240f8bc57ac06e2c7d98437a085fcd84229ed0447a38af8d396ccd0e3e",
+    "run_identity_sha256": "97fd3cd7e51df9340339c32fe13b4bcad7d4ce03e476ee2759771bcf51916a92",
+    "terminal_sha256": "26467374b7af8b9cd0f003f538acf52de66ad421707742f187a4b5f5ef05effd",
+    "checkpoint_sha256": "914bd439f94d428367dc105a117e2b698fe45b066fc2ea13b721aef00cbdd53b"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "r5b_meta_closed_form_ridge_preregistration_v1",
+  "status": "frozen_before_execution",
+  "hypothesis": "Closed-form ridge fitting of the no-propagator residual output can escape the zero-residual stationary point that defeated gradient-only meta-training on the corrected r5b parent.",
+  "mechanism": "Solve the final residual map by regularized least squares on train-only high-residual spatial points, then use the fitted map as the initialization for low-dimensional per-instance optimization.",
+  "cross_domain_basis": "Tikhonov-regularized linear system identification",
+  "scope": {
+    "split": "train",
+    "per_family": 4,
+    "record_count": 12,
+    "time_points": 32,
+    "epochs_after_prefit": 1,
+    "learning_rate": 1e-06,
+    "physics_weight": 0.0,
+    "external_propagator": false,
+    "validation_truth_allowed": false,
+    "test_id_allowed": false
+  },
+  "ridge_sweep": {
+    "base": 1e-06,
+    "candidates": [
+      1e-06,
+      1e-05,
+      0.0001,
+      0.001,
+      0.01,
+      0.1
+    ]
+  },
+  "primary_metric": "ridge_prefit_mean_loss on the identical 12 train episodes",
+  "predictions": {
+    "minimum_relative_reduction_from_initial": 0.01,
+    "maximum_selected_condition_number": 100000000.0
+  },
+  "failure_signal": "No ridge candidate reduces paired train loss by at least 1 percent or the selected system condition number exceeds 1e8.",
+  "next_gate": "Any accepted ridge checkpoint must improve group-disjoint train episodes before validation.",
+  "compute_budget": {
+    "gpu_count": 1,
+    "expected_wall_time_s": 120,
+    "checkpoint_bytes_upper_bound": 1000000
+  },
+  "rollback": "Reject the isolated checkpoint and retain the frozen r5b parent if the gate fails.",
+  "bindings": {
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "config_sha256": "115e7d873a885ce3babf58a1524f78b067499ca528a59ede7f41429ebd7811e9",
+    "trainer_sha256": "2834704d091709524891e8f0efa92362a072276b5bbbeded5f306c0589556f35",
+    "parent_loader_sha256": "f9efdd2483e33eb9bb132a08c839cce9daa768a302c92aff1a48b8e560df4e58"
+  },
+  "output": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/r5b_meta_corrected_closedform_r22_20260816/meta_pilot.pt"
+}

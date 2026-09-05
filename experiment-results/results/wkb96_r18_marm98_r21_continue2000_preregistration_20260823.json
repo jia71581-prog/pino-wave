@@ -1,0 +1,13 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb96_r18_marm98_r21_continue2000",
+  "hypothesis": "The 96-bin parent has enough easy-family margin to tolerate 98 percent Marmousi gradient focus and cross the all-saved 0.05 family gate.",
+  "single_conceptual_variable": {"name": "family_weights_on_96_bin_parent", "parent": [1,1,1], "candidate": [0.1,0.1,10]},
+  "data_access": {"train": true, "validation": false, "test_id": false, "records": 3},
+  "deployment_contract": {"fine_grid_solver": false, "true_wavefield_input": false, "future_truth_input": false},
+  "parent": {"checkpoint": "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/checkpoints/update_1500.pt", "checkpoint_sha256": "15a6a72b4265a1db44ea85aa1afeb7bc3c192f6cd92f70d3e713387a1a157143", "identity": "results/wkb96_r13_expanded_no_surface_r18_continue3000_20260823/run_identity.json", "identity_sha256": "2caf2a5fda5bcc944c5b131b796ecf1a056dc6497fddd5719f5a0779e20bbd2d"},
+  "training": {"updates": 2000, "evaluate_every": 100, "family_weights": {"uniform": 0.1, "layered": 0.1, "marmousi": 10}},
+  "selection": "minimum maximum aggregate/family relative-L2",
+  "acceptance": {"all_saved_aggregate_relative_l2_max": 0.05, "all_saved_each_family_relative_l2_max": 0.05},
+  "code": {"diagnostic_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8", "tests": "10 passed"}
+}

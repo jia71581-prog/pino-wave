@@ -1,0 +1,133 @@
+{
+  "schema": "transfer_dg_coupled_pyramid_moe_adaptive_epoch20_preregistration_v2",
+  "candidate": "transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4_v2_20260904",
+  "claim_scope": "User-directed train-only restart from the preserved epoch-20 mid-epoch checkpoint, followed by bounded family-frequency feedback control from epoch 21. No validation or test_id claim during training.",
+  "hypothesis": "Replaying the uncompleted second half of epoch 20 from the exact update-13650 optimizer checkpoint with unit controller weights, then enabling the preregistered bounded controller at epoch 21, will preserve deterministic sample coverage and produce finite adaptive continuation without skipping or double-updating a checkpointed step.",
+  "expected_mechanism": "The fixed checkpoint stores model, optimizer, epoch, next-step, and update state. Resuming at step 350 completes only steps 350 through 699 under unit weights; the controller first updates at the next complete epoch boundary before epoch 21 training.",
+  "user_direction": "Stop the epoch-21-boundary adaptive attempt and continue training from epoch 20.",
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "architecture_changed": false,
+    "optimizer": "hybrid Muon plus AdamW"
+  },
+  "data": {
+    "split": "train",
+    "record_count": 2800,
+    "family_counts": {
+      "uniform": 420,
+      "layered": 1120,
+      "anomaly": 560,
+      "marmousi": 700
+    },
+    "frequency_count": 64,
+    "frequency_block": 8,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "training": {
+    "seed": 372,
+    "epochs": 100,
+    "world_size": 4,
+    "rank_batch_records": 1,
+    "global_batch_records": 4,
+    "steps_per_epoch": 700,
+    "total_updates": 70000,
+    "adamw_lr": 0.0003,
+    "muon_lr": 0.01,
+    "weight_decay": 1e-06,
+    "gradient_clip_norm": 1.0,
+    "warmup_updates": 500,
+    "cosine_eta_ratio": 0.01,
+    "balanced_weight": 0.02,
+    "continuity_weight": 0.01,
+    "cpml_weight": 0.02,
+    "router_weight": 0.01,
+    "frequency_floor_fraction": 0.01,
+    "log_interval_updates": 25,
+    "checkpoint_interval_updates": 350,
+    "checkpoint_retention": "latest_only",
+    "validation_during_training": false
+  },
+  "controller": {
+    "schema": "bounded_full_information_family_frequency_controller_v1",
+    "probe_namespace": "pyramid-moe-adaptive-v1",
+    "probe_records_per_family": 8,
+    "probe_record_count": 32,
+    "probe_selection_sha256": "caff174f79cabb731ceab8c3af33ca33c2258265d9362e9e3b4e6e8a267bccea",
+    "feedback_metric": "mean normalized spectral energy error per family-frequency cell",
+    "objective": "0.5 * mean cell relative error + 0.5 * worst cell relative error",
+    "worst_weight": 0.5,
+    "ema_beta": 0.8,
+    "gain": 0.08,
+    "max_step_ratio": 1.1,
+    "min_multiplier": 0.5,
+    "max_multiplier": 2.0,
+    "updates_per_epoch": 1,
+    "action": "family-by-frequency-block loss multiplier only",
+    "sampling_schedule_changed": false,
+    "architecture_changed": false,
+    "optimizer_changed": false
+  },
+  "handoff": {
+    "resume_checkpoint": "results/transfer_dg_pyramid_u13650_marmousi_00260_instance_adapt_cpu_20260904/parent_snapshot.pt",
+    "expected_start_epoch": 20,
+    "expected_next_step": 350,
+    "expected_update": 13650,
+    "controller_first_update_epoch": 21,
+    "epoch20_remaining_steps_per_rank": 350,
+    "previous_attempt": "results/transfer_dg_coupled_pyramid_moe_adaptive_ddp4_20260904",
+    "previous_attempt_disposition": "user_stopped_and_preserved"
+  },
+  "smoke": {
+    "max_updates": 13651,
+    "expected_new_updates": 1,
+    "expected_checkpoint": {
+      "epoch": 20,
+      "next_step": 351,
+      "update": 13651
+    },
+    "required_world_size": 4,
+    "required_finite_loss": true,
+    "required_latest_checkpoint": true,
+    "required_validation_closed": true,
+    "required_test_id_closed": true
+  },
+  "failure_signal": "Stop on resume-cursor drift, hash drift, non-finite loss or gradient, incorrect smoke next-step cursor, controller bounds violation, DDP rank failure, missing checkpoint, or any validation/test_id access.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "remaining_updates": 56350,
+    "wall_seconds_max": 604800,
+    "new_disk_bytes_max": 3221225472
+  },
+  "promotion_rule": "Training loss and controller-probe behavior cannot promote this checkpoint. Freeze the final adapter and parent first, then pass disjoint train confirmation before opening one complete validation evaluation.",
+  "bindings": {
+    "launcher_sha256": "026a2e2b6140a048296a2e44d746e10a564d6c1877c585638c09fa859d10c8e0",
+    "trainer_sha256": "e048b1aa654ab3be284ead9a7ed77954eb4c3e5dfaf798c43a6dcba8809bdcf3",
+    "controller_sha256": "480af0d1667b5ad9b0840a2b5da3a467ebff52266f6987c1920403bffa0c761e",
+    "source_trainer_sha256": "e25457c4ceca35072614268fb035a1d093b0187ce2a26b63ba5cb1be6b12da77",
+    "pilot_trainer_sha256": "6af6c5d542e153e8d9cb40a8c4c95b455c0cc70248155839df48c6c1f3dac2d9",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "base_model_sha256": "f5e3683ede1b0e8ad172485637a3f1d2e057b26cdd6577ea749e93f27b7469c8",
+    "manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "init_checkpoint_sha256": "40be69585db8def15262015ba640222883bd6b0c4ed8e91a1858cdb438f5c341",
+    "resume_checkpoint_sha256": "dcd3a714d30ad23d481acf08891cb245e6c834af7c01c0de79795dab1d103862"
+  },
+  "allowed_files": [
+    "scripts/train_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4.py",
+    "scripts/launch_transfer_dg_coupled_pyramid_moe_adaptive_epoch20_v2.py",
+    "results/transfer_dg_coupled_pyramid_moe_adaptive_epoch20_preregistration_v2_20260904.json",
+    "results/transfer_dg_coupled_pyramid_moe_adaptive_epoch20_handoff_v2_20260904/*",
+    "results/transfer_dg_coupled_pyramid_moe_adaptive_epoch20_ddp4_v2_20260904/*"
+  ],
+  "supersedes_failed_launch": {
+    "path": "results/transfer_dg_coupled_pyramid_moe_adaptive_epoch20_handoff_20260904",
+    "failure": "Missing inherited source_trainer, pilot_trainer, and base_model binding keys; failed before data load and before any optimizer update.",
+    "parameter_updates": 0,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "rollback": "Preserve the original fixed run, the epoch-21-boundary snapshot, the stopped adaptive attempt, and the immutable update-13650 checkpoint. On failure, do not delete artifacts; resume only from the immutable update-13650 checkpoint under a new versioned identity.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

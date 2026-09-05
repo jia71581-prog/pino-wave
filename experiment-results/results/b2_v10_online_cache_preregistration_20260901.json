@@ -1,0 +1,25 @@
+{
+  "schema": "b2_v10_online_cache_preregistration_v1",
+  "status": "frozen_before_build",
+  "created_utc": "2026-09-01T07:35:30Z",
+  "purpose": "render two fresh train-only causal caches for B2-v10 calibration and confirmation",
+  "bindings": {
+    "cache_builder_sha256": "9bf3001dde80f1721830539fcdcd0e3184d8b4efdb8e067eed81c526a514935e",
+    "encoding_sha256": "20b145e43ac0722caefe9898fbbad5f1cf7c40a47549edd933f58460bbadbb77",
+    "manifest_sha256": {
+      "results/b2_v10_online_calibration_manifest_24rec_20260901.json": "9bf352b7fd0c197ef74d9ca56b2ccb19b173d5bb937e98547854a3b67dfb594e",
+      "results/b2_v10_online_confirmation_manifest_24rec_20260901.json": "340822a928a23e075f38ccbcfbbbde7e239d7eb8247db2df2a423d10cf48ffaf"
+    }
+  },
+  "outputs": {
+    "calibration_cache": "results/b2_v10_online_calibration_cache_24rec_20260901.h5",
+    "confirmation_cache": "results/b2_v10_online_confirmation_cache_24rec_20260901.h5"
+  },
+  "group_disjoint_audit": {
+    "calibration_confirmation_overlap": 0,
+    "overlap_with_v6_v7_v8_v9_development": 0
+  },
+  "future_truth_opened_for_window_selection": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

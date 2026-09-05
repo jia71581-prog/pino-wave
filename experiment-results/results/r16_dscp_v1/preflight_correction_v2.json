@@ -1,0 +1,32 @@
+{
+  "allowed_diff_scope": [
+    "_selected_record accepts frozen offline panel key family as alias for medium_type",
+    "_verify_preflight fail-closed verifier accepts only this exclusive correction artifact"
+  ],
+  "basis_file_sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+  "basis_tensor_sha256": "4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5",
+  "build_basis_source_sha256_after": "fcb7351742e04b1e9d095cd5ea992159544ea173cf7e57455666b629d9fb6464",
+  "build_basis_source_sha256_before": "fcb7351742e04b1e9d095cd5ea992159544ea173cf7e57455666b629d9fb6464",
+  "candidate": "r16_dscp_v1",
+  "config_sha256": "c9eeee1dd5a93ebbf22b5d0f1ff7edb23497aa1c1bd58e8d0dd7d3bdbd606b59",
+  "created_utc": "2026-08-25T19:50:00Z",
+  "failure_evidence": {
+    "exception": "SealedTruthError: record is outside the train-only family scope",
+    "log_path": "results/r16_dscp_v1/basis_build.log",
+    "log_sha256_before_correction": "9d643ff6dd708b36b6c84808b618cc91b65a259c120ddd6795226261bb8480e6",
+    "stage": "freeze-prereg before static/prereg write and before validation/test access"
+  },
+  "model_rank_router_panels_basis_loss_gates_changed": false,
+  "module_sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+  "panels_membership_changed": false,
+  "panels_sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+  "preflight_sha256": "b852516b67064383a2e67e6e2ac5ac7ff96ce6161d99edb172ce38dd06f50606",
+  "reason": "The immutable panels use the normalized key family, while the offline helper accepted only the source-manifest key medium_type. The two keys carry the same already-frozen family value. No panel member or scientific design changes.",
+  "schema": "r16_dscp_preflight_schema_correction_v2",
+  "script_sha256_after": "52fbd102306845ed1fa39ff10ff734544b4eba99078bf5d168b07eb631ded8f3",
+  "script_sha256_before": "149034bbc1cec2d719ba7a6fd355f255d17fc10dd63bf7d8afd5a46fce2f4d96",
+  "status": "frozen_pre_prereg_schema_correction",
+  "test_sha256": "c859fd21b787c473799e1bb0b78e1e5eb3d233cf16f7706ffac0de9679fc983f",
+  "validation_truth_opened": false,
+  "test_id_truth_opened": false
+}

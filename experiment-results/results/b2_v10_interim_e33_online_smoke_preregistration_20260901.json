@@ -1,0 +1,81 @@
+{
+  "accuracy_and_selection": {
+    "arm_pass": "adapted aggregate relative L2 on each record's unobserved suffix must be strictly below its frozen-parent aggregate; no minimum percentage",
+    "calibration_choice": "among passing arms choose the lowest adapted aggregate on the common frames 49:64; break ties by smaller mean observed_count",
+    "confirmation_pass": "the frozen selected arm must strictly improve aggregate relative L2 on fresh confirmation groups; no minimum percentage",
+    "report_only": [
+      "per-family relative L2",
+      "nonworse records",
+      "early/middle/late suffix error",
+      "low/middle/high suffix frequency error",
+      "accepted online solves",
+      "correction ratio",
+      "mean and nearest-rank P95 end-to-end runtime"
+    ]
+  },
+  "arm_selection": null,
+  "arm_selection_sha256": null,
+  "binder_sha256": "7b877c5f2dff06a6cd58db44989f27e5df5556ca81568b41c2aa741da85cc24d",
+  "bindings": {
+    "bundle_sha256": "808b16283da5cb5434ac823b4fbdced2342a3f508e3b405bd71d724bc1e67c9b",
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "core_sha256": "0b4ef5bf0fe14ceeff4a6550cb1e890f6100c27e95b00a184f62e6b707b8cb30",
+    "evaluation_cache_sha256": "93cdd67edeaba4c3bf5a761ce2edc32786b2182eddba2856db0f6953b010f9fe",
+    "evaluation_manifest_sha256": "9bf352b7fd0c197ef74d9ca56b2ccb19b173d5bb937e98547854a3b67dfb594e",
+    "evaluator_sha256": "e704006ed6c265dfebf71c7dce0f851513494785987cd7317406383a0fc497e0",
+    "runner_sha256": "cf7ba37acc96588fa5bf680f0241bb76c5fef5e8541e3a6c42aeb6af34ea7347"
+  },
+  "bundle": "results/b2_v10_interim_e33_offline_pod_20260901/pod_bundle.pt",
+  "bundle_sha256": "808b16283da5cb5434ac823b4fbdced2342a3f508e3b405bd71d724bc1e67c9b",
+  "cache": "results/b2_v10_online_calibration_cache_24rec_20260901.h5",
+  "cache_sha256": "93cdd67edeaba4c3bf5a761ce2edc32786b2182eddba2856db0f6953b010f9fe",
+  "candidate": "b2_v10_causal_prefix_closed_form_pod_v1",
+  "design": "results/b2_v10_prefix_assimilation_design_20260901.json",
+  "design_sha256": "a8b49637ad6059a62a7390625b41a3a4823fd0a2329e35b26e3d9f416948a08b",
+  "future_truth_access": "only after serialized candidate SHA256 exists",
+  "hypothesis": "A source-period-normalized causal prefix extending beyond the eight copied parent anchors contains enough parent-residual information for a rank-4 closed-form POD solve to strictly reduce unobserved-suffix aggregate relative L2 on fresh train groups.",
+  "manifest": "results/b2_v10_online_calibration_manifest_24rec_20260901.json",
+  "manifest_sha256": "9bf352b7fd0c197ef74d9ca56b2ccb19b173d5bb937e98547854a3b67dfb594e",
+  "online_policy": {
+    "anchor_frames": 8,
+    "arms": {
+      "cycle025": {
+        "after_peak_cycles": 0.25,
+        "gpu": 1
+      },
+      "cycle050": {
+        "after_peak_cycles": 0.5,
+        "gpu": 2
+      },
+      "fixed24": {
+        "fixed_frames": 24,
+        "gpu": 3
+      },
+      "peak": {
+        "after_peak_cycles": 0.0,
+        "gpu": 0
+      }
+    },
+    "common_tail_start": 49,
+    "maximum_observed_frames": 49,
+    "minimum_information_ratio": 0.0,
+    "minimum_observed_gain": 0.0,
+    "ridge_fraction": 0.001,
+    "trust_ratio": 0.05
+  },
+  "parent": {
+    "checkpoint": "results/b2_v9_interim_snapshot_physics_cond_s733_e33_20260901.pt",
+    "checkpoint_sha256": "f80ee9d5b7bc980522817857512be24b6ad597752507f878f48ae0407b265572",
+    "seed": 733,
+    "selection": "results/b2_v9_interim_parent_selection_e33_20260901.json",
+    "selection_sha256": "9b208cb913a2502028088dbb346dd3713964fb34afb31f329511fb7130023ce1",
+    "variant": "physics_cond"
+  },
+  "rollback": "all changes are additive; zero online coefficients reproduce the selected V9 parent exactly; all protected checkpoints remain immutable",
+  "schema": "b2_v10_online_calibration_preregistration_v1",
+  "selected_arm": null,
+  "stage": "calibration",
+  "status": "frozen_before_launch",
+  "test_id_opened": false,
+  "validation_opened": false
+}

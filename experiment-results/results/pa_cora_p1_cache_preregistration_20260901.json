@@ -1,0 +1,35 @@
+{
+  "schema": "pa_cora_p1_multiwindow_cache_preregistration_v1",
+  "status": "frozen_before_build",
+  "method": "PA-CORA",
+  "stage": "P1_multiwindow_only",
+  "hypothesis": "Deterministic train-only temporal window expansion improves same-protocol parent accuracy without changing model architecture, loss, optimizer-step budget, or holdout.",
+  "bindings": {
+    "cache_builder_sha256": "9bf3001dde80f1721830539fcdcd0e3184d8b4efdb8e067eed81c526a514935e",
+    "encoding_sha256": "20b145e43ac0722caefe9898fbbad5f1cf7c40a47549edd933f58460bbadbb77",
+    "manifest_sha256": {
+      "results/pa_cora_p1_fit_slot1.json": "519e0e3a833f99015ab98fc422cb5bdaa22adc374148eebc0335b39f74acef51",
+      "results/pa_cora_p1_fit_slot2.json": "edbda3411d464f830f15f1a15a9b479265e84d9de21df0a9d483985749e14945",
+      "results/pa_cora_p1_fit_slot3.json": "539e2a0c6831b485bba7fdf723f8df4fa6965d18e9094a5ce7076b0e25d5f588"
+    }
+  },
+  "reused_slot0": {
+    "manifest": "results/b2_v9_parent_fit_manifest_240rec_20260901.json",
+    "manifest_sha256": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+    "cache": "results/b2_v9_parent_fit_cache_240rec_20260901.h5",
+    "cache_sha256": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171"
+  },
+  "outputs": [
+    "results/pa_cora_p1_fit_slot1.h5",
+    "results/pa_cora_p1_fit_slot2.h5",
+    "results/pa_cora_p1_fit_slot3.h5"
+  ],
+  "window_selection_uses": [
+    "frozen V9 causal start",
+    "saved time coordinates",
+    "fixed terminal start 0.65 seconds"
+  ],
+  "future_truth_opened_for_window_selection": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,76 @@
+{
+  "schema": "r6_anchored_r54_runtime_smoke_postmortem_v1",
+  "candidate": "r6_anchored_r54_residual_r1_20260905",
+  "record_type": "retrospective_smoke_failure_postmortem",
+  "retrospective": true,
+  "derived_after_failed_attempt": true,
+  "original_terminal": {
+    "path": "results/r6_anchored_r54_residual_r1_20260905/runtime_smoke.json",
+    "exists": true,
+    "sha256": "4d8a6dd99e0836f2e8240c39786c4e60718fa053d7518ac380f68ba53fb9edf6",
+    "size_bytes": 17653,
+    "status": "invalid",
+    "error": "RuntimeError('R6 parent stability QC failure')",
+    "formal_record_count": 0,
+    "formal_identity_count": 0,
+    "original_report_contains_stability_values": false
+  },
+  "failure_cause": {
+    "summary": "The attempt used an inappropriate engineering CFL < 1 veto for the frozen LWC84 R6 parent. The authoritative LWC84 stability quantity is the spectral qmax bound.",
+    "old_gate": "cfl_2d < 1 and lwc_qmax < 1",
+    "corrected_gate": "finite nonnegative lwc_qmax <= 9.6*(1+1e-12), with cfl_2d reported but not gated, and lwc_qmax approximately equal to (2048/315)*cfl_2d^2",
+    "relation_relative_tolerance": 1e-06,
+    "relation_absolute_tolerance": 1e-09,
+    "lwc_qmax_limit": 9.6,
+    "lwc_qmax_limit_relative_tolerance": 1e-12
+  },
+  "postfailure_readonly_observations": {
+    "source": "Recomputed after failure from the frozen selection, source manifest, and public uniform/layered/Marmousi velocity construction. These values were not serialized by the original terminal.",
+    "formula": {
+      "cfl_2d": "vmax*0.000625*sqrt(1/5^2+1/5^2)",
+      "lwc_qmax": "0.000625^2*vmax^2*(2048/315)*(1/5^2+1/5^2)"
+    },
+    "gpu_used": false,
+    "HDF5_opened": false,
+    "wavefield_opened": false,
+    "records": [
+      {
+        "source_index": 311,
+        "sample_id": "train_uniform_00311",
+        "family": "uniform",
+        "vmax_mps": 5748.37255859375,
+        "cfl_2d": 1.0161783042420762,
+        "lwc_qmax": 6.713658325819664,
+        "corrected_stability_gate_passed": true
+      },
+      {
+        "source_index": 780,
+        "sample_id": "train_layered_00360",
+        "family": "layered",
+        "vmax_mps": 3224.187744140625,
+        "cfl_2d": 0.5699612544250984,
+        "lwc_qmax": 2.1120785492249627,
+        "corrected_stability_gate_passed": true
+      },
+      {
+        "source_index": 2165,
+        "sample_id": "train_marmousi_00065",
+        "family": "marmousi",
+        "vmax_mps": 4450.0,
+        "cfl_2d": 0.7866562940700341,
+        "lwc_qmax": 4.023365079365079,
+        "corrected_stability_gate_passed": true
+      }
+    ]
+  },
+  "access_and_artifact_audit": {
+    "truth_reads": 0,
+    "wavefield_reads": 0,
+    "validation_truth_opened": false,
+    "test_id_truth_opened": false,
+    "weights_loaded_or_written": 0,
+    "cache_files_written": 0,
+    "predictions_persisted": 0,
+    "promotion_authorized": false
+  }
+}

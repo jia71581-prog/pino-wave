@@ -1,0 +1,83 @@
+{
+  "schema": "transfer_dg_local_frequency_dataset_preregistration_v1",
+  "status": "frozen_before_build",
+  "created_utc": "2026-09-02T07:48:22Z",
+  "method": "Transfer DG",
+  "stage": "local_neural_element_data_v1",
+  "hypothesis": "Frequency-domain element pressure traces and LWC84-consistent normal-flux traces provide sufficient train-only supervision to learn reusable local trace-to-flux actions without a full online finite-element solve.",
+  "selection": {
+    "manifest": "results/b2_v9_parent_fit_manifest_240rec_20260901.json",
+    "rule": "first eight manifest records in each of uniform, layered and marmousi; frozen before opening full wavefields",
+    "records_per_family": 8,
+    "record_count": 24,
+    "selected_records_sha256": "ae748e58e5e968419812d3de7ac4095ec0cb40faf2b6ce1bbbcf21fbc4c1edbc",
+    "future_truth_used_for_selection": false
+  },
+  "representation": {
+    "full_time_frames": 401,
+    "dt_s": 0.0025,
+    "fft_terminal_taper_fraction": 0.1,
+    "frequency_ratios_to_f0": [
+      0.5,
+      0.75,
+      1.0,
+      1.25
+    ],
+    "frequency_range_hz": [
+      4.0,
+      40.0
+    ],
+    "element_intervals": 20,
+    "element_nodes": 21,
+    "full_partition_elements": 100,
+    "retained_non_cpml_elements": 72,
+    "cpml_margin_nodes": 20,
+    "trace_basis": "orthonormal DCT-II",
+    "trace_modes_per_edge": 8,
+    "edge_order": [
+      "top",
+      "right",
+      "bottom",
+      "left"
+    ],
+    "feature_channels": [
+      "normalized_velocity",
+      "interface_strength",
+      "source_map",
+      "normalized_depth"
+    ],
+    "frequency_features": [
+      "frequency_over_40Hz",
+      "source_f0_over_30Hz",
+      "normalized_source_spectrum_real",
+      "normalized_source_spectrum_imag"
+    ],
+    "target": "dimensionless outward normal flux trace coefficients",
+    "expected_sample_count": 6912
+  },
+  "physics_contract": {
+    "normal_flux": "eighth-order saved-grid derivative with the generator free-surface extension",
+    "flux_scaling": "element_extent_m * normal_derivative / pressure_trace_scale",
+    "pressure_scaling": "max(local trace RMS, 0.05 * full-field RMS), computable from an input/parent field",
+    "free_surface_elements_retained": true,
+    "left_right_bottom_cpml_elements_excluded": true,
+    "cpml_auxiliary_residual_claimed": false
+  },
+  "bindings": {
+    "builder_sha256": "545c101d32c20191916861a4c13f23a486ee78fb11e09d2639d0fbfb8544f316",
+    "element_module_sha256": "1ce6a457f11499fbd9c9863a102efa7ee41f043c08f39d235a9f9e24b13ef198",
+    "element_test_sha256": "895da594d193b5ed11703ce52f5b9e993295055d94aa5386af9d4a2373e70e78",
+    "dataset_test_sha256": "c7885d8ec791bb320794b779ee232e805b60a88295a4c8363263b79616342932",
+    "manifest_sha256": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_byte_count": 1951323,
+    "source_config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+    "source_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d"
+  },
+  "output": "results/transfer_dg_local_frequency_elements_24rec_20260902.h5",
+  "identity_output": "results/transfer_dg_local_frequency_elements_24rec_identity_20260902.json",
+  "failure_signal": "binding/source/sample drift, non-train record, nonuniform time grid, nonfinite traces, sample count drift, or CPML inclusion",
+  "rollback": "dataset build is additive and does not modify any model checkpoint or source dataset",
+  "validation_opened": false,
+  "test_id_opened": false
+}

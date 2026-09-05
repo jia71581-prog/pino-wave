@@ -1,0 +1,81 @@
+{
+  "schema": "b2_v3_causal_selector_probe_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-08-31T09:59:16Z",
+  "candidate": "b2_v3_causal_selector_probe_v1",
+  "question": "Can a parameter-free selector using only the eight deployment-visible frames choose among the solve-free anchor and two frozen B2 corrections well enough to improve unseen future frames?",
+  "hypothesis": "Observed-prefix relative L2 ranks whether a frozen correction is trustworthy on the same record, so choosing the lowest-prefix-error option will improve future relative L2 without reading future truth.",
+  "literature_and_project_basis": "The acoustic research map ranks observation-conditioned correction with calibrated abstention as a low-cost route, and prior project R49/R50 evidence showed that abstention can protect nonworse behavior. This probe uses an analytic argmin and no fitted threshold.",
+  "evidence_tier": "fresh train-only causal-selection rejection probe",
+  "mechanism": {
+    "options": [
+      "solve-free warp anchor",
+      "B2-v3 width-64 seed 372",
+      "B2-v3 width-64 seed 733"
+    ],
+    "selection_metric": "relative L2 on frames 0 through 7 only",
+    "selection_rule": "per record, choose the option with minimum observed-prefix relative L2; deterministic first-option tie break",
+    "future_truth_use": "after the option index is fixed, score frames 8 through 63"
+  },
+  "gate": {
+    "primary_metric": "selected future relative L2 over frames 8 through 63, averaged over 30 records",
+    "minimum_absolute_gain_vs_anchor": 0.005,
+    "minimum_nonworse_records": 27,
+    "family_gate": "selected future mean must be strictly below anchor for uniform, layered, and marmousi",
+    "failure_signal": "reject the current B2 development-fit plus causal-abstention route if any aggregate, nonworse, or family subgate fails",
+    "absolute_target_observation_only": 0.05
+  },
+  "data": {
+    "manifest": "results/b2_causal_selector_manifest_30rec_20260831.json",
+    "split": "train",
+    "records": 30,
+    "families": {
+      "uniform": 10,
+      "layered": 10,
+      "marmousi": 10
+    },
+    "unique_medium_groups": 30,
+    "selection_seed": 831205,
+    "excluded_manifests": [
+      "results/b2_dev_snapshot_manifest_90rec_20260830.json",
+      "results/b2_train_generalization_manifest_30rec_20260831.json"
+    ],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_selection_sha256": "17688e7058dae5d357d6c4adad81f5b923e37770166004fbd0cf5c17c926c887",
+    "manifest_sha256": "7b11849f29935d3e9423ad8f322f39394b2a5b35f9ac689212bb4621da8a16b8",
+    "first_probe_manifest_sha256": "78e5c1f13cf698e00b5d26ef18855c02d894e55741e2c7fe68d5e752e3d2213b",
+    "first_probe_terminal_sha256": "ea6b81020f447e814e44f9495198a39bbebe25a86127c4f5fc5898e7e46bf563",
+    "builder_sha256": "7937ec52f66401df5577df1b3c88f0538267ae19b939c590d1b6849244c66dc6",
+    "selector_sha256": "b2ff1a53c6c94ae3e5b1e929e3518c39a012c968195a945f67d105ccbb209d8b",
+    "trainer_cache_and_model_sha256": "de3626913eccb74a5611a679d32410d5becdd9c3e773c5493566d11b4f695ece",
+    "test_sha256": "104c1b3f4cea72a3068862d22fa51c20481c7268a22048ecd850ce40d2e048fb",
+    "checkpoint_sha256": {
+      "results/b2_snapshot_ic_v3_armA_w64_s372_20260831/best.pt": "cb27939ae36cc99a55c5d1a6a54cb5f650f5198343cdb36f60d4cdd4495ead74",
+      "results/b2_snapshot_ic_v3_armA_w64_s733_20260831/best.pt": "202b371effb839c44d501be1ab69f4f161c7a3f5099487ec0ad7d77bd7b9e188"
+    }
+  },
+  "budget": {
+    "gpus": 1,
+    "gpu": 0,
+    "cache_estimated_bytes": 330000000,
+    "wall_clock_limit_minutes": 30,
+    "runtime_caveat": "two B2 corrections are evaluated, so this probe makes no 10x deployment-runtime claim",
+    "abort_on": [
+      "binding drift",
+      "validation or test_id record",
+      "non-finite metric",
+      "CUDA OOM",
+      "cache split mismatch"
+    ],
+    "disk_free_gb_at_freeze": 203
+  },
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/evaluate_b2_v3_causal_selector.py --manifest results/b2_causal_selector_manifest_30rec_20260831.json --cache results/b2_causal_selector_cache_20260831.h5 --preregistration results/b2_v3_causal_selector_probe_preregistration_20260831.json --output-dir results/b2_v3_causal_selector_probe_20260831 --checkpoint results/b2_snapshot_ic_v3_armA_w64_s372_20260831/best.pt --checkpoint results/b2_snapshot_ic_v3_armA_w64_s733_20260831/best.pt --build-cache",
+  "log": "results/b2_v3_causal_selector_probe_20260831.log",
+  "rollback": "additive diagnostic only; preserve all source checkpoints and protected families; retain any failed terminal/log and never reuse a partial cache",
+  "claim_scope": "A pass supports only prefix-observation-conditioned selection on fresh train records. It does not promote B2, count as complete validation/test_id evidence, or satisfy runtime requirements. A fail rejects this rescue route and requires any future B2 work to begin with train-only fit/calibration/confirmation rather than the 90-record development-fit checkpoints."
+}

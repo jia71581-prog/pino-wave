@@ -1,0 +1,102 @@
+{
+  "aggregate_relative_l2": 0.5491418746869854,
+  "bindings": {
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "evaluation_script_sha256": "3426d33ca9674634a5d061791f890bec999aba439c1c5e82446f404fe12e9916",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "training_config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069"
+  },
+  "checkpoint": {
+    "epoch": 96,
+    "global_step": 13440,
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1_resume1/best.pt",
+    "sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "training_epochs": 100,
+    "training_records": 2240
+  },
+  "error_terms": {
+    "aggregate": [
+      3149.0550071549305,
+      10442.659633131057
+    ],
+    "family": {
+      "layered": [
+        0.0,
+        0.0
+      ],
+      "marmousi": [
+        0.0,
+        0.0
+      ],
+      "uniform": [
+        3149.0550071549305,
+        10442.659633131057
+      ]
+    }
+  },
+  "frames_per_record": 32,
+  "global_record_count": 1,
+  "measurements": [
+    {
+      "error_numerator": 3149.0550071549305,
+      "family": "uniform",
+      "relative_l2": 0.5491418746869854,
+      "runtime_s": 0.5523741655051708,
+      "sample_id": "train_uniform_00000",
+      "source_f0_hz": 11.732766151428223,
+      "source_index": 0,
+      "split": "train",
+      "time_indices": [
+        3,
+        27,
+        34,
+        39,
+        45,
+        56,
+        58,
+        66,
+        71,
+        78,
+        128,
+        136,
+        150,
+        151,
+        176,
+        201,
+        204,
+        214,
+        219,
+        258,
+        262,
+        272,
+        282,
+        291,
+        295,
+        296,
+        301,
+        304,
+        311,
+        330,
+        341,
+        363
+      ],
+      "truth_denominator": 10442.659633131057
+    }
+  ],
+  "num_shards": 1,
+  "record_count": 1,
+  "role": "comparison_only",
+  "runtime_s": {
+    "maximum": 0.5523741655051708,
+    "mean": 0.5523741655051708,
+    "minimum": 0.5523741655051708
+  },
+  "schema": "frozen_pi_deeponet_split_worker_v1",
+  "selection_scope": "limited_train_smoke",
+  "shard_index": 0,
+  "split": "train",
+  "status": "complete"
+}

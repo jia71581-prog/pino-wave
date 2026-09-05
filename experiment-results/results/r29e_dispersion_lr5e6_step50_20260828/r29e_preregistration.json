@@ -1,0 +1,21 @@
+{
+  "backbone_gradient_multiplier": 0.1,
+  "evidence_boundary": "A pass only authorizes a fresh group-disjoint train holdout experiment.",
+  "features": [
+    "normalized_source_frequency_(f0-20)/10",
+    "local_nondimensional_wavenumber_2pi_f0_dx_over_c",
+    "normalized_accumulated_travel_cycles_f0T_over_20"
+  ],
+  "grid_spacing_m": 10.0,
+  "input_channels": 16,
+  "new_channel_gradient_multiplier": 1.0,
+  "r29a_driver_sha256": "80fe29b5190e12b73ef6440b9aaed51c9adf149dc0d3e11d0fb4116b477bb484",
+  "required_optimizer_weight_decay": 0.0,
+  "role": "R28_already_opened_train_holdout_development_only",
+  "schema": "r29e_dispersion_conditioned_preregistration_v1",
+  "script_sha256": "dd651a7701c7c137c78e01545350fe851e10f36b9b9217cf5224388ed4a1bd7f",
+  "status": "frozen_before_development_training",
+  "success_gate": "mean_and_max_record_relative_L2_lte_0p05",
+  "test_id_opened": false,
+  "validation_opened": false
+}

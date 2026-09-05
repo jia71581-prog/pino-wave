@@ -1,0 +1,30 @@
+{
+  "arm": "control",
+  "boundary_halo_radius": 0,
+  "checkpointing": "outer_time_step_only",
+  "denominator_floor_fraction": 0.25,
+  "dg_cpml_margin": 20,
+  "dg_interface_rank": 0,
+  "epochs": 8,
+  "hard_free_surface": true,
+  "learning_rate": 5e-05,
+  "method": "Transfer DG",
+  "micro_records": 4,
+  "parent_checkpoint": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt",
+  "parent_checkpoint_sha256": "5d14b93cffc1324406b531b6b2d4a7eea06d9aab57537bb7f4612fea302808d3",
+  "parent_epoch": 8,
+  "preregistration": "results/transfer_dg_flux_pretrain_fast_preregistration_20260902.json",
+  "preregistration_sha256": "ea4e88724bedfb977cf521acdd259bf8fcc7d1a0cdd725d9f9a45b8beacdac5f",
+  "schema": "transfer_dg_flux_pretrain_lane_identity_v1",
+  "seed": 372,
+  "slot_weights": [
+    0.6,
+    0.25,
+    0.15
+  ],
+  "stage": "pretrain_DG_flux_v1",
+  "steps_per_epoch": 120,
+  "test_id_opened": false,
+  "total_steps": 960,
+  "validation_opened": false
+}

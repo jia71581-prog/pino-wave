@@ -1,0 +1,68 @@
+{
+  "schema": "frozen_fine_grid_candidate_v1",
+  "status": "frozen_for_single_complete_validation",
+  "frozen_at_utc": "2026-08-15",
+  "method": "five-metre LWC84 physics backbone with fourth-order 0.000625 s time stepping, CUDA Graph replay, and registered binomial5 two-times output restriction",
+  "method_role": "physics-guided per-instance propagator and candidate backbone for the instance-adaptation method; PI-DeepONet remains a separately frozen full-training-data comparator",
+  "target_families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ],
+  "excluded_for_both_methods": [
+    "anomaly"
+  ],
+  "frozen_hyperparameters": {
+    "internal_grid_shape": [401, 401],
+    "internal_spacing_m": 5.0,
+    "npml": 40,
+    "internal_dt_s": 0.000625,
+    "output_times": "all 401 registered stored times from 0.0 to 1.0 s",
+    "spatial_stencil": "standard eighth-order radius-four second derivative",
+    "temporal_stencil": "fourth-order LWC84",
+    "cpml_c_ref_mps": 6750.0,
+    "cpml_kappa_max": 3.0,
+    "cpml_minimum_frequency_hz": 8.0,
+    "output_restriction": "binomial5_lowpass_then_decimate2",
+    "cuda_graphs": true,
+    "dtype": "float32",
+    "warmup_excluded_from_per-instance_runtime": true,
+    "disk_io_excluded_from_per-instance_runtime": true,
+    "prediction_materialization_included": true
+  },
+  "promotion_gate": {
+    "maximum_aggregate_relative_l2": 0.05,
+    "maximum_each_family_relative_l2": 0.05,
+    "maximum_instance_relative_l2": 0.05,
+    "minimum_mean_speedup": 10.0,
+    "minimum_p95_speedup": 10.0,
+    "traditional_reference_s": 20.34137312322855
+  },
+  "evaluation_sequence": [
+    "one complete registered validation evaluation over 480 target-family records",
+    "only if validation passes unchanged, one complete registered test_id evaluation over 480 target-family records"
+  ],
+  "leakage_audit": {
+    "train_only_selection_complete": true,
+    "validation_future_truth_accessed_before_freeze": false,
+    "test_id_future_truth_accessed_before_freeze": false,
+    "future_truth_used_by_online_method": false,
+    "post_validation_tuning_permitted": false
+  },
+  "train_evidence": {
+    "hard_pilot_sha256": "0f0043980172d2fa39339ed00dcf696b4946f11371d40a51bd44e3d1072b30a7",
+    "disjoint_nine_record_gate_sha256": "b126b939076a8293aa9ac720aeef7cf7e201d9e4d0c11e7fa618aae44ef60152",
+    "evaluator_smoke_sha256": "c0a33517e4619951c486e06547dcedf9aa171317fb1d4ed5ea0e7da44c3212a9"
+  },
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "gate_helper_sha256": "5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8",
+    "evaluation_script_sha256": "2b23e284f3aef644708a1421b77e39065051243097216be8b3a71f8b54986411",
+    "aggregation_script_sha256": "37ffe234cb8f27b4994263d646f61e722f4e69796a5a847bcc01117a67c22ef3",
+    "launcher_sha256": "7f9f7f2fae54c252593c0500a1d7ebb0f24b117a319cfde3363ac78674574383"
+  }
+}

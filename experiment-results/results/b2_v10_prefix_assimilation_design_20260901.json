@@ -1,0 +1,132 @@
+{
+  "schema": "b2_v10_prefix_assimilation_design_v1",
+  "status": "implementation_verified_pending_v9_parent_and_cache_bindings",
+  "created_utc": "2026-09-01T07:35:30Z",
+  "candidate": "b2_v10_causal_prefix_closed_form_pod_v1",
+  "hypothesis": "A source-period-normalized causal prefix extending beyond the eight copied parent anchors contains enough parent-residual information for a rank-4 closed-form POD solve to strictly reduce unobserved-suffix aggregate relative L2 on fresh train groups.",
+  "mechanism": [
+    "fit family-specific rank-4 parent residual modes offline using train truth",
+    "exclude the eight exactly copied anchor frames from the online inverse problem",
+    "solve four coefficients from the newly observed causal prefix with relative ridge regularization",
+    "apply the inferred correction only to the still-unobserved suffix",
+    "clip future correction energy to five percent of frozen-parent future energy",
+    "fall back exactly to the frozen parent when the observed objective does not improve"
+  ],
+  "literature_basis": [
+    "https://arxiv.org/abs/2606.22946",
+    "https://arxiv.org/abs/2601.15547",
+    "https://arxiv.org/abs/2608.24833"
+  ],
+  "parent_selection_rule": {
+    "source_run": "b2_v9_parent_full_physics_vs_spectral_v1",
+    "variant_gate": "both seeds must strictly beat the same-cache warp-anchor aggregate",
+    "variant_choice": "among passing variants choose the smallest worst-seed best aggregate",
+    "seed_choice": "within the chosen variant use the seed with the smaller best aggregate",
+    "status": "pending_v9_terminal"
+  },
+  "offline_policy": {
+    "rank": 4,
+    "family_specific": true,
+    "fit_manifest": "results/b2_v9_parent_fit_manifest_240rec_20260901.json",
+    "truth_scope": "offline_train_only",
+    "minimum_mean_oracle_gain_per_family": 0.0
+  },
+  "online_policy": {
+    "rank": 4,
+    "anchor_frames": 8,
+    "ridge_fraction": 0.001,
+    "trust_ratio": 0.05,
+    "minimum_observed_gain": 0.0,
+    "minimum_information_ratio": 0.0,
+    "maximum_observed_frames": 49,
+    "common_tail_start": 49,
+    "arms": {
+      "peak": {
+        "after_peak_cycles": 0.0,
+        "gpu": 0
+      },
+      "cycle025": {
+        "after_peak_cycles": 0.25,
+        "gpu": 1
+      },
+      "cycle050": {
+        "after_peak_cycles": 0.5,
+        "gpu": 2
+      },
+      "fixed24": {
+        "fixed_frames": 24,
+        "gpu": 3
+      }
+    }
+  },
+  "accuracy_and_selection": {
+    "arm_pass": "adapted aggregate relative L2 on each record's unobserved suffix must be strictly below its frozen-parent aggregate; no minimum percentage",
+    "calibration_choice": "among passing arms choose the lowest adapted aggregate on the common frames 49:64; break ties by smaller mean observed_count",
+    "confirmation_pass": "the frozen selected arm must strictly improve aggregate relative L2 on fresh confirmation groups; no minimum percentage",
+    "report_only": [
+      "per-family relative L2",
+      "nonworse records",
+      "early/middle/late suffix error",
+      "low/middle/high suffix frequency error",
+      "accepted online solves",
+      "correction ratio",
+      "mean and nearest-rank P95 end-to-end runtime"
+    ]
+  },
+  "data": {
+    "calibration_manifest": "results/b2_v10_online_calibration_manifest_24rec_20260901.json",
+    "calibration_manifest_sha256": "9bf352b7fd0c197ef74d9ca56b2ccb19b173d5bb937e98547854a3b67dfb594e",
+    "calibration_selection_sha256": "724ec7c85d3c3a6b459dc315aaa4412d82e088820cee4cf777893973f3de923b",
+    "confirmation_manifest": "results/b2_v10_online_confirmation_manifest_24rec_20260901.json",
+    "confirmation_manifest_sha256": "340822a928a23e075f38ccbcfbbbde7e239d7eb8247db2df2a423d10cf48ffaf",
+    "confirmation_selection_sha256": "291120ea06d3d273291292f1a2f2d54b0899525e42ca74bb9842bc36cda9bae5",
+    "records_per_panel": 24,
+    "records_per_family": 8,
+    "group_overlap_between_panels": 0,
+    "group_overlap_with_v6_v7_v8_v9_development": 0,
+    "historical_limitation": "all 140 Marmousi train groups were already covered by pre-v6 V4 research, so never-before-opened Marmousi train groups do not exist; the new panels are fresh relative to V6-v10 candidate development and current V9 parent fitting/holdout"
+  },
+  "online_access_contract": {
+    "allowed": [
+      "velocity and source metadata",
+      "saved time coordinates",
+      "frozen parent prediction",
+      "true wavefield frames strictly inside the declared causal prefix"
+    ],
+    "forbidden": [
+      "truth at or after the observed prefix during adaptation",
+      "future-derived statistics or oracle scales",
+      "validation future wavefields",
+      "test_id future wavefields"
+    ],
+    "scoring_order": "serialize and hash the complete candidate before reading the unobserved train suffix"
+  },
+  "compute_budget": {
+    "offline_pod": "one GPU, at most 60 minutes after V9 parent selection",
+    "calibration": "four independent GPU arms, at most 30 minutes per arm",
+    "confirmation": "selected arm only, at most 30 minutes",
+    "validation_test": "not authorized until train-only confirmation passes and all hashes are frozen"
+  },
+  "failure_signal": "reject if offline per-family POD capacity is nonpositive, if no calibration arm strictly improves, or if the frozen selected arm fails fresh confirmation",
+  "rollback": "all changes are additive; zero online coefficients reproduce the selected V9 parent exactly; all protected checkpoints remain immutable",
+  "implementation_bindings": {
+    "core_sha256": "0b4ef5bf0fe14ceeff4a6550cb1e890f6100c27e95b00a184f62e6b707b8cb30",
+    "pretrain_sha256": "85a32d4340fda427ee4871c6eb62d98464e3b9f0a3c72f4bdb7370f7e6046286",
+    "evaluator_sha256": "e704006ed6c265dfebf71c7dce0f851513494785987cd7317406383a0fc497e0",
+    "runner_sha256": "cf7ba37acc96588fa5bf680f0241bb76c5fef5e8541e3a6c42aeb6af34ea7347",
+    "parent_selector_sha256": "72d5deaa49d5292f058c50c7c86063785d590d96abc47eda940100df5146873b",
+    "preregistration_binder_sha256": "7b877c5f2dff06a6cd58db44989f27e5df5556ca81568b41c2aa741da85cc24d",
+    "arm_selector_sha256": "f8a8847f4c41095396b71d8e3e68f75ea9ab05a53ae54faeabd5c8520e7cf5ed",
+    "test_sha256": "a54dd5c67abace3b6c97f3ba339fcba2baccedd666082157884d7438ade0a29b",
+    "cpu_tests_passed": 21
+  },
+  "pending_bindings_before_launch": [
+    "selected V9 checkpoint path and SHA256",
+    "V9 terminal decision artifact and SHA256",
+    "calibration and confirmation cache SHA256",
+    "offline POD bundle SHA256",
+    "frozen calibration preregistration SHA256"
+  ],
+  "validation_opened": false,
+  "test_id_opened": false
+}

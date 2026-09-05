@@ -1,0 +1,215 @@
+{
+  "adaptive_sampling": "vrba",
+  "allow_travel_source_path_alias": true,
+  "anomaly_excluded": true,
+  "background_cache": "/dev/shm/g3cache/background_pbg_sigma2_g3pool_N420.h5",
+  "background_cache_shards": [],
+  "baseline_heldout_relative_l2": 0.040691912995691505,
+  "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_reflection_original_valid_output_stage_smoke_20260808T084638Z/checkpoints/update_0001.pt",
+  "best_checkpoint_selection_score": 0.9999887039987886,
+  "best_fixed_heldout_relative_l2": 0.040691405628582804,
+  "checkpoint_selection_metric": "scattering_relative_l2",
+  "ddp_world_size": 4,
+  "evaluation_is_generalization": true,
+  "frame_lambda_final": [
+    0.052012,
+    0.05985,
+    0.055517,
+    0.05201,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012,
+    0.052012
+  ],
+  "frame_rba": true,
+  "g2_memorization_all_saved_reference": 0.206,
+  "heldout_all_saved_aggregate_relative_l2": 0.04165180826491372,
+  "heldout_all_saved_metrics": {
+    "aggregate_relative_l2": 0.04165180826491372,
+    "centroid_shift_cells": 3.688149287485486,
+    "coarse_metrics": {
+      "aggregate_relative_l2": 0.0416518110076932,
+      "centroid_shift_cells": 3.688382245181374,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 0.07987696106987946,
+        "marmousi": 0.04507352006079864,
+        "uniform": 4.951892401490299e-06
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.048925486366441506,
+          "late": 0.16945227317695102,
+          "middle": 0.0953426266437523,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.013353805721901523,
+          "late": 0.06696164563159121,
+          "middle": 0.04200483768622215,
+          "pre_onset": 1.0
+        },
+        "uniform": {
+          "early": 3.6072753209443504e-07,
+          "late": 6.982546527195064e-06,
+          "middle": 1.054325902700295e-06,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 1203,
+      "medium_relative_l2": {
+        "validation:layered:00000": 0.07987696106987946,
+        "validation:marmousi:x50.0:z0.0": 0.04507352006079864,
+        "validation:uniform:00000": 4.951892401490299e-06
+      },
+      "near_zero_frame_count": 3,
+      "phase_correlation": 0.9709319485884301,
+      "record_count": 3,
+      "rmse": 0.002473920464748621,
+      "source_relative_l2": {
+        "validation_layered_00000": 0.07987696106987946,
+        "validation_marmousi_00000": 0.04507352006079864,
+        "validation_uniform_00000": 4.951892401490299e-06
+      },
+      "spectrum_relative_l2": {
+        "high": 0.04283408265063142,
+        "low": 0.04896582938377441,
+        "middle": 0.05871015112935482
+      },
+      "time_bin_relative_l2": {
+        "early": 0.023256356312436516,
+        "late": 0.07162009947964533,
+        "middle": 0.050004486940059094,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 0.0
+    },
+    "correction_to_coarse_l2_ratio": 1.1143656869816674e-07,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 0.07987696137581594,
+      "marmousi": 0.045073520150435975,
+      "uniform": 4.943268489242412e-06
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 0.048925486836870105,
+        "late": 0.16945227384812833,
+        "middle": 0.09534262675355425,
+        "pre_onset": 1.0
+      },
+      "marmousi": {
+        "early": 0.013353805861260275,
+        "late": 0.06696164572474282,
+        "middle": 0.04200483779002802,
+        "pre_onset": 1.0
+      },
+      "uniform": {
+        "early": 3.5116310587211075e-07,
+        "late": 6.8039771295818735e-06,
+        "middle": 1.0217706020470997e-06,
+        "pre_onset": 1.0
+      }
+    },
+    "frame_count": 1203,
+    "medium_relative_l2": {
+      "validation:layered:00000": 0.07987696137581594,
+      "validation:marmousi:x50.0:z0.0": 0.045073520150435975,
+      "validation:uniform:00000": 4.943268489242412e-06
+    },
+    "near_zero_frame_count": 3,
+    "phase_correlation": 0.9709319621273884,
+    "predicted_to_true_scattering_l2_ratio": 0.0016682324827016826,
+    "record_count": 3,
+    "reference_kind": "coarse",
+    "relative_improvement_vs_coarse": 6.585018536781361e-08,
+    "rmse": 0.0024739204710411294,
+    "scattering_relative_l2": 0.9999893304391904,
+    "source_relative_l2": {
+      "validation_layered_00000": 0.07987696137581594,
+      "validation_marmousi_00000": 0.045073520150435975,
+      "validation_uniform_00000": 4.943268489242412e-06
+    },
+    "spectrum_relative_l2": {
+      "high": 0.04283408265079188,
+      "low": 0.048965829383686446,
+      "middle": 0.05871015127164878
+    },
+    "time_bin_relative_l2": {
+      "early": 0.0232563565407651,
+      "late": 0.07162009960752067,
+      "middle": 0.05000448703560213,
+      "pre_onset": 1.0
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 0.0
+  },
+  "lpf_g2_reference": 0.29,
+  "normalization_binding": {
+    "filtered_source_manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+    "mode": "parent_binding_on_filtered_source",
+    "normalization_manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+    "normalization_record_count": 2240
+  },
+  "parameter_count": 32586422,
+  "peak_cuda_bytes": 4367487488,
+  "plain_helmholtz_g3_reference": 0.639,
+  "rad_recompute_epochs": 1,
+  "rba_potential": "quadratic",
+  "record_oversample": 2.0,
+  "records_per_family": 0,
+  "schema": "helmholtz_g3_heldout_v1",
+  "source_h5": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.invalidated_source_for_hybrid_v2.h5",
+  "source_invalidation_audit": {
+    "family_counts": {
+      "ood_canonical/layered": 1,
+      "ood_canonical/marmousi": 1,
+      "ood_canonical/uniform": 1,
+      "test_id/layered": 240,
+      "test_id/marmousi": 150,
+      "test_id/uniform": 90,
+      "train/layered": 1120,
+      "train/marmousi": 4,
+      "train/uniform": 420,
+      "validation/layered": 240,
+      "validation/marmousi": 150,
+      "validation/uniform": 90
+    },
+    "filtered_manifest_digest": "387a6dbef6ecd3cf01e291afcdebd489eaea13575a207ae875d01289914de018",
+    "invalid_sample_count": 696,
+    "reason": "696 legacy train/Marmousi source records were intentionally removed and the original VDS returned HDF5 fill values for those slots",
+    "report": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.INVALID_AFTER_MARMOUSI_CLEANUP.json",
+    "retained_source_sha256": "b256fc7880745810e067977ee188f42f8b6174754549e48938fd04f2a2bdee99",
+    "split_counts": {
+      "ood_canonical": 3,
+      "test_id": 480,
+      "train": 1544,
+      "validation": 480
+    }
+  },
+  "status": "complete",
+  "time_adaptive_sampling": false,
+  "time_residual_ema_indices": 0,
+  "time_sampling_uniform_fraction": 0.25,
+  "train_record_count": 844,
+  "trainable_parameter_count": 16512,
+  "training_pool_family_counts": {
+    "layered": 420,
+    "marmousi": 4,
+    "uniform": 420
+  },
+  "training_splits": [
+    "train"
+  ],
+  "training_time_pool_count": null,
+  "updates_completed": 6
+}

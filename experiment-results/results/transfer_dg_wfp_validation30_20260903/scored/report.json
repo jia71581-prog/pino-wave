@@ -1,0 +1,672 @@
+{
+  "acceptance": {
+    "passed": false,
+    "required_aggregate": 0.4418484935889692,
+    "required_families": [
+      "uniform",
+      "layered",
+      "marmousi"
+    ],
+    "required_family_means": {
+      "layered": 0.3228561067216051,
+      "marmousi": 0.6392846754334329,
+      "uniform": 0.3634046986118696
+    },
+    "threshold": 0.05
+  },
+  "access_audit": {
+    "model_input_wavefield_frames": 0,
+    "no_post_validation_tuning": true,
+    "predictions_complete_before_truth_open": true,
+    "serialized_prediction_count_before_truth_open": 30,
+    "test_id_opened": false,
+    "validation_future_truth_opened_only_for_scoring": true,
+    "validation_public_inputs_opened": true
+  },
+  "all_family_pooled_relative_l2": 0.5587733173000231,
+  "all_family_relative_l2": {
+    "maximum": 0.7710576392715307,
+    "mean": 0.4418484935889692,
+    "median": 0.4571926657892738,
+    "p95_nearest_rank": 0.764759695972185
+  },
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_final_ddp4_20260903/latest.pt",
+  "checkpoint_sha256": "bd02506ab83631a0fea663f43c61a7689f6e75898715ea730acf7558f216e04b",
+  "elapsed_scoring_s": 46.97898077964783,
+  "evaluation_scope": "sampled_panel",
+  "frame_count": 401,
+  "per_family": {
+    "layered": {
+      "maximum": 0.4459471098681554,
+      "mean": 0.3228561067216051,
+      "median": 0.31415777757119556,
+      "p95_nearest_rank": 0.4459471098681554
+    },
+    "marmousi": {
+      "maximum": 0.7710576392715307,
+      "mean": 0.6392846754334329,
+      "median": 0.6268135675238422,
+      "p95_nearest_rank": 0.7710576392715307
+    },
+    "uniform": {
+      "maximum": 0.5530705403827042,
+      "mean": 0.3634046986118696,
+      "median": 0.4187919160535588,
+      "p95_nearest_rank": 0.5530705403827042
+    }
+  },
+  "pooled_frequency_band_relative_l2": {
+    "low_0_15": 0.5084504114310603,
+    "mid_16_31": 0.6671602884015468,
+    "trained_high_32_63": 0.7561121727238269,
+    "unmodeled_64_200": 1.000000037188657
+  },
+  "pooled_time_band_relative_l2": {
+    "early": 0.35937962519735256,
+    "late": 0.694097802898796,
+    "middle": 0.5500459216948793
+  },
+  "prediction_runtime": {
+    "maximum_worker_p95_s": 2.8513282578438517,
+    "mean_of_worker_means_s": 1.9971925061129565
+  },
+  "prediction_shards": [
+    {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_validation30_20260903/predictions/shard_0.h5",
+      "record_count": 8,
+      "sha256": "583b98d4ddc67a9818e46f870ce9c4303fe731fe23624bd54e118f784971f258"
+    },
+    {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_validation30_20260903/predictions/shard_1.h5",
+      "record_count": 8,
+      "sha256": "dd44920d57cac15902bab81f6022af16e337e621908cc7e8b056caf0cd6332ed"
+    },
+    {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_validation30_20260903/predictions/shard_2.h5",
+      "record_count": 7,
+      "sha256": "b011db4f53d816e80a9d02618b0d0ac8e6baa66eded08f3afda41f4037178236"
+    },
+    {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_validation30_20260903/predictions/shard_3.h5",
+      "record_count": 7,
+      "sha256": "d68c679fcce0f5bd5edee9b363f6a25b06f20f081a94a888e721234d7fdb136a"
+    }
+  ],
+  "record_count": 30,
+  "required_panel_relative_l2_mean": 0.4418484935889692,
+  "rows": [
+    {
+      "cosine": 0.8331615631015531,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.4940440138433643,
+        "mid_16_31": 0.5573224894507693,
+        "trained_high_32_63": 0.5889522510109383,
+        "unmodeled_64_200": 1.0000000106018017
+      },
+      "prediction_target_norm_ratio": 0.8264375115668238,
+      "relative_l2": 0.5530705403827042,
+      "sample_id": "validation_uniform_00004",
+      "time_band_relative_l2": {
+        "early": 0.36262891281466125,
+        "late": 0.8175529745342476,
+        "middle": 0.6120959033088381
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9298197476341482,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.27948893600752,
+        "mid_16_31": 0.5023888760034455,
+        "trained_high_32_63": 0.8777718868600538,
+        "unmodeled_64_200": 1.0005655342324402
+      },
+      "prediction_target_norm_ratio": 0.9009537682534872,
+      "relative_l2": 0.36914561039672533,
+      "sample_id": "validation_uniform_00013",
+      "time_band_relative_l2": {
+        "early": 0.2550328091109232,
+        "late": 6.963877291524986,
+        "middle": 0.5298882264547992
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.868538769375446,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5037098166400732,
+        "mid_16_31": 0.6045202338218082,
+        "trained_high_32_63": 1.3275120057686418,
+        "unmodeled_64_200": 1.0000000041428772
+      },
+      "prediction_target_norm_ratio": 0.7553815645574502,
+      "relative_l2": 0.5083748214595248,
+      "sample_id": "validation_uniform_00022",
+      "time_band_relative_l2": {
+        "early": 0.3174272542629124,
+        "late": 0.63681476892705,
+        "middle": 0.49377486805021015
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9902128937438756,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.1317380810816203,
+        "mid_16_31": 0.20311018970328612,
+        "trained_high_32_63": 4.300153651439385,
+        "unmodeled_64_200": 1.0007828338485756
+      },
+      "prediction_target_norm_ratio": 0.9518451735477002,
+      "relative_l2": 0.1447428997098989,
+      "sample_id": "validation_uniform_00031",
+      "time_band_relative_l2": {
+        "early": 0.10556370464698019,
+        "late": 0.6170904088749202,
+        "middle": 0.15524561538762643
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9934603137479714,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.11118186405590676,
+        "mid_16_31": 0.11064889903119982,
+        "trained_high_32_63": 0.4718209531610257,
+        "unmodeled_64_200": 1.000135813467656
+      },
+      "prediction_target_norm_ratio": 1.0181327899148187,
+      "relative_l2": 0.11681325304943349,
+      "sample_id": "validation_uniform_00040",
+      "time_band_relative_l2": {
+        "early": 0.10417623275650247,
+        "late": 313.12192789472056,
+        "middle": 0.14184675471133232
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8794323746778621,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.22538374386483256,
+        "mid_16_31": 0.4838672441542601,
+        "trained_high_32_63": 0.5823396695627754,
+        "unmodeled_64_200": 1.000000005688428
+      },
+      "prediction_target_norm_ratio": 0.8685912930549194,
+      "relative_l2": 0.47614727492574804,
+      "sample_id": "validation_uniform_00049",
+      "time_band_relative_l2": {
+        "early": 0.3576035401177996,
+        "late": 0.8053423053788862,
+        "middle": 0.5480388325728296
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8660423215846231,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5018513884965886,
+        "mid_16_31": 0.5663939354923364,
+        "trained_high_32_63": 1.334861980266847,
+        "unmodeled_64_200": 1.000000011139655
+      },
+      "prediction_target_norm_ratio": 0.7772612297871124,
+      "relative_l2": 0.5077920632356077,
+      "sample_id": "validation_uniform_00058",
+      "time_band_relative_l2": {
+        "early": 0.2977519670186383,
+        "late": 0.6421530589149508,
+        "middle": 0.5043159909308143
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.954532575100424,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.21727025481811546,
+        "mid_16_31": 0.404742154191889,
+        "trained_high_32_63": 0.7677765950552049,
+        "unmodeled_64_200": 1.0000018828106596
+      },
+      "prediction_target_norm_ratio": 0.9316085591618568,
+      "relative_l2": 0.29898674482140647,
+      "sample_id": "validation_uniform_00067",
+      "time_band_relative_l2": {
+        "early": 0.20397453991318298,
+        "late": 0.5303603631425735,
+        "middle": 0.31000615800954584
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8834967746577664,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.2464342652468775,
+        "mid_16_31": 0.4976029592814095,
+        "trained_high_32_63": 0.5489425036549076,
+        "unmodeled_64_200": 1.000000054071225
+      },
+      "prediction_target_norm_ratio": 0.8844551012550519,
+      "relative_l2": 0.46843822171039223,
+      "sample_id": "validation_uniform_00076",
+      "time_band_relative_l2": {
+        "early": 0.3635188790786393,
+        "late": 4.779524699299574,
+        "middle": 0.6510466093482018
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9819518819335015,
+      "family": "uniform",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.23334298011997617,
+        "mid_16_31": 0.16430064130583336,
+        "trained_high_32_63": 0.321996082804325,
+        "unmodeled_64_200": 1.0000008563633809
+      },
+      "prediction_target_norm_ratio": 1.0050450994615407,
+      "relative_l2": 0.19053555642725464,
+      "sample_id": "validation_uniform_00085",
+      "time_band_relative_l2": {
+        "early": 0.1590163606791731,
+        "late": 105.82080609554137,
+        "middle": 0.25235454766774273
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9899435271425331,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.10640219873421311,
+        "mid_16_31": 0.217237234078194,
+        "trained_high_32_63": 0.8359629360940943,
+        "unmodeled_64_200": 0.9999998776670201
+      },
+      "prediction_target_norm_ratio": 1.0038576891014839,
+      "relative_l2": 0.14214575959774395,
+      "sample_id": "validation_layered_00012",
+      "time_band_relative_l2": {
+        "early": 0.10064448905004873,
+        "late": 1.50097764914388,
+        "middle": 0.18654434209672943
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.96045923480353,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.26904982745703515,
+        "mid_16_31": 0.370152749252115,
+        "trained_high_32_63": 7.734502793614861,
+        "unmodeled_64_200": 0.999999426228511
+      },
+      "prediction_target_norm_ratio": 0.9861762739057082,
+      "relative_l2": 0.27960583752990625,
+      "sample_id": "validation_layered_00036",
+      "time_band_relative_l2": {
+        "early": 0.2615962483153697,
+        "late": 0.9743590127728702,
+        "middle": 0.2818224850350934
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.913051460838952,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.33321539821492924,
+        "mid_16_31": 0.48337548508781153,
+        "trained_high_32_63": 0.7143816166215443,
+        "unmodeled_64_200": 1.0000000638121238
+      },
+      "prediction_target_norm_ratio": 1.0253730782450814,
+      "relative_l2": 0.4230285753901126,
+      "sample_id": "validation_layered_00060",
+      "time_band_relative_l2": {
+        "early": 0.34825651360636367,
+        "late": 1.1008252609150948,
+        "middle": 0.5440323919984466
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9476025463373463,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.23915543767787517,
+        "mid_16_31": 0.356501470840144,
+        "trained_high_32_63": 0.5522655494800657,
+        "unmodeled_64_200": 0.9999999502934063
+      },
+      "prediction_target_norm_ratio": 0.917341939976411,
+      "relative_l2": 0.3208817827055808,
+      "sample_id": "validation_layered_00084",
+      "time_band_relative_l2": {
+        "early": 0.22406379592023343,
+        "late": 0.786534200465427,
+        "middle": 0.4870039561784174
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9831234322707241,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.1809071155390597,
+        "mid_16_31": 0.23870904930251516,
+        "trained_high_32_63": 4.046500937498137,
+        "unmodeled_64_200": 0.9999999688359974
+      },
+      "prediction_target_norm_ratio": 1.02901442759874,
+      "relative_l2": 0.1886115064687791,
+      "sample_id": "validation_layered_00108",
+      "time_band_relative_l2": {
+        "early": 0.12180986737332086,
+        "late": 0.7597764787792506,
+        "middle": 0.21780744391389623
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8958881696377586,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.4413490318953873,
+        "mid_16_31": 0.45386468002130903,
+        "trained_high_32_63": 2.5094669957715903,
+        "unmodeled_64_200": 0.9999999621323621
+      },
+      "prediction_target_norm_ratio": 0.8573597736595256,
+      "relative_l2": 0.4459471098681554,
+      "sample_id": "validation_layered_00132",
+      "time_band_relative_l2": {
+        "early": 0.2980802470056756,
+        "late": 0.525049164683312,
+        "middle": 0.658402787826536
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9526719308588757,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.3060088287602677,
+        "mid_16_31": 0.31429945403455317,
+        "trained_high_32_63": 4.033756737063961,
+        "unmodeled_64_200": 1.000000102736132
+      },
+      "prediction_target_norm_ratio": 0.9068534598989667,
+      "relative_l2": 0.30743377243681036,
+      "sample_id": "validation_layered_00156",
+      "time_band_relative_l2": {
+        "early": 0.12000586299355259,
+        "late": 0.5967607511694586,
+        "middle": 0.4286663855613314
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9226577360858094,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.38577226363109,
+        "mid_16_31": 0.37893829689527647,
+        "trained_high_32_63": 4.059219660697337,
+        "unmodeled_64_200": 0.9999999590032229
+      },
+      "prediction_target_norm_ratio": 0.9365665876801204,
+      "relative_l2": 0.3858706495623632,
+      "sample_id": "validation_layered_00180",
+      "time_band_relative_l2": {
+        "early": 0.25253309815832514,
+        "late": 0.5193874883005202,
+        "middle": 0.5057327210808115
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9575746282831058,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.2542088603404726,
+        "mid_16_31": 0.4428784823801862,
+        "trained_high_32_63": 6.066239247458418,
+        "unmodeled_64_200": 0.9999995750568939
+      },
+      "prediction_target_norm_ratio": 0.9340774499777028,
+      "relative_l2": 0.28914174492243094,
+      "sample_id": "validation_layered_00204",
+      "time_band_relative_l2": {
+        "early": 0.18119358259128757,
+        "late": 0.5818123481685115,
+        "middle": 0.30234025580204715
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.9242203277785594,
+      "family": "layered",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.44245257878876026,
+        "mid_16_31": 0.505049720459082,
+        "trained_high_32_63": 919.7130610697885,
+        "unmodeled_64_200": 1.00001618414031
+      },
+      "prediction_target_norm_ratio": 1.154448403122136,
+      "relative_l2": 0.4458943287341683,
+      "sample_id": "validation_layered_00228",
+      "time_band_relative_l2": {
+        "early": 0.3188253400067789,
+        "late": 0.8894217234333152,
+        "middle": 0.48914134470747395
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.7981714657027038,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5694207180727542,
+        "mid_16_31": 0.6168525399606654,
+        "trained_high_32_63": 0.6683962244250619,
+        "unmodeled_64_200": 1.0000000386238945
+      },
+      "prediction_target_norm_ratio": 0.8800183323653281,
+      "relative_l2": 0.6079648188180701,
+      "sample_id": "validation_marmousi_00007",
+      "time_band_relative_l2": {
+        "early": 0.3224731427066166,
+        "late": 0.7201955151740201,
+        "middle": 0.6676872407601695
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8700852734399103,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.4751430880152461,
+        "mid_16_31": 0.7448534943199459,
+        "trained_high_32_63": 1.138028304514051,
+        "unmodeled_64_200": 1.0000000970975236
+      },
+      "prediction_target_norm_ratio": 0.8164719704815352,
+      "relative_l2": 0.49580843397133023,
+      "sample_id": "validation_marmousi_00022",
+      "time_band_relative_l2": {
+        "early": 0.515160034325664,
+        "late": 0.5301932316181409,
+        "middle": 0.44938946903083393
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8111042815893551,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5510332937268575,
+        "mid_16_31": 0.5982282494247353,
+        "trained_high_32_63": 0.660856133444873,
+        "unmodeled_64_200": 1.000000020944873
+      },
+      "prediction_target_norm_ratio": 0.8155404792256487,
+      "relative_l2": 0.5849183910913387,
+      "sample_id": "validation_marmousi_00037",
+      "time_band_relative_l2": {
+        "early": 0.26190416253608056,
+        "late": 0.7290064049088376,
+        "middle": 0.6142668662171308
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.7224783820431075,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.6497367093247837,
+        "mid_16_31": 0.7432634278686987,
+        "trained_high_32_63": 0.8570230922420553,
+        "unmodeled_64_200": 1.0000000458586646
+      },
+      "prediction_target_norm_ratio": 0.6509566081534229,
+      "relative_l2": 0.6950829818235391,
+      "sample_id": "validation_marmousi_00052",
+      "time_band_relative_l2": {
+        "early": 0.29379059195504925,
+        "late": 0.9071348704930093,
+        "middle": 0.6664319308429156
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.6970711622105451,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.6727586247747478,
+        "mid_16_31": 0.7258448569247622,
+        "trained_high_32_63": 0.7579068677420037,
+        "unmodeled_64_200": 1.000000003777055
+      },
+      "prediction_target_norm_ratio": 0.6569386768852886,
+      "relative_l2": 0.7181242310302747,
+      "sample_id": "validation_marmousi_00067",
+      "time_band_relative_l2": {
+        "early": 0.342459011924014,
+        "late": 0.9206343389639504,
+        "middle": 0.7298307994608711
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.6451305460305577,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.6701722518147363,
+        "mid_16_31": 0.7631316753438762,
+        "trained_high_32_63": 0.8121704089401138,
+        "unmodeled_64_200": 1.0000000080726956
+      },
+      "prediction_target_norm_ratio": 0.6127142845996283,
+      "relative_l2": 0.764759695972185,
+      "sample_id": "validation_marmousi_00082",
+      "time_band_relative_l2": {
+        "early": 0.49540946595707175,
+        "late": 0.938345991501232,
+        "middle": 0.804492359701309
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8503689603863981,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5288020041294832,
+        "mid_16_31": 0.7161593867205449,
+        "trained_high_32_63": 1.1553109418313336,
+        "unmodeled_64_200": 1.000000021371876
+      },
+      "prediction_target_norm_ratio": 0.7409567310002112,
+      "relative_l2": 0.5374417802428573,
+      "sample_id": "validation_marmousi_00097",
+      "time_band_relative_l2": {
+        "early": 0.45138257242430235,
+        "late": 0.604032694829537,
+        "middle": 0.5118908660766232
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.8226216798497233,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5405346444276989,
+        "mid_16_31": 0.5883028039060652,
+        "trained_high_32_63": 0.6990512522361544,
+        "unmodeled_64_200": 1.0000000175780004
+      },
+      "prediction_target_norm_ratio": 0.7600061400049867,
+      "relative_l2": 0.5720264658835896,
+      "sample_id": "validation_marmousi_00112",
+      "time_band_relative_l2": {
+        "early": 0.23784848364067726,
+        "late": 0.7291549048154939,
+        "middle": 0.5982782842841369
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.7636665563811218,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.5810700679947363,
+        "mid_16_31": 0.6360116658263092,
+        "trained_high_32_63": 0.6986082413217677,
+        "unmodeled_64_200": 1.000000015342741
+      },
+      "prediction_target_norm_ratio": 0.7555157322514966,
+      "relative_l2": 0.6456623162296145,
+      "sample_id": "validation_marmousi_00127",
+      "time_band_relative_l2": {
+        "early": 0.44601064334992446,
+        "late": 0.7479992760072308,
+        "middle": 0.6820066402933523
+      },
+      "top_pressure_max_abs": 0.0
+    },
+    {
+      "cosine": 0.6368318729317425,
+      "family": "marmousi",
+      "frequency_band_relative_l2": {
+        "low_0_15": 0.6994116724053621,
+        "mid_16_31": 0.7982012495056257,
+        "trained_high_32_63": 0.8535374396036043,
+        "unmodeled_64_200": 0.9999999829066061
+      },
+      "prediction_target_norm_ratio": 0.6460360817916551,
+      "relative_l2": 0.7710576392715307,
+      "sample_id": "validation_marmousi_00142",
+      "time_band_relative_l2": {
+        "early": 0.3542520019600581,
+        "late": 0.9728916023326315,
+        "middle": 0.7693423998381266
+      },
+      "top_pressure_max_abs": 0.0
+    }
+  ],
+  "schema": "transfer_dg_wfp_validation401_report_v1",
+  "split": "validation",
+  "status": "panel_target_gate_failed"
+}

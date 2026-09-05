@@ -1,0 +1,140 @@
+{
+  "all_saved_metrics": {
+    "aggregate_relative_l2": 0.2510411973502545,
+    "centroid_shift_cells": 11.256694163404422,
+    "coarse_metrics": {
+      "aggregate_relative_l2": 0.6805928712061594,
+      "centroid_shift_cells": 13.65012374356949,
+      "energy_floor_fraction": 0.01,
+      "family_relative_l2": {
+        "layered": 0.4504165946616883,
+        "marmousi": 0.8376260818153463,
+        "uniform": 0.7537359371414435
+      },
+      "family_time_bin_relative_l2": {
+        "layered": {
+          "early": 0.4749077619914025,
+          "late": 0.9701059994141138,
+          "middle": 0.370072110345762,
+          "pre_onset": 1.0
+        },
+        "marmousi": {
+          "early": 0.7313768125324427,
+          "late": 0.9251311410697324,
+          "middle": 0.8541674346449241,
+          "pre_onset": 1.0
+        },
+        "uniform": {
+          "early": 0.6703824850311272,
+          "late": 0.808168707539262,
+          "middle": 0.787177375867206,
+          "pre_onset": 1.0
+        }
+      },
+      "frame_count": 1203,
+      "medium_relative_l2": {
+        "train:layered:00000": 0.4504165946616883,
+        "train:marmousi:x0.0:z0.0": 0.8376260818153463,
+        "train:uniform:00000": 0.7537359371414435
+      },
+      "near_zero_frame_count": 4,
+      "phase_correlation": 0.6010548418397159,
+      "record_count": 3,
+      "rmse": 0.06210136768731743,
+      "source_relative_l2": {
+        "train_layered_00000": 0.4504165946616883,
+        "train_marmousi_00000": 0.8376260818153463,
+        "train_uniform_00000": 0.7537359371414435
+      },
+      "spectrum_relative_l2": {
+        "high": 0.9202710167821537,
+        "low": 0.8060537569470716,
+        "middle": 1.0973080310624095
+      },
+      "time_bin_relative_l2": {
+        "early": 0.6851891297847635,
+        "late": 0.8747457282095318,
+        "middle": 0.8034251515327907,
+        "pre_onset": 1.0
+      },
+      "unique_time_index_count": 401,
+      "xcorr_peak_shift_cells": 4.55500155055339
+    },
+    "correction_to_coarse_l2_ratio": 0.8297571120566118,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 0.20229745386535342,
+      "marmousi": 0.2726244781642853,
+      "uniform": 0.2782016600211247
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 0.16248168974314814,
+        "late": 0.8576191440478604,
+        "middle": 0.20535804491601692,
+        "pre_onset": 1.0
+      },
+      "marmousi": {
+        "early": 0.33351321233889125,
+        "late": 0.261163121313546,
+        "middle": 0.20150664273423516,
+        "pre_onset": 1.0
+      },
+      "uniform": {
+        "early": 0.36183759765961104,
+        "late": 0.23004242165908007,
+        "middle": 0.20561004010632133,
+        "pre_onset": 1.0
+      }
+    },
+    "frame_count": 1203,
+    "medium_relative_l2": {
+      "train:layered:00000": 0.20229745386535342,
+      "train:marmousi:x0.0:z0.0": 0.2726244781642853,
+      "train:uniform:00000": 0.2782016600211247
+    },
+    "near_zero_frame_count": 4,
+    "phase_correlation": 0.8308860702509613,
+    "record_count": 3,
+    "reference_kind": "coarse",
+    "relative_improvement_vs_coarse": 0.6311433634246645,
+    "rmse": 0.02152044754570696,
+    "source_relative_l2": {
+      "train_layered_00000": 0.20229745386535342,
+      "train_marmousi_00000": 0.2726244781642853,
+      "train_uniform_00000": 0.2782016600211247
+    },
+    "spectrum_relative_l2": {
+      "high": 0.9691520288395071,
+      "low": 0.2696307713655083,
+      "middle": 1.1190832222544285
+    },
+    "time_bin_relative_l2": {
+      "early": 0.3345982821901599,
+      "late": 0.25079608017414107,
+      "middle": 0.20360665252077392,
+      "pre_onset": 1.0
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 2.4139419630212435
+  },
+  "anchor_relative_reduction": 0.6311433634246645,
+  "architecture": {
+    "dense_depth": 8,
+    "dense_modes": 32,
+    "dense_spectral_rank": 112,
+    "width": 128
+  },
+  "best_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_conv_r16/checkpoints/update_0750.pt",
+  "best_fixed_aggregate_relative_l2": 0.2341974656188667,
+  "can_memorize_below_target": false,
+  "final_relative_l2": 0.2341974656188667,
+  "front_end_transfer": null,
+  "initial_relative_l2": 13.70754411874811,
+  "interpretation": "capacity_or_optimization_is_insufficient",
+  "parameter_count": 25952446,
+  "peak_cuda_bytes": 9644713472,
+  "relative_reduction": 0.9829147027658625,
+  "status": "complete",
+  "updates_completed": 800
+}

@@ -1,0 +1,490 @@
+{
+  "acceptance": {
+    "families": {
+      "layered": 3,
+      "marmousi": 3,
+      "uniform": 3
+    },
+    "joint_gate": "all latency and conservative peak-reserved conditions must pass",
+    "mean_runtime_s_maximum": 2.034137312322855,
+    "p95_definition": "nearest-rank ceil(p*n), no interpolation; p=0.95 and n=9 therefore maximum",
+    "p95_runtime_s_maximum": 2.034137312322855,
+    "peak_cuda_gib_maximum": 23.5,
+    "peak_cuda_reserved_bytes_maximum": 25232932864,
+    "record_count": 9
+  },
+  "atomic_terminal_protocol": {
+    "exclusive_no_overwrite": true,
+    "partial_removed_on_exit": true,
+    "same_filesystem_partial_then_os_replace": true,
+    "single_result_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_parent_e2e_runtime_train9_v1_20260825.json",
+    "terminal_states": [
+      "success/pass",
+      "success/fail_gate",
+      "blocked",
+      "failed"
+    ]
+  },
+  "bindings": {
+    "base_config": {
+      "mtime_ns": 1786346979793582588,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+      "sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+      "size_bytes": 1553
+    },
+    "code": {
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/config.py": {
+        "mtime_ns": 1784293316259095026,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/config.py",
+        "sha256": "8c9d6f536c846e60abcc19562c8f2a27c1dfec1cf0450cf438bf752c37e6d778",
+        "size_bytes": 7220
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/dense.py": {
+        "mtime_ns": 1784285527420836813,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/dense.py",
+        "sha256": "4d8281761aea84cb6c3560c5baf03d3bf34aa1a64d679c2c9c963f814adc9312",
+        "size_bytes": 5438
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/features.py": {
+        "mtime_ns": 1784285138545235787,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/features.py",
+        "sha256": "fa13f4d17a57dd234146940302d44d67ad5ae8632328608446e32ff2def1b6e0",
+        "size_bytes": 6150
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/fusion.py": {
+        "mtime_ns": 1784285371498387622,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/fusion.py",
+        "sha256": "341a20d57d5031742d4cd705be85f7e4e070a20d7baecb7ba4eec23925606ed7",
+        "size_bytes": 4927
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/medium.py": {
+        "mtime_ns": 1784285244381211113,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/medium.py",
+        "sha256": "96a4fe96de95f049ed9e0329adcbb314bc7c6e58571237393a04f5cbea2b2313",
+        "size_bytes": 6604
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/operator.py": {
+        "mtime_ns": 1784394288464112403,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/operator.py",
+        "sha256": "49c276c52df0508145dd1e4589ac956cd7fdf0a0116b13361f5953980f35ea2b",
+        "size_bytes": 17833
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/source.py": {
+        "mtime_ns": 1784285244381211113,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/source.py",
+        "sha256": "4195a40846876be1f3cfc116af58d5d57bf111fc65e6c13e72725ddba7626eb5",
+        "size_bytes": 3996
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/spectral.py": {
+        "mtime_ns": 1784285008312042430,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/spectral.py",
+        "sha256": "5bc840088dd59172417a97b0c07633f9c3f93a480fcb729912821cb25b8d4054",
+        "size_bytes": 5192
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/travel_time.py": {
+        "mtime_ns": 1784285121906082864,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/model/travel_time.py",
+        "sha256": "ba39a5a81d761473c3d19b0750cf0defb72398804772eebd7bb7e0aae9ab339c",
+        "size_bytes": 4851
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/normalization.py": {
+        "mtime_ns": 1784284911710163224,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/normalization.py",
+        "sha256": "2436407db9b8164b622e219c7749b7803e7c3e5a85836d59336ef7f49a92db22",
+        "size_bytes": 5724
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/training/checkpoint.py": {
+        "mtime_ns": 1786451299917081729,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/grouped_ufno_mionet_v3/training/checkpoint.py",
+        "sha256": "1bf1847b73580d729c336c96b6339bde9e01465e109f23b2b2cd3ccdf69ed842",
+        "size_bytes": 5933
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/decoder.py": {
+        "mtime_ns": 1786598133479100104,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/decoder.py",
+        "sha256": "56ad9ec3d8b256c740a413fe255fdb54b2eeffa07f54fb9d997166ed6ef4316c",
+        "size_bytes": 19476
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/features.py": {
+        "mtime_ns": 1785241404042891399,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/features.py",
+        "sha256": "ce2899dfce54e31e90d587ebee65e323ef5c2418b7119eb00bd845a4dd481785",
+        "size_bytes": 4366
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/local_field.py": {
+        "mtime_ns": 1787551714887692522,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/local_field.py",
+        "sha256": "d300fc611fb824359134a7d7e0d331ebf6ddf477eb3daabaaa9000909faca7ef",
+        "size_bytes": 126224
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py": {
+        "mtime_ns": 1787551735595877129,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/operator.py",
+        "sha256": "97d0ebb4552920ce0bd8e5aa4747e1dabccac6d0680e452dd36ab711c8ba12cf",
+        "size_bytes": 32726
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/probe.py": {
+        "mtime_ns": 1787551735595877129,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/probe.py",
+        "sha256": "00534260606d688e364b0c08e7777bf2b877bff6b3a65de92fd7b56b5bd32b43",
+        "size_bytes": 5313
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/spectral.py": {
+        "mtime_ns": 1784427501905332017,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/spectral.py",
+        "sha256": "9ff56dd15e23a33672f984612dbfd3e4d5948d88687720c8e299d90a74a5d096",
+        "size_bytes": 16721
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/benchmark_r4_parent_e2e_trainonly.py": {
+        "mtime_ns": 1787635106727207270,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/benchmark_r4_parent_e2e_trainonly.py",
+        "sha256": "be9fe90c71d39f4c8e73049c84b5df2f78c7862a29442aa047fbb3ea3c9d6a4f",
+        "size_bytes": 49767
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py": {
+        "mtime_ns": 1787584525653130878,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_full_support.py",
+        "sha256": "1c96f916c0d5cbeb5fda6c8a5b0b2f084930a9807abc15e7ed36a33820bdb007",
+        "size_bytes": 186610
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_probe.py": {
+        "mtime_ns": 1787551735595877129,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_saved_time_v4_probe.py",
+        "sha256": "e69063bb40ccb206f09b4a84a665ff72545ec34b1ad532b77607bc7bd9094ea4",
+        "size_bytes": 21457
+      },
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r4_parent_runtime_benchmark.py": {
+        "mtime_ns": 1787635123730349691,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r4_parent_runtime_benchmark.py",
+        "sha256": "cbe90462b52683b9c7197a5be079829947750003bec34d22e7a84494f9c86be2",
+        "size_bytes": 8607
+      }
+    },
+    "config": {
+      "mtime_ns": 1787584662429061117,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/generated/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4.yaml",
+      "sha256": "755d5b0b8512af854844fe9f3e0c0356c9b24ba55e1390fa1bc4a2feb5a6a94d",
+      "size_bytes": 3664
+    },
+    "gpu": {
+      "compute_capability": [
+        8,
+        9
+      ],
+      "cuda_visible_devices": "0",
+      "driver_version": "580.105.08",
+      "memory_total_mib": 24564,
+      "name": "NVIDIA GeForce RTX 4090 D",
+      "nvidia_driver_cuda_version": "13.0",
+      "physical_index": 0,
+      "torch_name": "NVIDIA GeForce RTX 4090 D",
+      "torch_total_memory_bytes": 25250627584,
+      "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+      "visible_index": 0
+    },
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "manifest_json": {
+      "mtime_ns": 1786349000627969170,
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_manifest_marmousi1_4m_v2.json",
+      "sha256": "273c2a492e31027571bf6780ea4a6668428ef47bf252023fe39eabefc355c8b2",
+      "size_bytes": 1000401
+    },
+    "normalization_json": {
+      "mtime_ns": 1786349000627969170,
+      "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json",
+      "sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+      "size_bytes": 1050
+    },
+    "parent_checkpoint": {
+      "mtime_ns": 1787605445244651530,
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "size_bytes": 339775310
+    },
+    "parent_identity": {
+      "mtime_ns": 1786346979793582588,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v4/generated/w2_parent_identity_legacy_norm_marmousi1_4m_v2.json",
+      "sha256": "425c1aee8069678cda94dceb34b63b8ee66f82ce1a2719ccb1092b77e9a3f647",
+      "size_bytes": 1641
+    },
+    "run_digest": "5de1af3455fc834271fe19e30995a45fb65fac09e4bd6cba92a1ed12b0bb7a2d",
+    "run_identity": {
+      "mtime_ns": 1787584782153463381,
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/run_identity.json",
+      "sha256": "be848406b21871068a228bf14dbed80732a9eebf71b866e62e996193d2c1fecc",
+      "size_bytes": 5542
+    },
+    "software": {
+      "cudnn": "8902",
+      "h5py": "3.16.0",
+      "numpy": "1.26.3",
+      "platform": "Linux-5.15.0-94-generic-x86_64-with-glibc2.35",
+      "python": "3.10.8",
+      "torch": "2.1.2+cu121",
+      "torch_cuda_build": "12.1"
+    },
+    "source_data": {
+      "device": 2304,
+      "existing_manifest_source_file_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+      "existing_source_config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+      "existing_source_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+      "inode": 8593506502,
+      "mtime_ns": 1786211668075370332,
+      "path": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+      "size_bytes": 1951323,
+      "verification": "stat identity plus registered manifest hashes; source VDS bytes and raw truth arrays are not hashed"
+    },
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9",
+    "traditional_runtime_reference": {
+      "conservative_reference_runtime_s": 20.34137312322855,
+      "mtime_ns": 1786546421808397557,
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/target10_instance_finetune_r2_muon/traditional_lwc84_runtime.json",
+      "protocol_schema": "lwc84_traditional_runtime_reference_v1",
+      "sha256": "116a1cb7cdd13869e86e14b08ef0a80c31284d5d248cb9c0952a880f2aba5bd8",
+      "size_bytes": 2493
+    }
+  },
+  "budget": {
+    "free_disk_bytes_at_freeze": 2314022912,
+    "gpu_hours_maximum": 0.25,
+    "gpu_seconds_maximum": 900.0,
+    "minimum_free_disk_bytes": 2147483648,
+    "physical_gpu_count": 1,
+    "result_size_bytes_maximum": 10485760
+  },
+  "candidate": "r4e7_parent_e2e_runtime_train9_v1",
+  "claim_scope": "train_only_runtime_only",
+  "created_utc": "2026-08-25T05:19:54.292441Z",
+  "failure_signal": "Any gate miss yields success/fail_gate; any OOM, non-finite output, truth access attempt, shape/time/contiguity violation, binding drift, disk risk, atomic-write risk, multi-GPU exposure, or budget overrun yields failed or blocked without a runtime claim.",
+  "falsifiable_claim": "runtime-only: reject unless all three jointly registered latency and peak-memory gates pass on the exact single-GPU command",
+  "hypothesis": "The frozen epoch-7 R4 parent can materialize its complete 401-time 201x201 physical CPU output for a group-disjoint nine-record train panel in at most one tenth of the conservative traditional runtime in arithmetic mean and nearest-rank P95 while peak reserved CUDA memory remains at most 23.5 GiB.",
+  "measured_command": "env CUDA_VISIBLE_DEVICES=0 PYTHONDONTWRITEBYTECODE=1 python scripts/benchmark_r4_parent_e2e_trainonly.py --mode measured --physical-gpu-index 0 --device cuda:0 --time-block 16 --preregistration results/r4e7_parent_e2e_runtime_train9_v1_preregistration_20260825.json --result results/r4e7_parent_e2e_runtime_train9_v1_20260825.json",
+  "preflight_evidence": {
+    "dry_smoke": {
+      "checkpoint_writes": 0,
+      "gpu": {
+        "compute_capability": [
+          8,
+          9
+        ],
+        "cuda_visible_devices": "0",
+        "driver_version": "580.105.08",
+        "memory_total_mib": 24564,
+        "name": "NVIDIA GeForce RTX 4090 D",
+        "nvidia_driver_cuda_version": "13.0",
+        "physical_index": 0,
+        "torch_name": "NVIDIA GeForce RTX 4090 D",
+        "torch_total_memory_bytes": 25250627584,
+        "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+        "visible_index": 0
+      },
+      "measurement": {
+        "output": {
+          "c_contiguous": true,
+          "device": "cpu",
+          "dtype": "float32",
+          "finite": true,
+          "maximum_absolute_value": 7.869184770470383e-08,
+          "serialized": false,
+          "shape": [
+            1,
+            401,
+            201,
+            201
+          ]
+        },
+        "peak_cuda_allocated_bytes": 4775564288,
+        "peak_cuda_reserved_bytes": 5834276864,
+        "runtime_s": 13.11535547208041
+      },
+      "nontruth_input_sha256": "1e1ca53aae3e9165b9e5d76d4854f009f0f33a2b88043c737dc5152de7001461",
+      "prediction_serialized": false,
+      "record": {
+        "family": "uniform",
+        "group_id": "train:uniform:00000",
+        "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+        "sample_id": "train_uniform_00000",
+        "source_index": 0,
+        "split": "train",
+        "split_id": 0
+      },
+      "status": "passed",
+      "time_block": 16,
+      "truth_read_attempts": 0,
+      "unscored": true,
+      "utc": "2026-08-25T05:19:27.895865Z"
+    },
+    "focused_test_command": "PYTHONDONTWRITEBYTECODE=1 pytest -p no:cacheprovider tests/saved_time_phase_operator_v4/test_r4_parent_runtime_benchmark.py",
+    "focused_test_result": "23 passed in 1.64s",
+    "focused_tests_passed": true
+  },
+  "rollback": {
+    "checkpoint_writes_permitted": false,
+    "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "mtime_ns": 1787605445244651530,
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "read_only": true,
+    "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "size_bytes": 339775310
+  },
+  "sample_selection": {
+    "algorithm": "for each family in uniform, layered, marmousi order, select the first three train manifest rows whose group has not appeared previously",
+    "group_disjoint": true,
+    "records": [
+      {
+        "family": "uniform",
+        "group_id": "train:uniform:00000",
+        "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+        "nontruth_input_sha256": "1e1ca53aae3e9165b9e5d76d4854f009f0f33a2b88043c737dc5152de7001461",
+        "sample_id": "train_uniform_00000",
+        "source_index": 0,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "uniform",
+        "group_id": "train:uniform:00001",
+        "manifest_sample_sha256": "7cfbc998c508e425c4ed5b39de32ea507bd12fa555d559f59d03e464e4ab6195",
+        "nontruth_input_sha256": "37a41b906b58fd4c372e1d26584735f787f6b7a126e66e69a081b6cf88ee8a07",
+        "sample_id": "train_uniform_00001",
+        "source_index": 1,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "uniform",
+        "group_id": "train:uniform:00002",
+        "manifest_sample_sha256": "73f6beb623d7c17c445965b8c1adc743b1a1446c5d4e26a6b5491b06c123c4fb",
+        "nontruth_input_sha256": "0a3d4ce3a8f259fa714169e2389b86b39aa3072f5bdb8eadb5f5e0db33d8871e",
+        "sample_id": "train_uniform_00002",
+        "source_index": 2,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "layered",
+        "group_id": "train:layered:00000",
+        "manifest_sample_sha256": "9b482204732d18f506d4af9e17b59bfa78c144ffe3de780e9b3a99e31dd8b75e",
+        "nontruth_input_sha256": "842527a9a251dc738c147a9c14a49cd690eea1ba3528e938555ae14cbcefe1b4",
+        "sample_id": "train_layered_00000",
+        "source_index": 420,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "layered",
+        "group_id": "train:layered:00001",
+        "manifest_sample_sha256": "b5dfbc6c175eb850b3e97cb042966591c14dd6c6ffd40acbb6d79bab9f6eb24b",
+        "nontruth_input_sha256": "abe67bbc543df25ef7830832aff5263d491fac1ef5f5a8fa84f35b813b5ac6c5",
+        "sample_id": "train_layered_00004",
+        "source_index": 424,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "layered",
+        "group_id": "train:layered:00002",
+        "manifest_sample_sha256": "d52f835b79b638338bd65772a0cefa330dd8379eeb6602f297064ad3a7b3a0be",
+        "nontruth_input_sha256": "264d7144c3c807ac3c500c7f1708f537c9c564e4a33c509a89ba0aa4438ff6aa",
+        "sample_id": "train_layered_00008",
+        "source_index": 428,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "marmousi",
+        "group_id": "train:marmousi:x0.0:z0.0",
+        "manifest_sample_sha256": "9b1b6372dfa355eaa4e77bdf7457dcc572827db973d92d0ea08ef626cbf32d95",
+        "nontruth_input_sha256": "de49aa9ab121fe9df8f24c9cd2ceef065ff1db43a58b962ce8860a06748b1f81",
+        "sample_id": "train_marmousi_00000",
+        "source_index": 2100,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "marmousi",
+        "group_id": "train:marmousi:x150.0:z0.0",
+        "manifest_sample_sha256": "54b7b0dd18dac742108ebf263261d44a102bd0e848a9b56d0c41f41cfddec0eb",
+        "nontruth_input_sha256": "9da6b127afe09d37757cc5f594a1ff3bb17ae907833f9227c2b9b2f1bebb8f52",
+        "sample_id": "train_marmousi_00005",
+        "source_index": 2105,
+        "split": "train",
+        "split_id": 0
+      },
+      {
+        "family": "marmousi",
+        "group_id": "train:marmousi:x300.0:z0.0",
+        "manifest_sample_sha256": "52918357b7e58fdce9aa2bb784b5ec713a691fddd2e3277ec2cea035bc551ca1",
+        "nontruth_input_sha256": "264a0b1bf334cd7845ced8c060353924eadf12c69b82f574692cfc1bb09c74de",
+        "sample_id": "train_marmousi_00010",
+        "source_index": 2110,
+        "split": "train",
+        "split_id": 0
+      }
+    ]
+  },
+  "schema": "r4_parent_trainonly_runtime_preregistration_v1",
+  "sealed_data_contract": {
+    "allowed_h5_datasets": [
+      "source_amplitude",
+      "source_f0_hz",
+      "source_map",
+      "source_t0_s",
+      "source_x_m",
+      "source_z_m",
+      "velocity_mps"
+    ],
+    "allowed_split": "train",
+    "forbidden_h5_dataset_tokens": [
+      "wavefield",
+      "truth",
+      "target",
+      "label",
+      "pressure",
+      "onset_frame",
+      "observation"
+    ],
+    "future_truth_opened": false,
+    "onset_truth_opened": false,
+    "prediction_arrays_written_to_disk": false,
+    "test_id_opened": false,
+    "train_truth_opened": false,
+    "validation_opened": false
+  },
+  "status": "frozen",
+  "time_block": 16,
+  "timing_boundary": {
+    "end": "after parent inference at all 401 ordered stored times, physical decode, blocking D2H, explicit CUDA synchronization, C-contiguous CPU copy, and shape/finite/contiguity checks",
+    "excluded": [
+      "record input disk I/O",
+      "one-time model/checkpoint/normalizer loading"
+    ],
+    "included": [
+      "per-record CPU tensor construction",
+      "per-record H2D transfers for velocity, source, source map, time axis, x axis, z axis, and record mapping",
+      "medium encoding",
+      "source preparation",
+      "dense-grid preparation",
+      "parent inference for all 401 stored times in manifest order",
+      "physical pressure decode",
+      "blocking D2H transfer",
+      "explicit CUDA synchronization",
+      "C-contiguous CPU output copy and shape/finite/contiguity verification"
+    ],
+    "start": "after excluded record disk reads and a pre-timing CUDA synchronization; before all per-record CPU tensor construction and H2D transfer"
+  },
+  "warmup": {
+    "count": 1,
+    "record": {
+      "family": "uniform",
+      "group_id": "train:uniform:00000",
+      "manifest_sample_sha256": "4495b979f5703f0455fd3256619c6b85887f392baf62cabda419b241cb7d2eea",
+      "sample_id": "train_uniform_00000",
+      "source_index": 0,
+      "split": "train",
+      "split_id": 0
+    },
+    "same_materialization_path_as_measured": true,
+    "unscored": true
+  }
+}

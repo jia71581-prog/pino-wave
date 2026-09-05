@@ -1,0 +1,75 @@
+{
+  "acknowledges_inherited_vetoes": true,
+  "acknowledges_post_hoc_rule_revision": true,
+  "authorization_digest": "235a81ea938aaa428ecf6f91567d371a7952ee08b6a4d3c02e90dc71019e740a",
+  "bindings": {
+    "parent_checkpoint": {
+      "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "observed_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "size_bytes": 339775310,
+      "status": "match"
+    },
+    "preregistration": {
+      "expected_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+      "observed_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15_preregistration_20260826.json",
+      "size_bytes": 20619,
+      "status": "match"
+    },
+    "r4e9_probe_reference": {
+      "expected_sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+      "observed_sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e9_mask_confined.py",
+      "size_bytes": 52831,
+      "status": "match"
+    },
+    "r4e9_terminal_reference": {
+      "expected_sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+      "observed_sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e9_mask_confined_oracle_20260826/terminal.json",
+      "size_bytes": 102645,
+      "status": "match"
+    }
+  },
+  "candidate": "r16_dscp_v15",
+  "disclaimers": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "deployment_time_truth_supervision": false,
+    "is_learning_or_convergence_evidence": false,
+    "loss_gate_role": "wiring sanity check on each record separately",
+    "may_promote_to_pilot_or_long": false,
+    "oracle_role": "train-only upper bound, never an achieved result",
+    "pde_residual_used": false,
+    "training_proxy_convention_not_for_acceptance": "masked_energy_floored_per_frame"
+  },
+  "inherited_vetoes": [
+    "thresholds must not be moved toward measured values",
+    "no deployment-time truth in the mask, including truth frame energy",
+    "no cross-record or synthetic-sample oracle constant as an acceptance baseline",
+    "the smoke loss gate is never learning or convergence evidence",
+    "the correction is an output-field data fit plus a feature-driven ansatz, not a physics or PDE residual and not deployment-time truth supervision; zero PDE residual anywhere in the pipeline",
+    "smoke evidence never promotes to pilot or long"
+  ],
+  "input_checkpoint_path": null,
+  "issued_at": 1787736534.6736505,
+  "lead_authorized": true,
+  "preregistration_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15_preregistration_20260826.json",
+  "preregistration_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+  "schema": "r16_dscp_v15_stage_authorization_v1",
+  "sealed_chain_verified": false,
+  "stage": "smoke",
+  "thresholds": {
+    "absolute_rel_l2_max": 0.05,
+    "acceptance_convention": "global_energy_rel_l2",
+    "acceptance_convention_modified": false,
+    "e2e_parent_ratio_max": 1.05,
+    "joint_improvement": 0.01,
+    "late_high_nonworse": true,
+    "nonworse_records": 23,
+    "per_family_improvement": 0.005,
+    "smoke_loss_reduction_min": 0.8,
+    "smoke_oracle_gain_fraction": 0.5,
+    "traditional_speedup_min": 10.0
+  }
+}

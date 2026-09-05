@@ -1,0 +1,35 @@
+[2026-08-26 23:31:20,695] torch.distributed.run: [WARNING] master_addr is only used for static rdzv_backend and when rdzv_endpoint is not specified.
+2026-08-26T15:31:47Z [long_ddp4] 192 fit / 24 confirm bundles (aggregate build 3437s), world 4
+[2026-08-26 23:31:50,843] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 626270 closing signal SIGTERM
+[2026-08-26 23:31:50,843] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 626272 closing signal SIGTERM
+[2026-08-26 23:31:50,844] torch.distributed.elastic.multiprocessing.api: [WARNING] Sending process 626273 closing signal SIGTERM
+[2026-08-26 23:31:53,930] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: -9) local_rank: 1 (pid: 626271) of binary: /root/miniconda3/bin/python
+Traceback (most recent call last):
+  File "/root/miniconda3/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 346, in wrapper
+    return f(*args, **kwargs)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 806, in main
+    run(args)
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/run.py", line 797, in run
+    elastic_launch(
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 134, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/root/miniconda3/lib/python3.10/site-packages/torch/distributed/launcher/api.py", line 264, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+=======================================================
+scripts/run_v16_long_ddp4.py FAILED
+-------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+-------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-08-26_23:31:50
+  host      : localhost
+  rank      : 1 (local_rank: 1)
+  exitcode  : -9 (pid: 626271)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 626271
+=======================================================

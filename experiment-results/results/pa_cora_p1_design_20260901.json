@@ -1,0 +1,71 @@
+{
+  "schema": "pa_cora_p1_multiwindow_design_v1",
+  "status": "verified_and_queued_pending_v9_terminal",
+  "method": "PA-CORA",
+  "stage": "P1_multiwindow_only",
+  "hypothesis": "Expanding each frozen V9 train source into four deterministic temporal windows improves same-protocol spectral-parent accuracy at matched record exposure.",
+  "conceptual_variable": "temporal window coverage",
+  "held_constant": [
+    "FrameConditionedPropagator architecture",
+    "seven conditioning channels",
+    "width 64",
+    "spectral rank 32",
+    "24 Fourier modes",
+    "depth 4",
+    "eight anchor frames",
+    "relative-L2 plus 0.1 temporal spectral loss",
+    "AdamW learning rate 1e-3 and weight decay 1e-6",
+    "same V9 24-record group-disjoint holdout",
+    "approximately matched record exposures"
+  ],
+  "window_policy": {
+    "slots": 4,
+    "slot0": "reuse the frozen V9 causal onset window and cache",
+    "slots1_to_3": "linear interpolation in saved-time start index from the causal onset to 0.65 seconds",
+    "future_truth_used_for_selection": false,
+    "source_groups": 240,
+    "window_records": 960
+  },
+  "compute": {
+    "epochs": 23,
+    "steps_per_epoch": 240,
+    "total_optimizer_steps": 5520,
+    "record_exposures": 22080,
+    "v9_record_exposures": 21600,
+    "gpus": 4,
+    "seeds": [372, 733, 1049, 1403]
+  },
+  "accuracy_gate": "mean best aggregate of P1 seeds 372 and 733 must be strictly below the V9 spectral seeds 372 and 733 mean; no minimum percentage",
+  "report_only": [
+    "auxiliary seeds",
+    "per-family",
+    "temporal bands",
+    "frequency bands",
+    "nonworse",
+    "maximum",
+    "runtime"
+  ],
+  "bindings": {
+    "manifest_builder_sha256": "b9f1f17d9cc11a2fe7f9f11569a68970f5ee131dd7c6d89d83c0ac4e56e78efb",
+    "trainer_sha256": "26905b3e1c2d00807fc9b4893ee6a3583f6b8c9af5b339981cbba2e4726217f2",
+    "runner_sha256": "aba9ed39e61da58b95d02bef00dbd36fab9234089031d5bc6c629c44697086c3",
+    "queue_sha256": "6664f9f4050e99f61f3763108a2ebbb06f066fe3296a390af657fc1a604ac5e2",
+    "preregistration_binder_sha256": "b46bc688492545bf071c2459953eaf1448acdc5c9a5abd7c0daa2c8851cd7020",
+    "cache_preregistration_sha256": "9e9098e323f14c43c3fb0991bdc10ca7f051e45818ceb3b12658ada0249fa474",
+    "slot1_manifest_sha256": "519e0e3a833f99015ab98fc422cb5bdaa22adc374148eebc0335b39f74acef51",
+    "slot2_manifest_sha256": "edbda3411d464f830f15f1a15a9b479265e84d9de21df0a9d483985749e14945",
+    "slot3_manifest_sha256": "539e2a0c6831b485bba7fdf723f8df4fa6965d18e9094a5ce7076b0e25d5f588",
+    "test_sha256": "b0db0ba737822aaef0ce7b00d16a06eb42e2963fc628f46de67522e29798f89d"
+  },
+  "evidence_ladder": [
+    "10 focused CPU/static tests passed",
+    "three cache slots after V9 terminal",
+    "four independent train-only GPU lanes",
+    "same-protocol train holdout decision",
+    "fresh train confirmation only if P1 passes"
+  ],
+  "failure_signal": "no strict two-seed mean improvement, nonfinite loss, OOM, or epoch-1 wall time above 900 seconds",
+  "rollback": "all PA-CORA P1 artifacts are additive; V9 and protected checkpoints remain immutable",
+  "validation_opened": false,
+  "test_id_opened": false
+}

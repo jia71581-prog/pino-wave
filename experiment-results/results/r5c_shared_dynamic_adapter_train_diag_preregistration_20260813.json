@@ -1,0 +1,45 @@
+{
+  "schema": "saved_time_pretraining_preregistration_v1",
+  "registered_utc_date": "2026-08-13",
+  "status": "diagnostic_only_not_promotion_eligible",
+  "reason_not_promotion_eligible": [
+    "r5b parent descends from validation-controlled selection",
+    "the frozen adaptive-sampling weights were originally derived from validation"
+  ],
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "run_digest": "8f88feada2f200ea77625e7d63adbb5421a46e3d7f884f8d4e38bd82149f936e",
+    "selection_split": "train",
+    "fixed_gate_aggregate_relative_l2": 0.2772543673381241
+  },
+  "single_algorithmic_intervention": {
+    "name": "shared_dynamic_multiscale_spectral_residual_adapter",
+    "description": "Freeze r5b and add one zero-output, all-band multiscale spectral residual expert conditioned on raw velocity and normalized source parameters without a family router.",
+    "exact_parent_identity_at_update_zero": true,
+    "trainable_prefixes": [
+      "dense_decoder.band_limited_adapter"
+    ]
+  },
+  "held_fixed": [
+    "r5b parent tensors",
+    "record-joint relative-L2 training objective and auxiliary weights",
+    "training record/time sampling schedule and seed",
+    "24 stored training frames per record",
+    "48-record by 32-frame fixed train gate",
+    "three epochs of 140 accepted updates"
+  ],
+  "evidence_policy": {
+    "training_truth": "train_only",
+    "epoch_selection": "train_only",
+    "smoke_metric": "train_only",
+    "new_validation_access": false,
+    "test_id_access": false
+  },
+  "decision_rule": {
+    "checkpoint_acceptance": "strict decrease of fixed-train aggregate_relative_l2; otherwise rollback and halve learning rate",
+    "meaningful_research_signal": "at least 0.001 absolute aggregate decrease from 0.2772543673381241 with no family relative-L2 regression above 5 percent",
+    "failure": "retry exhaustion, non-finite loss, peak CUDA above 23.5 GiB, or no meaningful train-gate improvement"
+  },
+  "sealed_future_work": "A clean rerun from a train-only-selected ancestor is required before validation or test_id claims."
+}

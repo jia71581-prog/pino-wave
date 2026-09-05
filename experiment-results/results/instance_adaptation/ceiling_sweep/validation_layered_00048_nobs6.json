@@ -1,0 +1,51 @@
+=== sparse-frame diagnostic: validation_layered_00048  n_obs=6 lr=0.005 pde_w=0.1 ===
+  step  100: held-out 0.2037  observed-frames 0.0037  (obs_l 0.004 pde_l 0.565)
+  step  400: held-out 0.1994  observed-frames 0.0028  (obs_l 0.003 pde_l 0.479)
+  step  800: held-out 0.1974  observed-frames 0.0025  (obs_l 0.003 pde_l 0.448)
+  step 1500: held-out 0.1966  observed-frames 0.0024  (obs_l 0.002 pde_l 0.436)
+{
+  "sample_id": "validation_layered_00048",
+  "medium": "layered",
+  "n_obs": 6,
+  "obs_idx": [
+    44,
+    103,
+    161,
+    220,
+    278,
+    337
+  ],
+  "parent_baseline_heldout": 0.21432755887508392,
+  "parent_baseline_energetic_global": 0.21421308815479279,
+  "best_heldout_relL2": 0.19658163189888,
+  "history": [
+    {
+      "step": 100,
+      "heldout_relL2": 0.20373687148094177,
+      "observed_relL2": 0.0037031532265245914,
+      "obs_loss": 0.00405177753418684,
+      "pde_loss": 0.5654147863388062
+    },
+    {
+      "step": 400,
+      "heldout_relL2": 0.19939544796943665,
+      "observed_relL2": 0.00277266395278275,
+      "obs_loss": 0.0027472537476569414,
+      "pde_loss": 0.479400634765625
+    },
+    {
+      "step": 800,
+      "heldout_relL2": 0.1973647028207779,
+      "observed_relL2": 0.002535223960876465,
+      "obs_loss": 0.0025185563135892153,
+      "pde_loss": 0.44810009002685547
+    },
+    {
+      "step": 1500,
+      "heldout_relL2": 0.19658163189888,
+      "observed_relL2": 0.0024396199733018875,
+      "obs_loss": 0.002439861185848713,
+      "pde_loss": 0.4359913766384125
+    }
+  ]
+}

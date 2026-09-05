@@ -1,0 +1,16 @@
+{
+  "schema": "wkb64_coefficient_overfit_decision_v1",
+  "status": "rejected",
+  "decision": "wkb_global_energy_coefficient_loss_failed_memorization_gate",
+  "all_saved_aggregate_relative_l2": 0.5539981065573109,
+  "all_saved_family_relative_l2": {"uniform": 0.5926812277093967, "layered": 0.5055332179334819, "marmousi": 0.5637798740290537},
+  "spectrum_relative_l2": {"low": 0.5642640774275429, "middle": 2.585559185136958, "high": 1.5986146062560165},
+  "required": {"aggregate": 0.10, "each_family": 0.12},
+  "updates_completed": 800,
+  "peak_cuda_bytes": 1527053824,
+  "background_cache": null,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {"terminal_sha256": "d9fa552e7638bd7315dc2734de6e7157ff2144867f615e1658652c7cfb911e6e", "best_checkpoint_sha256": "235a47b2a1e2d15255fa62f8ecf0e3971fe9b9876e2582aab7000453a3833ad0"},
+  "diagnosis": "WKB phase materially improved the raw mapping, but global coefficient energy weighting fit low frequencies while middle/high spectrum errors remained above one."
+}

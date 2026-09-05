@@ -1,0 +1,18 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "rejected_static_contract",
+  "candidate": "wkb96_freqsoftmax_r19_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The registered per-record frequency gate was implemented as one global tensor with shape [1,96,1], and direct coefficient supervision compared the raw head output to the target before the synthesis gate. The gate therefore had no loss path and could not test the registered mechanism.",
+  "evidence": {
+    "smoke_updates": 2,
+    "initial_fixed_aggregate_relative_l2": 0.02378126527873044,
+    "final_fixed_aggregate_relative_l2": 0.02378126527873044,
+    "relative_reduction": 0.0,
+    "all_saved_relative_improvement_vs_parent": 0.000020691917010471472,
+    "correction_to_parent_l2_ratio": 0.00009480683742873104
+  },
+  "validation_opened": false,
+  "test_id_opened": false,
+  "rollback": "Do not launch the r19 4000-update script. Preserve its smoke artifacts, repair the gate to be record-conditioned and place the gated coefficients on the coefficient-supervision loss path, then preregister a new run identity."
+}

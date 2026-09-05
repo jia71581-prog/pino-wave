@@ -1,0 +1,52 @@
+{
+  "amendment_v2": {
+    "change": "trainer gains --width/--spectral-rank CLI knobs (previously hardcoded); width-64 default path byte-equivalent",
+    "kind": "infrastructure_only_before_any_training_step",
+    "trainer_sha256": "e35603ba20f0a585b0e378ef24310b3545d19880d1ab86876b64ef584112fd22"
+  },
+  "bindings": {
+    "dev_manifest_sha256": "3812b0058ae5a68753a08bd26e16da1e175bc07fd0b7dbae85c33d0de75687eb",
+    "trainer_capacity_args_amendment": "trainer needs --width/--spectral-rank CLI knobs (currently hardcoded 64/32); added as infra-only amendment with new sha before launch",
+    "trainer_sha256_at_freeze": "a7ba8b78692d36af28bc0ffda6cc325edf3a5b100644536d0758c54e68da6279",
+    "v2_decision_report": "results/b2_snapshot_ic_v2_decision_report_20260831.md",
+    "v2_lanes": [
+      "results/b2_snapshot_ic_v2_ic8_s372_20260830",
+      "results/b2_snapshot_ic_v2_ic8_s733_20260830"
+    ]
+  },
+  "budget": {
+    "abort_rule": "abort a lane on NaN, or if epoch-1 wall time projects >16h for that lane",
+    "artifact_policy": "best.pt + metrics.jsonl + terminal.json per lane; width-128 best.pt ~7MB, negligible",
+    "disk_free_gb_at_freeze": 88,
+    "estimated_hours": "armA ~3.9h (77s/ep x 180), armB ~8-10h (width128 ~2-2.5x step cost); all lanes parallel so wall clock ~10h",
+    "gpus": 4
+  },
+  "created_local": "2026-08-31T00:4x+08:00",
+  "design": {
+    "arm_A_budget": "width=64, spectral_rank=32, modes=24, depth=4, epochs=180 (fresh cosine to 1e-5*lr); FROM SCRATCH (not resumed from v2 best) so the cosine schedule is clean and the v2 lanes remain an untouched judged artifact",
+    "arm_B_capacity": "identical to arm A except width=128, spectral_rank=64; micro_records may drop to 2 if 24G VRAM requires (infra knob, recorded in run_identity)",
+    "fixed": "ic8 only (v2 gate B winner); manifest, windows, loss, optimizer family, grad clip, gate-fix (frozen unit gate + zero-init 3x3 decode head), FrameConditionedPropagator all byte-identical to v2 amendment_v3",
+    "grid": "2 arms x 2 seeds (372, 733), one lane per GPU, 4 GPUs",
+    "ic2_note": "ic2 is NOT rerun; v2 already established ic8 > ic2 under the frozen gate B"
+  },
+  "evidence_boundary": "development 90-record subset only; validation full-split and test_id stay sealed",
+  "judgement_frozen": {
+    "baselines": {
+      "v2_ic8_arm_mean": 0.11729,
+      "v2_ic8_seed_band": 0.001,
+      "warp_anchor": 0.12603
+    },
+    "failure_signal": "gate C fails on both arms' evidence: the v2 number stands as the line's plateau; next lever is tail/worst-record structure, not more training",
+    "gate_C_budget_recovers": "arm A counts as recovering real trajectory iff BOTH its seeds' best < 0.11629 (v2 ic8 mean - v2 seed band); otherwise the ep60 slope was terminal-phase cosine artifact",
+    "gate_D_capacity_beats_budget": "arm B counts as beating pure budget iff |mean(B) - mean(A)| > max(armA_band, armB_band) AND B < A on both seed pairings",
+    "no_post_hoc_extension": "180 epochs per lane; no extension without a new preregistration",
+    "primary_metric": "best-over-epochs eval-window aggregate (frames 8..63, 90 records), per lane",
+    "secondary_watch_not_gated": "per-record max (v2 froze at 0.503): report it, do not gate on it"
+  },
+  "motivation": "v2 judged (results/b2_snapshot_ic_v2_decision_report_20260831.md): gate A+B both PASS, ic8 is the winning arm (-6.9% vs warp anchor), and ALL four lanes peaked at ep60 (best==last epoch) with a live ep50-60 slope of -3.6e-5/ep on both ic8 seeds -- the 60ep budget truncated an undissipated trajectory. Per no_post_hoc_extension, continuation requires this new preregistration. The two cheapest unpulled levers are budget (longer cosine) and capacity (width). One factor per arm, both on the frozen ic8 recipe.",
+  "question": "On the frozen 90-record subset with 8-frame true-snapshot IC, how much of the remaining trajectory does (a) a 3x budget at fixed width-64, and (b) the same 3x budget at width-128, each recover; and does capacity beat pure budget beyond the seed noise band?",
+  "research_variant": "b2_snapshot_ic_v3_budget_x_capacity_on_ic8",
+  "rollback": "additive; v2 lanes and all prior checkpoints untouched",
+  "schema": "b2_snapshot_ic_v3_preregistration_v1",
+  "status": "frozen_before_training"
+}

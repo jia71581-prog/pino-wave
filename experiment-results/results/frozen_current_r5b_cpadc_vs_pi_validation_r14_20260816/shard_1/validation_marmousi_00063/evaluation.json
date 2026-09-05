@@ -1,0 +1,458 @@
+{
+  "adaptation": {
+    "accepted": false,
+    "accessed_true_indices": [
+      14,
+      15
+    ],
+    "adaptation_cpu_only": false,
+    "adaptation_device": "cpu",
+    "adaptation_elapsed_s": 2.4806875474750996,
+    "basis": {
+      "basis_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+      "basis_rank": 16,
+      "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r5b_trustgrad_layered_marm15_selective_r3_20260816/selective.pt",
+      "checkpoint_sha256": "e92cc37722388640d060cd78875f1ebdc8e9ca1dad395641a5123625ecafb55a",
+      "dataset_numerical_contract": {
+        "absorbing_boundaries": [
+          "left",
+          "right",
+          "bottom"
+        ],
+        "cpml_kappa_max": 3.0,
+        "cpml_minimum_frequency_hz": 8.0,
+        "cpml_physical_thickness_m": 200.0,
+        "cpml_polynomial_order": 3,
+        "cpml_reference_speed_mps": 6750.0,
+        "cpml_target_reflection": 1e-08,
+        "dataset_config": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml",
+        "dataset_config_file_sha256": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+        "dataset_config_sha256": "7afe021042c75360a132d345849f96d0f7ab418c9f8e59ec35170515feaee13d",
+        "exact_fine_source_restriction": false,
+        "exact_fine_state_reconstruction": false,
+        "fine_cpml_cells": 40,
+        "internal_dt_s": 0.000125,
+        "internal_substeps_per_saved_frame": 20,
+        "plan_summary": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/plan_summary.json",
+        "plan_summary_sha256": "0e104aa572e30ad202ec5940b2dbda822dc177a221e419e7d753250b0dac434d",
+        "restriction": "binomial5_lowpass_then_nodal_decimate2",
+        "saved_cpml_cells": 20,
+        "saved_dt_s": 0.0025,
+        "saved_grid_closure": {
+          "c_ref_mps": 6750.0,
+          "exterior_initialization": "zero",
+          "internal_dt_s": 0.000125,
+          "internal_substeps_per_saved_frame": 20,
+          "kappa_max": 3.0,
+          "memory_time_integration": "internal_substep_exact_linear_causal_vectorized",
+          "minimum_frequency_hz": 8.0,
+          "npml": 20,
+          "physical_state_injection": "hard_each_saved_frame",
+          "polynomial_order": 3,
+          "target_reflection": 1e-08
+        },
+        "saved_grid_shape": [
+          201,
+          201
+        ],
+        "saved_source_contract": "direct_saved_grid_bilinear_unit_mass_reinjection",
+        "saved_spacing_m": [
+          10.0,
+          10.0
+        ],
+        "schema": "cpadc_dataset_numerical_contract_v1",
+        "solver_grid_shape": [
+          401,
+          401
+        ],
+        "solver_spacing_m": [
+          5.0,
+          5.0
+        ],
+        "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+        "source_h5_byte_count": 1951323,
+        "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+        "source_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+        "teacher_hdf5_schema": "acoustic_lwc84_401_to_201_v1",
+        "teacher_schema": "acoustic-lwc84-cpml-401-to-201-v1",
+        "top_boundary": "free_surface_dirichlet"
+      },
+      "defect_contract": {
+        "closure_gap": "20_internal_steps_plus_binomial5_restriction_plus_omitted_exterior_pressure_plus_saved_grid_source_reinjection",
+        "cpml": {
+          "c_ref_mps": 6750.0,
+          "exterior_initialization": "zero",
+          "internal_dt_s": 0.000125,
+          "internal_substeps_per_saved_frame": 20,
+          "kappa_max": 3.0,
+          "memory_time_integration": "internal_substep_exact_linear_causal_vectorized",
+          "minimum_frequency_hz": 8.0,
+          "npml": 20,
+          "physical_state_injection": "hard_each_saved_frame",
+          "polynomial_order": 3,
+          "target_reflection": 1e-08
+        },
+        "cpml_memory_reconstructed_causally": true,
+        "cpml_memory_variables": [
+          "psi_x",
+          "psi_z",
+          "phi_x",
+          "phi_z"
+        ],
+        "exact_fine_generator_residual": false,
+        "exact_fine_source_restriction": false,
+        "exterior_pressure_closure": "zero_unavailable_state",
+        "name": "source_consistent_saved_grid_lwc84_cfs_cpml_v3",
+        "saved_source_contract": "direct_saved_grid_bilinear_unit_mass_reinjection",
+        "spatial_halo_cells": 0,
+        "time_order": 4,
+        "top_boundary": "free_surface_dirichlet"
+      },
+      "epoch": 93,
+      "evaluation_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+      "external_evaluation_dataset": false,
+      "implementation_digests": {
+        "grouped_ufno_mionet_v3/data/index.py": "b19eb4e7c5ef82307973c231dda16b6a78e11c09b9c04e2ef4d110481ef4cdd6",
+        "saved_time_phase_operator_v4/data.py": "4769ea27547817d83a05166fa295cdb19242a45222d3e2be9d91b93dec1e0465",
+        "saved_time_phase_operator_v4/decoder.py": "56ad9ec3d8b256c740a413fe255fdb54b2eeffa07f54fb9d997166ed6ef4316c",
+        "saved_time_phase_operator_v4/features.py": "ce2899dfce54e31e90d587ebee65e323ef5c2418b7119eb00bd845a4dd481785",
+        "saved_time_phase_operator_v4/full_support.py": "0792a8aa265966477b7c2d3e2a963b923b2798681f98da41a732bfa18bdf492d",
+        "saved_time_phase_operator_v4/instance_adaptation/__init__.py": "61cbf233becf079ffc2a6605837d7033bea78664ce1f4e0e1bf44f1ace386ad8",
+        "saved_time_phase_operator_v4/instance_adaptation/adapters.py": "806d38d0c76cdd6dab77da6b036b428a48d7e47c07d3a160fcbb3b40a0d6a37d",
+        "saved_time_phase_operator_v4/instance_adaptation/bridge.py": "19aab972d908647acaff42d7c777bfd2afda9fc1cc934f656a17348066544d96",
+        "saved_time_phase_operator_v4/instance_adaptation/chonknoris.py": "eab298c550ebc8a5303541fe09e965e2a62a837da2a4982e8fe4b727c0da6e91",
+        "saved_time_phase_operator_v4/instance_adaptation/contracts.py": "16ae02b8c4b0660b8b405619a2fa8ce9e168bec948cb057f8df8059755359134",
+        "saved_time_phase_operator_v4/instance_adaptation/cpadc_contract.py": "aecbda50481ec85a9689662d32939d283117250af291b45d31ee81711e647edc",
+        "saved_time_phase_operator_v4/instance_adaptation/data_guard.py": "47f90a46ffa14a06e51de0e17ca125cfd46353c74d625f9ab40a5fcce35619ee",
+        "saved_time_phase_operator_v4/instance_adaptation/defect_correction.py": "c79ae508f28686ebaf7f3320429e4daa12ae072f2e9f5005b63020e41d9f9c5d",
+        "saved_time_phase_operator_v4/instance_adaptation/feature_modulation.py": "7e99a52f925fb0734ac349104f80db6c7830bfb654320327f642f73044e8e798",
+        "saved_time_phase_operator_v4/instance_adaptation/forced_defect.py": "7a80f295dbfb2b9f4333258fb47ac9ae5224ad043c0a79b2739411acb4a66077",
+        "saved_time_phase_operator_v4/instance_adaptation/losses.py": "3d2c70d81ad42a2ea0e9e9411e6d1cec50882b00432dc99d2cf69e105b0bab98",
+        "saved_time_phase_operator_v4/instance_adaptation/pretrained_subspace.py": "8b93eb688b6459bd1c9824f08b052891ad94781296a5f07edde21b7c5bc21c5e",
+        "saved_time_phase_operator_v4/instance_adaptation/residual_iterator.py": "fc0df1105cc109d7c02bd4ecb2e5e7b897c28e580d9289145e77c35d9f266273",
+        "saved_time_phase_operator_v4/instance_adaptation/trainer.py": "5a9d07a9cebc457a72f9b22b60c5aff6ae5d767b8dffee42e5cb9fae6e270a7b",
+        "saved_time_phase_operator_v4/instance_adaptation/visualization.py": "9550c671392d8515bd8e009e25001a9bb0ddd146f6e3b3c51a96b6e244179006",
+        "saved_time_phase_operator_v4/local_field.py": "3466698b7222de25a1a1d228d2f72205d57bffcfcda9ddb019ff833425a459b1",
+        "saved_time_phase_operator_v4/muon.py": "dd212214941a0508f571accada973dd13f091805c9864d29944b2fb7fa0ab9d9",
+        "saved_time_phase_operator_v4/operator.py": "b21331e7ad25e5c41ec32698bb966e9f811345fe2a7bfc33c363083ff5fbae02",
+        "saved_time_phase_operator_v4/spectral.py": "9ff56dd15e23a33672f984612dbfd3e4d5948d88687720c8e299d90a74a5d096",
+        "scripts/calibrate_causal_defect_risk.py": "bfeb3fd8303c043550808606fc34c3bd091747cfafdda014dd126e0373a5244a",
+        "scripts/evaluate_v5_instance_adaptation.py": "38cc3d248d0ea88810e22fd48673c20f003ae567d6e6085f640d1e342e097494",
+        "scripts/merge_causal_defect_evaluations.py": "34341448d1b3199c7f226fdec4898eaf2ef7d6bc6df59ee2962a864330fe8963",
+        "scripts/run_causal_defect_adaptation.py": "c8eb6a82fccb624fc71d6748a22d54a6c00ef0a791a979e57c7456cef5acf47f",
+        "scripts/run_v5_instance_adaptation.py": "32bcb1f0b1b5ef77de7fa979d856508cfe95e91a677ec713939238686925352a",
+        "scripts/supervise_target10_instance_finetune.py": "7ddca35318b0aacffaaea9bdd9746866418ad7de0596ea99bfe4f7c6d9462971",
+        "scripts/train_causal_defect_basis.py": "7c042569a65e5e35fde8c854dfdabf3368a800b4f901a1cfd1e3273599e940d1",
+        "scripts/train_meta_hypernet.py": "2834704d091709524891e8f0efa92362a072276b5bbbeded5f306c0589556f35",
+        "scripts/train_residual_iterator.py": "72aa546cb972018eb98bbdedbe4e616e1217fb00cfa113f7780f75dab089f9d6",
+        "scripts/train_v5_feature_meta.py": "eea38bad8061e7da740a6397a9e20487e6d2d1dc9a9808c7888a7d56cb8d9d52",
+        "scripts/train_v5_residual_meta.py": "5a87c72ac5d496a3b4cd6c00e76e6f984d0a8044c206b3f8d529b0a4488b93a7",
+        "src/fno_acoustic/data_generation/cpml.py": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f",
+        "src/fno_acoustic/data_generation/free_surface.py": "bf150fedffd0eb2a11ec494ccec88d85a8796e12727ab88f9bbfcb278e003da8",
+        "src/fno_acoustic/data_generation/grid.py": "6b372859fc1a5c50775f0468870a36abc2815a9a77fe5283d36a661cd8e51cf9",
+        "src/fno_acoustic/data_generation/lwc84.py": "ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118",
+        "src/fno_acoustic/data_generation/restriction.py": "be53a93bced3a8aa7d3ca303e7f367444fb16ca564f2218a4fcec5ac04224792",
+        "src/fno_acoustic/data_generation/ricker.py": "b07c7d632df1ee2c1e52dd2730264cc05a589b0e25317fd01517dde92f2a6217",
+        "src/fno_acoustic/data_generation/source.py": "533d9894dc5fcdd70e004def6d9d15e2fcec68ce591da7e239fc85d12e1a94a6",
+        "src/fno_acoustic/data_generation/stencils.py": "0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c"
+      },
+      "minimum_unconstrained_correction_ratio": 0.0,
+      "minimum_unconstrained_correction_ratio_by_family": {
+        "layered": 0.8475261330604553,
+        "marmousi": 1.5,
+        "uniform": 1e+30
+      },
+      "observed_probe_design": true,
+      "offline_physics_training": {
+        "boundary_band_cells": 12,
+        "boundary_weight": 4.0,
+        "causal_prefix_memory_warmup": true,
+        "detached_prefix_before_loss_window": true,
+        "evaluations_per_candidate": 1,
+        "operator": "lwc84_cfs_cpml_saved_grid_arrival_window_v4",
+        "prearrival_frames": 8,
+        "time_count": 64,
+        "weight": 0.02,
+        "window_strategy": "nearest_side_cpml_peak_arrival_causal_prefix_v1"
+      },
+      "online_solve_contract": {
+        "acceptance_comparator": "greater_than_or_equal",
+        "calibration_digest": "df96ac39b3d881a07949e3a342f11885396b7997c367fd9f1119aa57f47bb2ea",
+        "coefficient_objective_device": "cpu",
+        "coefficient_solve_device": "cpu",
+        "correction_materialization_device": "cpu",
+        "minimum_unconstrained_correction_ratio_by_family": {
+          "layered": 0.8475261330604553,
+          "marmousi": 1.5,
+          "uniform": 1e+30
+        },
+        "name": "cpu_causal_sparse_defect_observation_bridge_family_calibrated_ridge_v6",
+        "observed_probe_design": true,
+        "offline_physics_operator": "lwc84_cfs_cpml_saved_grid_arrival_window_v4",
+        "online_bridge_weight": 0.5,
+        "online_defect_design": "sparse_interior",
+        "online_defect_test_function_normalization": "discrete_l2_unit",
+        "online_defect_test_function_width": 1,
+        "online_defect_time_order": 2,
+        "online_defect_weight": 1.0,
+        "online_observed_weight": 0.25,
+        "online_physics_point_count": 128,
+        "online_physics_sampling": "rad",
+        "online_physics_seed": 372,
+        "online_prior_weight": 0.0001,
+        "online_rad_c": 1.0,
+        "online_rad_k": 1.0,
+        "online_rad_time_tilt": 2.0,
+        "online_spatial_stride": 4,
+        "projection_uses_parent_rms": true,
+        "strength_feature": "unconstrained_correction_rms_over_parent_rms",
+        "synthetic_bridge_device": "cpu",
+        "trust_fraction_learned_offline": true
+      },
+      "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+      "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+      "phase_rank": 4,
+      "schema_version": 10
+    },
+    "coefficient_count": 16,
+    "coefficient_finetune_cpu_only": true,
+    "coefficient_finetune_device": "cpu",
+    "coefficient_objective_device": "cpu",
+    "coefficient_solve_elapsed_s": 0.0023227576166391373,
+    "coefficients": {
+      "tensor_sha256": "f5a5fd42d16a20302798ef6ed309979b43003d2320d9f0e8ea9831a92759fb4b",
+      "tensor_shape": [
+        16
+      ]
+    },
+    "condition_number": 142.20550537109375,
+    "correction_materialization_device": "cpu",
+    "correction_ratio": 0.0,
+    "cuda_synchronized_timing": true,
+    "design_row_count": 15734,
+    "effective_correction_ratio_limit": 0.060521744191646576,
+    "effective_design_rank": 16,
+    "frozen_feature_device": "cuda",
+    "future_truth_used": false,
+    "instance_trainable_path_cpu_only": true,
+    "minimum_unconstrained_correction_ratio": 1.5,
+    "objective_after": 5.696950912475586,
+    "objective_before": 5.696950912475586,
+    "observed_probe_design": true,
+    "observed_weight": 0.25,
+    "offline_pde_operator": "lwc84_cfs_cpml_saved_grid_arrival_window_v4",
+    "online_defect_design": "sparse_interior",
+    "online_defect_test_function_normalization": "discrete_l2_unit",
+    "online_defect_test_function_width": 1,
+    "online_defect_time_order": 2,
+    "online_defect_weight": 1.0,
+    "online_physics_point_count": 128,
+    "online_physics_sampling": "rad",
+    "online_physics_seed": 372,
+    "online_prior_weight": 0.0001,
+    "online_rad_c": 1.0,
+    "online_rad_k": 1.0,
+    "online_rad_time_tilt": 2.0,
+    "online_solve": "causal_observation_bridge_ridge_cpu_v5",
+    "online_spatial_stride": 4,
+    "parent_inference_device": "cuda",
+    "parent_inference_time_block": 32,
+    "pde_cpml_contract": {
+      "c_ref_mps": 6750.0,
+      "exterior_initialization": "zero",
+      "internal_dt_s": 0.000125,
+      "internal_substeps_per_saved_frame": 20,
+      "kappa_max": 3.0,
+      "memory_time_integration": "internal_substep_exact_linear_causal_vectorized",
+      "minimum_frequency_hz": 8.0,
+      "npml": 20,
+      "physical_state_injection": "hard_each_saved_frame",
+      "polynomial_order": 3,
+      "target_reflection": 1e-08
+    },
+    "projection_scale": 0.04108329862356186,
+    "rollback_reason": "calibrated_causal_strength_abstention",
+    "runtime_protocol": "input_ready_to_401_frame_output_materialized_no_disk_io_v1",
+    "synthetic_bridge_device": "cpu",
+    "total_inference_elapsed_s": 15.574789303354919,
+    "trust_fraction": 0.12104348838329315,
+    "unconstrained_correction_ratio": 1.4731471538543701
+  },
+  "all_saved_time_indices": 401,
+  "future_adapted_squared_error": 3.4185358755742267e-09,
+  "future_fullfield_relative_l2": 6.323532581329346,
+  "future_parent_squared_error": 3.4185358755742267e-09,
+  "future_truth_squared_norm": 8.858382223719e-11,
+  "medium_type": "marmousi",
+  "metrics": {
+    "aggregate_relative_l2": 6.213721078575574,
+    "centroid_shift_cells": 9.231752107667539,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "marmousi": 6.213721078575574
+    },
+    "family_time_bin_relative_l2": {
+      "marmousi": {
+        "early": 6.612259700216818,
+        "late": 3.84035704047277,
+        "middle": 5.75301687756306,
+        "pre_onset": 8.653051151194557
+      }
+    },
+    "frame_count": 401,
+    "medium_relative_l2": {
+      "validation:marmousi:x6300.0:z0.0": 6.213721078575574
+    },
+    "near_zero_frame_count": 23,
+    "phase_correlation": 0.6620401443036235,
+    "record_count": 1,
+    "rmse": 1.4529836214345025e-08,
+    "source_relative_l2": {
+      "validation_marmousi_00063": 6.213721078575574
+    },
+    "spectrum_relative_l2": {
+      "high": 3.7602467445584575,
+      "low": 6.3372937893364245,
+      "middle": 6.68064421986584
+    },
+    "time_bin_relative_l2": {
+      "early": 6.612259700216818,
+      "late": 3.84035704047277,
+      "middle": 5.75301687756306,
+      "pre_onset": 8.653051151194557
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 1.3027881671302217
+  },
+  "parent_future_fullfield_relative_l2": 6.323532581329346,
+  "parent_metrics": {
+    "aggregate_relative_l2": 6.213721078575574,
+    "centroid_shift_cells": 9.231752107667539,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "marmousi": 6.213721078575574
+    },
+    "family_time_bin_relative_l2": {
+      "marmousi": {
+        "early": 6.612259700216818,
+        "late": 3.84035704047277,
+        "middle": 5.75301687756306,
+        "pre_onset": 8.653051151194557
+      }
+    },
+    "frame_count": 401,
+    "medium_relative_l2": {
+      "validation:marmousi:x6300.0:z0.0": 6.213721078575574
+    },
+    "near_zero_frame_count": 23,
+    "phase_correlation": 0.6620401443036235,
+    "record_count": 1,
+    "rmse": 1.4529836214345025e-08,
+    "source_relative_l2": {
+      "validation_marmousi_00063": 6.213721078575574
+    },
+    "spectrum_relative_l2": {
+      "high": 3.7602467445584575,
+      "low": 6.3372937893364245,
+      "middle": 6.68064421986584
+    },
+    "time_bin_relative_l2": {
+      "early": 6.612259700216818,
+      "late": 3.84035704047277,
+      "middle": 5.75301687756306,
+      "pre_onset": 8.653051151194557
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 1.3027881671302217
+  },
+  "pi_matched_panel": {
+    "adapted_error_numerator": 2.777174125940447e-10,
+    "adapted_error_numerator_in_pi_normalization": 773994.8818235219,
+    "adapted_relative_l2": 6.34480436125594,
+    "frames_per_record": 32,
+    "parent_error_numerator": 2.777174125940447e-10,
+    "parent_error_numerator_in_pi_normalization": 773994.8818235219,
+    "parent_relative_l2": 6.34480436125594,
+    "physical_to_pi_normalization_scale_squared": 2786987227750512.5,
+    "pi_error_numerator": 9563.285123592743,
+    "pi_relative_l2": 0.7052656679363661,
+    "pi_truth_denominator": 19226.56134913926,
+    "time_indices": [
+      10,
+      18,
+      28,
+      39,
+      47,
+      63,
+      77,
+      81,
+      85,
+      88,
+      96,
+      142,
+      155,
+      161,
+      162,
+      177,
+      191,
+      200,
+      208,
+      215,
+      229,
+      265,
+      275,
+      284,
+      292,
+      322,
+      332,
+      339,
+      348,
+      349,
+      359,
+      366
+    ],
+    "truth_denominator": 6.8986901546218346e-12,
+    "truth_denominator_in_pi_normalization": 19226.56134913926
+  },
+  "receiver_indices": [
+    [
+      10,
+      5
+    ],
+    [
+      10,
+      28
+    ],
+    [
+      10,
+      52
+    ],
+    [
+      10,
+      76
+    ],
+    [
+      10,
+      100
+    ],
+    [
+      10,
+      123
+    ],
+    [
+      10,
+      147
+    ],
+    [
+      10,
+      171
+    ],
+    [
+      10,
+      195
+    ]
+  ],
+  "receiver_relative_l2": 6.445027828216553,
+  "sample_id": "validation_marmousi_00063",
+  "sealed": true
+}

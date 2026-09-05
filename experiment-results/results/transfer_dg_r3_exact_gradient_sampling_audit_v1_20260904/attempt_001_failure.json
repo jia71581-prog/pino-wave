@@ -1,0 +1,34 @@
+{
+  "schema": "transfer_dg_r3_exact_gradient_sampling_attempt_failure_v1",
+  "record_type": "retrospective_preflight_failure",
+  "candidate": "transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904",
+  "attempt": 1,
+  "provenance_note": "Retrospective record written after the failed process exited. This is not the original runtime's atomic terminal record; that runtime failed before smoke_report.json could be written.",
+  "original_script_sha256": "52d1a999ecb60f014f4e77ed7549ce44ce4c2841a696b7cd91e6fa8ed1b6a50d",
+  "original_preregistration_sha256": "538a82b065068165723d9678dea97b02261527c6dc3ecd9d340d73c7a7d71c0a",
+  "exact_argv": "CUDA_VISIBLE_DEVICES=0 python scripts/audit_transfer_dg_r3_exact_gradient_sampling.py --smoke --preregistration results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/preregistration.json --selection-manifest results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/selection_manifest.json --cache results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5 --source-h5 /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --checkpoint results/transfer_dg_parent_anchored_relenergy_r3_20260904/training_12epoch/best.pt --output results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report.json",
+  "exit_code": 1,
+  "wall_seconds_observed": 4.3,
+  "wall_seconds_observed_is_approximate": true,
+  "error": "RuntimeError: Invalid device argument 0: did you call init?",
+  "failure_location": {
+    "path": "scripts/audit_transfer_dg_r3_exact_gradient_sampling.py",
+    "line": 1045,
+    "version": "original_script_sha256"
+  },
+  "diagnostic_entered": false,
+  "future_truth_opened": false,
+  "checkpoint_written": false,
+  "smoke_report_written": false,
+  "input_hashes_unchanged": true,
+  "gpu_post_state": {
+    "gpu_count_checked": 4,
+    "all_memory_used_mib": 0,
+    "all_utilization_percent": 0,
+    "compute_process_count": 0,
+    "state": "idle"
+  },
+  "promotion_authorized": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

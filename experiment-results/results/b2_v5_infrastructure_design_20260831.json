@@ -1,0 +1,76 @@
+{
+  "schema": "b2_v5_causal_source_loss_infrastructure_v1",
+  "status": "infrastructure_ready_waiting_for_fresh_train_calibration_groups",
+  "created_utc": "2026-08-31T13:26:42Z",
+  "candidate_family": "b2_v5_causal_source_loss_four_arm_pilot",
+  "objective": "Screen one-variable fixes for causal windowing, omitted source parameters, nonworse-gate alignment, and underweighted temporal frequency bands without modifying the active B2-v4 run.",
+  "causal_window": {
+    "rule": "window_start = searchsorted(time_s, source_t0_s - 0.5/source_f0_hz)",
+    "future_wavefield_access": false,
+    "historical_onset_window_mae_frames": 1.6583333333333334,
+    "historical_delta_range_frames": [0, 5],
+    "reason": "The static half-cycle rule closely reproduces the old 5%-of-future-max onset while removing its future-derived statistic."
+  },
+  "arms": {
+    "control": {
+      "conditioning_channels": 7,
+      "loss": "mean per-record future relative L2"
+    },
+    "source_cond": {
+      "only_change": "append normalized constant source_f0_hz and source_t0_s maps",
+      "conditioning_channels": 9,
+      "loss": "control loss"
+    },
+    "nonworse_hinge": {
+      "only_change": "add 0.3 * mean(relu(candidate_rel_l2 - anchor_rel_l2))",
+      "conditioning_channels": 7
+    },
+    "spectral": {
+      "only_change": "add 0.1 * mean(low/mid/high temporal-rFFT relative L2)",
+      "energy_floor_fraction": 0.005,
+      "conditioning_channels": 7
+    }
+  },
+  "pilot_plan": {
+    "gpus": 4,
+    "seed": 372,
+    "epochs": 10,
+    "fit_and_calibration": "train-only, family-balanced, stratified over f0/source_x/source_z/vmin, record and medium-group disjoint",
+    "primary_metric": "calibration aggregate relative L2",
+    "secondary_metrics": [
+      "per-family relative L2",
+      "early/middle/late relative L2",
+      "low/mid/high temporal-frequency relative L2",
+      "nonworse count",
+      "correction energy"
+    ],
+    "promotion": "screening only; the winning conceptual variable requires a new two-seed full fit/calibration confirmation"
+  },
+  "data_gate": {
+    "current_issue": "The existing train manifests collectively consume all 140 Marmousi medium groups across probes, fit, calibration, and sealed confirmation.",
+    "launch_veto": "Do not reuse the opened V4 calibration panel and do not open the V4 confirmation panel for V5 tuning.",
+    "if_v4_fails": "Under a new preregistration, the still-sealed V4 confirmation groups may be explicitly retired from V4 and reassigned to V5 development.",
+    "if_v4_passes": "Use the frozen V4 confirmation exactly once, then obtain fresh generated train Marmousi groups or run a clearly labeled within-medium source-holdout pilot that cannot count as group-disjoint confirmation."
+  },
+  "bindings": {
+    "components_sha256": "4931dca2acb34ccf2ef6f58edf219c1f22739cbfd18bb1c72dad7af6c9d2b2f7",
+    "manifest_builder_sha256": "dada0219c71ba659395b839ea3f860b6b0a5a781f58b240579f9cea33414e005",
+    "cache_builder_sha256": "a488eb0c5a634ab2d56fd60c3acc91cc122e16b071cc72079f0f17b8e3005890",
+    "trainer_sha256": "05396ad2597a1e96f36ed82454049df73d2649c2157c3cbadf5a56f0cb1ed289",
+    "runner_sha256": "ae12679af1d578323a22ff46877b2d3aa5b788a35981d0e02de118ff38637965",
+    "test_sha256": "f2290764fae1e8b2c1134d5429ad5d86ed7fa274ea46787d2d74757972c07a19",
+    "active_v4_trainer_sha256_unchanged": "71e50bd815bc22e9e1f76849fd8846f8e2f8f6815700c071ebde375dfd2178ff",
+    "active_v4_preregistration_sha256_unchanged": "13a3f1cd0894e33d66fabe4627a0fc1d4c143f96f943b8ad4d700951ee9977ef"
+  },
+  "verification": {
+    "cpu_contract_tests_passed": 17,
+    "static_leakage_checks_passed": 6,
+    "target5_read_only_audit": "passed",
+    "gpu_job_launched": false,
+    "active_v4_modified": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "future_preregistration": "results/b2_v5_four_arm_pilot_preregistration.json",
+  "rollback": "All V5 files are additive; removing them restores the pre-change workspace without touching active or protected checkpoints."
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "accelerated_coarse_lwc84_residual_master_protocol_v1",
+  "candidate": "accelerated_coarse_lwc84_residual_r1_20260905",
+  "status": "draft_pending_static_audit",
+  "launch_authorized": false,
+  "immutable_stage_DAG": [
+    "parent_gate",
+    "cache_build",
+    "cache_audit",
+    "trainer_smoke",
+    "3ep_pilot",
+    "same-lineage_DDP4_epoch40_resume",
+    "new_synthetic_confirmation"
+  ],
+  "stage_edges": [
+    ["parent_gate", "cache_build"],
+    ["cache_build", "cache_audit"],
+    ["cache_audit", "trainer_smoke"],
+    ["trainer_smoke", "3ep_pilot"],
+    ["3ep_pilot", "same-lineage_DDP4_epoch40_resume"],
+    ["same-lineage_DDP4_epoch40_resume", "new_synthetic_confirmation"]
+  ],
+  "stage_policy": "Every stage requires its own frozen preregistration and independent audit before execution. A passed parent gate does not authorize cache creation or training.",
+  "user_intent": "After the numerical parent gate passes, continue toward long training, but only through the immutable audited DAG.",
+  "fallback": {
+    "method": "frozen fine-grid R6 numerical solver",
+    "status": "accepted_fallback",
+    "current_environment_reattest": "results/frozen_fine_grid_r6_current_env_reattest_v1_20260905/report.json"
+  },
+  "history": {
+    "K4": "K4 is separate train-only correction research and is not this parent gate.",
+    "R54": "R54 is historical neural training evidence and is not imported into this numerical gate.",
+    "old_v1_smoke": "Historical only; never a prerequisite or selection source."
+  },
+  "parent_gate_claim": "Diagnostic-only exposed-train comparison of numerical arms A and B; no validation/test_id, cache, neural training, or promotion claim.",
+  "validation_truth_reopened_this_stage": false,
+  "test_id_truth_reopened_this_stage": false,
+  "promotion_authorized": false
+}

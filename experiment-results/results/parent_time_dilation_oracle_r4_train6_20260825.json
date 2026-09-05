@@ -1,0 +1,99 @@
+{
+  "config": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/saved_time_v5/pretrained_temporal_subspace_r4_parent_trainonly_r1.yaml",
+  "direction": "time_dilation",
+  "family_mean_relative_improvement": {
+    "layered": 0.0,
+    "marmousi": 0.0032141881153203546,
+    "uniform": 0.0
+  },
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "mean_relative_improvement": 0.0010713960384401181,
+  "multiplier_range": [
+    -0.1,
+    0.1
+  ],
+  "nonworse_fraction": 1.0,
+  "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+  "prior_basis_exclusion_count": 96,
+  "record_count": 6,
+  "records": [
+    {
+      "best_multiplier": 3.469446951953614e-18,
+      "best_relative_l2": 0.12222922428811853,
+      "direction": "time_dilation",
+      "effective_parent_correction_scale": null,
+      "effective_time_dilation": 1.0,
+      "family": "uniform",
+      "parent_relative_l2": 0.12222922428811853,
+      "relative_improvement": 0.0,
+      "sample_id": "train_uniform_00057",
+      "source_index": 57
+    },
+    {
+      "best_multiplier": 3.469446951953614e-18,
+      "best_relative_l2": 0.18196501239519114,
+      "direction": "time_dilation",
+      "effective_parent_correction_scale": null,
+      "effective_time_dilation": 1.0,
+      "family": "uniform",
+      "parent_relative_l2": 0.18196501239519114,
+      "relative_improvement": 0.0,
+      "sample_id": "train_uniform_00350",
+      "source_index": 350
+    },
+    {
+      "best_multiplier": 3.469446951953614e-18,
+      "best_relative_l2": 0.3853958606668139,
+      "direction": "time_dilation",
+      "effective_parent_correction_scale": null,
+      "effective_time_dilation": 1.0,
+      "family": "layered",
+      "parent_relative_l2": 0.3853958606668139,
+      "relative_improvement": 0.0,
+      "sample_id": "train_layered_00767",
+      "source_index": 1187
+    },
+    {
+      "best_multiplier": 3.469446951953614e-18,
+      "best_relative_l2": 0.4686238429163059,
+      "direction": "time_dilation",
+      "effective_parent_correction_scale": null,
+      "effective_time_dilation": 1.0,
+      "family": "layered",
+      "parent_relative_l2": 0.4686238429163059,
+      "relative_improvement": 0.0,
+      "sample_id": "train_layered_00996",
+      "source_index": 1416
+    },
+    {
+      "best_multiplier": -0.0025000000000000035,
+      "best_relative_l2": 0.4328136590927123,
+      "direction": "time_dilation",
+      "effective_parent_correction_scale": null,
+      "effective_time_dilation": 0.9974999999999999,
+      "family": "marmousi",
+      "parent_relative_l2": 0.43561394945109927,
+      "relative_improvement": 0.006428376230640709,
+      "sample_id": "train_marmousi_00054",
+      "source_index": 2154
+    },
+    {
+      "best_multiplier": 3.469446951953614e-18,
+      "best_relative_l2": 0.5170311234975834,
+      "direction": "time_dilation",
+      "effective_parent_correction_scale": null,
+      "effective_time_dilation": 1.0,
+      "family": "marmousi",
+      "parent_relative_l2": 0.5170311234975834,
+      "relative_improvement": 0.0,
+      "sample_id": "train_marmousi_00609",
+      "source_index": 2709
+    }
+  ],
+  "schema": "parent_correction_scale_oracle_v1",
+  "scope": "train_only_future_truth_capacity_diagnostic",
+  "selection_seed": 30372,
+  "steps": 81,
+  "test_id_opened": false,
+  "validation_opened": false
+}

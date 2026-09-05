@@ -1,0 +1,53 @@
+{
+  "schema": "transfer_dg_head_coefficient_prior_core_preregistration_v1",
+  "candidate": "transfer_dg_head_coefficient_prior_core_v1",
+  "claim_scope": "CPU static implementation and unit evidence for a causal coefficient prior and prior-centered convex online solve. No trained adapter, accuracy, validation, test_id, or promotion claim.",
+  "hypothesis": "A zero-initialized causal hypernetwork can predict a mean, diagonal precision, and trust fraction for fixed physical-head coefficients, while a prior-centered convex ridge solve can resolve online-design null directions without reading future truth and retain exact parent rollback whenever the online data objective worsens beyond tolerance.",
+  "expected_mechanism": "Offline train truth teaches a coefficient prior over the oracle-qualified physical-head span. At deployment, two onset frames and DG features update that prior through a closed-form posterior solve rather than attempting to identify all coefficients from two frames alone.",
+  "unit_gates": [
+    "zero-initialized prior mean is exactly zero",
+    "all predicted precisions and trust fractions remain within registered bounds",
+    "zero precision reproduces the uncentered ridge solution",
+    "a learned prior resolves a coefficient direction in the online-design nullspace",
+    "trust projection enforces the registered correction cap",
+    "online data-objective regression triggers bit-exact parent rollback",
+    "the deployment API accepts no future target tensor"
+  ],
+  "allowed_files": [
+    "saved_time_phase_operator_v4/instance_adaptation/head_coefficient_prior.py",
+    "tests/saved_time_phase_operator_v4/test_head_coefficient_prior.py",
+    "results/transfer_dg_head_coefficient_prior_core_preregistration_20260904.json",
+    "results/transfer_dg_head_coefficient_prior_core_static_evidence_20260904.json",
+    "results/transfer_dg_head_prior_training_pause_20260904.json"
+  ],
+  "online_access": {
+    "allowed": [
+      "public medium and source summaries",
+      "two adjacent onset residual projections",
+      "DG features derived from the frozen parent and public inputs",
+      "offline-trained prior checkpoint"
+    ],
+    "forbidden": [
+      "future truth",
+      "future-derived statistics",
+      "validation labels",
+      "test_id labels",
+      "oracle coefficients"
+    ]
+  },
+  "solver_contract": {
+    "objective": "||A alpha + b||^2 + ||sqrt(P) (alpha - mu)||^2 + ridge ||alpha||^2",
+    "prior_precision": "nonnegative diagonal",
+    "trust_projection": "Euclidean correction norm relative to frozen parent norm",
+    "acceptance": "finite posterior improvement plus online data objective no worse than frozen tolerance",
+    "fallback": "bit-exact parent coefficients"
+  },
+  "compute_budget": {
+    "device": "cpu",
+    "wall_seconds_max": 600,
+    "new_disk_bytes_max": 16777216
+  },
+  "rollback": "The active parent training process remains paused in memory and its model/trainer/state schemas are unchanged. Remove no checkpoint; if any unit gate fails, reject this isolated adapter core and resume parent training unchanged.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

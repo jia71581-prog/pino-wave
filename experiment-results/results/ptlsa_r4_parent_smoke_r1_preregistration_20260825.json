@@ -1,0 +1,64 @@
+{
+  "schema": "acoustic_instance_adaptation_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "ptlsa_r4_parent_smoke_r1",
+  "date_utc": "2026-08-25",
+  "hypothesis": "A convex rank-32 solve in the frozen r4 parent's pretrained temporal latent subspace, constrained by two onset observations, a synthetic bridge and source-consistent LWC defect, will improve mean future relative L2 by at least 0.5 percent on a balanced three-record train-only smoke without using future truth online.",
+  "mechanism": "GEPS-style low-rank context adaptation combined with PINO-style test-time physics residual minimization; no parent weight update",
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "run_identity_sha256": "be848406b21871068a228bf14dbed80732a9eebf71b866e62e996193d2c1fecc",
+    "train_panel_relative_l2": 0.28235819335238516
+  },
+  "data": {
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "split": "train",
+    "selection_seed": 20372,
+    "prior_basis_exclusion_count": 96,
+    "sample_ids": ["train_uniform_00104", "train_layered_00016", "train_marmousi_00312"],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "online_access": {
+    "true_snapshot_count": 2,
+    "future_truth": false,
+    "velocity_source_time_and_travel_time": true,
+    "source_consistent_defect": true,
+    "synthetic_bridge": true
+  },
+  "algorithm": {
+    "coefficient_count": 32,
+    "defect_weight": 1.0,
+    "observed_probe_weight": 100.0,
+    "bridge_weight": 0.5,
+    "prior_precision": 0.0001,
+    "maximum_correction_ratio": 0.10,
+    "minimum_causal_objective_improvement": 0.001,
+    "rollback": "zero coefficients return the exact frozen parent"
+  },
+  "primary_metric": "mean per-record future full-field relative-L2 improvement after adaptation sealing",
+  "acceptance": {
+    "minimum_mean_relative_improvement": 0.005,
+    "minimum_nonworse_records": 2,
+    "maximum_single_record_relative_degradation": 0.02,
+    "maximum_adaptation_runtime_s": 3.0,
+    "future_truth_used_online": false
+  },
+  "failure_signal": "Mean gain below 0.5 percent, fewer than two nonworse records, more than 2 percent harm, runtime above 3 seconds, unstable solve, or any online future-truth access rejects the route or triggers redesign.",
+  "diagnostic_only": "A train-only scalar multiplier oracle is computed after sealing to distinguish basis-direction failure from unsafe correction amplitude. It is forbidden online and cannot define a validation policy without separate calibration.",
+  "bindings": {
+    "config_sha256": "1128a54355c713dcc7d323a10617bede3876233eb7fc15f5e12f46d79c1a8ad4",
+    "runner_sha256": "7fd2f6d629730eaf58c71834f674cbf77c34aee1f2b5db379752947ec4653c9a",
+    "subspace_sha256": "8b93eb688b6459bd1c9824f08b052891ad94781296a5f07edde21b7c5bc21c5e",
+    "defect_solver_sha256": "c79ae508f28686ebaf7f3320429e4daa12ae072f2e9f5005b63020e41d9f9c5d",
+    "tests": "61 targeted instance adaptation and leakage guard tests passed"
+  },
+  "literature_basis": [
+    "GEPS arXiv:2410.23889",
+    "PINO arXiv:2111.03794",
+    "Meta-PDE arXiv:2211.01604"
+  ],
+  "output_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/ptlsa_r4_parent_smoke_r1_20260825",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0 python -u scripts/run_pretrained_temporal_subspace_adaptation.py --config configs/saved_time_v5/pretrained_temporal_subspace_r4_parent_trainonly_r1.yaml --output-dir /root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/ptlsa_r4_parent_smoke_r1_20260825 --per-family 1 --pilot-seed 20372 --no-fields --train-only-scalar-oracle --observed-probe-weight 100"
+}

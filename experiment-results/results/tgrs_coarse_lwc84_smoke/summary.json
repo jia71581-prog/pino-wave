@@ -1,0 +1,501 @@
+{
+  "dataset_identity": {
+    "byte_count": 1908419,
+    "config_sha256": "72a2f57354a46045e2eed5e5d6fb99808dd4b85940b576b459934502e621611d",
+    "manifest_sha256": "75c23e1e27696080d3667ed630b7357fe0c934ff48d0ddfe611d651490d25405",
+    "path": "/root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5",
+    "saved_dx_m": 10.0,
+    "saved_dz_m": 10.0,
+    "saved_grid_shape": "[201, 201]",
+    "teacher_dt_used_s": 0.000125
+  },
+  "development_gate_only": true,
+  "gate": {
+    "action": "direct_baseline",
+    "reason": "accuracy target met",
+    "thresholds": {
+      "corrector_aggregate_lte": 0.35,
+      "corrector_family_lt": 0.45,
+      "direct_aggregate_lt": 0.1,
+      "direct_family_lt": 0.12
+    }
+  },
+  "metrics": {
+    "aggregate_relative_l2": 0.009325724518536355,
+    "centroid_shift_cells": 0.15366413529560763,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 0.004881067434261797,
+      "marmousi": 0.014812697529850656,
+      "uniform": 0.008283408591496615
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 0.003512906404977897,
+        "late": 0.012125610349663292,
+        "middle": 0.005579664132999406,
+        "pre_onset": 0.013250040098560767
+      },
+      "marmousi": {
+        "early": 0.0167089463514341,
+        "late": 0.013575875595169899,
+        "middle": 0.013944447730812463,
+        "pre_onset": 0.006138092086628728
+      },
+      "uniform": {
+        "early": 0.006592946623349287,
+        "late": 0.01929352840124356,
+        "middle": 0.009395097216967746,
+        "pre_onset": 0.019495368251258947
+      }
+    },
+    "frame_count": 1203,
+    "medium_relative_l2": {
+      "validation:layered:00012": 0.004881067434261797,
+      "validation:marmousi:x7650.0:z0.0": 0.014812697529850656,
+      "validation:uniform:00069": 0.008283408591496615
+    },
+    "near_zero_frame_count": 160,
+    "phase_correlation": 0.9999216836383655,
+    "record_count": 3,
+    "rmse": 2.179077824924433e-11,
+    "source_relative_l2": {
+      "validation_layered_00048": 0.004881067434261797,
+      "validation_marmousi_00109": 0.014812697529850656,
+      "validation_uniform_00069": 0.008283408591496615
+    },
+    "spectrum_relative_l2": {
+      "high": 0.20581947839666384,
+      "low": 0.01163307374539125,
+      "middle": 0.15738822962519344
+    },
+    "time_bin_relative_l2": {
+      "early": 0.014140391498227886,
+      "late": 0.013595569660534787,
+      "middle": 0.013001399896112494,
+      "pre_onset": 0.01023174477678215
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 0.0
+  },
+  "numerics": {
+    "boundaries": {
+      "bottom": "cpml",
+      "cpml_outside_physical_domain": true,
+      "cpml_polynomial_order": 3,
+      "cpml_target_reflection": 1e-08,
+      "left": "cpml",
+      "npml": 20,
+      "right": "cpml",
+      "top": "free_surface_dirichlet"
+    },
+    "c_ref_mps": 6750.0,
+    "device": "cuda",
+    "dtype": "float32",
+    "grid": {
+      "centering": "node",
+      "dx_m": 10.0,
+      "dz_m": 10.0,
+      "lx_m": 2000.0,
+      "lz_m": 2000.0,
+      "nx": 201,
+      "nz": 201
+    },
+    "internal_dt_s": 0.00025,
+    "output_restriction_factor": 1,
+    "stored_dt_s": 0.0025000000000000022,
+    "stored_time_count": 401
+  },
+  "receiver_traces_are_diagnostics_only": true,
+  "record_count": 3,
+  "record_reports": [
+    {
+      "metrics": {
+        "aggregate_relative_l2": 0.008283408591496615,
+        "centroid_shift_cells": 0.06294372060951604,
+        "energy_floor_fraction": 0.01,
+        "family_relative_l2": {
+          "uniform": 0.008283408591496615
+        },
+        "family_time_bin_relative_l2": {
+          "uniform": {
+            "early": 0.006592946623349287,
+            "late": 0.01929352840124356,
+            "middle": 0.009395097216967746,
+            "pre_onset": 0.019495368251258947
+          }
+        },
+        "frame_count": 401,
+        "medium_relative_l2": {
+          "validation:uniform:00069": 0.008283408591496615
+        },
+        "near_zero_frame_count": 91,
+        "phase_correlation": 0.9999122897463671,
+        "record_count": 1,
+        "rmse": 5.758169687650013e-12,
+        "source_relative_l2": {
+          "validation_uniform_00069": 0.008283408591496615
+        },
+        "spectrum_relative_l2": {
+          "high": 0.17207281475856664,
+          "low": 0.006225571923225405,
+          "middle": 0.13089972601090377
+        },
+        "time_bin_relative_l2": {
+          "early": 0.006592946623349287,
+          "late": 0.01929352840124356,
+          "middle": 0.009395097216967746,
+          "pre_onset": 0.019495368251258947
+        },
+        "unique_time_index_count": 401,
+        "xcorr_peak_shift_cells": 0.0
+      },
+      "prediction_seal": {
+        "byte_count": 64805352,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/tgrs_coarse_lwc84_smoke/predictions/validation_uniform_00069.pt",
+        "sha256": "3ef2acc86a5f7b788d8fd3dbffc6d65d7cb1b6cb13f52ba6185f7aaea160788c"
+      },
+      "prediction_sealed_monotonic_ns": 5013845462810708,
+      "receiver_indices": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          28
+        ],
+        [
+          10,
+          52
+        ],
+        [
+          10,
+          76
+        ],
+        [
+          10,
+          100
+        ],
+        [
+          10,
+          123
+        ],
+        [
+          10,
+          147
+        ],
+        [
+          10,
+          171
+        ],
+        [
+          10,
+          195
+        ]
+      ],
+      "receiver_relative_l2": 0.003311704123930767,
+      "record": {
+        "group_id": "validation:uniform:00069",
+        "medium_type": "uniform",
+        "sample_id": "validation_uniform_00069",
+        "sample_sha256": "c411752335ad4e22b4afac3133b017131d365ad7ca1cdb206f737ad66213a789",
+        "source_index": 2869,
+        "split": "validation"
+      },
+      "solver_qc": {
+        "cfl_2d": 0.1316676848109684,
+        "dt_used_s": 0.00025,
+        "finite": true,
+        "lwc_qmax": 0.11271398301488289,
+        "qc_final_energy_ratio": 7.201694379628284e-07,
+        "qc_max_abs": 3.049220254069951e-08,
+        "vmax_mps": 3724.12451171875,
+        "vmin_mps": 3724.12451171875
+      },
+      "solver_runtime_seconds": 9.936554187908769,
+      "source": {
+        "source_amplitude": 1.0,
+        "source_f0_hz": 13.460925188114064,
+        "source_t0_s": 0.11143364806190983,
+        "source_x_m": 1386.4578535487938,
+        "source_z_m": 298.1326636740624
+      },
+      "source_onset_index": 45,
+      "truth_opened_after_seal": true,
+      "truth_opened_monotonic_ns": 5013845695891160
+    },
+    {
+      "metrics": {
+        "aggregate_relative_l2": 0.004881067434261797,
+        "centroid_shift_cells": 0.055528502448915884,
+        "energy_floor_fraction": 0.01,
+        "family_relative_l2": {
+          "layered": 0.004881067434261797
+        },
+        "family_time_bin_relative_l2": {
+          "layered": {
+            "early": 0.003512906404977897,
+            "late": 0.012125610349663292,
+            "middle": 0.005579664132999406,
+            "pre_onset": 0.013250040098560767
+          }
+        },
+        "frame_count": 401,
+        "medium_relative_l2": {
+          "validation:layered:00012": 0.004881067434261797
+        },
+        "near_zero_frame_count": 41,
+        "phase_correlation": 0.9999411618375231,
+        "record_count": 1,
+        "rmse": 4.83235157791775e-12,
+        "source_relative_l2": {
+          "validation_layered_00048": 0.004881067434261797
+        },
+        "spectrum_relative_l2": {
+          "high": 0.13664061077368556,
+          "low": 0.003520128112701867,
+          "middle": 0.10015965453901075
+        },
+        "time_bin_relative_l2": {
+          "early": 0.003512906404977897,
+          "late": 0.012125610349663292,
+          "middle": 0.005579664132999406,
+          "pre_onset": 0.013250040098560767
+        },
+        "unique_time_index_count": 401,
+        "xcorr_peak_shift_cells": 0.0
+      },
+      "prediction_seal": {
+        "byte_count": 64805352,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/tgrs_coarse_lwc84_smoke/predictions/validation_layered_00048.pt",
+        "sha256": "52eb7ef3d3c09f3e32a98a4b3141023ece8fd227b2cc32e859ce6b17f0052f23"
+      },
+      "prediction_sealed_monotonic_ns": 5013856741295743,
+      "receiver_indices": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          28
+        ],
+        [
+          10,
+          52
+        ],
+        [
+          10,
+          76
+        ],
+        [
+          10,
+          100
+        ],
+        [
+          10,
+          123
+        ],
+        [
+          10,
+          147
+        ],
+        [
+          10,
+          171
+        ],
+        [
+          10,
+          195
+        ]
+      ],
+      "receiver_relative_l2": 0.0021832696725759006,
+      "record": {
+        "group_id": "validation:layered:00012",
+        "medium_type": "layered",
+        "sample_id": "validation_layered_00048",
+        "sample_sha256": "dc6708ed722b9adc88393258f731c583d17d0b4806768102d206db8257c67aec",
+        "source_index": 2938,
+        "split": "validation"
+      },
+      "solver_qc": {
+        "cfl_2d": 0.14779312030180428,
+        "dt_used_s": 0.00025,
+        "finite": true,
+        "lwc_qmax": 0.1420129127768167,
+        "qc_final_energy_ratio": 0.0010438484941707718,
+        "qc_max_abs": 2.934647191921158e-08,
+        "vmax_mps": 4180.220703125,
+        "vmin_mps": 3556.7060546875
+      },
+      "solver_runtime_seconds": 10.360078528523445,
+      "source": {
+        "source_amplitude": 1.0,
+        "source_f0_hz": 8.534493711440259,
+        "source_t0_s": 0.17575735019750385,
+        "source_x_m": 943.9217390512861,
+        "source_z_m": 180.98285516068415
+      },
+      "source_onset_index": 71,
+      "truth_opened_after_seal": true,
+      "truth_opened_monotonic_ns": 5013856900972699
+    },
+    {
+      "metrics": {
+        "aggregate_relative_l2": 0.014812697529850656,
+        "centroid_shift_cells": 0.32377715507442106,
+        "energy_floor_fraction": 0.01,
+        "family_relative_l2": {
+          "marmousi": 0.014812697529850656
+        },
+        "family_time_bin_relative_l2": {
+          "marmousi": {
+            "early": 0.0167089463514341,
+            "late": 0.013575875595169899,
+            "middle": 0.013944447730812463,
+            "pre_onset": 0.006138092086628728
+          }
+        },
+        "frame_count": 401,
+        "medium_relative_l2": {
+          "validation:marmousi:x7650.0:z0.0": 0.014812697529850656
+        },
+        "near_zero_frame_count": 28,
+        "phase_correlation": 0.9999106915601418,
+        "record_count": 1,
+        "rmse": 3.698656391446553e-11,
+        "source_relative_l2": {
+          "validation_marmousi_00109": 0.014812697529850656
+        },
+        "spectrum_relative_l2": {
+          "high": 0.21316564707033817,
+          "low": 0.012823046334422852,
+          "middle": 0.16272414446180355
+        },
+        "time_bin_relative_l2": {
+          "early": 0.0167089463514341,
+          "late": 0.013575875595169899,
+          "middle": 0.013944447730812463,
+          "pre_onset": 0.006138092086628728
+        },
+        "unique_time_index_count": 401,
+        "xcorr_peak_shift_cells": 0.0
+      },
+      "prediction_seal": {
+        "byte_count": 64805357,
+        "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/tgrs_coarse_lwc84_smoke/predictions/validation_marmousi_00109.pt",
+        "sha256": "d5b7e01450807f07815123d9b58e15b8cec66bdcce70ae0ed79f84ca650a8a4f"
+      },
+      "prediction_sealed_monotonic_ns": 5013867515481966,
+      "receiver_indices": [
+        [
+          10,
+          5
+        ],
+        [
+          10,
+          28
+        ],
+        [
+          10,
+          52
+        ],
+        [
+          10,
+          76
+        ],
+        [
+          10,
+          100
+        ],
+        [
+          10,
+          123
+        ],
+        [
+          10,
+          147
+        ],
+        [
+          10,
+          171
+        ],
+        [
+          10,
+          195
+        ]
+      ],
+      "receiver_relative_l2": 0.0036710479798618533,
+      "record": {
+        "group_id": "validation:marmousi:x7650.0:z0.0",
+        "medium_type": "marmousi",
+        "sample_id": "validation_marmousi_00109",
+        "sample_sha256": "deb9a72008dd9a4bec96153db5d2b7cab6edac95e2372969e44dd880fd9eb348",
+        "source_index": 3359,
+        "split": "validation"
+      },
+      "solver_qc": {
+        "cfl_2d": 0.09759706693203953,
+        "dt_used_s": 0.00025,
+        "finite": true,
+        "lwc_qmax": 0.06192883792448692,
+        "qc_final_energy_ratio": 0.6759528412625359,
+        "qc_max_abs": 1.2090939094377973e-07,
+        "vmax_mps": 2760.4619140625,
+        "vmin_mps": 1500.0
+      },
+      "solver_runtime_seconds": 9.926518669351935,
+      "source": {
+        "source_amplitude": 1.0,
+        "source_f0_hz": 12.277074038549895,
+        "source_t0_s": 0.12217894876987907,
+        "source_x_m": 225.15847644755559,
+        "source_z_m": 75.51507467387503
+      },
+      "source_onset_index": 49,
+      "truth_opened_after_seal": true,
+      "truth_opened_monotonic_ns": 5013867761514991
+    }
+  ],
+  "runtime": {
+    "run_started_utc": "2026-08-05T11:33:12.195993+00:00",
+    "solver_seconds": 30.22315138578415,
+    "wall_seconds": 32.92024053260684
+  },
+  "schema": "coarse_lwc84_201_development_gate_v1",
+  "sealed_480x401_acceptance_completed": false,
+  "sealed_acceptance_target": {
+    "aggregate_relative_l2_lt": 0.1,
+    "every_family_relative_l2_lt": 0.12,
+    "record_count": 480,
+    "stored_time_count": 401
+  },
+  "selected_records": [
+    {
+      "group_id": "validation:uniform:00069",
+      "medium_type": "uniform",
+      "sample_id": "validation_uniform_00069",
+      "sample_sha256": "c411752335ad4e22b4afac3133b017131d365ad7ca1cdb206f737ad66213a789",
+      "source_index": 2869,
+      "split": "validation"
+    },
+    {
+      "group_id": "validation:layered:00012",
+      "medium_type": "layered",
+      "sample_id": "validation_layered_00048",
+      "sample_sha256": "dc6708ed722b9adc88393258f731c583d17d0b4806768102d206db8257c67aec",
+      "source_index": 2938,
+      "split": "validation"
+    },
+    {
+      "group_id": "validation:marmousi:x7650.0:z0.0",
+      "medium_type": "marmousi",
+      "sample_id": "validation_marmousi_00109",
+      "sample_sha256": "deb9a72008dd9a4bec96153db5d2b7cab6edac95e2372969e44dd880fd9eb348",
+      "source_index": 3359,
+      "split": "validation"
+    }
+  ],
+  "truth_opened_after_seal": true
+}

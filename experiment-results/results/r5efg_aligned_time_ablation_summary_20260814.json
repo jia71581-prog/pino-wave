@@ -1,0 +1,251 @@
+{
+  "baseline_consistency": {
+    "exactly_consistent": true,
+    "maximum_absolute_difference": 0.0,
+    "observed_count": 2
+  },
+  "paired_gate_comparisons": {
+    "r5f_uniform_replay": [
+      {
+        "control_score": 0.2772303727961529,
+        "intervention_minus_control": 4.825395184132608e-05,
+        "intervention_score": 0.27727862674799425,
+        "learning_rate_multiplier": 1.0
+      },
+      {
+        "control_score": 0.27722264799902757,
+        "intervention_minus_control": -1.011896726604844e-05,
+        "intervention_score": 0.2772125290317615,
+        "learning_rate_multiplier": 0.5
+      },
+      {
+        "control_score": 0.27720828927830937,
+        "intervention_minus_control": 2.4102809816350934e-05,
+        "intervention_score": 0.2772323920881257,
+        "learning_rate_multiplier": 0.25
+      },
+      {
+        "control_score": 0.27719283780188597,
+        "intervention_minus_control": 1.6045242102247226e-05,
+        "intervention_score": 0.2772088830439882,
+        "learning_rate_multiplier": 0.125
+      }
+    ],
+    "r5g_dropout005": []
+  },
+  "runs": {
+    "r5e_aligned_control": {
+      "accepted_epoch_count": 0,
+      "adapter_clip_fraction": 0.9160714285714285,
+      "artifact": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5e_true_metric_aligned_time_train_diag",
+      "baseline_aggregate_relative_l2": 0.27717799602124693,
+      "best_candidate_aggregate_relative_l2": 0.27718377962083424,
+      "candidate_absolute_improvement": -5.783599587305677e-06,
+      "current_progress": {
+        "attempt": 8,
+        "fraction": 1.0,
+        "updates_completed": 140,
+        "updates_expected": 140
+      },
+      "execution_status": "rejected",
+      "gate_candidate_count": 8,
+      "gate_curve": [
+        {
+          "attempt": 1,
+          "delta_candidate_minus_baseline": 5.237677490599335e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 1.0,
+          "maximum_attempts_exhausted": false,
+          "score": 0.2772303727961529
+        },
+        {
+          "attempt": 2,
+          "delta_candidate_minus_baseline": 4.4651977780640895e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.5,
+          "maximum_attempts_exhausted": false,
+          "score": 0.27722264799902757
+        },
+        {
+          "attempt": 3,
+          "delta_candidate_minus_baseline": 3.029325706244146e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.25,
+          "maximum_attempts_exhausted": false,
+          "score": 0.27720828927830937
+        },
+        {
+          "attempt": 4,
+          "delta_candidate_minus_baseline": 1.4841780639041069e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.125,
+          "maximum_attempts_exhausted": false,
+          "score": 0.27719283780188597
+        },
+        {
+          "attempt": 5,
+          "delta_candidate_minus_baseline": 1.622906266807167e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.0625,
+          "maximum_attempts_exhausted": false,
+          "score": 0.277194225083915
+        },
+        {
+          "attempt": 6,
+          "delta_candidate_minus_baseline": 1.243948353135682e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.03125,
+          "maximum_attempts_exhausted": false,
+          "score": 0.2771904355047783
+        },
+        {
+          "attempt": 7,
+          "delta_candidate_minus_baseline": 9.512908899889094e-06,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.015625,
+          "maximum_attempts_exhausted": false,
+          "score": 0.2771875089301468
+        },
+        {
+          "attempt": 8,
+          "delta_candidate_minus_baseline": 5.783599587305677e-06,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.0078125,
+          "maximum_attempts_exhausted": true,
+          "score": 0.27718377962083424
+        }
+      ],
+      "gradient_norm_before_clip": {
+        "count": 1120,
+        "maximum": 1214846.375,
+        "median": 312.1055603027344,
+        "minimum": 5.464656829833984
+      },
+      "gradient_spike_count": 354,
+      "gradient_spike_threshold": 10000.0,
+      "optimizer_update_count": 1120,
+      "scientific_outcome": "rejected",
+      "selected_score_after_gate": 0.27717799602124693,
+      "selected_source": "parent_baseline",
+      "temporal_loss": {
+        "count": 1120,
+        "maximum": 664.7675110120326,
+        "median": 0.4196375412866473,
+        "minimum": 0.09952925145626068
+      },
+      "temporal_outlier_count": 97,
+      "temporal_outlier_threshold": 10.0
+    },
+    "r5f_uniform_replay": {
+      "accepted_epoch_count": 0,
+      "adapter_clip_fraction": 0.9739263803680982,
+      "artifact": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5f_uniform_random_aligned_time_train_diag",
+      "baseline_aggregate_relative_l2": 0.27717799602124693,
+      "best_candidate_aggregate_relative_l2": 0.2772088830439882,
+      "candidate_absolute_improvement": -3.0887022741288295e-05,
+      "current_progress": {
+        "attempt": 5,
+        "fraction": 0.6571428571428571,
+        "updates_completed": 92,
+        "updates_expected": 140
+      },
+      "execution_status": "running",
+      "gate_candidate_count": 4,
+      "gate_curve": [
+        {
+          "attempt": 1,
+          "delta_candidate_minus_baseline": 0.00010063072674731943,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 1.0,
+          "maximum_attempts_exhausted": false,
+          "score": 0.27727862674799425
+        },
+        {
+          "attempt": 2,
+          "delta_candidate_minus_baseline": 3.4533010514592455e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.5,
+          "maximum_attempts_exhausted": false,
+          "score": 0.2772125290317615
+        },
+        {
+          "attempt": 3,
+          "delta_candidate_minus_baseline": 5.439606687879239e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.25,
+          "maximum_attempts_exhausted": false,
+          "score": 0.2772323920881257
+        },
+        {
+          "attempt": 4,
+          "delta_candidate_minus_baseline": 3.0887022741288295e-05,
+          "event": "epoch_rejected",
+          "learning_rate_multiplier": 0.125,
+          "maximum_attempts_exhausted": false,
+          "score": 0.2772088830439882
+        }
+      ],
+      "gradient_norm_before_clip": {
+        "count": 652,
+        "maximum": 1214846.375,
+        "median": 291.60105895996094,
+        "minimum": 8.82455062866211
+      },
+      "gradient_spike_count": 194,
+      "gradient_spike_threshold": 10000.0,
+      "optimizer_update_count": 652,
+      "scientific_outcome": "pending",
+      "selected_score_after_gate": 0.27717799602124693,
+      "selected_source": "parent_baseline",
+      "temporal_loss": {
+        "count": 652,
+        "maximum": 664.7731261514127,
+        "median": 0.40300794783979654,
+        "minimum": 0.05127377808094025
+      },
+      "temporal_outlier_count": 38,
+      "temporal_outlier_threshold": 10.0
+    },
+    "r5g_dropout005": {
+      "accepted_epoch_count": 0,
+      "adapter_clip_fraction": null,
+      "artifact": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5g_dropout005_aligned_time_train_diag",
+      "baseline_aggregate_relative_l2": null,
+      "best_candidate_aggregate_relative_l2": null,
+      "candidate_absolute_improvement": null,
+      "current_progress": {
+        "attempt": null,
+        "fraction": null,
+        "updates_completed": 0,
+        "updates_expected": null
+      },
+      "execution_status": "not_started",
+      "gate_candidate_count": 0,
+      "gate_curve": [],
+      "gradient_norm_before_clip": {
+        "count": 0,
+        "maximum": null,
+        "median": null,
+        "minimum": null
+      },
+      "gradient_spike_count": 0,
+      "gradient_spike_threshold": 10000.0,
+      "optimizer_update_count": 0,
+      "scientific_outcome": "not_started",
+      "selected_score_after_gate": null,
+      "selected_source": null,
+      "temporal_loss": {
+        "count": 0,
+        "maximum": null,
+        "median": null,
+        "minimum": null
+      },
+      "temporal_outlier_count": 0,
+      "temporal_outlier_threshold": 10.0
+    }
+  },
+  "schema": "r5efg_aligned_time_ablation_summary_v2",
+  "selection_split": "train",
+  "test_id_truth_opened": false,
+  "validation_truth_opened": false
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "transfer_dg_exterior_cpml_e0_preregistration_audit_v1",
+  "audited_utc": "2026-09-02T11:44:14Z",
+  "candidate": "transfer_dg_exterior_cpml_e0_20260902",
+  "preregistration": "results/transfer_dg_exterior_cpml_e0_preregistration_20260902.json",
+  "preregistration_sha256": "8881c10807383a8ebb02e2ff4bd83ea8a4000a1658beda8b40c5dbd66717754c",
+  "cleared_for_train_only_pilot": true,
+  "checks": {
+    "single_conceptual_change": true,
+    "source_index_is_train_uniform": true,
+    "validation_access_requested": false,
+    "test_id_access_requested": false,
+    "protected_checkpoints_touched": false,
+    "optional_solver_api_default_off": true,
+    "legacy_nonzero_margin_replay_retained": true,
+    "disk_headroom_gib": 205,
+    "gpu_processes_before_launch": 0,
+    "targeted_tests_passed": 35,
+    "targeted_tests_failed": 0
+  },
+  "implementation_sha256": {
+    "saved_time_phase_operator_v4/exterior_cpml.py": "8ef983c4cbc61861e22fb1aa9544bf7f7ae5924530bbcbb246c85787ed276697",
+    "saved_time_phase_operator_v4/dg_interface.py": "f21861978995b6e87a58f7ecc834910cb352a78ed27ea296a15b745906fca509",
+    "src/fno_acoustic/data_generation/solver_lwc84.py": "76ba84ce775cab0e75dd26da325a774f5a4cb331b254889b808c7bb2546e6022",
+    "scripts/build_transfer_dg_exterior_cpml_pilot.py": "f04838930a8853294eb8f87d2af0f727e7a012ce9af49ec0172c2dc4ce7d2c65",
+    "tests/saved_time_phase_operator_v4/test_exterior_cpml.py": "2cd777678433c7f81deef2d12e4ca20a0ef15c85b038714223e7f2a6f760c306",
+    "tests/saved_time_phase_operator_v4/test_dg_interface.py": "facf8b5bf3bab3be301b9639e2934b6919e64a5bbd99170f67a972846c5c5c74",
+    "tests/test_lwc84_solver.py": "db424060fab085987367a685ece088a74a214e50fd99bc6a2d8ca770c86bd28b"
+  },
+  "veto_reason": null,
+  "validation_opened": false,
+  "test_id_opened": false
+}

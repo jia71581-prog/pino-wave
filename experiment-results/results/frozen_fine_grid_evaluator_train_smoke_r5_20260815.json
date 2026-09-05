@@ -1,0 +1,129 @@
+{
+  "aggregate_relative_l2": 0.000325529852791957,
+  "bindings": {
+    "evaluation_script_sha256": "2b23e284f3aef644708a1421b77e39065051243097216be8b3a71f8b54986411",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "gate_helper_sha256": "5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "error_terms": {
+    "aggregate": [
+      6.035244510055416e-18,
+      5.695255682518325e-11
+    ],
+    "family": {
+      "layered": [
+        0.0,
+        0.0
+      ],
+      "marmousi": [
+        0.0,
+        0.0
+      ],
+      "uniform": [
+        6.035244510055416e-18,
+        5.695255682518325e-11
+      ]
+    },
+    "temporal": {
+      "early": [
+        1.6718006171850594e-19,
+        2.04870946404266e-11
+      ],
+      "late": [
+        3.569561779433579e-18,
+        1.5212385619750403e-11
+      ],
+      "middle": [
+        2.298502668903338e-18,
+        2.125307656500641e-11
+      ]
+    }
+  },
+  "excluded_family": "anomaly",
+  "family_relative_l2": {
+    "uniform": 0.000325529852791957
+  },
+  "global_record_count": 3,
+  "internal_dt_s": 0.000625,
+  "measurements": [
+    {
+      "error_numerator": 2.040113551765869e-18,
+      "family": "uniform",
+      "lwc_qmax": 0.8776334318646144,
+      "relative_l2": 0.00020481727597340481,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 1.0533618833869696,
+      "sample_id": "train_uniform_00000",
+      "solver_reported_runtime_s": 0.9209329700097442,
+      "source_f0_hz": 11.732766129804071,
+      "source_index": 0,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 5.289935095598715e-05,
+        "late": 0.0003135325796994615,
+        "middle": 0.00016822220281393518
+      },
+      "truth_denominator": 4.8631892356208895e-11
+    },
+    {
+      "error_numerator": 3.979595066258953e-18,
+      "family": "uniform",
+      "lwc_qmax": 2.565334405226983,
+      "relative_l2": 0.0013925889115788386,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8760300800204277,
+      "sample_id": "train_uniform_00001",
+      "solver_reported_runtime_s": 0.7660508062690496,
+      "source_f0_hz": 27.959431395374473,
+      "source_index": 1,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 0.0003042075592983632,
+        "late": 0.016659179078263097,
+        "middle": 0.0015602276337654526
+      },
+      "truth_denominator": 2.0520740014858374e-12
+    },
+    {
+      "error_numerator": 1.5535892030593833e-20,
+      "family": "uniform",
+      "lwc_qmax": 5.350444007142857,
+      "relative_l2": 4.978323887808227e-05,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8804987631738186,
+      "sample_id": "train_uniform_00002",
+      "solver_reported_runtime_s": 0.7662420487031341,
+      "source_f0_hz": 9.425019993844,
+      "source_index": 2,
+      "split": "train",
+      "temporal_band_relative_l2": {
+        "early": 2.337753709823983e-05,
+        "late": 0.000533458838021251,
+        "middle": 6.529561411427425e-05
+      },
+      "truth_denominator": 6.2685904674885186e-12
+    }
+  ],
+  "num_shards": 1,
+  "record_count": 3,
+  "runtime_s": {
+    "maximum": 1.0533618833869696,
+    "mean": 0.9366302421937386,
+    "minimum": 0.8760300800204277,
+    "warmup_excluded": 0.13333872985094786
+  },
+  "schema": "frozen_fine_grid_split_worker_v1",
+  "selection_scope": "limited_train_smoke",
+  "shard_index": 0,
+  "split": "train",
+  "status": "complete",
+  "target_families": [
+    "uniform",
+    "layered",
+    "marmousi"
+  ]
+}

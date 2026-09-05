@@ -1,0 +1,199 @@
+{
+  "basis_conditions": {
+    "layered": {
+      "all_at_most_1e3": true,
+      "count": 97,
+      "maximum": 1.03219244338011,
+      "mean": 1.0321754017125502,
+      "minimum": 1.0321598334751354
+    },
+    "marmousi": {
+      "all_at_most_1e3": true,
+      "count": 97,
+      "maximum": 1.00000075652535,
+      "mean": 1.000000672150333,
+      "minimum": 1.000000640961043
+    },
+    "uniform": {
+      "all_at_most_1e3": true,
+      "count": 97,
+      "maximum": 1.0014606340231116,
+      "mean": 1.0014553823283545,
+      "minimum": 1.0014548604401243
+    }
+  },
+  "engine_modes": [
+    "prep",
+    "static",
+    "authorize_stage",
+    "smoke",
+    "pilot",
+    "scale_probe_1",
+    "scale_probe_4",
+    "scale_decide",
+    "long",
+    "final_train_confirm",
+    "validation_once",
+    "test_once"
+  ],
+  "engine_symbols": [
+    "AUTH_SCHEMA",
+    "AccessLedger",
+    "CANDIDATE",
+    "DispatchPhase",
+    "GateFailure",
+    "GuardedOnsetDataset",
+    "GuardedOnsetRecord",
+    "GuardedPublicLoader",
+    "LeakageRefusal",
+    "Lineage",
+    "PatienceState",
+    "PreparedRecord",
+    "ProductionSmokePilotBackend",
+    "PublicBundle",
+    "StreamingRidge",
+    "aggregate_metrics",
+    "aggregate_scale_ranks",
+    "assert_stage_split",
+    "authorized_future_truth",
+    "canonical_sha",
+    "ddp_host_aggregate",
+    "ephemeral_scale_probe",
+    "evaluate_only",
+    "evaluation_gates",
+    "gate_terminal",
+    "metric_record",
+    "model_digest",
+    "pilot_gate",
+    "pilot_gates",
+    "prepare_public_record",
+    "read_exact_observations",
+    "read_future_truth",
+    "run_evaluation_stage",
+    "run_long_stage",
+    "run_pilot_stage",
+    "run_scale_probe",
+    "run_smoke_stage",
+    "scale_decision",
+    "seal_candidate",
+    "smoke_gates",
+    "stage_dispatch",
+    "tensor_sha",
+    "train_update",
+    "validate_authorization"
+  ],
+  "macs": 45451125,
+  "materialization_macs": 259212816,
+  "metadata": {
+    "cross_split_zero_overlap": {
+      "group_id": true,
+      "sample_id": true,
+      "sample_sha256": true,
+      "source_index": true
+    },
+    "test_id": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "c05f56c6e24bc8bfdbb0dc165cde58e3c6f237d21146a862de7dc4eab3c6cd6d",
+      "unique_groups": 180,
+      "unique_sample_hashes": 480,
+      "unique_sample_ids": 480,
+      "unique_source_indices": 480,
+      "wavefield_read": false
+    },
+    "validation": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "75e30283484e312aeefd3cc1b39d4ffa6d0cbd8d4fdfd0b889ec2a915eaafd36",
+      "unique_groups": 180,
+      "unique_sample_hashes": 480,
+      "unique_sample_ids": 480,
+      "unique_source_indices": 480,
+      "wavefield_read": false
+    }
+  },
+  "panels_census": {
+    "by_family": {
+      "layered": 97,
+      "marmousi": 97,
+      "uniform": 97
+    },
+    "by_role": {
+      "final_train_confirm": 24,
+      "long_calibration": 24,
+      "long_fit": 192,
+      "pilot_confirm": 24,
+      "pilot_fit": 24,
+      "smoke": 3
+    },
+    "test_id_records": 0,
+    "total": 291,
+    "unique_groups": 291,
+    "unique_samples": 291,
+    "validation_records": 0
+  },
+  "parameters": 1202,
+  "projection_macs": 259212816,
+  "ridge_parameters": 480,
+  "router_census": {
+    "by_manifest_train_family": {
+      "layered": {
+        "layered": 276
+      },
+      "marmousi": {
+        "marmousi": 137
+      },
+      "uniform": {
+        "uniform": 416
+      }
+    },
+    "gradient_fraction_extrema": {
+      "layered": {
+        "frac_dx_maximum": 0.029800995024875623,
+        "frac_dx_minimum": 0.0,
+        "frac_dz_maximum": 0.06398009950248756,
+        "frac_dz_minimum": 0.015
+      },
+      "marmousi": {
+        "frac_dx_maximum": 0.492363184079602,
+        "frac_dx_minimum": 0.2061442786069652,
+        "frac_dz_maximum": 0.9992288557213931,
+        "frac_dz_minimum": 0.8562935323383084
+      },
+      "uniform": {
+        "frac_dx_maximum": 0.0,
+        "frac_dx_minimum": 0.0,
+        "frac_dz_maximum": 0.0,
+        "frac_dz_minimum": 0.0
+      }
+    },
+    "schema": "r16_dscp_velocity_router_train_census_v1",
+    "scope": "one deterministic representative per train group; velocity only",
+    "test_id_opened": false,
+    "thresholds": {
+      "absolute_gradient_threshold": 1e-06,
+      "constant": "frac_dx == 0 and frac_dz == 0 -> uniform",
+      "gray": "abstain exact parent",
+      "layered": "frac_dx <= 0.05 and frac_dz <= 0.10",
+      "marmousi": "frac_dx >= 0.15 and frac_dz >= 0.50"
+    },
+    "truth_opened": false,
+    "validation_opened": false
+  },
+  "schema": "r16_dscp_v3_static_v1",
+  "test_truth_read": false,
+  "tests": {
+    "log_sha256": "8876c9830608f9c64826246c16b2934e04138061819f176caaad11a1cf8ba140",
+    "log_tail": ".........................................                                [100%]",
+    "status": "passed"
+  },
+  "validation_truth_read": false
+}

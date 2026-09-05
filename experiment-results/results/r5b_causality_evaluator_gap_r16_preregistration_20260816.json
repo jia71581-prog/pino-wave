@@ -1,0 +1,40 @@
+{
+  "schema": "r5b_causality_evaluator_gap_preregistration_v1",
+  "status": "frozen_before_execution",
+  "hypothesis": "The r14 current-method comparison evaluated the r5b parent without the hard-causality operation used by r5b training and the PI-DeepONet baseline, inflating the reported r5b error.",
+  "mechanism": "The saved-time parent config masks predictions before the source causal onset at t0 minus one source cycle, while the CPADC parent prediction helper currently returns the raw dense output.",
+  "scope": {
+    "split": "validation",
+    "sample_ids": [
+      "validation_uniform_00000"
+    ],
+    "sample_was_already_opened_by_frozen_r14": true,
+    "new_validation_records_allowed": 0,
+    "test_id_allowed": false,
+    "candidate_selection_allowed": false
+  },
+  "primary_metric": "exact32 relative L2 on the archived r14 PI time indices",
+  "predictions": {
+    "maximum_live_unmasked_vs_archived_absolute_delta": 1e-05,
+    "maximum_hard_causal_over_unmasked_error_ratio": 0.5
+  },
+  "failure_signal": "The raw result does not reproduce r14 within 1e-5, or hard causality retains more than half of the raw exact32 relative error.",
+  "compute_budget": {
+    "gpu_count": 1,
+    "record_count": 1,
+    "parent_forward_passes": 1,
+    "expected_wall_time_s": 60,
+    "checkpoint_writes": 0
+  },
+  "rollback": "No checkpoint or model state is modified; preserve r14 and all r5b and CPADC checkpoints.",
+  "bindings": {
+    "script": "scripts/diagnose_r5b_causality_evaluator_gap.py",
+    "script_sha256": "d2804c387df4c15f6477f7e098a8a4fcdc034aa3de3d5b3555a237e56d2fc847",
+    "config": "configs/saved_time_v5/causal_defect_basis_r5b_marmousi1_4m_v2.yaml",
+    "config_sha256": "f1086a7ac7ec4c931319dcd159cad423da9e7fab83475b09de81f3875e0700d8",
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "cpadc_checkpoint_sha256": "e92cc37722388640d060cd78875f1ebdc8e9ca1dad395641a5123625ecafb55a",
+    "r14_summary": "results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/merged_validation/summary.json",
+    "r14_summary_sha256": "798e8723a594164861e203f6dd65f6e2d0925d13c69e431bf68c26f20ef1f164"
+  }
+}

@@ -1,0 +1,14 @@
+{
+ "schema": "r16_dscp_v18_amendment_v1",
+ "amends": "results/r16_dscp_v18_preregistration_20260827.json (sha 0a9af4e6bad30b6a8e91788f234381673d9bb9f8c8d4f66d3153d9f060059a05)",
+ "frozen_utc": "2026-08-27T08:50:00Z",
+ "scope": "engineering storage + engineering guard ONLY; every scientific quantity (panel_v2 sha, arms, seeds, optimizer, budget plan, all five science gates, readout boundaries 0.0203/0.03) is unchanged verbatim",
+ "trigger": "three SIGKILLs (04:59 build 400/547, then 08:28 build ~460/547 on the fadvise-patched attempt): the platform watchdog kills the container at memory.current ~237GiB without invoking kernel reclaim; ~124GiB of file-cache charge is pinned (unevictable from inside: fadvise no-op on it, memory.reclaim and drop_caches EROFS/EPERM, verified outside the tool sandbox). Terminal CPU-anon need of the frozen scheme is ~145GiB > the ~110GiB that remains under the killer threshold.",
+ "changes": {
+  "storage": "up to 13GiB of bundle tensors per rank are parked in that rank's GPU VRAM (24GiB cards, training peak was 2.48GiB); remainder stays CPU fp16. Tensors are bit-identical to the frozen scheme - only the storage device changes.",
+  "vram_guard": "engineering VRAM guard 8GiB -> 20GiB because reserved memory now includes parked storage. This guard is a runaway-usage check, not a science threshold; the science gates are untouched.",
+  "page_cache": "runner keeps the per-50-records posix_fadvise(DONTNEED) on the source H5 (bounds NEW cache charges; cannot free the pinned legacy charge)"
+ },
+ "sequencing": "amendment frozen BEFORE any v18 scoring exists; no threshold moved toward any measured value (thresholds_moved_toward_measured_values remains false)",
+ "projection": "terminal CPU anon ~93GiB + pinned/steady file <=130GiB = ~223GiB, margin >=12GiB under the observed kill threshold"
+}

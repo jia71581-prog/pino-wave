@@ -1,0 +1,30 @@
+{
+  "schema": "r16_dscp_v20_gradient_spectrum_diagnostic_spec_v1",
+  "frozen_local_date": "2026-08-27",
+  "purpose": "Post-hoc train-only diagnosis of the frozen v18 B checkpoint after v19. Measure family-gradient compatibility and low/mid/high spatial-band plus late-time safety before choosing the next training lever.",
+  "claim_scope": "exploratory diagnostic only; not a promotion stage; v19 records are already consumed and may not be reused as an independent gate for a modified candidate",
+  "truth_scope": "24 train/final_train_confirm records already opened by v19; validation and test_id remain sealed",
+  "bindings": {
+    "checkpoint": "results/r16_dscp_v18/B_data_hinge/best.pt",
+    "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+    "v19_terminal": "results/r16_dscp_v19_offpanel/terminal.json",
+    "v19_terminal_sha256": "2e3eb5d434ab385499363f9b133b9cec71b306d90260b925b2393af4a1bfb445",
+    "v18_preregistration_sha256": "0a9af4e6bad30b6a8e91788f234381673d9bb9f8c8d4f66d3153d9f060059a05",
+    "v18_runner_sha256": "c66a1638f712a2cc9449c47ca6013a424ce88675fac53e7f172085c096ecb0ff",
+    "v16_runner_sha256": "2c3de5727d2886111c6456108ff823c51de044aac861efc69f12a0123dedb5bd",
+    "metric_code_sha256": "8be3eb9d9672d39de3354f842005263fcda16731209d708ea9b4ccb7fae826e7"
+  },
+  "frozen_readout": {
+    "gradient_conflict": "A family pair is conflicting if cosine < -0.1, weakly aligned if -0.1 <= cosine <= 0.1, and compatible if cosine > 0.1.",
+    "sampling_lever": "Compare every family gradient's alignment with the fit2-proportional aggregate (1095 layered, 675 marmousi, 395 uniform) and an equal-family aggregate. Improved weak-family alignment under the equal aggregate supports a family-balanced sampling probe; negative pairwise conflict supports a family-specific head or conflict-aware optimizer probe.",
+    "high_band_safety": "Exploratory safety readout is mean high-band relative gain > 0 and candidate nonworse on at least 22/24 records.",
+    "late_safety": "Exploratory safety readout is mean late-third relative gain > 0 and candidate nonworse on at least 22/24 records."
+  },
+  "prohibitions": [
+    "no optimizer step",
+    "no checkpoint write",
+    "no threshold movement after results",
+    "no validation or test_id access",
+    "no promotion claim from this post-hoc panel"
+  ]
+}

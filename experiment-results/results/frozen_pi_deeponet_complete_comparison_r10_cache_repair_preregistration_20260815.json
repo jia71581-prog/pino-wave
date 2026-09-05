@@ -1,0 +1,39 @@
+{
+  "schema": "frozen_pi_deeponet_comparison_cache_repair_preregistration_v1",
+  "status": "frozen_before_relaunch",
+  "role": "comparison_only",
+  "failure_diagnosis": "The r9 validation evaluation completed, but all four test_id workers failed before the first prediction because the training-era travel-time cache contains train and validation only.",
+  "single_change": "Expose the travel-time cache as an evaluation argument and bind each split to its pre-existing source-HDF5-matched cache. Model, checkpoint, records, time indices, inference arithmetic, metrics, and runtime accounting are unchanged.",
+  "relaunch_policy": "Rerun both complete validation and complete test_id with the same repaired evaluator so their code hash is identical. Do not use r9 validation values to alter any setting.",
+  "validation_cache": {
+    "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5",
+    "sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "splits": "train,validation",
+    "record_count": 2720
+  },
+  "test_id_cache": {
+    "path": "/root/autodl-tmp/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2_test_id.h5",
+    "sha256": "0149ef9d29b55d45caf29c477518070413781d88980db553b69dbbf276dbb388",
+    "splits": "test_id",
+    "record_count": 480
+  },
+  "cache_contract": "Both caches are source_family_adaptive_travel_v1, bind the identical current source HDF5, and use layered=eikonal plus uniform,marmousi=straight_ray12.",
+  "frozen_comparison_protocol": {
+    "checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "training_records": 2240,
+    "training_epochs": 100,
+    "frames_per_record": 32,
+    "frame_policy": "validation_fixed deterministic exact stored frames",
+    "complete_records_per_split": 480,
+    "post_validation_tuning": false
+  },
+  "bindings": {
+    "training_config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "evaluation_script_sha256": "a747133ccce32a0374dba78c085d308db3e63b1298bc46fc202ab022a544b352",
+    "aggregation_script_sha256": "b687f56b7eb6ed7a503018164927bff5bff1515058c93904950533cda00a996e",
+    "launcher_sha256": "e5ff3cadad9467f740d9da8666505e89faf645ad4a60f225854bac16a3e2cf3d",
+    "repaired_train_smoke_sha256": "27881befb28b2765cbf0bc4afdc588a60523d44109a8d750e84e8503f4cdf5fa"
+  }
+}

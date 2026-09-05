@@ -1,0 +1,39 @@
+=== diagnostic: validation_uniform_00069  lr=0.001 pde_w=1.0 sampler=full ===
+  step  100: held-out relL2 = 0.9123  (obs 2547.146  pde 0.726)
+  step  300: held-out relL2 = 0.7783  (obs 1972.271  pde 0.726)
+  step  600: held-out relL2 = 0.6096  (obs 1113.297  pde 0.726)
+  step 1000: held-out relL2 = 0.5073  (obs 172.951  pde 0.726)
+{
+  "sample_id": "validation_uniform_00069",
+  "medium": "uniform",
+  "sampler": "full",
+  "trainable_params": 13442,
+  "parent_baseline_heldout_relL2": 0.506872296333313,
+  "best_heldout_relL2": 0.5072598457336426,
+  "history": [
+    {
+      "step": 100,
+      "heldout_relL2": 0.9123405814170837,
+      "obs_loss": 2547.146484375,
+      "pde_loss": 0.7258671522140503
+    },
+    {
+      "step": 300,
+      "heldout_relL2": 0.7782875895500183,
+      "obs_loss": 1972.2711181640625,
+      "pde_loss": 0.7258671522140503
+    },
+    {
+      "step": 600,
+      "heldout_relL2": 0.6095834970474243,
+      "obs_loss": 1113.296630859375,
+      "pde_loss": 0.7258671522140503
+    },
+    {
+      "step": 1000,
+      "heldout_relL2": 0.5072598457336426,
+      "obs_loss": 172.95143127441406,
+      "pde_loss": 0.7258671522140503
+    }
+  ]
+}

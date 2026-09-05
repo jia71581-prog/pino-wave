@@ -1,0 +1,18 @@
+{
+  "schema": "saved_time_pretraining_preregistration_v1",
+  "registered_utc_date": "2026-08-13",
+  "status": "configured_not_launched_diagnostic_only",
+  "parent": {
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "fixed_gate_aggregate_relative_l2": 0.2772543673381241
+  },
+  "single_variable_vs_r5c": {
+    "name": "record_replay_distribution",
+    "control": "RAD weighted replay",
+    "intervention": "uniform random replay",
+    "held_compute": "4480 appearances and 140 optimizer updates per epoch"
+  },
+  "decision_rule": "Compare the best accepted fixed-train aggregate_relative_l2 with r5c; do not access validation or test_id.",
+  "launch_policy": "Do not launch while r5c is active; launch only after reviewing r5c terminal evidence."
+}

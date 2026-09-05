@@ -1,0 +1,15 @@
+{
+  "schema": "directfreq64_all401_memory_terminal_v1",
+  "status": "failed",
+  "decision": "reject_401_frame_autograd_materialization",
+  "optimizer_updates_completed": 0,
+  "failure": "CUDA out of memory while recomputing the dense decoder for a 401-frame training graph",
+  "observed_allocated_gib": 22.18,
+  "observed_reserved_unallocated_gib": 0.871,
+  "device_capacity_gib": 23.52,
+  "candidate_checkpoint": null,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "preserved_update0_checkpoint": "checkpoints/update_0000.pt",
+  "next_evidence": "Parseval-equivalent direct coefficient supervision with one sentinel-frame graph"
+}

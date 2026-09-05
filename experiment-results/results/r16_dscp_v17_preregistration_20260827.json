@@ -1,0 +1,41 @@
+{
+ "schema": "r16_dscp_v17_preregistration_v1",
+ "candidate": "r16_dscp_v17_wide128_longtrain",
+ "frozen_utc": "2026-08-27T01:44:00Z",
+ "authorization": "lead directives 2026-08-27: (1) final accuracy comes from long training, not a few steps; (2) do not spend time on memory issues (keep the rank%3 shard scheme); (3) 01:43 explicit order to enter long training quickly. v16 accounting stays fail_gate and is not amended.",
+ "hypothesis": "the v16 wide128 recipe is budget-limited: with everything else frozen (head, lr 3e-3 constant, seed 372, cold start, fit=long_fit 192, confirm=long_calibration 24, DDP4 shard partition), extending max_epochs 20->100, patience 4->12, wall 7200->14400 lifts joint gain beyond v16's +0.0203 and keeps all harms within the disclosed 1% relative tolerance",
+ "design_note": "pure budget experiment. The no-harm hinge slot is DISABLED in v17: probe r4e14 (spec sha 5653b53e6b590ba1f4cf59a249714b8b064cca25031f9a49e27a117fda61323d) was still in flight at freeze time; hinge attribution is deferred to v18 so that v17 measures the budget effect alone.",
+ "long_ddp4": {
+  "plan": {
+   "fit_role": "long_fit",
+   "eval_role": "long_calibration",
+   "updates_per_epoch": 1536,
+   "max_epochs": 100,
+   "patience": 12,
+   "wall_s": 14400.0,
+   "sampling": "shuffled_epochs, partitioned per rank (v16 long_ddp4 scheme verbatim)"
+  },
+  "hinge": {"enabled": false, "lam": 0.0, "margin": 0.0},
+  "gates": {
+   "joint_improvement": 0.01,
+   "per_family_improvement": 0.005,
+   "nonworse_tolerance": 0.01,
+   "nonworse_min_count": 24,
+   "worst_harm_floor": -0.02
+  }
+ },
+ "threshold_provenance": {
+  "joint_improvement": "inherited verbatim from the frozen v16 preregistration",
+  "per_family_improvement": "inherited verbatim from the frozen v16 preregistration",
+  "nonworse_redefinition": "v16 zero-tolerance count>=23/24 replaced by gain_iii >= -0.01 for ALL 24 records plus worst_harm >= -0.02. Disclosed derivation: the 9 v16 long_ddp4 worse records all lie in gain_iii [-0.0059, -0.00065]; a <1% relative perturbation of a 0.05-0.17 parent is 0.0005-0.0017 absolute rel_l2, immaterial against the 0.10 objective. This is a NEW preregistration frozen before any v17 scoring; the v16 gate and its fail_gate verdict are not amended.",
+  "budget": "max_epochs/patience/wall from the lead long-training directive; lr schedule stays constant per r4e12 (cosine no benefit)"
+ },
+ "failure_signal": "any gate fails at patience/max_epochs -> fail_gate; if final joint < +0.0203 (v16 long_ddp4 measured) the budget hypothesis is FALSIFIED and v17 records 'budget is not the bottleneck'",
+ "kill_switch": "non-finite loss/grad refusal; vram > 8GiB gate; workspace free disk < 2GiB",
+ "rollback": "artifacts only under results/r16_dscp_v17/; parent 448035bd sha-checked before/after; frozen v16 chain untouched",
+ "lineage_check": "same seed/order as v16 long_ddp4: epochs 1-10 monitor trajectory must reproduce 0.383807/0.383782/0.380113/... bitwise; divergence is a stop signal",
+ "truth_scope": "train split only via prebuilt /dev/shm shards (216 bundles); validation/test_id sealed; sealed_splits_opened=false",
+ "parent_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+ "v16_prereg_sha256": "d91689b4e6e42c66343597f9dc3d97c51d659387c43f054b3bfbb70741e955f4",
+ "runner": "scripts/run_v17_long_ddp4.py (all numerics read from this file at runtime)"
+}

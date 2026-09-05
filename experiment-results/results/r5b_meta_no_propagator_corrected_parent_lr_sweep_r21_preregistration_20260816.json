@@ -1,0 +1,49 @@
+{
+  "schema": "r5b_meta_no_propagator_lr_sweep_preregistration_v1",
+  "status": "frozen_before_execution",
+  "hypothesis": "A no-propagator onset hypernetwork trained against the correctly loaded r5b parent can learn a future-residual initialization from train episodes, whereas all prior r5b hypernetwork runs were trained against the 35-times amplified parent correction.",
+  "mechanism": "Offline supervised meta-learning transfers cross-record residual structure into a shared conditioner and residual head; online adaptation updates only 32 latent shifts and one gate from two onset frames.",
+  "cross_domain_basis": "amortized meta-learning plus low-dimensional test-time optimization, analogous to learned system identification",
+  "scope": {
+    "split": "train",
+    "per_family": 4,
+    "record_count": 12,
+    "time_points": 32,
+    "epochs": 20,
+    "physics_weight": 0.0,
+    "external_propagator": false,
+    "validation_truth_allowed": false,
+    "test_id_allowed": false
+  },
+  "single_variable_sweep": {
+    "learning_rates": [
+      1e-06,
+      1e-05,
+      0.0001,
+      0.001
+    ],
+    "all_other_settings_identical": true
+  },
+  "primary_metric": "best_epoch_mean_loss on the identical 12 train episodes",
+  "predictions": {
+    "maximum_initial_mean_loss": 1.0,
+    "minimum_relative_reduction_from_initial_to_best": 0.01
+  },
+  "failure_signal": "Every learning rate reduces the paired train objective by less than 1 percent or becomes nonfinite.",
+  "selection_rule": "Choose the finite checkpoint with the lowest best_epoch_mean_loss; ties choose the lower learning rate.",
+  "next_gate": "The selected checkpoint must improve future-field error on group-disjoint train episodes excluded from these 12 meta-training groups before validation can be reopened.",
+  "compute_budget": {
+    "gpu_count": 4,
+    "runs": 4,
+    "expected_wall_time_s": 120,
+    "checkpoint_bytes_per_run_upper_bound": 1000000
+  },
+  "rollback": "Preserve every prior r5b, CPADC, A3, B2-H, and Helmholtz checkpoint; reject all four isolated outputs if the gate fails.",
+  "bindings": {
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "config_sha256": "115e7d873a885ce3babf58a1524f78b067499ca528a59ede7f41429ebd7811e9",
+    "trainer_sha256": "2834704d091709524891e8f0efa92362a072276b5bbbeded5f306c0589556f35",
+    "deployment_sha256": "e7b4768edce9e5c9354ab3680df63a742c06a3cd4810597b4170b9ca96cb2f6e",
+    "parent_loader_sha256": "f9efdd2483e33eb9bb132a08c839cce9daa768a302c92aff1a48b8e560df4e58"
+  }
+}

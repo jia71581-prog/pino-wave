@@ -1,0 +1,143 @@
+{
+  "architecture": {
+    "blocks": 4,
+    "correction_cap": 1.5,
+    "modes": 16,
+    "width": 48
+  },
+  "created_utc": "2026-08-27T22:33:37.487268+00:00",
+  "data_boundary": {
+    "final_validation_opened": false,
+    "fit_truth_used": true,
+    "opened_development_holdout_used": false,
+    "paper_modified": false,
+    "r29b_opened": false,
+    "test_id_opened": false
+  },
+  "purpose": "separate optimization failure from cross-record generalization failure",
+  "sample": {
+    "base_total_error_square": 10.085542198764522,
+    "cache": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r40_frequency_cache_v2_20260828/fit_shard1.h5",
+    "family": "marmousi",
+    "frequency_count": 75,
+    "irreducible_error_square": 3.2730050054661817,
+    "local_row": 156,
+    "parent_record_rel_l2": 0.058189751168003276,
+    "representation_oracle_rel_l2": 0.03314898303399007,
+    "retained_parent_error_square": 6.81253719329834,
+    "sample_id": "train_marmousi_00158",
+    "stored_dt_s": 0.0025000000000000022,
+    "temporal_unselected_error_square": 0.5260041176519719
+  },
+  "schema": "r42_single_train_record_overfit_diagnostic_v1",
+  "variants": [
+    {
+      "final_coefficient_energy_recovery": -0.007025957107543945,
+      "final_record_rel_l2": 0.07727508601642435,
+      "initialization": "zero",
+      "learning_rate": 0.0003,
+      "name": "zero_physical",
+      "objective": "physical",
+      "steps": 1,
+      "trajectory": [
+        {
+          "coefficient_energy_recovery": 0.0,
+          "elapsed_seconds": 0.31451257690787315,
+          "last_gradient_norm": null,
+          "last_loss": null,
+          "record_rel_l2": 0.058189751168003276,
+          "step": 0
+        },
+        {
+          "coefficient_energy_recovery": -0.007025957107543945,
+          "elapsed_seconds": 0.8793202964589,
+          "last_gradient_norm": 0.00885573960840702,
+          "last_loss": 0.006287403404712677,
+          "record_rel_l2": 0.07727508601642435,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "final_coefficient_energy_recovery": -0.00978398323059082,
+      "final_record_rel_l2": 0.07881605026734476,
+      "initialization": "small_random",
+      "learning_rate": 0.0003,
+      "name": "random_physical",
+      "objective": "physical",
+      "steps": 1,
+      "trajectory": [
+        {
+          "coefficient_energy_recovery": -0.029649972915649414,
+          "elapsed_seconds": 0.0401002112776041,
+          "last_gradient_norm": null,
+          "last_loss": null,
+          "record_rel_l2": 0.11033723247064746,
+          "step": 0
+        },
+        {
+          "coefficient_energy_recovery": -0.00978398323059082,
+          "elapsed_seconds": 0.09347728081047535,
+          "last_gradient_norm": 43.22065734863281,
+          "last_loss": 0.04190737381577492,
+          "record_rel_l2": 0.07881605026734476,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "final_coefficient_energy_recovery": -0.009263873100280762,
+      "final_record_rel_l2": 0.07724976169651444,
+      "initialization": "small_random",
+      "learning_rate": 0.0003,
+      "name": "random_mse",
+      "objective": "coefficient_mse",
+      "steps": 1,
+      "trajectory": [
+        {
+          "coefficient_energy_recovery": -0.012664079666137695,
+          "elapsed_seconds": 0.029198167845606804,
+          "last_gradient_norm": null,
+          "last_loss": null,
+          "record_rel_l2": 0.08051468502654315,
+          "step": 0
+        },
+        {
+          "coefficient_energy_recovery": -0.009263873100280762,
+          "elapsed_seconds": 0.07667522132396698,
+          "last_gradient_norm": 0.04458507150411606,
+          "last_loss": 0.0023328985553234816,
+          "record_rel_l2": 0.07724976169651444,
+          "step": 1
+        }
+      ]
+    },
+    {
+      "final_coefficient_energy_recovery": -0.008448123931884766,
+      "final_record_rel_l2": 0.07639204060011084,
+      "initialization": "small_random",
+      "learning_rate": 0.0003,
+      "name": "random_relative",
+      "objective": "coefficient_relative",
+      "steps": 1,
+      "trajectory": [
+        {
+          "coefficient_energy_recovery": -0.013856291770935059,
+          "elapsed_seconds": 0.019568700343370438,
+          "last_gradient_norm": null,
+          "last_loss": null,
+          "record_rel_l2": 0.08838392948748745,
+          "step": 0
+        },
+        {
+          "coefficient_energy_recovery": -0.008448123931884766,
+          "elapsed_seconds": 0.07006971072405577,
+          "last_gradient_norm": 24.46082305908203,
+          "last_loss": 1.022605538368225,
+          "record_rel_l2": 0.07639204060011084,
+          "step": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "additional_background_caches": [
+    {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_canonical_ood_assets_20260808T0328Z/background_pbg_sigma2_ood_canonical_triplet.h5",
+      "sha256": "37e47fd0f3d0cd64a48545fde071935447ead7e5a043f78921b873c8cd2518fd"
+    }
+  ],
+  "aggregate_metric_is_terminal_comparable": false,
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "checkpoint_global_step": 265,
+  "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "families": {
+    "layered": {
+      "background_only_relative_l2": 0.10166427849771255,
+      "full_wavefield_relative_l2": 0.10166427975196345,
+      "group_id": "ood:ood_layered_c3000_c5000_f15",
+      "neural_correction_to_background_l2_ratio": 1.2126257731933152e-07,
+      "outputs": {
+        "plotted_data": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/layered/layered_plotted_data.npz",
+        "receiver_gather": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/layered/layered_receiver_gather.png",
+        "receiver_waveforms": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/layered/layered_receiver_waveforms.png",
+        "true_velocity_model": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/layered/layered_true_velocity_model.png",
+        "wavefield_snapshots": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/layered/layered_wavefield_snapshots.png"
+      },
+      "receiver_mean_relative_l2": 0.1323852904998062,
+      "receiver_trace_relative_l2": [
+        0.2019768052311525,
+        0.13598715196973862,
+        0.07923288110120347,
+        0.04747213578897079,
+        0.04747230142862519,
+        0.07923397312324457,
+        0.13598918213379715,
+        0.20197896682949137,
+        0.2621242168920321
+      ],
+      "receiver_x_m": [
+        300.0,
+        500.0,
+        700.0,
+        900.0,
+        1100.0,
+        1300.0,
+        1500.0,
+        1700.0,
+        1900.0
+      ],
+      "receiver_z_m": 100.0,
+      "record_index_in_split": 1,
+      "sample_id": "ood_layered_c3000_c5000_f15",
+      "snapshot_frame_relative_l2": [
+        7.517018742965624e-08,
+        3.7179829708275665e-06,
+        0.11426123238747357,
+        0.18017373290549102,
+        0.45654928491589647,
+        0.4793792846170974
+      ],
+      "snapshot_indices": [
+        60,
+        128,
+        196,
+        264,
+        332,
+        400
+      ],
+      "snapshot_times_s": [
+        0.15000000596046448,
+        0.3199999928474426,
+        0.49000000953674316,
+        0.6600000262260437,
+        0.8299999833106995,
+        1.0
+      ],
+      "source_index": 4001,
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "split": "ood_canonical"
+    },
+    "marmousi": {
+      "background_only_relative_l2": 0.027948065160245186,
+      "full_wavefield_relative_l2": 0.02794806571543248,
+      "group_id": "ood:ood_marmousi_holdout_f10",
+      "neural_correction_to_background_l2_ratio": 3.3191533463277415e-08,
+      "outputs": {
+        "plotted_data": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/marmousi/marmousi_plotted_data.npz",
+        "receiver_gather": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/marmousi/marmousi_receiver_gather.png",
+        "receiver_waveforms": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/marmousi/marmousi_receiver_waveforms.png",
+        "true_velocity_model": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/marmousi/marmousi_true_velocity_model.png",
+        "wavefield_snapshots": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/marmousi/marmousi_wavefield_snapshots.png"
+      },
+      "receiver_mean_relative_l2": 0.01729862127986348,
+      "receiver_trace_relative_l2": [
+        0.01866923509715513,
+        0.01432782670290751,
+        0.007966119688953352,
+        0.005278866607625205,
+        0.006593893325209334,
+        0.015564669867366517,
+        0.03310097460647852,
+        0.02704398165234113,
+        0.02714202397073462
+      ],
+      "receiver_x_m": [
+        300.0,
+        500.0,
+        700.0,
+        900.0,
+        1100.0,
+        1300.0,
+        1500.0,
+        1700.0,
+        1900.0
+      ],
+      "receiver_z_m": 100.0,
+      "record_index_in_split": 2,
+      "sample_id": "ood_marmousi_holdout_f10",
+      "snapshot_frame_relative_l2": [
+        1.323206357890145e-06,
+        0.0028499928878492403,
+        0.010757020405864884,
+        0.02691828275919817,
+        0.041969400427963155,
+        0.05298389205938991
+      ],
+      "snapshot_indices": [
+        80,
+        144,
+        208,
+        272,
+        336,
+        400
+      ],
+      "snapshot_times_s": [
+        0.20000000298023224,
+        0.36000001430511475,
+        0.5199999809265137,
+        0.6800000071525574,
+        0.8399999737739563,
+        1.0
+      ],
+      "source_index": 4002,
+      "source_parameters": [
+        1000.0,
+        100.0,
+        10.0,
+        0.15000000596046448,
+        1.0
+      ],
+      "split": "ood_canonical"
+    },
+    "uniform": {
+      "background_only_relative_l2": 7.816925787355546e-06,
+      "full_wavefield_relative_l2": 7.814072141584409e-06,
+      "group_id": "ood:ood_uniform_c4000_f15",
+      "neural_correction_to_background_l2_ratio": 1.8447654359646353e-07,
+      "outputs": {
+        "plotted_data": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/uniform/uniform_plotted_data.npz",
+        "receiver_gather": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/uniform/uniform_receiver_gather.png",
+        "receiver_waveforms": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/uniform/uniform_receiver_waveforms.png",
+        "true_velocity_model": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/uniform/uniform_true_velocity_model.png",
+        "wavefield_snapshots": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/current_best_phase4b_figures_canonical_ood_20260808T0328Z/uniform/uniform_wavefield_snapshots.png"
+      },
+      "receiver_mean_relative_l2": 1.3702911573297417e-06,
+      "receiver_trace_relative_l2": [
+        2.205423934561679e-06,
+        1.5246454093617024e-06,
+        8.331873229123547e-07,
+        4.1761433323691076e-07,
+        4.262036843202126e-07,
+        8.351293150694502e-07,
+        1.523165104787984e-06,
+        2.1981309309675127e-06,
+        2.369120380749867e-06
+      ],
+      "receiver_x_m": [
+        300.0,
+        500.0,
+        700.0,
+        900.0,
+        1100.0,
+        1300.0,
+        1500.0,
+        1700.0,
+        1900.0
+      ],
+      "receiver_z_m": 100.0,
+      "record_index_in_split": 0,
+      "sample_id": "ood_uniform_c4000_f15",
+      "snapshot_frame_relative_l2": [
+        1.0705381840420172e-07,
+        3.148895963831363e-07,
+        5.959719503296236e-07,
+        2.5576240157022698e-06,
+        0.0012139632057763148,
+        0.00924852787449362
+      ],
+      "snapshot_indices": [
+        60,
+        128,
+        196,
+        264,
+        332,
+        400
+      ],
+      "snapshot_times_s": [
+        0.15000000596046448,
+        0.3199999928474426,
+        0.49000000953674316,
+        0.6600000262260437,
+        0.8299999833106995,
+        1.0
+      ],
+      "source_index": 4000,
+      "source_parameters": [
+        1000.0,
+        100.0,
+        15.0,
+        0.10000000149011612,
+        1.0
+      ],
+      "split": "ood_canonical"
+    }
+  },
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "protocol": "phase4b_best_checkpoint_canonical_ood_triplet_all_401_stored_times",
+  "run_digest": "09eca13249cf352955040196020a56f5a7e61c2be32e5b1039aabb28e67870ef",
+  "run_dir": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z",
+  "selected_triplet_aggregate_relative_l2": 0.043206719846512504,
+  "status": "complete",
+  "terminal_all_saved_aggregate_relative_l2": 0.04165225127825517,
+  "terminal_fixed_aggregate_relative_l2": 0.040691912995691505,
+  "terminal_metrics_reproduced_for_families": [],
+  "visualization_sample_overrides": {
+    "layered": {
+      "group_id": "ood:ood_layered_c3000_c5000_f15",
+      "record_index_in_split": 1,
+      "selection_basis": "canonical OOD physical layering: upper 3000 m/s, lower 5000 m/s",
+      "source_index": 4001,
+      "split": "ood_canonical",
+      "terminal_sample_id": "validation_layered_00000",
+      "visualization_sample_id": "ood_layered_c3000_c5000_f15"
+    },
+    "marmousi": {
+      "group_id": "ood:ood_marmousi_holdout_f10",
+      "record_index_in_split": 2,
+      "selection_basis": "canonical split-isolated Marmousi holdout crop from the registered source",
+      "source_index": 4002,
+      "split": "ood_canonical",
+      "terminal_sample_id": "validation_marmousi_00000",
+      "visualization_sample_id": "ood_marmousi_holdout_f10"
+    },
+    "uniform": {
+      "group_id": "ood:ood_uniform_c4000_f15",
+      "record_index_in_split": 0,
+      "selection_basis": "canonical OOD uniform reference at 4000 m/s",
+      "source_index": 4000,
+      "split": "ood_canonical",
+      "terminal_sample_id": "validation_uniform_00000",
+      "visualization_sample_id": "ood_uniform_c4000_f15"
+    }
+  }
+}

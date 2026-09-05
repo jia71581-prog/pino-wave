@@ -1,0 +1,22 @@
+{
+  "schema": "acoustic_smoke_disposition_v1",
+  "date_utc": "2026-08-24",
+  "candidate": "a3_alltrain_relative_l2_current_vds_r3_smoke",
+  "status": "rejected_for_reporting_contract_mismatch",
+  "engineering_result": "finite_and_gradient_aligned",
+  "observed": {
+    "terminal_status": "complete",
+    "global_steps": 2,
+    "total_equaled_frame_on_both_updates": true,
+    "raw_disabled_diagnostics_were_nonzero": true,
+    "aggregate_relative_l2_on_smoke_panel": 0.2830180009571864,
+    "peak_cuda_bytes": 23791350784
+  },
+  "reason": "The frozen smoke acceptance required disabled component fields to be zero. They had zero weights and no gradient contribution, but the legacy loss implementation still computed and logged their raw diagnostic values. This smoke is retained as engineering evidence but is not used to authorize the full run.",
+  "terminal_sha256": "18d44cd2a0878c297b0b786de60e091e159a8d78aa003b9d3a3e07661d0a41fe",
+  "run_identity_sha256": "6c1fe3d64464dc9bf55657e784dc9176d7f3a7068656a1f8145a6376fdae7173",
+  "checkpoint_sha256": "16202b406064a6730ef6b3e6a4d48195ca8bcd9c5fba59a9ac8d06f4ce74d323",
+  "validation_opened": false,
+  "test_id_opened": false,
+  "followup": "r3b skips disabled computations and requires their raw reported values to be exactly zero."
+}

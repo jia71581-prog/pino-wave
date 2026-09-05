@@ -1,0 +1,51 @@
+{
+  "schema": "transfer_dg_coupled_pyramid_moe_marmousi_cpu_eval_preregistration_v1",
+  "candidate": "transfer_dg_coupled_pyramid_moe_u13300_marmousi_train10_cpu_eval_20260904",
+  "claim_scope": "CPU-only full-401 diagnostic on 10 fixed Marmousi records from the train split; every record was later consumed by full-data pretraining, so this is seen-data optimization evidence and not a generalization, validation, test_id, or target claim",
+  "hypothesis": "The immutable update-13300 pyramid-MoE checkpoint has lower mean full-401 relative L2 than the frozen WFP parent on all 10 registered Marmousi confirmation-role train records.",
+  "expected_mechanism": "Full-data direct coefficient supervision should reduce modeled low-frequency reconstruction error while the unchanged unmodeled spectral tail supplies the same irreducible contribution to candidate and parent metrics.",
+  "primary_metric": "candidate_mean full-401 relative L2 versus parent_mean on all 10 registered Marmousi records",
+  "failure_signal": "Reject the diagnostic on binding drift, non-finite output, incomplete record coverage, process failure, or any validation/test_id access.",
+  "compute_budget": {
+    "device": "cpu",
+    "threads": 16,
+    "record_count": 10,
+    "frequency_blocks_per_record": 8,
+    "wall_seconds_max": 43200,
+    "new_disk_bytes_max": 536870912
+  },
+  "model": {
+    "class": "PyramidMoECoupledWaveOperator",
+    "parameter_count": 25784099,
+    "use_mhc": true
+  },
+  "checkpoint": {
+    "epoch": 20,
+    "next_step": 0,
+    "update": 13300,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "evaluation": {
+    "split": "train",
+    "role": "confirmation",
+    "family": "marmousi",
+    "record_count": 10,
+    "stored_time_count": 401,
+    "frequency_count": 64,
+    "frequency_block": 8,
+    "selection_uses_wavefield_truth": false,
+    "records_seen_during_full_pretraining": true
+  },
+  "bindings": {
+    "evaluator_sha256": "07e76ab017d0e534c9d075f1a6425528e0297da4f485883e854b07e45cbe13a1",
+    "model_sha256": "7dd93c564bad85e9a4b5200d0f6c564fc92b62d04a0f7d347fea4c37af156758",
+    "full_manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+    "eval_manifest_sha256": "fb0495e6a40ae435632d44ede43f61a63fb08c6d49c1533fea41bbc01eb47e7b",
+    "candidate_checkpoint_sha256": "98080927cccf8b55a1ee7ab548a8ca8546dce634a99ae83fa14aa052b64dc88a",
+    "parent_checkpoint_sha256": "bd02506ab83631a0fea663f43c61a7689f6e75898715ea730acf7558f216e04b"
+  },
+  "rollback": "The active four-GPU pretraining process and all existing checkpoints remain untouched. Preserve the immutable candidate snapshot and write evaluation-only artifacts under this versioned directory.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

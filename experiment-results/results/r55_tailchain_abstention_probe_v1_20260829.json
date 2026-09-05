@@ -1,0 +1,639 @@
+{
+  "schema": "r55_tailchain_abstention_probe_v1",
+  "created_utc": "2026-08-29T09:00:22.855931+00:00",
+  "gate": 0.05,
+  "ridge_lambda": 1.0,
+  "fit_abstain_label": 0.045,
+  "feature_names": [
+    "log_parent_energy",
+    "parent_late_energy_fraction",
+    "parent_energy_growth_ratio",
+    "parent_spatial_spread_late",
+    "parent_edge_energy_fraction_late",
+    "parent_peak_to_mean_late",
+    "static0_std",
+    "static0_gradient_mean",
+    "static3_std",
+    "static4_std",
+    "static5_std",
+    "static6_std",
+    "source_f0_hz",
+    "source_t0_s"
+  ],
+  "temporal_sampling_fractions": [
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "feature_policy": "parent (coarse) field statistics, static medium channels and source parameters only; truth-derived quantities including truth_frame_energy_{mean,max}_norm are excluded from features and used solely as fit labels and development diagnosis",
+  "counts": {
+    "fit": 2128,
+    "development": 56
+  },
+  "fit_development_group_overlap": 0,
+  "detector": {
+    "intercept": -3.451139805663243,
+    "feature_mean": [
+      3.8645722695802873,
+      0.06358594714101984,
+      0.2174591494245033,
+      71.21285081770726,
+      0.464093062852685,
+      17.990037795614533,
+      0.2785548508872203,
+      0.008691654209993379,
+      0.018001422299086446,
+      0.2029930875868451,
+      0.5802328728252857,
+      0.5802328728252857,
+      18.988905099549687,
+      0.09016379867365262
+    ],
+    "feature_std": [
+      0.6135352694269438,
+      0.08417259644203194,
+      0.3157490079419322,
+      12.78176125011874,
+      0.2114185469824511,
+      46.68365927029899,
+      0.1787156547808855,
+      0.008136989670448446,
+      0.00023731675191035145,
+      0.07088947299582433,
+      1e-12,
+      1e-12,
+      6.343656955210723,
+      0.03543438717686268
+    ],
+    "coefficients": {
+      "log_parent_energy": -0.04042936300156802,
+      "parent_late_energy_fraction": 0.48396618956906257,
+      "parent_energy_growth_ratio": -0.3194592746035383,
+      "parent_spatial_spread_late": -0.04883899333184459,
+      "parent_edge_energy_fraction_late": 0.063853145292326,
+      "parent_peak_to_mean_late": -0.00401061016320191,
+      "static0_std": 0.08122195368163838,
+      "static0_gradient_mean": 0.4380709723032934,
+      "static3_std": -0.06236090075608697,
+      "static4_std": 0.31788153814439074,
+      "static5_std": 1.0407532369714137e-13,
+      "static6_std": 5.5013823534669604e-14,
+      "source_f0_hz": 0.4112897463342662,
+      "source_t0_s": -0.06169397303870803
+    },
+    "fit_spearman": 0.9336745099068451,
+    "dev_spearman": 0.9476418318523582
+  },
+  "fit_only_threshold": {
+    "threshold": -4.46224201257847,
+    "fit": {
+      "abstention_rate": 0.8745300751879699,
+      "kept_count": 267,
+      "kept_mean": 0.008414020960800515,
+      "kept_max": 0.039817609654682895,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    },
+    "development": {
+      "abstention_rate": 0.8035714285714286,
+      "kept_count": 11,
+      "kept_mean": 0.006947834780639164,
+      "kept_max": 0.00956916108025233,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    }
+  },
+  "fit_only_conformal": {
+    "conformal_quantile": 99.0,
+    "margin": 2.689952391946078,
+    "abstain_if": "predicted * margin >= gate",
+    "fit": {
+      "abstention_rate": 0.7330827067669173,
+      "kept_count": 568,
+      "kept_mean": 0.012596255783401034,
+      "kept_max": 0.06254012794382091,
+      "kept_max_lte_gate": false,
+      "missed_over_gate": 3
+    },
+    "development": {
+      "abstention_rate": 0.7142857142857143,
+      "kept_count": 16,
+      "kept_mean": 0.00869817602165762,
+      "kept_max": 0.017753172535003386,
+      "kept_max_lte_gate": true,
+      "missed_over_gate": 0
+    }
+  },
+  "per_family_development": {
+    "layered": {
+      "count": 20,
+      "parent_max": 0.11128987288339225,
+      "conformal": {
+        "abstention_rate": 0.75,
+        "kept_count": 5,
+        "kept_mean": 0.011110085206344444,
+        "kept_max": 0.017753172535003386,
+        "kept_max_lte_gate": true,
+        "missed_over_gate": 0
+      }
+    },
+    "marmousi": {
+      "count": 20,
+      "parent_max": 0.1794963837866519,
+      "conformal": {
+        "abstention_rate": 1.0,
+        "kept_count": 0,
+        "kept_mean": NaN,
+        "kept_max": NaN,
+        "kept_max_lte_gate": false,
+        "missed_over_gate": 0
+      }
+    },
+    "uniform": {
+      "count": 16,
+      "parent_max": 0.03415422020332488,
+      "conformal": {
+        "abstention_rate": 0.3125,
+        "kept_count": 11,
+        "kept_mean": 0.007601853664981791,
+        "kept_max": 0.009735446829517807,
+        "kept_max_lte_gate": true,
+        "missed_over_gate": 0
+      }
+    }
+  },
+  "development_ranking": [
+    {
+      "rank": 0,
+      "sample_id": "train_marmousi_00268",
+      "family": "marmousi",
+      "detector_score": -2.106258347055558,
+      "predicted_rel_l2": 0.1216924465506744,
+      "parent_rel_l2": 0.10489498638278705
+    },
+    {
+      "rank": 1,
+      "sample_id": "train_layered_00239",
+      "family": "layered",
+      "detector_score": -2.170252834067403,
+      "predicted_rel_l2": 0.1141487525686448,
+      "parent_rel_l2": 0.10204342370443585
+    },
+    {
+      "rank": 2,
+      "sample_id": "train_layered_00770",
+      "family": "layered",
+      "detector_score": -2.2177994836561297,
+      "predicted_rel_l2": 0.10884836809444041,
+      "parent_rel_l2": 0.11128987288339225
+    },
+    {
+      "rank": 3,
+      "sample_id": "train_marmousi_00653",
+      "family": "marmousi",
+      "detector_score": -2.269770781652876,
+      "predicted_rel_l2": 0.10333586384452925,
+      "parent_rel_l2": 0.08772686626267114
+    },
+    {
+      "rank": 4,
+      "sample_id": "train_marmousi_00265",
+      "family": "marmousi",
+      "detector_score": -2.3056012247533944,
+      "predicted_rel_l2": 0.09969884121965082,
+      "parent_rel_l2": 0.07412087330007655
+    },
+    {
+      "rank": 5,
+      "sample_id": "train_layered_00548",
+      "family": "layered",
+      "detector_score": -2.3586682550105538,
+      "predicted_rel_l2": 0.09454605062187146,
+      "parent_rel_l2": 0.08302345435079016
+    },
+    {
+      "rank": 6,
+      "sample_id": "train_marmousi_00266",
+      "family": "marmousi",
+      "detector_score": -2.415415316919791,
+      "predicted_rel_l2": 0.0893302308601586,
+      "parent_rel_l2": 0.10113655134126755
+    },
+    {
+      "rank": 7,
+      "sample_id": "train_marmousi_00399",
+      "family": "marmousi",
+      "detector_score": -2.435992166255498,
+      "predicted_rel_l2": 0.08751087862046622,
+      "parent_rel_l2": 0.1794963837866519
+    },
+    {
+      "rank": 8,
+      "sample_id": "train_marmousi_00276",
+      "family": "marmousi",
+      "detector_score": -2.4395726750770024,
+      "predicted_rel_l2": 0.0871981054253273,
+      "parent_rel_l2": 0.08069255075375141
+    },
+    {
+      "rank": 9,
+      "sample_id": "train_layered_00768",
+      "family": "layered",
+      "detector_score": -2.480505960475115,
+      "predicted_rel_l2": 0.08370086554714559,
+      "parent_rel_l2": 0.09334132120876198
+    },
+    {
+      "rank": 10,
+      "sample_id": "train_marmousi_00267",
+      "family": "marmousi",
+      "detector_score": -2.535478269511639,
+      "predicted_rel_l2": 0.07922381986475334,
+      "parent_rel_l2": 0.15131756481823355
+    },
+    {
+      "rank": 11,
+      "sample_id": "train_marmousi_00395",
+      "family": "marmousi",
+      "detector_score": -2.5615070256458083,
+      "predicted_rel_l2": 0.07718832795724241,
+      "parent_rel_l2": 0.08522910897930902
+    },
+    {
+      "rank": 12,
+      "sample_id": "train_marmousi_00654",
+      "family": "marmousi",
+      "detector_score": -2.661308389437305,
+      "predicted_rel_l2": 0.06985676207564617,
+      "parent_rel_l2": 0.05270057510761511
+    },
+    {
+      "rank": 13,
+      "sample_id": "train_marmousi_00279",
+      "family": "marmousi",
+      "detector_score": -2.665788654251968,
+      "predicted_rel_l2": 0.06954448534602925,
+      "parent_rel_l2": 0.049486040626295795
+    },
+    {
+      "rank": 14,
+      "sample_id": "train_marmousi_00397",
+      "family": "marmousi",
+      "detector_score": -2.6942697454634184,
+      "predicted_rel_l2": 0.0675917229185312,
+      "parent_rel_l2": 0.050530028407060834
+    },
+    {
+      "rank": 15,
+      "sample_id": "train_marmousi_00278",
+      "family": "marmousi",
+      "detector_score": -2.696999820690734,
+      "predicted_rel_l2": 0.06740744409220634,
+      "parent_rel_l2": 0.0791688478315934
+    },
+    {
+      "rank": 16,
+      "sample_id": "train_marmousi_00651",
+      "family": "marmousi",
+      "detector_score": -2.8019453959480343,
+      "predicted_rel_l2": 0.060691877971033974,
+      "parent_rel_l2": 0.035082440616680435
+    },
+    {
+      "rank": 17,
+      "sample_id": "train_layered_00769",
+      "family": "layered",
+      "detector_score": -2.836324228726741,
+      "predicted_rel_l2": 0.05864082053632002,
+      "parent_rel_l2": 0.07479720746223867
+    },
+    {
+      "rank": 18,
+      "sample_id": "train_layered_00771",
+      "family": "layered",
+      "detector_score": -2.8704207939571953,
+      "predicted_rel_l2": 0.056675073033228766,
+      "parent_rel_l2": 0.07942652538717239
+    },
+    {
+      "rank": 19,
+      "sample_id": "train_marmousi_00398",
+      "family": "marmousi",
+      "detector_score": -2.9732153296442707,
+      "predicted_rel_l2": 0.0511386181890113,
+      "parent_rel_l2": 0.05856995545120499
+    },
+    {
+      "rank": 20,
+      "sample_id": "train_layered_00041",
+      "family": "layered",
+      "detector_score": -2.9972531502243385,
+      "predicted_rel_l2": 0.0499240139638242,
+      "parent_rel_l2": 0.032625945394407024
+    },
+    {
+      "rank": 21,
+      "sample_id": "train_marmousi_00650",
+      "family": "marmousi",
+      "detector_score": -3.011109101501242,
+      "predicted_rel_l2": 0.04923703959134344,
+      "parent_rel_l2": 0.049573528804071294
+    },
+    {
+      "rank": 22,
+      "sample_id": "train_marmousi_00652",
+      "family": "marmousi",
+      "detector_score": -3.0247683197121304,
+      "predicted_rel_l2": 0.048569072463309645,
+      "parent_rel_l2": 0.05401411713391726
+    },
+    {
+      "rank": 23,
+      "sample_id": "train_marmousi_00277",
+      "family": "marmousi",
+      "detector_score": -3.124682388529579,
+      "predicted_rel_l2": 0.04395089071385001,
+      "parent_rel_l2": 0.041823217442810756
+    },
+    {
+      "rank": 24,
+      "sample_id": "train_layered_00551",
+      "family": "layered",
+      "detector_score": -3.2295219139199607,
+      "predicted_rel_l2": 0.03957641519940672,
+      "parent_rel_l2": 0.029735223393471795
+    },
+    {
+      "rank": 25,
+      "sample_id": "train_layered_00549",
+      "family": "layered",
+      "detector_score": -3.300201914197241,
+      "predicted_rel_l2": 0.03687572091790313,
+      "parent_rel_l2": 0.03266543235346189
+    },
+    {
+      "rank": 26,
+      "sample_id": "train_layered_00238",
+      "family": "layered",
+      "detector_score": -3.3365174365970134,
+      "predicted_rel_l2": 0.03556058431745444,
+      "parent_rel_l2": 0.05009966921138726
+    },
+    {
+      "rank": 27,
+      "sample_id": "train_layered_00043",
+      "family": "layered",
+      "detector_score": -3.3535570553124066,
+      "predicted_rel_l2": 0.03495977880466832,
+      "parent_rel_l2": 0.019099224624556675
+    },
+    {
+      "rank": 28,
+      "sample_id": "train_marmousi_00269",
+      "family": "marmousi",
+      "detector_score": -3.3543536970876513,
+      "predicted_rel_l2": 0.03493193947487809,
+      "parent_rel_l2": 0.0630259510286973
+    },
+    {
+      "rank": 29,
+      "sample_id": "train_layered_00236",
+      "family": "layered",
+      "detector_score": -3.3584542428835102,
+      "predicted_rel_l2": 0.034788992737442605,
+      "parent_rel_l2": 0.05732308266300913
+    },
+    {
+      "rank": 30,
+      "sample_id": "train_layered_00550",
+      "family": "layered",
+      "detector_score": -3.421256283471086,
+      "predicted_rel_l2": 0.0326713646510705,
+      "parent_rel_l2": 0.02836496035055259
+    },
+    {
+      "rank": 31,
+      "sample_id": "train_uniform_00369",
+      "family": "uniform",
+      "detector_score": -3.4876296405440685,
+      "predicted_rel_l2": 0.0305732559558856,
+      "parent_rel_l2": 0.02561541295617671
+    },
+    {
+      "rank": 32,
+      "sample_id": "train_layered_00816",
+      "family": "layered",
+      "detector_score": -3.6237120980282542,
+      "predicted_rel_l2": 0.026683440872166855,
+      "parent_rel_l2": 0.02007378565858501
+    },
+    {
+      "rank": 33,
+      "sample_id": "train_marmousi_00396",
+      "family": "marmousi",
+      "detector_score": -3.6387767385643475,
+      "predicted_rel_l2": 0.026284477095258864,
+      "parent_rel_l2": 0.018079984426550254
+    },
+    {
+      "rank": 34,
+      "sample_id": "train_uniform_00003",
+      "family": "uniform",
+      "detector_score": -3.766473495259471,
+      "predicted_rel_l2": 0.02313350000677855,
+      "parent_rel_l2": 0.03180919437786496
+    },
+    {
+      "rank": 35,
+      "sample_id": "train_layered_00237",
+      "family": "layered",
+      "detector_score": -3.7838753313665308,
+      "predicted_rel_l2": 0.022734417089771652,
+      "parent_rel_l2": 0.027458621074884833
+    },
+    {
+      "rank": 36,
+      "sample_id": "train_marmousi_00275",
+      "family": "marmousi",
+      "detector_score": -3.807341777241309,
+      "predicted_rel_l2": 0.02220713207094473,
+      "parent_rel_l2": 0.02612854216813392
+    },
+    {
+      "rank": 37,
+      "sample_id": "train_uniform_00357",
+      "family": "uniform",
+      "detector_score": -3.814532654955868,
+      "predicted_rel_l2": 0.022048016077297682,
+      "parent_rel_l2": 0.010897005787429274
+    },
+    {
+      "rank": 38,
+      "sample_id": "train_uniform_00315",
+      "family": "uniform",
+      "detector_score": -3.855726735694694,
+      "predicted_rel_l2": 0.02115822128681547,
+      "parent_rel_l2": 0.03415422020332488
+    },
+    {
+      "rank": 39,
+      "sample_id": "train_uniform_00085",
+      "family": "uniform",
+      "detector_score": -3.939984435962357,
+      "predicted_rel_l2": 0.019448517440487353,
+      "parent_rel_l2": 0.025612924149894897
+    },
+    {
+      "rank": 40,
+      "sample_id": "train_layered_00040",
+      "family": "layered",
+      "detector_score": -4.0008539927744735,
+      "predicted_rel_l2": 0.018300004142393744,
+      "parent_rel_l2": 0.017753172535003386
+    },
+    {
+      "rank": 41,
+      "sample_id": "train_layered_00819",
+      "family": "layered",
+      "detector_score": -4.10356137576556,
+      "predicted_rel_l2": 0.016513758851473933,
+      "parent_rel_l2": 0.012508553875128557
+    },
+    {
+      "rank": 42,
+      "sample_id": "train_layered_00042",
+      "family": "layered",
+      "detector_score": -4.263523791693443,
+      "predicted_rel_l2": 0.014072625934418192,
+      "parent_rel_l2": 0.013269243470502012
+    },
+    {
+      "rank": 43,
+      "sample_id": "train_uniform_00384",
+      "family": "uniform",
+      "detector_score": -4.40300739211368,
+      "predicted_rel_l2": 0.012240472592882847,
+      "parent_rel_l2": 0.009735446829517807
+    },
+    {
+      "rank": 44,
+      "sample_id": "train_uniform_00243",
+      "family": "uniform",
+      "detector_score": -4.452902238076513,
+      "predicted_rel_l2": 0.011644722125310123,
+      "parent_rel_l2": 0.009478217049339356
+    },
+    {
+      "rank": 45,
+      "sample_id": "train_uniform_00020",
+      "family": "uniform",
+      "detector_score": -4.5270713477391835,
+      "predicted_rel_l2": 0.01081229520221438,
+      "parent_rel_l2": 0.008259671510009161
+    },
+    {
+      "rank": 46,
+      "sample_id": "train_uniform_00303",
+      "family": "uniform",
+      "detector_score": -4.591459443564289,
+      "predicted_rel_l2": 0.010138051656969254,
+      "parent_rel_l2": 0.00956916108025233
+    },
+    {
+      "rank": 47,
+      "sample_id": "train_uniform_00149",
+      "family": "uniform",
+      "detector_score": -4.644621145499984,
+      "predicted_rel_l2": 0.009613170962942758,
+      "parent_rel_l2": 0.008930060052089227
+    },
+    {
+      "rank": 48,
+      "sample_id": "train_uniform_00027",
+      "family": "uniform",
+      "detector_score": -4.683880714555235,
+      "predicted_rel_l2": 0.009243074463241354,
+      "parent_rel_l2": 0.006825962278702176
+    },
+    {
+      "rank": 49,
+      "sample_id": "train_uniform_00116",
+      "family": "uniform",
+      "detector_score": -4.738494279200734,
+      "predicted_rel_l2": 0.00875181405787402,
+      "parent_rel_l2": 0.009152099127904333
+    },
+    {
+      "rank": 50,
+      "sample_id": "train_layered_00818",
+      "family": "layered",
+      "detector_score": -4.738549021513879,
+      "predicted_rel_l2": 0.008751334976441413,
+      "parent_rel_l2": 0.006414539777274283
+    },
+    {
+      "rank": 51,
+      "sample_id": "train_uniform_00102",
+      "family": "uniform",
+      "detector_score": -4.971624310744526,
+      "predicted_rel_l2": 0.006931879359185425,
+      "parent_rel_l2": 0.0060106088712208305
+    },
+    {
+      "rank": 52,
+      "sample_id": "train_layered_00817",
+      "family": "layered",
+      "detector_score": -4.982903158186836,
+      "predicted_rel_l2": 0.006854135006917758,
+      "parent_rel_l2": 0.005604916373813979
+    },
+    {
+      "rank": 53,
+      "sample_id": "train_uniform_00037",
+      "family": "uniform",
+      "detector_score": -5.108711888338723,
+      "predicted_rel_l2": 0.006043863082182631,
+      "parent_rel_l2": 0.0053373121326618055
+    },
+    {
+      "rank": 54,
+      "sample_id": "train_uniform_00048",
+      "family": "uniform",
+      "detector_score": -5.12284748352765,
+      "predicted_rel_l2": 0.005959030472554509,
+      "parent_rel_l2": 0.006372461676307247
+    },
+    {
+      "rank": 55,
+      "sample_id": "train_uniform_00186",
+      "family": "uniform",
+      "detector_score": -5.6180230720017335,
+      "predicted_rel_l2": 0.0036318138511190635,
+      "parent_rel_l2": 0.003949389706795427
+    }
+  ],
+  "data_boundary": {
+    "final_validation_opened": false,
+    "test_id_opened": false,
+    "fit_truth_used_for_labels": true,
+    "opened_group_disjoint_development_used_for_diagnosis": true,
+    "paper_modified": false
+  },
+  "evidence": {
+    "script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/analyze_r55_tailchain_abstention_probe.py",
+    "script_sha256": "19bf07de847910973fd8b7311c8e89ad708f9cb2a7fb324618cd414f117b84df",
+    "fit_cache": [
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/fit_shard_0.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/fit_shard_1.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/fit_shard_2.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/fit_shard_3.h5"
+    ],
+    "holdout_cache": [
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_0.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_1.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_2.h5",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r38_full_coverage_cache_20260828/holdout_shard_3.h5"
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "basis": {
+    "effective_rank": 63,
+    "gram_eigenvalue_max": 0.00010457122119827732,
+    "gram_eigenvalue_min_kept": 5.818442824894942e-10,
+    "input_rank": 64,
+    "mode_norm": 51.2431755065918,
+    "relative_tolerance": 1e-06
+  },
+  "checkpoint": {
+    "epoch": 20,
+    "next_step": 350,
+    "schema": "transfer_dg_coupled_pyramid_moe_full_ddp4_checkpoint_v1",
+    "update": 13650
+  },
+  "claim_scope": "train-only oracle capacity diagnostic; oracle coefficients are forbidden for deployment",
+  "deployment_candidate": false,
+  "elapsed_s": 405.88748931884766,
+  "family": "marmousi",
+  "max_rss_kib": 6270556,
+  "observed_indices": [
+    17,
+    18
+  ],
+  "oracle_future_truth": true,
+  "parent": {
+    "candidate_full_relative_l2": 0.7207989289181564,
+    "candidate_future_relative_l2": 0.7204820156658365,
+    "correction_ratio": 0.0,
+    "full_relative_improvement": 0.0,
+    "future_relative_improvement": 0.0,
+    "parent_full_relative_l2": 0.7207989289181564,
+    "parent_future_relative_l2": 0.7204820156658365
+  },
+  "relative_ridge": 1e-08,
+  "sample_id": "train_marmousi_00260",
+  "schema": "transfer_dg_pyramid_basis_oracle_cpu_report_v1",
+  "status": "complete",
+  "test_id_opened": false,
+  "trust_capped": {
+    "candidate_full_relative_l2": 0.7204638131345955,
+    "candidate_future_relative_l2": 0.7201342677219298,
+    "correction_ratio": 0.026228245347738266,
+    "full_relative_improvement": 0.0004649226991276789,
+    "future_relative_improvement": 0.00048266013078102077,
+    "parent_full_relative_l2": 0.7207989289181564,
+    "parent_future_relative_l2": 0.7204820156658365
+  },
+  "unmodeled_relative_l2_floor": 0.02563870423175433,
+  "unrestricted": {
+    "candidate_full_relative_l2": 0.7204638131345955,
+    "candidate_future_relative_l2": 0.7201342677219298,
+    "correction_ratio": 0.026228245347738266,
+    "full_relative_improvement": 0.0004649226991276789,
+    "future_relative_improvement": 0.00048266013078102077,
+    "parent_full_relative_l2": 0.7207989289181564,
+    "parent_future_relative_l2": 0.7204820156658365
+  },
+  "validation_opened": false
+}

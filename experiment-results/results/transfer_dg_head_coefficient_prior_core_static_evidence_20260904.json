@@ -1,0 +1,41 @@
+{
+  "schema": "transfer_dg_head_coefficient_prior_core_static_evidence_v1",
+  "candidate": "transfer_dg_head_coefficient_prior_core_v1",
+  "status": "passed_static_and_cpu_unit_gates",
+  "claim_scope": "CPU implementation evidence only; no trained prior, prediction-accuracy, validation, test_id, runtime, or promotion claim",
+  "bindings": {
+    "preregistration_sha256": "a2a650cb76a60f29e7bb880a47756aa9ec5bbc4a2bf604125a7da90a2a878eae",
+    "head_coefficient_prior_sha256": "4b05b08c18f9ae810aeb1b5d7457e32e66f7e3a3da508148bb5aa5e935946668",
+    "head_coefficient_prior_test_sha256": "7aa71f190edf7d1be739ec0f89c86625799069d456a4174b7c14f8c4d406ed60"
+  },
+  "tests": {
+    "focused_command": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=$PWD:$PWD/src pytest -q tests/saved_time_phase_operator_v4/test_head_coefficient_prior.py tests/saved_time_phase_operator_v4/test_transfer_dg_adapt.py tests/saved_time_phase_operator_v4/test_precision_lora.py",
+    "focused_result": "19 passed",
+    "related_regression_command": "CUDA_VISIBLE_DEVICES='' PYTHONPATH=$PWD:$PWD/src pytest -q tests/saved_time_phase_operator_v4/test_dg_interface.py tests/saved_time_phase_operator_v4/test_transfer_dg_elements.py tests/saved_time_phase_operator_v4/test_instance_contracts.py tests/saved_time_phase_operator_v4/test_instance_data_guard.py tests/saved_time_phase_operator_v4/test_instance_trainer.py tests/saved_time_phase_operator_v4/test_precision_lora.py tests/saved_time_phase_operator_v4/test_transfer_dg_adapt.py tests/saved_time_phase_operator_v4/test_head_coefficient_prior.py",
+    "related_regression_result": "49 passed",
+    "gpu_compute_used_by_tests": false
+  },
+  "verified_contracts": {
+    "zero_initialized_prior_mean": "exact",
+    "diagonal_precision_bounds": "enforced",
+    "trust_fraction_bounds": "enforced",
+    "zero_precision_matches_uncentered_ridge": true,
+    "online_design_nullspace_resolved_by_prior": true,
+    "correction_trust_projection": true,
+    "online_data_objective_guard": true,
+    "bit_exact_parent_rollback": true,
+    "deployment_future_target_argument": false
+  },
+  "training_noninterference": {
+    "paused_process_group": 321600,
+    "last_logged_epoch": 20,
+    "last_logged_step": 525,
+    "last_logged_update": 13825,
+    "parent_model_state_schema_changed": false,
+    "active_trainer_code_changed": false,
+    "checkpoint_files_modified": false
+  },
+  "next_evidence_tier": "Continue parent pretraining now. In parallel development, build group-disjoint train episodes and train the causal coefficient prior against trust-capped physical-head oracle coefficients before any validation access.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

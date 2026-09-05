@@ -1,0 +1,41 @@
+{
+  "schema": "cpadc_oracle_shrinkage_preregistration_v1",
+  "status": "frozen_before_execution",
+  "hypothesis": "On the corrected r5b parent, CPADC's causal correction direction retains useful residual information but the deployed step is too large; a scalar train-only line search will therefore choose a mean step below 1 and improve over the parent.",
+  "mechanism": "A one-dimensional trust-region line search separates direction quality from correction amplitude, following regularized system-identification practice without changing the deployed algorithm in this diagnostic.",
+  "scope": {
+    "split": "train",
+    "per_family": 1,
+    "record_count": 3,
+    "epochs": 3,
+    "validation_truth_allowed": false,
+    "test_id_allowed": false,
+    "oracle_is_diagnostic_only": true
+  },
+  "primary_metrics": [
+    "mean_oracle_step_fraction",
+    "oracle_relative_improvement",
+    "positive_oracle_step_fraction",
+    "mean_descent_direction_cosine"
+  ],
+  "predictions": {
+    "maximum_mean_oracle_step_fraction": 0.5,
+    "minimum_best_oracle_relative_improvement": 0.01,
+    "minimum_positive_oracle_step_fraction": 0.3333333333333333
+  },
+  "failure_signal": "No epoch obtains at least 1 percent oracle improvement, fewer than one third of episodes have a positive step, or the mean oracle step is above 0.5.",
+  "compute_budget": {
+    "gpu_count": 1,
+    "record_count": 3,
+    "epochs": 3,
+    "expected_wall_time_s": 90
+  },
+  "rollback": "The oracle never changes gradients, checkpoints, or deployment outputs; reject the shrinkage hypothesis if its gate fails.",
+  "bindings": {
+    "r5b_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "config_sha256": "b22587c01ce80c38b012d119a2b30a2516d6c7a1aeaceff8ea9c183531d0e52c",
+    "parent_loader_sha256": "f9efdd2483e33eb9bb132a08c839cce9daa768a302c92aff1a48b8e560df4e58",
+    "trainer_sha256": "a296173907ec1db0f07676c4c213b475ce0875ce2abc07bf3b7179df9e78d3b1"
+  },
+  "output_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/cpadc_r5b_oracle_shrinkage_rank8_pf1_ep3_r20_20260816"
+}

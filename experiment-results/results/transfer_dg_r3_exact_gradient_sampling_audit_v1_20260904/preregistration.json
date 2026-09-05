@@ -1,0 +1,354 @@
+{
+  "schema": "transfer_dg_r3_exact_gradient_sampling_preregistration_v1",
+  "candidate": "transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904",
+  "status": "full_pending_independent_audit",
+  "launch_authorized": false,
+  "claim_scope": "Train-only diagnostic evidence about gradient sampling, detached rollout graphs, clipping, objective alignment, and a finite oracle line-search grid. It cannot authorize promotion, establish validation/test_id accuracy, or establish the Target-5 claim.",
+  "hypothesis": "The r3 accuracy floor can be localized by comparing the exact complete-future full-BPTT gradient with the algebraically equivalent same-graph Horvitz-Thompson gradient and the existing detached training-window estimator on a non-performance-selected, one-per-family train/fit panel.",
+  "expected_mechanism": "Layer A measures the exact 399-future-frame rollout gradient. Layer B isolates HT algebra on that same rollout graph. Layer C adds the actual detached pushforward and warm-start behavior used during r3 training. Their gradient angles, sampling variance, clipping incidence, and reversible line-search response distinguish sampling, rollout-graph/TBPTT, auxiliary-target, clipping, optimization, and local-plateau explanations.",
+  "primary_metric": "Cosine and relative norm difference between the four-record equal-weight aggregate existing training-window HT gradient and the exact full-rollout BPTT gradient, with preregistered classification thresholds and reversible train-only line-search checks.",
+  "data": {
+    "split": "train",
+    "role": "fit",
+    "record_count_run": 4,
+    "record_count_smoke": 1,
+    "family_order": [
+      "uniform",
+      "layered",
+      "anomaly",
+      "marmousi"
+    ],
+    "selection_rule": "Within each family, select the r3 role=fit record with minimum (source_index, sample_id), independent of all performance values.",
+    "selection_digest_correction_note": "The initial data-audit digest b365de4d94f3526570c312e143f791887404834d5b58d545284c37a3622da2f7 was computed from a six-field projection that omitted cache_position. Recalculation established e22704d9c8627b03572945a6aeee7ddfb3d0ebd6de60ee7a923f75ba85ce5464 as the authoritative digest of the complete seven-field records. Both are retained, with the six-field value explicitly non-authoritative, to preserve audit provenance.",
+    "authoritative_seven_field_records_sha256": "e22704d9c8627b03572945a6aeee7ddfb3d0ebd6de60ee7a923f75ba85ce5464",
+    "non_authoritative_six_field_compatibility_sha256": "b365de4d94f3526570c312e143f791887404834d5b58d545284c37a3622da2f7",
+    "canonical_serialization": "UTF-8; json.dumps(sort_keys=True,separators=(',',':'),ensure_ascii=False,allow_nan=False); no trailing newline",
+    "future_truth_access": "Only exact future truth for the four selected train/fit records is permitted. Smoke reads only the first selected train/fit record. No validation or test_id future wavefield may be opened.",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "model": {
+    "class": "ParentAnchoredBlockCorrector",
+    "checkpoint_epoch": 12,
+    "checkpoint_update": 816,
+    "block_size": 32,
+    "condition_channels": 9,
+    "width": 32,
+    "spectral_rank": 16,
+    "modes": 16,
+    "depth": 4,
+    "maximum_correction_ratio": 0.5,
+    "boundary_blend_frames": 4,
+    "hard_free_surface": true,
+    "requires_grad_tensor_count": 62,
+    "requires_grad_scalar_count": 91396,
+    "gradient_flatten_order": "model.named_parameters() declaration order, filtered by requires_grad=True",
+    "gradient_flatten_device": "cpu",
+    "gradient_flatten_dtype": "float64",
+    "allow_unused": true,
+    "none_gradient_policy": "Any None gradient is unexpected and makes the audit invalid. No missing gradient is silently accepted, although the implementation would otherwise represent it as zero."
+  },
+  "diagnostic": {
+    "future_slice": "2:401",
+    "future_frame_count": 399,
+    "starts": [
+      2,
+      34,
+      66,
+      98,
+      130,
+      162,
+      194,
+      226,
+      258,
+      290,
+      322,
+      354,
+      386
+    ],
+    "window_lengths": [
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      64,
+      47,
+      15
+    ],
+    "rollout_blocks": 2,
+    "layer_a": "One complete model.rollout with full-main objective and full BPTT over all 399 future frames.",
+    "layer_b": "On the exact Layer-A rollout graph, enumerate all 13 registered windows and average their HT main objectives.",
+    "layer_c": "For each registered start, call the unchanged training_window with one detached pushforward warm-start when start>2 and up to two supervised free-running blocks; average all 13 HT gradients.",
+    "full_frame_weights": "399 ones",
+    "full_delta_weights": "398 ones",
+    "complete_record_energies": true,
+    "component_weights": {
+      "main": 1.0,
+      "derivative": 0.01,
+      "spectral": 0.02,
+      "nonworse": 0.3,
+      "correction": 0.01
+    },
+    "spectral_floor_fraction": 0.005,
+    "spectral_estimator_scope": "The local spectral estimator is exactly the existing record_energy_squared_loss implementation. It is not an unbiased estimator of the full-trajectory spectral objective.",
+    "aggregation": "All 13 starts are averaged equally within each record. All four selected records are averaged equally for run aggregates; no family or energy reweighting is permitted.",
+    "sampling_cv_formula": "sqrt(mean_s ||g_s-gbar||^2) / max(||gbar||,1e-12), using Layer-C HT-total gradients",
+    "window_to_own_ht_cosine": "Each Layer-C HT-total window gradient versus that record's 13-start mean HT-total gradient.",
+    "clip_diagnostic": {
+      "threshold": 1.0,
+      "rule": "Report count, fraction, norm p50, norm p95, norm max, and implied clipping scales for all 52 run windows. Do not actually clip gradients."
+    }
+  },
+  "algebra_and_integrity_gates": {
+    "sqrt_full_main_vs_relative_rows": {
+      "rtol": 1e-05,
+      "atol": 1e-06
+    },
+    "layer_a_vs_layer_b": {
+      "cosine_min_inclusive": 0.999999,
+      "relative_norm_difference_max_inclusive": 1e-05,
+      "loss_relative_difference_max_inclusive": 1e-06
+    },
+    "ht_inclusion_mean_absolute_error_max_inclusive": 1e-06,
+    "smoke_repeat_same_start": {
+      "cosine_min_inclusive": 0.999999,
+      "relative_norm_difference_max_inclusive": 1e-05
+    },
+    "required_shapes": {
+      "full_parent_target": [
+        1,
+        401,
+        201,
+        201
+      ],
+      "last_start": 386,
+      "last_window_frames": 15
+    },
+    "required_finite": [
+      "inputs",
+      "energies",
+      "objectives",
+      "all flattened gradients",
+      "line-search metrics"
+    ],
+    "rollback": "Before every line-search point and after it, restore and torch.equal-verify every parameter, buffer, existing gradient, CPU RNG state, and all CUDA RNG states. Repeat at terminal state."
+  },
+  "line_search": {
+    "run_only": true,
+    "directions": [
+      "negative_aggregate_training_window_ht_total",
+      "negative_aggregate_full_total",
+      "negative_aggregate_full_main"
+    ],
+    "parameterization": "theta(rho)=theta0-rho*||theta0||*g/max(||g||,1e-12)",
+    "rho_grid": [
+      0.0,
+      1e-06,
+      3e-06,
+      1e-05,
+      3e-05,
+      0.0001,
+      0.0003,
+      0.001
+    ],
+    "evaluation": "Four selected records, equal weight. Report exact full main, full composite, and per-record full main at every point.",
+    "selection_label": "oracle_diagnostic_best_rho",
+    "prohibitions": [
+      "No optimizer may be constructed.",
+      "No optimizer.step or training update may occur.",
+      "No parameterized point or model state may be saved."
+    ]
+  },
+  "classification": {
+    "multiple_flags_allowed": true,
+    "primary_priority": [
+      "invalid",
+      "target_or_auxiliary_mismatch",
+      "sampling_limited",
+      "tbptt_or_rollout_graph_limited",
+      "clip_limited",
+      "optimization_limited_supported",
+      "local_plateau_architecture_or_target_candidate",
+      "inconclusive"
+    ],
+    "invalid": "Any binding, role, group, start, shape, finite, inclusion, HT algebra, repeatability, or rollback gate failure.",
+    "target_or_auxiliary_mismatch": "cos(full_total,full_main)<0.80 OR (training-window-total direction oracle main improvement<0.001 AND full-main direction oracle main improvement>=0.01).",
+    "sampling_limited": "At least 3 of 4 per-record Layer-C HT-total sampling CV values are >1.0 OR the median across all 52 window-to-own-HT-total cosines is <0.50.",
+    "tbptt_or_rollout_graph_limited": "cos(aggregate training-window-HT-main,aggregate full-main)<0.80 OR the median of the four per-record corresponding cosines is <0.70.",
+    "clip_limited": "The fraction of the 52 Layer-C HT-total window gradient norms strictly >1.0 is >=0.25.",
+    "optimization_limited_supported": "Only if no preceding mismatch/limited flag is true, the training-window-total direction produces full-main improvement>=0.01, full composite relative change<=1e-8, and maximum per-record main regression<=0.01.",
+    "local_plateau_architecture_or_target_candidate": "The best full-main direction full-main improvement over the entire registered rho grid is <0.001.",
+    "inconclusive": "No earlier rule fires."
+  },
+  "budgets": {
+    "gpu_count": 1,
+    "gpu_model": "NVIDIA GeForce RTX 4090 D",
+    "smoke_wall_seconds_max": 300,
+    "run_wall_seconds_max": 1800,
+    "peak_allocated_bytes_max": 23622320128,
+    "peak_allocated_gib_max": 22,
+    "new_disk_bytes_max": 33554432,
+    "record_execution": "strictly serial"
+  },
+  "failure_signal": "Stop and classify invalid on any hash/path/schema/split/role/group/selection/start/shape/finite/inclusion/HT-algebra/repeatability/rollback drift, any unexpected None gradient, wall or memory budget violation, any input mutation, or any attempt to open validation/test_id. Preserve a failure-only atomic JSON report containing no model weights.",
+  "rollback": {
+    "source_checkpoint": "results/transfer_dg_parent_anchored_relenergy_r3_20260904/training_12epoch/best.pt",
+    "source_checkpoint_sha256": "40f1fde41f68b8b7893dba8c4aa8e6761db79989d132e3b2971a6677a5b539c5",
+    "parent_checkpoint": "results/transfer_dg_parent_anchored_block32_r2_20260904/parent_epoch24_step350_u16450.pt",
+    "parent_checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "policy": "The audit is read-only except for its JSON report. Never write a checkpoint or retain a line-search parameter state. Preserve all A3, B2-H, Helmholtz, ASAM, CPADC, r2, and r3 checkpoints."
+  },
+  "access": {
+    "permitted": [
+      "Frozen r3 corrector checkpoint",
+      "Frozen parent coefficient/public-conditioning cache",
+      "Four selected train/fit future wavefields",
+      "Train-only complete-record energies"
+    ],
+    "forbidden": [
+      "validation future truth",
+      "test_id future truth",
+      "validation-derived selection or thresholds",
+      "test_id-derived selection or thresholds",
+      "optimizer construction or optimizer.step",
+      "checkpoint/model-state output",
+      "training or adaptation"
+    ],
+    "promotion_authorized": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "environment": {
+    "seed": 372,
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121",
+    "torch_cuda": "12.1",
+    "cudnn": 8902,
+    "numpy": "1.26.3",
+    "h5py": "3.16.0",
+    "nvidia_driver": "580.76.05",
+    "strict_process_environment": {
+      "CUBLAS_WORKSPACE_CONFIG": ":4096:8",
+      "CUDA_VISIBLE_DEVICES": "0"
+    },
+    "determinism_requirements": [
+      "CUBLAS_WORKSPACE_CONFIG=:4096:8 must be present before process start",
+      "CUDA_VISIBLE_DEVICES=0 must be present before process start",
+      "torch.use_deterministic_algorithms(True)",
+      "torch.backends.cudnn.benchmark=False",
+      "torch.backends.cudnn.deterministic=True",
+      "torch.manual_seed(372)",
+      "torch.cuda.manual_seed_all(372)",
+      "numpy.random.seed(372)",
+      "No concurrent writer or GPU workload"
+    ]
+  },
+  "paths": {
+    "preregistration": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/preregistration.json",
+    "selection_manifest": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/selection_manifest.json",
+    "cache": "results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "checkpoint": "results/transfer_dg_parent_anchored_relenergy_r3_20260904/training_12epoch/best.pt",
+    "rollback_parent": "results/transfer_dg_parent_anchored_block32_r2_20260904/parent_epoch24_step350_u16450.pt",
+    "upstream_selection_manifest": "results/transfer_dg_coupled_mhc_muon_pilot_manifest_20260903.json",
+    "smoke_output": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report_attempt_003.json",
+    "run_output": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/report.json"
+  },
+  "exact_argv": {
+    "smoke": "CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 python scripts/audit_transfer_dg_r3_exact_gradient_sampling.py --smoke --preregistration results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/preregistration.json --selection-manifest results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/selection_manifest.json --cache results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5 --source-h5 /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --checkpoint results/transfer_dg_parent_anchored_relenergy_r3_20260904/training_12epoch/best.pt --output results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report_attempt_003.json",
+    "run": "CUBLAS_WORKSPACE_CONFIG=:4096:8 CUDA_VISIBLE_DEVICES=0 python scripts/audit_transfer_dg_r3_exact_gradient_sampling.py --run --preregistration results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/preregistration.json --selection-manifest results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/selection_manifest.json --cache results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5 --source-h5 /root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5 --checkpoint results/transfer_dg_parent_anchored_relenergy_r3_20260904/training_12epoch/best.pt --output results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/report.json"
+  },
+  "attempt_history": [
+    {
+      "attempt": 1,
+      "status": "failed_preflight",
+      "record_type": "retrospective_preflight_failure",
+      "path": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/attempt_001_failure.json",
+      "sha256": "53690fa70dec46825d7886d14b86d39350d40f165afd4e521a41f53dbbf1b6ba",
+      "diagnostic_entered": false,
+      "future_truth_opened": false
+    },
+    {
+      "attempt": 2,
+      "status": "failed_runtime_determinism_precondition",
+      "record_type": "atomic_runtime_failure",
+      "path": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report.json",
+      "sha256": "2998823fa32c8fe399f8b66417f3c62e9dfe7ae8a07869dbb5342dbd0be561b7",
+      "diagnostic_entered": true,
+      "future_truth_opened": false
+    },
+    {
+      "attempt": 3,
+      "status": "complete",
+      "mode": "smoke",
+      "record_count": 1,
+      "record_type": "atomic_runtime_success",
+      "path": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report_attempt_003.json",
+      "sha256": "2cbdc1895d59f567f93a9d92722bcbcebc3caa83c8a056f8f3cc9aff34886fb4",
+      "train_fit_future_truth_opened": true,
+      "validation_opened": false,
+      "test_id_opened": false,
+      "promotion_authorized": false,
+      "elapsed_seconds": 14.310674905776978,
+      "peak_allocated_bytes": 4511468544,
+      "gates": {
+        "ht_algebra": true,
+        "sqrt_full_main_vs_relative_rows": true,
+        "ht_inclusion": true,
+        "repeatability": true,
+        "rollback": true
+      },
+      "full_run_prerequisite": true
+    }
+  ],
+  "frozen_full_run_prerequisite": {
+    "path": "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report_attempt_003.json",
+    "sha256": "2cbdc1895d59f567f93a9d92722bcbcebc3caa83c8a056f8f3cc9aff34886fb4",
+    "status": "passed"
+  },
+  "bindings": {
+    "script_sha256": "0defb07d2fcbfa830c87e6c55dd4889fdfe50e2cd7da9e34d0b7020c3a20fba8",
+    "test_sha256": "ed5c1b000d80e30c41a2d52b0b204f4d78092e2af9369d1f3db5145087454965",
+    "selection_manifest_sha256": "bd6ffbf48caeaea871543e108ea4f01fd2c23fa21a57f51d7e0110216b25a735",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "checkpoint_sha256": "40f1fde41f68b8b7893dba8c4aa8e6761db79989d132e3b2971a6677a5b539c5",
+    "rollback_parent_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "upstream_selection_manifest_sha256": "1614c19ca30ebc12bd040a02b5ea042abf7143991adb5d9c9ca60f65afe1c89e",
+    "corrector_sha256": "701adc66c4eb3c2d3cab731487b1532b1eec2b9129fd4d64b925faba7a831c73",
+    "relative_loss_sha256": "60752f2c239d6e330da4eb5608bdaf3d6511b589e569f1ec578e4c0eef24d10b",
+    "training_window_sha256": "19df07b15f3d90cd860852db2d0e9beadeede44c6702c61eb2407d6b36f8fd85"
+  },
+  "allowed_files": [
+    "scripts/audit_transfer_dg_r3_exact_gradient_sampling.py",
+    "tests/test_transfer_dg_r3_exact_gradient_sampling.py",
+    "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/selection_manifest.json",
+    "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/preregistration.json",
+    "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/attempt_001_failure.json",
+    "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report.json",
+    "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/smoke_report_attempt_003.json",
+    "results/transfer_dg_r3_exact_gradient_sampling_audit_v1_20260904/report.json"
+  ],
+  "output_contract": {
+    "schema": "transfer_dg_r3_exact_gradient_sampling_audit_v1",
+    "atomic_json": true,
+    "checkpoint_extensions_forbidden": [
+      ".pt",
+      ".pth",
+      ".ckpt"
+    ],
+    "promotion_authorized": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "audit_note": "This file is a draft frozen preregistration awaiting independent experiment-auditor review. Its existence is not launch clearance.",
+  "promotion_authorized": false,
+  "validation_opened": false,
+  "test_id_opened": false
+}

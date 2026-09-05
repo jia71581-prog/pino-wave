@@ -1,0 +1,5 @@
+{
+  "status": "human_interrupted_at_ep23",
+  "reason": "underfit plateau: train_loss==eval==baseline (~0.1258-0.1262) from ep10; all 4 lanes identical shape; user ordered direct fix without completing 60ep",
+  "diagnosis": "correction decode path too weak: 1x1-conv decoder, no spatial receptive field, base_j never enters decode head directly (contrast: R25 CoarseResidualUNet sees coarse frame per-frame through a full conv head)"
+}

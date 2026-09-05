@@ -1,0 +1,140 @@
+{
+  "schema": "transfer_dg_parent_anchored_relenergy_r3_preregistration_v1",
+  "candidate": "transfer_dg_parent_anchored_relenergy_r3_20260904",
+  "claim_scope": "Loss-only train experiment on the frozen u16450 parent. Validation and test_id remain sealed.",
+  "hypothesis": "Replacing local-window relative L2 with an inverse-inclusion-weighted complete-record squared relative-energy objective will focus optimization on the exact full-401 joint metric, reduce low-energy-window gradient variance, and improve group-disjoint train-confirmation relative L2 by at least 5% without family regression.",
+  "expected_mechanism": "Each sampled two-block error receives a Horvitz-Thompson inclusion weight and is divided by the complete train-record future energy. The expected main loss equals complete future squared relative L2. Squared normalization removes the local sqrt singularity; derivative and spectral terms use complete-record energy floors and remain small auxiliaries.",
+  "one_variable_discipline": {
+    "changed": "training loss and its normalization only",
+    "unchanged": [
+      "ParentAnchoredBlockCorrector architecture and zero initialization",
+      "u16450 frozen parent predictions",
+      "68 fit, 34 calibration, 34 confirmation records and group boundaries",
+      "seed 372",
+      "AdamW optimizer, learning rate, weight decay, scheduler, and gradient clipping",
+      "two supervised blocks and one detached pushforward block",
+      "12 epochs and CPU evaluation protocol"
+    ]
+  },
+  "literature_basis": [
+    "https://arxiv.org/abs/2010.08895",
+    "https://openreview.net/pdf/86093185c7d5d659763e209b2bc01674bc53ba93.pdf",
+    "https://arxiv.org/abs/2605.08170"
+  ],
+  "parent": {
+    "checkpoint": "results/transfer_dg_parent_anchored_block32_r2_20260904/parent_epoch24_step350_u16450.pt",
+    "checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e",
+    "epoch": 24,
+    "next_step": 350,
+    "update": 16450,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "baseline": {
+    "candidate": "transfer_dg_parent_anchored_block32_r2_20260904",
+    "terminal": "results/transfer_dg_parent_anchored_block32_r2_20260904/training_12epoch/terminal.json",
+    "best_checkpoint_sha256": "df23c599fdba24ed450d11c94204b0e7b9fac05cf18d3d1ec8f9f895cf3c7cce",
+    "confirmation_parent_mean": 0.44471017557778464,
+    "confirmation_candidate_mean": 0.43904210953295797,
+    "confirmation_improvement_fraction": 0.012745528112691584,
+    "family_nonworse": false,
+    "oracle_record_gain_fraction": 0.020261816522335052,
+    "oracle_block_gain_fraction": 0.022347802644394177,
+    "disposition": "rejected"
+  },
+  "data": {
+    "split": "train",
+    "cache": "results/transfer_dg_parent_anchored_block32_r2_20260904/cache_full_136rec.h5",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "record_count": 136,
+    "role_counts": {
+      "fit": 68,
+      "calibration": 34,
+      "confirmation": 34
+    },
+    "cross_role_group_overlap_count": 0,
+    "family_counts": {
+      "uniform": 32,
+      "layered": 32,
+      "anomaly": 32,
+      "marmousi": 40
+    },
+    "future_truth_scope": "Exact future truth is read only for offline train loss and after prediction for train-only metrics.",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "model": {
+    "class": "ParentAnchoredBlockCorrector",
+    "block_size": 32,
+    "condition_channels": 9,
+    "width": 32,
+    "spectral_rank": 16,
+    "modes": 16,
+    "depth": 4,
+    "parameter_count": 91396,
+    "maximum_correction_ratio": 0.5,
+    "boundary_blend_frames": 4,
+    "zero_initialized_output": true,
+    "hard_free_surface": true,
+    "full_trajectory_corrector_calls": 13
+  },
+  "training": {
+    "loss_variant": "record_energy_squared_v1",
+    "main_loss": "unbiased complete-future squared relative L2",
+    "seed": 372,
+    "epochs": 12,
+    "learning_rate": 0.0003,
+    "weight_decay": 0.000001,
+    "eta_ratio": 0.01,
+    "gradient_clip_norm": 1.0,
+    "rollout_blocks": 2,
+    "detached_pushforward_blocks": 1,
+    "derivative_weight": 0.01,
+    "spectral_weight": 0.02,
+    "nonworse_weight": 0.3,
+    "correction_weight": 0.01,
+    "spectral_floor_fraction": 0.005,
+    "evaluation_device": "cpu",
+    "cpu_inference_threads": 16,
+    "validation_during_training": false,
+    "test_id_during_training": false
+  },
+  "acceptance": {
+    "primary_metric": "34-record group-disjoint train-confirmation exact full-401 future relative L2",
+    "minimum_confirmation_improvement_fraction": 0.05,
+    "maximum_family_regression_ratio": 1.0,
+    "validation_or_test_id_promotion": false
+  },
+  "smoke": {
+    "max_updates": 1,
+    "required_finite_complete_record_energies": true,
+    "required_finite_loss": true,
+    "required_finite_gradient": true,
+    "required_checkpoint": true,
+    "required_validation_closed": true,
+    "required_test_id_closed": true
+  },
+  "compute_budget": {
+    "gpu_count": 1,
+    "wall_seconds_max": 3600,
+    "new_disk_bytes_max": 1073741824
+  },
+  "failure_signal": "Stop on binding drift, non-finite record energy/loss/gradient, correction-cap violation, OOM, missing checkpoint, less than 5% confirmation gain, family regression, or any validation/test_id access.",
+  "rollback": "Preserve the u16450 parent, r2 cache, r2 checkpoints, and all protected checkpoint families. If rejected, resume parent pretraining rather than tuning r3 on confirmation.",
+  "bindings": {
+    "trainer_sha256": "19df07b15f3d90cd860852db2d0e9beadeede44c6702c61eb2407d6b36f8fd85",
+    "relative_loss_sha256": "60752f2c239d6e330da4eb5608bdaf3d6511b589e569f1ec578e4c0eef24d10b",
+    "corrector_sha256": "701adc66c4eb3c2d3cab731487b1532b1eec2b9129fd4d64b925faba7a831c73",
+    "cache_sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "parent_checkpoint_sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e"
+  },
+  "allowed_files": [
+    "saved_time_phase_operator_v4/parent_anchored_relative_loss.py",
+    "scripts/train_transfer_dg_parent_anchored_block32.py",
+    "tests/saved_time_phase_operator_v4/test_parent_anchored_block.py",
+    "results/transfer_dg_parent_anchored_relenergy_r3_20260904/*"
+  ],
+  "validation_opened": false,
+  "test_id_opened": false
+}

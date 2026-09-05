@@ -1,0 +1,37 @@
+{
+  "schema": "acoustic_train_only_capacity_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "parent_correction_scale_oracle_r4_train6",
+  "date_utc": "2026-08-25",
+  "hypothesis": "A single per-instance multiplier on the frozen parent's learned correction branch has at least 1 percent mean train-only oracle improvement capacity, motivating a future-truth-free PDE/PML selector.",
+  "diagnostic_scope": "offline train future truth; capacity only; multiplier is not deployable",
+  "direction": "parent_prediction_minus_coarse_prediction",
+  "effective_correction_scale_range": [0.0, 2.0],
+  "grid_steps": 81,
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "data": {
+    "split": "train",
+    "per_family": 2,
+    "selection_seed": 30372,
+    "sample_ids": [
+      "train_uniform_00057", "train_layered_00767", "train_marmousi_00609",
+      "train_uniform_00350", "train_layered_00996", "train_marmousi_00054"
+    ],
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "mean future relative-L2 improvement at the oracle multiplier",
+  "acceptance": {
+    "minimum_mean_oracle_improvement": 0.01,
+    "minimum_each_family_mean_oracle_improvement": 0.005,
+    "minimum_records_with_nonzero_best_multiplier": 3
+  },
+  "failure_signal": "Insufficient oracle capacity rejects amplitude-only instance tuning and prioritizes time/phase deformation.",
+  "bindings": {
+    "script_sha256": "1ccb8fe15c9a2e64dc3d6d5b13780cc2e609cd029068bd78cac11035bd4a490c",
+    "config_sha256": "1128a54355c713dcc7d323a10617bede3876233eb7fc15f5e12f46d79c1a8ad4",
+    "oracle_tests": "5 scalar-oracle tests passed"
+  },
+  "output": "results/parent_correction_scale_oracle_r4_train6_20260825.json",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0 python scripts/probe_parent_correction_scale_oracle.py --config <r4-adaptation-config> --output <result> --per-family 2 --seed 30372 --minimum-multiplier -1 --maximum-multiplier 1 --steps 81"
+}

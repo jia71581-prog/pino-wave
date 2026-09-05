@@ -1,0 +1,140 @@
+{
+  "schema": "transfer_dg_flux_pretrain_fast_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-09-02T07:30:17Z",
+  "method": "Transfer DG",
+  "stage": "pretrain_DG_flux_v1",
+  "claim_scope": "train_only_paired_pretraining_architecture_pilot_with_measured_checkpointing_optimization",
+  "parent_preregistration": "results/transfer_dg_flux_pretrain_preregistration_20260902.json",
+  "parent_preregistration_sha256": "abb39521119b0a9c59ab1a3bff1752a39e6d5e62d2d41ec908ca1f408ee43a61",
+  "hypothesis": "A zero-gated conservative velocity-interface face-flux block improves the paired two-seed weighted three-window relative L2 beyond ordinary continuation.",
+  "conceptual_variable": {
+    "dg_flux": {
+      "dg_interface_rank": 16,
+      "parameters": 483048
+    },
+    "control": {
+      "dg_interface_rank": 0,
+      "parameters": 480967
+    },
+    "shared": {
+      "hard_free_surface": true,
+      "boundary_halo_radius": 0,
+      "dg_cpml_margin": 20,
+      "outer_time_checkpointing": true,
+      "inner_spectral_checkpointing": false
+    }
+  },
+  "throughput_selection": {
+    "selection_data": "one train-fit layered/Marmousi batch; no validation/test data",
+    "micro4_nested": {
+      "seconds_per_update": 3.0393912959843874,
+      "records_per_second": 1.3160529890589472,
+      "peak_allocated_mib": 16056.3
+    },
+    "micro4_outer_only": {
+      "seconds_per_update": 2.5236404923101268,
+      "records_per_second": 1.5850118161396363,
+      "peak_allocated_mib": 16728.7
+    },
+    "micro5_outer_only": {
+      "seconds_per_update": 3.2572262659668922,
+      "records_per_second": 1.5350484098211008,
+      "peak_allocated_mib": 21003.7
+    },
+    "micro6_nested": "OOM at approximately 22.71 GiB allocated plus a failed 60 MiB allocation",
+    "selected": "micro4_outer_only",
+    "measured_throughput_gain": 0.204371682184261
+  },
+  "lanes": [
+    {
+      "gpu": 0,
+      "arm": "dg_flux",
+      "seed": 372,
+      "parent": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt"
+    },
+    {
+      "gpu": 1,
+      "arm": "dg_flux",
+      "seed": 733,
+      "parent": "results/pa_cora_p1b_curriculum_s733_20260902/best.pt"
+    },
+    {
+      "gpu": 2,
+      "arm": "control",
+      "seed": 372,
+      "parent": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt"
+    },
+    {
+      "gpu": 3,
+      "arm": "control",
+      "seed": 733,
+      "parent": "results/pa_cora_p1b_curriculum_s733_20260902/best.pt"
+    }
+  ],
+  "hyperparameters": {
+    "epochs": 8,
+    "steps_per_epoch": 120,
+    "records_per_epoch": 480,
+    "micro_records": 4,
+    "learning_rate": 0.00005,
+    "schedule": "cosine_to_5e-7",
+    "weight_decay": 0.000001,
+    "gradient_clip": 1.0,
+    "slot_weights": [
+      0.6,
+      0.25,
+      0.15
+    ],
+    "denominator_floor_fraction": 0.25,
+    "spectral_weight": 0.1
+  },
+  "primary_metric": "two-seed mean of 0.60*slot0 aggregate + 0.25*slot1 aggregate + 0.15*slot2 aggregate on the aligned group-disjoint train holdout",
+  "primary_gate": "DG-flux mean best score must be strictly below both paired control and hard-boundary parent means; no minimum percentage",
+  "failure_signal": "no strict paired improvement, inactive heterogeneous DG gate, nonfinite/OOM, binding drift, or sealed-split violation",
+  "bindings": {
+    "trainer_sha256": "1c44645236e563c776ad14ee075f397cdae0d157583bc7074ea753dafbc5aae0",
+    "runner_sha256": "8283f885e052269edb32b9bd24048f395f84c45fbbcb1a3a2cf59c2cca3f80e2",
+    "summarizer_sha256": "f775af08fac013d612ca39d23575ebddd2ea7d4b3d189eddb2b2e3917dc178c1",
+    "code_sha256": {
+      "scripts/train_pa_cora_p1b_curriculum.py": "f6b5a3a7488b0213c9caae688061c35006af2427bb7ef82f3dd25592ec46f9ab",
+      "scripts/train_b2_snapshot_ic.py": "900d38dc14a7916ebdc14977a19dfbaf139ed40b0ec7f4fc43d346636546f2b6",
+      "saved_time_phase_operator_v4/dg_interface.py": "952800aa76eaf6ce8a671820253e7fdda0946c47a802478de7884d5c395f932f",
+      "saved_time_phase_operator_v4/propagator.py": "bb78eb2f90dfdfd7da63911645cc5beca8f15f550708a14e6f6e6964df6032b9",
+      "saved_time_phase_operator_v4/spectral.py": "d24f1b7ebc292e1458fa6a21c8674eb522287d8d646041ce5f207ba69c3f9dff",
+      "saved_time_phase_operator_v4/boundary_consistency.py": "5ad2be0aa161d48739ec1259c83ac3674c43828ba09bc4e33a29948c27d520d4"
+    },
+    "test_sha256": {
+      "tests/saved_time_phase_operator_v4/test_dg_interface.py": "48da202a06f048c36e9631f4399e5db4f8fe45394d08f1ed23c68a7d812ba29f",
+      "tests/saved_time_phase_operator_v4/test_propagator.py": "0b1d98ad478f8875c55fd7a2916ef631bceddfbb61361bc028955727d719427d",
+      "tests/saved_time_phase_operator_v4/test_transfer_dg_flux_pretrain.py": "d2c6f36dabfe7dd03394e7042a2ade2f0b7fc82431ec8d163f366f412308f9a3"
+    },
+    "checkpoint_sha256": {
+      "results/pa_cora_p1b_curriculum_s372_20260902/best.pt": "5d14b93cffc1324406b531b6b2d4a7eea06d9aab57537bb7f4612fea302808d3",
+      "results/pa_cora_p1b_curriculum_s733_20260902/best.pt": "f8bdf647570b22896d24ca3b59161ab0bbc44f369a86a7382a373905c263ceee"
+    },
+    "fit_manifest_sha256": {
+      "results/b2_v9_parent_fit_manifest_240rec_20260901.json": "36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667",
+      "results/pa_cora_p1_fit_slot1.json": "519e0e3a833f99015ab98fc422cb5bdaa22adc374148eebc0335b39f74acef51",
+      "results/pa_cora_p1_fit_slot2.json": "edbda3411d464f830f15f1a15a9b479265e84d9de21df0a9d483985749e14945"
+    },
+    "fit_cache_sha256": {
+      "results/b2_v9_parent_fit_cache_240rec_20260901.h5": "9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171",
+      "results/pa_cora_p1_fit_slot1.h5": "55eb46945f9bbd9eb9148f24b820e7450fd97f1e2d9c5ca8ef28ff5dab823448",
+      "results/pa_cora_p1_fit_slot2.h5": "70fb628fa0e93c353da5907620388ec0c13ae511ba78a77ab51d34d4a617f916"
+    },
+    "holdout_manifest_sha256": {
+      "results/b2_v9_parent_holdout_manifest_24rec_20260901.json": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa"
+    },
+    "holdout_cache_sha256": {
+      "results/b2_v9_parent_holdout_cache_24rec_20260901.h5": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+      "results/pa_cora_p1_holdout_slot1.h5": "3e03f8cc8368490e578b632e63adf6209ee5317866f2bb5a1373be9f25590e3f",
+      "results/pa_cora_p1_holdout_slot2.h5": "c01cd1edcd73041bfc7ff34b648a59c10cfd17a55f6b222be74a36819ce70aed"
+    }
+  },
+  "rollback": "Preserve P1b and both superseded Transfer DG attempts; reject DG flux if the paired gate fails.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

@@ -1,0 +1,192 @@
+{
+  "bindings": {
+    "frozen_config": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml",
+    "frozen_config_sha256": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+    "implementation": {
+      "saved_time_phase_operator_v4/dg_interface.py": "f21861978995b6e87a58f7ecc834910cb352a78ed27ea296a15b745906fca509",
+      "saved_time_phase_operator_v4/exterior_cpml.py": "8ef983c4cbc61861e22fb1aa9544bf7f7ae5924530bbcbb246c85787ed276697",
+      "scripts/build_transfer_dg_exterior_cpml_pilot.py": "f04838930a8853294eb8f87d2af0f727e7a012ce9af49ec0172c2dc4ce7d2c65",
+      "src/fno_acoustic/data_generation/solver_lwc84.py": "76ba84ce775cab0e75dd26da325a774f5a4cb331b254889b808c7bb2546e6022"
+    },
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "preregistration": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_exterior_cpml_e0_preregistration_20260902.json",
+    "preregistration_sha256": "8881c10807383a8ebb02e2ff4bd83ea8a4000a1658beda8b40c5dbd66717754c",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "cache": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_exterior_cpml_e0_20260902.h5",
+  "cache_sha256": "60b53b7710633eba923d98afb32d3c002237408724f946eb4c58365a2f1b5be3",
+  "claim_scope": "train-only exterior CPML numerical contract",
+  "contract": {
+    "bottom": "cpml",
+    "cpml_layers": 20,
+    "cpml_outside_physical_domain": true,
+    "extended_shape_zx": [
+      221,
+      241
+    ],
+    "internal_dt_s": 0.000125,
+    "internal_substeps_per_saved_frame": 20,
+    "kappa_max": 3.0,
+    "left": "cpml",
+    "minimum_frequency_hz": 8.0,
+    "physical_nx": 201,
+    "physical_nz": 201,
+    "physical_shape_zx": [
+      201,
+      201
+    ],
+    "physical_slice_zx": [
+      [
+        0,
+        201
+      ],
+      [
+        20,
+        221
+      ]
+    ],
+    "physical_thickness_m": 200.0,
+    "polynomial_order": 3,
+    "right": "cpml",
+    "saved_dt_s": 0.0025,
+    "spacing_m": 10.0,
+    "target_reflection": 1e-08,
+    "top": "free_surface_dirichlet"
+  },
+  "decision": "accepted_e0",
+  "gates": {
+    "all_arrays_finite": true,
+    "free_top_three_absorbing_sides": true,
+    "geometry_221x241": true,
+    "late_cpml_memory_nonzero": true,
+    "outer_pressure_exactly_zero": true,
+    "physical_replay_relative_l2_lte_1e_4": true,
+    "profile_sampling_lte_1e_6": true,
+    "saved_cpml_layers_20": true,
+    "test_id_not_opened": true,
+    "top_pressure_exactly_zero": true,
+    "validation_not_opened": true
+  },
+  "metrics": {
+    "cpml_pressure_max_by_frame": [
+      0.0,
+      8.32027224895171e-10,
+      1.823150852509059e-09,
+      1.3703317369717638e-09,
+      1.143108607770671e-09,
+      1.059799359381941e-09,
+      9.206885809298626e-10,
+      7.58416062156958e-13,
+      2.419579835967467e-13
+    ],
+    "late_cpml_memory_max_abs": 5.32709354330186e-15,
+    "maximum_profile_sampling_error": 0.0,
+    "memory_max_by_frame": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        3.7207341157738383e-13,
+        0.0,
+        2.3581597151335273e-14,
+        0.0
+      ],
+      [
+        1.7535502563892358e-11,
+        0.0,
+        3.110564106637015e-13,
+        0.0
+      ],
+      [
+        1.057172058227529e-11,
+        0.0,
+        1.1834432630912495e-13,
+        0.0
+      ],
+      [
+        7.594103297592358e-12,
+        1.6344251383677617e-18,
+        6.247006221777457e-14,
+        2.028385673226568e-19
+      ],
+      [
+        1.2220848465138712e-11,
+        1.1234046679020615e-11,
+        3.0927132599681273e-13,
+        3.3453030926985927e-13
+      ],
+      [
+        9.583394841583548e-12,
+        1.0140653074197647e-11,
+        2.1107543339039803e-13,
+        2.802736070572215e-13
+      ],
+      [
+        1.6264321771428288e-14,
+        2.1205415624402785e-14,
+        3.014373537957566e-17,
+        5.058709062851746e-17
+      ],
+      [
+        4.028353171869892e-15,
+        5.32709354330186e-15,
+        7.154528309071227e-18,
+        6.253950306405144e-18
+      ]
+    ],
+    "outer_pressure_max_abs": 0.0,
+    "physical_crop_from_extended_relative_l2": 0.00659562734948815,
+    "physical_replay_relative_l2": 1.5564564679966894e-05,
+    "profile_sampling_errors": {
+      "a_x": 0.0,
+      "a_z": 0.0,
+      "active_x": 0.0,
+      "active_z": 0.0,
+      "alpha_x": 0.0,
+      "alpha_z": 0.0,
+      "b_x": 0.0,
+      "b_z": 0.0,
+      "inv_kappa_x": 0.0,
+      "inv_kappa_z": 0.0,
+      "kappa_x": 0.0,
+      "kappa_z": 0.0,
+      "sigma_x": 0.0,
+      "sigma_z": 0.0
+    },
+    "solver_compute_elapsed_s": 17.022001054137945,
+    "top_pressure_max_abs": 0.0
+  },
+  "record": {
+    "family": "uniform",
+    "frame_indices": [
+      0,
+      40,
+      80,
+      120,
+      160,
+      200,
+      240,
+      320,
+      400
+    ],
+    "sample_id": "train_uniform_00006",
+    "sample_sha256": "e0ba82bed81796ac638fa1b7bfa2bc282a840dcd256fe589edb1dcaeaa4409f3",
+    "source_index": 6,
+    "source_parameters": {
+      "source_amplitude": 1.0,
+      "source_f0_hz": 24.951902864234984,
+      "source_t0_s": 0.06011565563402531,
+      "source_x_m": 278.57828396265563,
+      "source_z_m": 156.46563897783602
+    },
+    "split": "train"
+  },
+  "schema": "transfer_dg_exterior_cpml_e0_result_v1",
+  "status": "accepted",
+  "test_id_opened": false,
+  "validation_opened": false
+}

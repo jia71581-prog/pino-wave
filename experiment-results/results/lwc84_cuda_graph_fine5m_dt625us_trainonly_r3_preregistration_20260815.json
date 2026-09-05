@@ -1,0 +1,33 @@
+{
+  "schema": "lwc84_cuda_graph_fine_grid_trainonly_preregistration_v1",
+  "status": "frozen_before_launch",
+  "hypothesis": "Restoring the teacher's exact 5 m internal grid while increasing only the fourth-order LWC84 time step from 0.000125 s to 0.000625 s will achieve raw relative L2 no greater than 0.05 on the hardest approximately 30 Hz train/Marmousi record, while CUDA Graph replay keeps end-to-end compute below 2.034137312322855 s.",
+  "mechanism": "The 5 m grid preserves the spatial phase information lost by a 10 m saved-grid solve; fourth-order time stepping permits five-fold fewer steps, and CUDA Graph removes per-step Python dispatch without changing arithmetic.",
+  "selection_scope": "train_only",
+  "validation_access": false,
+  "test_id_access": false,
+  "sample_id": "train_marmousi_00193",
+  "source_index": 2293,
+  "source_f0_hz": 29.99536220938785,
+  "single_conceptual_change": "teacher internal dt 0.000125 s to 0.000625 s; fine spatial grid, source, CPML, LWC84 stencil, output times, and restriction remain frozen",
+  "promotion_gate": {
+    "maximum_raw_relative_l2": 0.05,
+    "maximum_runtime_s": 2.034137312322855
+  },
+  "failure_signal": "Either gate failure rejects this candidate before broader train-only or frozen holdout evaluation.",
+  "compute_budget": "One high-frequency train/Marmousi record and one warmed CUDA-graph solve on one RTX 4090 D.",
+  "parent_checkpoint": null,
+  "rollback": "Preserve the standard fine-grid teacher and all neural checkpoints; CUDA graphs remain opt-in.",
+  "velocity_reconstruction_audit": {
+    "prepared_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "raw_sha256": "f4302792e84bb7ddbdc9d4d0f963b9df32d9f648960084884127e186119b99dd",
+    "prepared_transform": "transpose_only_no_geological_interpolation",
+    "stored_restriction_max_absolute_difference": 0.0
+  },
+  "bindings": {
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c"
+  },
+  "output": "results/lwc84_cuda_graph_fine5m_dt625us_trainonly_r3_20260815.json"
+}

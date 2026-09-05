@@ -1,0 +1,213 @@
+{
+  "bindings": {
+    "background_cache": [
+      "/root/autodl-tmp/data/jiayh/data/phase4b_update0265_vs_pi_train_r35_20260816/background_smoke_record146.h5",
+      "/root/autodl-tmp/data/jiayh/data/phase4b_update0265_vs_pi_train_r35_20260816/background_remaining_five.h5"
+    ],
+    "background_cache_sha256": {
+      "/root/autodl-tmp/data/jiayh/data/phase4b_update0265_vs_pi_train_r35_20260816/background_remaining_five.h5": "e58f7b0e08578a7d0c78c3d11cabae5b0f9f950a2b16b3fa188752c918708157",
+      "/root/autodl-tmp/data/jiayh/data/phase4b_update0265_vs_pi_train_r35_20260816/background_smoke_record146.h5": "baa4a171ec57e8e9e59305a1e07172d7e07271400aae2f3fc191be56e2c99c99"
+    },
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+    "checkpoint_manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+    "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+    "evaluation_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "evaluation_script_sha256": "462b5964c90f7ef1fefc5e4170dabfc34ba788b67697c3de44bc194cbad22e4a",
+    "normalization_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "registered_comparison": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r5b_feature_meta_vs_pi_train_all401_r34_result_20260816.json",
+    "registered_comparison_sha256": "22f9a22cd105995415ec66dcbb15a86bf3dc9c12108f1f1790a67c4667fc2a8b",
+    "run_identity_sha256": "f6ca1d2f30f051946d05fa3ce72f6467536c4a60a663b7d582e1fd57b31fbc4d",
+    "strict_state_dict_match": true,
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069"
+  },
+  "elapsed_s": 42.85156945325434,
+  "method_identity": {
+    "baseline": "full_training_set_pi_deeponet",
+    "external_numerical_background_required": true,
+    "instance_adaptation_applied": false,
+    "ours": "archived_phase4b_update0265_with_sigma2_lwc84_background"
+  },
+  "metrics": {
+    "phase4b_parent": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.089037892237771,
+          "squared_error": 8.589330306813248e-14,
+          "truth_squared_norm": 1.0834517189954743e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.22045239774540237,
+          "squared_error": 1.8039382760360218e-12,
+          "truth_squared_norm": 3.71186369550108e-11
+        },
+        "uniform": {
+          "relative_l2": 1.9523249948202495e-06,
+          "squared_error": 9.749962132099315e-24,
+          "truth_squared_norm": 2.557989162281599e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.19342738099179518,
+        "squared_error": 1.8898315791139044e-12,
+        "truth_squared_norm": 5.0511143307247136e-11
+      },
+      "mean_record_relative_l2": 0.10599196605053145
+    },
+    "pi_deeponet": {
+      "by_family": {
+        "layered": {
+          "relative_l2": 0.49433636764763206,
+          "squared_error": 2.6476141113073694e-12,
+          "truth_squared_norm": 1.0834517189954743e-11
+        },
+        "marmousi": {
+          "relative_l2": 0.7561653507749599,
+          "squared_error": 2.1223918349798792e-11,
+          "truth_squared_norm": 3.71186369550108e-11
+        },
+        "uniform": {
+          "relative_l2": 0.5942052992955605,
+          "squared_error": 9.031746540836125e-13,
+          "truth_squared_norm": 2.557989162281599e-12
+        }
+      },
+      "global": {
+        "relative_l2": 0.7003427950683592,
+        "squared_error": 2.4774707115189775e-11,
+        "truth_squared_norm": 5.0511143307247136e-11
+      },
+      "mean_record_relative_l2": 0.6156354159371821
+    }
+  },
+  "protocol": {
+    "checkpoint_transfer_from_archived_to_repaired_manifest": true,
+    "family_count": {
+      "layered": 2,
+      "marmousi": 2,
+      "uniform": 2
+    },
+    "frames": "all saved frames strictly after the second guarded onset observation",
+    "physical_pressure_float64_energy_metric": true,
+    "prediction_hashed_before_future_truth_open": true,
+    "record_count": 6,
+    "same_future_time_indices_as_pi": true,
+    "same_records_as_pi": true,
+    "split": "train"
+  },
+  "records": [
+    {
+      "family": "uniform",
+      "future_frame_count": 391,
+      "future_truth_squared_norm": 7.504389534324139e-13,
+      "observed_indices": [
+        8,
+        9
+      ],
+      "phase4b_parent_relative_l2": 2.5704002258388738e-06,
+      "phase4b_parent_squared_error": 4.9581181373382615e-24,
+      "pi_deeponet_relative_l2": 0.6129334191177869,
+      "pi_deeponet_squared_error": 2.819304414668937e-13,
+      "prediction_sha256_before_truth_open": "492fcf6a55f64d59e7b89933264b056a395b1474e788d598dffd216f72825699",
+      "sample_id": "train_uniform_00146",
+      "snapshot_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_update0265_vs_pi_train_r35_20260816/snapshots/train_uniform_00146_t0240.npz",
+      "snapshot_sha256": "ed12d212389e9503290854c7d140f95e3466c671b9e461dc350bd45ef0d75a04",
+      "source_index": 146
+    },
+    {
+      "family": "uniform",
+      "future_frame_count": 390,
+      "future_truth_squared_norm": 1.807550208849185e-12,
+      "observed_indices": [
+        9,
+        10
+      ],
+      "phase4b_parent_relative_l2": 1.6281940016320582e-06,
+      "phase4b_parent_squared_error": 4.791843994761053e-24,
+      "pi_deeponet_relative_l2": 0.5862542352004831,
+      "pi_deeponet_squared_error": 6.212442126167188e-13,
+      "prediction_sha256_before_truth_open": "6c6796662b169596a7419dbeb7ac8d33254acf0aba010795a4dae964c8d1b72c",
+      "sample_id": "train_uniform_00165",
+      "snapshot_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_update0265_vs_pi_train_r35_20260816/snapshots/train_uniform_00165_t0240.npz",
+      "snapshot_sha256": "28543e2b28af0ff1d9a81fd4ed486ef67b3f9639b959d10ca8364d00265c9a21",
+      "source_index": 165
+    },
+    {
+      "family": "layered",
+      "future_frame_count": 377,
+      "future_truth_squared_norm": 7.257082099534631e-12,
+      "observed_indices": [
+        22,
+        23
+      ],
+      "phase4b_parent_relative_l2": 0.0855850346885238,
+      "phase4b_parent_squared_error": 5.3156661628768576e-14,
+      "pi_deeponet_relative_l2": 0.4907325096460184,
+      "pi_deeponet_squared_error": 1.7476388710206352e-12,
+      "prediction_sha256_before_truth_open": "714e935da0022c2a0c828e503459ae4d3b336cd2e41e25d451eaaf9a75781696",
+      "sample_id": "train_layered_00109",
+      "snapshot_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_update0265_vs_pi_train_r35_20260816/snapshots/train_layered_00109_t0240.npz",
+      "snapshot_sha256": "5ada098503fe28a07f3d8d649a8dbd9d043ae676690bb3e268bb436136639079",
+      "source_index": 529
+    },
+    {
+      "family": "layered",
+      "future_frame_count": 382,
+      "future_truth_squared_norm": 3.5774350904201113e-12,
+      "observed_indices": [
+        17,
+        18
+      ],
+      "phase4b_parent_relative_l2": 0.09566017687167866,
+      "phase4b_parent_squared_error": 3.273664143936391e-14,
+      "pi_deeponet_relative_l2": 0.5015675134363113,
+      "pi_deeponet_squared_error": 8.999752402867342e-13,
+      "prediction_sha256_before_truth_open": "20b2016dd0aa8570101ef579a7c594267d798e120c623ca5b91a54c1b1546aa4",
+      "sample_id": "train_layered_00581",
+      "snapshot_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_update0265_vs_pi_train_r35_20260816/snapshots/train_layered_00581_t0240.npz",
+      "snapshot_sha256": "958a1a4737def5a50fc98d4a0dc84bde3c0fce4cbe4cde46a4f89f8db717123e",
+      "source_index": 1001
+    },
+    {
+      "family": "marmousi",
+      "future_frame_count": 390,
+      "future_truth_squared_norm": 2.31073285306107e-11,
+      "observed_indices": [
+        9,
+        10
+      ],
+      "phase4b_parent_relative_l2": 0.16781270745522248,
+      "phase4b_parent_squared_error": 6.507279000161797e-13,
+      "pi_deeponet_relative_l2": 0.770618007279797,
+      "pi_deeponet_squared_error": 1.3722335877013148e-11,
+      "prediction_sha256_before_truth_open": "e2e361b839d6b3d5734670738e75e3df76216958b5a5357b098e24f6a8edbfc7",
+      "sample_id": "train_marmousi_00107",
+      "snapshot_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_update0265_vs_pi_train_r35_20260816/snapshots/train_marmousi_00107_t0240.npz",
+      "snapshot_sha256": "410d16986d3220829493d0cc504aec5204cb2f198d4fe1abd49fa828747d896e",
+      "source_index": 2207
+    },
+    {
+      "family": "marmousi",
+      "future_frame_count": 391,
+      "future_truth_squared_norm": 1.4011308424400097e-11,
+      "observed_indices": [
+        8,
+        9
+      ],
+      "phase4b_parent_relative_l2": 0.2868896786935362,
+      "phase4b_parent_squared_error": 1.1532103760198421e-12,
+      "pi_deeponet_relative_l2": 0.7317068109426952,
+      "pi_deeponet_squared_error": 7.501582472785644e-12,
+      "prediction_sha256_before_truth_open": "bf46581f8a6ed34f47b9c02bf4113711b1d076e14eb717856853fa10192b505e",
+      "sample_id": "train_marmousi_00564",
+      "snapshot_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_update0265_vs_pi_train_r35_20260816/snapshots/train_marmousi_00564_t0240.npz",
+      "snapshot_sha256": "4e08364606ca8efa05568851a3b40f2dab5c99f9fd9766a2a09f41300d789c96",
+      "source_index": 2664
+    }
+  ],
+  "role": "same_record_development_evidence_not_validation_or_test_evidence",
+  "schema": "phase4b_update0265_vs_pi_train_worker_v1",
+  "shard_count": 1,
+  "shard_index": 0,
+  "status": "complete"
+}

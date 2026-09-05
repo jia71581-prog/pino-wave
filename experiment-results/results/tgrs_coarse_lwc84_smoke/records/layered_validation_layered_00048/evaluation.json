@@ -1,0 +1,116 @@
+{
+  "metrics": {
+    "aggregate_relative_l2": 0.004881067434261797,
+    "centroid_shift_cells": 0.055528502448915884,
+    "energy_floor_fraction": 0.01,
+    "family_relative_l2": {
+      "layered": 0.004881067434261797
+    },
+    "family_time_bin_relative_l2": {
+      "layered": {
+        "early": 0.003512906404977897,
+        "late": 0.012125610349663292,
+        "middle": 0.005579664132999406,
+        "pre_onset": 0.013250040098560767
+      }
+    },
+    "frame_count": 401,
+    "medium_relative_l2": {
+      "validation:layered:00012": 0.004881067434261797
+    },
+    "near_zero_frame_count": 41,
+    "phase_correlation": 0.9999411618375231,
+    "record_count": 1,
+    "rmse": 4.83235157791775e-12,
+    "source_relative_l2": {
+      "validation_layered_00048": 0.004881067434261797
+    },
+    "spectrum_relative_l2": {
+      "high": 0.13664061077368556,
+      "low": 0.003520128112701867,
+      "middle": 0.10015965453901075
+    },
+    "time_bin_relative_l2": {
+      "early": 0.003512906404977897,
+      "late": 0.012125610349663292,
+      "middle": 0.005579664132999406,
+      "pre_onset": 0.013250040098560767
+    },
+    "unique_time_index_count": 401,
+    "xcorr_peak_shift_cells": 0.0
+  },
+  "prediction_seal": {
+    "byte_count": 64805352,
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/tgrs_coarse_lwc84_smoke/predictions/validation_layered_00048.pt",
+    "sha256": "52eb7ef3d3c09f3e32a98a4b3141023ece8fd227b2cc32e859ce6b17f0052f23"
+  },
+  "prediction_sealed_monotonic_ns": 5013856741295743,
+  "receiver_indices": [
+    [
+      10,
+      5
+    ],
+    [
+      10,
+      28
+    ],
+    [
+      10,
+      52
+    ],
+    [
+      10,
+      76
+    ],
+    [
+      10,
+      100
+    ],
+    [
+      10,
+      123
+    ],
+    [
+      10,
+      147
+    ],
+    [
+      10,
+      171
+    ],
+    [
+      10,
+      195
+    ]
+  ],
+  "receiver_relative_l2": 0.0021832696725759006,
+  "record": {
+    "group_id": "validation:layered:00012",
+    "medium_type": "layered",
+    "sample_id": "validation_layered_00048",
+    "sample_sha256": "dc6708ed722b9adc88393258f731c583d17d0b4806768102d206db8257c67aec",
+    "source_index": 2938,
+    "split": "validation"
+  },
+  "solver_qc": {
+    "cfl_2d": 0.14779312030180428,
+    "dt_used_s": 0.00025,
+    "finite": true,
+    "lwc_qmax": 0.1420129127768167,
+    "qc_final_energy_ratio": 0.0010438484941707718,
+    "qc_max_abs": 2.934647191921158e-08,
+    "vmax_mps": 4180.220703125,
+    "vmin_mps": 3556.7060546875
+  },
+  "solver_runtime_seconds": 10.360078528523445,
+  "source": {
+    "source_amplitude": 1.0,
+    "source_f0_hz": 8.534493711440259,
+    "source_t0_s": 0.17575735019750385,
+    "source_x_m": 943.9217390512861,
+    "source_z_m": 180.98285516068415
+  },
+  "source_onset_index": 71,
+  "truth_opened_after_seal": true,
+  "truth_opened_monotonic_ns": 5013856900972699
+}

@@ -1,0 +1,30 @@
+{
+  "schema": "train_only_r33_pi_all401_resume_preregistration_v1",
+  "status": "registered_before_resume",
+  "date_utc": "2026-08-16",
+  "parent_preregistration": "results/r5b_feature_meta_vs_pi_train_all401_r34_preregistration_20260816.json",
+  "failed_attempt": {
+    "stage": "configuration_load_before_model_or_dataset_iteration",
+    "error": "KeyError: model",
+    "pi_predictions_generated": false,
+    "future_truth_opened": false,
+    "output_report_created": false
+  },
+  "single_change": "Use the PI evaluator's established optional model mapping, so an absent model block selects PatchDeepONetConfig defaults exactly as in the completed r15 evaluator.",
+  "unchanged_protocol": {
+    "split": "train",
+    "records": 6,
+    "same_future_windows": true,
+    "physical_pressure_float64_energy_metric": true,
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "r33_summary_sha256": "ea42d7370ac42533c58ae7cf86e554c7a0ead50f0e69cf0300565dbca01b0f97",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "bindings": {
+    "comparison_script_sha256": "9ad6f273216429096ffa99da99d39de233f8d928ad6cb46fb7897f625b7ad0cf",
+    "reference_evaluator": "scripts/audit_r5b_vs_pi_train_exact32.py",
+    "config_policy": "PatchDeepONetConfig(**pi_config.get('model', {}))"
+  },
+  "decision_rule": "Run the unchanged registered comparison once and archive every measured direction as train-only evidence."
+}

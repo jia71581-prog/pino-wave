@@ -1,0 +1,14 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb64_r17_lr2x_r19_continue1000",
+  "protocol_scope": "train_only_three_record_short_continuation",
+  "hypothesis": "A 2x learning-rate scale from the stable r17/2200 state will reach the remaining Marmousi margin faster without crossing the 0.05 easy-family gate.",
+  "single_conceptual_variable": {"name": "learning_rate_scale", "parent": 1.0, "candidate": 2.0},
+  "fixed": {"family_weights": {"uniform": 1.0, "layered": 1.0, "marmousi": 10.0}, "frequency_bins": 64, "free_surface_taper": false, "global_hard_causality": true},
+  "data_access": {"train": true, "validation": false, "test_id": false, "records": 3},
+  "deployment_contract": {"fine_grid_solver": false, "true_wavefield_input": false, "future_truth_input": false},
+  "parent": {"checkpoint": "results/wkb64_r13_marm83_no_surface_r17_continue3000_20260823/checkpoints/update_2200.pt", "checkpoint_sha256": "3dd9916a4bc15c9f480961a407aef77c98563766de9f3ad05d096efac3cb67f0", "identity": "results/wkb64_r13_marm83_no_surface_r17_continue3000_20260823/run_identity.json", "identity_sha256": "e4a51fbd1d00900e65d9cfb2e03a6890c411861baf8e9a1b3f30fe084be0f259"},
+  "training": {"updates": 1000, "evaluate_every": 100, "dense_lr": 2e-05, "backbone_lr": 1e-05, "local_field_lr": 2e-05, "seed": 372},
+  "acceptance": {"all_saved_aggregate_relative_l2_max": 0.05, "all_saved_each_family_relative_l2_max": 0.05},
+  "code": {"diagnostic_sha256": "cd689f9f4e6495ab1ec7bcf28eb28532dd62341011b59f4b43d613d301fa8115", "tests": "10 passed after local CLI edit"}
+}

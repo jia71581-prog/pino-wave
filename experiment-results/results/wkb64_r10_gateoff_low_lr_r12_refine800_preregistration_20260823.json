@@ -1,0 +1,25 @@
+{
+  "schema": "wkb64_gateoff_low_lr_refinement_preregistration_v1",
+  "status": "frozen_before_launch",
+  "experiment_id": "wkb64_r10_gateoff_low_lr_r12_refine800_20260823",
+  "hypothesis": "A tenfold lower global-coefficient learning rate can refine the already closed r10 coefficient field enough to bring aggregate, uniform, layered, and Marmousi all-saved train errors to 0.05 or lower without destabilizing phase.",
+  "expected_mechanism": "The parent already learns the dominant WKB field and disabling the gate exposes 0.073 all-saved error. Smaller steps continue the aligned global coefficient objective locally instead of the destructive one-step jump observed in r11.",
+  "single_conceptual_change_from_r11": "all learning rates are multiplied by 0.1 for continued global-energy coefficient optimization; parent, gate-off architecture, loss, records, and deployment remain unchanged",
+  "parent_metrics": {"aggregate": 0.07340015095463005, "uniform": 0.058554827916407884, "layered": 0.04093525850039185, "marmousi": 0.1207103664470904},
+  "primary_gate": {"all_saved_aggregate_relative_l2_maximum": 0.05, "all_saved_each_family_relative_l2_maximum": 0.05},
+  "failure_signals": ["primary gate failure", "parent regression", "non-finite value", "CUDA OOM", "numerical background access"],
+  "deployment_contract": {"neural_only": true, "background_cache": null, "numerical_wavefield_input": false, "future_truth_input": false, "post_synthesis_causal_gate": false},
+  "evidence_scope": {"split": "train", "records_per_family": 1, "validation_opened": false, "test_id_opened": false},
+  "compute_budget": {"gpus": 1, "optimizer_updates": 800, "evaluate_every_updates": 100, "wall_ceiling_minutes": 20},
+  "parent_checkpoint": "results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/checkpoints/update_0750.pt",
+  "rollback": "Retain r10/r11 immutable artifacts and reject low-LR refinement if the all-family target is not reached.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/wkb64_r10_gateoff_low_lr_r12_refine800_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-coefficient-supervision --helmholtz-disable-causal-gate --exact-init-checkpoint results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/checkpoints/update_0750.pt --exact-init-identity results/wkb64_zeroinit_coeffsup_current_train_r10_overfit800_20260823/run_identity.json --updates 800 --evaluate-every 100 --training-frames 401 --validation-frames 32 --microbatch-records 1 --dense-learning-rate 1e-5 --backbone-learning-rate 5e-6 --local-field-learning-rate 1e-5 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "local_field_sha256": "8afd8bfb8c0ab48877d593189bef2a3d6f873b9198cb75664477f5b87cd20304",
+    "script_sha256": "c4687acae768018784b50467cbd39bad11779f8bbfd2e080504804750c1bc273",
+    "parent_checkpoint_sha256": "c8018cc93b2ef9d2fc5e46208a0e2ade8fabbcde333485fe02f5c51b70b4af06",
+    "parent_identity_sha256": "6d377b4dcff89c40ee9a014e81a121722e1b36f3f9a96f414a801c47b25c4e7d",
+    "r11_terminal_sha256": "0067f037c5c1c288622dc2d540e3bd1c825944336c99f1ca3c850ca42e63e3c6",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

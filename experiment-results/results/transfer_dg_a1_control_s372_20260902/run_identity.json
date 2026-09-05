@@ -1,0 +1,27 @@
+{
+  "arm": "control",
+  "boundary_halo_radius": 0,
+  "denominator_floor_fraction": 0.25,
+  "epochs": 8,
+  "hard_free_surface": true,
+  "learning_rate": 5e-05,
+  "method": "Transfer DG",
+  "micro_records": 4,
+  "parent_checkpoint": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt",
+  "parent_checkpoint_sha256": "5d14b93cffc1324406b531b6b2d4a7eea06d9aab57537bb7f4612fea302808d3",
+  "parent_epoch": 8,
+  "preregistration": "results/transfer_dg_a1_boundary_halo_preregistration_20260902.json",
+  "preregistration_sha256": "142726a10b3ff32c196ca0456653c86a663404e9cd3f02aafb99db06ea7971c0",
+  "schema": "transfer_dg_a1_lane_identity_v1",
+  "seed": 372,
+  "slot_weights": [
+    0.6,
+    0.25,
+    0.15
+  ],
+  "stage": "A1_boundary_halo",
+  "steps_per_epoch": 120,
+  "test_id_opened": false,
+  "total_steps": 960,
+  "validation_opened": false
+}

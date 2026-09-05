@@ -1,0 +1,65 @@
+{
+  "schema": "acoustic_train_only_preregistration_v1",
+  "candidate": "wkb64_r13_marm98_no_surface_r16_continue3000",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_three_record_marmousi_recovery",
+  "hypothesis": "After removing the duplicate free-surface taper, layered and uniform are already below 0.03 while Marmousi is 0.0606. Allocating approximately 98 percent of coefficient-loss gradient weight to Marmousi can reduce its coefficient error enough to pass all-saved relative-L2 0.05 without forgetting the two easy families.",
+  "single_conceptual_variable": {
+    "name": "coefficient_supervision_family_gradient_weights",
+    "parent_r13": {
+      "uniform": 1.0,
+      "layered": 1.0,
+      "marmousi": 1.0
+    },
+    "candidate_r16": {
+      "uniform": 0.1,
+      "layered": 0.1,
+      "marmousi": 10.0
+    }
+  },
+  "fixed_output_contract": {
+    "local_first_arrival_sigmoid": false,
+    "legacy_free_surface_taper": false,
+    "global_hard_causality": true
+  },
+  "deployment_contract": {
+    "fine_grid_solver": false,
+    "true_wavefield_input": false,
+    "future_truth_input": false,
+    "complete_401_frame_wavefield_use": "train_label_only"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "records": 3
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/checkpoints/update_2000.pt",
+    "checkpoint_sha256": "935f5d3a8dcd4acb94cf2976d3b2a9dc887fa6c5228e168735874008680bcab5",
+    "identity": "results/wkb64_r12_gateoff_target05_r13_continue2000_20260823/run_identity.json",
+    "identity_sha256": "0ba2ff05b5840587650b0da35c5889a757c05d1e69b70811f2bac34a0730e945"
+  },
+  "training": {
+    "updates": 3000,
+    "evaluation_every": 100,
+    "microbatch_records": 1,
+    "frequency_bins": 64,
+    "dense_learning_rate": 1e-05,
+    "backbone_learning_rate": 5e-06,
+    "local_field_learning_rate": 1e-05,
+    "seed": 372
+  },
+  "acceptance": {
+    "registered_early_stop_aggregate_relative_l2_max": 0.04,
+    "registered_early_stop_each_family_relative_l2_max": 0.04,
+    "required_all_saved_aggregate_relative_l2_max": 0.05,
+    "required_all_saved_each_family_relative_l2_max": 0.05
+  },
+  "decision": "Passing the all-saved 0.05 gate authorizes a disjoint multi-record train-only panel. Failure keeps validation/test sealed.",
+  "code": {
+    "diagnostic_sha256": "1124de02ead060f72327be1aa8d2c368bad620b0802a8f699001fb25a06e6cac",
+    "operator_sha256": "8b586a3577512f9c6a7da922e1b217f65a9780b6672e7f2ac2959f27764f2a09",
+    "tests": "60 passed"
+  }
+}

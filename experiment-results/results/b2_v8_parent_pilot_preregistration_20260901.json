@@ -1,0 +1,12 @@
+{
+  "schema":"b2_v8_parent_four_arm_preregistration_v1","status":"frozen_before_launch","created_utc":"2026-09-01T05:50:31Z",
+  "candidate":"b2_v8_parent_pretraining_four_arm_v1",
+  "question":"Which single parent-pretraining change yields any strict aggregate accuracy improvement on fresh causal train groups?",
+  "arms":{"control":"base7 + relative L2","physics_cond":"20 channels including velocity/source phase/wavelength, boundary proximity, CPML reference speed","nonworse_hinge":"base7 + anchor-relative hinge","spectral":"base7 + band-balanced temporal FFT loss"},
+  "training":{"fit_records":24,"holdout_records":12,"family_balance":"8/8/8 fit, 4/4/4 holdout","epochs":10,"seed":372,"width":64,"ic_frames":8},
+  "selection_gate":"an arm is promising iff its best holdout aggregate relative L2 is strictly below control; no minimum percentage",
+  "physics_encoding_contract":{"stored_domain":"physical 201x201 only","cpml":"CPML lies outside stored domain; encode four boundary proximities and per-instance reference-speed proxy","free_surface":"explicit top proximity","fixed_cpml_constants":"recorded as contract, not repeated constant channels"},
+  "bindings":{"trainer_sha256":"2b836a9eb4744b093e5c806fc1232f8d4de242f1324be21368ef52e40989dcd0","loss_components_sha256":"5cb2d65d2762741257572dbc6df3f4b1c05e9ccdc9cae08515aa17bb63fd9087","encoding_sha256":"20b145e43ac0722caefe9898fbbad5f1cf7c40a47549edd933f58460bbadbb77","runner_sha256":"e8785fa03f5de97591a8c258bd23432429175c66907c8d93ceede549a1fde1a9","manifest_sha256":{"results/b2_v6_offline_fit_manifest_24rec_20260901.json":"a0abd7e07df0f29a5a35abab3dc6000bad67b27fdaf55a5b863596dd6fb4d034","results/b2_v8_parent_holdout_manifest_12rec_20260901.json":"2976acb7754f53a631d82dd98be535457af805e06cf5f93f87c5254bf2758067"},"fit_cache_sha256":"ca1e14194d7335ddc7fa9f18b33b8b35ef28e905676b5ed40e208995bc721969","holdout_cache_sha256":"7a701af9d8e63c0ae5739e641e5aad5fc4278201a4a200cdcc9fa1d8d30c43f1"},
+  "outputs":["results/b2_v8_parent_control_20260901","results/b2_v8_parent_physics_cond_20260901","results/b2_v8_parent_nonworse_hinge_20260901","results/b2_v8_parent_spectral_20260901"],
+  "validation_opened":false,"test_id_opened":false,"rollback":"additive parent pilot only"
+}

@@ -1,0 +1,902 @@
+{
+  "candidate": "r16_dscp_v13",
+  "command_audit": {
+    "authorize_smoke": {
+      "input_checkpoint": null,
+      "mode": "authorize-stage",
+      "output": "results/r16_dscp_v13/authorizations/smoke.json",
+      "stage": "smoke"
+    },
+    "final": {
+      "authorization": "results/r16_dscp_v13/authorizations/final-train-confirm.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "final-train-confirm",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "freeze_prereg": {
+      "mode": "freeze-prereg"
+    },
+    "long_1": {
+      "authorization": "results/r16_dscp_v13/authorizations/long.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "input_checkpoint": "BEST",
+      "mode": "long",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json",
+      "resume": false,
+      "scale_decision": "results/r16_dscp_v13/scale-decide/terminal.json",
+      "world_size": 1
+    },
+    "long_4": {
+      "authorization": "results/r16_dscp_v13/authorizations/long.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "input_checkpoint": "BEST",
+      "mode": "long",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json",
+      "resume": false,
+      "scale_decision": "results/r16_dscp_v13/scale-decide/terminal.json",
+      "world_size": 4
+    },
+    "long_resume_1": {
+      "authorization": "results/r16_dscp_v13/authorizations/long.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "input_checkpoint": "BEST",
+      "mode": "long",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json",
+      "resume": true,
+      "scale_decision": "results/r16_dscp_v13/scale-decide/terminal.json",
+      "world_size": 1
+    },
+    "long_resume_4": {
+      "authorization": "results/r16_dscp_v13/authorizations/long.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "input_checkpoint": "BEST",
+      "mode": "long",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json",
+      "resume": true,
+      "scale_decision": "results/r16_dscp_v13/scale-decide/terminal.json",
+      "world_size": 4
+    },
+    "pilot": {
+      "authorization": "results/r16_dscp_v13/authorizations/pilot.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "pilot",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "prep": {
+      "mode": "prep"
+    },
+    "scale_1": {
+      "authorization": "results/r16_dscp_v13/authorizations/scale-1.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "scale-1",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "scale_4": {
+      "authorization": "results/r16_dscp_v13/authorizations/scale-4.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "scale-4",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "scale_decide": {
+      "authorization": "results/r16_dscp_v13/authorizations/scale-decide.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "scale-decide",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "smoke": {
+      "authorization": "results/r16_dscp_v13/authorizations/smoke.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "smoke",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "test": {
+      "authorization": "results/r16_dscp_v13/authorizations/test-once.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "test-once",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    },
+    "validation": {
+      "authorization": "results/r16_dscp_v13/authorizations/validation-once.json",
+      "config": "configs/r16_dscp_v13.yaml",
+      "device": "cuda:0",
+      "mode": "validation-once",
+      "physical_gpu_index": 0,
+      "preregistration": "results/r16_dscp_v13_preregistration_20260826.json"
+    }
+  },
+  "distributed_contract": "init_before_collective_rank0_writer_sync_failure_destroy_all_paths",
+  "host_cache_gates": {
+    "final-train-confirm": {
+      "cache_bytes": 200550584,
+      "capacity": 1,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17380419768,
+      "role": "final-train-confirm"
+    },
+    "long": {
+      "cache_bytes": 43318926144,
+      "capacity": 216,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 60498795328,
+      "role": "long"
+    },
+    "pilot": {
+      "cache_bytes": 9626428032,
+      "capacity": 48,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 26806297216,
+      "role": "pilot"
+    },
+    "scale-probe-1": {
+      "cache_bytes": 601651752,
+      "capacity": 3,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17781520936,
+      "role": "scale-probe-1"
+    },
+    "scale-probe-4": {
+      "cache_bytes": 601651752,
+      "capacity": 3,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17781520936,
+      "role": "scale-probe-4"
+    },
+    "smoke": {
+      "cache_bytes": 601651752,
+      "capacity": 3,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17781520936,
+      "role": "smoke"
+    },
+    "test-once": {
+      "cache_bytes": 200550584,
+      "capacity": 1,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17380419768,
+      "role": "test-once"
+    },
+    "validation-once": {
+      "cache_bytes": 200550584,
+      "capacity": 1,
+      "host_reserve_bytes": 17179869184,
+      "mem_available_bytes": 746522673152,
+      "passed": true,
+      "record_bytes": 200550584,
+      "required_bytes": 17380419768,
+      "role": "validation-once"
+    }
+  },
+  "long_resume_contract": "exact_authorized_dir_last_identity_rng_progress_before_cache_budget_inclusive",
+  "metadata": {
+    "test_id": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "c05f56c6e24bc8bfdbb0dc165cde58e3c6f237d21146a862de7dc4eab3c6cd6d",
+      "wavefield_read": false
+    },
+    "validation": {
+      "by_family": {
+        "layered": 240,
+        "marmousi": 150,
+        "uniform": 90
+      },
+      "count": 480,
+      "ordered_digest": "75e30283484e312aeefd3cc1b39d4ffa6d0cbd8d4fdfd0b889ec2a915eaafd36",
+      "wavefield_read": false
+    }
+  },
+  "model_macs": 45451125,
+  "parameters": 1202,
+  "production_backend": "V13ProductionBackend",
+  "production_eval_dispatch": [
+    "build_final_chain",
+    "build_validation_terminal",
+    "build_test_terminal"
+  ],
+  "runtime_import_closure": {
+    "closure_sha256": "73cbae449790433323f14a94085a5111655ef8962df80e5ee205c9880a1037ef",
+    "dynamic_imports": [
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v10.py",
+        "line": 10,
+        "module": "os"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v11.py",
+        "line": 10,
+        "module": "os"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 131,
+        "module": "time"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 134,
+        "module": "time"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 134,
+        "module": "time"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 151,
+        "module": "time"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 151,
+        "module": "time"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 173,
+        "module": "math"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "line": 174,
+        "module": "time"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v5.py",
+        "line": 57,
+        "module": "os"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v6.py",
+        "line": 71,
+        "module": "os"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v7.py",
+        "line": 25,
+        "module": "os"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v8.py",
+        "line": 16,
+        "module": "os"
+      },
+      {
+        "importer": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v9.py",
+        "line": 67,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 62,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 62,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 63,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 64,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 80,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 92,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 92,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 125,
+        "module": "saved_time_phase_operator_v4.instance_adaptation.r16_dscp_engine_v3"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 150,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 150,
+        "module": "os"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v10.py",
+        "line": 150,
+        "module": "scripts.train_r16_dscp_v8"
+      },
+      {
+        "importer": "scripts/train_r16_dscp_v8.py",
+        "line": 124,
+        "module": "saved_time_phase_operator_v4.instance_adaptation.r16_dscp_engine_v3"
+      }
+    ],
+    "entries": [
+      {
+        "path": "grouped_ufno_mionet_v3/__init__.py",
+        "sha256": "2f5880093b3b7125597e8b857b4aca56532c2ce5774f67595e4cb78e6f14b6e1",
+        "size_bytes": 112
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/config.py",
+        "sha256": "8c9d6f536c846e60abcc19562c8f2a27c1dfec1cf0450cf438bf752c37e6d778",
+        "size_bytes": 7220
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/data/__init__.py",
+        "sha256": "db673e17c3a9e4eb60bc75257e8b996c79ed744ec3815c2beb8e5a4698c982c8",
+        "size_bytes": 575
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/data/batch.py",
+        "sha256": "284f79e1c2fe6589447644c887b31ec575c9baecfd99aa782930f2da478efe0e",
+        "size_bytes": 2629
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/data/index.py",
+        "sha256": "b19eb4e7c5ef82307973c231dda16b6a78e11c09b9c04e2ef4d110481ef4cdd6",
+        "size_bytes": 7181
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/data/pilot.py",
+        "sha256": "e76afc91b697bd6335783a5d95c2157c0b01f71cb039d1e27c4295e58f199847",
+        "size_bytes": 11891
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/data/records.py",
+        "sha256": "9056c608c6b7b036f795cac500786eac04148655d2a4f0d022aa606046532cab",
+        "size_bytes": 8810
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/losses.py",
+        "sha256": "297a70182a8dc854f4fbb97d0adf6713e652a3a5a407c96f72ec93c8a242860c",
+        "size_bytes": 9665
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/__init__.py",
+        "sha256": "568b009c64c0fb63b1c064e1b879cd4add579b8911dd36165f1e5feffa939442",
+        "size_bytes": 1217
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/dense.py",
+        "sha256": "4d8281761aea84cb6c3560c5baf03d3bf34aa1a64d679c2c9c963f814adc9312",
+        "size_bytes": 5438
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/features.py",
+        "sha256": "fa13f4d17a57dd234146940302d44d67ad5ae8632328608446e32ff2def1b6e0",
+        "size_bytes": 6150
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/fusion.py",
+        "sha256": "341a20d57d5031742d4cd705be85f7e4e070a20d7baecb7ba4eec23925606ed7",
+        "size_bytes": 4927
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/medium.py",
+        "sha256": "96a4fe96de95f049ed9e0329adcbb314bc7c6e58571237393a04f5cbea2b2313",
+        "size_bytes": 6604
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/operator.py",
+        "sha256": "49c276c52df0508145dd1e4589ac956cd7fdf0a0116b13361f5953980f35ea2b",
+        "size_bytes": 17833
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/source.py",
+        "sha256": "4195a40846876be1f3cfc116af58d5d57bf111fc65e6c13e72725ddba7626eb5",
+        "size_bytes": 3996
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/spectral.py",
+        "sha256": "5bc840088dd59172417a97b0c07633f9c3f93a480fcb729912821cb25b8d4054",
+        "size_bytes": 5192
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/model/travel_time.py",
+        "sha256": "ba39a5a81d761473c3d19b0750cf0defb72398804772eebd7bb7e0aae9ab339c",
+        "size_bytes": 4851
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/normalization.py",
+        "sha256": "2436407db9b8164b622e219c7749b7803e7c3e5a85836d59336ef7f49a92db22",
+        "size_bytes": 5724
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/training/__init__.py",
+        "sha256": "f22dce9dccdd4adaaa80cec8f1a2bdb1fa461453fe7759e494a05646b95096d2",
+        "size_bytes": 956
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/training/audit.py",
+        "sha256": "49831bf3e798cb94affbafe2f8f950cfc54e46f7c2a45a75dfebbba7d7ee5afe",
+        "size_bytes": 4307
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/training/checkpoint.py",
+        "sha256": "1bf1847b73580d729c336c96b6339bde9e01465e109f23b2b2cd3ccdf69ed842",
+        "size_bytes": 5933
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/training/gates.py",
+        "sha256": "db9fc72183d6d8e1064dbbd3ec9fc5b29a411efeb88a6939761fe9fc069c3dbb",
+        "size_bytes": 5520
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/training/pilot.py",
+        "sha256": "1b60cae7adfed78c7928f30460e48335c3c9b0e59e23b3fa94f2391291241cf9",
+        "size_bytes": 7325
+      },
+      {
+        "path": "grouped_ufno_mionet_v3/training/trainer.py",
+        "sha256": "cfda63a5a6a3d4acd75812d52cff22e52991f33add70d9072ccddc46f93a5307",
+        "size_bytes": 3912
+      },
+      {
+        "path": "saved_time_phase_operator_v4/__init__.py",
+        "sha256": "d85c7f54328527d5182d0cc420ad7fd5443bff1e63364c68b81846403284cdaa",
+        "size_bytes": 449
+      },
+      {
+        "path": "saved_time_phase_operator_v4/band_adapter.py",
+        "sha256": "59689f19ae643803a1689c4c1390c4a7af162ed6789bf0f348c1b80ea1949c41",
+        "size_bytes": 24046
+      },
+      {
+        "path": "saved_time_phase_operator_v4/data.py",
+        "sha256": "4769ea27547817d83a05166fa295cdb19242a45222d3e2be9d91b93dec1e0465",
+        "size_bytes": 16888
+      },
+      {
+        "path": "saved_time_phase_operator_v4/decoder.py",
+        "sha256": "56ad9ec3d8b256c740a413fe255fdb54b2eeffa07f54fb9d997166ed6ef4316c",
+        "size_bytes": 19476
+      },
+      {
+        "path": "saved_time_phase_operator_v4/eikonal.py",
+        "sha256": "9025cfa5ae37e44cd84c12be47312ff00b9d971dcd599dfd7c28e28e20b29fc4",
+        "size_bytes": 6782
+      },
+      {
+        "path": "saved_time_phase_operator_v4/evaluation.py",
+        "sha256": "1d0ffe9294647fb4f9d46c23071aeaee7689aaf3517f1881f2024a9160ac2d74",
+        "size_bytes": 1175
+      },
+      {
+        "path": "saved_time_phase_operator_v4/experts.py",
+        "sha256": "1c4c75f4623c75ff0337d02aad1741dcf7cda44956f82b6447c78edb7041b660",
+        "size_bytes": 8374
+      },
+      {
+        "path": "saved_time_phase_operator_v4/family_gradients.py",
+        "sha256": "f6fe123aeed934a60f1174118bf0c98b33424eecd4406b8def6d26c5911ad465",
+        "size_bytes": 2001
+      },
+      {
+        "path": "saved_time_phase_operator_v4/features.py",
+        "sha256": "ce2899dfce54e31e90d587ebee65e323ef5c2418b7119eb00bd845a4dd481785",
+        "size_bytes": 4366
+      },
+      {
+        "path": "saved_time_phase_operator_v4/full_support.py",
+        "sha256": "0792a8aa265966477b7c2d3e2a963b923b2798681f98da41a732bfa18bdf492d",
+        "size_bytes": 32333
+      },
+      {
+        "path": "saved_time_phase_operator_v4/gradient_control.py",
+        "sha256": "e4ec420ece450a9314cfc4d1d4c7e485c97231ff16b599a3b67a5610e8d9c75d",
+        "size_bytes": 3146
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/__init__.py",
+        "sha256": "61cbf233becf079ffc2a6605837d7033bea78664ce1f4e0e1bf44f1ace386ad8",
+        "size_bytes": 3686
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/adapters.py",
+        "sha256": "d8e7cc8850c2bf5f968cb9b42302a888e9ffba57edf4a85a4d11fd31f32aaebc",
+        "size_bytes": 19919
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/bridge.py",
+        "sha256": "19aab972d908647acaff42d7c777bfd2afda9fc1cc934f656a17348066544d96",
+        "size_bytes": 9591
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/chonknoris.py",
+        "sha256": "eab298c550ebc8a5303541fe09e965e2a62a837da2a4982e8fe4b727c0da6e91",
+        "size_bytes": 22734
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/contracts.py",
+        "sha256": "16ae02b8c4b0660b8b405619a2fa8ce9e168bec948cb057f8df8059755359134",
+        "size_bytes": 4115
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/data_guard.py",
+        "sha256": "47f90a46ffa14a06e51de0e17ca125cfd46353c74d625f9ab40a5fcce35619ee",
+        "size_bytes": 5294
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/defect_correction.py",
+        "sha256": "c79ae508f28686ebaf7f3320429e4daa12ae072f2e9f5005b63020e41d9f9c5d",
+        "size_bytes": 54361
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/forced_defect.py",
+        "sha256": "7a80f295dbfb2b9f4333258fb47ac9ae5224ad043c0a79b2739411acb4a66077",
+        "size_bytes": 28763
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/losses.py",
+        "sha256": "3d2c70d81ad42a2ea0e9e9411e6d1cec50882b00432dc99d2cf69e105b0bab98",
+        "size_bytes": 27534
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp.py",
+        "sha256": "f906a422c26c86a736e21f77842ee83892ce7bd48364e2ca665a261451070201",
+        "size_bytes": 18753
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v10.py",
+        "sha256": "e08e70ba36d2a793610cc6d3102323196b1cb98f8400ab46ef398a5a3fed3f86",
+        "size_bytes": 1188
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v11.py",
+        "sha256": "1eb55237a3e2230f8ab24da56ed7cddf0a7e4a1b21e1e1241b2ed6b8b94e09c5",
+        "size_bytes": 2287
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v12.py",
+        "sha256": "ffa90b2a18f5c65bf990fc69d9cfb64f914668e47964995fe1a52b33ad021c8e",
+        "size_bytes": 14298
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v13.py",
+        "sha256": "8c1e06def892e6bd0c6c4f76405d9efb5f15947b63e1209d491ba20ab183984e",
+        "size_bytes": 28726
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v3.py",
+        "sha256": "8be3eb9d9672d39de3354f842005263fcda16731209d708ea9b4ccb7fae826e7",
+        "size_bytes": 41927
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v4.py",
+        "sha256": "b329a8015fa6604f9b879d46a5a7941c84d3321133a72527026ae5d43821cc24",
+        "size_bytes": 25753
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v5.py",
+        "sha256": "ef6cea0c72f2fa09a69e2e0825c951a8ed6e57f419e54d76d8c2e6f897f0e5f3",
+        "size_bytes": 19146
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v6.py",
+        "sha256": "64a8765b60bbaf8b8a01c6e9afa1b2a26ba3f70ee1aec798b33e92b6ee539a17",
+        "size_bytes": 12207
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v7.py",
+        "sha256": "742941550432849898b0821c6f268a7cc5131c2e922c361828b812c5bf038bcb",
+        "size_bytes": 3848
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v8.py",
+        "sha256": "1081b012ed8210109d22d0cfcfe3db88426d84c8097f4f7d1673ebed33549bbf",
+        "size_bytes": 5654
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v9.py",
+        "sha256": "5c4b918a73094581f3ff761177155b07fbe9d0cd1f26c05a83f80c07c2918d34",
+        "size_bytes": 7991
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v2.py",
+        "sha256": "959619b032a77af8f6095ba927e46fa30502df338f8067179ea4a94cfd4945a9",
+        "size_bytes": 17273
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/residual_iterator.py",
+        "sha256": "fc0df1105cc109d7c02bd4ecb2e5e7b897c28e580d9289145e77c35d9f266273",
+        "size_bytes": 24414
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/trainer.py",
+        "sha256": "5a9d07a9cebc457a72f9b22b60c5aff6ae5d767b8dffee42e5cb9fae6e270a7b",
+        "size_bytes": 32867
+      },
+      {
+        "path": "saved_time_phase_operator_v4/instance_adaptation/visualization.py",
+        "sha256": "9550c671392d8515bd8e009e25001a9bb0ddd146f6e3b3c51a96b6e244179006",
+        "size_bytes": 3778
+      },
+      {
+        "path": "saved_time_phase_operator_v4/lbfgs.py",
+        "sha256": "2b9e461d927815586ead1c351939bc4f1351c6fb9a388771867b9983d7c28673",
+        "size_bytes": 6334
+      },
+      {
+        "path": "saved_time_phase_operator_v4/local_field.py",
+        "sha256": "d300fc611fb824359134a7d7e0d331ebf6ddf477eb3daabaaa9000909faca7ef",
+        "size_bytes": 126224
+      },
+      {
+        "path": "saved_time_phase_operator_v4/losses.py",
+        "sha256": "dc9fa8949cd169b8d67e1f1d8f4199956f81c7fff6ae358513f7d971d05302d9",
+        "size_bytes": 35961
+      },
+      {
+        "path": "saved_time_phase_operator_v4/metrics.py",
+        "sha256": "0946e4e0e8af20fad2913bbb0d836c4c5e7554cc6278b09d6aeb2c486e5645d8",
+        "size_bytes": 4775
+      },
+      {
+        "path": "saved_time_phase_operator_v4/multifidelity.py",
+        "sha256": "623218d96268ad7c0ec52abd81a9ba807d4be9096ff4bebc166cdb4f92f82641",
+        "size_bytes": 14389
+      },
+      {
+        "path": "saved_time_phase_operator_v4/muon.py",
+        "sha256": "dd212214941a0508f571accada973dd13f091805c9864d29944b2fb7fa0ab9d9",
+        "size_bytes": 18923
+      },
+      {
+        "path": "saved_time_phase_operator_v4/operator.py",
+        "sha256": "97d0ebb4552920ce0bd8e5aa4747e1dabccac6d0680e452dd36ab711c8ba12cf",
+        "size_bytes": 32726
+      },
+      {
+        "path": "saved_time_phase_operator_v4/probe.py",
+        "sha256": "00534260606d688e364b0c08e7777bf2b877bff6b3a65de92fd7b56b5bd32b43",
+        "size_bytes": 5313
+      },
+      {
+        "path": "saved_time_phase_operator_v4/residual_activation.py",
+        "sha256": "e6d5078ccdcfa48ae4e347cf1bfa3f63dd6b09a39db99c29f6b25a9ff96ea4d7",
+        "size_bytes": 4304
+      },
+      {
+        "path": "saved_time_phase_operator_v4/sampling.py",
+        "sha256": "7b24653cf11258eb6379ecc75cdb694aaf84775e7ad562bda34da376c23b8e42",
+        "size_bytes": 18250
+      },
+      {
+        "path": "saved_time_phase_operator_v4/snapshot_propagator.py",
+        "sha256": "9e7306070e8d379381a13c8f40d5547405cb67ef6ea1bae84cafac021939e047",
+        "size_bytes": 47138
+      },
+      {
+        "path": "saved_time_phase_operator_v4/spectral.py",
+        "sha256": "9ff56dd15e23a33672f984612dbfd3e4d5948d88687720c8e299d90a74a5d096",
+        "size_bytes": 16721
+      },
+      {
+        "path": "saved_time_phase_operator_v4/streaming_metrics.py",
+        "sha256": "d5c2f20ac5ced502d3c70a145f91157c99e7ffddb0f13b4363054efbc62007dc",
+        "size_bytes": 13793
+      },
+      {
+        "path": "saved_time_phase_operator_v4/time_grid.py",
+        "sha256": "eb4dbe32e60ba2ffbfbdf8befd0d0f2133900c84bcb6f013751d784e3bd44159",
+        "size_bytes": 2966
+      },
+      {
+        "path": "scripts/__init__.py",
+        "sha256": "54141206e87dd197940ee77e5cfeb04b32e71293f93f1e7f331261e5f1b722a9",
+        "size_bytes": 57
+      },
+      {
+        "path": "scripts/benchmark_r4_parent_e2e_trainonly.py",
+        "sha256": "be9fe90c71d39f4c8e73049c84b5df2f78c7862a29442aa047fbb3ea3c9d6a4f",
+        "size_bytes": 49767
+      },
+      {
+        "path": "scripts/refine_saved_time_v4_lbfgs.py",
+        "sha256": "8eab079f0e6e40253c489dd756379e2f42b146a784e41d956993cef844882de5",
+        "size_bytes": 11978
+      },
+      {
+        "path": "scripts/train_grouped_v3.py",
+        "sha256": "4395475adeb25f052efcda5b552588dd8664b7dc589442365d681b76cd62505b",
+        "size_bytes": 2635
+      },
+      {
+        "path": "scripts/train_grouped_v3_pilot.py",
+        "sha256": "bcdd140f1624bdf550d4eeaece3dc0949b013271ad9a914962cce944a3405820",
+        "size_bytes": 24542
+      },
+      {
+        "path": "scripts/train_r16_dscp_v10.py",
+        "sha256": "e93d7b32d839dfd7d9743bacf1987fcf4fc310e865a62e988fbce48d5b9652a4",
+        "size_bytes": 24613
+      },
+      {
+        "path": "scripts/train_r16_dscp_v13.py",
+        "sha256": "b0ab3d17431bdcd70b7d8e8e935a3e7f8036b2ab1fd8dcfa03bfa6ad46846a48",
+        "size_bytes": 46334
+      },
+      {
+        "path": "scripts/train_r16_dscp_v8.py",
+        "sha256": "c08fb77590bba461badea1efab78ef2ae35dd705b97337b8c8067ef25461ea0c",
+        "size_bytes": 28597
+      },
+      {
+        "path": "scripts/train_saved_time_v4_full_support.py",
+        "sha256": "1c96f916c0d5cbeb5fda6c8a5b0b2f084930a9807abc15e7ed36a33820bdb007",
+        "size_bytes": 186610
+      },
+      {
+        "path": "scripts/train_saved_time_v4_probe.py",
+        "sha256": "e69063bb40ccb206f09b4a84a665ff72545ec34b1ad532b77607bc7bd9094ea4",
+        "size_bytes": 21457
+      },
+      {
+        "path": "src/fno_acoustic/__init__.py",
+        "sha256": "e4944c4bff6d6aa510db7bb74cd5f79e031e05cf5485f8837b7aebae4a79ec95",
+        "size_bytes": 1041
+      },
+      {
+        "path": "src/fno_acoustic/ais_model_components.py",
+        "sha256": "57ea2a7db505990b963d93c29a50bfe37c01b769fa86d469ff896cf398cd55f3",
+        "size_bytes": 15111
+      },
+      {
+        "path": "src/fno_acoustic/data.py",
+        "sha256": "c29ca63a8b6d62ee340df6fd37b1de6dfe0d51714ec7f17a4cd8f7e386b8af17",
+        "size_bytes": 20660
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/__init__.py",
+        "sha256": "1f033310f59a21c33bb50be2484cd5954c911c0b231c6ce50fcbf66705915479",
+        "size_bytes": 308
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/cpml.py",
+        "sha256": "dfac8ebe4109beb70d119edece875f41ec69b706bbb25ea6562cd9b9680ad68f",
+        "size_bytes": 14643
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/free_surface.py",
+        "sha256": "bf150fedffd0eb2a11ec494ccec88d85a8796e12727ab88f9bbfcb278e003da8",
+        "size_bytes": 2359
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/grid.py",
+        "sha256": "6b372859fc1a5c50775f0468870a36abc2815a9a77fe5283d36a661cd8e51cf9",
+        "size_bytes": 4290
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/lwc84.py",
+        "sha256": "ae93f6cb20c7329a71127529acce6b1421db56abf374a0ef6d0a22e2b22f2118",
+        "size_bytes": 3697
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/source.py",
+        "sha256": "533d9894dc5fcdd70e004def6d9d15e2fcec68ce591da7e239fc85d12e1a94a6",
+        "size_bytes": 2782
+      },
+      {
+        "path": "src/fno_acoustic/data_generation/stencils.py",
+        "sha256": "0d0a162b42db69d4b25f9ea2eea5a2cf5a9b50f589fc972f914b03a2562dbf0c",
+        "size_bytes": 7970
+      },
+      {
+        "path": "src/fno_acoustic/model.py",
+        "sha256": "030da2e4faba54a8109e35cf8fb036126bae0d830f71e8d2b0175dcee170a24a",
+        "size_bytes": 6701
+      },
+      {
+        "path": "src/fno_acoustic/model_ais_mqfno.py",
+        "sha256": "3bfff753e395fd221bfd10bb593c88841d1946a5596572ca6d48c0d4c0d8da79",
+        "size_bytes": 18402
+      },
+      {
+        "path": "src/fno_acoustic/model_factorized.py",
+        "sha256": "04806b4325c9c90d9f0cdfac77c6321dfce64447f283b0435fbc0593898b8c79",
+        "size_bytes": 31662
+      },
+      {
+        "path": "src/fno_acoustic/normalization.py",
+        "sha256": "96de1eeb82e3da3ca85e342ef3cd2e10560496d0210606bf266770092c6774d8",
+        "size_bytes": 1551
+      },
+      {
+        "path": "src/fno_acoustic/numerics/__init__.py",
+        "sha256": "147e5534732dfeb0a1d117599aac9f65b9ba45f26fb1a137c297bb4a5ce45e51",
+        "size_bytes": 267
+      },
+      {
+        "path": "src/fno_acoustic/numerics/drp_coefficients.py",
+        "sha256": "0a5cfe4c0b298dbba760862bf8db86761aa56991cd50ddb2d8c80dfc5ffa0f1b",
+        "size_bytes": 6063
+      },
+      {
+        "path": "src/fno_acoustic/schema.py",
+        "sha256": "e82f519adf3685c1af74894a6266a91e0a97741c967e70141f6fcb4f5da0e43a",
+        "size_bytes": 6383
+      },
+      {
+        "path": "src/fno_acoustic/temporal_operator.py",
+        "sha256": "7d07394f619134638b7138fc0fc06ab4449882b011be2a1ead2046612576a9c1",
+        "size_bytes": 12349
+      }
+    ],
+    "entrypoints": [
+      "scripts/train_r16_dscp_v13.py"
+    ],
+    "schema": "r16_dscp_v13_runtime_import_closure_v1"
+  },
+  "schema": "r16_dscp_v13_static_v1",
+  "simplified_v10_lock_reachable": false,
+  "tests": {
+    "log_sha256": "f80d9994ee9a886ec444dcc94cf9c23b88102e843d17b575f8c00549b8b3ea5a",
+    "status": "passed",
+    "tail": "..............................                                           [100%]"
+  },
+  "truth_read": false
+}

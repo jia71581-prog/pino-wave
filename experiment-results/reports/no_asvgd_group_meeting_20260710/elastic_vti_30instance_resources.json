@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-07-11T17:49:41.748524",
+  "os": {
+    "system": "Linux",
+    "release": "6.17.0-29-generic",
+    "version": "#29~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon May 11 10:30:58 UTC 2",
+    "machine": "x86_64",
+    "python_version": "3.13.2"
+  },
+  "cpu": {
+    "physical_cores": 10,
+    "logical_cores": 20,
+    "max_frequency_mhz": 4560.0,
+    "architecture": "x86_64",
+    "processor": "x86_64",
+    "current_frequency_mhz": 2.2068000000000003
+  },
+  "memory": {
+    "total_gb": 125.51,
+    "available_gb": 93.48,
+    "used_gb": 12.85,
+    "percent_used": 25.5,
+    "swap_total_gb": 8.0,
+    "swap_available_gb": 0.04
+  },
+  "disk": {
+    "path": "/data/jiayh/FNO-Acoustic-Wave-Simulation",
+    "total_gb": 3666.45,
+    "available_gb": 235.8,
+    "used_gb": 3244.33,
+    "percent_used": 93.2
+  },
+  "gpu": {
+    "nvidia_gpus": [
+      {
+        "index": 0,
+        "name": "NVIDIA GeForce RTX 3090",
+        "memory_total_mb": 24576.0,
+        "memory_free_mb": 16996.0,
+        "driver_version": "595.71.05",
+        "compute_capability": "8.6",
+        "type": "NVIDIA",
+        "backend": "CUDA"
+      }
+    ],
+    "amd_gpus": [],
+    "apple_silicon": null,
+    "total_gpus": 1,
+    "available_backends": [
+      "CUDA"
+    ]
+  },
+  "recommendations": {
+    "parallel_processing": {
+      "strategy": "high_parallelism",
+      "suggested_workers": 18,
+      "libraries": [
+        "joblib",
+        "multiprocessing",
+        "dask"
+      ]
+    },
+    "memory_strategy": {
+      "strategy": "memory_abundant",
+      "note": "Can load most datasets into memory"
+    },
+    "gpu_acceleration": {
+      "available": true,
+      "backends": [
+        "CUDA"
+      ],
+      "suggested_libraries": [
+        "pytorch",
+        "tensorflow",
+        "jax",
+        "cupy",
+        "rapids"
+      ]
+    },
+    "large_data_handling": {
+      "strategy": "disk_abundant",
+      "note": "Sufficient space for large intermediate files"
+    }
+  }
+}

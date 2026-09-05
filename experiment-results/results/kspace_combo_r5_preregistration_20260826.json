@@ -1,0 +1,85 @@
+{
+  "schema": "kspace_combo_quantile_probe_prereg_v1",
+  "frozen_at_utc": "2026-08-26T15:00:00Z",
+  "status": "frozen_before_launch",
+  "motivation": "r3 (c_ref=1.0) and r4 (c_ref=1e-9) have bitwise-identical aggregate 0.03467297950736765 because both reference values collapse the sinc^2 k-space correction to the identity. The configuration recorded as the 'r4 best recipe' therefore never exercised k-space correction at all; it is fourth-order temporal plus restriction only. The genuine r1 x r4 combination (temporal_order=4 + per-record c_max correction + match_fine_grid_restriction) has never been run and needs zero solver changes.",
+  "baseline": {
+    "primary_reference": "results/kspace_lwc4_cpml_restrict_trainprobe_dt625e6_r4/report.json",
+    "aggregate_relative_l2": 0.03467297950736765,
+    "family_relative_l2": {"layered": 0.025162543951054998, "marmousi": 0.03773374844179941, "uniform": 0.019153697368064614},
+    "maximum_instance_relative_l2": 0.0694636615108323,
+    "passes_accuracy": false,
+    "runtime_s_mean": 29.138461206625735,
+    "records_per_family": 3,
+    "excluded_from_baseline": {
+      "path": "results/kspace_savedgrid_cpml_trainprobe_dt625e6_r1/report.json",
+      "aggregate_relative_l2": 0.020173669398631716,
+      "reason": "Not comparable: records_per_family=1 versus 3, and temporal_order / match_fine_grid_restriction / maximum_instance_relative_l2 are all null, indicating an older script revision whose gate never evaluated per-record error. Its lower aggregate reflects a smaller, easier sample rather than a better configuration."
+    }
+  },
+  "data": {
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "sha256_matches_r4_report": true,
+    "schema_version": "acoustic_lwc84_401_to_201_v1",
+    "wavefield_shape": [4003, 401, 201, 201],
+    "is_virtual_dataset": true,
+    "virtual_source_count": 501,
+    "virtual_source_root": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_v1/shards/train/",
+    "virtual_read_verified_utc": "2026-08-26T14:58:00Z",
+    "virtual_read_evidence": "train_marmousi_00380 frame 100 nonzero=11225 absmax=4.6697e-08; frame 400 nonzero=40200 absmax=1.8876e-08. Frame 0 is all zeros by design (pre-source initial condition).",
+    "selection_scope": "train_only",
+    "sealed_data_untouched": "No validation or test_id record is read by this probe."
+  },
+  "script": {
+    "path": "scripts/probe_kspace_saved_grid.py",
+    "sha256_prefix_before_change": "94e599657c6c1ba0",
+    "planned_change": "Add --correction-reference-quantile (default None preserves existing per-record np.max(velocity) behaviour at scripts/probe_kspace_saved_grid.py:153). Record the quantile and resolved reference speed per record in measurements.",
+    "solver_changes": "none",
+    "backward_compatible": true
+  },
+  "arms": [
+    {"id": "A", "name": "combination_proper", "temporal_order": 4, "correction_reference_quantile": 1.0, "match_fine_grid_restriction": true, "question": "Does the genuine r1 x r4 combination beat the 0.0347 baseline?"},
+    {"id": "B", "name": "quantile_075", "temporal_order": 4, "correction_reference_quantile": 0.75, "match_fine_grid_restriction": true, "question": "Does a sub-maximum reference relieve marmousi over-correction?"},
+    {"id": "C", "name": "quantile_050", "temporal_order": 4, "correction_reference_quantile": 0.5, "match_fine_grid_restriction": true, "question": "What is the sign and slope of the quantile direction?"},
+    {"id": "D", "name": "torder2_control", "temporal_order": 2, "correction_reference_quantile": 1.0, "match_fine_grid_restriction": true, "question": "Separates the temporal-order contribution from correction and restriction."}
+  ],
+  "shared_arm_settings": {
+    "internal_dt_s": 0.000625,
+    "records_per_family": 3,
+    "device": "cpu",
+    "dtype": "float64",
+    "device_rationale": "The probe's value is comparability with the 0.0347 aggregate and 0.0377 marmousi baselines, measured on cpu/float64. cuda would drop to float32 per scripts/probe_kspace_saved_grid.py:166 and forfeit the gate anchor.",
+    "gpu0_forbidden": "r4e13 (PID 541709) is training on GPU 0 and must not be disturbed."
+  },
+  "gates": {
+    "aggregate_relative_l2_max": 0.03,
+    "per_family_relative_l2_max": 0.035,
+    "per_record_relative_l2_max": 0.05,
+    "all_three_required": true,
+    "scalar_alignment_is_diagnostic_only": true
+  },
+  "readout_rules": {
+    "E1": "Arm A passes all three gates -> the proper combination is the recipe; freeze it and record the corrected provenance of the r3/r4 identity collapse.",
+    "E2": "Arm A fails but the quantile direction is monotone and B or C passes -> the homogeneous scalar reference is the binding constraint; open a separate preregistration for a banded or spatially varying reference.",
+    "E3": "No arm passes and the quantile direction is flat or adverse -> the homogeneous scalar reference is exhausted; promote the banded/spatially varying reference to the main line.",
+    "honesty": "Report pass/fail exactly as measured. A gate is never revised after seeing results."
+  },
+  "failure_signal": "Any arm that raises, produces a non-finite aggregate, or exceeds 3x the r4 baseline runtime mean (29.1 s/record) is reported as a failed arm rather than retried with altered settings.",
+  "budget": {
+    "expected_wall_clock_min": "8-12 parallel, 18 sequential",
+    "per_record_runtime_reference_s": {"torder4": 29.1, "torder2": 13.5},
+    "thread_isolation": "OMP_NUM_THREADS=16 per arm. Verified necessary: neither the probe nor solver_kspace.py calls set_num_threads, so each process would otherwise contend for all 72 cores.",
+    "measured_host_cores": 72,
+    "measured_available_memory_gb": 651
+  },
+  "disk_guard": {
+    "mount": "/dev/md0 at /root/autodl-tmp",
+    "free_gb_at_freeze": 12,
+    "used_percent_at_freeze": 97,
+    "artifacts": "KB-scale JSON only; no checkpoints written",
+    "abort_threshold_gb": 5
+  },
+  "rollback": "Revert the single probe argparse addition. No checkpoint, dataset, or head-side (r16_dscp) artifact is touched.",
+  "out_of_scope": "No r16_dscp head change. The r4e13 cross-record scaling probe proceeds independently under its own frozen E1/E2/E3 readout."
+}

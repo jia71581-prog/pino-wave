@@ -1,0 +1,519 @@
+{
+  "budget": {
+    "one_gpu_hours_maximum": 0.1,
+    "one_gpu_seconds_maximum": 360.0,
+    "one_gpu_seconds_used": 137.57172323111445,
+    "within_budget": true
+  },
+  "candidate": "r4e7_raw_weighted_pod_fresh3_confirmation_v1",
+  "checkpoint_attestation": {
+    "rollback_path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "rollback_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "rollback_sha256_before": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "unchanged": true,
+    "writes": 0
+  },
+  "claim_scope": "offline_fresh_train_distribution_oracle_capacity_confirmation_only_not_online_adaptation_not_validation_not_test_id",
+  "completed_utc": "2026-08-25T19:17:56.179389Z",
+  "decision": "pass",
+  "disk_free_bytes_after": 2313527296,
+  "disk_free_bytes_at_binding_gate": 2313527296,
+  "disk_free_bytes_before": 2313527296,
+  "exact_blocker": "none",
+  "execution": [
+    {
+      "family": "uniform",
+      "group_id": "train:uniform:00102",
+      "role": "fresh_stored_train_confirmation",
+      "sample_id": "train_uniform_00102",
+      "truth_opened_or_generated_after_freeze": true
+    },
+    {
+      "family": "layered",
+      "group_id": "train:layered:00258",
+      "role": "fresh_stored_train_confirmation",
+      "sample_id": "train_layered_01032",
+      "truth_opened_or_generated_after_freeze": true
+    },
+    {
+      "family": "marmousi",
+      "group_id": "synthetic_train:marmousi:crop_x1425_z375:v1",
+      "role": "fresh_synthetic_train_distribution_confirmation",
+      "sample_id": "synthetic_train_marmousi_fresh_v1",
+      "truth_opened_or_generated_after_freeze": true
+    }
+  ],
+  "family_results": {
+    "layered": {
+      "arm": "raw+weighted",
+      "basis_covariance_trace": 4.892363548211026e-13,
+      "basis_rank_energy_capture_diagnostic": {
+        "16": 0.7257281902563341,
+        "32": 0.8959963823759725,
+        "8": 0.49092841560765105
+      },
+      "basis_records": [
+        {
+          "group_id": "train:layered:00000",
+          "residual_energy": 2.442957266558286e-13,
+          "sample_id": "train_layered_00000",
+          "train_truth_sha256": "70ae196069fb4eea83ad9a72e68cb4ded4828c91ff0b7e3baf9fe9d0e613799d"
+        },
+        {
+          "group_id": "train:layered:00001",
+          "residual_energy": 2.4494065191120347e-13,
+          "sample_id": "train_layered_00004",
+          "train_truth_sha256": "4ae6e0d2b7668127470da5e370cfa9fa34fe2ba850bd09ce4308f33867a4ee39"
+        }
+      ],
+      "confirmation": {
+        "family": "layered",
+        "future_start_index": 14,
+        "generator_qc": null,
+        "group_id": "train:layered:00258",
+        "manifest_sample_sha256": "b441fe4e764c5465f230cd6be9a57c2e7dcdedbf5d6018b274b1cb3d23653878",
+        "observed_indices": [
+          12,
+          13
+        ],
+        "role": "fresh_stored_train_confirmation",
+        "sample_id": "train_layered_01032",
+        "source_index": 1452,
+        "split": "train",
+        "split_id": 0,
+        "truth_origin": "post_preregistration_fresh_stored_train_truth",
+        "truth_sha256": "c7eae7167d619534a38661b91a8df3ef3bc4fcfa610b65ab6186b8808cb6c4a9"
+      },
+      "metrics": {
+        "coefficient_fit": "weighted",
+        "future_frame_count": 387,
+        "future_parent_energy": 1.5203210574555347e-12,
+        "future_residual_energy": 2.3014502908580536e-13,
+        "parent_metrics": {
+          "mean_per_frame_relative_l2": 0.6865578332446219,
+          "mean_squared_per_frame_relative_l2": 0.6999180653610452
+        },
+        "ranks": {
+          "16": {
+            "basis_design_condition_number": 1.0321991905720558,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.4302345886704932,
+              "mean_squared_per_frame_relative_l2": 0.31210300591236967
+            },
+            "correction_energy": 1.7322676305325495e-13,
+            "correction_energy_ratio_to_parent": 0.11394090886511409,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.25632324457412875,
+              "mean_per_frame_relative_l2_reduction": 0.37334545199603053,
+              "mean_squared_per_frame_relative_l2_absolute": -0.3878150594486755,
+              "mean_squared_per_frame_relative_l2_reduction": 0.5540863690218158
+            },
+            "raw_residual_energy_capture": 0.6430370502360689,
+            "unexplained_raw_residual_energy": 8.215324845597481e-14,
+            "weighted_design_condition_number": 2.8041252414330984
+          },
+          "32": {
+            "basis_design_condition_number": 1.2976400748659187,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.20650134972048723,
+              "mean_squared_per_frame_relative_l2": 0.06042374860336288
+            },
+            "correction_energy": 2.4790745967530645e-13,
+            "correction_energy_ratio_to_parent": 0.16306257054033935,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.4800564835241347,
+              "mean_per_frame_relative_l2_reduction": 0.699222207188902,
+              "mean_squared_per_frame_relative_l2_absolute": -0.6394943167576823,
+              "mean_squared_per_frame_relative_l2_reduction": 0.9136702542858443
+            },
+            "raw_residual_energy_capture": 0.7733731854628703,
+            "unexplained_raw_residual_energy": 5.2157034823271156e-14,
+            "weighted_design_condition_number": 4.831127439439097
+          },
+          "8": {
+            "basis_design_condition_number": 1.0028882876146896,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.5714393741793881,
+              "mean_squared_per_frame_relative_l2": 0.49937868721068907
+            },
+            "correction_energy": 7.459673794476764e-14,
+            "correction_energy_ratio_to_parent": 0.0490664373679172,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.11511845906523388,
+              "mean_per_frame_relative_l2_reduction": 0.16767481702334164,
+              "mean_squared_per_frame_relative_l2_absolute": -0.2005393781503561,
+              "mean_squared_per_frame_relative_l2_reduction": 0.2865183627556606
+            },
+            "raw_residual_energy_capture": 0.31078630874646374,
+            "unexplained_raw_residual_energy": 1.5861910501988037e-13,
+            "weighted_design_condition_number": 1.5788994966402747
+          }
+        },
+        "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+      },
+      "rank32_gate": {
+        "finite": true,
+        "minimum": 0.2,
+        "nonworse": true,
+        "reduction_passed": true,
+        "relative_l2_reduction": 0.699222207188902
+      }
+    },
+    "marmousi": {
+      "arm": "raw+weighted",
+      "basis_covariance_trace": 1.917607728232647e-11,
+      "basis_rank_energy_capture_diagnostic": {
+        "16": 0.692827552630306,
+        "32": 0.8907695867401803,
+        "8": 0.48410982947011755
+      },
+      "basis_records": [
+        {
+          "group_id": "train:marmousi:x0.0:z0.0",
+          "residual_energy": 1.1170491862655097e-11,
+          "sample_id": "train_marmousi_00000",
+          "train_truth_sha256": "a50b77ece1fbe18a537c07714e7ea5601dc7710a558dadbd4c9afb2d7eb64e99"
+        },
+        {
+          "group_id": "train:marmousi:x150.0:z0.0",
+          "residual_energy": 8.005587653008985e-12,
+          "sample_id": "train_marmousi_00005",
+          "train_truth_sha256": "9ce94c16d8885c1928d70aadd85676091d7e80fa1d3e79574c28d55038be07b8"
+        }
+      ],
+      "confirmation": {
+        "family": "marmousi",
+        "future_start_index": 13,
+        "generator_qc": {
+          "crop_sha256": "286c728b0bf8d184f65a4e26d62ff9ffd53a85a630d3cba4a3739f411d5cfb40",
+          "solver_metrics": {
+            "cfl_2d": 0.19445436482630057,
+            "compute_elapsed_s": 20.862754085101187,
+            "dt_used_s": 0.000125,
+            "finite": true,
+            "lwc_qmax": 0.24584126984126986,
+            "qc_final_energy_ratio": 0.48704837998104483,
+            "qc_max_abs": 7.887346953339147e-08,
+            "vmax_mps": 5500.0,
+            "vmin_mps": 1613.75
+          },
+          "top_surface_maximum_absolute_pressure": 0.0
+        },
+        "group_id": "synthetic_train:marmousi:crop_x1425_z375:v1",
+        "manifest_sample_sha256": "7fc6ea09296fc764f9004ffc93cde57a369e3520a0e0844b9d1780ad7ce98588",
+        "observed_indices": [
+          11,
+          12
+        ],
+        "role": "fresh_synthetic_train_distribution_confirmation",
+        "sample_id": "synthetic_train_marmousi_fresh_v1",
+        "source_index": -1,
+        "split": "train",
+        "split_id": -1,
+        "truth_origin": "post_preregistration_exact_lwc84_synthetic",
+        "truth_sha256": "f88c4c58d67325ae3783fb980a9f791853d9c78351138e6ff5474878563186be"
+      },
+      "metrics": {
+        "coefficient_fit": "weighted",
+        "future_frame_count": 388,
+        "future_parent_energy": 2.2587198243702163e-11,
+        "future_residual_energy": 1.0651218090513554e-11,
+        "parent_metrics": {
+          "mean_per_frame_relative_l2": 0.5088157487872218,
+          "mean_squared_per_frame_relative_l2": 0.4058880406785819
+        },
+        "ranks": {
+          "16": {
+            "basis_design_condition_number": 1.0000006484946717,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.3572432436005618,
+              "mean_squared_per_frame_relative_l2": 0.2070154317017634
+            },
+            "correction_energy": 6.620282681015967e-12,
+            "correction_energy_ratio_to_parent": 0.2930988876790797,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.15157250518666,
+              "mean_per_frame_relative_l2_reduction": 0.29789271567937464,
+              "mean_squared_per_frame_relative_l2_absolute": -0.19887260897681852,
+              "mean_squared_per_frame_relative_l2_reduction": 0.48996912706354767
+            },
+            "raw_residual_energy_capture": 0.5621099691855204,
+            "unexplained_raw_residual_energy": 4.664062217866723e-12,
+            "weighted_design_condition_number": 1.3336608805599206
+          },
+          "32": {
+            "basis_design_condition_number": 1.000007943300228,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.27330763344040154,
+              "mean_squared_per_frame_relative_l2": 0.11676768902054095
+            },
+            "correction_energy": 9.348887064845914e-12,
+            "correction_energy_ratio_to_parent": 0.41390202379140145,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.23550811534682026,
+              "mean_per_frame_relative_l2_reduction": 0.4628553968861247,
+              "mean_squared_per_frame_relative_l2_absolute": -0.28912035165804095,
+              "mean_squared_per_frame_relative_l2_reduction": 0.7123155222180888
+            },
+            "raw_residual_energy_capture": 0.7476251700042218,
+            "unexplained_raw_residual_energy": 2.6880993548413163e-12,
+            "weighted_design_condition_number": 1.5088055516505767
+          },
+          "8": {
+            "basis_design_condition_number": 1.0000004657970136,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.41701397691202424,
+              "mean_squared_per_frame_relative_l2": 0.2762303748186761
+            },
+            "correction_energy": 4.090637560345211e-12,
+            "correction_energy_ratio_to_parent": 0.18110424835385577,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.09180177187519756,
+              "mean_per_frame_relative_l2_reduction": 0.1804224261808129,
+              "mean_squared_per_frame_relative_l2_absolute": -0.1296576658599058,
+              "mean_squared_per_frame_relative_l2_reduction": 0.31944194670810766
+            },
+            "raw_residual_energy_capture": 0.3703072643159637,
+            "unexplained_raw_residual_energy": 6.706994657782777e-12,
+            "weighted_design_condition_number": 1.2948887085189131
+          }
+        },
+        "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+      },
+      "rank32_gate": {
+        "finite": true,
+        "minimum": 0.2,
+        "nonworse": true,
+        "reduction_passed": true,
+        "relative_l2_reduction": 0.4628553968861247
+      }
+    },
+    "uniform": {
+      "arm": "raw+weighted",
+      "basis_covariance_trace": 9.701033470474636e-13,
+      "basis_rank_energy_capture_diagnostic": {
+        "16": 0.562916304466307,
+        "32": 0.7370114051293103,
+        "8": 0.4272229470673408
+      },
+      "basis_records": [
+        {
+          "group_id": "train:uniform:00000",
+          "residual_energy": 9.45776020851032e-13,
+          "sample_id": "train_uniform_00000",
+          "train_truth_sha256": "b7d3ce0f988c7625ba3cc649cc3af3641353d9fec484c551dada627f8ed578c4"
+        },
+        {
+          "group_id": "train:uniform:00001",
+          "residual_energy": 2.432740187142875e-14,
+          "sample_id": "train_uniform_00001",
+          "train_truth_sha256": "9175c74e8577c2b21c3766b8f2f5fbb0c6e644249ccd05b67b2a53d6e5deb7c8"
+        }
+      ],
+      "confirmation": {
+        "family": "uniform",
+        "future_start_index": 27,
+        "generator_qc": null,
+        "group_id": "train:uniform:00102",
+        "manifest_sample_sha256": "05e0002dd5c0118317fbd1886bdb62805d89b9d3b89c66c6a5efb7a8c2900d75",
+        "observed_indices": [
+          25,
+          26
+        ],
+        "role": "fresh_stored_train_confirmation",
+        "sample_id": "train_uniform_00102",
+        "source_index": 102,
+        "split": "train",
+        "split_id": 0,
+        "truth_origin": "post_preregistration_fresh_stored_train_truth",
+        "truth_sha256": "50978ef3c1d7638bc0173aff4c1ba284a3bd19e63be245237dc55edf8ac827e3"
+      },
+      "metrics": {
+        "coefficient_fit": "weighted",
+        "future_frame_count": 374,
+        "future_parent_energy": 3.062904756081416e-11,
+        "future_residual_energy": 4.574257068482274e-13,
+        "parent_metrics": {
+          "mean_per_frame_relative_l2": 0.2231555197470393,
+          "mean_squared_per_frame_relative_l2": 0.25998966653773303
+        },
+        "ranks": {
+          "16": {
+            "basis_design_condition_number": 1.0014705311486578,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.17351310650450746,
+              "mean_squared_per_frame_relative_l2": 0.0421955744290157
+            },
+            "correction_energy": 4.556800899363383e-13,
+            "correction_energy_ratio_to_parent": 0.014877383602333134,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.049642413242531824,
+              "mean_per_frame_relative_l2_reduction": 0.2224565778108675,
+              "mean_squared_per_frame_relative_l2_absolute": -0.21779409210871734,
+              "mean_squared_per_frame_relative_l2_reduction": 0.8377028787684847
+            },
+            "raw_residual_energy_capture": -0.692953649842381,
+            "unexplained_raw_residual_energy": 7.744005199404376e-13,
+            "weighted_design_condition_number": 60.22643828726495
+          },
+          "32": {
+            "basis_design_condition_number": 1.0164971599934762,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.14487098543795648,
+              "mean_squared_per_frame_relative_l2": 0.02694810307544963
+            },
+            "correction_energy": 4.046452170277013e-13,
+            "correction_energy_ratio_to_parent": 0.013211158989657636,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.0782845343090828,
+              "mean_per_frame_relative_l2_reduction": 0.35080707122021093,
+              "mean_squared_per_frame_relative_l2_absolute": -0.2330415634622834,
+              "mean_squared_per_frame_relative_l2_reduction": 0.8963493302087121
+            },
+            "raw_residual_energy_capture": -0.18517903559710835,
+            "unexplained_raw_residual_energy": 5.421313580997078e-13,
+            "weighted_design_condition_number": 137.35067281615264
+          },
+          "8": {
+            "basis_design_condition_number": 1.000116776566273,
+            "corrected_metrics": {
+              "mean_per_frame_relative_l2": 0.20219468292955373,
+              "mean_squared_per_frame_relative_l2": 0.09354644248903937
+            },
+            "correction_energy": 3.642831202776024e-13,
+            "correction_energy_ratio_to_parent": 0.011893387136975644,
+            "finite": true,
+            "paired_changes_vs_parent": {
+              "mean_per_frame_relative_l2_absolute": -0.020960836817485562,
+              "mean_per_frame_relative_l2_reduction": 0.09392927784733257,
+              "mean_squared_per_frame_relative_l2_absolute": -0.16644322404869366,
+              "mean_squared_per_frame_relative_l2_reduction": 0.6401916901744912
+            },
+            "raw_residual_energy_capture": -0.5489679403574732,
+            "unexplained_raw_residual_energy": 7.085377550032601e-13,
+            "weighted_design_condition_number": 44.43151201859093
+          }
+        },
+        "weight_formula": "w_t=1/max(||truth_t||_2^2,1e-30)"
+      },
+      "rank32_gate": {
+        "finite": true,
+        "minimum": 0.2,
+        "nonworse": true,
+        "reduction_passed": true,
+        "relative_l2_reduction": 0.35080707122021093
+      }
+    }
+  },
+  "gpu": {
+    "compute_capability": [
+      8,
+      9
+    ],
+    "cuda_visible_devices": "0",
+    "driver_version": "580.105.08",
+    "memory_total_mib": 24564,
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "nvidia_driver_cuda_version": "13.0",
+    "physical_index": 0,
+    "torch_name": "NVIDIA GeForce RTX 4090 D",
+    "torch_total_memory_bytes": 25250627584,
+    "uuid": "GPU-f3cae6c0-0263-5cb2-13d1-d83ba7871299",
+    "visible_index": 0
+  },
+  "historical_exposure_registry": {
+    "by_family": {
+      "layered": 257,
+      "marmousi": 140,
+      "uniform": 252
+    },
+    "files_with_train_group_hits": 2083,
+    "group_count": 649,
+    "group_sha256": "968b89dbfe98f079f1c7ccd1c992c79b6c2cd72f87af55f72b925b3941f15280",
+    "scanned_bytes": 291704204,
+    "scanned_file_count": 9924,
+    "schema": "historical_train_group_exposure_registry_v1",
+    "selected_stored_group_hits": {
+      "layered": false,
+      "uniform": false
+    },
+    "synthetic_group_present_in_manifest": false,
+    "synthetic_sample_present_in_manifest": false
+  },
+  "output_size_bytes_maximum": 10485760,
+  "peak_cuda_allocated_bytes": 4840652800,
+  "peak_cuda_reserved_bytes": 5834276864,
+  "preregistration_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_raw_weighted_pod_fresh3_confirmation_v1_preregistration_20260826.json",
+  "preregistration_sha256": "04b355069ff6c654f4623618e7fc3240ced77f0a4556f1465c667be321560185",
+  "promotion_boundary": {
+    "confirmation_can_authorize_validation": false,
+    "failure_action": "reject raw+weighted temporal POD transfer without opening validation/test_id",
+    "pass_can_authorize_only": "design of a deployment-compatible low-dimensional coefficient predictor followed by a separate train confirmation"
+  },
+  "protocol": {
+    "basis": "same two historically exposed basis records per family used by the frozen calibration; C_raw=sum_i R_i R_i^T",
+    "field_serialization": false,
+    "fit": "rank32 primary; per-spatial-point weighted LS with w_t=1/max(||truth_t||_2^2,1e-30)",
+    "metric": "mean over future frames after the second onset observation of spatial relative L2",
+    "ranks": [
+      8,
+      16,
+      32
+    ],
+    "synthetic_truth_generation": "exact current 401x401 LWC-84 core, top pressure-free surface, left/right/bottom unsplit CFS-CPML, binomial5 restriction to 201x201",
+    "time_block": 16,
+    "time_count": 401
+  },
+  "run_binding": {
+    "checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "run_digest": "5de1af3455fc834271fe19e30995a45fb65fac09e4bd6cba92a1ed12b0bb7a2d",
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+  },
+  "schema": "r4_raw_weighted_pod_fresh3_result_v1",
+  "sealed_data_attestation": {
+    "fields_serialized": false,
+    "stored_future_truth_opened_after_freeze_only": true,
+    "synthetic_truth_generated_after_freeze_only": true,
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "started_utc": "2026-08-25T19:15:34.622795Z",
+  "status": "success",
+  "truth_scope": {
+    "online_deployment_compatible": false,
+    "stored_future_truth_authorized_after_freeze": [
+      "train_uniform_00102",
+      "train_layered_01032"
+    ],
+    "stored_future_truth_opened_before_freeze": false,
+    "synthetic_future_truth_generated_before_freeze": false,
+    "synthetic_truth_authorized_after_freeze": "synthetic_train_marmousi_fresh_v1",
+    "test_id_opened": false,
+    "validation_opened": false
+  },
+  "winner_binding": {
+    "arm": "raw+weighted",
+    "calibration_preregistration": {
+      "mtime_ns": 1787646221409673849,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_pod_metric_balance_factorial_calibration9_v1_preregistration_20260825.json",
+      "sha256": "caa4284d0d652e52b9c8f6af57e89016e93157b7e44012dbfc6ce4dfd4809c7d",
+      "size_bytes": 34891
+    },
+    "calibration_result": {
+      "mtime_ns": 1787683656387602180,
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e7_pod_metric_balance_factorial_calibration9_v1_20260825.json",
+      "sha256": "b0822bee8006ec24340895ac787fec125ff82c6aa213e7f78433cde76d6d224c",
+      "size_bytes": 80748
+    },
+    "calibration_result_sha256": "b0822bee8006ec24340895ac787fec125ff82c6aa213e7f78433cde76d6d224c"
+  }
+}

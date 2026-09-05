@@ -1,0 +1,35 @@
+dataset: /root/autodl-tmp/home/jiayh/Data/data/acoustic_lwc84_2km_401x401_to_201_v1/dataset_v1.h5
+probes/traj=40 patch=5x5 margin=20 ridge=0.001 mem_lengths=(0, 1, 2, 4)
+
+--- uniform   rec 2800 ---  m=0:R2=+1.0000  m=1:R2=+1.0000  m=2:R2=+1.0000  m=4:R2=+1.0000
+--- uniform   rec 2801 ---  m=0:R2=+0.4102  m=1:R2=+0.4506  m=2:R2=+0.3650  m=4:R2=+0.3565
+--- uniform   rec 2802 ---  m=0:R2=+1.0000  m=1:R2=+1.0000  m=2:R2=+0.9999  m=4:R2=+1.0000
+--- uniform   rec 2803 ---  m=0:R2=+1.0000  m=1:R2=+1.0000  m=2:R2=+1.0000  m=4:R2=+1.0000
+--- layered   rec 2890 ---  m=0:R2=+0.9719  m=1:R2=+0.9989  m=2:R2=+0.9999  m=4:R2=+0.9999
+--- layered   rec 2891 ---  m=0:R2=+0.8684  m=1:R2=+0.9985  m=2:R2=+0.9991  m=4:R2=+0.9997
+--- layered   rec 2892 ---  m=0:R2=+0.9792  m=1:R2=+0.9984  m=2:R2=+0.9986  m=4:R2=+0.9996
+--- layered   rec 2893 ---  m=0:R2=+0.9801  m=1:R2=+0.9988  m=2:R2=+0.9998  m=4:R2=+0.9998
+--- marmousi  rec 3250 ---  m=0:R2=+0.9969  m=1:R2=+0.9996  m=2:R2=+0.9996  m=4:R2=+0.9997
+--- marmousi  rec 3251 ---  m=0:R2=+0.9939  m=1:R2=+0.9998  m=2:R2=+0.9997  m=4:R2=+0.9998
+--- marmousi  rec 3252 ---  m=0:R2=+0.9932  m=1:R2=+0.9997  m=2:R2=+0.9997  m=4:R2=+0.9996
+--- marmousi  rec 3253 ---  m=0:R2=+0.9828  m=1:R2=+0.9995  m=2:R2=+0.9996  m=4:R2=+0.9996
+
+=== PRIMARY Markov test: raw dR2 = R2(m) - R2(m=0), true history ===
+m=0 (two-frame B2-H state)   pooled held-out R2 = +0.9314
+  m=1 (+1 true past frame)   R2=+0.9536   raw dR2 vs m0 = +0.0222
+  m=2 (+2 true past frame)   R2=+0.9467   raw dR2 vs m0 = +0.0154
+  m=4 (+4 true past frame)   R2=+0.9462   raw dR2 vs m0 = +0.0148
+  [equal-dim shuffled-history control below is an UPPER bound only: shuffled
+   history is noise, so beating it does NOT prove non-Markov -- ignore for the fork.]
+    m=1: R2(true)-R2(shuffled) = +0.1689
+    m=2: R2(true)-R2(shuffled) = +0.2242
+    m=4: R2(true)-R2(shuffled) = +0.2375
+
+=== PER-FAMILY raw dR2 (the decisive cut) ===
+  uniform   R2(m0)=+0.8525   raw dR2:  m1:+0.0101  m2:-0.0113  m4:-0.0134
+  layered   R2(m0)=+0.9499   raw dR2:  m1:+0.0487  m2:+0.0494  m4:+0.0498
+  marmousi  R2(m0)=+0.9917   raw dR2:  m1:+0.0079  m2:+0.0079  m4:+0.0080
+
+DECISION (shortest corrected-baseline gain >= 0.02):
+  => ADOPT B2-HM with m=1; corrected residual retains material history dependence.
+{'recommended_memory': 1, 'aggregate_gain': {1: 0.02224885787789599, 2: 0.015360110591535525, 4: 0.01479024043411159}, 'layered_gain': {1: 0.048733969577336334, 2: 0.049436434971342536, 4: 0.04984821968919162}}

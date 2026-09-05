@@ -1,0 +1,38 @@
+=== diagnostic: validation_layered_00048  lr=0.001 pde_w=0.1 ===
+  step   50: held-out relL2 = 0.2169  (obs 107.162  pde 0.899)
+  step  150: held-out relL2 = 0.2178  (obs 106.041  pde 0.899)
+  step  400: held-out relL2 = 0.2688  (obs 104.391  pde 0.899)
+  step  800: held-out relL2 = 0.6087  (obs 102.137  pde 0.899)
+{
+  "sample_id": "validation_layered_00048",
+  "medium": "layered",
+  "trainable_params": 13442,
+  "parent_baseline_heldout_relL2": 0.21653908491134644,
+  "best_heldout_relL2": 0.2168685644865036,
+  "history": [
+    {
+      "step": 50,
+      "heldout_relL2": 0.2168685644865036,
+      "obs_loss": 107.16222381591797,
+      "pde_loss": 0.8994373083114624
+    },
+    {
+      "step": 150,
+      "heldout_relL2": 0.21780288219451904,
+      "obs_loss": 106.04084014892578,
+      "pde_loss": 0.8994381427764893
+    },
+    {
+      "step": 400,
+      "heldout_relL2": 0.26884156465530396,
+      "obs_loss": 104.39149475097656,
+      "pde_loss": 0.8994372487068176
+    },
+    {
+      "step": 800,
+      "heldout_relL2": 0.6086660623550415,
+      "obs_loss": 102.13745880126953,
+      "pde_loss": 0.8994188904762268
+    }
+  ]
+}

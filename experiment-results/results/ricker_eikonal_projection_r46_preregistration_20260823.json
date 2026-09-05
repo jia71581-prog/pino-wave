@@ -1,0 +1,40 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "ricker_eikonal_projection_r46_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_eikonal_ricker_projection_floor",
+  "hypothesis": "Replacing straight-ray Marmousi travel time with source-dependent eikonal travel time will reduce the per-record oracle-scaled Ricker template median calibration relative L2 below 0.5.",
+  "expected_mechanism": "If r43 failed mainly from travel-time phase error, an eikonal wavefront should create nonzero template-target correlation without changing waveform or amplitude assumptions.",
+  "single_conceptual_variable": {
+    "name": "travel_time_model",
+    "parent": "straight-ray 12-sample integral",
+    "candidate": "grid eikonal on the saved velocity"
+  },
+  "primary_metric": "median train-only calibration relative L2 after per-record oracle scaling",
+  "acceptance": {
+    "oracle_median_relative_l2_max": 0.5
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 560,
+    "calibration_records": 70,
+    "confirmation_access": "none",
+    "selected_resolution": [64, 64, 201]
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false,
+    "numerical_wavefield_input": false
+  },
+  "bindings": {
+    "script_sha256": "7048bedf14a115af832c8b1ab0fb0ef649b917ed1d594e1b464b58bbec5b0cc5",
+    "eikonal_cache_sha256": "87ab172d29f975f382d473625f8390fe730094ad3507e69f1ce6ea92c3331f20",
+    "vds_sha256": "9904e4a46b58290c79570034881cf5cb744ef6721b04ad3f0d937c6009eb2bdb",
+    "split_sha256": "e72cc8916b0be6f5d4ff6435f949ec12904fb0412cb0c3db0a33916ac7f3a3fa",
+    "r43_result_sha256": "0ca935e9274a23279b83b86e457c64f2e5153c0cc41dbd57d51da1ab22d1fc9f"
+  },
+  "rollback": "Preserve r43-r45; if rejected, stop tuning single-arrival travel-time features and move to a multi-arrival or latent propagator representation.",
+  "command": "PYTHONPATH=src python scripts/diagnose_ricker_pbg_projection.py --config configs/factorized_fno_pbg_marm_r42_ricker_full560_ddp4.yaml --data-path artifacts/pbg_factorized_fno_marm700_eikonal_v3/dataset_v1.h5 --split-manifest artifacts/pbg_factorized_fno_marm700_eikonal_v3/split_full560_70_70_seed372.json --output results/ricker_eikonal_projection_r46_20260823/result.json"
+}

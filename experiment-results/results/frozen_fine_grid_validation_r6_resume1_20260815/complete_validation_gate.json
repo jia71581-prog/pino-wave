@@ -1,0 +1,447 @@
+{
+  "aggregate_relative_l2": 0.002689297423639035,
+  "aggregation_script_sha256": "37ffe234cb8f27b4994263d646f61e722f4e69796a5a847bcc01117a67c22ef3",
+  "bindings": {
+    "evaluation_script_sha256": "2b23e284f3aef644708a1421b77e39065051243097216be8b3a71f8b54986411",
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "gate_helper_sha256": "5a25fd3e7ebceaf2438da45b350bba14c850f2a5384199bbfd703445436d60b8",
+    "manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "excluded_family": "anomaly",
+  "family_counts": {
+    "layered": 240,
+    "marmousi": 150,
+    "uniform": 90
+  },
+  "family_relative_l2": {
+    "layered": 0.0010436201226778955,
+    "marmousi": 0.002801588552176318,
+    "uniform": 0.0022078448462351887
+  },
+  "maximum_instance_relative_l2": 0.012815195477012936,
+  "promotion_gate": {
+    "maximum_relative_l2": 0.05,
+    "maximum_runtime_s": 2.034137312322855,
+    "passed": true,
+    "passes_accuracy": true,
+    "passes_runtime": true
+  },
+  "record_count": 480,
+  "runtime_s": {
+    "maximum": 1.1145549435168505,
+    "mean": 0.880352280473259,
+    "minimum": 0.8442295398563147,
+    "p95_nearest_rank": 0.9018363887444139
+  },
+  "schema": "frozen_fine_grid_complete_split_gate_v1",
+  "selection_scope": "complete_registered_validation_target_families",
+  "speedup_over_traditional_reference": {
+    "mean": 23.105946987827934,
+    "p95": 22.555502724334428,
+    "reference_s": 20.34137312322855
+  },
+  "split": "validation",
+  "status": "target_gate_passed",
+  "temporal_band_relative_l2": {
+    "early": 0.000833341285406171,
+    "late": 0.003872245756920632,
+    "middle": 0.0022215448647716035
+  },
+  "worker_outputs": [
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_0.json",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_1.json",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_2.json",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_3.json"
+  ],
+  "worker_sha256": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_0.json": "045325feac265ebd2b784043a9655e7214ba02c8ffb91500511995dcf7a0f14d",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_1.json": "35af5fef876652431cd3a6d543d4dd8e277f84defa2844b4f9e0c76cc716040c",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_2.json": "f2ce6be0fcd195d5d87d49551cfd032cf682f619fc813c0e5eab76e755d9fe2a",
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_fine_grid_validation_r6_resume1_20260815/worker_3.json": "3ae8f93a49465ace295c60ba4fc6109ade604eaac59cada3ac1c35108b542565"
+  },
+  "worst_instances": [
+    {
+      "error_numerator": 4.017202103812404e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.7556064285714292,
+      "relative_l2": 0.012815195477012936,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8733356026932597,
+      "sample_id": "validation_marmousi_00036",
+      "solver_reported_runtime_s": 0.7553751338273287,
+      "source_f0_hz": 24.65014467943617,
+      "source_index": 3286,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0034785222594539813,
+        "late": 0.019172859887646058,
+        "middle": 0.010451190015363668
+      },
+      "truth_denominator": 2.4460943881414076e-11
+    },
+    {
+      "error_numerator": 3.391077178701653e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.8412578571428577,
+      "relative_l2": 0.012451151890061777,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.9018363887444139,
+      "sample_id": "validation_marmousi_00103",
+      "solver_reported_runtime_s": 0.7761026583611965,
+      "source_f0_hz": 24.761126531365427,
+      "source_index": 3353,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.003480140503705233,
+        "late": 0.01782890216830579,
+        "middle": 0.010942694861628424
+      },
+      "truth_denominator": 2.187351669879438e-11
+    },
+    {
+      "error_numerator": 2.126311184415398e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.7698146031746034,
+      "relative_l2": 0.0117552392070922,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8730019815266132,
+      "sample_id": "validation_marmousi_00126",
+      "solver_reported_runtime_s": 0.7592842960730195,
+      "source_f0_hz": 25.200206675990767,
+      "source_index": 3376,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0032597310799956144,
+        "late": 0.016731348031030893,
+        "middle": 0.01040998510077132
+      },
+      "truth_denominator": 1.538735174480616e-11
+    },
+    {
+      "error_numerator": 2.7626127945458915e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.7556064285714292,
+      "relative_l2": 0.011321196141420041,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8868505340069532,
+      "sample_id": "validation_marmousi_00135",
+      "solver_reported_runtime_s": 0.7767769824713469,
+      "source_f0_hz": 23.35300913502159,
+      "source_index": 3385,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0030671362713521415,
+        "late": 0.016497883339825683,
+        "middle": 0.009162406398350843
+      },
+      "truth_denominator": 2.155437277169547e-11
+    },
+    {
+      "error_numerator": 2.6114001662245837e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.7698146031746034,
+      "relative_l2": 0.011305275597212712,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8878096342086792,
+      "sample_id": "validation_marmousi_00128",
+      "solver_reported_runtime_s": 0.7670967904850841,
+      "source_f0_hz": 25.459374337948717,
+      "source_index": 3378,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0030900432171483243,
+        "late": 0.016555670794111157,
+        "middle": 0.009637224671356843
+      },
+      "truth_denominator": 2.0432011273923825e-11
+    },
+    {
+      "error_numerator": 1.5022979564537783e-15,
+      "family": "uniform",
+      "lwc_qmax": 0.6858714903940474,
+      "relative_l2": 0.010676166105306794,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8792258063331246,
+      "sample_id": "validation_uniform_00079",
+      "solver_reported_runtime_s": 0.7643359256908298,
+      "source_f0_hz": 25.378616329150816,
+      "source_index": 2879,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.003051016834120491,
+        "late": 0.017025117766051784,
+        "middle": 0.009486463642900995
+      },
+      "truth_denominator": 1.318030414986855e-11
+    },
+    {
+      "error_numerator": 1.1817722356873442e-15,
+      "family": "uniform",
+      "lwc_qmax": 0.8985150958457342,
+      "relative_l2": 0.010487272904629082,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8665599096566439,
+      "sample_id": "validation_uniform_00080",
+      "solver_reported_runtime_s": 0.7638635942712426,
+      "source_f0_hz": 25.27539532359808,
+      "source_index": 2880,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0030409213306149107,
+        "late": 0.01960233953517913,
+        "middle": 0.008814465087636393
+      },
+      "truth_denominator": 1.0745055014541469e-11
+    },
+    {
+      "error_numerator": 3.132310373233529e-15,
+      "family": "marmousi",
+      "lwc_qmax": 6.1460317460317455,
+      "relative_l2": 0.010307774904364578,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8793938606977463,
+      "sample_id": "validation_marmousi_00094",
+      "solver_reported_runtime_s": 0.766507032327354,
+      "source_f0_hz": 23.63808738803361,
+      "source_index": 3344,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0032797737487402718,
+        "late": 0.015398229547790415,
+        "middle": 0.00893747763698583
+      },
+      "truth_denominator": 2.9480506211369985e-11
+    },
+    {
+      "error_numerator": 1.9857401611376417e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.8700229365079366,
+      "relative_l2": 0.010237138367583077,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8895718334242702,
+      "sample_id": "validation_marmousi_00098",
+      "solver_reported_runtime_s": 0.7664612587541342,
+      "source_f0_hz": 23.804164955496915,
+      "source_index": 3348,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0027411658291554494,
+        "late": 0.014585830776860645,
+        "middle": 0.008304954297379773
+      },
+      "truth_denominator": 1.8948082749410372e-11
+    },
+    {
+      "error_numerator": 3.328722454806146e-15,
+      "family": "marmousi",
+      "lwc_qmax": 4.023365079365079,
+      "relative_l2": 0.0101612317639343,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8808378065004945,
+      "sample_id": "validation_marmousi_00067",
+      "solver_reported_runtime_s": 0.7734689814969897,
+      "source_f0_hz": 24.112917118530742,
+      "source_index": 3317,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0033564512636102785,
+        "late": 0.014405084610494131,
+        "middle": 0.009214810075264472
+      },
+      "truth_denominator": 3.2239245647643814e-11
+    },
+    {
+      "error_numerator": 2.9002611659306347e-15,
+      "family": "marmousi",
+      "lwc_qmax": 4.023365079365079,
+      "relative_l2": 0.010044028993179068,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8580058924853802,
+      "sample_id": "validation_marmousi_00084",
+      "solver_reported_runtime_s": 0.7526333034038544,
+      "source_f0_hz": 23.96456002952264,
+      "source_index": 3334,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.003210432086001362,
+        "late": 0.013802014729417373,
+        "middle": 0.009170385189480487
+      },
+      "truth_denominator": 2.8748897345883247e-11
+    },
+    {
+      "error_numerator": 1.7497764064893781e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.8700229365079366,
+      "relative_l2": 0.008899726361096386,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.9008042281493545,
+      "sample_id": "validation_marmousi_00007",
+      "solver_reported_runtime_s": 0.781418270431459,
+      "source_f0_hz": 22.201610764402357,
+      "source_index": 3257,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0021922248337403125,
+        "late": 0.013142741930624788,
+        "middle": 0.006752307521056256
+      },
+      "truth_denominator": 2.2091705700131878e-11
+    },
+    {
+      "error_numerator": 1.3275254253168891e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.826915555555556,
+      "relative_l2": 0.00860736359427273,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8665061295032501,
+      "sample_id": "validation_marmousi_00020",
+      "solver_reported_runtime_s": 0.7545230099931359,
+      "source_f0_hz": 26.343324406631258,
+      "source_index": 3270,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0023151492642084874,
+        "late": 0.012210128279920558,
+        "middle": 0.007723218828572895
+      },
+      "truth_denominator": 1.7918537081284082e-11
+    },
+    {
+      "error_numerator": 1.8054256233360784e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.826915555555556,
+      "relative_l2": 0.008546189353085529,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.9035259643569589,
+      "sample_id": "validation_marmousi_00027",
+      "solver_reported_runtime_s": 0.7818935848772526,
+      "source_f0_hz": 23.480348122107475,
+      "source_index": 3277,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0023372144435771973,
+        "late": 0.0123360509781639,
+        "middle": 0.006581696400285398
+      },
+      "truth_denominator": 2.4719209590116183e-11
+    },
+    {
+      "error_numerator": 1.5397814075745967e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.8412578571428577,
+      "relative_l2": 0.0082360435824395,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8782928148284554,
+      "sample_id": "validation_marmousi_00013",
+      "solver_reported_runtime_s": 0.7658717427402735,
+      "source_f0_hz": 21.948431610314532,
+      "source_index": 3263,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0020424829621942735,
+        "late": 0.012190894746967454,
+        "middle": 0.006253561805222361
+      },
+      "truth_denominator": 2.2699787892404078e-11
+    },
+    {
+      "error_numerator": 2.109632711674399e-15,
+      "family": "marmousi",
+      "lwc_qmax": 4.023365079365079,
+      "relative_l2": 0.008173508882510745,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8826646758243442,
+      "sample_id": "validation_marmousi_00149",
+      "solver_reported_runtime_s": 0.7630693027749658,
+      "source_f0_hz": 23.045409655953524,
+      "source_index": 3399,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0026614247264544594,
+        "late": 0.011435493711784548,
+        "middle": 0.007699084516280453
+      },
+      "truth_denominator": 3.157837465986903e-11
+    },
+    {
+      "error_numerator": 1.0767699107427805e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.8412578571428577,
+      "relative_l2": 0.008126440937834859,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8939389623701572,
+      "sample_id": "validation_marmousi_00011",
+      "solver_reported_runtime_s": 0.7827894166111946,
+      "source_f0_hz": 25.731944422238353,
+      "source_index": 3261,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0023085808052641715,
+        "late": 0.01138015534001293,
+        "middle": 0.006865826350294496
+      },
+      "truth_denominator": 1.6305050360791967e-11
+    },
+    {
+      "error_numerator": 1.3650498518882289e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.826915555555556,
+      "relative_l2": 0.007965483742472058,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8822485562413931,
+      "sample_id": "validation_marmousi_00026",
+      "solver_reported_runtime_s": 0.7639678036794066,
+      "source_f0_hz": 22.65268988490435,
+      "source_index": 3276,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.00198868185098552,
+        "late": 0.011522536279334722,
+        "middle": 0.005772717518149747
+      },
+      "truth_denominator": 2.1514150435025538e-11
+    },
+    {
+      "error_numerator": 1.4380607548337503e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.8700229365079366,
+      "relative_l2": 0.007855440149713202,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.881771033629775,
+      "sample_id": "validation_marmousi_00009",
+      "solver_reported_runtime_s": 0.763917719013989,
+      "source_f0_hz": 24.272542624544048,
+      "source_index": 3259,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.0022585053900633116,
+        "late": 0.011222990151913559,
+        "middle": 0.006326581358491365
+      },
+      "truth_denominator": 2.330430664349781e-11
+    },
+    {
+      "error_numerator": 1.6536494832226377e-15,
+      "family": "marmousi",
+      "lwc_qmax": 3.7698146031746034,
+      "relative_l2": 0.007753475813054473,
+      "restriction_max_absolute_difference": 0.0,
+      "runtime_s": 0.8663636678829789,
+      "sample_id": "validation_marmousi_00032",
+      "solver_reported_runtime_s": 0.7535033831372857,
+      "source_f0_hz": 22.354912739941277,
+      "source_index": 3282,
+      "split": "validation",
+      "temporal_band_relative_l2": {
+        "early": 0.002020666728220307,
+        "late": 0.01143042506903512,
+        "middle": 0.005727604727280941
+      },
+      "truth_denominator": 2.7507466111888878e-11
+    }
+  ]
+}

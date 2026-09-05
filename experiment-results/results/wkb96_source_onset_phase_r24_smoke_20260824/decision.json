@@ -1,0 +1,19 @@
+{
+  "schema": "acoustic_train_only_decision_v1",
+  "status": "accepted_smoke_only",
+  "candidate": "wkb96_source_onset_phase_r24_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "reason": "The exact r20 state loaded under the optional onset-aligned representation; two updates, all panel metrics, gate/source gradients, checkpoints and terminal were finite and peak CUDA allocation was 2,883,469,312 bytes.",
+  "early_signal": {
+    "control_r22b_fixed_gate_after_two_updates": 1.8283674891752384,
+    "candidate_fixed_gate_after_two_updates": 1.7341513218882625,
+    "relative_improvement": 0.05153
+  },
+  "terminal_sha256": "1d78873d1e222057844d2135417226c2fdb478acb8e4a2d9b7db0735b96004aa",
+  "run_identity_sha256": "41a975991daa12f8aea4af32031805c181d76bc0f897eaf8a6a855df84b6651c",
+  "checkpoint_sha256": "a2b602896d3c6517fb8c09296ecdba6b44749bca338e614006ce03ed5cbe235b",
+  "accuracy_claim": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "next_action": "Run a separately preregistered 1000-update onset-phase pilot against the completed r23 control."
+}

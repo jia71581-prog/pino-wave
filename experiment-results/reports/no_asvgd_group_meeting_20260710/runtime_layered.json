@@ -1,0 +1,67 @@
+{
+  "model": "layered",
+  "device": "NVIDIA GeForce RTX 3090",
+  "sample_index": 3,
+  "checkpoint": "/data/jiayh/FNO-Acoustic-Wave-Simulation/artifacts/elastic_vti_pino_layered/checkpoints/best.pt",
+  "pino_config": "/data/jiayh/FNO-Acoustic-Wave-Simulation/configs/pino_elastic_vti_layered_gpu.yaml",
+  "solver_config": "/data/jiayh/.atan/outputs/layered_two_strict_elastic_vti_train_gpu_batch256/resolved_config.yaml",
+  "pino_output_shape": [
+    1,
+    128,
+    128,
+    101,
+    2
+  ],
+  "fd_physical_shape": [
+    400,
+    400
+  ],
+  "fd_time_steps": 5000,
+  "pino": {
+    "warmups": 5,
+    "repetitions": 20,
+    "raw_s": [
+      0.06682578288018703,
+      0.06666061514988542,
+      0.06666746595874429,
+      0.06547660706564784,
+      0.06538816774263978,
+      0.06546884495764971,
+      0.06506310123950243,
+      0.06515333894640207,
+      0.06532139889895916,
+      0.06534597417339683,
+      0.065174943767488,
+      0.0651115239597857,
+      0.06514310091733932,
+      0.06534865265712142,
+      0.06512121995911002,
+      0.06511879339814186,
+      0.06552817579358816,
+      0.0654666880145669,
+      0.06548015493899584,
+      0.06540401885285974
+    ],
+    "median_s": 0.0653684101998806,
+    "q25_s": 0.06515077943913639,
+    "q75_s": 0.06547749403398484,
+    "min_s": 0.06506310123950243,
+    "max_s": 0.06682578288018703
+  },
+  "fd8": {
+    "warmups": 1,
+    "repetitions": 3,
+    "raw_s": [
+      12.682819192763418,
+      12.038577917031944,
+      11.97588728601113
+    ],
+    "median_s": 12.038577917031944,
+    "q25_s": 12.007232601521537,
+    "q75_s": 12.36069855489768,
+    "min_s": 11.97588728601113,
+    "max_s": 12.682819192763418
+  },
+  "speedup": 184.16507117460742,
+  "timing_scope": "CUDA compute plus output materialization; excludes HDF5 loading, plotting, and file writing"
+}

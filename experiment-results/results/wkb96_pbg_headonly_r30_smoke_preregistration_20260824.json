@@ -1,0 +1,17 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_pbg_headonly_r30_smoke_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_pbg_residual_head_only_smoke",
+  "hypothesis": "Freezing the complete r20 feature extractor and training only the zero-initialized independent Helmholtz residual head will preserve the P_bg baseline and produce finite head gradients without updating source/medium encoders.",
+  "expected_mechanism": "Reducing trainable capacity from about 25.7M parameters to the 24,768-parameter output head should limit source memorization while retaining fixed source-conditioned features.",
+  "single_conceptual_variable": {"name": "trainable_scope", "control": "all model parameters", "candidate": "Helmholtz head weight and bias only", "held_constant": "P_bg cache, panels, parent, residual target, loss, learning rate, seed and metric"},
+  "primary_metric": "exact trainable parameter set, two finite updates, P_bg update-0 baseline and resource/artifact bindings",
+  "acceptance": {"trainable_parameter_count": 24768, "updates_completed": 2, "peak_cuda_bytes_max": 4294967296, "finite_metrics": true},
+  "failure_signal": "Any trainable tensor outside the head, missing head gradient, cache miss, non-finite value, OOM or binding failure blocks a longer pilot.",
+  "panels": {"fit": ["train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"], "calibration": ["train_marmousi_00003"], "confirmation": ["train_marmousi_00004"], "validation_opened": false, "test_id_opened": false},
+  "bindings": {"cache_sha256": "b3c1c43a72d35099076ba52fb55f2b7756ae82233043fabd6cfd8da842ba9da1", "training_script_sha256": "145f314052efae37f604a57b058d7b4ebd95c5bad2a86f77efd10b84f6d9ad81", "test_sha256": "f357493e30b1966e84f5861e5b7c221b55c17bb2b16e4480ab34b21080c5adbd", "parent_checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd"},
+  "optimization": {"updates": 2, "evaluate_every": 1, "learning_rate": 0.00001, "evaluation_frames": 32, "evaluation_time_block": 32, "evaluation_macro_records": 1, "seed": 372},
+  "rollback": "Preserve r29 and P_bg; on failure do not launch head-only pilot."
+}

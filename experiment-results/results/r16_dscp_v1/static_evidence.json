@@ -1,0 +1,95 @@
+{
+  "all_time_materialization_macs": 259212816,
+  "all_time_projection_macs": 259212816,
+  "basis_binding": {
+    "mtime_ns": 1787687174771925587,
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/basis_rank16.pt",
+    "sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+    "size_bytes": 83476
+  },
+  "basis_conditions_on_all_291_frozen_train_panel_records": {
+    "layered": {
+      "all_at_most_1e3": true,
+      "count": 97,
+      "maximum": 1.03219244338011,
+      "mean": 1.0321754017125502,
+      "minimum": 1.0321598334751354
+    },
+    "marmousi": {
+      "all_at_most_1e3": true,
+      "count": 97,
+      "maximum": 1.00000075652535,
+      "mean": 1.000000672150333,
+      "minimum": 1.000000640961043
+    },
+    "uniform": {
+      "all_at_most_1e3": true,
+      "count": 97,
+      "maximum": 1.0014606340231116,
+      "mean": 1.0014553823283545,
+      "minimum": 1.0014548604401243
+    }
+  },
+  "basis_tensor_sha256": "4d12d9985134e6b1f82127d269c1f111f1eb6f90b440872a8e05896d7126f7d5",
+  "candidate": "r16_dscp_v1",
+  "coefficient_scales_tensor_sha256": "179ba6567af6d0fb00dbf4efccb269b728713efed5f11baec7220b51a14803e3",
+  "created_utc": "2026-08-25T19:49:50.651956Z",
+  "disk_free_bytes": 2313035776,
+  "inference_signature": {
+    "forbidden_hits": [],
+    "methods": {
+      "forward": [
+        "self",
+        "velocity_mps",
+        "source_map",
+        "travel_time_map",
+        "x_m",
+        "z_m",
+        "observed_k0",
+        "observed_k1",
+        "parent_wavefield",
+        "k0",
+        "k1"
+      ],
+      "predict_coefficients": [
+        "self",
+        "velocity_mps",
+        "source_map",
+        "travel_time_map",
+        "x_m",
+        "z_m",
+        "observed_k0",
+        "observed_k1",
+        "parent_wavefield",
+        "k0",
+        "k1"
+      ]
+    },
+    "passed": true
+  },
+  "model_only_macs_201x201": 45451125,
+  "panels_binding": {
+    "mtime_ns": 1787687018162257332,
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/panels.json",
+    "sha256": "6d2f2facd86b449c058f9f824895f77977a23fbecf954c0de69144ec50162464",
+    "size_bytes": 200470
+  },
+  "parameters": 1202,
+  "parent_sha256_after": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "parent_unchanged": true,
+  "preflight_binding": {
+    "mtime_ns": 1787687018218256438,
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v1/design_freeze_preflight.json",
+    "sha256": "b852516b67064383a2e67e6e2ac5ac7ff96ce6161d99edb172ce38dd06f50606",
+    "size_bytes": 16656
+  },
+  "ridge_parameters": 480,
+  "schema": "r16_dscp_static_evidence_v1",
+  "sealed_attestation": {
+    "coefficient_maps_serialized": false,
+    "fields_serialized": false,
+    "predictor_training_run": false,
+    "test_id_truth_opened": false,
+    "validation_truth_opened": false
+  }
+}

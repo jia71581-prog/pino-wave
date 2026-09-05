@@ -1,0 +1,50 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_record_freqsoftmax_r20_gate_ablation_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "same_checkpoint_train_only_mechanism_ablation",
+  "hypothesis": "At the selected r20 update-2600 checkpoint, the learned record-conditioned frequency gate itself accounts for a material part of the complete-time Marmousi improvement rather than merely accompanying 2600 additional updates of the shared mapper.",
+  "expected_mechanism": "Resetting only the zero-initialized linear gate weights and bias to zero restores an exact all-ones spectral gate while preserving every head, encoder, and decoder parameter. If record-specific spectral emphasis caused the gain, this identity-gate ablation must worsen complete 401-frame Marmousi error and preferentially worsen the middle/high spectral metrics.",
+  "primary_metric": "complete 401-frame Marmousi relative-L2 difference between identity-gate and learned-gate inference on the same checkpoint",
+  "acceptance": {
+    "minimum_absolute_marmousi_improvement_from_learned_gate": 0.0004103,
+    "rationale": "The threshold is 10% of r20's observed absolute Marmousi gain versus its parent: 0.0531370224 - 0.0490344556 = 0.0041025669.",
+    "no_learned_gate_family_regression": true
+  },
+  "failure_signal": "The identity-gate minus learned-gate Marmousi difference is below 0.0004103, or the learned gate worsens Marmousi. In that case the shared-network continuation, not spectral gating, explains nearly all r20 improvement.",
+  "single_conceptual_variable": {
+    "name": "learned_frequency_gate_at_inference",
+    "learned": "checkpoint gate weight and bias",
+    "ablated": "the same two tensors set to exact zero, yielding an all-ones softmax gate",
+    "held_constant": "checkpoint, all non-gate parameters, model structure, normalization, train triplet, all 401 stored times, travel-time field, metric implementation and device"
+  },
+  "data": {
+    "scope": "train_only",
+    "sample_ids": [
+      "train_uniform_00000",
+      "train_layered_00000",
+      "train_marmousi_00000"
+    ],
+    "frames_per_record": 401,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "training_updates": 0,
+    "full_evaluations": 2,
+    "wall_time_max_minutes": 3,
+    "new_checkpoint_storage": false
+  },
+  "bindings": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50",
+    "evaluation_script_sha256": "ab760eeca6ce53fbfd17760aa6b25540a57089327a778afdf22050d72172d898",
+    "test_sha256": "4b0da3cabcbdb71473456ffe246387e58077df587b41e5595392bb9a7ff37a17",
+    "tests": "38 passed"
+  },
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/evaluate_frequency_gate_ablation.py --checkpoint results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt --identity results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json --output-dir results/wkb96_record_freqsoftmax_r20_gate_ablation_20260824"
+}

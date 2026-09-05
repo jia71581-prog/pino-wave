@@ -1,0 +1,69 @@
+=== sparse-frame diagnostic: validation_uniform_00069  n_obs=24 lr=0.005 pde_w=0.1 ===
+  step  100: held-out 0.3778  observed-frames 0.0049  (obs_l 0.005 pde_l 0.334)
+  step  400: held-out 0.3426  observed-frames 0.0034  (obs_l 0.003 pde_l 0.205)
+  step  800: held-out 0.3191  observed-frames 0.0033  (obs_l 0.003 pde_l 0.181)
+  step 1500: held-out 0.2998  observed-frames 0.0032  (obs_l 0.003 pde_l 0.169)
+{
+  "sample_id": "validation_uniform_00069",
+  "medium": "uniform",
+  "n_obs": 24,
+  "obs_idx": [
+    28,
+    41,
+    55,
+    68,
+    81,
+    95,
+    108,
+    121,
+    134,
+    148,
+    161,
+    174,
+    188,
+    201,
+    214,
+    228,
+    241,
+    254,
+    267,
+    281,
+    294,
+    307,
+    321,
+    334
+  ],
+  "parent_baseline_heldout": 0.5057603716850281,
+  "parent_baseline_energetic_global": 0.5058561563491821,
+  "best_heldout_relL2": 0.29978612065315247,
+  "history": [
+    {
+      "step": 100,
+      "heldout_relL2": 0.37782925367355347,
+      "observed_relL2": 0.004937781486660242,
+      "obs_loss": 0.005019566509872675,
+      "pde_loss": 0.3340952396392822
+    },
+    {
+      "step": 400,
+      "heldout_relL2": 0.3425772190093994,
+      "observed_relL2": 0.003412838326767087,
+      "obs_loss": 0.0034192136954516172,
+      "pde_loss": 0.20454752445220947
+    },
+    {
+      "step": 800,
+      "heldout_relL2": 0.319112628698349,
+      "observed_relL2": 0.003272718982771039,
+      "obs_loss": 0.003270036308094859,
+      "pde_loss": 0.18136563897132874
+    },
+    {
+      "step": 1500,
+      "heldout_relL2": 0.29978612065315247,
+      "observed_relL2": 0.003219565376639366,
+      "obs_loss": 0.0032149970065802336,
+      "pde_loss": 0.1693444401025772
+    }
+  ]
+}

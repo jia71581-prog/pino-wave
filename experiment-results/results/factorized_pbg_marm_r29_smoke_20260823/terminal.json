@@ -1,0 +1,19 @@
+{
+  "schema": "factorized_pbg_smoke_terminal_v1",
+  "status": "failed",
+  "failure_stage": "normalization_dataset_initialization",
+  "error": "TypeError: Argument 'path' must not be None",
+  "diagnosis": "The LWC84 alias resolver tested an omitted optional model_type_key against HDF5 membership before resolving its physical alias.",
+  "optimizer_updates": 0,
+  "checkpoint_created": false,
+  "result_created": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {
+    "preregistration_sha256": "16d404fb044e5c451de01366b90d06e8330abf1f39bac6b1268906e582cdb9e8",
+    "config_sha256": "bc69bb6982976726612121be159eda7c9e342819e0313b299418519de9c6a3fd",
+    "data_loader_sha256": "8b12d2defb15a6fb0468ace766a3c726a50fc8ba7040facadfd5444ac1746340",
+    "launch_log_sha256": "2e96ffd3148cb21ca72e32ad670eff6759614c9b5735d4553985d1b14134b718"
+  },
+  "rollback": "Preserve r29 artifacts; retry only under a new preregistration after the optional-alias fix passes tests."
+}

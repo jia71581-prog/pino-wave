@@ -1,0 +1,6041 @@
+{
+  "dataset": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "dataset_manifest_sha256": "281f429a71aeaeb7dd006014633aa41e7dba9f337565ef257b4436a9ca48057d",
+  "deployment_contract": {
+    "causal_backtest_prefix": 5,
+    "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/snapshot_only/modal_context_calibration_cpu_r3/promoted/epoch_0000_backtest_p5_defect_q055_g075.pt",
+    "checkpoint_epoch": 0,
+    "closure_projection_nonzero": false,
+    "defect_memory_decay": 0.55,
+    "defect_trend_scale": 0.75,
+    "fixed_modal_radius": 0.995,
+    "future_truth_used_for_propagation": false,
+    "inference_signature": "(self, wavefield_history: 'torch.Tensor', steps: 'int') -> 'torch.Tensor'",
+    "input_keys": [
+      "wavefield_history",
+      "steps"
+    ],
+    "maximum_context_fraction": 0.3333333333333333,
+    "middle_or_late_snapshots_used": false,
+    "numerical_solver_used": false,
+    "observed_defect_memory": true,
+    "source_used": false,
+    "travel_time_used": false,
+    "velocity_used": false
+  },
+  "observed_input_sha256": {
+    "validation_layered_00000:end112:k8": "0b2349ec73982fe08e5b0ad4b0ccd3019ff519e7e36fabb6e4a6b7a7ea28e144",
+    "validation_layered_00000:end120:k8": "f394c1f4273eb368d0b86a567cab6499e8d2ca5affa1176b4c30ef1d3e6c3a61",
+    "validation_layered_00000:end80:k8": "523519e832e46e61c0ee14c130fb4fffb8832b55f71b89f3f5c7f5b71500700c",
+    "validation_layered_00001:end112:k8": "dc37ccea4f2ac2c675b2b16c5b28309e781b8e5640d9f985d986aa55fb8fd19a",
+    "validation_layered_00001:end120:k8": "b61cd89134c87335fceffbe6959cad50bd7371588116d6741524c6d1a2410622",
+    "validation_layered_00001:end80:k8": "cbd1f7233bf41c36688cd64fc8a1c10cd2e6a93f9eff93942c895b2240235d74",
+    "validation_layered_00002:end112:k8": "449484c0a40d29e35c6c86cd8e15a7cf06035af7646f1597965c759acfbcf4e9",
+    "validation_layered_00002:end120:k8": "d38a70c7fed8362412ea68ae8a9d8554aaf12762610822432dfb15634d76cf32",
+    "validation_layered_00002:end80:k8": "6e592eb3ce31e52c4d9e06df007e94d6c91db85028633db36d58d99c081e8aac",
+    "validation_layered_00003:end112:k8": "b84d8759614e3e842493fd62cf4dd27305e2f1c27f8368dea472cf01e9366359",
+    "validation_layered_00003:end120:k8": "0f28d01f80ad2d10fd05643dac55a8892ecc3edc2326fd479b715e3d516af345",
+    "validation_layered_00003:end80:k8": "987b1e8dd51bfea28b3936df600374ef726f5d38cd4536d4bfc6ef4be6ebee4c",
+    "validation_layered_00004:end112:k8": "fdd012e2d47a972b1605b1c33df7510ec32bffccc477d2ab5887a0afd9daca53",
+    "validation_layered_00004:end120:k8": "83e990d4a42d92557cd489854f17f7db4ec980c67f0434c8dcb753aa3660537f",
+    "validation_layered_00004:end80:k8": "27b2e1b35ca6f480bc13a7c2861f131c949c40475a88998d6c3065d37e1cc849",
+    "validation_layered_00005:end112:k8": "b9d28366c2b3413315ec30ba6da5ced942ba0d1c105972f37c947d3da6ea55ad",
+    "validation_layered_00005:end120:k8": "750887bea1232ae4fb6c61177644d86ac7c1d9930678fd24a00ad4351a7f9b2b",
+    "validation_layered_00005:end80:k8": "00ff2f70ca26a365de19ec05b015ef1e5eee11e9bb808014e281ce73ad702619",
+    "validation_layered_00006:end112:k8": "72f66a2d2ff838e62570f961408e7bd7227e4f705f3b760bcbd5913f3530251a",
+    "validation_layered_00006:end120:k8": "a119fea25940c17615eccca7a1a4a89ca0baa9fb435cc9c50f89cc7fd4c327e5",
+    "validation_layered_00006:end80:k8": "79f76c1a1ad0efef9e73004a1bea7d9ae240dacd08be6f3908391786c6f9813a",
+    "validation_layered_00007:end112:k8": "d90f00751d0459a950f94728dcb8e29681fdcd30c723eb8e88f9a5652ad3e964",
+    "validation_layered_00007:end120:k8": "a6b087154d83dad3227691b62b0b8c2ace435a617dfad6a565e24b2fe0a12f01",
+    "validation_layered_00007:end80:k8": "7f14521fe5992a473ba98de3e68361000dd37ced53f5cf13ae85b3af7056e9ef",
+    "validation_layered_00008:end112:k8": "37a0059688ffc2b7632552931ac77787f62a643ed32961ccafe87f3e9c3b4a13",
+    "validation_layered_00008:end120:k8": "f578c41721494827f2a9d119db5e40ff371bc9ddc07eb39d8748922bf5c917e5",
+    "validation_layered_00008:end80:k8": "af8a3ff334ef037275c7eab7ea762aff19e104b1ebc0ea7ea19d747defd57205",
+    "validation_layered_00009:end112:k8": "97b6d340ef5201d228c4127672ac92ecd019a77f2dfb636393fd4764dff72184",
+    "validation_layered_00009:end120:k8": "b3f540e9fcf16d001e6141b009534d438a607921d2729a9fa000b1b513d1edf0",
+    "validation_layered_00009:end80:k8": "fda1273e6271b1d4b7daea1f4c58d35a0b0c37eb0d2697fe7cc7bf51116adaa3",
+    "validation_layered_00010:end112:k8": "b31186f3fbb1f9751de159220d84f21389bb12e3263d606a8e305266c4fc7122",
+    "validation_layered_00010:end120:k8": "0983b4441dc597bd6d6a7424d82d0f3a2ebc598fe9948f52c92d0f0266c4447d",
+    "validation_layered_00010:end80:k8": "11906f90684479f4bf52874a48304b82e7a4fe36292144f819d2c8d58d28216f",
+    "validation_layered_00011:end112:k8": "a3d5ee6f68d3262cacb12874e7acfc7d0319894a565f9a810156f061c50f0b49",
+    "validation_layered_00011:end120:k8": "ca86a8255f6da949cb6f7cb840b861f157457d28190c8fa49b20f0701fe3bfe3",
+    "validation_layered_00011:end80:k8": "c9da0dc34974efa8f70104da6bd7ad9b67116c2890c6f4e33fc280d5dc42f37b",
+    "validation_layered_00012:end112:k8": "5e42df09da22d7091b2a6a4b37e53cb920646dd0d2521a94d295678eaf3c9436",
+    "validation_layered_00012:end120:k8": "7aa4f787ca2e10a4ae233ff455ac7c2eb8a4790392c496dc79cd61c0a02edea7",
+    "validation_layered_00012:end80:k8": "c0bcee00dc514bdaadffd3b7a951a244cd48de0b596071bd8f052c24755a23eb",
+    "validation_layered_00013:end112:k8": "e01950d96f2e81bd3a07d3025bf6fa6983667f19bde0771571790f076ec4f673",
+    "validation_layered_00013:end120:k8": "a2af30210e3099b5fe55c849f807158ef1afb6998bd2791b3074f2140d3b83cf",
+    "validation_layered_00013:end80:k8": "f2a4954727c38590f918e411cbc96399c97f917cb4f7b51029a3b87262050880",
+    "validation_layered_00014:end112:k8": "ce89db4206ef54104b47d1eab06dd42b24bc25b0f457a46801c2df27306b3f81",
+    "validation_layered_00014:end120:k8": "103b2f8587786ebe4b29b04c3e9b5e7bd43fd37a1bd115288b099e9b54d45e64",
+    "validation_layered_00014:end80:k8": "0567be52f492321783405cd6ec4f4d230a4b5ed096d4621ce8f81a718970d018",
+    "validation_layered_00015:end112:k8": "d68a53fcd27f0d0cdbc861afe9f72adb31f991551610d8f34e280b35b240b1d6",
+    "validation_layered_00015:end120:k8": "95e9106350496d05d711f0d28c9086654bd7361e2fbea033c6214242710a1f66",
+    "validation_layered_00015:end80:k8": "e43aa6dd07de8d314d6b7a42bb11474428ce3da2a4c936c8d9f986e4839b3b42",
+    "validation_marmousi_00000:end112:k8": "8eda9f630b1b21267c2a643c1849ab1be6d749b4aa6f824f95fa7d025cefae73",
+    "validation_marmousi_00000:end120:k8": "59a23a6c4d855b28181f10228c9bd079fd3b73b8c6cf54bf1bc4c5575b207b1a",
+    "validation_marmousi_00000:end80:k8": "fbfb8d632067f3b2f6295a61d7964f5609281b8e28f8cb39b15f4d03cbf332b7",
+    "validation_marmousi_00001:end112:k8": "e3d70ec88558769983f1f09e630a6ed1b6d7093007060bad58a3eda76575a6c8",
+    "validation_marmousi_00001:end120:k8": "c61dd77d46898461cdf5ffaaed4c181f304dccbf0f01bce56f3731f710dbbbd9",
+    "validation_marmousi_00001:end80:k8": "50250778815d7068689eebea60d7ddd1afcd95d04adb456503ed2ce9b80c6b6a",
+    "validation_marmousi_00002:end112:k8": "0a110ee6a5d4afaa836cf429938b966f860c8797f9946185359bb63d17d40230",
+    "validation_marmousi_00002:end120:k8": "568aeccd85fde0d93e4f59d7fe6447facd5f2afe811bcb9ccc2a092bd422cac6",
+    "validation_marmousi_00002:end80:k8": "7ed3c85f09cbc715111ec77d396f475d3dd9de5f8a079540bc01de7e83be9122",
+    "validation_marmousi_00003:end112:k8": "a7c9f7de9f27871472354563419e3cc37083708349523149650baabc40e4529b",
+    "validation_marmousi_00003:end120:k8": "6001ea4a51803e9c55b9dfb869ea29ea218749f4287e744f36c4678ce7e350eb",
+    "validation_marmousi_00003:end80:k8": "09ad7a8df755575b4794f2aaa3e7e5a5153704d40cc3be94288c52a6ec3f107a",
+    "validation_marmousi_00004:end112:k8": "e4b0f0c2aff23702f06d8627ec30727a5ff2c7c8c76e2cf661056d13227e1430",
+    "validation_marmousi_00004:end120:k8": "7b9803dde2c32c00c417f8d9648a1a7cdafd0f9c4ffb84740014967c9dccfad1",
+    "validation_marmousi_00004:end80:k8": "f437bde82ef638973bea0b991ad8915d22310e1809e226a601e518645a8acc16",
+    "validation_marmousi_00005:end112:k8": "c4e061b0a52831ba148fcdc1fc19e39dc9ae20611246c5afdaa0613e19b3ea8a",
+    "validation_marmousi_00005:end120:k8": "7501cb5f22ccf22f606f38f4c5f1b7c5f1fb8ea646f286138f33f5bdd1fb479c",
+    "validation_marmousi_00005:end80:k8": "4423bc00a8e47e367e29ba075fa15da1f5af5048083f175fb13fb639ce13c1a1",
+    "validation_marmousi_00006:end112:k8": "943cf75f85f13926cbc68bcd4d0108a2da097227053005cc544432c34c3ad9f1",
+    "validation_marmousi_00006:end120:k8": "43d74512681b9d96e74abe8846737330a63397d8f783fe389d51d77ba3211ff8",
+    "validation_marmousi_00006:end80:k8": "fc2ff22be06a812edc7a49bfd15929a5522c3082b1ad3bad3bce13d3ffbe52fd",
+    "validation_marmousi_00007:end112:k8": "07e32b98c26c9193c85ecb700b72a36afe045c997bcf6726ac02eb8f65f6f4b8",
+    "validation_marmousi_00007:end120:k8": "dd592b4f07926e50daea41ac863610cae7562ef4688a1cbbd2ed0f0105018a48",
+    "validation_marmousi_00007:end80:k8": "698f31ce522d34276fbbdc54ca01c09cce237e1aacd3a0d6751f2b4e74e64604",
+    "validation_marmousi_00008:end112:k8": "fa1df0c027e84bb9e62bc40db2108e5b9e2f33fda1fd2c964c5c7b41efc26840",
+    "validation_marmousi_00008:end120:k8": "33d72a9bd7133e784207423dfe73f0d04659165c2ec0df6ae639c62032299986",
+    "validation_marmousi_00008:end80:k8": "c7121b7b83ef728b163b79f4918a3a720adbc16f2b16c1d63409ed88dd1a1157",
+    "validation_marmousi_00009:end112:k8": "4bc6710c0d42435cdff721f349618de5baf82e80002d2bee7d7f4b023d4a9a0a",
+    "validation_marmousi_00009:end120:k8": "7f586ba797bc7aa4124029feaa451ceae02d7fa5980b241ec8b3d3713db97bc7",
+    "validation_marmousi_00009:end80:k8": "f7a1c87e269d39ec35b8f67dacc97d0253ece548f8c282e8dbc84195d0d2a70e",
+    "validation_marmousi_00010:end112:k8": "4fe7e744fd2a5aaaa3efc20df21b8501b56dd29071a2fb0efa140809aa36cb0b",
+    "validation_marmousi_00010:end120:k8": "8598f21ee7ad1c46d627133db45bee94eafb1075fd934b9838ff07b318f960b9",
+    "validation_marmousi_00010:end80:k8": "910b0760012051f70f1af37ed12198ad7d4214959a1d75755cac29242c68b59c",
+    "validation_marmousi_00011:end112:k8": "6ea0d894fc9e6389de59ace3204940a4ffb3f5691b25703436225fc20f0e8356",
+    "validation_marmousi_00011:end120:k8": "af70af9ae5ae9625cd42b67d8d370c7d03f341a07b7dc03ce8c431a3143a96a7",
+    "validation_marmousi_00011:end80:k8": "adfb452b95e8a2efe8121a80f91dafca8f597f061e62dcc4f99bf7b885388db2",
+    "validation_marmousi_00012:end112:k8": "cdd311f987cb2713e2ecf2bf3847640354c4b24d23e8fc0947e6d788fc7a535b",
+    "validation_marmousi_00012:end120:k8": "fa700fe8892d226994a3840d636f7e639bbcb54874817606b013e4c37b3c8129",
+    "validation_marmousi_00012:end80:k8": "24c36b43ee5e26e09d31183accc0d73f72e0738e0e48f444acf1bdccfcce64a4",
+    "validation_marmousi_00013:end112:k8": "d8f5abaa19cb57c769614cfa9889bb5139eca100a25ad1c87f0b7e1c53050af1",
+    "validation_marmousi_00013:end120:k8": "106d243f17e030bc96042d1e8a57c9e7faeb67395c44af043a4e3f09af7827b4",
+    "validation_marmousi_00013:end80:k8": "3ca567979b17a69dd61c6a9ed101884e50ca73a1b0ebd03fddf9e5a46b908281",
+    "validation_marmousi_00014:end112:k8": "aaed934040b6dde4a41d1285c7883b57c6667b2db4de719e5bdaa4d9a267f96f",
+    "validation_marmousi_00014:end120:k8": "9b16622273986edb2eee8de9b684ed72e86ed3897a6e72aaf749ae348f7ad3da",
+    "validation_marmousi_00014:end80:k8": "aae4a7ddc63c0eb1d21463a34f2e6ae080e8e0f5ecb8aaad86fc60a8e061456a",
+    "validation_marmousi_00015:end112:k8": "7d8e7b3796b932e76108c75cbbad7c75e62177609d90151fb4eb5abc7fb9218f",
+    "validation_marmousi_00015:end120:k8": "3fff66494a44eeb42e67681dd97542ad0302e3e7757eeb49af36ad1c12c1fc6d",
+    "validation_marmousi_00015:end80:k8": "1375ea4c82f6a697cee57aef9964a07e17d31c150b141a92abe6b5a03f231f5d",
+    "validation_uniform_00000:end112:k8": "13c6ae91ee81ce66d421d9dda0cf35fb8f6cfae92c997b09c9811c3699b19d2e",
+    "validation_uniform_00000:end120:k8": "6ef72f91b4e15058918cea39639a14a1da77e3a963bcb1ead239e6dac0f11477",
+    "validation_uniform_00000:end80:k8": "9adde67aceaf862bc541fcd2c8564e969915283993dbbd87ca4828801f67efa4",
+    "validation_uniform_00001:end112:k8": "34b20ba01bfdcbe65708148624fe808e537d460b37fba055bb4477d6c30661ae",
+    "validation_uniform_00001:end120:k8": "007b340e21c9eaeee3cc9057f8c46feb194988168caa6baddd9d05ab5aef3491",
+    "validation_uniform_00001:end80:k8": "9d640c8790e99e5d0af11228b4f378b7ed6881b379ae1ef67bead0343c12c3a7",
+    "validation_uniform_00002:end112:k8": "1bb27008e53bbc97618ac7187bf4a03db5b85d6e1d01461b0a7680e2cbae7aee",
+    "validation_uniform_00002:end120:k8": "ab8aa6cf255f2774189491c4a357faabed1762d9fa8c38bd88a824909dce5563",
+    "validation_uniform_00002:end80:k8": "5c603fb9d7a72dd41bd1cc234b42ce231b88d869e40694202dbbe2f652fa4ee0",
+    "validation_uniform_00003:end112:k8": "ef2f1e435d78b4b9b818ec0875272e97bbd0255b05825869f21d4103345bd450",
+    "validation_uniform_00003:end120:k8": "f30d2f43f6ae069eaed45710b4565d3692b3dd2c53c82e39245b5918a26f88f6",
+    "validation_uniform_00003:end80:k8": "9ec5d825c05feb6d62cd531c2e1f97c1eb35a1924e153a98a8edc59b4935ea03",
+    "validation_uniform_00004:end112:k8": "e8569b2ffa10d1a63d24a319fc21f6382b19846a6c5a4ef54567a5e04971cba5",
+    "validation_uniform_00004:end120:k8": "fde07bf1caadf49af365aeb8875991d4b5d360dd15f0314938b57f4c772bddc6",
+    "validation_uniform_00004:end80:k8": "28f74d253a455577c765b1a2c1d80b8cf388d3eadadc6d80426d7b1a361b12e9",
+    "validation_uniform_00005:end112:k8": "b585de3f8785dfe23aa718e7dd6c8a0480d52730089032c3d0e2b6af17fbb4e7",
+    "validation_uniform_00005:end120:k8": "befe9a47278c7a482c3f07f52378a22dddb98d590412b2ae0cc3225bce458804",
+    "validation_uniform_00005:end80:k8": "9953990922d64d0f78fdd19e1d96b5ca77ea8e653263f1a804f59c92e9f789bc",
+    "validation_uniform_00006:end112:k8": "3b06bb40a7f2646fdf74d45dc76777240f2c2731ebb17bf35a09293ba58292da",
+    "validation_uniform_00006:end120:k8": "c740023d824a3e1e3af3a267488980c542a30dac7c8b3fd9ff8a4e249d6d0066",
+    "validation_uniform_00006:end80:k8": "7d063d5059e5bc9aec21f4812d1e52ee71ad59a24471f5477c24e5164e01e624",
+    "validation_uniform_00007:end112:k8": "c212321ad173ef173da87a3355ee4feeb0853b58dc4eebecc2de9500fbe18e38",
+    "validation_uniform_00007:end120:k8": "9a5dab76b32e2c35ba5bb01c2d5e08b2bf2ff624db97cf648c2b81f13d6e7680",
+    "validation_uniform_00007:end80:k8": "6ffefd554929ddd62f236df6345d548613568c8d245fa3913602628aef5f2888",
+    "validation_uniform_00008:end112:k8": "0d5c4702eedf3e860bb2b0b12a90b4ff4ede1bb8a7aef271d0b01685eeb22790",
+    "validation_uniform_00008:end120:k8": "ef013f0172b5a842baf2ae4e7f4f82fc591ea4b80ac6ce3c09704e1bed426b46",
+    "validation_uniform_00008:end80:k8": "5229de9afdea337ff4e0162b68bf9b01ce730e37629576c3c4100a7a6b167fce",
+    "validation_uniform_00009:end112:k8": "964de455ea2a8aedfe889961d083d788e03ec8ef3412b9a29ee75ba1d4516e46",
+    "validation_uniform_00009:end120:k8": "681f6b9259ba30c87051e596ea79c1e2feeda06dc07a51058d3da3c1d18264d8",
+    "validation_uniform_00009:end80:k8": "370ff2d9945eb0d38d52659163a03cf3422b49f845b2c99a086bff4f96596c4e",
+    "validation_uniform_00010:end112:k8": "10bad9c99d58e31ce415745f3b6b965ff8c96cc84bdda791b5fef68a891190df",
+    "validation_uniform_00010:end120:k8": "16ebe613e57d489e364abeaef0c551ed548c9676e99b3ea8ce11bbf6a962b086",
+    "validation_uniform_00010:end80:k8": "de6d17289ed91f353555f4af22a2de959cec4d1a71d0bf797df66d1a15a4fcb5",
+    "validation_uniform_00011:end112:k8": "7da390a7fa4ca0d934d94e5a733a936d80d0d56b93e847965fa8a83dec349eea",
+    "validation_uniform_00011:end120:k8": "b0afcfa38c56cc1c007c43f0fe3c46ce91a29b0d938afe8f3b421647d2f79ad1",
+    "validation_uniform_00011:end80:k8": "9f56a6005b01cd85a688b286d5c5dfc0413b5cbfb5759c139c245abc103dec3b",
+    "validation_uniform_00012:end112:k8": "225394fa1b7f6f1fc6d5c18e8c3328fbd74ff32bd9e92043c60d554a1a30731e",
+    "validation_uniform_00012:end120:k8": "f3128e2f170ffef5a7b225a3c118b83d5470e6b1e86e437316e53abedf0d355d",
+    "validation_uniform_00012:end80:k8": "bd581ac93209d8dc347bf7a38689edb6008fd23765add0e152710d9480511e67",
+    "validation_uniform_00013:end112:k8": "d5bb07cdc51696d0ca862436964b620e054bd56b1f6184f411173d1e30b64c7d",
+    "validation_uniform_00013:end120:k8": "1d9a10a2f5dc61de66cdb77993b8df527007e338a476017a3f11452da3c22c39",
+    "validation_uniform_00013:end80:k8": "26ba2597caf175d76285064db0c64d24b2698300cb86126fdff1034cfe819eae",
+    "validation_uniform_00014:end112:k8": "5e4ad71aed8965f77701fcf1b2aa09ba0738b283b05c7a965e05cd6971722602",
+    "validation_uniform_00014:end120:k8": "db4f0ae92b718b40f79a57160e86555eca3e7a328f65f8c0bf1c7e25d2ded47b",
+    "validation_uniform_00014:end80:k8": "25540eee0d757a872bf1a0a78b3dddb312d5212c06d59134e5e959d057d84fbd",
+    "validation_uniform_00015:end112:k8": "9b0eadb7396812b12f8efa581bd04c4445d9e13d58e6395497e6887f38659799",
+    "validation_uniform_00015:end120:k8": "d77b098428212645f9ef740914e69179acf5c57cbc8d7e9935c3feade7932c3b",
+    "validation_uniform_00015:end80:k8": "d675ee5e562e44612f168bc2da43ad7c55049a7d4eed346524d8c223ffe0a3a3"
+  },
+  "records_per_family": 16,
+  "rows": [
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2800,
+      "relative_l2": 0.005101905639714952,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2800,
+      "relative_l2": 0.08546281819969749,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2800,
+      "relative_l2": 0.13600081998198066,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2800,
+      "relative_l2": 0.21742502508569445,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2800,
+      "relative_l2": 0.004056869425806934,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2800,
+      "relative_l2": 0.06347920861969854,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2800,
+      "relative_l2": 0.09752497454586413,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2800,
+      "relative_l2": 0.1509352706685024,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2800,
+      "relative_l2": 0.0039130437640028425,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2800,
+      "relative_l2": 0.060751393498095586,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2800,
+      "relative_l2": 0.09392424816542796,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2800,
+      "relative_l2": 0.14614612699496637,
+      "sample_id": "validation_uniform_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2801,
+      "relative_l2": 0.0050968819682350505,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2801,
+      "relative_l2": 0.08492771033871006,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2801,
+      "relative_l2": 0.13228942040371863,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2801,
+      "relative_l2": 0.21117754358366417,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2801,
+      "relative_l2": 0.004252751790118363,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2801,
+      "relative_l2": 0.06347343978471032,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2801,
+      "relative_l2": 0.09535199480359985,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2801,
+      "relative_l2": 0.1499032932173361,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2801,
+      "relative_l2": 0.004098359479454251,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2801,
+      "relative_l2": 0.061044788079371366,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2801,
+      "relative_l2": 0.09217999652168152,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2801,
+      "relative_l2": 0.15650819352600148,
+      "sample_id": "validation_uniform_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2802,
+      "relative_l2": 0.004108991675518781,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2802,
+      "relative_l2": 0.10347250524715258,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2802,
+      "relative_l2": 0.19316323349706657,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2802,
+      "relative_l2": 0.3261225965739248,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2802,
+      "relative_l2": 0.0029665926816644568,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2802,
+      "relative_l2": 0.06186145775225258,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2802,
+      "relative_l2": 0.10058727265277706,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2802,
+      "relative_l2": 0.15413355808882814,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2802,
+      "relative_l2": 0.0028651220005803785,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2802,
+      "relative_l2": 0.05976278145529147,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2802,
+      "relative_l2": 0.09719656801485103,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2802,
+      "relative_l2": 0.14877165948980825,
+      "sample_id": "validation_uniform_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2803,
+      "relative_l2": 0.0006038116626743582,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2803,
+      "relative_l2": 0.08429705871788076,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2803,
+      "relative_l2": 0.21589190838481906,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2803,
+      "relative_l2": 0.3338667039405424,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2803,
+      "relative_l2": 0.00014951250570357624,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2803,
+      "relative_l2": 0.019664643146232678,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2803,
+      "relative_l2": 0.056987273509044374,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2803,
+      "relative_l2": 0.11944291119792856,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2803,
+      "relative_l2": 0.00015719662715364734,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2803,
+      "relative_l2": 0.020712939294850175,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2803,
+      "relative_l2": 0.06136538584629615,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2803,
+      "relative_l2": 0.14367544596274784,
+      "sample_id": "validation_uniform_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2804,
+      "relative_l2": 0.007191336936352971,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2804,
+      "relative_l2": 0.10779619750940116,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2804,
+      "relative_l2": 0.19499370497968488,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2804,
+      "relative_l2": 0.34758740319200493,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2804,
+      "relative_l2": 0.009742962201215517,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2804,
+      "relative_l2": 0.23035065307431113,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2804,
+      "relative_l2": 0.36913153170559665,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2804,
+      "relative_l2": 0.5116105427861289,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2804,
+      "relative_l2": 0.009701784783077524,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2804,
+      "relative_l2": 0.1618473844835241,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2804,
+      "relative_l2": 0.30207947033031496,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2804,
+      "relative_l2": 0.4811277431772157,
+      "sample_id": "validation_uniform_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2805,
+      "relative_l2": 0.003982072344435152,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2805,
+      "relative_l2": 0.0682410138988635,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2805,
+      "relative_l2": 0.12748195604545529,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2805,
+      "relative_l2": 0.22467503828156743,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2805,
+      "relative_l2": 0.005176550620636763,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2805,
+      "relative_l2": 0.1621107482082361,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2805,
+      "relative_l2": 0.29021815776131393,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2805,
+      "relative_l2": 0.42484452878823176,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2805,
+      "relative_l2": 0.00697679592434792,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2805,
+      "relative_l2": 0.14286446962435168,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2805,
+      "relative_l2": 0.2832214069610011,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2805,
+      "relative_l2": 0.4344863708164448,
+      "sample_id": "validation_uniform_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2806,
+      "relative_l2": 0.0008522210100678936,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2806,
+      "relative_l2": 0.08490005861440689,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2806,
+      "relative_l2": 0.22864128939379058,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2806,
+      "relative_l2": 0.40517736222447137,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2806,
+      "relative_l2": 0.0008030838266962332,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2806,
+      "relative_l2": 0.08170205743978215,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2806,
+      "relative_l2": 0.21781230688668735,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2806,
+      "relative_l2": 0.3809242064359065,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2806,
+      "relative_l2": 0.0007112073943197969,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2806,
+      "relative_l2": 0.06491557200188242,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2806,
+      "relative_l2": 0.181139175411787,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2806,
+      "relative_l2": 0.33651473066641946,
+      "sample_id": "validation_uniform_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2807,
+      "relative_l2": 0.0013912735658834171,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2807,
+      "relative_l2": 0.11357127174832234,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2807,
+      "relative_l2": 0.3095520958656844,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2807,
+      "relative_l2": 0.5401019260258204,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2807,
+      "relative_l2": 0.0007486202935471422,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2807,
+      "relative_l2": 0.04983294675714049,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2807,
+      "relative_l2": 0.11080648032691516,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2807,
+      "relative_l2": 0.2007477194321118,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2807,
+      "relative_l2": 0.0006478391356578291,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2807,
+      "relative_l2": 0.04172215926847047,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2807,
+      "relative_l2": 0.09193587573107215,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2807,
+      "relative_l2": 0.16743007856568454,
+      "sample_id": "validation_uniform_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2808,
+      "relative_l2": 0.0039277727314850144,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2808,
+      "relative_l2": 0.09069219345243494,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2808,
+      "relative_l2": 0.14913206031319456,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2808,
+      "relative_l2": 0.229517208883455,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2808,
+      "relative_l2": 0.0030767012430833024,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2808,
+      "relative_l2": 0.06706085763088503,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2808,
+      "relative_l2": 0.11331112350421904,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2808,
+      "relative_l2": 0.17276717280480675,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2808,
+      "relative_l2": 0.0029605729206224414,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2808,
+      "relative_l2": 0.06237474459613056,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2808,
+      "relative_l2": 0.10171234102164775,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2808,
+      "relative_l2": 0.15794069129000443,
+      "sample_id": "validation_uniform_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2809,
+      "relative_l2": 0.0007521564764560961,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2809,
+      "relative_l2": 0.032189055803297006,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2809,
+      "relative_l2": 0.08843883758964897,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2809,
+      "relative_l2": 0.20486607532614354,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2809,
+      "relative_l2": 0.001853452522313106,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2809,
+      "relative_l2": 0.06903838044563958,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2809,
+      "relative_l2": 0.14722601646269504,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2809,
+      "relative_l2": 0.2841495868446252,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2809,
+      "relative_l2": 0.0017254839426114686,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2809,
+      "relative_l2": 0.05942372106289927,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2809,
+      "relative_l2": 0.12542415712783708,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2809,
+      "relative_l2": 0.25388490182841017,
+      "sample_id": "validation_uniform_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2810,
+      "relative_l2": 0.0023768995789834445,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2810,
+      "relative_l2": 0.07693685879660676,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2810,
+      "relative_l2": 0.21675742969789646,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2810,
+      "relative_l2": 0.3668827384825266,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2810,
+      "relative_l2": 0.003783497989115591,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2810,
+      "relative_l2": 0.08606645643995917,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2810,
+      "relative_l2": 0.15514609368962498,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2810,
+      "relative_l2": 0.27164383938705344,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2810,
+      "relative_l2": 0.0033991096149224857,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2810,
+      "relative_l2": 0.07176521117329238,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2810,
+      "relative_l2": 0.12196362885628605,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2810,
+      "relative_l2": 0.21461032274440017,
+      "sample_id": "validation_uniform_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2811,
+      "relative_l2": 0.003507432616601275,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2811,
+      "relative_l2": 0.14722750021868458,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2811,
+      "relative_l2": 0.35117279354408143,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2811,
+      "relative_l2": 0.5319190272233988,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2811,
+      "relative_l2": 0.0026734794164747964,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2811,
+      "relative_l2": 0.07431735275094892,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2811,
+      "relative_l2": 0.13599486105664502,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2811,
+      "relative_l2": 0.2382950389285258,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2811,
+      "relative_l2": 0.0023905875248769054,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2811,
+      "relative_l2": 0.06469135270866457,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2811,
+      "relative_l2": 0.11414869089924712,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2811,
+      "relative_l2": 0.19437262842297912,
+      "sample_id": "validation_uniform_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2812,
+      "relative_l2": 0.0006046436152531546,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2812,
+      "relative_l2": 0.05087865203905131,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2812,
+      "relative_l2": 0.13261525439684643,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2812,
+      "relative_l2": 0.26171513813789266,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2812,
+      "relative_l2": 0.0008199884951365285,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2812,
+      "relative_l2": 0.06538061188346114,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2812,
+      "relative_l2": 0.1813429087562455,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2812,
+      "relative_l2": 0.3386061865200777,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2812,
+      "relative_l2": 0.0006748143754288486,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2812,
+      "relative_l2": 0.053443415783323206,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2812,
+      "relative_l2": 0.1429707316757933,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2812,
+      "relative_l2": 0.2605505840254873,
+      "sample_id": "validation_uniform_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2813,
+      "relative_l2": 0.0019327773470645502,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2813,
+      "relative_l2": 0.1323417812887307,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2813,
+      "relative_l2": 0.31379246586407855,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2813,
+      "relative_l2": 0.5371282703741532,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2813,
+      "relative_l2": 0.00111106666810468,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2813,
+      "relative_l2": 0.058253351219395476,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2813,
+      "relative_l2": 0.11881080826077954,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2813,
+      "relative_l2": 0.20576598302164295,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2813,
+      "relative_l2": 0.0009797585891775,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2813,
+      "relative_l2": 0.051750199049612665,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2813,
+      "relative_l2": 0.10386410977393477,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2813,
+      "relative_l2": 0.17546557571095697,
+      "sample_id": "validation_uniform_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2814,
+      "relative_l2": 0.000625310048840837,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2814,
+      "relative_l2": 0.08768084932836741,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2814,
+      "relative_l2": 0.2502787211581608,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2814,
+      "relative_l2": 0.4079833206444635,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2814,
+      "relative_l2": 0.0003041981593265778,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2814,
+      "relative_l2": 0.03291622996431041,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2814,
+      "relative_l2": 0.09551172615991896,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2814,
+      "relative_l2": 0.1745006635635273,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2814,
+      "relative_l2": 0.00029843196306918933,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2814,
+      "relative_l2": 0.03106871398819482,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2814,
+      "relative_l2": 0.0908427108758577,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2814,
+      "relative_l2": 0.16796425890864042,
+      "sample_id": "validation_uniform_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2815,
+      "relative_l2": 0.0017010739104622856,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2815,
+      "relative_l2": 0.02341049347948796,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2815,
+      "relative_l2": 0.05396065194467148,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2815,
+      "relative_l2": 0.18906712447323493,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2815,
+      "relative_l2": 0.008807799691057371,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2815,
+      "relative_l2": 0.14867984331867926,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2815,
+      "relative_l2": 0.2899088521920522,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2815,
+      "relative_l2": 0.5030236576354378,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2815,
+      "relative_l2": 0.006108735072838295,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2815,
+      "relative_l2": 0.11159915976482747,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2815,
+      "relative_l2": 0.22687040280030144,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "uniform",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2815,
+      "relative_l2": 0.4311933380156895,
+      "sample_id": "validation_uniform_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2890,
+      "relative_l2": 0.004691216792708083,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2890,
+      "relative_l2": 0.22645349909591758,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2890,
+      "relative_l2": 0.456633547176846,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2890,
+      "relative_l2": 0.7077629642965697,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2890,
+      "relative_l2": 0.0023441230476850526,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2890,
+      "relative_l2": 0.08641029005038321,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2890,
+      "relative_l2": 0.17795222279752626,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2890,
+      "relative_l2": 0.3256326057884915,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2890,
+      "relative_l2": 0.00218275436085151,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2890,
+      "relative_l2": 0.08169274745978677,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2890,
+      "relative_l2": 0.1756284447234832,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2890,
+      "relative_l2": 0.34001175267924155,
+      "sample_id": "validation_layered_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2891,
+      "relative_l2": 0.0005597379707177472,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2891,
+      "relative_l2": 0.05850076684912197,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2891,
+      "relative_l2": 0.1591434817572966,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2891,
+      "relative_l2": 0.26158030229296925,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2891,
+      "relative_l2": 0.0003756576788881204,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2891,
+      "relative_l2": 0.028902866019445573,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2891,
+      "relative_l2": 0.07801370446860863,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2891,
+      "relative_l2": 0.1810808342661673,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2891,
+      "relative_l2": 0.0003782538973098459,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2891,
+      "relative_l2": 0.03143503558575251,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2891,
+      "relative_l2": 0.08631189808902803,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2891,
+      "relative_l2": 0.1815537573687858,
+      "sample_id": "validation_layered_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2892,
+      "relative_l2": 0.002100875933239293,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2892,
+      "relative_l2": 0.15857812061192192,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2892,
+      "relative_l2": 0.3960827541120818,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2892,
+      "relative_l2": 0.6653035156232383,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2892,
+      "relative_l2": 0.0012261478069942604,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2892,
+      "relative_l2": 0.07241000651133042,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2892,
+      "relative_l2": 0.17191668776765184,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2892,
+      "relative_l2": 0.30562970504143494,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2892,
+      "relative_l2": 0.001080278976715205,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2892,
+      "relative_l2": 0.06445913111475352,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2892,
+      "relative_l2": 0.1471196395282752,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2892,
+      "relative_l2": 0.2741264089927591,
+      "sample_id": "validation_layered_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2893,
+      "relative_l2": 0.014397403768558336,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2893,
+      "relative_l2": 0.18349628032611487,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2893,
+      "relative_l2": 0.33862145083144646,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2893,
+      "relative_l2": 0.5827009884778759,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2893,
+      "relative_l2": 0.010050674089128893,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2893,
+      "relative_l2": 0.12807861627243544,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2893,
+      "relative_l2": 0.2375617759686933,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2893,
+      "relative_l2": 0.49527646184457785,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2893,
+      "relative_l2": 0.009858270971988624,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2893,
+      "relative_l2": 0.14484870769469302,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2893,
+      "relative_l2": 0.29449710410954477,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2893,
+      "relative_l2": 0.5684995316004567,
+      "sample_id": "validation_layered_00003"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2894,
+      "relative_l2": 0.0014341100523147514,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2894,
+      "relative_l2": 0.09249953349197504,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2894,
+      "relative_l2": 0.2404930696943167,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2894,
+      "relative_l2": 0.43100841449338245,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2894,
+      "relative_l2": 0.001622365874079541,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2894,
+      "relative_l2": 0.08696173290593355,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2894,
+      "relative_l2": 0.2154462207320035,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2894,
+      "relative_l2": 0.3970647181664247,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2894,
+      "relative_l2": 0.0011472594135047039,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2894,
+      "relative_l2": 0.06577083146983784,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2894,
+      "relative_l2": 0.162599129238294,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2894,
+      "relative_l2": 0.3954580661472288,
+      "sample_id": "validation_layered_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2895,
+      "relative_l2": 0.002953500756721698,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2895,
+      "relative_l2": 0.07615801555048078,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2895,
+      "relative_l2": 0.1315845284988839,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2895,
+      "relative_l2": 0.21513888180970545,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2895,
+      "relative_l2": 0.0021572216438817734,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2895,
+      "relative_l2": 0.05478085007215985,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2895,
+      "relative_l2": 0.10639388713008893,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2895,
+      "relative_l2": 0.26815314653332584,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2895,
+      "relative_l2": 0.0022509002461326873,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2895,
+      "relative_l2": 0.06714603915330805,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2895,
+      "relative_l2": 0.17838079864627726,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2895,
+      "relative_l2": 0.38805531650931097,
+      "sample_id": "validation_layered_00005"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2896,
+      "relative_l2": 0.0077699711700990855,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2896,
+      "relative_l2": 0.12365633703911809,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2896,
+      "relative_l2": 0.22357333909612953,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2896,
+      "relative_l2": 0.39474599946984135,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2896,
+      "relative_l2": 0.005239151499587432,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2896,
+      "relative_l2": 0.06551972150671324,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2896,
+      "relative_l2": 0.1276847672453562,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2896,
+      "relative_l2": 0.3764768391455781,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2896,
+      "relative_l2": 0.0052544855923043424,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2896,
+      "relative_l2": 0.11095683402851025,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2896,
+      "relative_l2": 0.3165240727038698,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2896,
+      "relative_l2": 0.552020410883528,
+      "sample_id": "validation_layered_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2897,
+      "relative_l2": 0.007229095834734329,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2897,
+      "relative_l2": 0.09527788765874132,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2897,
+      "relative_l2": 0.14989132837834804,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2897,
+      "relative_l2": 0.24667409336218202,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2897,
+      "relative_l2": 0.005762106837743303,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2897,
+      "relative_l2": 0.14240004419739213,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2897,
+      "relative_l2": 0.35199754341361744,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2897,
+      "relative_l2": 0.5299007454753233,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2897,
+      "relative_l2": 0.011530317429599571,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2897,
+      "relative_l2": 0.25040428950059457,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2897,
+      "relative_l2": 0.4574930989240056,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2897,
+      "relative_l2": 0.6086710376672926,
+      "sample_id": "validation_layered_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2898,
+      "relative_l2": 0.0007690041273347871,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2898,
+      "relative_l2": 0.07072127312183309,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2898,
+      "relative_l2": 0.1898915915025299,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2898,
+      "relative_l2": 0.36896913882035154,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2898,
+      "relative_l2": 0.0009243560135013838,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2898,
+      "relative_l2": 0.07379914770599495,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2898,
+      "relative_l2": 0.19824549213290596,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2898,
+      "relative_l2": 0.3888972907584337,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2898,
+      "relative_l2": 0.0009437076867870898,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2898,
+      "relative_l2": 0.07374633248792062,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2898,
+      "relative_l2": 0.20400007088777983,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2898,
+      "relative_l2": 0.4385546582709012,
+      "sample_id": "validation_layered_00008"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2899,
+      "relative_l2": 0.0011577657466904899,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2899,
+      "relative_l2": 0.1058186213458277,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2899,
+      "relative_l2": 0.2988780073089544,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2899,
+      "relative_l2": 0.5279247889231928,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2899,
+      "relative_l2": 0.0008996737411735236,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2899,
+      "relative_l2": 0.07259982436335408,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2899,
+      "relative_l2": 0.1908766224867755,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2899,
+      "relative_l2": 0.3992536320469351,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2899,
+      "relative_l2": 0.0009895732741799755,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2899,
+      "relative_l2": 0.08685519029609666,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2899,
+      "relative_l2": 0.2575849269026163,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2899,
+      "relative_l2": 0.49445538484328994,
+      "sample_id": "validation_layered_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2900,
+      "relative_l2": 0.0005641064013805618,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2900,
+      "relative_l2": 0.07971532844871848,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2900,
+      "relative_l2": 0.21718531568901417,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2900,
+      "relative_l2": 0.34273319218917664,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2900,
+      "relative_l2": 0.00023113609873925942,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2900,
+      "relative_l2": 0.033015937267621275,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2900,
+      "relative_l2": 0.10345810931535639,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2900,
+      "relative_l2": 0.2189561760853435,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2900,
+      "relative_l2": 0.0002753463854073725,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2900,
+      "relative_l2": 0.03677375591764466,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2900,
+      "relative_l2": 0.12178385784409208,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2900,
+      "relative_l2": 0.2923701273109857,
+      "sample_id": "validation_layered_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2901,
+      "relative_l2": 0.004389086002712924,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2901,
+      "relative_l2": 0.10793495047718865,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2901,
+      "relative_l2": 0.20616893152495586,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2901,
+      "relative_l2": 0.392047784233956,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2901,
+      "relative_l2": 0.007494307232054537,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2901,
+      "relative_l2": 0.2397099695481715,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2901,
+      "relative_l2": 0.4775295493799509,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2901,
+      "relative_l2": 0.6937946624011239,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2901,
+      "relative_l2": 0.008012752846590818,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2901,
+      "relative_l2": 0.24850957292656808,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2901,
+      "relative_l2": 0.49324965813047245,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2901,
+      "relative_l2": 0.7536365187364767,
+      "sample_id": "validation_layered_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2902,
+      "relative_l2": 0.0006142278030664797,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2902,
+      "relative_l2": 0.0359841561250028,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2902,
+      "relative_l2": 0.08254446310203697,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2902,
+      "relative_l2": 0.1549986540335863,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2902,
+      "relative_l2": 0.0009055130698709915,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2902,
+      "relative_l2": 0.07050826215193223,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2902,
+      "relative_l2": 0.1857169653671808,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2902,
+      "relative_l2": 0.35890033922236864,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2902,
+      "relative_l2": 0.0011544398006062327,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2902,
+      "relative_l2": 0.08204800874119553,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2902,
+      "relative_l2": 0.21827041440271278,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2902,
+      "relative_l2": 0.4201755486706472,
+      "sample_id": "validation_layered_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2903,
+      "relative_l2": 0.01444493461648632,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2903,
+      "relative_l2": 0.241000776848746,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2903,
+      "relative_l2": 0.42973227016112003,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2903,
+      "relative_l2": 0.6491810479820145,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2903,
+      "relative_l2": 0.007947778288331547,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2903,
+      "relative_l2": 0.07259493210004729,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2903,
+      "relative_l2": 0.10835109294955741,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2903,
+      "relative_l2": 0.21237327256685823,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2903,
+      "relative_l2": 0.0075776607309341595,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2903,
+      "relative_l2": 0.06718210044857868,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2903,
+      "relative_l2": 0.10779537679692522,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2903,
+      "relative_l2": 0.2965003672867164,
+      "sample_id": "validation_layered_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2904,
+      "relative_l2": 0.0008701541796184372,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2904,
+      "relative_l2": 0.0986316539120645,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2904,
+      "relative_l2": 0.26520771465918075,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2904,
+      "relative_l2": 0.46970467174214847,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2904,
+      "relative_l2": 0.0007034142782226751,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2904,
+      "relative_l2": 0.0671901532309618,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2904,
+      "relative_l2": 0.18664465560148635,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2904,
+      "relative_l2": 0.34647225930447567,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2904,
+      "relative_l2": 0.0005897360991629331,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2904,
+      "relative_l2": 0.053062661754485596,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2904,
+      "relative_l2": 0.13860046983537838,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2904,
+      "relative_l2": 0.2451962213214781,
+      "sample_id": "validation_layered_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2905,
+      "relative_l2": 0.001402381440657589,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2905,
+      "relative_l2": 0.04544793643715582,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2905,
+      "relative_l2": 0.10563144363497987,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2905,
+      "relative_l2": 0.25163856130354034,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2905,
+      "relative_l2": 0.0023924742851744313,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2905,
+      "relative_l2": 0.09576710561334392,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2905,
+      "relative_l2": 0.22170246215677544,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2905,
+      "relative_l2": 0.41582558268191516,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 2905,
+      "relative_l2": 0.002106032144276764,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 2905,
+      "relative_l2": 0.07799632060994746,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 2905,
+      "relative_l2": 0.17134774139885225,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "layered",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 2905,
+      "relative_l2": 0.3536515813609261,
+      "sample_id": "validation_layered_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3250,
+      "relative_l2": 0.0015792152577041654,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3250,
+      "relative_l2": 0.0800808454396629,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3250,
+      "relative_l2": 0.21517160088679405,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3250,
+      "relative_l2": 0.46478507571174354,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3250,
+      "relative_l2": 0.0036598956684018636,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3250,
+      "relative_l2": 0.12925423856769064,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3250,
+      "relative_l2": 0.2787282365661586,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3250,
+      "relative_l2": 0.48289871621675917,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3250,
+      "relative_l2": 0.0038348265077649385,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3250,
+      "relative_l2": 0.14684080085540516,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3250,
+      "relative_l2": 0.3157134322551934,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3250,
+      "relative_l2": 0.5226907136804034,
+      "sample_id": "validation_marmousi_00000"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3251,
+      "relative_l2": 0.0034700420493637913,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3251,
+      "relative_l2": 0.13515005718537798,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3251,
+      "relative_l2": 0.28466262475275905,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3251,
+      "relative_l2": 0.47604027778408975,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3251,
+      "relative_l2": 0.0021890139610275376,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3251,
+      "relative_l2": 0.08177907070297664,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3251,
+      "relative_l2": 0.1784321220038993,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3251,
+      "relative_l2": 0.33633416068896094,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3251,
+      "relative_l2": 0.0024009793467166334,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3251,
+      "relative_l2": 0.10037596329579569,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3251,
+      "relative_l2": 0.2313433540639551,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3251,
+      "relative_l2": 0.3854014788685973,
+      "sample_id": "validation_marmousi_00001"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3252,
+      "relative_l2": 0.000335985401937509,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3252,
+      "relative_l2": 0.04469778517257525,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3252,
+      "relative_l2": 0.11839432770957183,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3252,
+      "relative_l2": 0.30935668308780856,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3252,
+      "relative_l2": 0.0009622560905992969,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3252,
+      "relative_l2": 0.10524488823611124,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3252,
+      "relative_l2": 0.2828985540261516,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3252,
+      "relative_l2": 0.4862134292927354,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3252,
+      "relative_l2": 0.001011826577035979,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3252,
+      "relative_l2": 0.10708206334708723,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3252,
+      "relative_l2": 0.29774523348823667,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3252,
+      "relative_l2": 0.5064685389260217,
+      "sample_id": "validation_marmousi_00002"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3253,
+      "relative_l2": 0.0007665661377855767,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3253,
+      "relative_l2": 0.059484439617738305,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3253,
+      "relative_l2": 0.20045616834381105,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3253,
+      "relative_l2": 0.4739511022207339,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3253,
+      "relative_l2": 0.0011968320097385959,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3253,
+      "relative_l2": 0.07975449566242221,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3253,
+      "relative_l2": 0.19129726358962257,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3253,
+      "relative_l2": 0.33957927333113413,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3253,
+      "relative_l2": 0.0010242300529431274,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3253,
+      "relative_l2": 0.06710218908587849,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3253,
+      "relative_l2": 0.15605760420980533,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3253,
+      "relative_l2": 0.27440791637672496,
+      "sample_id": "validation_marmousi_00003"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3254,
+      "relative_l2": 0.0030885551389068055,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3254,
+      "relative_l2": 0.08339070739044907,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3254,
+      "relative_l2": 0.16788862237853525,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3254,
+      "relative_l2": 0.30578938209955525,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3254,
+      "relative_l2": 0.0024919827653464635,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3254,
+      "relative_l2": 0.07094505591858682,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3254,
+      "relative_l2": 0.14366557195386653,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3254,
+      "relative_l2": 0.25816109074779603,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3254,
+      "relative_l2": 0.00249918446134022,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3254,
+      "relative_l2": 0.07074315035591254,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3254,
+      "relative_l2": 0.14663451518294587,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3254,
+      "relative_l2": 0.26538479043506114,
+      "sample_id": "validation_marmousi_00004"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3255,
+      "relative_l2": 0.0006202116332135443,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3255,
+      "relative_l2": 0.07247474879514618,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3255,
+      "relative_l2": 0.22770183118505657,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3255,
+      "relative_l2": 0.4406908029224537,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3255,
+      "relative_l2": 0.0005698260445749603,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3255,
+      "relative_l2": 0.0704834698681942,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3255,
+      "relative_l2": 0.22731540119082677,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3255,
+      "relative_l2": 0.46381673031492043,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3255,
+      "relative_l2": 0.0004487125898693073,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3255,
+      "relative_l2": 0.0670481234104809,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3255,
+      "relative_l2": 0.19680317696445124,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3255,
+      "relative_l2": 0.35156214349955867,
+      "sample_id": "validation_marmousi_00005"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3256,
+      "relative_l2": 0.011044290253642243,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3256,
+      "relative_l2": 0.12733222783128323,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3256,
+      "relative_l2": 0.22815624720639022,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3256,
+      "relative_l2": 0.39504000845638465,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3256,
+      "relative_l2": 0.009179591924820523,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3256,
+      "relative_l2": 0.11675687620576056,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3256,
+      "relative_l2": 0.21692428557335636,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3256,
+      "relative_l2": 0.3638384897274152,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3256,
+      "relative_l2": 0.008612482670345752,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3256,
+      "relative_l2": 0.10028797865886427,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3256,
+      "relative_l2": 0.18291100263834958,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3256,
+      "relative_l2": 0.3173184395793722,
+      "sample_id": "validation_marmousi_00006"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3257,
+      "relative_l2": 0.002341576563468987,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3257,
+      "relative_l2": 0.09027824404033902,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3257,
+      "relative_l2": 0.2363106052848763,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3257,
+      "relative_l2": 0.4456723051485388,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3257,
+      "relative_l2": 0.004706543021289028,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3257,
+      "relative_l2": 0.11489052586855054,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3257,
+      "relative_l2": 0.22009894681656272,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3257,
+      "relative_l2": 0.3764986606918986,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3257,
+      "relative_l2": 0.004191243286650824,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3257,
+      "relative_l2": 0.09763447422084588,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3257,
+      "relative_l2": 0.1868844654420286,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3257,
+      "relative_l2": 0.33430237193097645,
+      "sample_id": "validation_marmousi_00007"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3258,
+      "relative_l2": 0.0021360120725798354,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3258,
+      "relative_l2": 0.06942949506657163,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3258,
+      "relative_l2": 0.14875424422446196,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3258,
+      "relative_l2": 0.2646981763875541,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3258,
+      "relative_l2": 0.00174983469224548,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3258,
+      "relative_l2": 0.05477568784533701,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3258,
+      "relative_l2": 0.1182397791655746,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3258,
+      "relative_l2": 0.20851792035132724,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3258,
+      "relative_l2": 0.0017493641288847807,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3258,
+      "relative_l2": 0.055494891484120366,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3258,
+      "relative_l2": 0.12108061072039725,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3258,
+      "relative_l2": 0.21705727789742327,
+      "sample_id": "validation_marmousi_00008"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3259,
+      "relative_l2": 0.005084060484737668,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3259,
+      "relative_l2": 0.09684591988669694,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3259,
+      "relative_l2": 0.18564796046686305,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3259,
+      "relative_l2": 0.31852023828122517,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3259,
+      "relative_l2": 0.00455492103681751,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3259,
+      "relative_l2": 0.08960993642033596,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3259,
+      "relative_l2": 0.17438882847278878,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3259,
+      "relative_l2": 0.2979879999215422,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3259,
+      "relative_l2": 0.004605236330743804,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3259,
+      "relative_l2": 0.08732763256448821,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3259,
+      "relative_l2": 0.17056113543474663,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3259,
+      "relative_l2": 0.296112425134656,
+      "sample_id": "validation_marmousi_00009"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3260,
+      "relative_l2": 0.0004739580992075979,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3260,
+      "relative_l2": 0.03060281603589628,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3260,
+      "relative_l2": 0.09840633118592122,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3260,
+      "relative_l2": 0.26181612757529216,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3260,
+      "relative_l2": 0.0016573045097244114,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3260,
+      "relative_l2": 0.1132087217735704,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3260,
+      "relative_l2": 0.2618029926594604,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3260,
+      "relative_l2": 0.42821337357861367,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3260,
+      "relative_l2": 0.001579812946103626,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3260,
+      "relative_l2": 0.09944530212189055,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3260,
+      "relative_l2": 0.2369265818846185,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3260,
+      "relative_l2": 0.41865188859017566,
+      "sample_id": "validation_marmousi_00010"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3261,
+      "relative_l2": 0.008283061918327275,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3261,
+      "relative_l2": 0.14716303023274804,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3261,
+      "relative_l2": 0.2662811230273003,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3261,
+      "relative_l2": 0.4546596655382922,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3261,
+      "relative_l2": 0.005570702128730782,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3261,
+      "relative_l2": 0.09516582833488588,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3261,
+      "relative_l2": 0.18711911854496374,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3261,
+      "relative_l2": 0.3191522175840658,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3261,
+      "relative_l2": 0.005350116509122373,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3261,
+      "relative_l2": 0.08968609576642346,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3261,
+      "relative_l2": 0.17251185844351255,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3261,
+      "relative_l2": 0.300647797780183,
+      "sample_id": "validation_marmousi_00011"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3262,
+      "relative_l2": 0.0019901050482766225,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3262,
+      "relative_l2": 0.10755099780006695,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3262,
+      "relative_l2": 0.24182641313723835,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3262,
+      "relative_l2": 0.42899829972224846,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3262,
+      "relative_l2": 0.001188190990228842,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3262,
+      "relative_l2": 0.0603269962449197,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3262,
+      "relative_l2": 0.12755366850405353,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3262,
+      "relative_l2": 0.23131953823905418,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3262,
+      "relative_l2": 0.0011652985032505321,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3262,
+      "relative_l2": 0.05962082008090167,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3262,
+      "relative_l2": 0.12698273264595883,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3262,
+      "relative_l2": 0.22364127935468636,
+      "sample_id": "validation_marmousi_00012"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3263,
+      "relative_l2": 0.00252490960762551,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3263,
+      "relative_l2": 0.09799999935301268,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3263,
+      "relative_l2": 0.2580106807326884,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3263,
+      "relative_l2": 0.4639117272376735,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3263,
+      "relative_l2": 0.00449811951196721,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3263,
+      "relative_l2": 0.11211582572037211,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3263,
+      "relative_l2": 0.21513089813418643,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3263,
+      "relative_l2": 0.3660070065725856,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3263,
+      "relative_l2": 0.003991426543836327,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3263,
+      "relative_l2": 0.0953865082575305,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3263,
+      "relative_l2": 0.18476001781259307,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3263,
+      "relative_l2": 0.3263926048590776,
+      "sample_id": "validation_marmousi_00013"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3264,
+      "relative_l2": 0.0029275281387948653,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3264,
+      "relative_l2": 0.11191475842857722,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3264,
+      "relative_l2": 0.23218830112441877,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": true,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3264,
+      "relative_l2": 0.41391754816285026,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3264,
+      "relative_l2": 0.001853949797058777,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3264,
+      "relative_l2": 0.07293123535883386,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3264,
+      "relative_l2": 0.1565128199803383,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3264,
+      "relative_l2": 0.2743163111983139,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3264,
+      "relative_l2": 0.001838454145214204,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3264,
+      "relative_l2": 0.0707710312304768,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3264,
+      "relative_l2": 0.14969162427023516,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3264,
+      "relative_l2": 0.2632618608553433,
+      "sample_id": "validation_marmousi_00014"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3265,
+      "relative_l2": 0.003996413100439119,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3265,
+      "relative_l2": 0.1927532809949891,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3265,
+      "relative_l2": 0.3955731998176723,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 80,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3265,
+      "relative_l2": 0.5912306646261692,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3265,
+      "relative_l2": 0.0035826989494334447,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3265,
+      "relative_l2": 0.0863404295464057,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3265,
+      "relative_l2": 0.16951316951698064,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 112,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3265,
+      "relative_l2": 0.3205177089227072,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 1,
+      "record_index": 3265,
+      "relative_l2": 0.0032332479713591085,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 8,
+      "record_index": 3265,
+      "relative_l2": 0.08199668789904495,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 16,
+      "record_index": 3265,
+      "relative_l2": 0.17418594541384697,
+      "sample_id": "validation_marmousi_00015"
+    },
+    {
+      "calibration_selected": false,
+      "context_end": 120,
+      "family": "marmousi",
+      "history_frames": 8,
+      "horizon": 32,
+      "record_index": 3265,
+      "relative_l2": 0.3639637488053439,
+      "sample_id": "validation_marmousi_00015"
+    }
+  ],
+  "scope": "snapshot_only_checkpoint_small_panel",
+  "strict_goal_eligible": false,
+  "summary": {
+    "end112_k8_h1": {
+      "aggregate_record_mean_relative_l2": 0.0031294769191054666,
+      "family_record_mean_relative_l2": {
+        "layered": 0.003142256342816045,
+        "marmousi": 0.0031007289438752953,
+        "uniform": 0.003145445470625059
+      }
+    },
+    "end112_k8_h16": {
+      "aggregate_record_mean_relative_l2": 0.1846830374559647,
+      "family_record_mean_relative_l2": {
+        "layered": 0.19621823493209595,
+        "marmousi": 0.19685135354367442,
+        "uniform": 0.16097952389212367
+      }
+    },
+    "end112_k8_h32": {
+      "aggregate_record_mean_relative_l2": 0.32809073037561,
+      "family_record_mean_relative_l2": {
+        "layered": 0.36960551695804855,
+        "marmousi": 0.3470857892112394,
+        "uniform": 0.26758088495754195
+      }
+    },
+    "end112_k8_h8": {
+      "aggregate_record_mean_relative_l2": 0.08705043708807952,
+      "family_record_mean_relative_l2": {
+        "layered": 0.08691559121982628,
+        "marmousi": 0.09084895514218459,
+        "uniform": 0.08338676490222768
+      }
+    },
+    "end120_k8_h1": {
+      "aggregate_record_mean_relative_l2": 0.0031349386570765567,
+      "family_record_mean_relative_l2": {
+        "layered": 0.0034582356160219895,
+        "marmousi": 0.002971027660698846,
+        "uniform": 0.002975552694508833
+      }
+    },
+    "end120_k8_h16": {
+      "aggregate_record_mean_relative_l2": 0.18360039360512123,
+      "family_record_mean_relative_l2": {
+        "layered": 0.22069916888510044,
+        "marmousi": 0.19067458067942966,
+        "uniform": 0.13942743125083357
+      }
+    },
+    "end120_k8_h32": {
+      "aggregate_record_mean_relative_l2": 0.33001759617436427,
+      "family_record_mean_relative_l2": {
+        "layered": 0.4126835431031266,
+        "marmousi": 0.33545407978585035,
+        "uniform": 0.24191516563411605
+      }
+    },
+    "end120_k8_h8": {
+      "aggregate_record_mean_relative_l2": 0.08457227661786672,
+      "family_record_mean_relative_l2": {
+        "layered": 0.09643047244935461,
+        "marmousi": 0.08730273203969667,
+        "uniform": 0.06998362536454888
+      }
+    },
+    "end80_k8_h1": {
+      "aggregate_record_mean_relative_l2": 0.0033284713464808596,
+      "family_record_mean_relative_l2": {
+        "layered": 0.004084223287315057,
+        "marmousi": 0.0031664056816256944,
+        "uniform": 0.002734785070501827
+      }
+    },
+    "end80_k8_h16": {
+      "aggregate_record_mean_relative_l2": 0.21855950336777621,
+      "family_record_mean_relative_l2": {
+        "layered": 0.24320395232050754,
+        "marmousi": 0.21908939259152244,
+        "uniform": 0.19338516519129867
+      }
+    },
+    "end80_k8_h32": {
+      "aggregate_record_mean_relative_l2": 0.3855500747181105,
+      "family_record_mean_relative_l2": {
+        "layered": 0.4163820624408582,
+        "marmousi": 0.40681738031016335,
+        "uniform": 0.3334507814033099
+      }
+    },
+    "end80_k8_h8": {
+      "aggregate_record_mean_relative_l2": 0.09835521894358656,
+      "family_record_mean_relative_l2": {
+        "layered": 0.11249219608374553,
+        "marmousi": 0.09669683457944567,
+        "uniform": 0.08587662616756847
+      }
+    }
+  },
+  "wavefield_shape": [
+    4003,
+    401,
+    201,
+    201
+  ]
+}

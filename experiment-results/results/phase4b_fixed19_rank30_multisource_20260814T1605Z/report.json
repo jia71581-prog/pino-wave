@@ -1,0 +1,196 @@
+{
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_phase4b_vrba_frames32_pf420_ep5_20260807T031404Z/checkpoints/update_0265.pt",
+  "checkpoint_global_step": 265,
+  "checkpoint_sha256": "f6efbb81dd1e9baab0eb34b32b125e2cb58cd3b3292ee0db33a29194c84bfea1",
+  "claim_scope": {
+    "case_study_not_population_estimate": true,
+    "fixed_frequency_hz": 19.0,
+    "frequency_generalization_claim_permitted": false,
+    "one_locked_velocity_slice": true,
+    "varied_variable": "source_position_only"
+  },
+  "figures": {
+    "pdf": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/phase4b_marmousi_fixed19_multisource_composite.pdf",
+      "sha256": "fcdfa9e7b384b5cb3ce135472b1e0fcb8e46643a884a4e5db112748d3fffa034"
+    },
+    "png": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/phase4b_marmousi_fixed19_multisource_composite.png",
+      "sha256": "402286615f715148223fdf1178714aa8b0c22459a9edd9ec8e7242a87afe3984"
+    }
+  },
+  "interpretation": "Phase4b is an external smoothed-background numerical hybrid. The neural Helmholtz correction must be interpreted through the reported correction-to-coarse ratios.",
+  "panel": {
+    "interpolation_mean_relative_l2": 0.2748237394977622,
+    "max_relative_l2": 0.3507683457517768,
+    "mean_relative_l2": 0.2872911010604644,
+    "median_relative_l2": 0.27566277497253205,
+    "min_relative_l2": 0.26515654818554885,
+    "outside_range_mean_relative_l2": 0.30807003699830154,
+    "rank": 30,
+    "records": [
+      {
+        "background_only_relative_l2": 0.2896893695267451,
+        "case_id": "interp_left_shallow",
+        "coarse_hybrid_relative_l2": 0.28968937495216135,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.472758935409118e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_left_shallow.npz",
+        "reference_sha256": "b56796ac71c44e9c7486f4547eef474b12a99511eef6418eab87984bf6b766f5",
+        "relative_l2": 0.28968937485151963,
+        "role": "interpolation",
+        "snapshot_relative_l2": 0.2602824449397916,
+        "source_parameters": [
+          400.0,
+          100.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.27012130877421653,
+        "case_id": "interp_left_deep",
+        "coarse_hybrid_relative_l2": 0.27012130570320714,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.706280187588126e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_left_deep.npz",
+        "reference_sha256": "b0acdfcb90c35a28fb16383db1341d9545dc343603861c9ad2cb0b391a279921",
+        "relative_l2": 0.27012130616813207,
+        "role": "interpolation",
+        "snapshot_relative_l2": 0.28850553571711907,
+        "source_parameters": [
+          700.0,
+          250.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.27222717669099505,
+        "case_id": "interp_center",
+        "coarse_hybrid_relative_l2": 0.27222717689563847,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.586814102726234e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_center.npz",
+        "reference_sha256": "2bf737ec7e5b0c00cb1f80b6de35b81dfcc670ecf49f1130be16e68701babc48",
+        "relative_l2": 0.2722271773553976,
+        "role": "interpolation",
+        "snapshot_relative_l2": 0.3052697474144424,
+        "source_parameters": [
+          1000.0,
+          175.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.2651565427445698,
+        "case_id": "interp_right_shallow",
+        "coarse_hybrid_relative_l2": 0.2651565485852639,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.456580228955651e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_right_shallow.npz",
+        "reference_sha256": "67effc25887732b5d00f881191e45da1974595deaacaf853a64010e074a412da",
+        "relative_l2": 0.26515654818554885,
+        "role": "interpolation",
+        "snapshot_relative_l2": 0.2441470875401872,
+        "source_parameters": [
+          1300.0,
+          100.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.2769242931387636,
+        "case_id": "interp_right_deep",
+        "coarse_hybrid_relative_l2": 0.2769242902489562,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.823506005415907e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_interp_right_deep.npz",
+        "reference_sha256": "c0ee5ff3e70fc3aa3da1813893f25f15ced6e64a12a71f6625fd14f706e2a10a",
+        "relative_l2": 0.2769242909282128,
+        "role": "interpolation",
+        "snapshot_relative_l2": 0.2537178835551505,
+        "source_parameters": [
+          1600.0,
+          250.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.29904050159740597,
+        "case_id": "extrap_left",
+        "coarse_hybrid_relative_l2": 0.29904050568008184,
+        "helmholtz_correction_to_coarse_l2_ratio": 1.0670132551248647e-07,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_extrap_left.npz",
+        "reference_sha256": "ad4e7b97179caacd3d818d26041158d263db69dd492be830f704288d7a372e6e",
+        "relative_l2": 0.2990405062262765,
+        "role": "outside_train_position_range",
+        "snapshot_relative_l2": 0.3083249640961657,
+        "source_parameters": [
+          100.0,
+          175.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.2744012614007256,
+        "case_id": "extrap_right",
+        "coarse_hybrid_relative_l2": 0.2744012581113825,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.547382470756245e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_extrap_right.npz",
+        "reference_sha256": "1f4191c7279f36a10fc5545a73ad077039dbfd85feb14b86432f80267633a58a",
+        "relative_l2": 0.2744012590168513,
+        "role": "outside_train_position_range",
+        "snapshot_relative_l2": 0.2712656658993018,
+        "source_parameters": [
+          1900.0,
+          175.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      },
+      {
+        "background_only_relative_l2": 0.3507683479531927,
+        "case_id": "extrap_deep",
+        "coarse_hybrid_relative_l2": 0.35076834489264447,
+        "helmholtz_correction_to_coarse_l2_ratio": 6.807773920894534e-08,
+        "reference_path": "/data/codex-safe-results/marmousi_fixed19hz_position_240_post_r5d_r1/references/marm_r30_extrap_deep.npz",
+        "reference_sha256": "e21036fdfdf84ca8993977b25d2034e5f46253fe507477685cac69894adabc04",
+        "relative_l2": 0.3507683457517768,
+        "role": "outside_train_position_range",
+        "snapshot_relative_l2": 0.4295697187335734,
+        "source_parameters": [
+          1000.0,
+          400.0,
+          19.0,
+          0.07894736528396606,
+          1.0
+        ]
+      }
+    ],
+    "snapshot_index": 240,
+    "snapshot_time_s": 0.6000000238418579,
+    "source_group_id": "validation:marmousi:x6150.0:z0.0",
+    "source_sample_id": "validation_marmousi_00055",
+    "velocity_array_sha256": "af23a8e511c351204d384ce7404e554cff17a3881a0bc2c7166ad2650cca9c0d"
+  },
+  "prediction_manifest": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/phase4b_fixed19_rank30_multisource_20260814T1605Z/prediction_manifest.json",
+  "prediction_manifest_sha256": "5d28c7d488901e65b319fe342a9c86184450c5a7bc1a0399142e22026c1bd162",
+  "prediction_sealed_before_reference_access": true,
+  "reference_manifest": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/evaluation/marmousi_fixed19hz_position_240_post_r5d_r1/reference_manifest.json",
+  "reference_manifest_sha256": "a20b75a98295a735a603dcdcc0f7d48c3bd13330240636fc3d8005ee55b818f5",
+  "schema": "phase4b_fixed19hz_marmousi_multisource_evaluation_v1",
+  "separate_g3_best_result": {
+    "all_401_frame_relative_l2": 0.04507399697519936,
+    "not_the_same_velocity_or_source_panel": true,
+    "percent": 4.5073996975199355,
+    "sample_id": "validation_marmousi_00000"
+  },
+  "status": "complete"
+}

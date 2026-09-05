@@ -1,0 +1,9 @@
+{
+  "incident": "2026-08-23 11:17 一次隔离目录失效的冒烟测试覆盖了 best.pt/last.pt 并截断 metrics.csv",
+  "recovery": {
+    "last_pt": "r37 epoch 75/80/.../100 保存时自愈(真实模型)",
+    "best_pt": "真实 val-best 检查点(val 0.9978,早期epoch)不可恢复;best.pt 现镜像 epoch100 last.pt(train 0.1943, val 1.3212),非 val-best 模型",
+    "metrics_csv": "rows 0-4 从会话 transcript 恢复,rows 5-70 丢失,rows 71-99 由进程内写入保留"
+  },
+  "verdict_note": "val_relative_l2 全程 >=0.9978(zero baseline 1.0);advancement gate calibration<0.5 FAILED"
+}

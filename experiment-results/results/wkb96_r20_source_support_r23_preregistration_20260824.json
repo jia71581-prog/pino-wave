@@ -1,0 +1,73 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb96_r20_source_support_r23_20260824",
+  "date_utc": "2026-08-24",
+  "protocol_scope": "train_only_same_medium_source_support_pilot",
+  "hypothesis": "Increasing only within-medium source support from one source to two layered and three Marmousi fit sources will let the unchanged r20 96-bin gated WKB mapper reach complete-time relative L2 no greater than 0.10 on fit, one held-out calibration source per family, and one independently held-out confirmation source per family within 1000 updates.",
+  "expected_mechanism": "r21b showed near-zero phase correlation and errors above one on unseen sources from the exact training media. Complete-trace coefficient labels for additional sources should teach the source encoder and record-conditioned gate how source position, frequency, and onset transform the smooth WKB coefficient envelopes without requiring new medium structure.",
+  "literature_basis": "Frequency-domain parallel heads are appropriate for oscillatory wavefields, while explicit conditioning on velocity and source parameters is required for seismic neural operators. This pilot changes data support only and retains the accepted r20 frequency representation.",
+  "single_conceptual_variable": {
+    "name": "within_medium_source_support",
+    "parent": "one fitted source per anchor medium",
+    "candidate": "two layered and three Marmousi fit sources in the same two anchor media",
+    "held_constant": "r20 update-2600 initialization, model architecture, 96 bins, record-conditioned gate, complete coefficient loss, optimizer, learning rates, normalization, seed and evaluation protocol"
+  },
+  "panels": {
+    "fit": ["train_layered_00000", "train_layered_00001", "train_marmousi_00000", "train_marmousi_00001", "train_marmousi_00002"],
+    "calibration": ["train_layered_00002", "train_marmousi_00003"],
+    "confirmation": ["train_layered_00003", "train_marmousi_00004"],
+    "group_ids": ["train:layered:00000", "train:marmousi:x0.0:z0.0"],
+    "fit_truth_access": "complete traces used by backward",
+    "calibration_truth_access": "fixed 32-frame checkpoint selection followed by one all-saved report",
+    "confirmation_truth_access": "opened once at all saved times after checkpoint freeze",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "primary_metric": "maximum complete-time aggregate/family relative L2 across fit, calibration and confirmation",
+  "acceptance": {
+    "all_saved_fit_aggregate_and_each_family_relative_l2_max": 0.10,
+    "all_saved_calibration_aggregate_and_each_family_relative_l2_max": 0.10,
+    "all_saved_confirmation_aggregate_and_each_family_relative_l2_max": 0.10
+  },
+  "failure_signal": {
+    "hard": "non-finite update, OOM, missing binding, panel overlap, or peak CUDA allocation above 4 GiB",
+    "capacity": "all-saved fit aggregate or either fit family remains at or above 0.50",
+    "generalization": "fit falls below 0.10 but calibration or confirmation remains above 0.10"
+  },
+  "optimization": {
+    "updates_max": 1000,
+    "evaluate_every": 100,
+    "evaluation_frames": 32,
+    "evaluation_time_block": 32,
+    "evaluation_macro_records": 1,
+    "dense_learning_rate": 0.00001,
+    "backbone_learning_rate": 0.000005,
+    "local_field_learning_rate": 0.00001,
+    "family_gradient_weights": {"layered": 1.0, "marmousi": 1.0},
+    "seed": 372
+  },
+  "compute_budget": {
+    "device": "one RTX 4090D",
+    "optimizer_updates_max": 1000,
+    "wall_time_max_minutes": 20,
+    "peak_cuda_bytes_max": 4294967296,
+    "checkpoint_storage_gib_max": 1.3
+  },
+  "parent": {
+    "checkpoint": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/checkpoints/update_2600.pt",
+    "checkpoint_sha256": "b6e41c875b0d734b56ce380e48121d17d7c90b36f3d13f6f4afb2d9ce5a439dd",
+    "identity": "results/wkb96_record_freqsoftmax_r20_continue4000_20260824/run_identity.json",
+    "identity_sha256": "f73249e63199bc8fa07f6a6e447981988dd22cc7ed9e15656f4f95c316119a50"
+  },
+  "bindings": {
+    "training_script_sha256": "5af0b759ef5bec0762db329242e71cd6345dce5cc708c21c06135af693bde2d9",
+    "panel_test_sha256": "57fa7da5c59172647b106cb095644700028a0c52a8bbc82eb0e8538d4d5509c2",
+    "smoke_terminal_sha256": "50bd7c6d182fa6ec831cbc60268d754dd01666728c5f09b5aceb3192fb898c65",
+    "smoke_checkpoint_sha256": "be0eabcc506b7e4b5c67afff879ff3faa667169df7ee030e755bca089cffee1d",
+    "tests": "44 passed",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  },
+  "rollback": "Preserve r20 and r23 artifacts. On failure, do not add more media or open validation/test_id; treat the mapper/source-conditioning architecture as the bottleneck and move to explicit source-conditioned spatial translation or a coarse-propagator residual.",
+  "command": "bash runs/0824-wkb96-r20-source-support-r23/run_full.sh"
+}

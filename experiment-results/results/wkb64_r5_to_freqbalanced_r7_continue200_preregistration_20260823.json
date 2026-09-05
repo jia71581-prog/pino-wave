@@ -1,0 +1,30 @@
+{
+  "schema": "wkb64_frequency_balanced_continuation_preregistration_v1",
+  "status": "frozen_before_launch",
+  "experiment_id": "wkb64_r5_to_freqbalanced_r7_continue200_20260823",
+  "hypothesis": "After global-energy WKB training has learned the dominant field, a frequency-balanced second stage can reduce the neglected middle/high bands without erasing the parent's low-frequency field.",
+  "expected_mechanism": "Strictly initialize the identical r5 architecture at its update-650 best checkpoint, reset optimizer state, and change only the coefficient loss reduction to the 0.01-floor frequency-balanced mean.",
+  "single_conceptual_change_from_parent": "second-stage coefficient loss reduction; architecture, weights at stage start, records, learning rates, WKB phase, and deployment are fixed",
+  "parent_metrics": {"all_saved_aggregate_relative_l2": 0.5539981065573109, "spectrum_relative_l2": {"middle": 2.585559185136958, "high": 1.5986146062560165}},
+  "promotion_gate": {
+    "maximum_aggregate_relative_l2": 0.581697,
+    "maximum_each_family_relative_regression_fraction": 0.05,
+    "minimum_middle_spectrum_relative_improvement": 0.20,
+    "minimum_high_spectrum_relative_improvement": 0.20
+  },
+  "failure_signals": ["promotion gate failure at 200 updates", "non-finite value", "CUDA OOM", "non-strict checkpoint load", "numerical background access"],
+  "deployment_contract": {"neural_only": true, "background_cache": null, "numerical_wavefield_input": false, "future_truth_input": false},
+  "evidence_scope": {"split": "train", "records_per_family": 1, "validation_opened": false, "test_id_opened": false},
+  "compute_budget": {"gpus": 1, "optimizer_updates": 200, "evaluate_every_updates": 25, "wall_ceiling_minutes": 15},
+  "parent_checkpoint": "results/wkb64_coeffsup_current_train_r5_overfit800_20260823/checkpoints/update_0650.pt",
+  "rollback": "Retain the immutable r5 parent and reject the second-stage objective if any preservation or spectrum gate fails.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/diagnose_capacity_ladder_overfit.py --artifact-dir results/wkb64_r5_to_freqbalanced_r7_continue200_20260823 --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --width 128 --dense-depth 8 --dense-spectral-rank 112 --dense-modes 32 --local-field --helmholtz-synthesis --helmholtz-frequencies 64 --helmholtz-coefficient-supervision --coefficient-frequency-energy-floor-fraction 0.01 --exact-init-checkpoint results/wkb64_coeffsup_current_train_r5_overfit800_20260823/checkpoints/update_0650.pt --exact-init-identity results/wkb64_coeffsup_current_train_r5_overfit800_20260823/run_identity.json --updates 200 --evaluate-every 25 --training-frames 401 --validation-frames 32 --microbatch-records 1 --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --seed 372",
+  "bindings": {
+    "script_sha256": "871107dad7fe656593d252fb6968cf580cb35a98f0c1e9ebfdf600a9bca59774",
+    "strict_init_test_sha256": "1906f9292abbc7e66ab4a06f90aa5dc8678f5c255ddcb7abe01f881a9bef0ece",
+    "parent_checkpoint_sha256": "235a47b2a1e2d15255fa62f8ecf0e3971fe9b9876e2582aab7000453a3833ad0",
+    "parent_identity_sha256": "49a8a124cb8d6f61d9b77955c112317d48be65bf1786b2dd3f61fa1105e349d7",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09"
+  }
+}

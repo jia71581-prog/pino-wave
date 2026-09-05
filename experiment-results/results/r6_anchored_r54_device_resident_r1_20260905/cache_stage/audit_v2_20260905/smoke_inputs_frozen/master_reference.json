@@ -1,0 +1,42 @@
+{
+  "schema": "r6_device_residual_cache_stage_master_reference_v1",
+  "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+  "status": "runtime_passed_cache_smoke_pending_audit",
+  "immutable_DAG": [
+    "static_audit",
+    "isolated_six_record_smoke",
+    "detached_four_gpu_build",
+    "independent_cache_audit"
+  ],
+  "parent_master": {
+    "path": "results/r6_anchored_r54_device_resident_r1_20260905/master_protocol.json",
+    "sha256": "e75660c6cd7244a277e255ff288198fc64ea26eacc2544b3e81724e15eb2ae0a"
+  },
+  "runtime_prerequisite": {
+    "path": "results/r6_anchored_r54_device_resident_r1_20260905/runtime_report.json",
+    "sha256": "6c221ae7b882f53aa0e333c9c191cf76d05bd57dd50b8950535b0a2fce4927b5",
+    "status": "runtime_identity_passed_cache_prereg_pending_audit"
+  },
+  "stage_claim": "Only six-record train-only quantization smoke preparation; launch awaits independent audit and explicit lead release. No full build, training, confirmation, validation, test_id or promotion authorization.",
+  "rollback": "R6 remains the accepted fallback; preserve all prior runtime, R25/R26/R54, A3, B2-H, Helmholtz, ASAM, and CPADC artifacts.",
+  "launch_authorized": false,
+  "promotion_authorized": false,
+  "confirmation_opened": false,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "smoke_authorized": false,
+  "full_build_authorized": false,
+  "rollback_definition": {
+    "path": "results/frozen_fine_grid_dt625us_candidate_r6_20260815.json",
+    "sha256": "a83aeeb94cb61fbb56d18562074356a75875c7a75b7d7327b64d0cd0ed9c2947"
+  },
+  "quantization_gate": {
+    "scope": "six full records; temporal bands diagnostic only",
+    "E_q_lt": 0.001,
+    "ratio_applies_if_R_native_gte": 1e-05,
+    "E_q_over_R_native_lte": 0.25,
+    "zero_truth": "all zero truth elements must remain exactly zero in qT",
+    "failure_classification": "cache_representation_rejected",
+    "preserve_smoke_artifacts": true
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "schema": "transfer_dg_a1_early_stop_terminal_v1",
+  "status": "rejected_early",
+  "stopped_utc": "2026-09-02T07:13:39Z",
+  "stop_authority": "explicit_user_request",
+  "reason": "Directly replacing the recurrent latent FFT boundary with a matched pressure halo caused a large paired regression after one epoch and added compute/memory. The user requested early rejection in favor of redesigning pretraining with DG-native interface physics.",
+  "completed_epochs_per_lane": 1,
+  "scores": {
+    "halo_s372": {
+      "parent": 0.2056271865083604,
+      "initial": 0.21318907340547175,
+      "best_epoch": 1,
+      "best": 0.20891888385327734
+    },
+    "halo_s733": {
+      "parent": 0.20658661093063946,
+      "initial": 0.21385433900989043,
+      "best_epoch": 1,
+      "best": 0.20998534631657534
+    },
+    "control_s372": {
+      "parent": 0.2056271865083604,
+      "initial": 0.2056271865083604,
+      "best_epoch": 0,
+      "best": 0.2056271865083604
+    },
+    "control_s733": {
+      "parent": 0.20658661093063946,
+      "initial": 0.20658661093063946,
+      "best_epoch": 0,
+      "best": 0.20658661093063946
+    }
+  },
+  "mean_best": {
+    "halo": 0.20945211508492634,
+    "control": 0.20610689871949994,
+    "halo_relative_regression_vs_control": 0.016230489758093596
+  },
+  "worker_exit_codes": [
+    143,
+    143,
+    143,
+    143
+  ],
+  "artifacts_preserved": {
+    "halo_s372_best_sha256": "7883f32423cd8fbe5529a4e97ea3fa9b9156f05d9f349c6a8370c91c85457e38",
+    "halo_s733_best_sha256": "d2b9f610e704d590ec3b871eb98b1bbb57e0b9178d3783238127530a6256a81c",
+    "control_s372_best_sha256": "33ffd5372f6c84387c95055e83e7891cf0922fc5819244cd57700d2fd529358c",
+    "control_s733_best_sha256": "07f428606a2ede271dbc25571559df98260d78f0c21b0e1755802527abfc0e1c",
+    "lane_exit_codes_sha256": "109b9c28d9fe050ae0ba65b924ab610073339894b310f09c438aad85de38808b"
+  },
+  "accepted_checkpoint_unchanged": "results/pa_cora_p1b_curriculum_s372_20260902/best.pt",
+  "next_direction": "Transfer DG pretraining redesign with pressure/particle-velocity auxiliary heads, DG-local interface features, numerical-flux consistency, and multiscale scattering branches",
+  "validation_opened": false,
+  "test_id_opened": false
+}

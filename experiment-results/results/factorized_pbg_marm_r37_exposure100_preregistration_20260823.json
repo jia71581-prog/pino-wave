@@ -1,0 +1,64 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "factorized_pbg_marm_r37_exposure100_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_spectral_factorized_fno_exposure_matched_pilot",
+  "hypothesis": "Giving each of the 120 fit records approximately 100 optimizer exposures with the r34-accepted spectral-temporal architecture and constant 1e-3 learning rate will reduce low-resolution train-only calibration relative L2 below 0.5.",
+  "expected_mechanism": "r34 required roughly 100 same-record updates to approach 0.1; r35 stopped after only six exposures per record. Exposure matching should reveal whether the architecture transfers propagation structure across records once optimization is not prematurely truncated.",
+  "single_conceptual_variable": {
+    "name": "per_record_training_exposure",
+    "parent": 6,
+    "candidate": 100
+  },
+  "primary_metric": "best low-resolution train-only calibration relative L2",
+  "acceptance": {
+    "target_gate_max": 0.05,
+    "advancement_gate_calibration_max": 0.5,
+    "prediction_finite_ratio": 1.0,
+    "peak_allocated_mb_max": 10000
+  },
+  "data": {
+    "project_scope": "train_only",
+    "fit_records": 120,
+    "calibration_records": 60,
+    "confirmation_records": 60,
+    "confirmation_access": "sealed_until_checkpoint_freeze",
+    "selected_resolution": [64, 64, 101]
+  },
+  "training": {
+    "epochs": 100,
+    "fit_exposures_per_record": 100,
+    "batch_size": 2,
+    "learning_rate": 0.001,
+    "scheduler": "none",
+    "early_stopping": false,
+    "normalization_stats": "frozen_r31_train_only_16_sample_stats",
+    "seed": 372
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "failure_signal": "Calibration relative L2 above 0.5 after 100 exposures, non-finite prediction, OOM, missing checkpoint, or binding failure rejects exposure insufficiency without opening confirmation or project validation/test_id.",
+  "compute_budget": {
+    "gpus": 1,
+    "epochs": 100,
+    "wall_ceiling_minutes": 180,
+    "peak_allocated_mb_max": 10000
+  },
+  "bindings": {
+    "config_sha256": "85f23e471ff8c106b413c9cd171c85ff818235567964322c56b53766affc84a7",
+    "model_sha256": "0ab24496d4e33435c0ee3ed1395d6f21f9ec9c4eec88ad4a75ed1b49c0411e03",
+    "data_loader_sha256": "e46716ad0ce7de476345e5c3697dbd4169c337f1cdfcba779c2685ff5e201f6e",
+    "trainer_sha256": "409a59a9bdd3e89247d4bcf29d89a8ec0d3ab5ef28e4cb83eda20bd01413a4c2",
+    "vds_sha256": "c8dbded99eaa05f03616211e65b5dd5399c685bb1241717e27147fad60e3ae17",
+    "split_sha256": "d5ea622d782728d76dbf3a26311253b5377cfc75ae139bc9688d58a03c56958f",
+    "normalization_stats_sha256": "7764d837a4305b7f430d8115739b58b043682f258acba8a7e23a4593238e9756",
+    "r34_capacity_result_sha256": "67f88bf2706f7ee3bd93c7211f3df6989853aa42b4ba0933839bb39f032d66ec",
+    "tests": "29 passed"
+  },
+  "rollback": "Preserve r34-r36 and all prior artifacts; if rejected, add explicit medium/source conditioning or a learned propagator prior under a new train-only preregistration.",
+  "command": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python scripts/train_pino.py --config configs/factorized_fno_pbg_marm_r37_exposure100.yaml --device cuda --output-json results/factorized_pbg_marm_r37_exposure100_20260823/result.json"
+}

@@ -1,0 +1,65 @@
+{
+ "bindings": {
+  "basis_sha256": "8cab01344fc0a88f43fa232458127e87d2f8bbb63523b9389b927b39389c4786",
+  "checkpoint_sha256": "51c0f0f0e0959e82f117ba9dd58c4fcd5bab50dc5d8fb0730473f4a17c887dfc",
+  "module_sha256": "c3c6c51e382729b85852de575634600f77d12f79c8b0121ac9541b87585245a2",
+  "script_sha256": "fbf39eb48b124e7785212693dd15552a3283a85fc6baca0307faa45b0a8ddb59",
+  "spec_sha256": "81e141dbc448381c6bfaf7e2f506e3c3c61ffcbc106971d209e05f515b5bfff6"
+ },
+ "candidate": "r16_dscp_v22_wide128_radial_guard",
+ "checkpoint_writes": 0,
+ "completed_utc": "2026-08-27T14:45:18Z",
+ "gates": {
+  "causal_through_k1": {
+   "maximum": 0.0,
+   "passed": true,
+   "value": 0.0
+  },
+  "checkpoint_state_exact": {
+   "passed": true,
+   "value": true
+  },
+  "coefficient_radial_high_energy": {
+   "maximum": 1e-10,
+   "passed": true,
+   "value": 1.005985117256969e-14
+  },
+  "deployment_signature_label_free": {
+   "passed": true,
+   "value": {
+    "forward": [],
+    "predict_coefficients": []
+   }
+  },
+  "finite": {
+   "passed": true,
+   "value": true
+  },
+  "future_correction_nonzero": {
+   "passed": true,
+   "value": 6.115072143302765e-15
+  },
+  "parameter_count": {
+   "expected": 25266,
+   "passed": true,
+   "value": 25266
+  },
+  "top_boundary_zero": {
+   "maximum": 2e-12,
+   "passed": true,
+   "value": 0.0
+  }
+ },
+ "resources": {
+  "peak_cuda_reserved_bytes": 610271232,
+  "wall_s": 0.8597578117623925
+ },
+ "route": {
+  "abstain": false,
+  "condition": 1.0014565480784468,
+  "name": "uniform"
+ },
+ "schema": "r16_dscp_v22_guarded_candidate_selftest_v1",
+ "status": "passed",
+ "truth_reads": 0
+}

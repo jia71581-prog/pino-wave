@@ -1,0 +1,56 @@
+{
+  "schema": "transfer_dg_parent_anchored_block32_smoke_audit_v1",
+  "status": "approved_for_12_epoch_train_only_pilot",
+  "audited_utc": "2026-09-04T09:15:59Z",
+  "candidate": "transfer_dg_parent_anchored_block32_r2_20260904",
+  "parent": {
+    "epoch": 24,
+    "next_step": 350,
+    "update": 16450,
+    "sha256": "803c07464af51fe1c3872bf1e70305e41e0b949ccbd1ccdcaf9dbe6fb3b3fb8e"
+  },
+  "cache": {
+    "record_count": 136,
+    "byte_count": 1506208896,
+    "sha256": "a54b3450dc88a700bcb16334e71067d77747c689e7190b5de8d5297a090df71b",
+    "status": "complete",
+    "offline_train_truth_cached": false,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "successful_smoke": {
+    "path": "results/transfer_dg_parent_anchored_block32_r2_20260904/train_smoke_u1_v3",
+    "updates": 1,
+    "loss": 0.9002174139022827,
+    "gradient_norm": 0.3337081968784332,
+    "checkpoint_sha256": "86be34aa32c6444c3b850ea0e29b1d6caa3fa54bf0081142d4a46fd60cf30791",
+    "finite_loss": true,
+    "finite_gradient": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "superseded_smokes": [
+    {
+      "path": "results/transfer_dg_parent_anchored_block32_r2_20260904/train_smoke_u1",
+      "parameter_updates": 0,
+      "disposition": "failed before data load due to an over-strict group uniqueness assertion"
+    },
+    {
+      "path": "results/transfer_dg_parent_anchored_block32_r2_20260904/train_smoke_u1_v2",
+      "parameter_updates": 0,
+      "disposition": "failed before optimizer step due to sqrt(0) correction-norm gradient"
+    }
+  ],
+  "tests": {
+    "related_pytest_passed": 34,
+    "zero_correction_gradient_finite_regression": true,
+    "same_role_multi_source_allowed_cross_role_group_rejected": true
+  },
+  "training_preregistration": {
+    "path": "results/transfer_dg_parent_anchored_block32_r2_20260904/training_preregistration_v3.json",
+    "sha256": "a3102b903cc017ec7c91f3c8ddbc06a5f79f4df6b7293d798e86dca3a328b99f"
+  },
+  "promotion_scope": "Train-only pilot and one frozen train-confirmation only. Validation and test_id are not authorized.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

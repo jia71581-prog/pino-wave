@@ -1,0 +1,10 @@
+你是只读训练监控员。工作目录是 /root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2。
+
+监控 r47：screen 名称 711710.r47-green-projection；主任务 PID 记录在 results/green2d_eikonal_projection_r47_20260823/screen.pid；目标结果文件是 results/green2d_eikonal_projection_r47_20260823/result.json；日志是同目录 launch.log。
+
+严格要求：
+1. 只读监控，不修改代码、配置、数据、checkpoint，不启动训练，不读取 validation 或 test_id 真值。
+2. 用一次低开销 shell 等待循环，每 30 秒检查 PID、screen、日志和 result.json，最长等待 4 小时；不要反复输出中间状态。
+3. 若 result.json 完整产生，解析并输出一条紧凑中文结论：global scale、train/cal 的 global/oracle relative-L2（含 median 或聚合字段），以及是否达到 prereg 的 cal oracle median <= 0.5。明确只能作 train-only 判定。
+4. 若 PID/screen 异常退出且没有完整结果，输出故障原因和最后日志；若仍在运行直到超时，输出超时状态。
+5. 输出只写 stdout；不要主动清理或杀进程。

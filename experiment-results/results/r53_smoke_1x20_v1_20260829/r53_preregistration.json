@@ -1,0 +1,34 @@
+{
+  "architecture": "R39_HFS_net_plus_zero_init_dilated_temporal_mixer",
+  "created_utc": "2026-08-29T07:43:46.119667+00:00",
+  "fit_selection_sha256": "5005f614d1ec7cbd77ddad440ac6132d0b79b5953aea70c566a8713d1433b937",
+  "initial_checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r52_armB_spatial_4x1000_v1_20260829/best.pt",
+  "initial_checkpoint_sha256": "04c8cf8fca027cb230374afc0aa3f295fe202e02b8590227b1852fc17a67c65f",
+  "optimization": {
+    "epochs": 1,
+    "hfs_learning_rate": 0.0001,
+    "learning_rate": 1e-05,
+    "loss": "R26 tail risk loss with within-record CVaR",
+    "max_steps_per_epoch": 20,
+    "records_per_step": 4,
+    "temporal_learning_rate": 0.0001
+  },
+  "role": "R28_already_opened_train_holdout_development_only",
+  "sampling": {
+    "baseline_q75": 0.0608149771188036,
+    "baseline_q90": 0.09968186658878736,
+    "dataset_record_instances": 3533,
+    "record_repeats": "1 + Marmousi + baseline_q75 + baseline_q90",
+    "unit": "whole_record_64_frames"
+  },
+  "schema": "r53_spatiotemporal_tail_preregistration_v1",
+  "script_sha256": "19b8360ec295f2c27eee87fd78a2a1a04cb8499ddf1919d75f0b58def03f1039",
+  "status": "frozen_before_development_finetune",
+  "success_gate": {
+    "both_required": true,
+    "development_max_lte": 0.05,
+    "development_mean_lte": 0.05
+  },
+  "test_id_opened": false,
+  "validation_opened": false
+}

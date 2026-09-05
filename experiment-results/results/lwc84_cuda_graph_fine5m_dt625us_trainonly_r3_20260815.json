@@ -1,0 +1,58 @@
+{
+  "bindings": {
+    "functional_kernel_sha256": "a7bcecd8114ef8e8d86ddd465c8278c6f678f8d88d4210c9951ab048476b633c",
+    "fused_solver_sha256": "6c95433b534fce7e01a2e846bfada0c965b7876225679738c755ade8dad20310",
+    "marmousi_npy": "/root/autodl-tmp/home/jiayh/Data/data/marmousi_zenodo_16114161/marmousi1_vp_zx_751x2301_4m.npy",
+    "marmousi_npy_sha256": "004086fec3cb918d24b9144163bfde384883c2517d866c1a8f499f829aec0deb",
+    "raw_marmousi_sha256_from_frozen_provenance": "f4302792e84bb7ddbdc9d4d0f963b9df32d9f648960084884127e186119b99dd",
+    "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "family": "marmousi",
+  "fine_velocity_crop_sha256": "d497a96f543016d64b7fad866bfb452cd243adbc0295a2f33574d0e426961f63",
+  "fine_velocity_range_mps": [
+    1612.5,
+    4364.375
+  ],
+  "internal_grid": {
+    "internal_dt_s": 0.000625,
+    "npml": 40,
+    "output_restriction": "binomial5_lowpass_then_decimate2",
+    "shape": [
+      401,
+      401
+    ],
+    "spacing_m": 5.0
+  },
+  "lwc_qmax": 3.8700229365079366,
+  "promotion_gate": {
+    "maximum_relative_l2": 0.05,
+    "maximum_runtime_s": 2.034137312322855,
+    "passed": true,
+    "passes_accuracy": true,
+    "passes_runtime": true
+  },
+  "relative_l2": 0.004174426071721263,
+  "restriction_max_absolute_difference": 0.0,
+  "runtime_s": 1.0492404317483306,
+  "sample_id": "train_marmousi_00193",
+  "scalar_alignment_diagnostic": {
+    "relative_l2": 0.0041615801650097,
+    "scale": 1.0003273461967535
+  },
+  "schema": "lwc84_cuda_graph_fine_grid_trainonly_probe_v1",
+  "selection_scope": "train_only",
+  "solver_reported_runtime_s": 0.925403549335897,
+  "source_f0_hz": 29.99536220938785,
+  "source_index": 2293,
+  "speedup_over_traditional_reference": 19.386760658216424,
+  "status": "complete",
+  "temporal_band_relative_l2": {
+    "early": 0.0011622961576431578,
+    "late": 0.005893458327935697,
+    "middle": 0.003489215817214914
+  },
+  "test_id_access": false,
+  "validation_access": false,
+  "warmup_s_excluded": 0.13631081115454435
+}

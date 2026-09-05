@@ -1,0 +1,1741 @@
+{
+  "bindings": {
+    "caches": {
+      "results/b2_v9_parent_holdout_cache_24rec_20260901.h5": "2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32",
+      "results/pa_cora_p1_holdout_slot1.h5": "3e03f8cc8368490e578b632e63adf6209ee5317866f2bb5a1373be9f25590e3f",
+      "results/pa_cora_p1_holdout_slot2.h5": "c01cd1edcd73041bfc7ff34b648a59c10cfd17a55f6b222be74a36819ce70aed"
+    },
+    "evaluator_sha256": "c3279ffa7b1183cf6b2688a3af32e5535107eab473039534bcd937d5c38598e0",
+    "manifests": {
+      "results/b2_v9_parent_holdout_manifest_24rec_20260901.json": "3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113",
+      "results/pa_cora_p1_holdout_slot1.json": "750f314e4eb29269bfb85eb7ded5fa7f54d1ded293facbfeee09dc142eee4dec",
+      "results/pa_cora_p1_holdout_slot2.json": "926ca7c9a7c8534a2672e31ef5aca206aab8d87d15fd458ad500d32c9bb89aaa"
+    },
+    "projector_sha256": "5d0a156adc5c35fac00d339b395ee28343f53acdfbd82392ac7a8bfc117f426f"
+  },
+  "checkpoint": "results/transfer_dg_flux_pretrain_fast_dg_flux_s372_20260902/best.pt",
+  "checkpoint_epoch": 3,
+  "checkpoint_sha256": "2bd6d7596653b73a5ab0c571af6805c2c9da474b073dc64f0e20af6b5dfe515f",
+  "claim_scope": "truth-leaking train-only oracle; rejection/capacity evidence only",
+  "comparison": {
+    "mean_correction_ratio": 1.6330732787806965,
+    "mean_skeleton_flux_residual_gain": 0.11069826766184956,
+    "records_improved": 0,
+    "records_worse": 72,
+    "relative_aggregate_gain": -4.313986404876444,
+    "relative_weighted_multiphase_gain": -4.213400999088929,
+    "strict_aggregate_improvement": false,
+    "strict_weighted_multiphase_improvement": false
+  },
+  "deployable": false,
+  "future_truth_used_to_construct_candidate": true,
+  "oracle": {
+    "aggregate": 1.48806472878146,
+    "frequency": {
+      "high": 3.0701666002472243,
+      "low": 1.3584752013492916,
+      "middle": 2.377499951256646
+    },
+    "per_family": {
+      "layered": 1.7713317931676638,
+      "marmousi": 2.2555112419353835,
+      "uniform": 0.4373511512413324
+    },
+    "per_slot": {
+      "0": 0.5494884745759553,
+      "1": 1.5484467725212434,
+      "2": 2.366258939247181
+    },
+    "weighted_multiphase": 1.0717436187629612
+  },
+  "parent": {
+    "aggregate": 0.28002795178698975,
+    "frequency": {
+      "high": 0.5572295739418931,
+      "low": 0.2672914699651301,
+      "middle": 0.3902302354367243
+    },
+    "per_family": {
+      "layered": 0.3578635440718035,
+      "marmousi": 0.3874532498660101,
+      "uniform": 0.09476706142315579
+    },
+    "per_slot": {
+      "0": 0.11324500115641262,
+      "1": 0.28601923424577397,
+      "2": 0.4408196199587828
+    },
+    "weighted_multiphase": 0.20557475224910848
+  },
+  "projector": {
+    "condition_number": 8.050960186599342,
+    "degrees_of_freedom": 56,
+    "flux_constraints": 2540,
+    "largest_singular_value": 0.024809415896904885,
+    "matrix_rank": 56,
+    "pseudoinverse_rcond": 1e-08,
+    "smallest_singular_value": 0.00308154745792926
+  },
+  "rows": [
+    {
+      "correction_ratio": 0.29792817545372846,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.7149006128311157,
+          "low": 0.24401722848415375,
+          "middle": 0.42384928464889526
+        },
+        "relative_l2": 0.2984185224928031
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3344067931175232,
+          "low": 0.051334198564291,
+          "middle": 0.08441174775362015
+        },
+        "relative_l2": 0.06065805558202176
+      },
+      "sample_id": "train_uniform_00205",
+      "skeleton_flux_residual_gain": 0.10449825119466871,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.27113443703798307,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.3602555990219116,
+          "low": 0.23278623819351196,
+          "middle": 0.6151319742202759
+        },
+        "relative_l2": 0.27425981199364036
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3575837314128876,
+          "low": 0.05941362679004669,
+          "middle": 0.1478501409292221
+        },
+        "relative_l2": 0.06945874499235709
+      },
+      "sample_id": "train_uniform_00216",
+      "skeleton_flux_residual_gain": 0.13259449180628458,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.32282712377170447,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.0655035972595215,
+          "low": 0.29254570603370667,
+          "middle": 1.2995058298110962
+        },
+        "relative_l2": 0.3250775001270195
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.2861219644546509,
+          "low": 0.06263593584299088,
+          "middle": 0.2233751118183136
+        },
+        "relative_l2": 0.0681562370871697
+      },
+      "sample_id": "train_uniform_00223",
+      "skeleton_flux_residual_gain": 0.07598017127830448,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.5701892683245445,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 4.282045841217041,
+          "low": 0.3277967870235443,
+          "middle": 0.8137350678443909
+        },
+        "relative_l2": 0.5689775618616457
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.41609421372413635,
+          "low": 0.06182108446955681,
+          "middle": 0.09190690517425537
+        },
+        "relative_l2": 0.0750622872245748
+      },
+      "sample_id": "train_uniform_00233",
+      "skeleton_flux_residual_gain": 0.0927030214036797,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.8240575577337241,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 3.6651525497436523,
+          "low": 0.39780154824256897,
+          "middle": 1.5309555530548096
+        },
+        "relative_l2": 0.8078778746393825
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.42729175090789795,
+          "low": 0.06458130478858948,
+          "middle": 0.11421658098697662
+        },
+        "relative_l2": 0.0814764287461474
+      },
+      "sample_id": "train_uniform_00324",
+      "skeleton_flux_residual_gain": 0.09063873349957752,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.1697043735223703,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.082817792892456,
+          "low": 0.12417186051607132,
+          "middle": 0.8578246235847473
+        },
+        "relative_l2": 0.17825597673202095
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.2652933597564697,
+          "low": 0.044522810727357864,
+          "middle": 0.18814244866371155
+        },
+        "relative_l2": 0.052362242221309606
+      },
+      "sample_id": "train_uniform_00326",
+      "skeleton_flux_residual_gain": 0.06929639120443487,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.3270410928136096,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.332782506942749,
+          "low": 0.29969334602355957,
+          "middle": 1.2015396356582642
+        },
+        "relative_l2": 0.33025442272418
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.27358195185661316,
+          "low": 0.057872224599123,
+          "middle": 0.20925083756446838
+        },
+        "relative_l2": 0.06353466784348555
+      },
+      "sample_id": "train_uniform_00333",
+      "skeleton_flux_residual_gain": 0.06130624904151938,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.37503418477083417,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 0.8392031192779541,
+          "low": 0.36974167823791504,
+          "middle": 0.9335014820098877
+        },
+        "relative_l2": 0.36851563194083087
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.2563386559486389,
+          "low": 0.0874423161149025,
+          "middle": 0.2372511774301529
+        },
+        "relative_l2": 0.08848298267379001
+      },
+      "sample_id": "train_uniform_00348",
+      "skeleton_flux_residual_gain": 0.05174657877021949,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.8455808660696623,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 2.000101327896118,
+          "low": 0.8467985987663269,
+          "middle": 2.0314137935638428
+        },
+        "relative_l2": 0.8154347234113143
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.46517977118492126,
+          "low": 0.24791434407234192,
+          "middle": 0.34075927734375
+        },
+        "relative_l2": 0.22114969879738355
+      },
+      "sample_id": "train_layered_00264",
+      "skeleton_flux_residual_gain": 0.08769919088169686,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.5067343995888812,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.033695101737976,
+          "low": 0.4779960811138153,
+          "middle": 1.142045497894287
+        },
+        "relative_l2": 0.48632529260166946
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.2272290289402008,
+          "low": 0.11390524357557297,
+          "middle": 0.20694242417812347
+        },
+        "relative_l2": 0.11260861706701875
+      },
+      "sample_id": "train_layered_00378",
+      "skeleton_flux_residual_gain": 0.079255098126077,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.35273701332686713,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.0424914360046387,
+          "low": 0.3086093068122864,
+          "middle": 1.0451786518096924
+        },
+        "relative_l2": 0.32831946073294005
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3081458806991577,
+          "low": 0.13281726837158203,
+          "middle": 0.2710065245628357
+        },
+        "relative_l2": 0.13589540370260716
+      },
+      "sample_id": "train_layered_00407",
+      "skeleton_flux_residual_gain": 0.16017524663702054,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.49488578526132715,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.3462958335876465,
+          "low": 0.5122064352035522,
+          "middle": 1.4515726566314697
+        },
+        "relative_l2": 0.516905017553991
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.33147546648979187,
+          "low": 0.10912691056728363,
+          "middle": 0.31374406814575195
+        },
+        "relative_l2": 0.11317003877312971
+      },
+      "sample_id": "train_layered_00469",
+      "skeleton_flux_residual_gain": 0.1257087664288682,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.21641726380585272,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.3214635848999023,
+          "low": 0.15749363601207733,
+          "middle": 0.6901874542236328
+        },
+        "relative_l2": 0.22284753041822625
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3168002665042877,
+          "low": 0.042013805359601974,
+          "middle": 0.14095096290111542
+        },
+        "relative_l2": 0.05290670127689453
+      },
+      "sample_id": "train_layered_00784",
+      "skeleton_flux_residual_gain": 0.11510174351169178,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 1.0328149403724947,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 2.5345966815948486,
+          "low": 0.7935512661933899,
+          "middle": 1.5893886089324951
+        },
+        "relative_l2": 0.9786899686202144
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.4993670880794525,
+          "low": 0.18902699649333954,
+          "middle": 0.27349841594696045
+        },
+        "relative_l2": 0.20683041533281374
+      },
+      "sample_id": "train_layered_00828",
+      "skeleton_flux_residual_gain": 0.12102808278658916,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.47461644935294567,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.5972424745559692,
+          "low": 0.4584241211414337,
+          "middle": 0.5579395890235901
+        },
+        "relative_l2": 0.47435383610112425
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5138291120529175,
+          "low": 0.11109071969985962,
+          "middle": 0.15458808839321136
+        },
+        "relative_l2": 0.12203495518412294
+      },
+      "sample_id": "train_layered_00859",
+      "skeleton_flux_residual_gain": 0.08225173716908507,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.35747611600224427,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.5414901971817017,
+          "low": 0.3059768080711365,
+          "middle": 0.6846210360527039
+        },
+        "relative_l2": 0.3663437168178127
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3793751001358032,
+          "low": 0.07422390580177307,
+          "middle": 0.14211994409561157
+        },
+        "relative_l2": 0.08468593170105149
+      },
+      "sample_id": "train_layered_00900",
+      "skeleton_flux_residual_gain": 0.05836434538837776,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.5368403899696692,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 1.9023263454437256,
+          "low": 0.5183424949645996,
+          "middle": 1.2477105855941772
+        },
+        "relative_l2": 0.5611483335254277
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.34396564960479736,
+          "low": 0.10675790905952454,
+          "middle": 0.2744166851043701
+        },
+        "relative_l2": 0.11378157135313204
+      },
+      "sample_id": "train_marmousi_00123",
+      "skeleton_flux_residual_gain": 0.024664658954016927,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.4532346507030916,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 1.8700639009475708,
+          "low": 0.41236612200737,
+          "middle": 0.8147565722465515
+        },
+        "relative_l2": 0.4584723588257673
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.47750458121299744,
+          "low": 0.10845199972391129,
+          "middle": 0.22336655855178833
+        },
+        "relative_l2": 0.11984275303665173
+      },
+      "sample_id": "train_marmousi_00143",
+      "skeleton_flux_residual_gain": 0.02342826663123143,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.7346360882628681,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 1.6567479372024536,
+          "low": 0.771611213684082,
+          "middle": 1.9644511938095093
+        },
+        "relative_l2": 0.7388729998958851
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3169082999229431,
+          "low": 0.1358896642923355,
+          "middle": 0.3032930791378021
+        },
+        "relative_l2": 0.13742837138982456
+      },
+      "sample_id": "train_marmousi_00182",
+      "skeleton_flux_residual_gain": 0.04048270757756056,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.5084753885512272,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 0.8818500638008118,
+          "low": 0.4949404001235962,
+          "middle": 1.3192121982574463
+        },
+        "relative_l2": 0.5135739288121266
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.2922382056713104,
+          "low": 0.10483769327402115,
+          "middle": 0.2702418565750122
+        },
+        "relative_l2": 0.10604149557709677
+      },
+      "sample_id": "train_marmousi_00220",
+      "skeleton_flux_residual_gain": 0.052654584310886654,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.8386716976121303,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 3.288386821746826,
+          "low": 0.7782618403434753,
+          "middle": 1.3897554874420166
+        },
+        "relative_l2": 0.8808611111233491
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.36222225427627563,
+          "low": 0.09722134470939636,
+          "middle": 0.14848609268665314
+        },
+        "relative_l2": 0.10483857146388152
+      },
+      "sample_id": "train_marmousi_00322",
+      "skeleton_flux_residual_gain": 0.046132938063162765,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.5301574907741322,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 3.0147948265075684,
+          "low": 0.45011964440345764,
+          "middle": 0.9238853454589844
+        },
+        "relative_l2": 0.5577938904972881
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.4111534059047699,
+          "low": 0.09888862073421478,
+          "middle": 0.15669643878936768
+        },
+        "relative_l2": 0.10771754708403673
+      },
+      "sample_id": "train_marmousi_00327",
+      "skeleton_flux_residual_gain": 0.030963999361398153,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.8375673467216446,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 1.6314796209335327,
+          "low": 0.8336271643638611,
+          "middle": 1.681133508682251
+        },
+        "relative_l2": 0.7909793946170168
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3016780614852905,
+          "low": 0.1492939293384552,
+          "middle": 0.27224379777908325
+        },
+        "relative_l2": 0.1500939342391532
+      },
+      "sample_id": "train_marmousi_00349",
+      "skeleton_flux_residual_gain": 0.07707111816844425,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 1.4337412197083719,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 2.9833245277404785,
+          "low": 1.2804112434387207,
+          "middle": 1.8600897789001465
+        },
+        "relative_l2": 1.3451645237572503
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.6909741163253784,
+          "low": 0.25595447421073914,
+          "middle": 0.3992729187011719
+        },
+        "relative_l2": 0.26966237540424837
+      },
+      "sample_id": "train_marmousi_00359",
+      "skeleton_flux_residual_gain": 0.02249263703861204,
+      "slot": 0
+    },
+    {
+      "correction_ratio": 0.3641651796965775,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 2.214170455932617,
+          "low": 0.27685511112213135,
+          "middle": 0.4976705014705658
+        },
+        "relative_l2": 0.3713426385708469
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.393912672996521,
+          "low": 0.06869470328092575,
+          "middle": 0.12786801159381866
+        },
+        "relative_l2": 0.08626025107282347
+      },
+      "sample_id": "train_uniform_00205",
+      "skeleton_flux_residual_gain": 0.12483444164931046,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.35407247065765146,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.6360937356948853,
+          "low": 0.30733317136764526,
+          "middle": 0.8280153274536133
+        },
+        "relative_l2": 0.3690041997973992
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3411208689212799,
+          "low": 0.07774516195058823,
+          "middle": 0.16963665187358856
+        },
+        "relative_l2": 0.08787116537818947
+      },
+      "sample_id": "train_uniform_00216",
+      "skeleton_flux_residual_gain": 0.187228178377577,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.43828388187107903,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.6829545497894287,
+          "low": 0.3921149969100952,
+          "middle": 1.2244319915771484
+        },
+        "relative_l2": 0.44405369018402663
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.383809357881546,
+          "low": 0.08469242602586746,
+          "middle": 0.231901615858078
+        },
+        "relative_l2": 0.09308162030238534
+      },
+      "sample_id": "train_uniform_00223",
+      "skeleton_flux_residual_gain": 0.1665882587489128,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.7565733941049414,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 3.815356731414795,
+          "low": 0.46789297461509705,
+          "middle": 1.142104148864746
+        },
+        "relative_l2": 0.7625707707451286
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.6578194499015808,
+          "low": 0.08939171582460403,
+          "middle": 0.152748242020607
+        },
+        "relative_l2": 0.12143877940873254
+      },
+      "sample_id": "train_uniform_00233",
+      "skeleton_flux_residual_gain": 0.10569641410876085,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.5883783838643761,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 3.097694158554077,
+          "low": 0.37112125754356384,
+          "middle": 0.8871048092842102
+        },
+        "relative_l2": 0.5900964744800576
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.46910712122917175,
+          "low": 0.06997612118721008,
+          "middle": 0.1060464084148407
+        },
+        "relative_l2": 0.08817346320959372
+      },
+      "sample_id": "train_uniform_00324",
+      "skeleton_flux_residual_gain": 0.12112220444949828,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.2877434173682633,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.205322265625,
+          "low": 0.2388969361782074,
+          "middle": 0.8778032660484314
+        },
+        "relative_l2": 0.2887631817445804
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.2578853666782379,
+          "low": 0.046996112912893295,
+          "middle": 0.16344177722930908
+        },
+        "relative_l2": 0.05592024832912056
+      },
+      "sample_id": "train_uniform_00326",
+      "skeleton_flux_residual_gain": 0.15109935361966054,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.40638989573178813,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.970430612564087,
+          "low": 0.34678196907043457,
+          "middle": 1.1258970499038696
+        },
+        "relative_l2": 0.41397679367931706
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3976464569568634,
+          "low": 0.07850292325019836,
+          "middle": 0.22520995140075684
+        },
+        "relative_l2": 0.08834803075642439
+      },
+      "sample_id": "train_uniform_00333",
+      "skeleton_flux_residual_gain": 0.15759775546646027,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.23673784075627677,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 0.8389248847961426,
+          "low": 0.21113869547843933,
+          "middle": 0.46335121989250183
+        },
+        "relative_l2": 0.22731937027009988
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.25747033953666687,
+          "low": 0.06839669495820999,
+          "middle": 0.16249732673168182
+        },
+        "relative_l2": 0.07114229805423904
+      },
+      "sample_id": "train_uniform_00348",
+      "skeleton_flux_residual_gain": 0.17266884506344937,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.6605898584535579,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.7606264352798462,
+          "low": 1.451853632926941,
+          "middle": 1.5031036138534546
+        },
+        "relative_l2": 1.4522240742713268
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5525904893875122,
+          "low": 0.429153174161911,
+          "middle": 0.456108957529068
+        },
+        "relative_l2": 0.42171885689653005
+      },
+      "sample_id": "train_layered_00264",
+      "skeleton_flux_residual_gain": 0.27702351052507324,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.4599133300022483,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.4929178953170776,
+          "low": 0.4121618866920471,
+          "middle": 1.1023293733596802
+        },
+        "relative_l2": 0.44362717277627184
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.299586683511734,
+          "low": 0.13101989030838013,
+          "middle": 0.21336881816387177
+        },
+        "relative_l2": 0.12860128289972955
+      },
+      "sample_id": "train_layered_00378",
+      "skeleton_flux_residual_gain": 0.12417835092952667,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.8668347305979232,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 4.198324680328369,
+          "low": 1.5436508655548096,
+          "middle": 4.292530059814453
+        },
+        "relative_l2": 1.6662102862324513
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.44542020559310913,
+          "low": 0.3034527599811554,
+          "middle": 0.40734294056892395
+        },
+        "relative_l2": 0.30699040218065254
+      },
+      "sample_id": "train_layered_00407",
+      "skeleton_flux_residual_gain": 0.18742005171544174,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.1871061820889754,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.0899879932403564,
+          "low": 1.160252571105957,
+          "middle": 0.982580304145813
+        },
+        "relative_l2": 1.1556992368200047
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.383335143327713,
+          "low": 0.3066386282444,
+          "middle": 0.3504803776741028
+        },
+        "relative_l2": 0.3081185196526033
+      },
+      "sample_id": "train_layered_00469",
+      "skeleton_flux_residual_gain": 0.1846392233612647,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.40626282767780425,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.0980561971664429,
+          "low": 0.35349568724632263,
+          "middle": 0.8672510385513306
+        },
+        "relative_l2": 0.4041515600680163
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.3001868426799774,
+          "low": 0.10725494474172592,
+          "middle": 0.19000352919101715
+        },
+        "relative_l2": 0.11425303229013421
+      },
+      "sample_id": "train_layered_00784",
+      "skeleton_flux_residual_gain": 0.14175634592604935,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 4.9370913617242564,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 3.9824395179748535,
+          "low": 4.2251715660095215,
+          "middle": 5.454161167144775
+        },
+        "relative_l2": 4.465390850082258
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.8916001915931702,
+          "low": 0.6444078683853149,
+          "middle": 0.9041529893875122
+        },
+        "relative_l2": 0.6965592173265698
+      },
+      "sample_id": "train_layered_00828",
+      "skeleton_flux_residual_gain": 0.1444280058173425,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 2.2168809038594572,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 2.9638631343841553,
+          "low": 1.8687509298324585,
+          "middle": 3.062150239944458
+        },
+        "relative_l2": 2.1257071704730737
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.7470777630805969,
+          "low": 0.5378344058990479,
+          "middle": 0.7206193804740906
+        },
+        "relative_l2": 0.5738354700550685
+      },
+      "sample_id": "train_layered_00859",
+      "skeleton_flux_residual_gain": 0.07309572010234433,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.762668156894861,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 2.421959400177002,
+          "low": 1.7022829055786133,
+          "middle": 2.3888497352600098
+        },
+        "relative_l2": 1.7736205114982788
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.4661003053188324,
+          "low": 0.33133557438850403,
+          "middle": 0.4396701157093048
+        },
+        "relative_l2": 0.3420382270783134
+      },
+      "sample_id": "train_layered_00900",
+      "skeleton_flux_residual_gain": 0.1638070009211453,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.352457131906614,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 4.551243305206299,
+          "low": 1.2464615106582642,
+          "middle": 4.168436527252197
+        },
+        "relative_l2": 1.4644882200836524
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5839051008224487,
+          "low": 0.27764835953712463,
+          "middle": 0.38841143250465393
+        },
+        "relative_l2": 0.28415688269817513
+      },
+      "sample_id": "train_marmousi_00123",
+      "skeleton_flux_residual_gain": 0.032719418764649455,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.9755625092133657,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 2.3309361934661865,
+          "low": 1.7680485248565674,
+          "middle": 2.313852548599243
+        },
+        "relative_l2": 1.8156604184082412
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5871591567993164,
+          "low": 0.3195551037788391,
+          "middle": 0.4463823437690735
+        },
+        "relative_l2": 0.3313090896245831
+      },
+      "sample_id": "train_marmousi_00143",
+      "skeleton_flux_residual_gain": 0.06235227972172053,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 3.2257159892818885,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 3.959664821624756,
+          "low": 2.5115621089935303,
+          "middle": 3.827012777328491
+        },
+        "relative_l2": 2.5770841840612713
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.8044328093528748,
+          "low": 0.5414907932281494,
+          "middle": 0.6482113003730774
+        },
+        "relative_l2": 0.5500717932476141
+      },
+      "sample_id": "train_marmousi_00182",
+      "skeleton_flux_residual_gain": 0.06852264170343658,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.0211199642467843,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 2.283083438873291,
+          "low": 1.0209910869598389,
+          "middle": 1.5954806804656982
+        },
+        "relative_l2": 1.046149002996182
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.40144050121307373,
+          "low": 0.18961554765701294,
+          "middle": 0.27449870109558105
+        },
+        "relative_l2": 0.19196021264442414
+      },
+      "sample_id": "train_marmousi_00220",
+      "skeleton_flux_residual_gain": 0.056225425814114605,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 4.161895038702446,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 13.046707153320312,
+          "low": 3.684373617172241,
+          "middle": 8.078163146972656
+        },
+        "relative_l2": 4.4926005192122656
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.8604438900947571,
+          "low": 0.32122084498405457,
+          "middle": 0.46937042474746704
+        },
+        "relative_l2": 0.34510352704400477
+      },
+      "sample_id": "train_marmousi_00322",
+      "skeleton_flux_residual_gain": 0.05828952154792433,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 1.3780938757804067,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 4.541685104370117,
+          "low": 1.2579180002212524,
+          "middle": 2.603541851043701
+        },
+        "relative_l2": 1.5143016252397712
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.7683762311935425,
+          "low": 0.293060302734375,
+          "middle": 0.4047635495662689
+        },
+        "relative_l2": 0.31252739069641033
+      },
+      "sample_id": "train_marmousi_00327",
+      "skeleton_flux_residual_gain": 0.02697866883477218,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 2.495417638369421,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 3.697032928466797,
+          "low": 1.8056719303131104,
+          "middle": 3.432089328765869
+        },
+        "relative_l2": 1.8982236565366186
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5473233461380005,
+          "low": 0.4280971884727478,
+          "middle": 0.4949834942817688
+        },
+        "relative_l2": 0.4302614009478793
+      },
+      "sample_id": "train_marmousi_00349",
+      "skeleton_flux_residual_gain": 0.093854803011994,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 6.868131503001486,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 8.198859214782715,
+          "low": 4.871396541595459,
+          "middle": 8.908740043640137
+        },
+        "relative_l2": 5.400456932278699
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.9466071724891663,
+          "low": 0.8005003929138184,
+          "middle": 1.1073538064956665
+        },
+        "relative_l2": 0.8347204601043746
+      },
+      "sample_id": "train_marmousi_00359",
+      "skeleton_flux_residual_gain": 0.05600043566546309,
+      "slot": 1
+    },
+    {
+      "correction_ratio": 0.23253239338327672,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.3651783466339111,
+          "low": 0.23985092341899872,
+          "middle": 0.4065935015678406
+        },
+        "relative_l2": 0.3057987734908459
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.0006929636001587,
+          "low": 0.16310341656208038,
+          "middle": 0.26906800270080566
+        },
+        "relative_l2": 0.21039512271894273
+      },
+      "sample_id": "train_uniform_00205",
+      "skeleton_flux_residual_gain": 0.03948171063918626,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.11972064397045173,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 0.4120398163795471,
+          "low": 0.1967501938343048,
+          "middle": 0.2120078206062317
+        },
+        "relative_l2": 0.1899749318811411
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.38956886529922485,
+          "low": 0.1337490975856781,
+          "middle": 0.19724543392658234
+        },
+        "relative_l2": 0.15210285588819117
+      },
+      "sample_id": "train_uniform_00216",
+      "skeleton_flux_residual_gain": 0.12671675161431928,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.4230186265144581,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 2.435297966003418,
+          "low": 0.3365057408809662,
+          "middle": 1.597523808479309
+        },
+        "relative_l2": 0.43018291680809817
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.511995792388916,
+          "low": 0.08094511181116104,
+          "middle": 0.3063839375972748
+        },
+        "relative_l2": 0.09680749733196234
+      },
+      "sample_id": "train_uniform_00223",
+      "skeleton_flux_residual_gain": 0.16872667697858712,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 1.3683987132593627,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 7.4680914878845215,
+          "low": 0.8580095171928406,
+          "middle": 2.037527561187744
+        },
+        "relative_l2": 1.3647998254067921
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.06527578830719,
+          "low": 0.13639682531356812,
+          "middle": 0.2361820638179779
+        },
+        "relative_l2": 0.18512091351894025
+      },
+      "sample_id": "train_uniform_00233",
+      "skeleton_flux_residual_gain": 0.15748127464120032,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.6321299678167892,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 3.64900279045105,
+          "low": 0.38702407479286194,
+          "middle": 0.94498211145401
+        },
+        "relative_l2": 0.6300593405076658
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.6082428693771362,
+          "low": 0.09076238423585892,
+          "middle": 0.14282727241516113
+        },
+        "relative_l2": 0.11469487461576269
+      },
+      "sample_id": "train_uniform_00324",
+      "skeleton_flux_residual_gain": 0.08454030717180716,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.2997482078732384,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 1.3696759939193726,
+          "low": 0.2604655623435974,
+          "middle": 0.7480663061141968
+        },
+        "relative_l2": 0.3001470967551831
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.32500186562538147,
+          "low": 0.060134392231702805,
+          "middle": 0.19197969138622284
+        },
+        "relative_l2": 0.06927009170876587
+      },
+      "sample_id": "train_uniform_00326",
+      "skeleton_flux_residual_gain": 0.14331433029467555,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.4617141957948332,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 2.177500009536743,
+          "low": 0.35076531767845154,
+          "middle": 1.3331152200698853
+        },
+        "relative_l2": 0.46420946551330766
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.478747695684433,
+          "low": 0.10002531111240387,
+          "middle": 0.28524050116539
+        },
+        "relative_l2": 0.11586829538612194
+      },
+      "sample_id": "train_uniform_00333",
+      "skeleton_flux_residual_gain": 0.1947924718133569,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.18701074671407625,
+      "family": "uniform",
+      "oracle": {
+        "frequency": {
+          "high": 0.9795501828193665,
+          "low": 0.16321636736392975,
+          "middle": 0.7681804895401001
+        },
+        "relative_l2": 0.19249085744596497
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.32231006026268005,
+          "low": 0.07444965094327927,
+          "middle": 0.190183624625206
+        },
+        "relative_l2": 0.07872232010468765
+      },
+      "sample_id": "train_uniform_00348",
+      "skeleton_flux_residual_gain": 0.17641667330900646,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 1.5584731373609837,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 2.1155498027801514,
+          "low": 1.5009732246398926,
+          "middle": 1.7911535501480103
+        },
+        "relative_l2": 1.518080386034687
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5204981565475464,
+          "low": 0.3937329947948456,
+          "middle": 0.4495113492012024
+        },
+        "relative_l2": 0.38699961040556047
+      },
+      "sample_id": "train_layered_00264",
+      "skeleton_flux_residual_gain": 0.3484084502978789,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.7136942599564985,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.7881220579147339,
+          "low": 0.6625665426254272,
+          "middle": 1.0847991704940796
+        },
+        "relative_l2": 0.6820229980051167
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.410427451133728,
+          "low": 0.12714135646820068,
+          "middle": 0.2462662011384964
+        },
+        "relative_l2": 0.1305352614634581
+      },
+      "sample_id": "train_layered_00378",
+      "skeleton_flux_residual_gain": 0.1722435521573895,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 5.3715854624204065,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 3.9971671104431152,
+          "low": 4.4704179763793945,
+          "middle": 4.048130512237549
+        },
+        "relative_l2": 4.51765741649156
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.7628690004348755,
+          "low": 0.7307935357093811,
+          "middle": 0.762013852596283
+        },
+        "relative_l2": 0.7382989535700201
+      },
+      "sample_id": "train_layered_00407",
+      "skeleton_flux_residual_gain": 0.22549879655539595,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 1.149903745257002,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 2.0410525798797607,
+          "low": 1.107712984085083,
+          "middle": 2.153505563735962
+        },
+        "relative_l2": 1.1247686477896965
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5258277058601379,
+          "low": 0.3286752998828888,
+          "middle": 0.46963128447532654
+        },
+        "relative_l2": 0.3306039552349584
+      },
+      "sample_id": "train_layered_00469",
+      "skeleton_flux_residual_gain": 0.29121678511768845,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.5875449477001935,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 1.214668869972229,
+          "low": 0.5752726793289185,
+          "middle": 0.8868100643157959
+        },
+        "relative_l2": 0.5963568135616067
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.45935189723968506,
+          "low": 0.2219701111316681,
+          "middle": 0.3238297402858734
+        },
+        "relative_l2": 0.2299125305591281
+      },
+      "sample_id": "train_layered_00784",
+      "skeleton_flux_residual_gain": 0.07927209796829449,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 10.768710358727303,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 10.242387771606445,
+          "low": 9.216188430786133,
+          "middle": 11.348011016845703
+        },
+        "relative_l2": 9.596873764956229
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.3785029649734497,
+          "low": 1.186356782913208,
+          "middle": 1.2824437618255615
+        },
+        "relative_l2": 1.2034918782042143
+      },
+      "sample_id": "train_layered_00828",
+      "skeleton_flux_residual_gain": 0.16053780453171562,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 6.622016059955813,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 5.161993503570557,
+          "low": 4.849287033081055,
+          "middle": 6.810528755187988
+        },
+        "relative_l2": 5.159390467523257
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.235184907913208,
+          "low": 1.070743203163147,
+          "middle": 1.319514513015747
+        },
+        "relative_l2": 1.1102131232542556
+      },
+      "sample_id": "train_layered_00859",
+      "skeleton_flux_residual_gain": 0.05289079693825571,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 1.5700186070931779,
+      "family": "layered",
+      "oracle": {
+        "frequency": {
+          "high": 0.8674453496932983,
+          "low": 1.6783487796783447,
+          "middle": 1.2262128591537476
+        },
+        "relative_l2": 1.6409621331828033
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.5474827289581299,
+          "low": 0.5103355646133423,
+          "middle": 0.5651060342788696
+        },
+        "relative_l2": 0.5172729748170654
+      },
+      "sample_id": "train_layered_00900",
+      "skeleton_flux_residual_gain": 0.2662798178876513,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 1.5199891536817471,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 4.838175296783447,
+          "low": 1.5703595876693726,
+          "middle": 3.2716126441955566
+        },
+        "relative_l2": 1.6752303823578698
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.7045689225196838,
+          "low": 0.3250564932823181,
+          "middle": 0.4726172685623169
+        },
+        "relative_l2": 0.33575254754485784
+      },
+      "sample_id": "train_marmousi_00123",
+      "skeleton_flux_residual_gain": 0.03836929481767115,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 4.317177158036232,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 4.977823257446289,
+          "low": 3.705082654953003,
+          "middle": 5.110469818115234
+        },
+        "relative_l2": 3.839312719056902
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.9502307772636414,
+          "low": 0.6165516376495361,
+          "middle": 0.8993518352508545
+        },
+        "relative_l2": 0.6427940649721812
+      },
+      "sample_id": "train_marmousi_00143",
+      "skeleton_flux_residual_gain": 0.06512041954932846,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 4.759301449903335,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 5.581695079803467,
+          "low": 3.763643980026245,
+          "middle": 4.159938812255859
+        },
+        "relative_l2": 3.8267383052282686
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.0564943552017212,
+          "low": 0.7859361171722412,
+          "middle": 0.9657906889915466
+        },
+        "relative_l2": 0.7966629195029241
+      },
+      "sample_id": "train_marmousi_00182",
+      "skeleton_flux_residual_gain": 0.07941005161232362,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 0.6805438695532543,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 2.155930519104004,
+          "low": 0.6985977292060852,
+          "middle": 1.519899845123291
+        },
+        "relative_l2": 0.7389619789588495
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.4977133572101593,
+          "low": 0.2464836835861206,
+          "middle": 0.3771865665912628
+        },
+        "relative_l2": 0.2508394645286894
+      },
+      "sample_id": "train_marmousi_00220",
+      "skeleton_flux_residual_gain": 0.037858259524650495,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 6.2267704558943935,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 12.588781356811523,
+          "low": 5.3426079750061035,
+          "middle": 10.672527313232422
+        },
+        "relative_l2": 6.209620958483039
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.3793386220932007,
+          "low": 0.573658287525177,
+          "middle": 0.8569723963737488
+        },
+        "relative_l2": 0.6183679370053017
+      },
+      "sample_id": "train_marmousi_00322",
+      "skeleton_flux_residual_gain": 0.06678338659893701,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 2.5535741040817683,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 7.206085681915283,
+          "low": 2.268324851989746,
+          "middle": 4.163360118865967
+        },
+        "relative_l2": 2.62591629521193
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.2584344148635864,
+          "low": 0.5163710117340088,
+          "middle": 0.7610977292060852
+        },
+        "relative_l2": 0.5577479861008809
+      },
+      "sample_id": "train_marmousi_00327",
+      "skeleton_flux_residual_gain": 0.02613742947749642,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 4.6064050533624545,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 5.280787944793701,
+          "low": 3.275048017501831,
+          "middle": 5.221442699432373
+        },
+        "relative_l2": 3.4116192362151443
+      },
+      "parent": {
+        "frequency": {
+          "high": 0.9612738490104675,
+          "low": 0.7838344573974609,
+          "middle": 0.8611368536949158
+        },
+        "relative_l2": 0.7957933287078709
+      },
+      "sample_id": "train_marmousi_00349",
+      "skeleton_flux_residual_gain": 0.13441660438690417,
+      "slot": 2
+    },
+    {
+      "correction_ratio": 7.130705968534732,
+      "family": "marmousi",
+      "oracle": {
+        "frequency": {
+          "high": 8.070645332336426,
+          "low": 5.1477251052856445,
+          "middle": 9.967560768127441
+        },
+        "relative_l2": 5.749038831066391
+      },
+      "parent": {
+        "frequency": {
+          "high": 1.1713781356811523,
+          "low": 0.8740591406822205,
+          "middle": 1.2218921184539795
+        },
+        "relative_l2": 0.9114023718660453
+      },
+      "sample_id": "train_marmousi_00359",
+      "skeleton_flux_residual_gain": 0.0699956626901479,
+      "slot": 2
+    }
+  ],
+  "schema": "transfer_dg_fixed_skeleton_truth_flux_oracle_v1",
+  "status": "capacity_absent",
+  "test_id_opened": false,
+  "validation_opened": false
+}

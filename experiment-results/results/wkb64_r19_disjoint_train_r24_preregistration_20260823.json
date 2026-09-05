@@ -1,0 +1,86 @@
+{
+  "schema": "acoustic_train_only_preregistration_v2",
+  "status": "frozen_before_launch",
+  "candidate": "wkb64_r19_disjoint_train_r24_20260823",
+  "date_utc": "2026-08-23",
+  "protocol_scope": "train_only_fit_calibration_confirmation",
+  "hypothesis": "The r19 direct 64-bin WKB surrogate is not merely memorizing three anchor records: full-trace coefficient supervision on a family-balanced 36-record fit panel will reach and preserve relative L2 at or below 0.05 on fit and calibration, then on a separate 36-record confirmation panel opened once only after checkpoint selection is frozen.",
+  "expected_mechanism": "The eikonal retarded phase removes most spatial oscillation from the learned coefficient envelopes, while complete-trace Fourier supervision exposes every stored time. Increased medium and source support should train reusable envelopes rather than anchor-specific frame fits.",
+  "single_conceptual_variable": {
+    "name": "train_record_support",
+    "parent": "one anchor record per family",
+    "candidate": "12 fit records per family with separate 12-per-family calibration and confirmation panels"
+  },
+  "primary_metric": "maximum all-saved aggregate/family relative L2 across frozen fit, calibration, and confirmation panels",
+  "acceptance": {
+    "all_saved_fit_aggregate_and_each_family_relative_l2_max": 0.05,
+    "all_saved_calibration_aggregate_and_each_family_relative_l2_max": 0.05,
+    "all_saved_confirmation_aggregate_and_each_family_relative_l2_max": 0.05
+  },
+  "panels": {
+    "split": "train",
+    "skip_anchor_records_per_family": 1,
+    "fit_records_per_family": 12,
+    "calibration_records_per_family": 12,
+    "confirmation_records_per_family": 12,
+    "mutually_disjoint": true,
+    "fit_truth_access": "complete traces used by backward",
+    "calibration_truth_access": "fixed 32-frame checkpoint selection followed by one all-saved report",
+    "confirmation_truth_access": "opened once at all saved times after checkpoint freeze"
+  },
+  "fixed": {
+    "frequency_bins": 64,
+    "family_gradient_weights": {
+      "uniform": 1.0,
+      "layered": 1.0,
+      "marmousi": 10.0
+    },
+    "dense_learning_rate": 0.00002,
+    "backbone_learning_rate": 0.00001,
+    "local_field_learning_rate": 0.00002,
+    "free_surface_taper": false,
+    "local_causal_gate": false,
+    "global_hard_causality": true,
+    "seed": 372
+  },
+  "training": {
+    "updates_max": 2000,
+    "evaluate_every": 250,
+    "evaluation_frames_per_record": 32,
+    "microbatch_records": 1,
+    "balanced_records_per_update": 3
+  },
+  "parent": {
+    "checkpoint": "results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt",
+    "checkpoint_sha256": "f8327d4fb0853f4e0a11446ecd7864ebbfb577ef902dbe5c041c2be633cb2629",
+    "identity": "results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json",
+    "identity_sha256": "3b82a656432c76677800919eb3819369acb0f05f4065c51e1f0d46743d119e6a"
+  },
+  "data_access": {
+    "train": true,
+    "validation": false,
+    "test_id": false
+  },
+  "failure_signal": "Any non-finite update, peak CUDA allocation above 4 GiB, missing terminal/checkpoint binding, or any all-saved split/family relative L2 above 0.05 rejects the hypothesis without opening validation or test_id.",
+  "compute_budget": {
+    "gpus": 1,
+    "optimizer_updates_max": 2000,
+    "wall_ceiling_minutes": 60,
+    "gpu_memory_max_bytes": 4294967296
+  },
+  "bindings": {
+    "script_sha256": "7c00b3af9b8ceb2759287a74db4d8a0dd30463673e3b66ca59c827464c4e8a47",
+    "diagnostic_sha256": "a6aa049e76faf2830c47eec922bab5b6cb1e8c584dc3bc5b6308233e21d003f8",
+    "panel_test_sha256": "00adda5d776316651cc74cb573ec8d69db62489d88b91dc3b2d5aa25027953c5",
+    "coefficient_test_sha256": "445aca172c9b6255b6d87a0afcbc8439dc3e1712f126d880d3cc014314e50e3f",
+    "base_config_sha256": "c4354dd8f2e676e852402b0af7b36860060194a4328bad8f2ebce111517b964e",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+    "normalization_json_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "travel_time_h5_sha256": "15dd04af98dd975b36c4e4c2bb32f20c2fd2e5115e3544c4dfb23d0fb8f33069",
+    "train_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "smoke_terminal_sha256": "26467374b7af8b9cd0f003f538acf52de66ad421707742f187a4b5f5ef05effd",
+    "tests": "12 passed"
+  },
+  "rollback": "Preserve r19/update_0900.pt and all r23/r24 artifacts; on failure mark r24 rejected and return to train-only diagnostics without opening validation or test_id.",
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/train_wkb_frequency_train_panel.py --artifact-dir results/wkb64_r19_disjoint_train_r24_20260823 --preregistration results/wkb64_r19_disjoint_train_r24_preregistration_20260823.json --base-config configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml --parent-checkpoint results/wkb64_r17_lr2x_r19_continue1000_20260823/checkpoints/update_0900.pt --parent-identity results/wkb64_r17_lr2x_r19_continue1000_20260823/run_identity.json --normalization-json /home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json --travel-time-h5 /home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5 --fit-records-per-family 12 --calibration-records-per-family 12 --confirm-records-per-family 12 --skip-records-per-family 1 --updates 2000 --evaluate-every 250 --evaluation-frames 32 --dense-learning-rate 2e-5 --backbone-learning-rate 1e-5 --local-field-learning-rate 2e-5 --family-gradient-weights uniform:1,layered:1,marmousi:10 --target-relative-l2 0.05 --seed 372"
+}

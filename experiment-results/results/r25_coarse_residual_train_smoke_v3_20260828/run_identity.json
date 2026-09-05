@@ -1,0 +1,45 @@
+{
+  "absolute_goal": {
+    "record_rel_l2_max_lte": 0.05,
+    "record_rel_l2_mean_lte": 0.05
+  },
+  "created_utc": "2026-08-27T16:06:03.349365+00:00",
+  "data_access": {
+    "fit": "train",
+    "holdout": "train_group_disjoint",
+    "test_id_opened": false,
+    "truth_deployment_input": false,
+    "validation_opened": false
+  },
+  "fit_cache_sha256": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_smoke_cache_20260828/fit_000.h5": "cb0a390d5c2df36a7bb36bf5b7bfcda1ea98cd404643ebb7a4f92f8a277dce17"
+  },
+  "fit_frames_per_record": 64,
+  "fit_record_count": 1,
+  "holdout_cache_sha256": {
+    "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r25_coarse_residual_smoke_cache_20260828/holdout_000.h5": "91c573d93fd4b899aa59acf493ede55b7f6de01e8ef5ddb0938922b944c4a276"
+  },
+  "holdout_frames_per_record": 401,
+  "holdout_record_count": 1,
+  "input_channels": 13,
+  "model": {
+    "base_width": 16,
+    "correction_cap": 0.5,
+    "name": "coarse_residual_unet",
+    "pre_onset_correction_zero": true,
+    "top_row_correction_zero": true
+  },
+  "optimization": {
+    "amp_bfloat16": true,
+    "epochs": 1,
+    "global_batch_size": 4,
+    "gradient_weight": 0.03,
+    "hinge_weight": 0.5,
+    "learning_rate": 0.001,
+    "seed": 250827,
+    "weight_decay": 1e-06
+  },
+  "parameter_count": 404577,
+  "schema": "r25_coarse_residual_run_identity_v1",
+  "selection_sha256": "2184a4f1c9f3be6186fbacb1599e8bd32fc1fdfeb07b3b99cfe2034a2118ccb8"
+}

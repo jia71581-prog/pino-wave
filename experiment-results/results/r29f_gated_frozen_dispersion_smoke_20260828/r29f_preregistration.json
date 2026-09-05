@@ -1,0 +1,25 @@
+{
+  "evidence_boundary": "A pass only authorizes a fresh group-disjoint train holdout experiment.",
+  "frequency_gate": {
+    "linear_between_hz": [
+      22.0,
+      27.0
+    ],
+    "one_at_or_above_hz": 27.0,
+    "zero_at_or_below_hz": 22.0
+  },
+  "frozen_parameters": "all_R28_backbone_parameters_and_original_13_input_channel_slices",
+  "r29e_components_sha256": "dd651a7701c7c137c78e01545350fe851e10f36b9b9217cf5224388ed4a1bd7f",
+  "required_optimizer_weight_decay": 0.0,
+  "role": "R28_already_opened_train_holdout_development_only",
+  "schema": "r29f_gated_frozen_dispersion_adapter_preregistration_v1",
+  "script_sha256": "4daf7a892c3252814b8cdc2b35aecda12057187ea6fb6d95775ea1b2be9c2de5",
+  "status": "frozen_before_development_training",
+  "success_gate": "mean_and_max_record_relative_L2_lte_0p05",
+  "test_id_opened": false,
+  "trainable_parameters": [
+    "stem.conv.weight[:,13:16,:,:]",
+    "spectral_stem.weight[:,13:16,:,:]"
+  ],
+  "validation_opened": false
+}

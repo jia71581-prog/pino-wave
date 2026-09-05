@@ -1,0 +1,167 @@
+{
+  "config": {
+    "adaptive_sampling": {
+      "c": 1.0,
+      "enabled": true,
+      "evidence_split": "validation",
+      "family_errors": {
+        "layered": 0.2903779849,
+        "marmousi": 0.5638120193,
+        "uniform": 0.1288781125
+      },
+      "floor_per_bin": 2,
+      "frame_axis": true,
+      "k": 1.0,
+      "record_axis": true,
+      "record_oversample": 2.0,
+      "time_bin_errors": [
+        0.2353745524,
+        0.5096227467,
+        0.7627737974
+      ]
+    },
+    "artifact_dir": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5d_metric_aligned_time_train_diag",
+    "band_limited_adapter": {
+      "adapter_only": true,
+      "architecture": "shared_dynamic_multiscale_spectral",
+      "cutoff_normalized_radius": 0.6666666666666666,
+      "physical_conditioning": {
+        "medium": "raw_velocity_encoded_once",
+        "source": "normalized_parameters"
+      },
+      "preserve_high_band": false
+    },
+    "base_config": "configs/grouped_v3/continuous_pilot_w128_legacy_norm_marmousi1_4m_v2.yaml",
+    "checkpoint_keep_last": 5,
+    "checkpoint_transfer": {
+      "allow_new_band_adapter_parameters": true,
+      "allow_new_local_field_parameters": false,
+      "allow_parent_manifest_mismatch": true,
+      "parent_optimizer_state": false
+    },
+    "energy_floor_fraction": 0.01,
+    "epoch_validation_control": {
+      "enabled": true,
+      "evaluation_split": "train",
+      "learning_rate_backoff": 0.5,
+      "maximum_attempts_per_epoch": 8,
+      "metric": "aggregate_relative_l2",
+      "minimum_absolute_improvement": 0.0,
+      "minimum_learning_rate_multiplier": 0.0078125
+    },
+    "epochs": 3,
+    "family_gradient_weights": {
+      "layered": 1.0,
+      "marmousi": 1.0,
+      "uniform": 1.0
+    },
+    "gate": {
+      "external_evidence_gate": false,
+      "family_regression_tolerance": 0.05,
+      "maximum_peak_cuda_gib": 23.5,
+      "pilot_epochs": 3,
+      "target_aggregate_relative_l2": 0.05,
+      "target_family_relative_l2": 0.08
+    },
+    "loss": {
+      "delta": 0.5,
+      "delta_energy_floor_fraction": 0.1,
+      "frame_energy_floor_fraction": 0.05,
+      "hard_causality": true,
+      "hard_causality_lead_cycles": 1.0,
+      "late_frame_gain": 0.0,
+      "late_frame_start_fraction": 0.4,
+      "per_frame_frame": false,
+      "spatial_gradient": 0.1,
+      "spectrum": 0.1,
+      "temporal_difference": 0.1
+    },
+    "macro_records": 8,
+    "macros_per_update": 4,
+    "microbatch_records": 1,
+    "optimizer": {
+      "adamw_beta1": 0.9,
+      "adamw_beta2": 0.99,
+      "adamw_eps": 1e-08,
+      "adamw_implementation": "fused",
+      "backbone_learning_rate": 6.25e-08,
+      "band_adapter_feature_learning_rate": 0.0003,
+      "band_adapter_output_learning_rate": 1e-05,
+      "dense_learning_rate": 6.25e-07,
+      "full_forward_checkpointing": false,
+      "geometry_learning_rate": 1.25e-07,
+      "gradient_clip": 1.0,
+      "gradient_clip_mode": "prefix_limits",
+      "gradient_clip_prefix_limits": {
+        "coordinate_encoder": 5.0,
+        "default": 1.0,
+        "dense_decoder": 20.0,
+        "fusion": 5.0,
+        "local_field": 80.0,
+        "medium_encoder": 2.0,
+        "source_encoder": 5.0,
+        "travel_branch": 5.0
+      },
+      "minimum_factor": 0.1,
+      "name": "adamw",
+      "schedule_epoch_offset": 0,
+      "schedule_total_epochs": 3,
+      "temporal_latent_learning_rate": 6.25e-06,
+      "training_time_block": 1,
+      "warmup_epochs": 1,
+      "weight_decay": 1e-06
+    },
+    "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "parent_checkpoint_identity": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/run_identity.json",
+    "parent_checkpoint_selection_split": "train",
+    "parent_identity": "configs/saved_time_v4/generated/w2_parent_identity_legacy_norm_marmousi1_4m_v2.json",
+    "prefetch_factor": 4,
+    "query_points": 1,
+    "schedule_epoch_offset": 18,
+    "seed": 372,
+    "time_appearance_offset": 15,
+    "time_policy": "fixed_train_gate",
+    "training_frames_per_record": 24,
+    "travel_time_h5": "/home/jiayh/Data/data/processed/hybrid_travel_layered_eikonal_ray12_marmousi1_4m_v2.h5",
+    "validation": {
+      "all_records_every": 4,
+      "final_frames_per_record": 401,
+      "frames_per_record": 32,
+      "full_panel_records": 48,
+      "microbatch_records": 1,
+      "panel_records": 48
+    },
+    "variant_overrides": {
+      "band_adapter_activation_checkpointing": true,
+      "band_adapter_architecture": "shared_dynamic_multiscale_spectral",
+      "band_adapter_coarse_depth": 2,
+      "band_adapter_full_depth": 4,
+      "band_adapter_modes": 32,
+      "band_adapter_preserve_high_band": false,
+      "band_adapter_rank": 32,
+      "band_adapter_spectral_rank": 32,
+      "local_field": true,
+      "local_field_adapter_gate_init": 0.03,
+      "local_field_residual": true,
+      "local_field_temporal_latent_basis": true,
+      "local_field_temporal_latent_harmonics": 4,
+      "local_field_temporal_latent_rank": 32,
+      "local_field_warp": true,
+      "local_field_warp_max_shift_cells": 8.0
+    },
+    "workers": 8
+  },
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "mode": "run",
+  "parent_manifest_transfer": {
+    "active_manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "allowed": true,
+    "parent_manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+    "reason": "explicit_checkpoint_weight_transfer_after_dataset_repair"
+  },
+  "parent_run_digest": "6dcce8d5a46db8c7c1720a41f64ea536183f630dce921e2d7271efadc1cabb32",
+  "run_digest": "269688c4c4a6b3485bb1357e4d5ccdb21ceb4a3eba28e6cf061213baa0fda365",
+  "schedule_digest": "8f12aa33af5ad4d59ef55e7eb9016ecfa367da56d66d415c49c50d44714a08ec",
+  "schema": "saved_time_v5_training_contract_recovery_v1",
+  "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9"
+}

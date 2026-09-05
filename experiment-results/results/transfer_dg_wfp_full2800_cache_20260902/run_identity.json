@@ -1,0 +1,75 @@
+{
+  "child_pids": [
+    868934,
+    868935,
+    868936,
+    868937
+  ],
+  "commands": [
+    [
+      "/root/miniconda3/bin/python",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/build_transfer_dg_wfp_e1_cache.py",
+      "--manifest",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_manifest_20260902.json",
+      "--output",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_cache_20260902/shard_0.h5",
+      "--shard-index",
+      "0",
+      "--shard-count",
+      "4",
+      "--device",
+      "cuda:0"
+    ],
+    [
+      "/root/miniconda3/bin/python",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/build_transfer_dg_wfp_e1_cache.py",
+      "--manifest",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_manifest_20260902.json",
+      "--output",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_cache_20260902/shard_1.h5",
+      "--shard-index",
+      "1",
+      "--shard-count",
+      "4",
+      "--device",
+      "cuda:0"
+    ],
+    [
+      "/root/miniconda3/bin/python",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/build_transfer_dg_wfp_e1_cache.py",
+      "--manifest",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_manifest_20260902.json",
+      "--output",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_cache_20260902/shard_2.h5",
+      "--shard-index",
+      "2",
+      "--shard-count",
+      "4",
+      "--device",
+      "cuda:0"
+    ],
+    [
+      "/root/miniconda3/bin/python",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/build_transfer_dg_wfp_e1_cache.py",
+      "--manifest",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_manifest_20260902.json",
+      "--output",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/transfer_dg_wfp_full2800_cache_20260902/shard_3.h5",
+      "--shard-index",
+      "3",
+      "--shard-count",
+      "4",
+      "--device",
+      "cuda:0"
+    ]
+  ],
+  "manifest_sha256": "61aaf5f6ad05be5f2fe153241879c5f54c6d4d70e3923bd05c3763b57e681560",
+  "preregistration_sha256": "a49260a7457d365b66f9ec874f9403b44ad7c88d18fd970c057e4113ea52604a",
+  "schema": "transfer_dg_wfp_full2800_cache_identity_v1",
+  "started_unix_s": 1788363208.839916,
+  "supervisor_pid": 868932,
+  "test_future_truth_access": false,
+  "test_id_opened": false,
+  "training_full_truth_allowed": true,
+  "validation_opened": false
+}

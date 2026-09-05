@@ -1,0 +1,48 @@
+{
+  "schema": "saved_time_train_only_diagnostic_preregistration_v1",
+  "status": "registered_not_launched",
+  "date_utc": "2026-08-13",
+  "experiment": "r5f_uniform_random_aligned_time_train_diag",
+  "hypothesis": "With the corrected aligned-time train gate held fixed, uniform record replay improves the fixed-gate mean per-record relative L2 by avoiding validation-derived RAD family weighting while preserving the same update budget.",
+  "single_conceptual_change_from_r5e": {
+    "name": "record_replay_distribution",
+    "control": "RAD weighted replay",
+    "intervention": "uniform random replay"
+  },
+  "selection": {
+    "split": "train",
+    "record_count": 48,
+    "metric": "mean_per_record_relative_l2_over_time_z_x",
+    "parent_baseline": 0.2772543673381241,
+    "minimum_absolute_improvement": 0.0,
+    "training_frames_per_record": 24,
+    "gate_frames_per_record": 32,
+    "required_intersection_frames_per_record": 24,
+    "validation_truth_opened": false,
+    "test_id_truth_opened": false
+  },
+  "compute_budget": {
+    "epochs": 3,
+    "appearances_per_epoch": 4480,
+    "optimizer_updates_per_epoch": 140,
+    "maximum_attempts_per_epoch": 8,
+    "world_size": 4
+  },
+  "failure_signal": "No retry produces a strictly lower fixed train-gate aggregate, the 24-of-32 overlap assertion fails, or the replay budget differs from 4480 appearances and 140 updates per epoch.",
+  "rollback": "Retain immutable r5b epoch_0003.pt and the r5e aligned-time control; do not overwrite either artifact.",
+  "promotion_limit": "Diagnostic only because inherited sampling weights and the parent lineage contain historical validation-derived choices.",
+  "bindings": {
+    "config": "configs/saved_time_v4/generated/local_field_w128_temporal_latent_a3_rank32_r5f_uniform_random_aligned_time_train_diag.yaml",
+    "config_sha256": "f91e0d16b8631d535f5b83a05243ed7d5e906ebb001884be8f437657ab38796e",
+    "trainer": "scripts/train_saved_time_v4_full_support.py",
+    "trainer_sha256": "fe5b7e2475e7275a080679e86ff18eb4121332fb8857094cec20f1060f7f21c1",
+    "parent_checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/local_field_w128_hicap/temporal_latent_a3_rank32_r5b_train_gate_record_l2_diag/run/checkpoints/epoch_0003.pt",
+    "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+    "parent_run_digest": "8f88feada2f200ea77625e7d63adbb5421a46e3d7f884f8d4e38bd82149f936e",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "schedule_digest": "8f12aa33af5ad4d59ef55e7eb9016ecfa367da56d66d415c49c50d44714a08ec",
+    "time_axis_sha256": "c9561c394a77954aecefcedb0dc6ec3f11d8280d18bdd6bd89999a8304fd7af9",
+    "selector_audit": "results/r5d_time_selector_alignment_audit_20260813.json",
+    "selector_audit_sha256": "6974d637f8ca3d5edfbe2647a26f9c9b7c117b57a9d0c0fb14d39fe3f119a955"
+  }
+}

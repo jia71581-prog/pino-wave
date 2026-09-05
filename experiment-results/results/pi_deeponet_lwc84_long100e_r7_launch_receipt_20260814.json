@@ -1,0 +1,54 @@
+{
+  "schema": "detached_long_training_launch_receipt_v1",
+  "status": "running_verified",
+  "launched_host_time": "2026-08-14T17:54:22",
+  "supervisor_pid": 734760,
+  "torchrun_pid": 734764,
+  "worker_pids": [
+    734861,
+    734862,
+    734863,
+    734864
+  ],
+  "world_size": 4,
+  "run_root": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1",
+  "launch_log": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/long100e_r1.launch.log",
+  "terminal_record": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/long100e_r1.terminal.json",
+  "budget": {
+    "epochs": 100,
+    "optimizer_updates": 14000,
+    "complete_train_records": 2240,
+    "appearances_per_epoch": 4480,
+    "effective_global_records_per_update": 32
+  },
+  "bindings": {
+    "config_sha256": "012f47073dc5b20a182b6caf6394487110a5714dc114cc2f1750a2b6bd7f8efc",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "run_digest": "6f7f6d361eae034187dccd844113e9fce0873128ce77e67f71ffe711f8c66003",
+    "initialization_checkpoint_sha256": "c35ebb12b753b8e59d0eddab8e891d53a2933e98a0d9a072e1054a376b65a625",
+    "entry_report_sha256": "30c97dd8fe14fadc7d4635f64db13f26ec1a2a4e14d459be1cf3fdf072e18c79"
+  },
+  "entry_gate": {
+    "status": "fail",
+    "comparison_only_override": true,
+    "aggregate_relative_l2": 0.8703481510598915,
+    "physics_final_to_initial_ratio": 0.975708572611149
+  },
+  "first_verified_checkpoint": {
+    "epoch": 1,
+    "global_step": 20,
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/baselines/pi_deeponet_lwc84_long100e_r7/full_long100e_r1/latest.pt",
+    "sha256": "830c9aeb69f4c7fabdc2cd0c5cd21f42ba7b9bacac1241ed683a7eb93b3d0ce0",
+    "load_verified": true,
+    "atomic_write": true
+  },
+  "live_verification": {
+    "observed_global_step": 40,
+    "updates_log_advancing": true,
+    "gpu_memory_mib_per_rank_approx": 13192,
+    "all_four_workers_visible": true,
+    "terminal_pending": true,
+    "disk_available_gib_approx": 4.5
+  },
+  "claim_scope": "comparison_only; validation and test_id remain sealed"
+}

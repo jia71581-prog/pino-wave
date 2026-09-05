@@ -1,0 +1,133 @@
+{
+  "bindings": {
+    "aggregation_script_sha256": "9853aab8a6318215ae194c741ba029be88ccb2df6d7a0be4dee81d33e1b54b5b",
+    "cpadc_checkpoint_sha256": "e92cc37722388640d060cd78875f1ebdc8e9ca1dad395641a5123625ecafb55a",
+    "cpadc_config_sha256": "f1086a7ac7ec4c931319dcd159cad423da9e7fab83475b09de81f3875e0700d8",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "pi_checkpoint_sha256": "e2d6d7a9ec5481268bae2f41cff2400ee78b93a3a9216b2c338db572d405c4c1",
+    "pi_complete_report": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_pi_deeponet_validation_r10_20260815/complete_validation_comparison.json",
+    "pi_complete_report_sha256": "b63348d7dd122977a9f87ebc6ad6da03c4511e1e1768b18b6a14152d91787ca0",
+    "report_script_sha256": "fc330a15356fe66ba15bef61449bf9cfce33a20a94dbc66f20fac88d310b6a82",
+    "source_comparison": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/complete_validation_comparison.json",
+    "source_comparison_sha256": "483fffbdc28369e2165237172c4287bf50907ec65c61eaacd374e4aab81f1f55",
+    "source_validation_terminal": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/merged_validation/terminal.json",
+    "source_validation_terminal_sha256": "b6bfe52de070f89f3ff1e699311dee82920f59e9fe423cb885b41f36922e3c1c",
+    "worker_outputs": [
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_0.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_1.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_2.json",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_3.json"
+    ],
+    "worker_sha256": {
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_0.json": "686812f5d2405a4772a26d7c0940f0ece4547228a90084eeb119ba802d70fb96",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_1.json": "aa6735309ac6e95d31238d90189af6f2f52236ed29ae885c1178b7760f8a34a9",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_2.json": "965569fa8973abbb24430d0ae9833a082d1c128acae2be76240c5a6d3bb3b70c",
+      "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/frozen_current_r5b_cpadc_vs_pi_validation_r14_20260816/worker_3.json": "3891c7ef64bedbff64056fe71f2c1f867248ea5d8e7e05de40f4fb543cd31285"
+    }
+  },
+  "comparison": {
+    "our_32frame_error_reduction_from_r5b_parent": 0.0017377780752812876,
+    "our_error_increase_relative_to_pi": 9.76383589000202,
+    "pi_error_over_our_error": 0.09290368324259284
+  },
+  "family_energy_relative_l2": {
+    "layered": {
+      "our_r5b_plus_cpadc": 6.03301818227649,
+      "pi_deeponet": 0.48673416968569033,
+      "r5b_parent": 6.0539153489603175
+    },
+    "marmousi": {
+      "our_r5b_plus_cpadc": 7.105208599024801,
+      "pi_deeponet": 0.6812631819762228,
+      "r5b_parent": 7.1184030864373184
+    },
+    "uniform": {
+      "our_r5b_plus_cpadc": 7.623659513652075,
+      "pi_deeponet": 0.5150579573754315,
+      "r5b_parent": 7.623659513652075
+    }
+  },
+  "full401_validation_instance_adaptation": {
+    "acceptance_fraction": 0.23958333333333334,
+    "aggregate_adapted_relative_l2": 7.052364755680023,
+    "aggregate_parent_relative_l2": 7.064686693027652,
+    "checks": {
+      "absolute_family_accuracy": true,
+      "absolute_mean_accuracy": true,
+      "blind_mean_improvement": true,
+      "cpu_coefficient_finetune": true,
+      "end_to_end_speedup_mean": true,
+      "end_to_end_speedup_p95": true,
+      "family_safe": true,
+      "full_validation_protocol": true,
+      "future_truth_sealed": true,
+      "nonworse_fraction": false,
+      "online_runtime": true,
+      "online_runtime_p95": true,
+      "runtime_measurement_synchronized": true
+    },
+    "mean_relative_improvement": 0.02955282716638609,
+    "nonworse_fraction": 0.9375,
+    "passed": false
+  },
+  "global_energy_relative_l2": {
+    "our_r5b_plus_cpadc": 7.094997875005086,
+    "pi_deeponet": 0.6591514351863418,
+    "r5b_parent": 7.1073488700448255
+  },
+  "maximum_instance_relative_l2": {
+    "our_r5b_plus_cpadc": 9.51052853218852,
+    "pi_deeponet": 0.8465894821028249,
+    "r5b_parent": 9.57965029820666
+  },
+  "method_identity": {
+    "baseline": "pi_deeponet_full_training_set",
+    "online_instance_coefficients": "rank16_cpu_ridge_from_two_guarded_onset_frames",
+    "online_neural_weight_update": false,
+    "our_method": "r5b_neural_operator_plus_cpadc_instance_finetuning",
+    "parent": "r5b_neural_operator"
+  },
+  "promotion": {
+    "claim": "validation failed; no accuracy advantage over PI-DeepONet",
+    "same_protocol_validation_passed": false,
+    "test_id_authorized": false
+  },
+  "protocol": {
+    "family_counts": {
+      "layered": 240,
+      "marmousi": 150,
+      "uniform": 90
+    },
+    "frames_per_record": 32,
+    "metric": "global_energy_relative_l2",
+    "record_count": 480,
+    "selection_scope": "same_480_records_same_32_exact_frames_same_energy_relative_l2"
+  },
+  "record_mean_relative_l2": {
+    "our_r5b_plus_cpadc": 6.097996331063043,
+    "pi_deeponet": 0.5667734510662322,
+    "r5b_parent": 6.13295565393118
+  },
+  "runtime": {
+    "caveat": "Do not divide the PI and CPADC runtimes: PI materializes 32 frames, while the archived CPADC deployment path materializes all 401 frames.",
+    "our_adaptation_s": {
+      "maximum": 2.668062709271908,
+      "mean": 2.4480927658597165,
+      "p95_nearest_rank": 2.574504383839667
+    },
+    "our_full401_including_adaptation_s": {
+      "maximum": 16.09256618935615,
+      "mean": 15.52443429552562,
+      "p95_nearest_rank": 15.665197199210525
+    },
+    "pi_32frame_s": {
+      "maximum": 0.5467009339481592,
+      "mean": 0.19899798354987677,
+      "minimum": 0.18987146392464638,
+      "p95_nearest_rank": 0.20491221453994513
+    }
+  },
+  "schema": "frozen_r5b_cpadc_vs_pi_deeponet_exact_panel_v1",
+  "split": "validation",
+  "status": "complete_comparison_only"
+}

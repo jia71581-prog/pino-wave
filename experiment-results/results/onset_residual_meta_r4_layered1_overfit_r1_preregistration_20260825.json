@@ -1,0 +1,41 @@
+{
+  "schema": "acoustic_meta_adapter_preregistration_v1",
+  "status": "frozen_before_launch",
+  "candidate": "onset_residual_meta_r4_layered1_overfit_r1",
+  "date_utc": "2026-08-25",
+  "hypothesis": "The zero-initialized onset-conditioned residual adapter can reduce its one-record layered train loss by at least 20 percent in twenty epochs while the r4 parent remains frozen.",
+  "parent_checkpoint_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+  "data": {
+    "split": "train",
+    "sample_id": "train_layered_00859",
+    "source_index": 1279,
+    "future_truth_scope": "offline meta loss only",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "training": {
+    "parent_frozen": true,
+    "latent_dim": 32,
+    "lora_rank": 4,
+    "episodes": 1,
+    "epochs": 20,
+    "time_points": 48,
+    "learning_rate": 0.0002
+  },
+  "primary_metric": "relative reduction from first to best field_loss",
+  "acceptance": {
+    "minimum_field_loss_reduction": 0.20,
+    "finite_history": true,
+    "parent_binding_in_checkpoint": true,
+    "adapter_schema_version": 2
+  },
+  "failure_signal": "Less than 20 percent reduction rejects this residual architecture before multi-instance training.",
+  "bindings": {
+    "trainer_sha256": "0c22f5c56861add36c610a1157c954c7f519833d2a9e0a5dbc038ca1f29d270a",
+    "adapter_sha256": "d8e7cc8850c2bf5f968cb9b42302a888e9ffba57edf4a85a4d11fd31f32aaebc",
+    "config_sha256": "1128a54355c713dcc7d323a10617bede3876233eb7fc15f5e12f46d79c1a8ad4",
+    "tests": "24 adapter and vectorized instance-training tests passed"
+  },
+  "output": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/onset_residual_meta_r4_layered1_overfit_r1_20260825.pt",
+  "command": "PYTHONPATH=src:. CUDA_VISIBLE_DEVICES=0 python scripts/train_v5_residual_meta.py --config <r4-adaptation-config> --output <checkpoint> --max-episodes 1 --epochs 20 --time-points 48 --learning-rate 2e-4"
+}

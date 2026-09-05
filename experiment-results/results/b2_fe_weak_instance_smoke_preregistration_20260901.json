@@ -1,0 +1,80 @@
+{
+  "schema": "b2_fe_weak_instance_smoke_preregistration_v1",
+  "status": "frozen_before_launch",
+  "created_utc": "2026-08-31T16:05:39Z",
+  "candidate": "b2_fe_weak_decoder_scale_smoke_v1",
+  "question": "Can a 64-parameter decoder-channel correction selected only from eight visible frames and a coarse Q1-FE weak defect improve one deterministic train record without future-truth access?",
+  "hypothesis": "The trained B2 decoder exposes instance-specific fine-scale directions. A source-off Q1 weak residual plus observed-prefix fit can select a safe linear combination that improves future relative L2 while retaining exact zero-coefficient rollback.",
+  "literature_basis": [
+    {
+      "work": "A hybrid finite element/neural network solver and its application to the Poisson problem",
+      "url": "https://arxiv.org/abs/2307.00947",
+      "mechanism_used": "coarse FE state enriched by local learned fine-scale correction"
+    },
+    {
+      "work": "A finite element-based physics-informed operator learning framework for spatiotemporal PDEs",
+      "url": "https://arxiv.org/abs/2405.12465",
+      "mechanism_used": "assembled Galerkin weak residual with discrete time integration"
+    },
+    {
+      "work": "Neural-operator element method",
+      "url": "https://arxiv.org/abs/2506.18427",
+      "mechanism_used": "neural-operator fine-scale element embedded in a variational framework"
+    }
+  ],
+  "discretization_disclosure": {
+    "dataset_generator": "5 m LWC84 with fourth-order time integration, free top, three-sided CFS-CPML, then binomial5 restriction to the stored 10 m grid",
+    "online_feature": "source-off Q1 bilinear finite-element weak residual on a 4x coarsened stored grid",
+    "interpretation": "mismatched-discretization physics feature and objective, not truth supervision",
+    "boundary_policy": "exclude top boundary and stored-grid left/right/bottom CPML margins"
+  },
+  "adapter": {
+    "parent_weights_updated": false,
+    "parameterization": "64 coefficients scaling the frozen decoder channel responses",
+    "zero_coefficients": "bit-exact frozen B2 parent",
+    "observed_true_frames": [0, 1, 2, 3, 4, 5, 6, 7],
+    "weak_residual_start": "max(frame 8, first stored frame at source_t0 + 1.5/source_f0)",
+    "steps": 8,
+    "optimizer": "Adam",
+    "learning_rate": 0.05,
+    "objective_weights": {
+      "observed": 1.0,
+      "fe_weak": 0.1,
+      "ridge": 0.0001
+    },
+    "correction_trust_ratio": 0.05
+  },
+  "data": {
+    "split": "train",
+    "manifest": "results/b2_v4_fit_manifest_240rec_20260831.json",
+    "cache": "results/b2_v4_fit_cache_240rec_20260831.h5",
+    "record_index": 0,
+    "sample_id": "train_uniform_00002",
+    "selection": "deterministic first manifest record; no error-based selection",
+    "future_truth_policy": "candidate is serialized and SHA256 hashed before target frames 8:64 are read",
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "gates": {
+    "static": "Q1 matrices, constant/linear weak closure, zero-coefficient rollback, existing instance contracts all pass",
+    "online_objective": "accepted=true, adapted objective below parent, finite coefficients, correction ratio <=0.05",
+    "train_future_diagnostic": "adapted relative L2 no worse than parent and relative gain >=0.001",
+    "runtime": "adaptation wall time <=10 seconds",
+    "failure_signal": "reject this FE feature / decoder-channel basis before any multi-record run if any gate fails"
+  },
+  "bindings": {
+    "fe_residual_sha256": "2425e218967f5d0f03f6beb81d3003ef6b8a4fee49cafae0ba2d9ffa83440b86",
+    "adapter_sha256": "a42fa05a0bf4429baf2737594561886ddbfceb0e64019f5a1dfc1485fbed2903",
+    "probe_sha256": "3544429c326ba1f493bf141f139d73b0f4fb57126cc4d64f8b8ebc0e0f5dc574",
+    "test_sha256": "f3875685d38319463cb75d7bd37349e7ffb7f1c0a37fd60c226f4fdf2c02294f",
+    "checkpoint_sha256": "0217e5f295566ec6806db45cffe10578feac9c7cd20d87d82b7ae429bd84bd0c",
+    "parent_run_identity_sha256": "6134549b9a717d6e504e145195c00819a5bf4c68f995399d6e6e63e1ed99bdeb",
+    "cache_sha256": "d49077526d5c02aac49d9ff62c4aec190d3b2083cecd9a4e75a877766a715336",
+    "manifest_sha256": "8b8a4e96b1b998c70c86fc84ae3fd84934cf1bc23145a4dad255637e25a0632a",
+    "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c"
+  },
+  "command": "CUDA_VISIBLE_DEVICES=0 python scripts/probe_b2_fe_weak_instance_adaptation.py --checkpoint results/b2_v4_group_disjoint_s372_20260831/best.pt --cache results/b2_v4_fit_cache_240rec_20260831.h5 --manifest results/b2_v4_fit_manifest_240rec_20260831.json --preregistration results/b2_fe_weak_instance_smoke_preregistration_20260901.json --output-dir results/b2_fe_weak_instance_smoke_20260901 --record-index 0 --steps 8",
+  "output": "results/b2_fe_weak_instance_smoke_20260901",
+  "rollback": "additive train-only diagnostic; parent and all protected checkpoints remain read-only",
+  "claim_scope": "A pass authorizes a balanced multi-record train pilot only. It is not validation, test_id, absolute-target, or deployment-runtime evidence."
+}

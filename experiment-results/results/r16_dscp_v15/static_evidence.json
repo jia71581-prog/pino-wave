@@ -1,0 +1,214 @@
+{
+  "acceptance": {
+    "convention": "global_energy_rel_l2",
+    "modified": false,
+    "training_proxy_convention": "masked_energy_floored_per_frame",
+    "training_proxy_may_support_acceptance": false,
+    "validation_test_rel_l2_max": 0.05
+  },
+  "bindings": {
+    "parent_checkpoint": {
+      "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "observed_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+      "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+      "size_bytes": 339775310,
+      "status": "match"
+    },
+    "preregistration": {
+      "expected_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+      "observed_sha256": "a472ff436a9a0d1453d8ce8c8b664f0b1d674b24ba46796139e7a5ca1dd65d15",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r16_dscp_v15_preregistration_20260826.json",
+      "size_bytes": 20619,
+      "status": "match"
+    },
+    "r4e9_probe_reference": {
+      "expected_sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+      "observed_sha256": "f19491548e4263d861a432835b2f8a5eb9b03c88727d944a71d02a57b9498d65",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/probe_r4e9_mask_confined.py",
+      "size_bytes": 52831,
+      "status": "match"
+    },
+    "r4e9_terminal_reference": {
+      "expected_sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+      "observed_sha256": "410e4b14bbfb21a1a5fc896d0ddf857e8a6395a872c7217e19cfea4aa266e505",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/r4e9_mask_confined_oracle_20260826/terminal.json",
+      "size_bytes": 102645,
+      "status": "match"
+    }
+  },
+  "candidate": "r16_dscp_v15",
+  "coefficient_energy_dimensional_fix": {
+    "alternative_considered": "residual_energy_normalization",
+    "in_preregistration_scope": "results/r16_dscp_v15_preregistration_20260826.json v14_known_defects_to_fix.normalized_coefficient_energy_dimensional_error",
+    "normalizer": "mean_squared_parent_amplitude_on_retained_future_frames",
+    "normalizer_is_deployment_computable": true,
+    "normalizer_uses_truth": false,
+    "term": "normalized_coefficient_energy",
+    "v14_defect": "an amplitude-squared quantity was summed directly with three dimensionless ratios under weight 1e-4, so the term's effective strength moved with the absolute pressure scale of the record",
+    "v14_definition": "coefficients.square().mean()",
+    "v14_units": "amplitude_squared",
+    "v15_definition": "coefficients.square().mean() / parent_future[keep_mask].square().mean()",
+    "v15_units": "dimensionless",
+    "weight_unchanged_from_v14": 0.0001,
+    "why_parent_energy_was_chosen": [
+      "the parent field is deployment-computable and truth-free, so the regularizer's own denominator never depends on a label",
+      "residual energy shrinks as the fit improves, so a residual normalizer would inflate the penalty exactly as training succeeds and would be a self-amplifying, unstable term",
+      "the pilot gate correction_energy_ratio already normalizes correction energy by parent energy, so this choice makes the loss term and that gate dimensionally consistent",
+      "the term is invariant under a common rescaling of parent, truth and fitted coefficients, which is the property the fix requires"
+    ]
+  },
+  "config_digest": "2994f71418d3e111a5a1722809fa865fe9647825b06f2c96d1a3e82ab7675db5",
+  "disclaimers": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "deployment_time_truth_supervision": false,
+    "is_learning_or_convergence_evidence": false,
+    "loss_gate_role": "wiring sanity check on each record separately",
+    "may_promote_to_pilot_or_long": false,
+    "oracle_role": "train-only upper bound, never an achieved result",
+    "pde_residual_used": false,
+    "training_proxy_convention_not_for_acceptance": "masked_energy_floored_per_frame"
+  },
+  "files": {
+    "config": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/configs/r16_dscp_v15.yaml",
+      "sha256": "bb614017465b316b5e7b9bb70ceac7fb5a53c7e26b7732572e6a20c1bc8539c7",
+      "size_bytes": 8832
+    },
+    "engine": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp_engine_v15.py",
+      "sha256": "4a3ca6fb5792347055cb1d7af869713e430ef9a2b59a7921b667fdd0915602ce",
+      "size_bytes": 24522
+    },
+    "harness": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/saved_time_phase_operator_v4/instance_adaptation/r16_dscp_training_v3.py",
+      "sha256": "8e0ae9294ff615633c07a1c686577325ed6785bf46ffb07d98e3e393963ba517",
+      "size_bytes": 38823
+    },
+    "script": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/scripts/train_r16_dscp_v15.py",
+      "sha256": "2aa5531387c3fc10bcb8b89cbcb94b71b0874091d814a2e3667606d9eb490fba",
+      "size_bytes": 24366
+    },
+    "test": {
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/tests/saved_time_phase_operator_v4/test_r16_dscp_v15.py",
+      "sha256": "36732a33d024533b54b7287eb84d983542428e216e8c3fc73ef2d09d879a518e",
+      "size_bytes": 35170
+    }
+  },
+  "gpu_training_started": false,
+  "inherited_vetoes": [
+    "thresholds must not be moved toward measured values",
+    "no deployment-time truth in the mask, including truth frame energy",
+    "no cross-record or synthetic-sample oracle constant as an acceptance baseline",
+    "the smoke loss gate is never learning or convergence evidence",
+    "the correction is an output-field data fit plus a feature-driven ansatz, not a physics or PDE residual and not deployment-time truth supervision; zero PDE residual anywhere in the pipeline",
+    "smoke evidence never promotes to pilot or long"
+  ],
+  "loss_specification": {
+    "acceptance_convention": "global_energy_rel_l2",
+    "coefficient_energy": {
+      "alternative_considered": "residual_energy_normalization",
+      "in_preregistration_scope": "results/r16_dscp_v15_preregistration_20260826.json v14_known_defects_to_fix.normalized_coefficient_energy_dimensional_error",
+      "normalizer": "mean_squared_parent_amplitude_on_retained_future_frames",
+      "normalizer_is_deployment_computable": true,
+      "normalizer_uses_truth": false,
+      "term": "normalized_coefficient_energy",
+      "v14_defect": "an amplitude-squared quantity was summed directly with three dimensionless ratios under weight 1e-4, so the term's effective strength moved with the absolute pressure scale of the record",
+      "v14_definition": "coefficients.square().mean()",
+      "v14_units": "amplitude_squared",
+      "v15_definition": "coefficients.square().mean() / parent_future[keep_mask].square().mean()",
+      "v15_units": "dimensionless",
+      "weight_unchanged_from_v14": 0.0001,
+      "why_parent_energy_was_chosen": [
+        "the parent field is deployment-computable and truth-free, so the regularizer's own denominator never depends on a label",
+        "residual energy shrinks as the fit improves, so a residual normalizer would inflate the penalty exactly as training succeeds and would be a self-amplifying, unstable term",
+        "the pilot gate correction_energy_ratio already normalizes correction energy by parent energy, so this choice makes the loss term and that gate dimensionally consistent",
+        "the term is invariant under a common rescaling of parent, truth and fitted coefficients, which is the property the fix requires"
+      ]
+    },
+    "denominator": "truth_frame_energy_floored_at_tau_times_peak_truth_energy",
+    "denominator_role": "convention (ii) style flooring; convention (ii) is a TRAINING PROXY and must not carry an acceptance claim",
+    "deployment_time_truth_supervision": false,
+    "frame_restriction": "parent_energy_keep_mask_retained_frames_only",
+    "is_learning_or_convergence_evidence": false,
+    "mask": {
+      "deployment_computable": true,
+      "driven_by": "parent_frame_energy",
+      "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+      "layered_on_top_of_c1_causal_ramp": true,
+      "replaces_c1_causal_ramp": false,
+      "symbol": "m_t",
+      "tau": 0.001,
+      "uses_truth_frame_energy": false,
+      "uses_validation_or_test_data": false
+    },
+    "name": "masked_loss_plus_mask_confined_correction",
+    "pde_residual_used": false,
+    "weights": {
+      "frame_relative_l2_squared": 1.0,
+      "late_third_relative_l2_squared": 0.25,
+      "normalized_coefficient_energy": 0.0001,
+      "temporal_difference": 0.1
+    },
+    "weights_unchanged_from_v14": true
+  },
+  "mask": {
+    "deployment_computable": true,
+    "driven_by": "parent_frame_energy",
+    "formula": "m_t = 1[E_t^parent >= tau * max_s E_s^parent]",
+    "layered_on_top_of_c1_causal_ramp": true,
+    "replaces_c1_causal_ramp": false,
+    "symbol": "m_t",
+    "tau": 0.001,
+    "uses_truth_frame_energy": false,
+    "uses_validation_or_test_data": false
+  },
+  "parent_write_audit": {
+    "declared_sha256_in_harness": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "expected_sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "mtime": 1787605445.2446516,
+    "opened_for_write_by_v15": false,
+    "path": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/a3_alltrain_rel_l2_pde_pml_ic_current_vds_r4/run/checkpoints/epoch_0007.pt",
+    "reachable": true,
+    "sha256": "448035bd0061205c67799eeef3b023a71b49e2db7028b6155078be1a886de789",
+    "sha256_matches_frozen": true,
+    "size_bytes": 339775310,
+    "status": "read_only_unchanged",
+    "writes": 0
+  },
+  "schema": "r16_dscp_v15_static_evidence_v1",
+  "sealed_future_wavefields_opened": false,
+  "sealed_splits": [
+    "validation",
+    "test_id"
+  ],
+  "stages_run": [],
+  "status": "implementation_only",
+  "v14_defects_fixed": {
+    "coefficient_energy_dimensionless": "normalized by the mean squared parent amplitude on the retained future frames",
+    "mask_confined_correction": "the correction is multiplied by the parent-energy keep mask before application; it is exactly zero outside the mask and the output there is bit-identical to the parent",
+    "oracle_recomputed_on_scored_record": "confined_oracle_upper_bound is evaluated on the record it scores; the three v14 constants are void",
+    "peak_vram_measured": "CudaPeakVram samples torch.cuda.max_memory_reserved on every cached path and the gate refuses an unmeasured or zero peak",
+    "smoke_loss_reduction_per_record": "PerRecordLossLedger keys losses by record; the v14 first/last of a round-robin stream is not expressible"
+  },
+  "voided_v14_oracle_constants": {
+    "defects": [
+      "constants were transplanted across records",
+      "the marmousi constant came from a synthetic sample",
+      "no constant was recomputed on the record it scored"
+    ],
+    "numeric_values_present_in_v15_code": false,
+    "status": "void",
+    "v14_scored_records": [
+      "train_uniform_00321",
+      "train_layered_00564",
+      "train_marmousi_00385"
+    ],
+    "v14_source_records": [
+      "train_uniform_00102",
+      "train_layered_01032",
+      "synthetic_marmousi"
+    ],
+    "v15_replacement": "confined_oracle_upper_bound recomputed on the scored record"
+  }
+}

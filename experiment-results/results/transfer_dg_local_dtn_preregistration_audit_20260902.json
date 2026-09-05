@@ -1,0 +1,19 @@
+{
+  "schema": "transfer_dg_local_dtn_preregistration_audit_v1",
+  "status": "cleared_for_queued_launch",
+  "preregistration": "results/transfer_dg_local_dtn_preregistration_20260902.json",
+  "preregistration_sha256": "91d723295cb53f465e27ef0ab8f04c05ec37b9084e5d38a81a82f1067fb7c7e5",
+  "checks": {
+    "dataset": "6912 finite train-only samples; balanced families; CPML excluded; hash matches identity",
+    "split": "six fit and two holdout source groups per family; local rows from one source cannot cross the split",
+    "passivity": "dissipative matrix is parameterized as C*C^T plus a positive diagonal",
+    "source": "source-induced complex offset is separate from the trace-induced DtN action",
+    "tests": "eleven local element, dataset and trainer contract tests pass",
+    "bindings": "trainer, model, runner, queue, tests and dataset match frozen SHA256 values",
+    "gpu_coordination": "queue waits for the active global DG-flux supervisor terminal before launching four new workers",
+    "sealed_splits": "validation and test_id remain unopened"
+  },
+  "blocking_findings": [],
+  "validation_opened": false,
+  "test_id_opened": false
+}

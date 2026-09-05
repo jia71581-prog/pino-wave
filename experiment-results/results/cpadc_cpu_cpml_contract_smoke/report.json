@@ -1,0 +1,44 @@
+{
+  "basis_rank": 2,
+  "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/cpadc_cpu_cpml_contract_smoke/best.pt",
+  "checkpoint_sha256": "21c89d11305c40a1a01ef2d13be364baf83cac5ae3f678959a5aa6e71fec610e",
+  "defect_contract": {
+    "closure_gap": "20_internal_steps_plus_binomial5_restriction_plus_omitted_exterior_pressure",
+    "cpml": {
+      "c_ref_mps": 6750.0,
+      "exterior_initialization": "zero",
+      "internal_dt_s": 0.000125,
+      "internal_substeps_per_saved_frame": 20,
+      "kappa_max": 3.0,
+      "memory_time_integration": "internal_substep_exact_zoh_vectorized",
+      "minimum_frequency_hz": 8.0,
+      "npml": 20,
+      "physical_state_injection": "hard_each_saved_frame",
+      "polynomial_order": 3,
+      "target_reflection": 1e-08
+    },
+    "cpml_memory_reconstructed_causally": true,
+    "cpml_memory_variables": [
+      "psi_x",
+      "psi_z",
+      "phi_x",
+      "phi_z"
+    ],
+    "exact_fine_generator_residual": false,
+    "exterior_pressure_closure": "zero_unavailable_state",
+    "name": "source_consistent_saved_grid_lwc84_cfs_cpml_v2",
+    "spatial_halo_cells": 0,
+    "time_order": 4,
+    "top_boundary": "free_surface_dirichlet"
+  },
+  "future_truth_used": false,
+  "load_device": "cpu",
+  "online_solve_contract": {
+    "name": "ridge_direction_learned_energy_ball_projection_v1",
+    "observed_probe_design": true,
+    "projection_uses_parent_rms": true,
+    "trust_fraction_learned_offline": true
+  },
+  "parent_checkpoint_sha256": "60a2130bea7d725faff405096d5f459196cd566f5aca3f6e83b97112422453bc",
+  "schema_version": 7
+}

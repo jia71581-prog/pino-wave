@@ -1,0 +1,29 @@
+{
+  "schema": "r6_anchored_r54_device_resident_master_protocol_v1",
+  "candidate": "r6_anchored_r54_device_resident_r1_20260905",
+  "status": "draft_pending_static_audit",
+  "launch_authorized": false,
+  "immutable_DAG": [
+    "runtime_identity_gate",
+    "R6_device_resident_cache_build",
+    "R6_device_resident_cache_audit",
+    "DDP4_smoke",
+    "same_lineage_3ep_pilot",
+    "resume_epoch40",
+    "new_synthetic_confirmation"
+  ],
+  "stage_policy": "Every edge requires a separately frozen prerequisite path/hash and independent audit. Runtime passage alone cannot create a cache or launch training.",
+  "fallback": {"method": "frozen R6", "status": "accepted"},
+  "history": {
+    "prior_host_roundtrip_candidate": "r6_anchored_r54_residual_r1_20260905",
+    "prior_host_roundtrip_status": "runtime_identity_rejected",
+    "prior_host_roundtrip_runtime_report_sha256": "2834d64e7dd79eeecf726ea7f4b5aa6d310ed48ef3c4b4667cff9a27680227e7",
+    "R54": "historical recipe source only",
+    "R26": "fresh head structure only; no weights loaded"
+  },
+  "single_conceptual_variable": "remove parent CPU materialization and parent H2D by keeping the exact R6 parent on device through head inference",
+  "bundle_claim": "R6-anchored R54/R26 device-resident runtime identity recipe; no component causality, accuracy, cache, training, or promotion claim.",
+  "promotion_authorized": false,
+  "validation_truth_reopened": false,
+  "test_id_truth_reopened": false
+}

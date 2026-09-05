@@ -1,0 +1,28 @@
+{
+  "run": "helmholtz_g3_aplus1_soap_radonly_N420_ep40",
+  "status": "INTERRUPTED_by_user_negative_result_confirmed",
+  "reason": "record-level RAD oversampling does not move structural bottleneck; layered/marmousi frozen from warmstart across all 49 evals",
+  "stopped_at_update": 2352,
+  "target_update": 4200,
+  "num_evals": 49,
+  "soap_only_baseline": {
+    "aggregate": 0.0409,
+    "layered": 0.0778,
+    "layered_late": 0.16065,
+    "marmousi": 0.0442
+  },
+  "radonly_first_eval_upd0": {
+    "aggregate": 0.040726912562189556,
+    "layered": 0.07783670083930021,
+    "layered_late": 0.16064231525998307,
+    "marmousi": 0.044236550000603864
+  },
+  "radonly_last_eval": {
+    "aggregate": 0.04070232309284932,
+    "layered": 0.07783831338104145,
+    "layered_late": 0.1606428362523515,
+    "marmousi": 0.04423621311688901,
+    "uniform": 3.2442780617485446e-05
+  },
+  "verdict": "aggregate microdrop 0.0409->0.0407 is entirely from trivial uniform family (->3e-5); layered late fixed at 0.16064 vs baseline 0.16065; RAD sampling ineffective on structural late-time rank-collapse bottleneck"
+}

@@ -1,0 +1,87 @@
+{
+  "schema": "transfer_dg_wfp_e1_preregistration_v1",
+  "created_utc": "2026-09-02T12:26:09Z",
+  "candidate": "transfer_dg_wfp_e1_20260902",
+  "claim_scope": "train-only Background-WFP architecture pilot with paired FNO control; not validation/test promotion",
+  "hypothesis": "On a fixed group-disjoint four-family train panel, full-support local mixing between neighboring two-dimensional spatial Fourier modes will predict sigma-2 background pressure and exterior CPML states more accurately than a matched encoder/head using conventional truncated full-2D FNO blocks.",
+  "mechanism": "Both arms share MIONet-style separate medium/source encoders, frequency FiLM, an exact physical-domain pressure head, a distinct 20-layer exterior-CPML auxiliary head and hard free/outer boundaries. Only the global propagation block changes: WFP uses compact full-support frequency-window convolution; control uses mode-32 full-2D FNO.",
+  "data": {
+    "registered_train_pool_count": 2800,
+    "e1_count": 256,
+    "fit_count": 192,
+    "holdout_count": 64,
+    "per_family": {"fit": 48, "holdout": 16},
+    "fit_holdout_group_overlap_count": 0,
+    "background_sigma_saved_cells": 2.0,
+    "time_count": 401,
+    "retained_temporal_rfft_bins": 64,
+    "physical_shape_zx": [201, 201],
+    "exterior_shape_zx": [221, 241],
+    "cpml_layers": 20,
+    "cpml_sides": ["left", "right", "bottom"],
+    "top": "free_surface_dirichlet"
+  },
+  "arms": [
+    {"name": "fno", "seeds": [372, 733], "modes": 32},
+    {"name": "wfp", "seeds": [372, 733], "frequency_window_radii": [1, 2, 3, 4]}
+  ],
+  "shared_model": {
+    "width": 32,
+    "spectral_rank": 16,
+    "depth": 4,
+    "medium_channels": 12,
+    "source_channels": 5,
+    "physical_output_channels": 2,
+    "cpml_output_channels": 10,
+    "physical_scale": 1e-08,
+    "auxiliary_scales": [1e-08, 1e-08, 1e-11, 1e-11, 1e-11, 1e-11, 1e-13, 1e-13, 1e-13, 1e-13]
+  },
+  "training": {
+    "updates": 1200,
+    "micro_batch": 1,
+    "gradient_accumulation": 4,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0003,
+    "weight_decay": 1e-06,
+    "scheduler": "cosine_to_0.01x",
+    "cpml_auxiliary_weight": 0.1,
+    "calibration": "32 fixed holdout records used for checkpoint selection",
+    "confirmation": "32 disjoint holdout records used once after checkpoint selection"
+  },
+  "primary_metric": "two-seed mean confirmation physical 64-bin relative L2",
+  "acceptance": {
+    "wfp_mean_strictly_below_fno_mean": true,
+    "all_four_families_present": true,
+    "all_outputs_finite": true,
+    "top_and_outer_pressure_exactly_zero": true,
+    "confirmation_not_used_for_checkpoint_selection": true,
+    "validation_opened": false,
+    "test_id_opened": false
+  },
+  "failure_signal": "Reject E1 and do not expand to 2800 if WFP mean confirmation physical error is not strictly below FNO, any family is missing, outputs are non-finite, boundary hard constraints fail, or split access/binding drifts.",
+  "conditional_next_steps": {
+    "on_accept": "build the same compact frequency/CPML cache for all 2800 train records, then run full-pool pretraining",
+    "on_reject": "retain artifacts, diagnose frequency/family/CPML errors and do not generate new synthetic training data",
+    "targeted_new_data": "only after an accepted full-pool model exposes stable HCAIS coverage gaps"
+  },
+  "compute_budget": {
+    "cache_gpu_count": 4,
+    "cache_wall_seconds_max": 3600,
+    "training_gpu_count": 4,
+    "training_wall_seconds_max": 10800,
+    "new_disk_bytes_max": 32212254720
+  },
+  "bindings": {
+    "train_pool_sha256": "2eb5f78a5a8da8c040772ec9758bdfed66a0437434574ecb75cc85ba0953b7d2",
+    "e1_manifest_sha256": "798099eea32ab3d4073221a39edc0822e6cf9dc7a4f46fa9c78f5fc9c28a7b66",
+    "e0_result_sha256": "3d67e6cd9839a84b4bfcbf2fb7b6868054a5ce9ae165f48b7ab4637133cc92d2",
+    "e0_cache_sha256": "60b53b7710633eba923d98afb32d3c002237408724f946eb4c58365a2f1b5be3",
+    "wfp_module_sha256": "1e05e6e002cf8cd560ae5a6d5e280d1fca186322ca949e496029733a38f6fcc0",
+    "cache_builder_sha256": "04c27aa427172079852a75b9d40d9a2c31ffd4e9e172c3453d39a861b63485e0",
+    "exterior_cpml_sha256": "8ef983c4cbc61861e22fb1aa9544bf7f7ae5924530bbcbb246c85787ed276697",
+    "solver_lwc84_sha256": "76ba84ce775cab0e75dd26da325a774f5a4cb331b254889b808c7bb2546e6022"
+  },
+  "rollback": "All E1 files are additive. Preserve every existing A3, B2-H, Helmholtz, ASAM, CPADC and Transfer-DG checkpoint. Keep only best/latest for each new training lane. Do not expand the cache or generate synthetic samples after a rejected E1.",
+  "validation_opened": false,
+  "test_id_opened": false
+}

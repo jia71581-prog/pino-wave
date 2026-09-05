@@ -1,0 +1,246 @@
+{
+  "dispersion": {
+    "claim_gate": {
+      "alpha": 0.05,
+      "dispersion_suppression_supported": false,
+      "field_pass_count": 1,
+      "forbidden_phrases": [
+        "dispersion-free",
+        "eliminates numerical dispersion"
+      ],
+      "permitted_title_prefix": "Physics-Conditioned",
+      "receiver_pass_count": 0,
+      "schema": "dclp_no_claim_gate_v1"
+    },
+    "note": "Field-metric axis = high-wavenumber spectral error (A+1 minus baseline). Receiver metrics not computed on this triplet, so the full dispersion_claim_gate cannot pass on receiver count alone; the pooled high-band bootstrap CI is the primary dispersion-suppression evidence.",
+    "per_baseline_highband_bootstrap": {
+      "factorized_fno": {
+        "ci95_high": -0.5307402144336264,
+        "ci95_low": -0.9406167648210119,
+        "mean_difference": -0.7181562593379928,
+        "replicates": 10000,
+        "seed": 372
+      },
+      "fno3d": {
+        "ci95_high": -0.5307002926001261,
+        "ci95_low": -0.9406219956312544,
+        "mean_difference": -0.7181892760099648,
+        "replicates": 10000,
+        "seed": 372
+      },
+      "uno": {
+        "ci95_high": -0.5306939284065687,
+        "ci95_low": -0.9406162384486546,
+        "mean_difference": -0.7181490178806476,
+        "replicates": 10000,
+        "seed": 372
+      }
+    },
+    "pooled_highband_bootstrap": {
+      "ci95_high": -0.6101339588033607,
+      "ci95_low": -0.8378497179536476,
+      "mean_difference": -0.7181648510762018,
+      "replicates": 10000,
+      "seed": 372
+    }
+  },
+  "heldout_sample_ids": [
+    "validation_uniform_00000",
+    "validation_layered_00000",
+    "validation_marmousi_00000"
+  ],
+  "methods": [
+    {
+      "aggregate_relative_l2": 0.052826422973546915,
+      "checkpoint": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2/results/helmholtz_g3_aplus1_r8_sigma2_N192_ddp4_ep40/checkpoints/update_0912.pt",
+      "family_relative_l2": {
+        "layered": 0.08221848831617991,
+        "marmousi": 0.04512369139126198,
+        "uniform": 0.03113708921319884
+      },
+      "method": "aplus1",
+      "per_record": [
+        {
+          "aggregate_relative_l2": 0.08221848831617991,
+          "family": "layered",
+          "method": "aplus1",
+          "sample_id": "validation:layered:00000"
+        },
+        {
+          "aggregate_relative_l2": 0.04512369139126198,
+          "family": "marmousi",
+          "method": "aplus1",
+          "sample_id": "validation:marmousi:x50.0:z0.0"
+        },
+        {
+          "aggregate_relative_l2": 0.03113708921319884,
+          "family": "uniform",
+          "method": "aplus1",
+          "sample_id": "validation:uniform:00000"
+        }
+      ],
+      "phase_correlation": 0.910075025924133,
+      "predicts_all_401_times": true,
+      "spectrum_relative_l2": {
+        "high": 0.0593855051617573,
+        "low": 0.04990501052231059,
+        "middle": 0.07164871168908833
+      },
+      "stored_time_count": 401
+    },
+    {
+      "aggregate_relative_l2": 0.9996203055695504,
+      "checkpoint": "artifacts/tgrs_dclp_no/baselines/fno3d/checkpoints/best.pt",
+      "family_relative_l2": {
+        "layered": 0.9996749427668765,
+        "marmousi": 0.9999799297180002,
+        "uniform": 0.9992060442237747
+      },
+      "method": "fno3d",
+      "per_record": [
+        {
+          "aggregate_relative_l2": 0.9992060442237747,
+          "family": "uniform",
+          "group_id": "validation:uniform:00000",
+          "method": "fno3d",
+          "phase_correlation": 0.03466806008958095,
+          "sample_id": "validation_uniform_00000",
+          "sealed_sha256": "1e3c608d0842adcd24e8c0a7c0dfb9733587eb0576b26e8cc28e6abaa19acdb6",
+          "spectrum_high_error": 0.5900857977618834
+        },
+        {
+          "aggregate_relative_l2": 0.9996749427668765,
+          "family": "layered",
+          "group_id": "validation:layered:00000",
+          "method": "fno3d",
+          "phase_correlation": 0.024789136648624224,
+          "sample_id": "validation_layered_00000",
+          "sealed_sha256": "5379c53433ee6f062fad98f3b1ac99f24dce9c9e47ea291fa230e7bf3b9a24d3",
+          "spectrum_high_error": 0.7426310449602712
+        },
+        {
+          "aggregate_relative_l2": 0.9999799297180002,
+          "family": "marmousi",
+          "group_id": "validation:marmousi:x50.0:z0.0",
+          "method": "fno3d",
+          "phase_correlation": 0.010759613522573735,
+          "sample_id": "validation_marmousi_00000",
+          "sealed_sha256": "4e4497dc002a5d16e5c78690b49d841d0740e3f48abe7951d4558cafc26a3591",
+          "spectrum_high_error": 1.0000075007930116
+        }
+      ],
+      "phase_correlation": 0.022601142229593828,
+      "predicts_all_401_times": false,
+      "score_wallclock_seconds": 2.17,
+      "spectrum_relative_l2": {
+        "high": 1.0000255957622064,
+        "low": 0.9998107604860759,
+        "middle": 1.0000061905546047
+      },
+      "stored_time_count": 58
+    },
+    {
+      "aggregate_relative_l2": 0.9999665462473072,
+      "checkpoint": "artifacts/tgrs_dclp_no/baselines/uno/checkpoints/best.pt",
+      "family_relative_l2": {
+        "layered": 0.9999823100363381,
+        "marmousi": 1.0000018675901114,
+        "uniform": 0.9999154611154722
+      },
+      "method": "uno",
+      "per_record": [
+        {
+          "aggregate_relative_l2": 0.9999154611154722,
+          "family": "uniform",
+          "group_id": "validation:uniform:00000",
+          "method": "uno",
+          "phase_correlation": 0.008646254136541858,
+          "sample_id": "validation_uniform_00000",
+          "sealed_sha256": "d339ed3ec5220ca3a164dbd40ad086eae2d9ae6f39bce53b5e98729b95bc813f",
+          "spectrum_high_error": 0.590079433568326
+        },
+        {
+          "aggregate_relative_l2": 0.9999823100363381,
+          "family": "layered",
+          "group_id": "validation:layered:00000",
+          "method": "uno",
+          "phase_correlation": 0.0027873475962071005,
+          "sample_id": "validation_layered_00000",
+          "sealed_sha256": "534b5ec53350713cd534984dc98c7c853c319329515e53f0e28921873820458d",
+          "spectrum_high_error": 0.7425223919484768
+        },
+        {
+          "aggregate_relative_l2": 1.0000018675901114,
+          "family": "marmousi",
+          "group_id": "validation:marmousi:x50.0:z0.0",
+          "method": "uno",
+          "phase_correlation": 0.00041910096627566,
+          "sample_id": "validation_marmousi_00000",
+          "sealed_sha256": "730f616f665afd2d09c2956f976079e33eb576030ea43128c6f96bdea0d87ed8",
+          "spectrum_high_error": 1.000001743610412
+        }
+      ],
+      "phase_correlation": 0.003615518525612945,
+      "predicts_all_401_times": false,
+      "score_wallclock_seconds": 1.8,
+      "spectrum_relative_l2": {
+        "high": 1.0000037372372172,
+        "low": 0.9999905392930843,
+        "middle": 0.9999999798496224
+      },
+      "stored_time_count": 58
+    },
+    {
+      "aggregate_relative_l2": 0.9997244811759511,
+      "checkpoint": "artifacts/tgrs_dclp_no/baselines/factorized_fno/checkpoints/best.pt",
+      "family_relative_l2": {
+        "layered": 0.9997592525656022,
+        "marmousi": 0.9999494514394476,
+        "uniform": 0.9994647395228039
+      },
+      "method": "factorized_fno",
+      "per_record": [
+        {
+          "aggregate_relative_l2": 0.9994647395228039,
+          "family": "uniform",
+          "group_id": "validation:uniform:00000",
+          "method": "factorized_fno",
+          "phase_correlation": 0.014510013085332086,
+          "sample_id": "validation_uniform_00000",
+          "sealed_sha256": "78232b9b7dd522c9f5da73b540a10094cce035b905e2813489598878d8fdba18",
+          "spectrum_high_error": 0.5901257195953837
+        },
+        {
+          "aggregate_relative_l2": 0.9997592525656022,
+          "family": "layered",
+          "group_id": "validation:layered:00000",
+          "method": "factorized_fno",
+          "phase_correlation": 0.013059323848049769,
+          "sample_id": "validation_layered_00000",
+          "sealed_sha256": "aaf86963a73875cace973ec33736405e6c084f8c7f4bbdeba88c57bf70961952",
+          "spectrum_high_error": 0.7424973039210971
+        },
+        {
+          "aggregate_relative_l2": 0.9999494514394476,
+          "family": "marmousi",
+          "group_id": "validation:marmousi:x50.0:z0.0",
+          "method": "factorized_fno",
+          "phase_correlation": 0.010042219991092718,
+          "sample_id": "validation_marmousi_00000",
+          "sealed_sha256": "484ca195bde91c49ad5f2f7c08b760e750c2355ac8712efa41af854dcf990b21",
+          "spectrum_high_error": 1.0000022699827693
+        }
+      ],
+      "phase_correlation": 0.012396269395502913,
+      "predicts_all_401_times": false,
+      "score_wallclock_seconds": 1.16,
+      "spectrum_relative_l2": {
+        "high": 1.000005931849326,
+        "low": 0.999818127116514,
+        "middle": 1.0000026774778166
+      },
+      "stored_time_count": 58
+    }
+  ],
+  "schema": "tgrs_operator_comparison_v1"
+}

@@ -1,0 +1,14 @@
+{
+  "schema":"b2_v9_parent_full_preregistration_v1","status":"frozen_before_launch","created_utc":"2026-09-01T06:06:52Z",
+  "candidate":"b2_v9_parent_full_physics_vs_spectral_v1",
+  "hypothesis":"With full 240-record group coverage and a non-truncated schedule, either CPML-aware physical conditioning or spectral loss yields strict parent accuracy improvement on fresh causal train groups.",
+  "lanes":[{"arm":"physics_cond","seed":372,"gpu":0},{"arm":"physics_cond","seed":733,"gpu":1},{"arm":"spectral","seed":372,"gpu":2},{"arm":"spectral","seed":733,"gpu":3}],
+  "hyperparameters":{"epochs":90,"micro_records":4,"fit_records":240,"optimizer_steps_per_epoch":60,"total_optimizer_steps":5400,"record_exposures":21600,"lr":0.001,"schedule":"cosine to 1e-5","width":64,"spectral_rank":32,"modes":24,"depth":4,"ic_frames":8,"weight_decay":1e-6,"gradient_clip":1.0,"epoch1_abort_s":300},
+  "resource_rationale":"microbatch 4 is projected to use about 17-19 GiB of each 24 GiB GPU; four independent lanes avoid DDP communication and use all GPUs for scientific replication",
+  "accuracy_gate":"for a variant to pass, both seeds' best holdout aggregate relative L2 must be strictly below the same-cache warp-anchor aggregate; no minimum percentage",
+  "report_only":["per-family","early/middle/late","low/mid/high frequency","nonworse","maximum","runtime"],
+  "bindings":{"runner_sha256":"fe9da398b8d31804d73e5872f340b15079bd38cda0c891a2d8ef4be1a60839e7","trainer_sha256":"2b836a9eb4744b093e5c806fc1232f8d4de242f1324be21368ef52e40989dcd0","loss_sha256":"5cb2d65d2762741257572dbc6df3f4b1c05e9ccdc9cae08515aa17bb63fd9087","encoding_sha256":"20b145e43ac0722caefe9898fbbad5f1cf7c40a47549edd933f58460bbadbb77","manifest_sha256":{"results/b2_v9_parent_fit_manifest_240rec_20260901.json":"36bd59278ceec09b1af365d3fbd29d2051c3a09129a5c4fba448bded81905667","results/b2_v9_parent_holdout_manifest_24rec_20260901.json":"3b97aa68a853ee86c1780f66abcd9d3cebbb186bb0773e866980a713f4b0b113"},"fit_cache_sha256":"9c84b0b54d989af94e9756bb3e01f8075177ac417fd498aebb0b852ca42e9171","holdout_cache_sha256":"2b68371f80c8c33acb8aa0216c300af4aecaddfc6d935e3421232f1579666f32"},
+  "data_access":{"split":"train","causal_window":true,"validation_opened":false,"test_id_opened":false},
+  "outputs":["results/b2_v9_parent_physics_cond_s372_20260901","results/b2_v9_parent_physics_cond_s733_20260901","results/b2_v9_parent_spectral_s372_20260901","results/b2_v9_parent_spectral_s733_20260901"],
+  "no_post_hoc_extension":true,"rollback":"additive full parent retraining; all prior/protected checkpoints immutable"
+}

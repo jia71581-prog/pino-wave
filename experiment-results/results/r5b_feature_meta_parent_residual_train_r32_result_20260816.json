@@ -1,0 +1,26 @@
+{
+  "experiment_id": "r5b_feature_meta_parent_residual_train_r32_20260816",
+  "status": "complete_train_only",
+  "decision": "eligible_for_disjoint_train_confirmation_only",
+  "checkpoint": "/root/autodl-tmp/home/jiayh/Data/FNO-Acoustic-Wave-Simulation/1/pretraining/instance_adaptation/r5b_feature_meta_parent_residual_train_r32_20260816/best.pt",
+  "checkpoint_sha256": "77b8866f8aaba20d66bf5c2e0d9c0a1b93d39ca95dda1edf62795183cea42162",
+  "parent_checkpoint_sha256": "9295d21f2e0858dd5d2bb2ab2c10a0a39e062148a796e7ab71eec016a2ae9a3b",
+  "training": {
+    "records": 24,
+    "unique_groups": 24,
+    "epochs": 5,
+    "optimizer_steps": 72,
+    "best_complete_curriculum_field_loss": 0.302027920105805,
+    "finite": true,
+    "peak_cuda_bytes": 9615839744,
+    "elapsed_seconds": 156.87153933849186
+  },
+  "access_audit": {
+    "future_truth_scope": "offline_train_records_only",
+    "validation_opened": false,
+    "test_id_opened": false,
+    "physical_wavefield_propagator": false,
+    "pde_loss_weight": 0.0
+  },
+  "next_gate": "six records from previously unused train groups, two per family, complete 401-frame float64 metric"
+}

@@ -1,0 +1,23 @@
+{
+  "artifact_kind": "reduced_chonknoris_meta_pretraining_cpu_smoke",
+  "claim_gate_passed": false,
+  "checkpoint": "results/chonknoris_meta_cpu_smoke_20260807/meta_hypernet.pt",
+  "checkpoint_sha256": "58865b6cf5ffd35a8c059d313d7257f98e855b4b092461e4823bbfbe16777864",
+  "command": "OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 python scripts/train_meta_hypernet.py --config configs/saved_time_v5/meta_hypernet_chonknoris.yaml --output /tmp/meta_hypernet_chonknoris_smoke_scaled.pt --device cpu --per-family 1 --epochs 1 --time-points 4 --learning-rate 2e-4 --chonknoris-weight 0.01 --chonknoris-relaxation 0.01 --chonknoris-pool-size 2 --smoke",
+  "episodes": 1,
+  "final_metrics": {
+    "chonknoris_condition_number": 1.0,
+    "chonknoris_factor_relative_error": 9.825100732996361e-07,
+    "chonknoris_loss": 4.916396392218303e-06,
+    "chonknoris_operator_relative_error": 3.933886546292342e-06,
+    "field_loss": 0.33110132813453674,
+    "loss": 0.3431597054004669,
+    "observed_loss": 0.04823329299688339
+  },
+  "manifest_digest": "a20c9a65abbc65294062af443e2ceae241ead66450f940f652e2d95aaa0aa92b",
+  "medium_type": "uniform",
+  "parent_checkpoint_sha256": "1ddf78763b1703e5868fd4bd9e6734e1b72bce868c8840dd8fb2b1611424c908",
+  "source_h5_sha256": "b256fc7880745810e067977ee188f42f8b6174754549e48938fd04f2a2bdee99",
+  "status": "passed_real_data_smoke",
+  "validation_note": "This proves the train-only factor-supervision and checkpoint path, not improved held-out accuracy."
+}

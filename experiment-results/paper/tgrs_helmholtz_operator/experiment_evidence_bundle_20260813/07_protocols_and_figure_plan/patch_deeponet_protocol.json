@@ -1,0 +1,102 @@
+{
+  "schema": "parameter_matched_patch_deeponet_protocol_v1",
+  "registered_utc_date": "2026-08-13",
+  "status": "registered_before_gpu_training_or_position_predictions",
+  "purpose": "provide a strong independent DeepONet comparison for the current r5b architecture",
+  "data_contract": {
+    "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+    "manifest_sha256": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "training_split": "train only",
+    "checkpoint_selection_split": "train-only fixed gate until a clean lineage is reproduced",
+    "validation_truth_during_training": "forbidden",
+    "test_id_truth_during_training": "forbidden"
+  },
+  "model": {
+    "class": "patch_deeponet_baseline.model.PatchDeepONet",
+    "source_file": "patch_deeponet_baseline/model.py",
+    "feature_file": "patch_deeponet_baseline/features.py",
+    "training_primitives_file": "patch_deeponet_baseline/training.py",
+    "training_entry_file": "scripts/train_patch_deeponet_baseline.py",
+    "training_config": "configs/baselines/patch_deeponet_fixed_train_gate_20260813.yaml",
+    "prediction_file": "scripts/predict_patch_deeponet_marmousi_position_control.py",
+    "target_parameters": 32420564,
+    "resolved_parameters": 32420465,
+    "relative_parameter_difference": 0.0000030536111648,
+    "parameter_tolerance_fraction": 0.001,
+    "branch": "four target-free dense maps, compact local CNN plus a high-capacity pooled branch MLP evaluated once per source-medium record, bilinear query sampling",
+    "trunk": "compact width-48 normalized query/source/travel MLP with time and arrival Fourier features",
+    "interaction": "scaled local branch-trunk inner product plus query-local residual and target-free Ricker residual",
+    "forbidden_inputs": [
+      "pressure observations",
+      "target-derived features or sampling weights outside train",
+      "proposed-model weights or predictions",
+      "receiver truth",
+      "validation or test_id wavefields during fitting or selection"
+    ],
+    "checkpoint_contract": {
+      "identity_schema": "patch_deeponet_run_identity_v1",
+      "checkpoint_schema": "patch_deeponet_checkpoint_v1",
+      "manifest_binding_required": true,
+      "train_only_selection_required": true,
+      "strict_state_dict_loading": true
+    },
+    "prediction_contract": {
+      "input_only_before_sealing": true,
+      "truth_wavefield_access": false,
+      "reference_generation_or_scoring_mode_present": false,
+      "expected_record_count": 240,
+      "shared_reference_manifest_for_comparison": true
+    },
+    "training_launch_lock": {
+      "full_launch_authorized": false,
+      "unlock_condition": "one post-r5d GPU dry run and the hash-bound three-family train-only entry report both pass",
+      "validation_or_test_truth_before_unlock": false
+    }
+  },
+  "long_run_entry_gate": {
+    "required": [
+      "unit and leakage tests pass",
+      "one CPU shape and gradient test passes",
+      "one GPU forward-backward dry run after the active training jobs end naturally",
+      "one train record per family is overfit below the frozen gate",
+      "prediction RMS and energy ratio are finite and non-collapsed",
+      "the fixed train-panel relative error decreases from its initial window"
+    ],
+    "failure_action": "write a terminal diagnostic and do not launch the long run"
+  },
+  "fairness": {
+    "seed": 372,
+    "effective_records_per_update": 32,
+    "saved_frames_per_record": 24,
+    "time_policy": "fixed_train_gate",
+    "optimizer_update_budget_rule": "match the selected clean parent training budget and report any deviation",
+    "optimizer": "AdamW with frozen pilot-selected learning rate, warmup-cosine schedule, and gradient clipping",
+    "normalization": "the same manifest-bound PhysicalNormalizer",
+    "report": [
+      "parameters",
+      "optimizer updates",
+      "training examples and frames",
+      "peak CUDA memory",
+      "training wall time",
+      "checkpoint and code digests"
+    ]
+  },
+  "position_generalization": {
+    "protocol": "paper/tgrs_helmholtz_operator/marmousi_fixed_frequency_source_ood_protocol_20260813.json",
+    "fixed_source_frequency_hz": 19.0,
+    "varied_variable": "source position only",
+    "source_frequency_generalization_in_scope": false,
+    "frequency_sweep_permitted": false,
+    "record_count": 240,
+    "independent_velocity_slice_count": 30,
+    "shared_reference_manifest_required": true,
+    "paired_primary_endpoints": [
+      "complete record relative_l2",
+      "late-window relative_l2",
+      "high-spatial-band relative_l2"
+    ],
+    "paired_inference": "average eight positions within each slice, then use paired slice bootstrap and Holm-adjusted one-sided sign-flip tests",
+    "superiority_gate": "all three Holm-adjusted primary endpoints favour the proposed model and both interpolation and outside-range subset means have the favourable direction"
+  },
+  "claim_boundary": "a passing result permits 'more accurate than the tested parameter-matched Patch-DeepONet under the fixed-19-Hz position protocol'; it does not permit universal DeepONet or frequency-generalization claims"
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "wkb64_frequency_balanced_continuation_decision_v1",
+  "status": "rejected",
+  "decision": "parent_preservation_gate_failed_at_original_learning_rate",
+  "parent_all_saved_aggregate_relative_l2": 0.5539981065573109,
+  "update_200_fixed_aggregate_relative_l2": 0.7044290316271162,
+  "best_checkpoint": "checkpoints/update_0000.pt",
+  "parent_restored_for_final_all_saved_evaluation": true,
+  "strict_parent_load": true,
+  "validation_opened": false,
+  "test_id_opened": false,
+  "bindings": {"terminal_sha256": "e964dfa35212b56f3396b0a9ed15be322c1c8b50c0383f085c3a2d68777067ad", "update_200_checkpoint_sha256": "aa6a276e335c0092730bdd671f4e8235b73742e996a89179e16e2a5e30d3f8b9"},
+  "diagnosis": "The balanced objective at the parent learning rate erases the learned dominant field before it can improve neglected frequencies."
+}

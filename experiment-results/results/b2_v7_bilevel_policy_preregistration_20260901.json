@@ -1,0 +1,15 @@
+{
+  "schema":"b2_v7_bilevel_policy_preregistration_v1",
+  "status":"offline_policy_frozen_before_online",
+  "created_utc":"2026-09-01T05:34:11Z",
+  "candidate":"b2_v7_conservative_bilevel_policy_v1",
+  "hypothesis":"Offline future-truth calibration can damp the transferable POD prior and inner update enough that the same online self-supervised procedure yields any strict aggregate accuracy improvement on fresh train groups.",
+  "offline_grid":{"prior_scale":[0.0,0.02,0.05,0.1],"weak_weight":[0.0,0.01,0.05],"learning_rate":[0.01,0.03],"steps":4,"output_scale":[0.05,0.1,0.25,0.5,1.0]},
+  "pilot_accuracy_gate":"adapted aggregate relative L2 strictly below frozen parent aggregate relative L2; no minimum percentage",
+  "report_only":["per-family accuracy","nonworse","worst harm","runtime"],
+  "bindings":{"calibrator_sha256":"f88f76bbac2d11a88c68c909c80b154cf90af85586b2d56f61fedf30d3d1b62b","evaluator_sha256":"da119d42a808fe91e60508ad6455395df632bd9420ec7667ef27aac8df55e0ed","checkpoint_sha256":"0217e5f295566ec6806db45cffe10578feac9c7cd20d87d82b7ae429bd84bd0c","fit_cache_sha256":"2dd8846accd38fe42d4d4017739805f2952e3f70a298f29cdcd625e82b76c3f7","fit_manifest_sha256":"a0abd7e07df0f29a5a35abab3dc6000bad67b27fdaf55a5b863596dd6fb4d034","bundle_sha256":"ac5cb9af43ccbef8d38759a11dd849c265f2dea98c23523fdc4813fc4ee193f8","holdout_cache_sha256":"3fcbc39f032a78660eb6f5df793e6068861bf11c005f3dfb898d507af014c5c9","holdout_manifest_sha256":"403e4192d3b5c9c25a420657665b05a5e72686fd1dffbafe38d609a770ec783c","policy_sha256":"b8d028d9040107d99314c91a81fd951c3e8e660eb185c2d5ed520e130622808b"},
+  "offline_policy":{"path":"results/b2_v7_policy_calibration_20260901/policy.json","sha256":"b8d028d9040107d99314c91a81fd951c3e8e660eb185c2d5ed520e130622808b","terminal_sha256":"bd5e4bad3976519bb4ac4aa71afa3db2ac3fa1c5b2cf9c41f5f8d857903f40d4","prior_scale":0.1,"weak_weight":0.01,"learning_rate":0.03,"steps":4,"output_scale":1.0},
+  "outputs":{"policy":"results/b2_v7_policy_calibration_20260901","holdout":"results/b2_v7_online_holdout_20260901"},
+  "validation_opened":false,"test_id_opened":false,
+  "rollback":"additive train-only calibration; parent and protected checkpoints immutable"
+}
