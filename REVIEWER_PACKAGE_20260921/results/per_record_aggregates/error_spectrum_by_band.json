@@ -1,0 +1,198 @@
+{
+  "what_this_is": "Frequency-resolved error decomposition of the anchor operator, aggregated from the 480 per-record evaluation products. Bands are radial spatial wavenumber (cycles/metre).",
+  "provenance": {
+    "split": "validation",
+    "records": 480,
+    "checkpoint": "/root/autodl-tmp/staging/a4_fulltrain100_20260912_v1/attempt_001/checkpoints/checkpoint_step_00022814.pt",
+    "checkpoint_sha256": "ced7128a9b7a683f55914c5af05d3ffc5a3312d1677146411387f6ccfdb804cd",
+    "global_step": 22814,
+    "frequency_bands_cycles_per_m": [
+      [
+        0,
+        0.005
+      ],
+      [
+        0.005,
+        0.015
+      ],
+      [
+        0.015,
+        0.03
+      ],
+      [
+        0.03,
+        null
+      ]
+    ],
+    "metrics_body_sha256": "16e684f1fcfb7c581cdaf0b94b1e35699cc657d85815ec60fb07dfe8dcd86829",
+    "producing_code": "code/grouped_ufno_mionet_v3/eval_metrics.py, frequency_metrics()",
+    "lineage_warning": "A4 radial-44 endpoint (dense_equivariant=True, dense_radial_cutoff=44, dense_time_steps=16). The dense spectral kernel sets the wavenumber response, so this table must not be read as characterising a rectangular-kernel arm."
+  },
+  "definitions": {
+    "N": "summed squared error energy in band",
+    "E": "summed squared truth energy in band",
+    "relative_l2": "sqrt(N/E) within the band",
+    "E_share": "band truth energy / total truth energy",
+    "N_share": "band error energy / total error energy",
+    "enrichment": "N_share / E_share; >1 means the band holds more error than its share of signal",
+    "ceilings": "Counterfactual pooled relative L2 under the stated idealisation, via the identity total^2 = sum_band E_share * relative_l2_band^2. 'fully flattened' = every band achieves the best band's relative L2, which reduces to band-1's value."
+  },
+  "families": {
+    "uniform": {
+      "n": 90,
+      "pooled_future_relative_l2": 0.1727628376781227,
+      "identity_check": 0.17276283767812456,
+      "bands": [
+        {
+          "band": "[0,0.005)",
+          "E_share": 0.5811018045492903,
+          "N_share": 0.24142518450918168,
+          "relative_l2": 0.11135648216359148,
+          "enrichment": 0.4154610820670812
+        },
+        {
+          "band": "[0.005,0.015)",
+          "E_share": 0.39679973682131453,
+          "N_share": 0.5705334367251544,
+          "relative_l2": 0.2071596611736722,
+          "enrichment": 1.4378372357189215
+        },
+        {
+          "band": "[0.015,0.03)",
+          "E_share": 0.021111221926532656,
+          "N_share": 0.1834574444471224,
+          "relative_l2": 0.5092855018366085,
+          "enrichment": 8.6900438584539
+        },
+        {
+          "band": "[0.03,inf)",
+          "E_share": 0.0009872367028626627,
+          "N_share": 0.004583934318541574,
+          "relative_l2": 0.37227071676423235,
+          "enrichment": 4.64319681921232
+        }
+      ],
+      "ceiling_tail_bands_zeroed": 0.15567442760816613,
+      "ceiling_band2_to_band1": 0.1331867486782192,
+      "ceiling_fully_flattened": 0.11135648216359148,
+      "gap_to_0p1_after_flattening": 1.1135648216359146
+    },
+    "layered": {
+      "n": 240,
+      "pooled_future_relative_l2": 0.28986479354441197,
+      "identity_check": 0.2898647935444124,
+      "bands": [
+        {
+          "band": "[0,0.005)",
+          "E_share": 0.7755368418188204,
+          "N_share": 0.5178144381526532,
+          "relative_l2": 0.2368543312417678,
+          "enrichment": 0.6676851572109118
+        },
+        {
+          "band": "[0.005,0.015)",
+          "E_share": 0.21886382582294298,
+          "N_share": 0.4332802366463201,
+          "relative_l2": 0.4078429097220418,
+          "enrichment": 1.97967953368793
+        },
+        {
+          "band": "[0.015,0.03)",
+          "E_share": 0.004625880925718518,
+          "N_share": 0.0437950962230434,
+          "relative_l2": 0.8918893696628287,
+          "enrichment": 9.467406733181507
+        },
+        {
+          "band": "[0.03,inf)",
+          "E_share": 0.0009734514325179935,
+          "N_share": 0.005110228977983126,
+          "relative_l2": 0.6641382688951126,
+          "enrichment": 5.249598292505125
+        }
+      ],
+      "ceiling_tail_bands_zeroed": 0.282687981591374,
+      "ceiling_band2_to_band1": 0.24473445901085097,
+      "ceiling_fully_flattened": 0.2368543312417678,
+      "gap_to_0p1_after_flattening": 2.368543312417678
+    },
+    "marmousi": {
+      "n": 150,
+      "pooled_future_relative_l2": 0.503816776593552,
+      "identity_check": 0.5038167765935511,
+      "bands": [
+        {
+          "band": "[0,0.005)",
+          "E_share": 0.3975354995014143,
+          "N_share": 0.24804211617865804,
+          "relative_l2": 0.397967292587817,
+          "enrichment": 0.6239496007016992
+        },
+        {
+          "band": "[0.005,0.015)",
+          "E_share": 0.5600177178270767,
+          "N_share": 0.6517296721880317,
+          "relative_l2": 0.5435074335967746,
+          "enrichment": 1.1637661656791973
+        },
+        {
+          "band": "[0.015,0.03)",
+          "E_share": 0.04132198935204876,
+          "N_share": 0.09542408960093662,
+          "relative_l2": 0.7656160458708874,
+          "enrichment": 2.3092811139356595
+        },
+        {
+          "band": "[0.03,inf)",
+          "E_share": 0.0011247933194601537,
+          "N_share": 0.004804122032373621,
+          "relative_l2": 1.0412218571490348,
+          "enrichment": 4.271115367825413
+        }
+      ],
+      "ceiling_tail_bands_zeroed": 0.4779019592695963,
+      "ceiling_band2_to_band1": 0.42082822216624666,
+      "ceiling_fully_flattened": 0.397967292587817,
+      "gap_to_0p1_after_flattening": 3.9796729258781696
+    }
+  },
+  "pooled_all_families": {
+    "n": 480,
+    "pooled_future_relative_l2": 0.47587946802389836,
+    "identity_check": 0.47587946802389763,
+    "bands": [
+      {
+        "band": "[0,0.005)",
+        "E_share": 0.4325196876702021,
+        "N_share": 0.2532310521776421,
+        "relative_l2": 0.3641266845591949,
+        "enrichment": 0.5854786715991798
+      },
+      {
+        "band": "[0.005,0.015)",
+        "E_share": 0.5286458898510651,
+        "N_share": 0.6465884977544607,
+        "relative_l2": 0.5262941282914338,
+        "enrichment": 1.2231032344479658
+      },
+      {
+        "band": "[0.015,0.03)",
+        "E_share": 0.03772891132112688,
+        "N_share": 0.09537274851716168,
+        "relative_l2": 0.7566098308149143,
+        "enrichment": 2.5278425795381025
+      },
+      {
+        "band": "[0.03,inf)",
+        "E_share": 0.0011055111576060087,
+        "N_share": 0.004807701550735438,
+        "relative_l2": 0.9923940513619175,
+        "enrichment": 4.34884941473277
+      }
+    ],
+    "ceiling_tail_bands_zeroed": 0.4514136421585359,
+    "ceiling_band2_to_band1": 0.3874612836743264,
+    "ceiling_fully_flattened": 0.3641266845591949,
+    "gap_to_0p1_after_flattening": 3.641266845591949
+  }
+}

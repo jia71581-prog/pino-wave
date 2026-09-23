@@ -1,0 +1,117 @@
+{
+  "status": "complete",
+  "split": "validation",
+  "checkpoint": "/root/autodl-tmp/staging/a4_fulltrain100_20260912_v1/attempt_001/checkpoints/checkpoint_step_00022814.pt",
+  "checkpoint_sha256": "ced7128a9b7a683f55914c5af05d3ffc5a3312d1677146411387f6ccfdb804cd",
+  "global_step": 22814,
+  "records": 480,
+  "coverage_exactly_once": true,
+  "overall_record_equal": {
+    "records": 480,
+    "NA_records": 0,
+    "dense_future_relative_l2_mean": 0.35223194222281917,
+    "dense_future_relative_l2_median": 0.32476367173634313,
+    "dense_future_relative_l2_p95": 0.7385121303484649,
+    "dense_future_pooled_relative_l2": 0.47587946802389836,
+    "query_future_relative_l2_mean": 0.3533382926831677,
+    "time_bands": {
+      "early": 0.21800852155449535,
+      "middle": 0.4542639470008071,
+      "late": 1.0551974816247935
+    },
+    "last_frame_relative_l2_mean": 2.382498681973119,
+    "prediction_seconds_mean": 4.539044006184365
+  },
+  "per_family": {
+    "uniform": {
+      "records": 90,
+      "NA_records": 0,
+      "dense_future_relative_l2_mean": 0.13088196939393912,
+      "dense_future_relative_l2_median": 0.10364261134755075,
+      "dense_future_relative_l2_p95": 0.36460647069925245,
+      "dense_future_pooled_relative_l2": 0.17276283767812275,
+      "query_future_relative_l2_mean": 0.13051762323238525,
+      "time_bands": {
+        "early": 0.1123670063592362,
+        "middle": 0.15656450158024893,
+        "late": 2.1076473706419896
+      },
+      "last_frame_relative_l2_mean": 8.314856670346668,
+      "prediction_seconds_mean": 4.603284828075104
+    },
+    "layered": {
+      "records": 240,
+      "NA_records": 0,
+      "dense_future_relative_l2_mean": 0.3020379892646819,
+      "dense_future_relative_l2_median": 0.2865188881492637,
+      "dense_future_relative_l2_p95": 0.5451666151442439,
+      "dense_future_pooled_relative_l2": 0.289864793544412,
+      "query_future_relative_l2_mean": 0.3036549254007361,
+      "time_bands": {
+        "early": 0.1927905128883542,
+        "middle": 0.5001600143439349,
+        "late": 0.858886224790431
+      },
+      "last_frame_relative_l2_mean": 1.1104716544410385,
+      "prediction_seconds_mean": 4.527193427054832
+    },
+    "marmousi": {
+      "records": 150,
+      "NA_records": 0,
+      "dense_future_relative_l2_mean": 0.5653522506531667,
+      "dense_future_relative_l2_median": 0.5616819373326756,
+      "dense_future_relative_l2_p95": 0.8186950385499937,
+      "dense_future_pooled_relative_l2": 0.5038167765935518,
+      "query_future_relative_l2_mean": 0.5665240820055278,
+      "time_bands": {
+        "early": 0.32174224453747674,
+        "middle": 0.5594499065041376,
+        "late": 0.7378255591494559
+      },
+      "last_frame_relative_l2_mean": 0.8583271330003184,
+      "prediction_seconds_mean": 4.519460439657172
+    }
+  },
+  "family_equal_dense_future_relative_l2": 0.33275740310392926,
+  "all_predictions_saved_before_future_truth": true,
+  "validation_evaluated": true,
+  "test_id_evaluated": false,
+  "adaptation_performed": false,
+  "accuracy_and_speed_target_claim": null,
+  "validation_dense_5_percent_gate": false,
+  "protocol": {
+    "primary": "per-record sqrt(sum((prediction-truth)^2)/sum(truth^2)) over all saved future frames",
+    "future_start": "searchsorted(float32 saved time axis promoted to float64, float32 source_t0) + 8",
+    "future_end": "last stored frame inclusive",
+    "units": "physical pressure Pa; relative L2 dimensionless",
+    "accumulation": "float64",
+    "zero_energy": "null, retained and blocks aggregate gate",
+    "aggregate": [
+      "record equal",
+      "family equal",
+      "pooled energy"
+    ],
+    "time_bands": "np.array_split(full future frame indices, 3)",
+    "frequency_bands_cycles_per_m": [
+      [
+        0,
+        0.005
+      ],
+      [
+        0.005,
+        0.015
+      ],
+      [
+        0.015,
+        0.03
+      ],
+      [
+        0.03,
+        null
+      ]
+    ],
+    "metrics_body_sha256": "16e684f1fcfb7c581cdaf0b94b1e35699cc657d85815ec60fb07dfe8dcd86829"
+  },
+  "timing_note": "Prediction timings are not a traditional-solver comparison or an end-to-end speedup claim",
+  "historical_comparison": "old 40-step sampled validation scores are not a same-protocol baseline"
+}

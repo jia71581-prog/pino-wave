@@ -1,21 +1,24 @@
-# PINO-Wave research code
+# PINO-Wave：二维声波神经算子研究
 
-The complete current research source snapshot is in [grouped-dual-head-v2](grouped-dual-head-v2/). It includes the neural-operator model families, training and evaluation scripts, numerical data-generation code, configurations, tests, research documentation, and local agent definitions.
+本仓库的最新审稿资料是 [REVIEWER_PACKAGE_20260921](REVIEWER_PACKAGE_20260921/)；资料于 2026-09-21 建包，论文和对照证据更新至 **2026-09-23**。
 
-## Research scope
+- [完整中文研究说明](RESEARCH_OVERVIEW.md)：任务、数据、模型、验证口径、结果、局限与复核方法。
+- [论文 PDF](REVIEWER_PACKAGE_20260921/paper/main.pdf) 与 [LaTeX 源文件](REVIEWER_PACKAGE_20260921/paper/main.tex)：当前 19 页稿件。
+- [产生报告结果的代码快照](REVIEWER_PACKAGE_20260921/code/) 与 [来源哈希](REVIEWER_PACKAGE_20260921/code/PROVENANCE.tsv)。
+- [最终证据与对照](REVIEWER_PACKAGE_20260921/results/)；[冻结协议](REVIEWER_PACKAGE_20260921/protocols/)；[图件](REVIEWER_PACKAGE_20260921/figures/)。
+- [原项目源代码](grouped-dual-head-v2/) 保留，包含更广的历史实现和数值数据生成程序。
 
-The current research objective is direct prediction of the two-dimensional acoustic wavefield from the velocity model and source information, without a numerical pre-solve for the prediction case. The archive also preserves historical numerical and hybrid methods; those historical implementations do not all satisfy the new direct-prediction constraint. Their numerical-parent results must not be presented as validated direct neural-operator performance.
+**当前状态：目标未达成。** A4 step 22814 的 480 条 validation 记录，逐记录等权未来场相对 L2 均值为 **0.3522**，uniform/layered/Marmousi 分别为 **0.1309/0.3020/0.5654**。项目的 5% 精度和端到端 10× 加速联合门限未通过；`test_id` 未用于本轮结论。训练面板的诊断数字与这组 validation 数字属于不同模型谱系，不应合并。
 
-## Included and excluded
+这次公开版只收录最终论文、代码快照、冻结协议、可核验的诊断和对照产物。旧的 `experiment-results/` 历史过程归档已从当前分支移除；需要历史记录时可查看先前提交。中间失败的运行目录、临时日志、原始 `.npy` 波场、HDF5 数据集及训练权重均未纳入当前版。最终的负面研究结论仍在论文和研究说明中如实报告。
 
-This upload additionally includes the historical experiment results archive, in [experiment-results](experiment-results/), whose [README](experiment-results/README.md) and [MANIFEST](experiment-results/MANIFEST.json) describe the scope and per-file integrity. It holds per-experiment metrics, evaluation and disposition records, run logs, result figures and paper-level figures/tables, as a time-stamped offline archive. It is not a new validation pass and does not present the numerical/hybrid historical results as validated direct-neural-operator performance.
+## 快速核验
 
-Datasets, wavefield caches, trained weights/checkpoints, tensorboard event streams, manuscript text, credentials, and personal agent sessions are not included (neither in the source snapshot nor in the results archive). Notebook code is retained with outputs and embedded runtime data cleared. Source code for generating data and evaluating models is included. The dated duplicate working copy is omitted. The results archive excludes raw wavefield/velocity arrays, weights, data, and paper main text; it retains metrics, run logs, and figures.
+```bash
+cd REVIEWER_PACKAGE_20260921
+sha256sum -c SHA256SUMS
+python3 verify_package.py
+python3 results/diagnostic_audit_20260922/recompute_late_floor.py
+```
 
-## Using the source
-
-Start from [the main README](grouped-dual-head-v2/README.md) and the relevant script/configuration. Run commands from grouped-dual-head-v2 and include its src directory and project root on PYTHONPATH when needed.
-
-The current pyproject.toml provides pytest settings, not an installable Python package; do not assume pip install -e . is supported. requirements-pino.txt belongs to the PINO workflow. Install the dependencies needed by the selected implementation. Historical absolute dataset/checkpoint paths in scripts and configs must be adjusted to your environment. Datasets and trained weights must be supplied separately.
-
-This upload is a source and historical results archive, not a new trained-model result. Existing attribution and license notices in the source are retained; no new license grant is added by this upload.
+前两项核对发布文件和 33 个代码文件的来源，第三项复算已发布标量的晚期误差反事实。重新运行神经网络预测需要另行取得数据、检查点及相同的运行环境；单靠本仓库不能重训或重现整场预测。

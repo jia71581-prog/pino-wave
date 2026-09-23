@@ -1,0 +1,246 @@
+{
+  "G1": {
+    "anchor_offset": 200,
+    "child_mean_on_intersection": 0.6187567633178994,
+    "fork_parent_mean_on_intersection": 0.8665841049508293,
+    "intersection_equals_frozen_reference_subset": true,
+    "n_child_admissible": 96,
+    "n_fork_admissible": 96,
+    "n_intersection": 96,
+    "parameterisation_note": "rect (spectral.weight_top/.weight_bottom); the child is radial, so G1 compares across a spectral parameterisation change. This is inherent to the partial fork (preregistration section 1) and is recorded, not corrected for.",
+    "ratio_child_over_parent": 0.7140181313999617,
+    "required_ratio": 0.6,
+    "threshold_frozen_absolute": 0.5199504629704975,
+    "threshold_recomputed_on_intersection": 0.5199504629704975,
+    "verdict": false,
+    "verdict_against_frozen_absolute": false
+  },
+  "G2": {
+    "bound": 0.46,
+    "bound_provenance": "recomputed mean is inside the +/-0.002 window, so the bound is the v2 frozen 0.46 (slightly looser than a strict 0.9x)",
+    "calibrated_metric": {
+      "child_mean": 0.5205214074116711,
+      "name": "n1 one-shot full-future relative L2, M_list_marmousi (the metric the 0.46 bound was actually derived from)",
+      "parent_mean": 0.5107440171820108,
+      "pass_bound": false
+    },
+    "child_oracle_future_mean": 0.5204911923434655,
+    "literal_metric": {
+      "child_mean": 0.5205176968328902,
+      "name": "composed full-future relative L2, M_list_marmousi",
+      "parent_mean": 0.575858565919716,
+      "pass_bound": false
+    },
+    "metric_ambiguity": "The preregistration names the composed metric; the bound was calibrated on the n1 metric. Both are reported. Resolving this by choosing the passing one would be a silent weakening of the gate.",
+    "non_degeneracy": {
+      "layered": {
+        "child": 0.2926625421236161,
+        "limit": 0.2786899781543942,
+        "parent": 0.2686899781543942,
+        "pass": false
+      },
+      "marmousi_onset_one_shot": {
+        "child": 0.5205214074116711,
+        "limit": 0.5307440171820108,
+        "parent": 0.5107440171820108,
+        "pass": true
+      },
+      "uniform": {
+        "child": 0.15987499318469506,
+        "limit": 0.14542504049945748,
+        "parent": 0.13542504049945747,
+        "pass": false
+      }
+    },
+    "non_degeneracy_pass": false
+  },
+  "baseline_frozen_sha256": "cf6c53b39b257c815c4ae2da90c19e26714cc43ff75ddfdd6b4f9ebb95f3c85b",
+  "child_inputs": [
+    {
+      "file": "child_final_shard00of04_ROWS.jsonl",
+      "sha256": "748a2a5e0e23bff3ac94eee3a72ab924e0fb04fae27b9e9050424e29c38ced95"
+    },
+    {
+      "file": "child_final_shard01of04_ROWS.jsonl",
+      "sha256": "cdb8b28067d2d3862c603d29b75ba68520cf54c7f575efd8b8c2c7f932fa35de"
+    },
+    {
+      "file": "child_final_shard02of04_ROWS.jsonl",
+      "sha256": "780d168013b98829441e9929132e547de9d3ad1591e0fcb53f44b304a0b42f38"
+    },
+    {
+      "file": "child_final_shard03of04_ROWS.jsonl",
+      "sha256": "b7f5689df29cfd0cc00cb39f73d018b1828184a060ca7240f49eb178e6f872b4"
+    }
+  ],
+  "child_rows": 800,
+  "composition_cost_by_window": {
+    "child": {
+      "0": {
+        "anchor_mean": 37.46875,
+        "composed_mean": 0.26953636761169364,
+        "gamma_mean": 1.0,
+        "n": 96,
+        "oracle_mean": 0.26953636761169364
+      },
+      "1": {
+        "anchor_mean": 137.46875,
+        "composed_mean": 0.4439130437540314,
+        "gamma_mean": 0.9999852270581339,
+        "n": 96,
+        "oracle_mean": 0.44390327172421584
+      },
+      "2": {
+        "anchor_mean": 237.46875,
+        "composed_mean": 0.6188064937917004,
+        "gamma_mean": 1.0000358114074457,
+        "n": 96,
+        "oracle_mean": 0.6187567633178994
+      },
+      "3": {
+        "anchor_mean": 337.46875,
+        "composed_mean": 0.7889427733243872,
+        "gamma_mean": 1.0000756454491968,
+        "n": 96,
+        "oracle_mean": 0.7888899884660827
+      }
+    },
+    "context_reference": {
+      "0": {
+        "anchor_mean": 37.46875,
+        "composed_mean": 0.23624125527079984,
+        "gamma_mean": 1.0,
+        "n": 96,
+        "oracle_mean": 0.23624125527079984
+      },
+      "1": {
+        "anchor_mean": 137.46875,
+        "composed_mean": 0.5300975115310744,
+        "gamma_mean": 0.979102171656681,
+        "n": 96,
+        "oracle_mean": 0.5458703176717832
+      },
+      "2": {
+        "anchor_mean": 237.46875,
+        "composed_mean": 0.694877917797192,
+        "gamma_mean": 0.9999376716359871,
+        "n": 96,
+        "oracle_mean": 0.6950893273997655
+      },
+      "3": {
+        "anchor_mean": 337.46875,
+        "composed_mean": 0.8373009327397537,
+        "gamma_mean": 1.001363439489751,
+        "n": 96,
+        "oracle_mean": 0.8362826176133268
+      }
+    }
+  },
+  "confounding_note": "G2 bound source and N1 non-degeneracy reference (A4 step 22814). NOT the fork parent; any A4-vs-L1 difference is confounded (section 0.1).",
+  "created_utc": "2026-09-14T04:15:12.086497+00:00",
+  "evaluate_script_sha256": "069bc20f308f6bf05596d47061b75dfd43b8ec5bfaf2ef03ba5bbdf89dda0fe3",
+  "m1_anchor_offset_profile": {
+    "child": {
+      "0": {
+        "mean": 0.26953636761169364,
+        "n": 96
+      },
+      "100": {
+        "mean": 0.44390327172421584,
+        "n": 96
+      },
+      "200": {
+        "mean": 0.6187567633178994,
+        "n": 96
+      }
+    },
+    "context_reference": {
+      "0": {
+        "mean": 0.23624125527079984,
+        "n": 96
+      },
+      "100": {
+        "mean": 0.5458703176717832,
+        "n": 96
+      },
+      "200": {
+        "mean": 0.6950893273997655,
+        "n": 96
+      }
+    },
+    "fork_parent": {
+      "0": {
+        "mean": 0.3469723555317849,
+        "n": 96
+      },
+      "100": {
+        "mean": 0.7472814810286027,
+        "n": 96
+      },
+      "200": {
+        "mean": 0.8665841049508293,
+        "n": 96
+      }
+    }
+  },
+  "n1_time_bands": {
+    "child": {
+      "M_list_marmousi": {
+        "band_means": [
+          0.29188217224915225,
+          0.49325879202241113,
+          0.710487567227495
+        ],
+        "future_mean": 0.5205214074116711,
+        "n": 96
+      },
+      "N_list_layered": {
+        "band_means": [
+          0.18402178691929846,
+          0.48770115353768195,
+          0.8304314658562384
+        ],
+        "future_mean": 0.2926625421236161,
+        "n": 32
+      },
+      "N_list_uniform": {
+        "band_means": [
+          0.1321582025200407,
+          0.18257064508129625,
+          5.306894311990442
+        ],
+        "future_mean": 0.15987499318469506,
+        "n": 32
+      }
+    },
+    "context_reference": {
+      "M_list_marmousi": {
+        "band_means": [
+          0.2621771781494542,
+          0.48361022932752307,
+          0.7082622029552593
+        ],
+        "future_mean": 0.5107440171820108,
+        "n": 96
+      },
+      "N_list_layered": {
+        "band_means": [
+          0.15966917899030533,
+          0.454497353481593,
+          0.8020619397435317
+        ],
+        "future_mean": 0.2686899781543942,
+        "n": 32
+      },
+      "N_list_uniform": {
+        "band_means": [
+          0.11142235180574163,
+          0.15591343249586295,
+          1.6774010998019966
+        ],
+        "future_mean": 0.13542504049945747,
+        "n": 32
+      }
+    }
+  }
+}

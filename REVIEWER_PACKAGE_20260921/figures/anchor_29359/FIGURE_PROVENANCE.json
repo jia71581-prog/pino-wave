@@ -1,0 +1,280 @@
+{
+  "checkpoint": "/root/autodl-tmp/staging/l2_lwc84_ddp4_20260915_v1/formal/checkpoints/checkpoint_step_00029359.pt",
+  "checkpoint_sha256": "6a45c074bf0fcac335b6ac69c0bc1527d7824a25106e34be041d81b7f7c03f24",
+  "code_digest_recorded_by_run": "523d40b80c68d7d4e7cf9ab9b43b722b70332698a591898d1541f98cfc5b42fa",
+  "code_tree": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/l2_lwc84_ddp4_20260915_v1/snapshot",
+  "code_tree_note": "the anchor run's frozen snapshot; all 38 files match formal/run_identity.json code_files, and the live release tree has since drifted",
+  "config_digest": "6a28ab1974affa9ec58acd06ef44b04325afff69fea3f49c1557eb412225ce9d",
+  "config_file": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/l2_lwc84_ddp4_20260915_v1/train.yaml",
+  "config_file_sha256": "d071f49367b8df5961739f70b19fb5c03e1839ff8be82a61fd0add4d4641662f",
+  "created_utc": "2026-09-22T00:51:00.230833+00:00",
+  "device": "cuda:0",
+  "epoch": 157,
+  "figures": {
+    "fig_receiver_traces_threefamily_29359.pdf": {
+      "kind": "receiver waveforms",
+      "receivers": [
+        {
+          "late_band_flagged_ill_conditioned": true,
+          "late_band_prediction_excursion": 154.97376948119225,
+          "late_band_reference_peak_pa": 8.907910758852722e-14,
+          "late_band_renormalisation_gain": 104500.60214110166,
+          "late_band_trace_relative_l2": 156.59741283824272,
+          "medium_type": "uniform",
+          "receiver_node_zx": [
+            10,
+            100
+          ],
+          "receiver_xz_m": [
+            1000.0,
+            100.0
+          ],
+          "reference_peak_pa": 9.308820381193073e-09,
+          "sample_id": "train_uniform_00413",
+          "trace_relative_l2": 0.032145431060737806
+        },
+        {
+          "late_band_flagged_ill_conditioned": false,
+          "late_band_prediction_excursion": 0.09556907116787117,
+          "late_band_reference_peak_pa": 8.728457540074785e-11,
+          "late_band_renormalisation_gain": 88.81629994928863,
+          "late_band_trace_relative_l2": 0.9356000027562719,
+          "medium_type": "layered",
+          "receiver_node_zx": [
+            10,
+            100
+          ],
+          "receiver_xz_m": [
+            1000.0,
+            100.0
+          ],
+          "reference_peak_pa": 7.752293029739121e-09,
+          "sample_id": "train_layered_00299",
+          "trace_relative_l2": 0.1611823479255905
+        },
+        {
+          "late_band_flagged_ill_conditioned": false,
+          "late_band_prediction_excursion": 0.29144723627068675,
+          "late_band_reference_peak_pa": 8.450954380734288e-10,
+          "late_band_renormalisation_gain": 12.390492151609648,
+          "late_band_trace_relative_l2": 1.1122956135075543,
+          "medium_type": "marmousi",
+          "receiver_node_zx": [
+            10,
+            100
+          ],
+          "receiver_xz_m": [
+            1000.0,
+            100.0
+          ],
+          "reference_peak_pa": 1.0471148392809937e-08,
+          "sample_id": "train_marmousi_00010",
+          "trace_relative_l2": 0.5185809466620119
+        }
+      ],
+      "sha256": "b471ddf6910d368a4914ede74df6119892673402ccb63e1d53eca10cdc8ead0a"
+    },
+    "fig_wavefield_snapshots_marmousi_29359.pdf": {
+      "extent_m": [
+        -5.0,
+        2005.0,
+        -5.0,
+        2005.0
+      ],
+      "frames": [
+        {
+          "band": "B1 (early)",
+          "error_peak_pa": 4.244816997900358e-09,
+          "error_to_reference_peak_ratio": 0.2917699152767945,
+          "frame": 93,
+          "frame_relative_l2": 0.15399515178737005,
+          "row_normalisation_pa": 1.4548508175948882e-08,
+          "t_s": 0.23250000178813934
+        },
+        {
+          "band": "B2 (middle)",
+          "error_peak_pa": 5.9063194335351454e-09,
+          "error_to_reference_peak_ratio": 0.5439700925937591,
+          "frame": 216,
+          "frame_relative_l2": 0.34019631555222374,
+          "row_normalisation_pa": 1.0857801768793252e-08,
+          "t_s": 0.5400000214576721
+        },
+        {
+          "band": "B3 (late)",
+          "error_peak_pa": 7.573610960598387e-09,
+          "error_to_reference_peak_ratio": 0.7972579184653086,
+          "frame": 339,
+          "frame_relative_l2": 0.5513777761959594,
+          "row_normalisation_pa": 9.499574460392068e-09,
+          "t_s": 0.8475000262260437
+        }
+      ],
+      "kind": "wavefield snapshots",
+      "per_frame_relative_l2_at_window_end": 0.6539516991230732,
+      "per_frame_relative_l2_first": 0.3110856184266527,
+      "per_frame_relative_l2_max": 0.6539516991230732,
+      "per_frame_relative_l2_max_t_s": 1.0,
+      "per_frame_relative_l2_min": 0.10602760815658524,
+      "per_frame_relative_l2_min_t_s": 0.11500000208616257,
+      "record": "train_marmousi_00010",
+      "sha256": "652d5de12c05522e5c5e3d06b83cdffa5f7f720b40172ff32d74cceacee94327"
+    }
+  },
+  "free_vram_gib_at_start": 23.169,
+  "frozen_lists_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/marmousi_longtime_levers_20260912/MEASUREMENT_LISTS_FROZEN.json",
+  "frozen_lists_sha256": "053d64026450059292554b02329aa5c665f53d1031c96aee5647753724f2cd91",
+  "global_step": 29359,
+  "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+  "measure_gates_sha256": "ffd73040704bb907f19d8441f8f70d7358a4d5ceeaab0e0b0566454f21d332f0",
+  "measure_gates_sha256_in_panel_meta": "ffd73040704bb907f19d8441f8f70d7358a4d5ceeaab0e0b0566454f21d332f0",
+  "metric": "sqrt(sum((pred-truth)^2)/sum(truth^2)) in float64 over the future window, computed by measure_gates.window_relative_l2",
+  "panel_agreement_tolerance_relative": 1e-06,
+  "panel_agreement_worst_relative": 0.0,
+  "panel_rows": "/root/autodl-tmp/staging/coda_panel_eval_20260916/ckpt_29359/panel_29359_ROWS.jsonl",
+  "panel_rows_sha256": "81cf77752dcb2f94f4e08abf1c370a35afdc465f58859a373de821ea24e6e392",
+  "persisted": "figures and scalar rows only; predicted wavefields are never written",
+  "purpose": "wavefield snapshot and receiver waveform figures for the anchor-29359 paper",
+  "receiver_note": "the free surface is node-centred with p(z=0)=0 identically, so the receiver line sits 100 m below it",
+  "receiver_xz_m": [
+    1000.0,
+    100.0
+  ],
+  "records": [
+    {
+      "axis_guard_peak_distance_m": 39.53120998561772,
+      "band_relative_l2": [
+        0.04742613558733971,
+        0.05122058464709638,
+        0.06931711188205698
+      ],
+      "family_context": {
+        "family_mean_band_relative_l2": [
+          0.054989366195093224,
+          0.06442968058941193,
+          1.7455902555069205
+        ],
+        "family_mean_full_relative_l2": 0.060902409465486695,
+        "n": 32
+      },
+      "full_relative_l2": 0.05146814926431284,
+      "future_frames": [
+        43,
+        401
+      ],
+      "medium_type": "uniform",
+      "onset": 35,
+      "panel_deltas": {
+        "future_relative_l2": 0.0,
+        "time_bands[0]": 0.0,
+        "time_bands[1]": 0.0,
+        "time_bands[2]": 0.0
+      },
+      "position": 413,
+      "sample_id": "train_uniform_00413",
+      "source_f0_hz": 17.557331085205078,
+      "source_index": 413,
+      "source_t0_s": 0.08543439954519272,
+      "source_xz_m": [
+        1149.31396484375,
+        214.13868713378906
+      ],
+      "velocity_min_max": [
+        2683.119873046875,
+        2683.119873046875
+      ]
+    },
+    {
+      "axis_guard_peak_distance_m": 36.728902601545414,
+      "band_relative_l2": [
+        0.13211709292979287,
+        0.32534100541775746,
+        0.5776775322860419
+      ],
+      "family_context": {
+        "family_mean_band_relative_l2": [
+          0.1230295016214279,
+          0.39847422630233165,
+          0.7600800804741736
+        ],
+        "family_mean_full_relative_l2": 0.23026421582215373,
+        "n": 32
+      },
+      "full_relative_l2": 0.21347535480038463,
+      "future_frames": [
+        61,
+        401
+      ],
+      "medium_type": "layered",
+      "onset": 53,
+      "panel_deltas": {
+        "future_relative_l2": 0.0,
+        "time_bands[0]": 0.0,
+        "time_bands[1]": 0.0,
+        "time_bands[2]": 0.0
+      },
+      "position": 719,
+      "sample_id": "train_layered_00299",
+      "source_f0_hz": 11.441062927246094,
+      "source_index": 719,
+      "source_t0_s": 0.13110670447349548,
+      "source_xz_m": [
+        1068.194091796875,
+        156.68447875976562
+      ],
+      "velocity_min_max": [
+        2068.341064453125,
+        5510.3671875
+      ]
+    },
+    {
+      "axis_guard_peak_distance_m": 25.62248250485777,
+      "band_relative_l2": [
+        0.16335722508116285,
+        0.34038729259063427,
+        0.5634130141323486
+      ],
+      "family_context": {
+        "family_mean_band_relative_l2": [
+          0.17527858567958998,
+          0.35953457376894987,
+          0.5727741101838166
+        ],
+        "family_mean_full_relative_l2": 0.3964988251116643,
+        "n": 96
+      },
+      "full_relative_l2": 0.4008950315943597,
+      "future_frames": [
+        32,
+        401
+      ],
+      "medium_type": "marmousi",
+      "onset": 24,
+      "panel_deltas": {
+        "future_relative_l2": 0.0,
+        "time_bands[0]": 0.0,
+        "time_bands[1]": 0.0,
+        "time_bands[2]": 0.0
+      },
+      "position": 1550,
+      "sample_id": "train_marmousi_00010",
+      "source_f0_hz": 25.18061065673828,
+      "source_index": 2110,
+      "source_t0_s": 0.059569645673036575,
+      "source_xz_m": [
+        1651.0406494140625,
+        83.12175750732422
+      ],
+      "velocity_min_max": [
+        1500.0,
+        4337.1875
+      ]
+    }
+  ],
+  "script_sha256": "d5b6a3f4fe1cc1e11f4dd16e68832b5f21b2e21cacfeeb6837baa62a5d091bee",
+  "selection_rule": "per family, the record whose full-future relative L2 is the lower median (sorted index (n-1)//2) of that family's frozen list; fixed before measurement",
+  "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "split": "train",
+  "tf32": false,
+  "time_block": 1
+}

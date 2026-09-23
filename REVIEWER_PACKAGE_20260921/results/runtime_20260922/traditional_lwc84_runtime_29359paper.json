@@ -1,0 +1,128 @@
+{
+  "conservative_reference_runtime_s": 20.825885374099016,
+  "device": {
+    "capability": [
+      8,
+      9
+    ],
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121"
+  },
+  "mean_runtime_s": 22.056405806913972,
+  "measurements": [
+    {
+      "family": "uniform",
+      "repeat": 0,
+      "runtime_s": 21.231299459934235,
+      "sample_id": "validation_uniform_00000",
+      "wrapper_runtime_s": 21.41300030425191
+    },
+    {
+      "family": "uniform",
+      "repeat": 1,
+      "runtime_s": 21.478249441832304,
+      "sample_id": "validation_uniform_00000",
+      "wrapper_runtime_s": 21.64945264905691
+    },
+    {
+      "family": "uniform",
+      "repeat": 2,
+      "runtime_s": 23.921765219420195,
+      "sample_id": "validation_uniform_00000",
+      "wrapper_runtime_s": 24.09557618945837
+    },
+    {
+      "family": "uniform",
+      "repeat": 3,
+      "runtime_s": 21.933209963142872,
+      "sample_id": "validation_uniform_00000",
+      "wrapper_runtime_s": 22.10860974341631
+    },
+    {
+      "family": "layered",
+      "repeat": 0,
+      "runtime_s": 20.922599747776985,
+      "sample_id": "validation_layered_00000",
+      "wrapper_runtime_s": 21.09734708443284
+    },
+    {
+      "family": "layered",
+      "repeat": 1,
+      "runtime_s": 25.56346132233739,
+      "sample_id": "validation_layered_00000",
+      "wrapper_runtime_s": 25.742967147380114
+    },
+    {
+      "family": "layered",
+      "repeat": 2,
+      "runtime_s": 21.20416747033596,
+      "sample_id": "validation_layered_00000",
+      "wrapper_runtime_s": 21.37572682276368
+    },
+    {
+      "family": "layered",
+      "repeat": 3,
+      "runtime_s": 23.829929564148188,
+      "sample_id": "validation_layered_00000",
+      "wrapper_runtime_s": 23.99583436176181
+    },
+    {
+      "family": "marmousi",
+      "repeat": 0,
+      "runtime_s": 21.358475390821695,
+      "sample_id": "validation_marmousi_00000",
+      "wrapper_runtime_s": 21.5278053060174
+    },
+    {
+      "family": "marmousi",
+      "repeat": 1,
+      "runtime_s": 21.436707973480225,
+      "sample_id": "validation_marmousi_00000",
+      "wrapper_runtime_s": 21.61148138716817
+    },
+    {
+      "family": "marmousi",
+      "repeat": 2,
+      "runtime_s": 20.9711187556386,
+      "sample_id": "validation_marmousi_00000",
+      "wrapper_runtime_s": 21.154659558087587
+    },
+    {
+      "family": "marmousi",
+      "repeat": 3,
+      "runtime_s": 20.825885374099016,
+      "sample_id": "validation_marmousi_00000",
+      "wrapper_runtime_s": 20.999078951776028
+    }
+  ],
+  "minimum_runtime_s": 20.825885374099016,
+  "p50_runtime_s": 21.358475390821695,
+  "p95_runtime_s": 25.56346132233739,
+  "protocol": {
+    "cuda_synchronized_timing": true,
+    "excludes_disk_io": true,
+    "includes_output_materialization": true,
+    "propagation_time_s": 1.0,
+    "same_gpu_as_deployment": true,
+    "saved_frames": 401,
+    "saved_grid": [
+      201,
+      201
+    ],
+    "single_instance": true,
+    "solver": "LWC-84 with three-sided CFS-CPML",
+    "solver_grid": [
+      401,
+      401
+    ]
+  },
+  "repeats_per_family": 4,
+  "schema": "lwc84_traditional_runtime_reference_v1",
+  "solver_config": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml",
+  "solver_config_sha256": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+  "source_h5": "/root/autodl-tmp/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+  "status": "complete",
+  "warmup_runs": 3
+}

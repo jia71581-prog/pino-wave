@@ -1,0 +1,185 @@
+{
+ "schema": "paper_group4_tables_v1",
+ "device": {
+  "capability": [
+   8,
+   9
+  ],
+  "name": "NVIDIA GeForce RTX 4090 D",
+  "python": "3.10.8",
+  "torch": "2.1.2+cu121"
+ },
+ "task": "one record -> all 401 stored frames [201,201] in physical units",
+ "timing_protocol": {
+  "cuda_synchronized": true,
+  "excludes_disk_io": true,
+  "includes_output_materialization": true,
+  "single_instance": true,
+  "operator_ic_read_excluded": true,
+  "warmup": {
+   "traditional": 3,
+   "operator": 2
+  }
+ },
+ "protocol_differences": [
+  "Generation-protocol row times validation_*_00000 records; all other rows time the paper's figure records (train_uniform_00413, train_layered_00299, train_marmousi_00010). Speed ratios reported here use only record-matched rows.",
+  "The operator amortises training (~GPU-days) and produces all 401 stored frames of ONE record per call; classical rows are one full solve per record. No end-to-end (training-inclusive) speedup is claimed.",
+  "Operator time excludes reading the 8 IC frames from disk (~0.02 s, reported separately in the source JSON); classical rows need no IC.",
+  "Same GPU (RTX 4090 D), same timing protocol, single instance, no batching across records in any row.",
+  "The native 201x201 classical solve is NOT the truth protocol: its accuracy vs stored truth is 0.018-0.120 future relL2 depending on family (classical_lwc84_runtime_accuracy.json); the fine solve is the truth protocol up to velocity-resampling error (1.9e-5 to 5.8e-2)."
+ ],
+ "runtime_rows": [
+  {
+   "method": "LWC-84 generation protocol (401x401, dx=5 m, dt=1.25e-4 s, restricted to 201x201)",
+   "mean_s": 22.056405806913972,
+   "min_s": 20.825885374099016,
+   "p50_s": 21.358475390821695,
+   "p95_s": 25.56346132233739,
+   "n": 12,
+   "source": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/runtime_20260922/traditional_lwc84_runtime_29359paper.json",
+   "records": "validation_{uniform,layered,marmousi}_00000"
+  },
+  {
+   "method": "LWC-84 fine (401x401, dx=5 m) on the paper's figure records",
+   "mean_s": 20.071678021301825,
+   "min_s": 19.875564392656088,
+   "max_s": 20.365904353559017,
+   "n": 6,
+   "source": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/runtime_20260922/classical_lwc84_runtime_accuracy.json",
+   "records": "train_uniform_00413, train_layered_00299, train_marmousi_00010"
+  },
+  {
+   "method": "LWC-84 native (201x201, dx=10 m, dt=2.5e-4 s, no restriction)",
+   "mean_s": 9.995101505269608,
+   "min_s": 9.93154152855277,
+   "max_s": 10.080689292401075,
+   "n": 6,
+   "source": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/runtime_20260922/classical_lwc84_runtime_accuracy.json",
+   "records": "train_uniform_00413, train_layered_00299, train_marmousi_00010"
+  },
+  {
+   "method": "Neural operator, anchor 29359, standard decode (time_block=1)",
+   "mean_s": 3.968905492375294,
+   "min_s": 3.958927597850561,
+   "p50_s": 3.9638792276382446,
+   "p95_s": 3.992187339812517,
+   "n": 12,
+   "source": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/runtime_20260922/operator_29359_runtime.json",
+   "records": "train_uniform_00413, train_layered_00299, train_marmousi_00010"
+  },
+  {
+   "method": "Neural operator, anchor 29359, batched decode (time_block=16)",
+   "mean_s": 2.5409615878015757,
+   "min_s": 2.538571175187826,
+   "p50_s": 2.541335742920637,
+   "p95_s": 2.542653653770685,
+   "n": 12,
+   "source": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/runtime_20260922/operator_29359_runtime_tb16.json",
+   "records": "train_uniform_00413, train_layered_00299, train_marmousi_00010"
+  }
+ ],
+ "speed_ratios_record_matched": {
+  "operator_tb1_vs_fine_records_matched": 5.0572325443026385,
+  "operator_tb1_vs_native_records_matched": 2.518352106007891,
+  "operator_tb16_vs_fine_records_matched": 7.899244962088434,
+  "operator_tb16_vs_native_records_matched": 3.933590162579871
+ },
+ "classical_accuracy_context_future_relL2": {
+  "fine_401_dt1.25e-4/train_uniform_00413": 1.8944236741448348e-05,
+  "native_201_dt2.5e-4/train_uniform_00413": 0.017655239117457092,
+  "fine_401_dt1.25e-4/train_layered_00299": 0.017577909161715942,
+  "native_201_dt2.5e-4/train_layered_00299": 0.015609852029016474,
+  "fine_401_dt1.25e-4/train_marmousi_00010": 0.05814346274400128,
+  "native_201_dt2.5e-4/train_marmousi_00010": 0.11974393138791192
+ },
+ "deeponet": {
+  "parameter_budget": {
+   "deeponet_actual": 39975985,
+   "prereg_budget": "40,484,837 +/- 2%",
+   "ours_ic8_40m": 40484837
+  },
+  "main_run": {
+   "planned_steps": 22814,
+   "terminated_at_step": 4862,
+   "termination": "SIGTERM at epoch 26 (run stopped early; not a converged endpoint)",
+   "fixed_12record_validation": {
+    "caliber": "fixed 12-record validation batch (4 per family, seed 101+7919), dense relative L2 -- checkpoint-selection metric mirrored from the main model's recipe; NOT the 480-record census caliber",
+    "best_tier1_step_4488": {
+     "aggregate_dense_relative_l2": 1.000011920928955,
+     "family_dense": {
+      "layered": 1.000025749206543,
+      "marmousi": 1.0000014305114746,
+      "uniform": 1.000008463859558
+     }
+    },
+    "latest_step_4862": {
+     "aggregate_dense_relative_l2": 1.0000144243240356,
+     "family_dense": {
+      "layered": 1.0000348091125488,
+      "marmousi": 1.0000039339065552,
+      "uniform": 1.0000042915344238
+     }
+    }
+   }
+  },
+  "collapse_probe_family_level": {
+   "caliber": "12 train records (4 per family), 2000 steps, lr 5e-4; point_relL2 on a fixed probe batch (packaged training loss caliber, not validation)",
+   "arm_A_control": {
+    "records": 12,
+    "steps": 2000,
+    "lr": 0.0005,
+    "point_relL2_last": 1.00152,
+    "point_relL2_min": 1.00152,
+    "point_relL2_max": 1.11681,
+    "point_relL2_trailing10_mean": 1.0019109999999998,
+    "point_relL2_trailing10_band": [
+     1.00152,
+     1.00302
+    ],
+    "amp_ratio_last": 0.014577,
+    "amp_ratio_trailing10_mean": 0.010994300000000002
+   },
+   "arm_C_anticollapse": {
+    "records": 12,
+    "steps": 2000,
+    "lr": 0.0005,
+    "point_relL2_last": 1.02894,
+    "point_relL2_min": 0.96682,
+    "point_relL2_max": 1.32732,
+    "point_relL2_trailing10_mean": 1.038748,
+    "point_relL2_trailing10_band": [
+     0.97708,
+     1.29288
+    ],
+    "amp_ratio_last": 0.66101,
+    "amp_ratio_trailing10_mean": 0.4150919
+   },
+   "single_record_context_arm_A_2000steps": {
+    "records": 1,
+    "steps": 2000,
+    "point_relL2_last": 0.02523
+   },
+   "verdict_20260915": "control arm never beats the trivial zero predictor on 12 records (relL2 stays >= 1.0015); anti-collapse arm oscillates 0.97-1.33 and its |C-A| effect sizes fall inside C's own trailing-10 oscillation band on all three axes (loss, amp_ratio, cos): the two arms are not separable, and neither fits the 12-record task"
+  },
+  "ours_same_size_context": {
+   "caliber": "480-record validation census, dense future relative L2 (record-equal mean), checkpoint 22814 (A4 radial44)",
+   "overall_mean": 0.35223194222281917,
+   "per_family_mean": {
+    "uniform": 0.13088196939393912,
+    "layered": 0.3020379892646819,
+    "marmousi": 0.5653522506531667
+   },
+   "source": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/validation_480_summary.json"
+  },
+  "caliber_mismatch_note": "No same-caliber number exists: DeepONet was stopped at step 4862/22814 and never evaluated on the 480-record census. The nearest comparison is the fixed 12-record validation batch (DeepONet ~1.0000 = trivial level) vs our 480-record census (0.352 mean); both are dense future relative L2 but on different record sets and selection protocols.",
+  "sources": {
+   "arm_Afam": "/root/autodl-tmp/staging/deeponet_baseline_20260914/collapse_probe/ARM_Afam_2000.json",
+   "arm_Cfam": "/root/autodl-tmp/staging/deeponet_baseline_20260914/collapse_probe/ARM_C_fam2000.json",
+   "best_tier1": "/root/autodl-tmp/staging/deeponet_baseline_20260914/main_22814/best_tier1_validation.json",
+   "latest": "/root/autodl-tmp/staging/deeponet_baseline_20260914/main_22814/validation_latest.json",
+   "run_config": "/root/autodl-tmp/staging/deeponet_baseline_20260914/main_22814/run_config.json",
+   "prereg": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/paper_support_20260914/deeponet_baseline/PREREG_deeponet_baseline_v1.md",
+   "synthesis": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/LATE_TIME_CODA_EVIDENCE_SYNTHESIS_20260915.md"
+  }
+ }
+}

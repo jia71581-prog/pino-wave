@@ -1,0 +1,143 @@
+{
+ "schema": "paper_group3_coarse_lwc_dispersion_v1",
+ "solver": "LWC84CPMLSolver (grouped-dual-head-v2, dataset generation solver)",
+ "device": "cpu",
+ "dt_s": 0.00025,
+ "npml_nodes": 20,
+ "c_ref_mps": 6750.0,
+ "dtype": "float32",
+ "records": {
+  "train_marmousi_00076": {
+   "onset": 52,
+   "h5_index": 2176,
+   "source_f0_hz": 11.54835654803367,
+   "cfl": {
+    "coarse51": 0.03933281470350171,
+    "coarse101": 0.07866562940700342
+   },
+   "solves": {
+    "coarse51": {
+     "grid": [
+      51,
+      51
+     ],
+     "dx_m": 40.0,
+     "wall_time_cpu_s": 13.709753386676311,
+     "lwc_qmax": 0.010058412698412698,
+     "future_relative_l2": 0.5136261603867316,
+     "time_bands": [
+      0.46993228694799277,
+      0.5135988148373681,
+      0.5575231881462822
+     ],
+     "native_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_marmousi_00076_coarse51_native.npy",
+     "on201_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_marmousi_00076_coarse51_on201.npy"
+    },
+    "coarse101": {
+     "grid": [
+      101,
+      101
+     ],
+     "dx_m": 20.0,
+     "wall_time_cpu_s": 20.471764516085386,
+     "lwc_qmax": 0.040233650793650794,
+     "future_relative_l2": 0.11970294541103536,
+     "time_bands": [
+      0.12201090549127346,
+      0.11788424509979953,
+      0.11939960165741607
+     ],
+     "native_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_marmousi_00076_coarse101_native.npy",
+     "on201_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_marmousi_00076_coarse101_on201.npy"
+    }
+   },
+   "neural_operator": {
+    "future_relative_l2": 0.2785149948191356,
+    "time_bands": [
+     0.12396227159936006,
+     0.2448004270282786,
+     0.4092932669137554
+    ],
+    "source": "/root/autodl-tmp/staging/scno_homogeneous_longrun_gap15_v1/evaluations/update_00005000/attempt_001/train_marmousi_00076_prediction.npy"
+   }
+  },
+  "train_layered_00299": {
+   "onset": 53,
+   "h5_index": 719,
+   "source_f0_hz": 11.441062728311724,
+   "cfl": {
+    "coarse51": 0.04870522506386367,
+    "coarse101": 0.09741045012772734
+   },
+   "solves": {
+    "coarse51": {
+     "grid": [
+      51,
+      51
+     ],
+     "dx_m": 40.0,
+     "wall_time_cpu_s": 12.309913098812103,
+     "lwc_qmax": 0.015423058560546874,
+     "future_relative_l2": 0.10283406009994217,
+     "time_bands": [
+      0.06594610556970704,
+      0.1379796558067343,
+      0.3275061254215707
+     ],
+     "native_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_layered_00299_coarse51_native.npy",
+     "on201_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_layered_00299_coarse51_on201.npy"
+    },
+    "coarse101": {
+     "grid": [
+      101,
+      101
+     ],
+     "dx_m": 20.0,
+     "wall_time_cpu_s": 14.661084327846766,
+     "lwc_qmax": 0.0616922342421875,
+     "future_relative_l2": 0.029815305444741435,
+     "time_bands": [
+      0.02033765090290295,
+      0.04614639645017066,
+      0.06533225575576289
+     ],
+     "native_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_layered_00299_coarse101_native.npy",
+     "on201_npy": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/REVIEWER_PACKAGE_20260921/results/paper_comparisons_20260923/group3_coarse_dispersion/train_layered_00299_coarse101_on201.npy"
+    }
+   },
+   "neural_operator": {
+    "future_relative_l2": 0.1960001555055781,
+    "time_bands": [
+     0.10842469651109678,
+     0.31079010258427786,
+     0.5520377729979637
+    ],
+    "source": "/root/autodl-tmp/staging/scno_homogeneous_longrun_gap15_v1/evaluations/update_00005000/attempt_001/train_layered_00299_prediction.npy"
+   }
+  }
+ },
+ "levels": {
+  "coarse51": {
+   "grid": [
+    51,
+    51
+   ],
+   "dx_m": 40.0,
+   "velocity": "stored 201x201 nodally decimated stride 4"
+  },
+  "coarse101": {
+   "grid": [
+    101,
+    101
+   ],
+   "dx_m": 20.0,
+   "velocity": "stored 201x201 nodally decimated stride 2"
+  }
+ },
+ "metric": "relative L2, float64, future window (onset+8..400) and 3 equal bands (np.array_split)",
+ "caveats": [
+  "50x50 is not admissible: the solver requires odd node-centred grids; 51x51 (dx=40 m) is the nearest admissible configuration.",
+  "coarse medium is nodal decimation (no anti-alias smoothing); the coarse error therefore includes medium-sampling error on top of numerical dispersion. Both are consequences of running the solver at that grid.",
+  "CPU wall times are recorded for provenance only; not comparable to the GPU runtime table (group 4)."
+ ]
+}

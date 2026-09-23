@@ -1,0 +1,74 @@
+# A4 RADIAL44 arm. Identical to e20 except dense spectral kernels become
+# radially weight-shared equivariant (full fft2, circular cutoff 44).
+# 39,102,437 params = -3.41% vs e20 baseline: same-budget bandwidth increase.
+# 40M IC8 fullfield, full-family (uniform+layered+marmousi), marmousi1_4m_v2 VDS.
+# IC: first 8 stored post-onset snapshots. Dense supervision: 16 target frames
+# over the full horizon (onset..1.0s). This drives accurate full-wavefield
+# prediction on validation instances.
+model:
+  width: 128
+  spectral_rank: 80
+  modes: [20, 16, 12, 8]
+  dense_modes: [20, 16]
+  mionet_rank: 128
+  token_count: 64
+  heads: 4
+  position_bands: 4
+  fourier_bands: 6
+  gabor_scales_s: [0.01, 0.025, 0.05, 0.1]
+  ray_samples: 12
+  dense_time_block: 1
+  dense_equivariant: true
+  dense_radial_cutoff: 44
+  ic_frames: 8
+  domain_x_m: 2000.0
+  domain_z_m: 2000.0
+  domain_t_s: 1.0
+data:
+  source_h5: /data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5
+  manifest_json: /root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_manifest_marmousi1_4m_v2.json
+  normalization_json: /root/autodl-tmp/home/jiayh/Data/data/processed/grouped_v3_normalization_marmousi1_4m_v2_checkpoint_compatible.json
+  train_cache: ""
+  validation_cache: ""
+  expected_train_records: 2240
+  expected_validation_records: 480
+  continuous_fraction: 0.125
+  gate_sample_id: ""
+  gate_sample_ids: []
+  ic_frames: 8
+  dense_time_steps: 16
+  active_horizon_s: 1.0
+  train_families: [uniform, layered, marmousi]
+loss:
+  point: 1.0
+  frame: 2.0
+  complex_spectrum: 0.2
+  spectral_phase: 0.1
+  spatial_gradient: 0.2
+  time_difference: 0.2
+  consistency: 0.1
+  phase_energy_fraction: 0.0001
+  relative_energy_floor_fraction: 0.03
+train:
+  optimizer: adamw
+  batch_records: 12
+  micro_batch_records: 1
+  learning_rate: 0.0002
+  weight_decay: 0.000001
+  epochs: 24
+  max_steps: 4488
+  evaluation_every: 187
+  steps_per_epoch: 187
+  query_points_per_step: 512
+  workers: 4
+  prefetch_factor: 4
+  seed: 101
+  smoke: false
+  device: cuda
+  checkpoint_dir: artifacts/grouped_ufno_mionet_v3/ic8_fullfield_40m_fullfam_seed101/checkpoints
+  gradient_clip: 1.0
+  plateau_patience: 8
+  plateau_min_delta: 0.0001
+  lbfgs_learning_rate: 0.5
+  lbfgs_max_iter: 10
+  lbfgs_history_size: 20

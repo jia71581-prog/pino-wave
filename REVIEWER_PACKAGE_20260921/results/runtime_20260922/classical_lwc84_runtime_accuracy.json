@@ -1,0 +1,232 @@
+{
+  "accuracy": [
+    {
+      "family": "uniform",
+      "future_relative_l2": 1.8944236741448348e-05,
+      "onset": 35,
+      "sample_id": "train_uniform_00413",
+      "solver": "fine_401_dt1.25e-4",
+      "time_bands": [
+        1.003056283184297e-05,
+        2.0989291145581563e-05,
+        3.77618237145506e-05
+      ]
+    },
+    {
+      "family": "uniform",
+      "future_relative_l2": 0.017655239117457092,
+      "onset": 35,
+      "sample_id": "train_uniform_00413",
+      "solver": "native_201_dt2.5e-4",
+      "time_bands": [
+        0.015570200633537866,
+        0.01837015758852799,
+        0.024189630799210538
+      ]
+    },
+    {
+      "family": "layered",
+      "future_relative_l2": 0.017577909161715942,
+      "onset": 53,
+      "sample_id": "train_layered_00299",
+      "solver": "fine_401_dt1.25e-4",
+      "time_bands": [
+        0.011822740989065219,
+        0.026579814936554168,
+        0.042530683132929126
+      ]
+    },
+    {
+      "family": "layered",
+      "future_relative_l2": 0.015609852029016474,
+      "onset": 53,
+      "sample_id": "train_layered_00299",
+      "solver": "native_201_dt2.5e-4",
+      "time_bands": [
+        0.0104739791668201,
+        0.023160919098271438,
+        0.03973602433253828
+      ]
+    },
+    {
+      "family": "marmousi",
+      "future_relative_l2": 0.05814346274400128,
+      "onset": 24,
+      "sample_id": "train_marmousi_00010",
+      "solver": "fine_401_dt1.25e-4",
+      "time_bands": [
+        0.039211370769981276,
+        0.05308039850583918,
+        0.07413720483264351
+      ]
+    },
+    {
+      "family": "marmousi",
+      "future_relative_l2": 0.11974393138791192,
+      "onset": 24,
+      "sample_id": "train_marmousi_00010",
+      "solver": "native_201_dt2.5e-4",
+      "time_bands": [
+        0.10181525240031929,
+        0.12141527254679511,
+        0.13307970201531485
+      ]
+    }
+  ],
+  "code_tree": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/grouped-dual-head-v2",
+  "created_utc": "2026-09-22T04:33:48.081427+00:00",
+  "device": {
+    "capability": [
+      8,
+      9
+    ],
+    "name": "NVIDIA GeForce RTX 4090 D",
+    "python": "3.10.8",
+    "torch": "2.1.2+cu121"
+  },
+  "fine": {
+    "dt_s": 0.000125,
+    "dx_m": 5.0,
+    "grid": [
+      401,
+      401
+    ],
+    "restriction": "binomial lowpass + decimation to 201x201 (solver default)",
+    "steps": 8000
+  },
+  "frozen_config": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/frozen_config.yaml",
+  "frozen_config_sha256": "77fbd12da87d4c24344314d0e5f3fcfe23d9a3749ea25aaa028a2fd46ebacbc6",
+  "measurements": [
+    {
+      "family": "uniform",
+      "repeat": 0,
+      "runtime_s": 20.025056399405003,
+      "sample_id": "train_uniform_00413",
+      "solver": "fine_401_dt1.25e-4"
+    },
+    {
+      "family": "uniform",
+      "repeat": 1,
+      "runtime_s": 19.99287236109376,
+      "sample_id": "train_uniform_00413",
+      "solver": "fine_401_dt1.25e-4"
+    },
+    {
+      "family": "uniform",
+      "repeat": 0,
+      "runtime_s": 9.93154152855277,
+      "sample_id": "train_uniform_00413",
+      "solver": "native_201_dt2.5e-4"
+    },
+    {
+      "family": "uniform",
+      "repeat": 1,
+      "runtime_s": 10.080689292401075,
+      "sample_id": "train_uniform_00413",
+      "solver": "native_201_dt2.5e-4"
+    },
+    {
+      "family": "layered",
+      "repeat": 0,
+      "runtime_s": 20.120447739958763,
+      "sample_id": "train_layered_00299",
+      "solver": "fine_401_dt1.25e-4"
+    },
+    {
+      "family": "layered",
+      "repeat": 1,
+      "runtime_s": 20.050222881138325,
+      "sample_id": "train_layered_00299",
+      "solver": "fine_401_dt1.25e-4"
+    },
+    {
+      "family": "layered",
+      "repeat": 0,
+      "runtime_s": 9.99708230048418,
+      "sample_id": "train_layered_00299",
+      "solver": "native_201_dt2.5e-4"
+    },
+    {
+      "family": "layered",
+      "repeat": 1,
+      "runtime_s": 9.998432006686926,
+      "sample_id": "train_layered_00299",
+      "solver": "native_201_dt2.5e-4"
+    },
+    {
+      "family": "marmousi",
+      "repeat": 0,
+      "runtime_s": 20.365904353559017,
+      "sample_id": "train_marmousi_00010",
+      "solver": "fine_401_dt1.25e-4"
+    },
+    {
+      "family": "marmousi",
+      "repeat": 1,
+      "runtime_s": 19.875564392656088,
+      "sample_id": "train_marmousi_00010",
+      "solver": "fine_401_dt1.25e-4"
+    },
+    {
+      "family": "marmousi",
+      "repeat": 0,
+      "runtime_s": 9.94529826939106,
+      "sample_id": "train_marmousi_00010",
+      "solver": "native_201_dt2.5e-4"
+    },
+    {
+      "family": "marmousi",
+      "repeat": 1,
+      "runtime_s": 10.01756563410163,
+      "sample_id": "train_marmousi_00010",
+      "solver": "native_201_dt2.5e-4"
+    }
+  ],
+  "native": {
+    "dt_s": 0.00025,
+    "dx_m": 10.0,
+    "grid": [
+      201,
+      201
+    ],
+    "npml": 20,
+    "restriction": "none",
+    "steps": 4000
+  },
+  "panel_rows": "/root/autodl-tmp/staging/coda_panel_eval_20260916/ckpt_29359/panel_29359_ROWS.jsonl",
+  "panel_rows_sha256": "81cf77752dcb2f94f4e08abf1c370a35afdc465f58859a373de821ea24e6e392",
+  "protocol": {
+    "cuda_synchronized_timing": true,
+    "excludes_disk_io": true,
+    "fine_velocity_input": "stored 10 m velocity bilinearly upsampled to 5 m (as benchmark_lwc84_traditional_runtime.py), so the fine solve's error against stored truth includes resampling",
+    "includes_output_materialization": true,
+    "metric": "relative L2, float64, future window (onset+8..400) and 3 equal bands",
+    "record_selection": "the paper's figure records: family median by full-future relL2",
+    "records": [
+      "train_uniform_00413",
+      "train_layered_00299",
+      "train_marmousi_00010"
+    ],
+    "single_instance": true
+  },
+  "repeats_per_record": 2,
+  "runtime_summary": {
+    "fine_401_dt1.25e-4": {
+      "max_s": 20.365904353559017,
+      "mean_s": 20.071678021301825,
+      "min_s": 19.875564392656088,
+      "n": 6
+    },
+    "native_201_dt2.5e-4": {
+      "max_s": 10.080689292401075,
+      "mean_s": 9.995101505269608,
+      "min_s": 9.93154152855277,
+      "n": 6
+    }
+  },
+  "schema": "lwc84_classical_runtime_accuracy_v1",
+  "script_sha256": "46050cc39e4c01e8a8738874fd4dbc5f8f644f1534d1f73af5b4a5c94fd9b769",
+  "source_h5": "/data/jiayh/data/acoustic_lwc84_2km_401x401_to_201_marmousi1_4m_v2/dataset_v1.h5",
+  "source_h5_sha256": "c168473406a5bd49c02ead00be7b445cabdbc0368ce3c052ce2fcbf503d5f98c",
+  "status": "complete"
+}

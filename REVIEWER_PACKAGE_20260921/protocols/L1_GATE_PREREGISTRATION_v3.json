@@ -1,0 +1,394 @@
+{
+  "candidate_identity": "l1_anchor_gate_measure_20260913_v1",
+  "experiment_id": "l1_gate_measure_20260913",
+  "frozen_utc": "2026-09-13T07:07:03Z",
+  "status": "frozen",
+  "tier": "post-hoc measurement over retained per-epoch checkpoint grid; no training, no GPU launch, no code change",
+  "revision": {
+    "supersedes": "research/marmousi_longtime_levers_20260912/L1_GATE_PREREGISTRATION_DRAFT.md",
+    "supersedes_version": "v2 (auditor conditionally approved, R1-R8 applied)",
+    "reason": "The executed run diverged from the v2 design in fork point, endpoint and the total absence of in-flight gating; v2 also assumed a single shared parent at step 22814, which the checkpoint lineage contradicts. v3 reframes the gates as post-hoc measurements and splits the parent into two explicitly labelled roles.",
+    "prior_document_path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/marmousi_longtime_levers_20260912/L1_GATE_PREREGISTRATION_DRAFT.md"
+  },
+  "evidence_basis": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/marmousi_longtime_levers_20260912/DIAGNOSIS_AND_LEVERS.md",
+  "run_identity": {
+    "name": "l1_anchor_fulltrain_20260913_v1/attempt_003",
+    "output_root": "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1",
+    "artifact_dirs": [
+      {
+        "role": "primary_segment",
+        "path": "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1/attempt_003",
+        "metrics_step_range": [3741, 13008],
+        "retained_checkpoint_step_range": [3927, 12903],
+        "retained_checkpoint_count_observed": 49
+      },
+      {
+        "role": "resume_segment",
+        "path": "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1/attempt_003_resume12903",
+        "metrics_step_range": [12904, null],
+        "retained_checkpoint_step_range": [13090, null],
+        "retained_checkpoint_count_observed": 24,
+        "note": "run live at freeze time; upper bounds grow until endpoint 22814"
+      }
+    ],
+    "tainted_attempts_excluded": [
+      "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1/attempt_001_TAINTED_anchor_range_bug",
+      "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1/attempt_002_TAINTED_coda_window_floor"
+    ],
+    "start_step": 3740,
+    "max_steps": 22814,
+    "additional_updates": 19074,
+    "steps_per_epoch": 187,
+    "epochs_spanned": 102,
+    "fork_epoch": 20,
+    "train_only": true,
+    "validation_labels_accessed": false,
+    "test_id_labels_accessed": false,
+    "world_size": 4,
+    "parallelism": "ddp",
+    "batch_records": 12,
+    "micro_batch_records": 1,
+    "records_per_rank": 3,
+    "ic_frames": 8,
+    "dense_time_steps": 16,
+    "code_digest": "d75ab9e751b3b77b1568d38214e07cb0759eb1b0108c3a4dc122d6c5b1d9cece",
+    "config_digest": "a2f12744769397abba2df235cb2245f7396e3caf822a3a0ad053373a463db3f5",
+    "config_file": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/l1_anchor_20260912/l1_anchor_fulltrain.yaml",
+    "config_file_sha256": "3fe0db264ff7ba7a86b54d1f3d823ee735dea81b162f4835443b0a07509c3433",
+    "manifest_digest": "55fbffa9a66b0cb547657d2d5cd8cc140c4f7d970e37f3828144e7778d182e09",
+    "normalizer_sha256": "479be2a118a2d65dd281a0707723d6eb561fb02fd9e6de69ba15a3fde7394dde",
+    "schedule_sha256": "5f9261dfb022433a121944354688abd9934f90fbbb03d3a7e9137b58d68079b9",
+    "executed_schedule_sha256": "8574f9a160b71903de6086f3e386f88fa74570d30b154a19abc5b0717f32f18c",
+    "fork_audit_sha256": "21aa7ab42a6f2ad5ae9d3f58d974632822c04eadf3bd46288598266f3c1183ab",
+    "eligible_records": 2240,
+    "eligible_by_family": {"layered": 1120, "marmousi": 700, "uniform": 420},
+    "eligible_training_list_sha256": "4bdf95dabdfdddfda05bd9692bbd0c45e7dcc34814b4f5dcf9ed2af93cb4425f",
+    "excluded_group_ids": [],
+    "endpoint_checkpoint": "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1/attempt_003/checkpoints/checkpoint_step_00022814.pt",
+    "endpoint_checkpoint_exists_at_freeze": false
+  },
+  "lever": {
+    "single_config_variable": "data.anchor_fraction 0.0 -> 0.5",
+    "config_diff_vs_a4": ["data.anchor_fraction", "train.checkpoint_dir", "header comments"],
+    "unchanged": "loss weights, sampling mechanism, learning rate 2e-4, batch_records 12, bandwidth, data pool",
+    "anchor_draw": {
+      "probability": 0.5,
+      "lower_bound": "source onset",
+      "upper_bound_rule": "min(length - ic_frames - 100, per-record coda energy cap)",
+      "min_target_frames": 100,
+      "energy_floor_fraction": 0.03,
+      "implementation": "grouped_ufno_mionet_v3/data/pilot.py:_anchor_index, _anchor_energy_cap"
+    }
+  },
+  "parents": [
+    {
+      "role": "fork_parent",
+      "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/checkpoints/ic8_fullfam_parent_e20_best.pt",
+      "sha256": "4aa9c47d542fd1e7cb25a3746497da59c965056588d530c771c38a9aaa066b8e",
+      "global_step": 3740,
+      "epoch": 20,
+      "config_digest": "0ab983a59ff858dc864378e929c07c35be21ce231fa22213a24ad8cf3081793f",
+      "model_state_tensor_count": 157,
+      "contains_anchor_keys": false,
+      "used_by_gates": ["G1"],
+      "rationale": "The model the child actually diverged from, and the only comparison that is closest to function-preserving at step 0. G1 is a mechanism gate, so its 0.6x factor is only meaningful relative to this model."
+    },
+    {
+      "role": "context_reference",
+      "path": "/root/autodl-tmp/staging/a4_fulltrain100_20260912_v1/attempt_001/checkpoints/checkpoint_step_00022814.pt",
+      "sha256": "ced7128a9b7a683f55914c5af05d3ffc5a3312d1677146411387f6ccfdb804cd",
+      "global_step": 22814,
+      "config_digest": "f4c44416bda765fe5fb3150cf00f2294b5425cab6dc2e44b037585c0c6f18194",
+      "used_by_gates": ["G2"],
+      "single_variable_vs_child": false,
+      "rationale": "Best existing model. G2 is an end-to-end quality bar, so the bar must be the best existing model rather than the model the child happens to have branched from. Any A4-vs-L1 delta is confounded by fork origin and may be reported for context only, clearly labelled."
+    }
+  ],
+  "lineage_confound": {
+    "licensed_as_single_variable": false,
+    "a4_baseline": {
+      "artifact_dir": "/root/autodl-tmp/staging/a4_fulltrain100_20260912_v1/attempt_001",
+      "parent_checkpoint": "/root/autodl-tmp/staging/a4_longrun_20260911_v1/training/radial44/checkpoints/checkpoint_step_00004114.pt",
+      "parent_checkpoint_sha256": "f88ad285b34181f11c81ae60cf0ab82a31faa8cf9ad9ae16b36e9aaf4f92879d",
+      "parent_config_digest": "0e3348c3515d8169531ac94d0712f24a8734caa4564863c70ab8714386fc59c0",
+      "fork_step": 4114,
+      "fork_epoch": 22,
+      "optimizer": "warm restored, 155 states",
+      "additional_updates": 18700,
+      "max_steps": 22814
+    },
+    "l1_anchor_arm": {
+      "fork_step": 3740,
+      "fork_epoch": 20,
+      "optimizer": "cold fresh, 0 states",
+      "additional_updates": 19074,
+      "max_steps": 22814
+    },
+    "statement": "The two arms fork from different checkpoints with different parent config digests and different increment lengths (18700 vs 19074). The shared endpoint 22814 is a coincidence of the step ceiling, not a matched budget. A4-vs-L1 deltas confound the anchor_fraction lever with a different fork origin.",
+    "no_step_3740_a4_checkpoint_exists": true,
+    "a4_checkpoint_grid_span": [4301, 22814]
+  },
+  "fork_record": {
+    "event": "fork_partial",
+    "global_step": 3740,
+    "epoch": 20,
+    "optimizer": "fresh",
+    "optimizer_state_entries_at_start": 0,
+    "fresh_initialization_seed": 101,
+    "reset_dense_spectral": false,
+    "fork_allow_new_params": true,
+    "lr_before": [0.0002],
+    "lr_after": [0.0002],
+    "inherited_tensor_count": 153,
+    "inherited_keys_sha256": "30667ba648f5341312416a4f62f22ccb3d9e72bac7db7c5873789809b922d209",
+    "inherited_bitwise_verified": true,
+    "fresh_keys_sha256": "b656acf9c3754f6592eeaa69d511cb33ee999c7c496fe76f0bb35b2b046dacfc",
+    "fresh_keys": [
+      "coordinate_encoder.anchor_raw_projection.bias",
+      "coordinate_encoder.anchor_raw_projection.weight",
+      "dense_decoder.blocks.0.spectral.weight",
+      "dense_decoder.blocks.1.spectral.weight",
+      "source_encoder.anchor_projection.bias",
+      "source_encoder.anchor_projection.weight"
+    ],
+    "parent_only_keys": [
+      "dense_decoder.blocks.0.spectral.weight_bottom",
+      "dense_decoder.blocks.0.spectral.weight_top",
+      "dense_decoder.blocks.1.spectral.weight_bottom",
+      "dense_decoder.blocks.1.spectral.weight_top"
+    ],
+    "function_preservation": {
+      "holds_overall": false,
+      "zero_initialised_keys": [
+        "source_encoder.anchor_projection.weight",
+        "source_encoder.anchor_projection.bias",
+        "coordinate_encoder.anchor_raw_projection.weight",
+        "coordinate_encoder.anchor_raw_projection.bias"
+      ],
+      "randomly_initialised_keys": [
+        "dense_decoder.blocks.0.spectral.weight",
+        "dense_decoder.blocks.1.spectral.weight"
+      ],
+      "random_init_scheme": "nn.init.uniform_(-scale, scale), scale = 1/sqrt(in_channels*out_channels), grouped_ufno_mionet_v3/model/spectral.py:125-129",
+      "note": "The dense spectral kernels are radial re-parameterisations, absent from the anchor-unaware parent, so they cannot be inherited and are not zero. The child is therefore NOT bitwise identical to the fork parent at step 0, and v2's G3 (max abs diff <= 1e-6) does not hold and was never executed."
+    }
+  },
+  "resume_overlap": {
+    "interruption": "container restart at step ~13008",
+    "resume_from": "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1/attempt_003/latest.pt",
+    "resume_step": 12903,
+    "resume_epoch": 69,
+    "digests_verified_identical": ["code", "config", "manifest", "normalizer", "schedule"],
+    "resume_lr_assert": {"configured_lr": 0.0002, "lr_before": [0.0002], "lr_after": [0.0002], "groups": 1},
+    "overlapping_metric_steps": [12904, 13008],
+    "overlap_rule": "In 12904-13008 the resume directory is authoritative; the primary segment's records in that range are a discarded tail and must not enter any mean, trend or loss curve.",
+    "checkpoint_ambiguity": "none; <=12903 exists only in the primary segment, >=13090 only in the resume segment"
+  },
+  "measurement_lists": {
+    "path": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/marmousi_longtime_levers_20260912/MEASUREMENT_LISTS_FROZEN.json",
+    "sha256": "053d64026450059292554b02329aa5c665f53d1031c96aee5647753724f2cd91",
+    "frozen_utc": "2026-09-12T13:43:12.254926+00:00",
+    "M_list_marmousi_count": 96,
+    "N_list_uniform_count": 32,
+    "N_list_layered_count": 32,
+    "selection": "M: f0-stratified 96/700 as in marmousi_gap_probe_20260912; N: f0-sorted stride sampling 32 per family"
+  },
+  "step_remapping": {
+    "formula": "step = 3740 + 187 * epochs_after_fork",
+    "rows": [
+      {"label": "fork", "v2_step": 22814, "v3_step": 3740, "absolute_epoch": 20, "checkpoint_available": true},
+      {"label": "G1 first measurement", "v2_step": 26554, "v3_step": 7480, "absolute_epoch": 40, "checkpoint_available": true},
+      {"label": "v2 gate timeout line", "v2_step": 28424, "v3_step": 9350, "absolute_epoch": 50, "checkpoint_available": true, "note": "timeout semantics void"},
+      {"label": "G2 recheck", "v2_step": 34034, "v3_step": 14960, "absolute_epoch": 80, "checkpoint_available": true},
+      {"label": "endpoint", "v2_step": 41514, "v3_step": 22814, "absolute_epoch": 122, "checkpoint_available": false}
+    ]
+  },
+  "gates": {
+    "G1": {
+      "type": "mechanism",
+      "reference_role": "fork_parent",
+      "reference_sha256": "4aa9c47d542fd1e7cb25a3746497da59c965056588d530c771c38a9aaa066b8e",
+      "reference_step": 3740,
+      "metric": "mean oracle re-anchor window relative L2 at anchor a = onset+200 over the M-list, 100 frames after the IC window",
+      "threshold_multiplier": 0.6,
+      "comparison": "child_mean <= 0.6 * frozen_reference_same_window_mean",
+      "reference_mean": null,
+      "reference_mean_note": "filled by measuring the fork parent with the final measurement script BEFORE any child checkpoint is read",
+      "kill_action": null,
+      "kill_action_note": "v2's TERM kill on G1 failure is void; the run is already in flight and no in-flight gating occurred"
+    },
+    "G2": {
+      "type": "end_to_end",
+      "reference_role": "context_reference",
+      "reference_sha256": "ced7128a9b7a683f55914c5af05d3ffc5a3312d1677146411387f6ccfdb804cd",
+      "reference_step": 22814,
+      "metric": "composed full-future train-marmousi mean relative L2 over the M-list",
+      "bound_value": null,
+      "bound_value_note": "set by bound_setting_rule at parent-baseline freeze time, before any child measurement is read",
+      "bound_setting_rule": {
+        "recompute_target": "A4 step-22814 M-list marmousi mean, same script as child measurement",
+        "expected_value": 0.510744,
+        "expected_value_provenance": "/root/autodl-tmp/staging/marmousi_gap_probe_20260912/train_records.jsonl, 96 records, mean 0.510744, min 0.229, max 0.7569; PROBE_META.json records checkpoint_sha256 ced7128a...804cd, global_step 22814, config_digest f4c44416..., manifest_digest 55fbffa9...",
+        "tolerance": 0.002,
+        "if_within_tolerance": 0.46,
+        "if_within_tolerance_note": "0.46 is slightly looser than a strict 0.9 * 0.51074 = 0.4597; it is stated as the bound value, not a derived one",
+        "if_outside_tolerance": "re-freeze at 0.9 * recomputed_value before any child measurement is read",
+        "outside_tolerance_interpretation": "evidence about agreement between the old probe script and the new measurement script, NOT license to move the bound after seeing child numbers",
+        "cross_script_check": {
+          "old_script": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/a4_final_validation_20260912/train_marmousi_probe.py",
+          "new_script": "research/l1_gate_measure_20260913/measure_gates.py",
+          "purpose": "the recompute doubles as a cross-script consistency check on the A4 reference"
+        },
+        "post_child_movement": "veto in any direction"
+      },
+      "N1_non_degradation": {
+        "uniform_max_delta_vs_parent": 0.01,
+        "layered_max_delta_vs_parent": 0.01,
+        "marmousi_onset_one_shot_max_delta_vs_parent": 0.02,
+        "metric": "full-future relative L2 at a = onset, one-shot"
+      },
+      "recheck_policy": "reported as a trajectory over the checkpoint grid; v2's epoch-20-then-epoch-60 kill schedule is void"
+    },
+    "G3": {
+      "status": "void",
+      "v2_definition": "max absolute output difference <= 1e-6 on a fixed onset batch",
+      "void_reason": "the fresh dense spectral kernels are uniform-random, not zero, so the child is not bitwise identical to the fork parent at step 0; the check was never executed and is not replaced"
+    }
+  },
+  "reference_model_asymmetry": {
+    "deliberate": true,
+    "G1_reference": "fork_parent (step 3740)",
+    "G2_reference": "context_reference (A4 step 22814)",
+    "reason_G1": "mechanism gate; the 0.6x factor is only meaningful relative to the model the child actually diverged from, which is also the closest thing to a function-preserving comparison at step 0",
+    "reason_G2": "end-to-end quality bar; the bar must be the best existing model, not the model the child happens to have branched from",
+    "risk_if_collapsed": "applying the 0.9x rule to the fork parent (step 3740, early training) would derive a much looser bound and could make G2 trivially passable, silently weakening the gate",
+    "decision_owner": "coordinator; recorded as a decision with reasoning, not to be re-litigated"
+  },
+  "measurement_ordering": {
+    "enforced": true,
+    "sequence": [
+      "1. measure fork_parent (step 3740) M1 windows and context_reference (A4 22814) M-list/N-list N1 with the final measurement script",
+      "2. write per-record values, means and the script SHA256 into the frozen record",
+      "3. fix the G2 bound per bound_setting_rule at that moment",
+      "4. only then read any child checkpoint measurement"
+    ],
+    "violation": "reading any child value before steps 1-3 are frozen invalidates the gate judgement",
+    "measurement_script_sha256": null,
+    "measurement_script_sha256_note": "filled when research/l1_gate_measure_20260913/measure_gates.py is final; authored concurrently by another agent, not by this preregistration",
+    "parent_baseline_values": null,
+    "parent_baseline_values_note": "filled at step 2 above; null here because no measurement has been run"
+  },
+  "trajectory_requirement": {
+    "grid": "per-epoch checkpoints retained across both segments",
+    "report": "G1 and G2 must be reported as full trajectories over every measured epoch, which is strictly more information than v2's three in-flight measurements",
+    "cherry_picking": "prohibited; reporting a single selected epoch as the result is a violation",
+    "non_monotonicity": "if the trajectory is non-monotonic, report the non-monotonicity itself; do not take the best point as the conclusion"
+  },
+  "execution_constraints": {
+    "gpu_index": "cuda:0",
+    "time_block": 1,
+    "min_free_vram_gib": 8,
+    "long_run_live_until_approx": "2026-09-13T20:01 local",
+    "must_not_disturb_training": true,
+    "persisted_artifacts": "per-record metric JSON tables only, budget < 50 MB",
+    "raw_wavefields_persisted": false,
+    "validation_or_test_reads": "none",
+    "read_only_paths": [
+      "/root/autodl-tmp/staging/l1_anchor_fulltrain_20260913_v1",
+      "/root/autodl-tmp/staging/a4_fulltrain100_20260912_v1"
+    ],
+    "write_root": "/root/autodl-tmp/work/FNO-Acoustic-Wave-Simulation/release_ic8_40m_20260910/research/l1_gate_measure_20260913"
+  },
+  "claim_boundary": {
+    "tier": "prerequisite / mechanism experiment",
+    "promotion": false,
+    "candidate_status": false,
+    "generalization_claim": false,
+    "G2_pass_supports": "the anchor contract plus its own window augmentation as a whole outperforms the parent; it does NOT license isolated attribution to the contract alone",
+    "G1_attribution": "clean as a mechanism gate, relative to the fork parent",
+    "attribution_ablation_required_for": "isolating the contract; a separate anchor_fraction ablation must be preregistered",
+    "a4_vs_l1_delta": "not admissible as single-variable evidence for the anchor lever; reportable as confounded context only",
+    "in_flight_gating_claims": "none may be made; no G1 kill decision was ever taken"
+  },
+  "deviations_from_v2": [
+    {
+      "id": "D1",
+      "field": "fork point",
+      "v2": "fork from global_step 22814",
+      "actual": "fork_partial from global_step 3740, epoch 20, cold Adam",
+      "source": "attempt_003/fork_audit.json"
+    },
+    {
+      "id": "D2",
+      "field": "endpoint",
+      "v2": "fixed endpoint 41514 (22814 + 18700)",
+      "actual": "max_steps 22814, start_step 3740, additional_updates 19074",
+      "source": "attempt_003/run_identity.json"
+    },
+    {
+      "id": "D3",
+      "field": "in-flight gating",
+      "v2": "G1 kill at epoch 20; R4 timeout equals fail and kills the run",
+      "actual": "run executed --train-only, emitted no validation or error metrics; log events limited to train_step, train_only_epoch, resume, resume_lr_assert; no G1 decision was ever made and none can retroactively happen",
+      "consequence": "gates reframed as post-hoc measurements over the retained checkpoint grid; kill semantics void"
+    },
+    {
+      "id": "D4",
+      "field": "gate step numbers",
+      "v2": "G1 at 26554, timeout at 28424, G2 recheck at 34034",
+      "actual": "invalid for the real schedule; remapped to 7480 / 9350 / 14960 via step = 3740 + 187 * epochs_after_fork",
+      "source": "steps_per_epoch 187"
+    },
+    {
+      "id": "D5",
+      "field": "parent lineage",
+      "v2": "assumed a single shared parent at step 22814 for both arms",
+      "actual": "A4 forks from step 4114 (sha f88ad285..., parent config digest 0e3348c3..., 18700 updates); L1 forks from step 3740 (sha 4aa9c47d..., parent config digest 0ab983a5..., 19074 updates). Shared endpoint 22814 is a step-ceiling coincidence, not a matched budget.",
+      "consequence": "cross-arm A4-vs-L1 comparison is NOT licensed as single-variable; parent split into fork_parent and context_reference roles"
+    },
+    {
+      "id": "D6",
+      "field": "G2 bound provenance and reference model",
+      "v2": "one parent, so '0.9x the recomputed parent mean' was unambiguous",
+      "actual": "0.5107 and hence the 0.46 bound derive from the A4 step-22814 model, which under the corrected lineage is the context_reference, not the fork parent. Applying the 0.9x rule to the fork parent (step 3740, early training) would derive a much looser bound and could make G2 trivially passable.",
+      "resolution": "G2 stays tied to the A4 step-22814 reference with bound 0.46, still subject to the recompute check; G1 stays tied to the fork parent. G1 and G2 therefore use different reference models by design.",
+      "decision_owner": "coordinator"
+    },
+    {
+      "id": "D7",
+      "field": "function preservation and G3",
+      "v2": "zero initialisation guarantees bitwise identity to the parent at fork, verified by G3 <= 1e-6",
+      "actual": "only the four anchor projection tensors are zero-initialised; dense_decoder.blocks.{0,1}.spectral.weight are uniform-random and differ from the A4-radial44 fresh tensors of the same name. The child is not bitwise identical to the fork parent at step 0.",
+      "consequence": "G3 void, not replaced; 'function-preserving at step 0' weakened to 'closest available comparison'"
+    },
+    {
+      "id": "D8",
+      "field": "fresh key list",
+      "v2": "expected anchor projection keys only, to be frozen after implementation",
+      "actual": "six fresh keys including the two dense spectral kernels, plus four parent_only keys (spectral.weight_top/_bottom) that the radial re-parameterisation replaces",
+      "source": "attempt_003/fork_audit.json"
+    },
+    {
+      "id": "D9",
+      "field": "artifact layout and continuity",
+      "v2": "single artifact directory, output root /root/autodl-tmp/staging/l1_gate_20260912_v1",
+      "actual": "output root l1_anchor_fulltrain_20260913_v1; two live segments (attempt_003, attempt_003_resume12903) after a container restart, plus two TAINTED earlier attempts; metrics overlap at 12904-13008 with the resume segment authoritative",
+      "consequence": "analysis must apply the overlap rule; trajectory spans both segments"
+    },
+    {
+      "id": "D10",
+      "field": "cross-script consistency",
+      "v2": "not considered",
+      "actual": "the existing 96-record probe was produced by research/a4_final_validation_20260912/train_marmousi_probe.py, a different script from the new measurement script",
+      "consequence": "the A4 recompute doubles as a cross-script consistency check; a miss outside +/-0.002 is evidence about script agreement, not license to move the bound"
+    }
+  ],
+  "preserved_from_v2": {
+    "section_5_relationship_to_prior_evidence": "B2 snapshot IC v2 (20260830, old architecture) passed both gates under one-shot inference but left the tail unmoved; the new content here is the composed inference protocol and the amplification coefficient. If G1 fails, this merges with B2 into 'the re-anchoring direction is falsified overall'. The R201 / loss weighting / bandwidth / generalization exclusions stand as in DIAGNOSIS_AND_LEVERS.md.",
+    "R6_attribution_boundary": "G2 pass supports the claim about the anchor contract plus its own window augmentation as a whole, not isolated attribution to the contract; G1 is a mechanism gate with clean attribution.",
+    "R7_artifact_policy": "per-record metric JSON only, no raw predicted wavefields",
+    "R2_bound_rule": "retained verbatim, with the reference model pinned to context_reference",
+    "data_discipline": "zero validation / test_id reads; all measurement on fixed train-split record lists"
+  }
+}
+
